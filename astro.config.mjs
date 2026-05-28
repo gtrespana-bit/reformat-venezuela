@@ -1,5 +1,8 @@
 import { defineConfig } from 'astro/config';
+import sitemap from '@astrojs/sitemap';
 
+// https://astro.build/config
 export default defineConfig({
-  // Dejamos esto vacío por ahora para asegurar que no haya conflictos
+  site: 'https://reformat-venezuela.online',
+  integrations: [sitemap()],
 });
