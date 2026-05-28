@@ -2,40 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 <BaseLayout title="Contacto | Solicita Tu Presupuesto" description="Contáctanos para una consulta gratuita. Reformas en Valencia y San Diego, Carabobo." activePage="contacto">
-  <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop')"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Contáctanos</span>
-      <h1 class="page-title">Hablemos de <span class="gold">Tu Proyecto</span></h1>
-      <p class="page-subtitle">Estamos aquí para escucharte, asesorarte y hacer realidad la transformación de tu espacio.</p>
-    </div>
-  </header>
-
-  <section class="contact-page"><div class="container"><div class="contact-grid">
-    <div class="contact-info">
-      <h2 class="section-title">Información de Contacto</h2>
-      <p class="contact-desc">Completa el formulario o contáctanos directamente. Respondemos en menos de 24 horas.</p>
-      <div class="contact-item"><div class="contact-icon">📍</div><div><h4>Ubicación</h4><p>Valencia y San Diego, Carabobo, Venezuela</p></div></div>
-      <div class="contact-item"><div class="contact-icon">📞</div><div><h4>Teléfono</h4><p>0422 799 7043</p></div></div>
-      <div class="contact-item"><div class="contact-icon">✉️</div><div><h4>Email</h4><p>hola@reformatvenezuela.online</p></div></div>
-      <div class="contact-item"><div class="contact-icon">⏰</div><div><h4>Horario</h4><p>Lun - Vie: 8:00 AM - 6:00 PM<br/>Sáb: 9:00 AM - 1:00 PM</p></div></div>
-      <div class="social-links"><a href="#" class="social-btn">Instagram</a><a href="https://wa.me/584227997043" class="social-btn">WhatsApp</a></div>
-    </div>
-    <form class="contact-form" id="contactForm">
-      <h3>Solicita Tu Presupuesto Gratuito</h3>
-      <div class="form-row"><div class="form-group"><label>Nombre</label><input type="text" required placeholder="Tu nombre" /></div><div class="form-group"><label>Apellido</label><input type="text" required placeholder="Tu apellido" /></div></div>
-      <div class="form-row"><div class="form-group"><label>Email</label><input type="email" required placeholder="tu@email.com" /></div><div class="form-group"><label>Teléfono</label><input type="tel" required placeholder="04XX XXX XXXX" /></div></div>
-      <div class="form-group"><label>Tipo de Proyecto</label><select required><option value="" disabled selected>Selecciona una opción</option><option value="cocina">Reforma de Cocina</option><option value="bano">Reforma de Baño</option><option value="integral">Reforma Integral</option><option value="otro">Otro</option></select></div>
-      <div class="form-group"><label>Ubicación del Proyecto</label><input type="text" placeholder="Valencia, San Diego, etc." /></div>
-      <div class="form-group"><label>Tu Mensaje</label><textarea rows="5" placeholder="Cuéntanos sobre tu proyecto, necesidades y cualquier detalle importante..."></textarea></div>
-      <button type="submit" class="btn-premium btn-primary-premium full-width"><span class="btn-content">Enviar Mensaje</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></button>
-    </form>
-  </div></div></section>
-
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Contáctanos</span><h1 class="page-title">Hablemos de <span class="gold">Tu Proyecto</span></h1><p class="page-subtitle">Estamos aquí para escucharte, asesorarte y hacer realidad la transformación de tu espacio.</p></div></header>
+  <section class="contact-page"><div class="container"><div class="contact-grid"><div class="contact-info"><h2 class="section-title">Información de Contacto</h2><p class="contact-desc">Completa el formulario o contáctanos directamente. Respondemos en menos de 24 horas.</p><div class="contact-item"><div class="contact-icon">📍</div><div><h4>Ubicación</h4><p>Valencia y San Diego, Carabobo, Venezuela</p></div></div><div class="contact-item"><div class="contact-icon">📞</div><div><h4>Teléfono</h4><p>0422 799 7043</p></div></div><div class="contact-item"><div class="contact-icon">✉️</div><div><h4>Email</h4><p>hola@reformatvenezuela.online</p></div></div><div class="contact-item"><div class="contact-icon">⏰</div><div><h4>Horario</h4><p>Lun - Vie: 8:00 AM - 6:00 PM<br/>Sáb: 9:00 AM - 1:00 PM</p></div></div><div class="social-links"><a href="#" class="social-btn">Instagram</a><a href="https://wa.me/584227997043" class="social-btn">WhatsApp</a></div></div><form class="contact-form" id="contactForm"><h3>Solicita Tu Presupuesto Gratuito</h3><div class="form-row"><div class="form-group"><label>Nombre</label><input type="text" required placeholder="Tu nombre" /></div><div class="form-group"><label>Apellido</label><input type="text" required placeholder="Tu apellido" /></div></div><div class="form-row"><div class="form-group"><label>Email</label><input type="email" required placeholder="tu@email.com" /></div><div class="form-group"><label>Teléfono</label><input type="tel" required placeholder="04XX XXX XXXX" /></div></div><div class="form-group"><label>Tipo de Proyecto</label><select required><option value="" disabled selected>Selecciona una opción</option><option value="cocina">Reforma de Cocina</option><option value="bano">Reforma de Baño</option><option value="integral">Reforma Integral</option><option value="otro">Otro</option></select></div><div class="form-group"><label>Ubicación del Proyecto</label><input type="text" placeholder="Valencia, San Diego, etc." /></div><div class="form-group"><label>Tu Mensaje</label><textarea rows="5" placeholder="Cuéntanos sobre tu proyecto, necesidades y cualquier detalle importante..."></textarea></div><button type="submit" class="btn-premium btn-primary-premium full-width"><span class="btn-content">Enviar Mensaje</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></button></form></div></div></section>
   <section class="cta-section"><div class="container"><h2 class="cta-title">¿Listo Para Empezar?</h2><p class="cta-text">Tu transformación comienza con un simple mensaje.</p></div></section>
 </BaseLayout>
-
 <style>
   .page-hero { position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
@@ -64,15 +34,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .full-width { width: 100%; justify-content: center; }
   @media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
 </style>
-
 <script>
-  const form = document.getElementById('contactForm');
-  if(form) form.addEventListener('submit', e => {
-    e.preventDefault();
-    const btn = form.querySelector('.btn-premium');
-    const original = btn.querySelector('.btn-content').textContent;
-    btn.querySelector('.btn-content').textContent = '✓ Enviado';
-    btn.style.background = '#4a7c59';
-    setTimeout(() => { btn.querySelector('.btn-content').textContent = original; btn.style.background = ''; form.reset(); }, 3000);
-  });
+  const form = document.getElementById('contactForm'); if(form) form.addEventListener('submit', e => { e.preventDefault(); const btn = form.querySelector('.btn-premium'); const original = btn.querySelector('.btn-content').textContent; btn.querySelector('.btn-content').textContent = '✓ Enviado'; btn.style.background = '#4a7c59'; setTimeout(() => { btn.querySelector('.btn-content').textContent = original; btn.style.background = ''; form.reset(); }, 3000); });
 </script>

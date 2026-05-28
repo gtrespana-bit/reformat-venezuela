@@ -1,13 +1,10 @@
 ---
-// src/pages/index.astro
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 const services = [
   { title: "Cocinas de Lujo", desc: "Diseños funcionales y elegantes que convierten tu cocina en el corazón de tu hogar.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", link: "/servicios/cocinas" },
   { title: "Baños de Bienestar", desc: "Espacios de relajación con acabados premium que elevan tu rutina diaria.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", link: "/servicios/banos" },
   { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica y ejecución impecable.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", link: "/servicios/integrales" }
 ];
-
 const stats = [
   { number: 20, label: "Años de Experiencia" },
   { number: 500, label: "Proyectos Realizados" },
@@ -15,22 +12,12 @@ const stats = [
   { number: 15, label: "Premios Ganados" }
 ];
 ---
-
-<BaseLayout 
-  title="ReformaT Venezuela | Arquitectura y Diseño Premium" 
-  description="Más de 20 años transformando hogares y negocios en Valencia y San Diego." 
-  activePage="inicio"
->
-  <!-- HERO -->
+<BaseLayout title="ReformaT Venezuela | Arquitectura y Diseño Premium" description="Más de 20 años transformando hogares y negocios en Valencia y San Diego." activePage="inicio">
   <header class="hero">
     <div class="hero-bg"></div>
     <div class="hero-content">
       <span class="hero-tag">Arquitectura & Diseño Premium</span>
-      <h1 class="hero-title">
-        <span class="line">Transformamos</span>
-        <span class="line gold">Espacios</span>
-        <span class="line">con Excelencia</span>
-      </h1>
+      <h1 class="hero-title"><span class="line">Transformamos</span><span class="line gold">Espacios</span><span class="line">con Excelencia</span></h1>
       <p class="hero-sub">Más de 20 años creando hogares y negocios excepcionales en Valencia y San Diego.</p>
       <div class="hero-btns">
         <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
@@ -38,47 +25,13 @@ const stats = [
       </div>
     </div>
   </header>
-
-  <!-- STATS -->
-  <section class="stats-section">
-    <div class="container stats-grid">
-      {stats.map((s, i) => (<div class="stat-item"><div class="stat-num" data-target={s.number}>0</div><div class="stat-label">{s.label}</div></div>))}
-    </div>
-  </section>
-
-  <!-- SERVICES -->
-  <section class="section bg-light">
-    <div class="container">
-      <div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Diseño que Transforma Vidas</h2><p class="section-desc">Cada proyecto es una obra única, creada con precisión artesanal.</p></div>
-      <div class="services-vertical-grid">
-        {services.map((svc) => (
-          <a href={svc.link} class="service-vertical-card">
-            <div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div>
-            <div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><span class="card-link">Descubrir más <span class="arrow">→</span></span></div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section class="section">
-    <div class="container about-grid">
-      <div class="about-imgs"><div class="img-box tall"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Arquitectura" /></div><div class="img-box small"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Equipo" /></div></div>
-      <div class="about-text"><span class="tag">Sobre Nosotros</span><h2 class="section-title">Arquitectura con Alma,<br/>Ejecución con Precisión</h2><p>En ReformaT Venezuela, fusionamos más de 20 años de experiencia con una pasión genuina por el diseño excepcional.</p><ul class="check-list"><li><span></span>Diseño personalizado que honra tu visión</li><li><span></span>Materiales de calidad y durabilidad</li><li><span></span>Ejecución meticulosa a cada detalle</li><li><span></span>Transparencia total en presupuestos</li></ul><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Comenzar Conversación</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div>
-    </div>
-  </section>
-
-  <!-- CTA -->
+  <section class="stats-section"><div class="container stats-grid">{stats.map((s) => (<div class="stat-item"><div class="stat-num" data-target={s.number}>0</div><div class="stat-label">{s.label}</div></div>))}</div></section>
+  <section class="section bg-light"><div class="container"><div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Diseño que Transforma Vidas</h2><p class="section-desc">Cada proyecto es una obra única, creada con precisión artesanal.</p></div><div class="services-vertical-grid">{services.map((svc) => (<a href={svc.link} class="service-vertical-card"><div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div><div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><span class="card-link">Descubrir más <span class="arrow">→</span></span></div></a>))}</div></div></section>
+  <section class="section"><div class="container about-grid"><div class="about-imgs"><div class="img-box tall"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Arquitectura" /></div><div class="img-box small"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Equipo" /></div></div><div class="about-text"><span class="tag">Sobre Nosotros</span><h2 class="section-title">Arquitectura con Alma,<br/>Ejecución con Precisión</h2><p>En ReformaT Venezuela, fusionamos más de 20 años de experiencia con una pasión genuina por el diseño excepcional.</p><ul class="check-list"><li><span></span>Diseño personalizado que honra tu visión</li><li><span></span>Materiales de calidad y durabilidad</li><li><span></span>Ejecución meticulosa a cada detalle</li><li><span></span>Transparencia total en presupuestos</li></ul><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Comenzar Conversación</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></div></section>
   <section class="cta-section"><div class="container"><h2 class="cta-title">Tu Espacio, Nuestra Pasión</h2><p class="cta-text">Cada proyecto comienza con una conversación. Cuéntanos tu visión y hagamos realidad el espacio de tus sueños.</p><a href="/contacto" class="btn-premium btn-white-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
-
-  <!-- CONTACT -->
   <section class="section bg-light"><div class="container contact-grid"><div class="contact-info"><h2 class="section-title">Hablemos de Tu Visión</h2><p>Estamos aquí para escuchar, asesorar y crear junto a ti.</p><div class="info-item"><h4>Ubicación</h4><p>Valencia y San Diego, Carabobo</p></div><div class="info-item"><h4>Teléfono</h4><p>0422 799 7043</p></div></div><form class="contact-form"><div class="form-row"><input type="text" placeholder="Nombre" required /><input type="tel" placeholder="Teléfono" required /></div><input type="email" placeholder="Email" required /><select required><option value="" disabled selected>Tipo de Proyecto</option><option value="cocina">Reforma de Cocina</option><option value="bano">Reforma de Baño</option><option value="integral">Reforma Integral</option></select><textarea placeholder="Tu Mensaje" rows="4"></textarea><button type="submit" class="btn-premium btn-primary-premium full-width"><span class="btn-content">Enviar Mensaje</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></button></form></div></section>
-
 </BaseLayout>
-
 <style>
-  /* ESTILOS ESPECÍFICOS DE INDEX */
   .hero { position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; background: #111; }
   .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; z-index: 1; }
   .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); z-index: 2; }
@@ -89,7 +42,6 @@ const stats = [
   .hero-title .gold { color: var(--gold); }
   .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; }
   .hero-btns { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
-  
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
   .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
   .btn-white-premium { background: var(--white); color: var(--bg); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -97,19 +49,16 @@ const stats = [
   .btn-white-premium:hover { transform: translateY(-3px); background: var(--gold); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
   .btn-white-premium:hover .btn-arrow { transform: translateX(8px); }
   .btn-white-premium:hover .btn-shine { left: 150%; }
-
   .section { padding: 100px 0; }
   .bg-light { background: var(--gray); }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
   .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
   .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
   .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; }
-
   .stats-section { padding: 60px 0; background: var(--bg); color: var(--white); }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
   .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; }
   .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
-
   .services-vertical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   .service-vertical-card { display: block; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
   .service-vertical-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
@@ -126,7 +75,6 @@ const stats = [
   .arrow { transition: transform 0.3s; }
   .service-vertical-card:hover .card-link { gap: 14px; }
   .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
-
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
   .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .img-box { border-radius: 4px; overflow: hidden; }
@@ -135,11 +83,9 @@ const stats = [
   .check-list { margin: 30px 0; }
   .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); }
   .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 100px 20px; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
   .cta-text { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px; font-size: 1.1rem; }
-
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
   .info-item { margin-bottom: 25px; }
   .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
@@ -149,29 +95,8 @@ const stats = [
   .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .full-width { width: 100%; justify-content: center; }
-
-  @media (max-width: 900px) {
-    .hero-title { font-size: 3rem; }
-    .stats-grid { grid-template-columns: repeat(2, 1fr); }
-    .services-vertical-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
-    .about-grid, .contact-grid { grid-template-columns: 1fr; }
-    .hero-btns { flex-direction: column; align-items: center; }
-    .btn-premium { width: 100%; max-width: 300px; justify-content: center; }
-  }
+  @media (max-width: 900px) { .hero-title { font-size: 3rem; } .stats-grid { grid-template-columns: repeat(2, 1fr); } .services-vertical-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; } .about-grid, .contact-grid { grid-template-columns: 1fr; } .hero-btns { flex-direction: column; align-items: center; } .btn-premium { width: 100%; max-width: 300px; justify-content: center; } }
 </style>
-
 <script>
-  // Script específico para animaciones de números en Index
-  if(typeof gsap !== 'undefined') {
-    gsap.registerPlugin(ScrollTrigger);
-    // Animación simple de entrada
-    gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 });
-    gsap.from('.hero-title .line', { y: 50, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 });
-    
-    // Contadores
-    gsap.utils.toArray('.stat-num').forEach(el => {
-      const t = parseInt(el.dataset.target);
-      gsap.to(el, { innerText: t, duration: 2, snap: { innerText: 1 }, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } });
-    });
-  }
+  if(typeof gsap !== 'undefined') { gsap.registerPlugin(ScrollTrigger); gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 }); gsap.from('.hero-title .line', { y: 50, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 }); gsap.utils.toArray('.stat-num').forEach(el => { const t = parseInt(el.dataset.target); gsap.to(el, { innerText: t, duration: 2, snap: { innerText: 1 }, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } }); }); }
 </script>

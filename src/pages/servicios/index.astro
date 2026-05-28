@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-
 const services = [
   { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales y elegantes que se convierten en el corazón de tu hogar.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", features: ["Diseño personalizado", "Materiales premium", "Optimización del espacio"] },
   { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium y diseños modernos.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", features: ["Impermeabilización garantizada", "Diseño spa moderno", "Grifería de alta gama"] },
@@ -10,35 +9,11 @@ const services = [
   { slug: "pintura", title: "Pintura y Acabados", desc: "Acabados perfectos con técnicas decorativas modernas.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Pintura decorativa", "Microcemento", "Efectos especiales"] }
 ];
 ---
-
 <BaseLayout title="Servicios | ReformaT Venezuela" description="Soluciones completas en reformas de cocinas, baños y proyectos integrales." activePage="servicios">
-  <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Lo Que Hacemos</span>
-      <h1 class="page-title">Soluciones de <span class="gold">Reforma Integral</span></h1>
-      <p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego con excelencia y profesionalismo.</p>
-    </div>
-  </header>
-
-  <section class="services-page">
-    <div class="container">
-      <div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Transformamos Cada Rincón de Tu Hogar</h2><p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales llave en mano.</p></div>
-      <div class="services-vertical-grid">
-        {services.map((svc) => (
-          <a href={`/servicios/${svc.slug}`} class="service-vertical-card">
-            <div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div>
-            <div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul><span class="card-link">Ver más detalles <span class="arrow">→</span></span></div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Lo Que Hacemos</span><h1 class="page-title">Soluciones de <span class="gold">Reforma Integral</span></h1><p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego con excelencia y profesionalismo.</p></div></header>
+  <section class="services-page"><div class="container"><div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Transformamos Cada Rincón de Tu Hogar</h2><p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales llave en mano.</p></div><div class="services-vertical-grid">{services.map((svc) => (<a href={`/servicios/${svc.slug}`} class="service-vertical-card"><div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div><div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul><span class="card-link">Ver más detalles <span class="arrow">→</span></span></div></a>))}</div></div></section>
   <section class="cta-section"><div class="container"><h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
 </BaseLayout>
-
 <style>
   .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }

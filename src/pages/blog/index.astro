@@ -1,58 +1,14 @@
 ---
-// src/pages/blog/index.astro
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
-
 const posts = await getCollection('blog');
 const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-
-<BaseLayout 
-  title="Blog | Consejos de Reformas y Diseño" 
-  description="Ideas, tendencias y guías prácticas para tu proyecto de reforma." 
-  activePage="blog"
->
-  <!-- HERO BLOG -->
-  <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80')"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Blog y Consejos</span>
-      <h1 class="page-title">Ideas para <span class="gold">Tu Hogar</span></h1>
-      <p class="page-subtitle">Consejos, tendencias y guías prácticas para ayudarte en tu proyecto de reforma.</p>
-    </div>
-  </header>
-
-  <!-- LISTA DE ARTÍCULOS -->
-  <section class="blog-section">
-    <div class="container">
-      <div class="blog-grid">
-        {sortedPosts.map(article => (
-          <a href={`/blog/${article.slug}`} class="blog-card">
-            <div class="blog-img">
-              <img src={article.data.image || ''} alt={article.data.title} loading="lazy" />
-              <span class="blog-category">{article.data.category}</span>
-            </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <span>{article.data.date.toLocaleDateString('es-VE', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                <span>• {article.data.readTime} lectura</span>
-              </div>
-              <h3>{article.data.title}</h3>
-              <p>{article.data.excerpt}</p>
-              <span class="blog-link">Leer artículo →</span>
-            </div>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
+<BaseLayout title="Blog | Consejos de Reformas y Diseño" description="Ideas, tendencias y guías prácticas para tu proyecto de reforma." activePage="blog">
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Blog y Consejos</span><h1 class="page-title">Ideas para <span class="gold">Tu Hogar</span></h1><p class="page-subtitle">Consejos, tendencias y guías prácticas para ayudarte en tu proyecto de reforma.</p></div></header>
+  <section class="blog-section"><div class="container"><div class="blog-grid">{sortedPosts.map(article => (<a href={`/blog/${article.slug}`} class="blog-card"><div class="blog-img"><img src={article.data.image || ''} alt={article.data.title} loading="lazy" /><span class="blog-category">{article.data.category}</span></div><div class="blog-content"><div class="blog-meta"><span>{article.data.date.toLocaleDateString('es-VE', { year: 'numeric', month: 'long', day: 'numeric' })}</span><span>• {article.data.readTime} lectura</span></div><h3>{article.data.title}</h3><p>{article.data.excerpt}</p><span class="blog-link">Leer artículo →</span></div></a>))}</div></div></section>
   <section class="cta-section"><div class="container"><h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
-
 </BaseLayout>
-
 <style>
   .page-hero { position: relative; min-height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
@@ -61,7 +17,6 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
   .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
   .page-title { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; margin-bottom: 20px; line-height: 1; }
   .page-subtitle { font-size: 1.4rem; color: rgba(255,255,255,0.85); max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
-
   .blog-section { padding: 80px 0; background: var(--gray); }
   .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   .blog-card { display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
@@ -75,15 +30,9 @@ const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.val
   .blog-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; color: var(--text); }
   .blog-content p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
   .blog-link { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; }
-  
   @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
 </style>
-
 <script>
-  if(typeof gsap !== 'undefined') {
-    gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 0.8 });
-    gsap.from('.page-title', { opacity: 0, y: 30, duration: 1, delay: 0.2 });
-    gsap.from('.page-subtitle', { opacity: 0, y: 20, duration: 0.8, delay: 0.4 });
-  }
+  if(typeof gsap !== 'undefined') { gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 0.8 }); gsap.from('.page-title', { opacity: 0, y: 30, duration: 1, delay: 0.2 }); gsap.from('.page-subtitle', { opacity: 0, y: 20, duration: 0.8, delay: 0.4 }); }
 </script>

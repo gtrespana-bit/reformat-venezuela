@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-
 const projects = [
   { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", desc: "Transformación completa de piso de 120m² con diseño moderno." },
   { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", desc: "Cocina abierta al salón con isla central y acabados en mármol." },
@@ -10,34 +9,11 @@ const projects = [
   { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=800&h=600&fit=crop", desc: "Fusión de estilo rústico con funcionalidad moderna." }
 ];
 ---
-
 <BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales de cocinas, baños y reformas integrales en Valencia y San Diego." activePage="proyectos">
-  <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Nuestro Portafolio</span>
-      <h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1>
-      <p class="page-subtitle">Cada proyecto es una historia de transformación. Descubre cómo convertimos espacios ordinarios en lugares extraordinarios.</p>
-    </div>
-  </header>
-
-  <section class="projects-section"><div class="container">
-    <div class="filter-bar">
-      {["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}
-    </div>
-    <div class="projects-grid">
-      {projects.map((p) => (
-        <div class="project-card" data-category={p.category.toLowerCase()}>
-          <div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div>
-        </div>
-      ))}
-    </div>
-  </div></section>
-
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación. Descubre cómo convertimos espacios ordinarios en lugares extraordinarios.</p></div></header>
+  <section class="projects-section"><div class="container"><div class="filter-bar">{["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div></div>))}</div></div></section>
   <section class="cta-section"><div class="container"><h2 class="cta-title">¿Quieres Ser Nuestro Próximo Proyecto?</h2><p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
 </BaseLayout>
-
 <style>
   .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
@@ -65,16 +41,6 @@ const projects = [
   @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
 </style>
-
 <script>
-  document.querySelectorAll('.filter-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-      document.querySelectorAll('.project-card').forEach(card => {
-        card.style.display = (filter === 'todos' || card.dataset.category === filter) ? 'block' : 'none';
-      });
-    });
-  });
+  document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.style.display = (filter === 'todos' || card.dataset.category === filter) ? 'block' : 'none'; }); }); });
 </script>
