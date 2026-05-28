@@ -1,0 +1,196 @@
+---
+// src/pages/contacto.astro
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contacto | ReformaT Venezuela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+  <nav id="navbar" class="nav">
+    <div class="nav-container">
+      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/contacto" class="active btn-nav-premium">Contacto</a></li>
+      </ul>
+      <button id="menu-btn" class="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop')"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Contáctanos</span>
+      <h1 class="hero-title"><span class="line">Hablemos de</span><span class="line gold">Tu Proyecto</span></h1>
+      <p class="hero-sub">Estamos aquí para escucharte, asesorarte y hacer realidad la transformación de tu espacio.</p>
+    </div>
+  </header>
+
+  <section class="contact-page">
+    <div class="container">
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h2 class="section-title">Información de Contacto</h2>
+          <p class="contact-desc">Completa el formulario o contáctanos directamente. Respondemos en menos de 24 horas.</p>
+          
+          <div class="contact-item">
+            <div class="contact-icon"></div>
+            <div><h4>Ubicación</h4><p>Valencia y San Diego, Carabobo, Venezuela</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">📞</div>
+            <div><h4>Teléfono</h4><p>0422 799 7043</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">✉️</div>
+            <div><h4>Email</h4><p>hola@reformatvenezuela.com</p></div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⏰</div>
+            <div><h4>Horario</h4><p>Lun - Vie: 8:00 AM - 6:00 PM<br/>Sáb: 9:00 AM - 1:00 PM</p></div>
+          </div>
+
+          <div class="social-links">
+            <a href="#" class="social-btn">Instagram</a>
+            <a href="#" class="social-btn">WhatsApp</a>
+            <a href="#" class="social-btn">Facebook</a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <h3>Solicita Tu Presupuesto Gratuito</h3>
+          <div class="form-row">
+            <div class="form-group"><label>Nombre</label><input type="text" required placeholder="Tu nombre" /></div>
+            <div class="form-group"><label>Apellido</label><input type="text" required placeholder="Tu apellido" /></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label>Email</label><input type="email" required placeholder="tu@email.com" /></div>
+            <div class="form-group"><label>Teléfono</label><input type="tel" required placeholder="04XX XXX XXXX" /></div>
+          </div>
+          <div class="form-group">
+            <label>Tipo de Proyecto</label>
+            <select required>
+              <option value="" disabled selected>Selecciona una opción</option>
+              <option value="cocina">Reforma de Cocina</option>
+              <option value="bano">Reforma de Baño</option>
+              <option value="integral">Reforma Integral</option>
+              <option value="electricidad">Servicios Eléctricos</option>
+              <option value="fontaneria">Fontanería</option>
+              <option value="pintura">Pintura y Acabados</option>
+              <option value="otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Ubicación del Proyecto</label>
+            <input type="text" placeholder="Valencia, San Diego, etc." />
+          </div>
+          <div class="form-group"><label>Tu Mensaje</label><textarea rows="5" placeholder="Cuéntanos sobre tu proyecto, necesidades y cualquier detalle importante..."></textarea></div>
+          <button type="submit" class="btn-premium btn-primary-premium full-width"><span class="btn-content">Enviar Mensaje</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer-logo">ReformaT<span class="dot">.</span></div><p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p></div></footer>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; line-height: 1.6; }
+    :root { --bg: #0a0a0a; --text: #1a1a1a; --gold: #c9a961; --gold-light: #e6d3a7; --white: #fff; --gray: #f5f5f5; --gray-text: #666; --font-serif: 'Cormorant Garamond', serif; --font-sans: 'Manrope', sans-serif; --container: 1200px; }
+    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 25px 0; transition: 0.4s; }
+    .nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 15px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); font-weight: 700; }
+    .nav-links { display: flex; gap: 40px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; }
+    .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .page-hero { position: relative; min-height: 50vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 20px; }
+    .hero-tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 25px; line-height: 1.1; }
+    .hero-title .line { display: block; }
+    .hero-title .gold { color: var(--gold); }
+    .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.5rem); margin-bottom: 20px; }
+    .dot { color: var(--gold); }
+
+    .contact-page { padding: 100px 0; background: var(--gray); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.5fr; gap: 60px; }
+    .contact-desc { color: var(--gray-text); margin-bottom: 40px; line-height: 1.8; }
+    .contact-item { display: flex; align-items: flex-start; gap: 20px; margin-bottom: 30px; }
+    .contact-icon { width: 50px; height: 50px; background: var(--bg); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+    .contact-item h4 { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+    .contact-item p { color: var(--gray-text); font-size: 0.95rem; }
+    .social-links { display: flex; gap: 15px; margin-top: 40px; }
+    .social-btn { padding: 10px 20px; background: var(--bg); color: var(--white); border-radius: 4px; font-size: 0.85rem; text-decoration: none; transition: 0.3s; }
+    .social-btn:hover { background: var(--gold); color: var(--bg); }
+
+    .contact-form { background: var(--white); padding: 50px; border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); }
+    .contact-form h3 { font-family: var(--font-serif); font-size: 1.8rem; margin-bottom: 30px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .form-group { margin-bottom: 25px; }
+    .form-group label { display: block; font-size: 0.85rem; font-weight: 500; margin-bottom: 8px; color: var(--text); }
+    .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 14px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px; font-family: inherit; font-size: 1rem; transition: 0.3s; }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { outline: none; border-color: var(--gold); background: var(--white); }
+    .form-group textarea { resize: vertical; }
+    .full-width { width: 100%; justify-content: center; }
+
+    .btn-premium { position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.4s; background: transparent; z-index: 1; }
+    .btn-content { position: relative; z-index: 2; }
+    .btn-arrow { position: relative; z-index: 2; font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
+    .btn-border { position: absolute; inset: 0; border-radius: 4px; pointer-events: none; z-index: 1; border: 2px solid var(--gold); }
+    .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: left 0.8s; z-index: 1; pointer-events: none; }
+    .btn-primary-premium { background: var(--gold); color: var(--bg); box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); }
+    .btn-primary-premium:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
+    .btn-primary-premium:hover .btn-arrow { transform: translateX(8px); }
+    .btn-primary-premium:hover .btn-shine { left: 150%; }
+
+    .footer { background: var(--bg); color: rgba(255,255,255,0.6); padding: 50px 0 30px; text-align: center; }
+    .footer-logo { font-family: var(--font-serif); font-size: 2rem; color: var(--white); font-weight: 700; margin-bottom: 15px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.85rem; }
+    @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } .contact-grid { grid-template-columns: 1fr; } .form-row { grid-template-columns: 1fr; } }
+  </style>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+    const btn = document.getElementById('menu-btn'), nav = document.querySelector('.nav-links');
+    if(btn) btn.addEventListener('click', () => { nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex'; nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '100%'; nav.style.left = '0'; nav.style.width = '100%'; nav.style.background = '#0a0a0a'; nav.style.padding = '20px'; nav.style.textAlign = 'center'; });
+    
+    if(typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 });
+      gsap.from('.hero-title .line', { y: 40, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 });
+      gsap.from('.hero-sub', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
+      gsap.from('.contact-info', { x: -40, opacity: 0, duration: 1, scrollTrigger: { trigger: '.contact-info', start: 'top 80%' } });
+      gsap.from('.contact-form', { x: 40, opacity: 0, duration: 1, scrollTrigger: { trigger: '.contact-form', start: 'top 80%' } });
+    }
+
+    const form = document.getElementById('contactForm');
+    if(form) {
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const submitBtn = form.querySelector('.btn-premium');
+        const originalText = submitBtn.querySelector('.btn-content').textContent;
+        submitBtn.querySelector('.btn-content').textContent = '✓ Mensaje Enviado';
+        submitBtn.style.background = '#4a7c59';
+        setTimeout(() => { submitBtn.querySelector('.btn-content').textContent = originalText; submitBtn.style.background = ''; form.reset(); }, 3000);
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+---
+// src/pages/proyectos.astro
+const projects = [
+  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", desc: "Transformación completa de piso de 120m² con diseño moderno y materiales premium." },
+  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", desc: "Diseño de cocina abierta al salón con isla central y acabados en mármol." },
+  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", desc: "Baño principal transformado en espacio spa con ducha de lluvia y bañera exenta." },
+  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop", desc: "Reforma integral de local para restaurante con diseño industrial y ambiente acogedor." },
+  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop", desc: "Restauración de piso antiguo manteniendo elementos originales con toques modernos." },
+  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=800&h=600&fit=crop", desc: "Fusión de estilo rústico con funcionalidad moderna en cocina de campo." }
+];
+
+const categories = ["Todos", "Integral", "Cocina", "Baño", "Comercial"];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyectos | ReformaT Venezuela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+  <nav id="navbar" class="nav">
+    <div class="nav-container">
+      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/proyectos" class="active">Proyectos</a></li>
+        <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
+      </ul>
+      <button id="menu-btn" class="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Nuestro Portafolio</span>
+      <h1 class="hero-title"><span class="line">Proyectos</span><span class="line gold">Realizados</span></h1>
+      <p class="hero-sub">Cada proyecto es una historia de transformación. Descubre cómo hemos convertido espacios ordinarios en lugares extraordinarios.</p>
+    </div>
+  </header>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="filter-bar">
+        {categories.map((cat, i) => (
+          <button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>
+        ))}
+      </div>
+
+      <div class="projects-grid">
+        {projects.map((p, i) => (
+          <div class="project-card" data-category={p.category.toLowerCase()}>
+            <div class="project-img">
+              <img src={p.image} alt={p.title} loading="lazy" />
+              <div class="project-overlay">
+                <span class="project-tag">{p.category}</span>
+                <h3>{p.title}</h3>
+                <p>{p.desc}</p>
+                <span class="project-location">📍 {p.location}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">¿Quieres Ser Nuestro Próximo Proyecto?</h2>
+      <p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer-logo">ReformaT<span class="dot">.</span></div><p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p></div></footer>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; line-height: 1.6; }
+    :root { --bg: #0a0a0a; --text: #1a1a1a; --gold: #c9a961; --gold-light: #e6d3a7; --white: #fff; --gray: #f5f5f5; --gray-text: #666; --font-serif: 'Cormorant Garamond', serif; --font-sans: 'Manrope', sans-serif; --container: 1200px; }
+    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 25px 0; transition: 0.4s; }
+    .nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 15px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); font-weight: 700; }
+    .nav-links { display: flex; gap: 40px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; }
+    .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+    .page-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 20px; }
+    .hero-tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 25px; line-height: 1.1; }
+    .hero-title .line { display: block; }
+    .hero-title .gold { color: var(--gold); }
+    .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
+    .dot { color: var(--gold); }
+
+    .projects-section { padding: 100px 0; background: var(--gray); }
+    .filter-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
+    .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid #ddd; border-radius: 30px; cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; transition: 0.3s; }
+    .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+    .project-card { border-radius: 8px; overflow: hidden; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; }
+    .project-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+    .project-img { position: relative; height: 300px; overflow: hidden; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .project-card:hover .project-img img { transform: scale(1.08); }
+    .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; opacity: 0; transition: opacity 0.4s; }
+    .project-card:hover .project-overlay { opacity: 1; }
+    .project-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; margin-bottom: 10px; }
+    .project-overlay h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 8px; }
+    .project-overlay p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
+    .project-location { color: var(--gold); font-size: 0.85rem; }
+
+    .cta-section { padding: 100px 0; background: var(--bg); color: var(--white); text-align: center; }
+    .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+    .cta-text { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 40px; font-size: 1.1rem; }
+    .btn-premium { position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.4s; background: transparent; z-index: 1; }
+    .btn-content { position: relative; z-index: 2; }
+    .btn-arrow { position: relative; z-index: 2; font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
+    .btn-border { position: absolute; inset: 0; border-radius: 4px; pointer-events: none; z-index: 1; border: 2px solid var(--gold); }
+    .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: left 0.8s; z-index: 1; pointer-events: none; }
+    .btn-primary-premium { background: var(--gold); color: var(--bg); box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); }
+    .btn-primary-premium:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
+    .btn-primary-premium:hover .btn-arrow { transform: translateX(8px); }
+    .btn-primary-premium:hover .btn-shine { left: 150%; }
+    .footer { background: var(--bg); color: rgba(255,255,255,0.6); padding: 50px 0 30px; text-align: center; }
+    .footer-logo { font-family: var(--font-serif); font-size: 2rem; color: var(--white); font-weight: 700; margin-bottom: 15px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.85rem; }
+    @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } .projects-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+  </style>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+    const btn = document.getElementById('menu-btn'), nav = document.querySelector('.nav-links');
+    if(btn) btn.addEventListener('click', () => { nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex'; nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '100%'; nav.style.left = '0'; nav.style.width = '100%'; nav.style.background = '#0a0a0a'; nav.style.padding = '20px'; nav.style.textAlign = 'center'; });
+
+    // Filter functionality
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.project-card').forEach(card => {
+          if(filter === 'todos' || card.dataset.category === filter) {
+            card.style.display = 'block';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    if(typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 });
+      gsap.from('.hero-title .line', { y: 40, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 });
+      gsap.from('.hero-sub', { opacity: 0, y: 20, duration: 1, delay: 0.8 });
+      gsap.utils.toArray('.project-card').forEach((el, i) => { gsap.from(el, { y: 40, opacity: 0, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: el, start: 'top 85%' } }); });
+    }
+  </script>
+</body>
+</html>

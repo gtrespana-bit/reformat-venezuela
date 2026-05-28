@@ -1,0 +1,20 @@
+﻿# Dependencias
+node_modules/
+.pnpm-store/
+
+# Astro
+.astro/
+dist/
+
+# Entorno y secretos
+.env
+.env.*
+*.local
+
+# IDEs
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

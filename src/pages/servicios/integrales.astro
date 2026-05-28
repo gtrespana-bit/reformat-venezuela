@@ -1,0 +1,188 @@
+---
+// src/pages/servicios/integrales.astro
+const features = [
+  { icon: "📋", title: "Proyecto Completo", desc: "Gestión integral desde el diseño hasta la entrega final con un solo punto de contacto." },
+  { icon: "🔑", title: "Llave en Mano", desc: "Nos encargamos de todo: permisos, materiales, profesionales y limpieza final." },
+  { icon: "📊", title: "Control de Presupuesto", desc: "Presupuesto cerrado sin sorpresas. Transparencia total en cada gasto." },
+  { icon: "⏱️", title: "Plazos Garantizados", desc: "Cumplimos los plazos acordados con penalización por retrasos injustificados." },
+  { icon: "🛡️", title: "Garantía Extendida", desc: "Garantía de 5 años en todos nuestros trabajos de reforma integral." },
+  { icon: "📸", title: "Seguimiento Fotográfico", desc: "Documentación fotográfica del proceso para que veas el avance de tu proyecto." }
+];
+
+const gallery = [
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop",
+  "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=600&fit=crop",
+  "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop",
+  "https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=600&fit=crop"
+];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reformas Integrales | ReformaT Venezuela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+</head>
+<body>
+  <nav id="navbar" class="nav">
+    <div class="nav-container">
+      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios" class="active">Servicios</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
+      </ul>
+      <button id="menu-btn" class="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <header class="service-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"></div>
+    <div class="hero-content">
+      <a href="/servicios" class="back-link">← Volver a Servicios</a>
+      <span class="hero-tag">Servicio Premium</span>
+      <h1 class="hero-title"><span class="line">Reformas</span><span class="line gold">Integrales</span></h1>
+      <p class="hero-sub">Transformación completa de tu hogar o negocio con gestión llave en mano y garantía total.</p>
+    </div>
+  </header>
+
+  <section class="service-intro">
+    <div class="container">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <span class="tag">Transformación Total</span>
+          <h2 class="section-title">Tu Espacio, Nuestra Responsabilidad</h2>
+          <p>Las reformas integrales son nuestra especialidad. Nos encargamos de absolutamente todo: desde la demolición inicial hasta el último detalle decorativo. Tú solo tienes que contarnos tu visión y nosotros la hacemos realidad.</p>
+          <p>Con más de 20 años de experiencia en reformas integrales en Valencia y San Diego, hemos desarrollado un proceso eficiente que minimiza las molestias y maximiza la calidad del resultado final.</p>
+        </div>
+        <div class="intro-stats">
+          <div class="stat-box"><div class="stat-num">200+</div><div class="stat-label">Reformas Integrales</div></div>
+          <div class="stat-box"><div class="stat-num">98%</div><div class="stat-label">Plazos Cumplidos</div></div>
+          <div class="stat-box"><div class="stat-num">5</div><div class="stat-label">Años de Garantía</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <div class="section-header"><span class="tag">Lo Que Incluyen</span><h2 class="section-title">Nuestro Servicio Completo</h2></div>
+      <div class="features-grid">{features.map(f => (<div class="feature-card"><div class="feature-icon">{f.icon}</div><h3>{f.title}</h3><p>{f.desc}</p></div>))}</div>
+    </div>
+  </section>
+
+  <section class="gallery-section">
+    <div class="container">
+      <div class="section-header"><span class="tag">Nuestros Trabajos</span><h2 class="section-title">Proyectos Realizados</h2></div>
+      <div class="gallery-grid">{gallery.map(img => (<div class="gallery-item"><img src={img} alt="Reforma integral" loading="lazy" /></div>))}</div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="container">
+      <div class="section-header"><span class="tag">Proceso de Trabajo</span><h2 class="section-title">4 Fases de Tu Reforma Integral</h2></div>
+      <div class="process-steps">
+        <div class="step"><div class="step-num">01</div><h3>Estudio y Diseño</h3><p>Analizamos tu espacio, definimos necesidades y creamos un proyecto detallado con planos y renders 3D.</p></div>
+        <div class="step"><div class="step-num">02</div><h3>Presupuesto Cerrado</h3><p>Elaboramos un presupuesto detallado sin sorpresas. Una vez aprobado, el precio no cambia.</p></div>
+        <div class="step"><div class="step-num">03</div><h3>Ejecución Profesional</h3><p>Nuestro equipo multidisciplinario ejecuta cada fase con precisión y respeto por los plazos.</p></div>
+        <div class="step"><div class="step-num">04</div><h3>Entrega con Garantía</h3><p>Revisión exhaustiva, limpieza profesional y entrega con garantía de 5 años en todos los trabajos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">¿Listo Para Tu Reforma Integral?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+
+  <footer class="footer"><div class="container"><div class="footer-logo">ReformaT<span class="dot">.</span></div><p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p></div></footer>
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Manrope', sans-serif; background: #fff; color: #1a1a1a; overflow-x: hidden; line-height: 1.6; }
+    :root { --bg: #0a0a0a; --text: #1a1a1a; --gold: #c9a961; --gold-light: #e6d3a7; --white: #fff; --gray: #f5f5f5; --gray-text: #666; --font-serif: 'Cormorant Garamond', serif; --font-sans: 'Manrope', sans-serif; --container: 1200px; }
+    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 25px 0; transition: 0.4s; }
+    .nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 15px 0; }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); font-weight: 700; }
+    .nav-links { display: flex; gap: 40px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; }
+    .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+    .service-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; }
+    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+    .service-hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.6), rgba(0,0,0,0.85)); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 20px; }
+    .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; }
+    .back-link:hover { color: var(--gold-light); }
+    .hero-tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
+    .hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 25px; line-height: 1.1; }
+    .hero-title .line { display: block; }
+    .hero-title .gold { color: var(--gold); }
+    .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+    .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+    .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
+    .dot { color: var(--gold); }
+    .service-intro { padding: 100px 0; background: var(--white); }
+    .intro-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 60px; align-items: center; }
+    .intro-text p { color: var(--gray-text); margin-bottom: 20px; line-height: 1.8; }
+    .intro-stats { display: grid; grid-template-columns: 1fr; gap: 25px; }
+    .stat-box { background: var(--bg); padding: 30px; border-radius: 8px; text-align: center; }
+    .stat-num { font-family: var(--font-serif); font-size: 2.5rem; color: var(--gold); margin-bottom: 5px; }
+    .stat-label { color: rgba(255,255,255,0.7); font-size: 0.9rem; }
+    .features-section { padding: 100px 0; background: var(--gray); }
+    .features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .feature-card { background: var(--white); padding: 35px; border-radius: 8px; transition: 0.4s; }
+    .feature-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+    .feature-icon { font-size: 2.5rem; margin-bottom: 20px; }
+    .feature-card h3 { font-family: var(--font-serif); font-size: 1.3rem; margin-bottom: 12px; }
+    .feature-card p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; }
+    .gallery-section { padding: 100px 0; background: var(--white); }
+    .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+    .gallery-item { border-radius: 8px; overflow: hidden; aspect-ratio: 4/3; }
+    .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .gallery-item:hover img { transform: scale(1.05); }
+    .process-section { padding: 100px 0; background: var(--bg); color: var(--white); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; }
+    .step { text-align: center; padding: 30px 20px; }
+    .step-num { font-family: var(--font-serif); font-size: 3rem; color: var(--gold); opacity: 0.4; margin-bottom: 15px; }
+    .step h3 { font-size: 1.2rem; margin-bottom: 12px; }
+    .step p { color: rgba(255,255,255,0.7); font-size: 0.95rem; line-height: 1.7; }
+    .cta-section { padding: 100px 0; background: var(--bg); color: var(--white); text-align: center; border-top: 1px solid rgba(201,169,97,0.2); }
+    .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
+    .cta-text { color: rgba(255,255,255,0.7); max-width: 500px; margin: 0 auto 40px; font-size: 1.1rem; }
+    .btn-premium { position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.4s; background: transparent; z-index: 1; }
+    .btn-content { position: relative; z-index: 2; }
+    .btn-arrow { position: relative; z-index: 2; font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
+    .btn-border { position: absolute; inset: 0; border-radius: 4px; pointer-events: none; z-index: 1; border: 2px solid var(--gold); }
+    .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: left 0.8s; z-index: 1; pointer-events: none; }
+    .btn-primary-premium { background: var(--gold); color: var(--bg); box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); }
+    .btn-primary-premium:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
+    .btn-primary-premium:hover .btn-arrow { transform: translateX(8px); }
+    .btn-primary-premium:hover .btn-shine { left: 150%; }
+    .footer { background: var(--bg); color: rgba(255,255,255,0.6); padding: 50px 0 30px; text-align: center; }
+    .footer-logo { font-family: var(--font-serif); font-size: 2rem; color: var(--white); font-weight: 700; margin-bottom: 15px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.85rem; }
+    @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } .intro-grid { grid-template-columns: 1fr; } .features-grid { grid-template-columns: 1fr; } .gallery-grid { grid-template-columns: repeat(2, 1fr); } .process-steps { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+
+  <script>
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50));
+    const btn = document.getElementById('menu-btn'), nav = document.querySelector('.nav-links');
+    if(btn) btn.addEventListener('click', () => { nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex'; nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '100%'; nav.style.left = '0'; nav.style.width = '100%'; nav.style.background = '#0a0a0a'; nav.style.padding = '20px'; nav.style.textAlign = 'center'; });
+    if(typeof gsap !== 'undefined') { gsap.registerPlugin(ScrollTrigger); gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 }); gsap.from('.hero-title .line', { y: 40, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 }); gsap.from('.hero-sub', { opacity: 0, y: 20, duration: 1, delay: 0.8 }); gsap.utils.toArray('.feature-card').forEach((el, i) => { gsap.from(el, { y: 30, opacity: 0, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: el, start: 'top 85%' } }); }); gsap.utils.toArray('.step').forEach((el, i) => { gsap.from(el, { y: 30, opacity: 0, duration: 0.8, delay: i * 0.15, scrollTrigger: { trigger: '.process-steps', start: 'top 75%' } }); }); }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+﻿@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-light text-primary overflow-x-hidden cursor-none; }
+  ::selection { @apply bg-accent/30 text-primary; }
+}
+
+@layer components {
+  .container { @apply max-w-7xl mx-auto; }
+  
+  .btn-primary {
+    @apply px-14 py-5 bg-accent text-primary text-xs font-medium tracking-widest uppercase 
+           relative overflow-hidden transition-all duration-700 inline-flex items-center gap-3;
+  }
+  .btn-primary::before {
+    content: '';
+    @apply absolute top-0 left-[-100%] w-full h-full bg-gradient-to-r from-transparent via-white/40 to-transparent 
+           transition-all duration-[800ms];
+  }
+  .btn-primary:hover::before { @apply left-[100%]; }
+  .btn-primary:hover { @apply -translate-y-1; box-shadow: 0 20px 50px rgba(201, 169, 97, 0.4); }
+  
+  .btn-secondary {
+    @apply px-14 py-5 bg-transparent text-light border border-white/30 backdrop-blur-xl
+           text-xs font-medium tracking-widest uppercase relative overflow-hidden 
+           transition-all duration-700 inline-flex items-center gap-3;
+  }
+  .btn-secondary::before {
+    content: '';
+    @apply absolute top-0 left-0 w-0 h-full bg-accent transition-all duration-[500ms] z-[-1];
+  }
+  .btn-secondary:hover::before { @apply w-full; }
+  .btn-secondary:hover { @apply text-primary border-transparent -translate-y-1; }
+  
+  .btn-arrow {
+    @apply w-4 h-px bg-current relative transition-transform duration-300;
+  }
+  .btn-arrow::after {
+    content: '';
+    @apply absolute right-0 top-[-4px] w-2.5 h-px bg-current transition-transform duration-300;
+    transform: rotate(45deg);
+  }
+  .btn:hover .btn-arrow { @apply translate-x-1.5; }
+  .btn:hover .btn-arrow::after { transform: rotate(45deg) translateX(3px); }
+}
+
+@layer utilities {
+  .text-gradient {
+    background: linear-gradient(135deg, #c9a961 0%, #e6d3a7 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

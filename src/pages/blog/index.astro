@@ -1,0 +1,213 @@
+---
+// src/pages/blog/index.astro
+import { getCollection } from 'astro:content';
+
+const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog | ReformaT Venezuela</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+</head>
+
+<body>
+  <!-- ✅ NAV (Mismo diseño que el resto) -->
+  <nav id="navbar" class="nav">
+    <div class="nav-container">
+      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
+      <ul class="nav-links">
+        <li><a href="/">Inicio</a></li>
+        <li><a href="/servicios">Servicios</a></li>
+        <li><a href="/proyectos">Proyectos</a></li>
+        <li><a href="/blog" class="active">Blog</a></li>
+        <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
+      </ul>
+      <button id="menu-btn" class="menu-btn">☰</button>
+    </div>
+  </nav>
+
+  <!-- ✅ HERO CON ESPACIADO CORREGIDO -->
+  <header class="page-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Blog y Consejos</span>
+      <h1 class="page-title">Ideas para <span class="gold">Tu Hogar</span></h1>
+      <p class="page-subtitle">Consejos, tendencias y guías prácticas para ayudarte en tu proyecto de reforma.</p>
+    </div>
+  </header>
+
+  <!-- ✅ LISTA DE ARTÍCULOS -->
+  <section class="blog-section">
+    <div class="container">
+      <div class="blog-grid">
+        {sortedPosts.map(article => (
+          <a href={`/blog/${article.slug}`} class="blog-card">
+            <div class="blog-img">
+              <img src={article.data.image || ''} alt={article.data.title} loading="lazy" />
+              <span class="blog-category">{article.data.category}</span>
+            </div>
+            <div class="blog-content">
+              <div class="blog-meta">
+                <span>{article.data.date.toLocaleDateString('es-VE', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                <span>• {article.data.readTime} lectura</span>
+              </div>
+              <h3>{article.data.title}</h3>
+              <p>{article.data.excerpt}</p>
+              <span class="blog-link">Leer artículo →</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Agendar Consulta Gratuita</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- ✅ FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-logo">ReformaT<span class="dot">.</span></div>
+      <p class="footer-desc">Transformando espacios con excelencia desde 2005.</p>
+      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <style>
+    :root {
+      --bg: #0a0a0a; --text: #1a1a1a; --gold: #c9a961; --gold-light: #e6d3a7;
+      --white: #fff; --gray: #f5f5f5; --gray-text: #666;
+      --font-serif: 'Cormorant Garamond', serif;
+      --font-sans: 'Manrope', sans-serif;
+      --container: 1200px;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-sans); background: var(--white); color: var(--text); overflow-x: hidden; line-height: 1.6; }
+    
+    /* NAV */
+    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 25px 0; transition: 0.4s; background: transparent; }
+    .nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
+    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .logo { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); font-weight: 700; }
+    .nav-links { display: flex; gap: 40px; }
+    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+    .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; }
+    .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+    /* ✅ HERO CON CORRECCIÓN DE SOLAPAMIENTO */
+    .page-hero { 
+      position: relative; 
+      min-height: 65vh; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      text-align: center; 
+      color: var(--white); 
+      overflow: hidden; 
+      padding-top: 120px; /* ✅ ESPACIO PARA EL HEADER FIJO */
+      padding-bottom: 60px; 
+    }
+    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
+    .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+    .page-title { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; margin-bottom: 20px; line-height: 1; }
+    .gold { color: var(--gold); }
+    .page-subtitle { font-size: 1.4rem; color: rgba(255,255,255,0.85); max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
+
+    /* BLOG GRID */
+    .blog-section { padding: 80px 0; background: var(--gray); }
+    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+    .blog-card { display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
+    .blog-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+    .blog-img { position: relative; height: 220px; overflow: hidden; }
+    .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+    .blog-card:hover .blog-img img { transform: scale(1.05); }
+    .blog-category { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+    .blog-content { padding: 25px; }
+    .blog-meta { font-size: 0.8rem; color: var(--gray-text); margin-bottom: 12px; display: flex; gap: 10px; }
+    .blog-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; color: var(--text); }
+    .blog-content p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
+    .blog-link { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; }
+    .blog-card:hover .blog-link { text-decoration: underline; }
+
+    /* CTA & BUTTONS */
+    .cta-section { padding: 100px 0; background: var(--bg); text-align: center; }
+    .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); color: var(--white); margin-bottom: 20px; }
+    .cta-text { color: rgba(255,255,255,0.7); max-width: 600px; margin: 0 auto 40px; font-size: 1.15rem; }
+    .btn-premium { position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.4s; background: transparent; z-index: 1; }
+    .btn-content { position: relative; z-index: 2; }
+    .btn-arrow { position: relative; z-index: 2; font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
+    .btn-border { position: absolute; inset: 0; border-radius: 4px; pointer-events: none; z-index: 1; border: 2px solid var(--gold); }
+    .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: left 0.8s; z-index: 1; pointer-events: none; }
+    .btn-primary-premium { background: var(--gold); color: var(--bg); box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); }
+    .btn-primary-premium:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
+    .btn-primary-premium:hover .btn-arrow { transform: translateX(8px); }
+    .btn-primary-premium:hover .btn-shine { left: 150%; }
+
+    /* FOOTER */
+    .footer { background: var(--bg); color: rgba(255,255,255,0.6); padding: 60px 0 30px; text-align: center; }
+    .footer-logo { font-family: var(--font-serif); font-size: 2rem; color: var(--white); font-weight: 700; margin-bottom: 15px; }
+    .footer-desc { max-width: 400px; margin: 0 auto 25px; }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.85rem; }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links { display: none; } .menu-btn { display: block; }
+      .blog-grid { grid-template-columns: repeat(2, 1fr); }
+      .page-hero { padding-top: 100px; }
+    }
+    @media (max-width: 600px) {
+      .blog-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+
+  <script>
+    // Scroll Progress & Nav Effect
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Mobile Menu
+    const btn = document.getElementById('menu-btn'), nav = document.querySelector('.nav-links');
+    if(btn) btn.addEventListener('click', () => {
+      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+      nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '100%';
+      nav.style.left = '0'; nav.style.width = '100%'; nav.style.background = '#0a0a0a';
+      nav.style.padding = '20px'; nav.style.textAlign = 'center';
+    });
+
+    // GSAP Animations
+    if(typeof gsap !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 0.8 });
+      gsap.from('.page-title', { opacity: 0, y: 30, duration: 1, delay: 0.2 });
+      gsap.from('.page-subtitle', { opacity: 0, y: 20, duration: 0.8, delay: 0.4 });
+      gsap.utils.toArray('.blog-card').forEach((el, i) => {
+        gsap.from(el, { y: 40, opacity: 0, duration: 0.8, delay: i * 0.1, scrollTrigger: { trigger: el, start: 'top 85%' } });
+      });
+    }
+  </script>
+</body>
+</html>
