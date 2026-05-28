@@ -1,25 +1,54 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Reformas de Baño | ReformaT Venezuela" description="Transformamos tu baño en un espacio de relax y bienestar con acabados premium e impermeabilización garantizada." image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=630&fit=crop" activePage="servicios">
-  <header class="service-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80')"></div><div class="hero-overlay"></div><div class="hero-content"><a href="/servicios" class="back-link">← Volver a Servicios</a><span class="article-category">Servicio Especializado</span><h1 class="article-title"><span class="line">Reformas de</span><span class="line gold">Baño</span></h1><p class="article-excerpt">Creamos espacios de bienestar con acabados premium que elevan tu rutina diaria.</p></div></header>
-  <section class="article-section"><div class="container"><div class="article-body"><p>El baño es un refugio personal. En ReformaT Venezuela lo diseñamos para combinar funcionalidad, higiene y estética de spa. Cada reforma incluye impermeabilización profesional, nivelación perfecta y acabados que resisten la humedad por décadas.</p><h2>Seguridad y Durabilidad Garantizada</h2><p>Aplicamos sistemas de impermeabilización certificados, grifería de alta gama con garantía extendida y revestimientos antideslizantes. Porque un baño bonito debe ser, ante todo, seguro y duradero.</p><blockquote>"Un baño bien reformado no solo mejora tu calidad de vida, sino que protege tu hogar de filtraciones y humedades costosas."</blockquote><h2>Acabados que Transforman</h2><p>Desde duchas a ras de suelo hasta bañeras exentas, trabajamos con porcelánicos, mosaicos y microcemento para crear ambientes modernos, minimalistas y fáciles de limpiar.</p><p>¿Listo para despertar cada día en un baño de revista? <a href="/contacto">Solicita tu presupuesto sin compromiso</a> y renueva tu espacio hoy.</p></div></div></section>
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Listo Para Tu Nuevo Baño?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+<BaseLayout 
+  title="Reformas de Baño | ReformaT Venezuela" 
+  description="Transformamos tu baño en un espacio de relax y bienestar con acabados premium e impermeabilización garantizada." 
+  image="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=630&fit=crop" 
+  activePage="servicios"
+>
+  <header class="article-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1920&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/servicios" class="back-link">← Volver a Servicios</a>
+      <span class="article-category">Servicio Especializado</span>
+      <h1 class="article-title"><span class="line">Reformas de</span><span class="line gold">Baño</span></h1>
+      <p class="article-excerpt">Creamos espacios de bienestar con acabados premium que elevan tu rutina diaria.</p>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>El baño es un refugio personal, el primer espacio que visitas al despertar y el último antes de dormir. En ReformaT Venezuela lo diseñamos para combinar funcionalidad, higiene y estética de spa. Cada reforma incluye impermeabilización profesional, nivelación perfecta y acabados que resisten la humedad por décadas.</p>
+
+        <h2>Seguridad y Durabilidad Garantizada</h2>
+        <p>Aplicamos sistemas de impermeabilización certificados, grifería de alta gama con garantía extendida y revestimientos antideslizantes. Porque un baño bonito debe ser, ante todo, seguro y duradero. Trabajamos con marcas europeas reconocidas como Grohe, Hansgrohe y Roca, garantizando piezas de repuesto disponibles por años.</p>
+
+        <blockquote>"Un baño bien reformado no solo mejora tu calidad de vida, sino que protege tu hogar de filtraciones y humedades costosas."</blockquote>
+
+        <h2>Diseño Tipo Spa en Tu Hogar</h2>
+        <p>Desde duchas a ras de suelo con mamparas de cristal templado hasta bañeras exentas de diseño contemporáneo, trabajamos con porcelánicos de gran formato, mosaicos artesanales y microcemento impermeable para crear ambientes modernos, minimalistas y fáciles de limpiar.</p>
+
+        <h2>Soluciones para Cada Espacio</h2>
+        <p>No importa si tu baño es de 3 o 15 metros cuadrados. Optimizamos cada centímetro con almacenamiento empotrado, espejos con iluminación LED integrada, inodoros suspendidos y lavabos sobre encimera que aportan ligereza visual. Incluimos ventilación forzada cuando es necesario para evitar problemas de condensación.</p>
+
+        <p>¿Listo para despertar cada día en un baño de revista? <a href="/contacto">Solicita tu presupuesto sin compromiso</a> y renueva tu espacio hoy.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Listo Para Tu Nuevo Baño?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Solicitar Presupuesto</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
-<style>
-  .service-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
-  .back-link:hover { color: var(--gold-light); }
-  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-  .article-title .line { display: block; }
-  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: #333; }
-  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: #555; }
-  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-</style>

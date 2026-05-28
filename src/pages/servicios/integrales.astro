@@ -1,25 +1,54 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Reformas Integrales | ReformaT Venezuela" description="Transformación completa de viviendas y locales con gestión llave en mano, sin sorpresas ni estrés." image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=630&fit=crop" activePage="servicios">
-  <header class="service-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"></div><div class="hero-overlay"></div><div class="hero-content"><a href="/servicios" class="back-link">← Volver a Servicios</a><span class="article-category">Servicio Premium</span><h1 class="article-title"><span class="line">Reformas</span><span class="line gold">Integrales</span></h1><p class="article-excerpt">Gestión completa de tu proyecto: desde el diseño inicial hasta la entrega final con llave en mano.</p></div></header>
-  <section class="article-section"><div class="container"><div class="article-body"><p>Reformar un espacio por completo puede parecer abrumador. Por eso en ReformaT Venezuela nos encargamos de absolutamente todo: planos, permisos, demolición, instalaciones, acabados y limpieza final. Tú solo eliges el diseño; nosotros lo hacemos realidad.</p><h2>Un Solo Interlocutor, Cero Estrés</h2><p>Coordinamos fontaneros, electricistas, albañiles y decoradores bajo un solo cronograma y presupuesto cerrado. Sin intermediarios, sin retrasos por falta de comunicación, sin costos ocultos.</p><blockquote>"La verdadera lujo en una reforma integral es la tranquilidad: saber que cada detalle está bajo control profesional."</blockquote><h2>Entrega en Plazos Garantizados</h2><p>Establecemos fechas claras por escrito. Si surgen imprevistos técnicos, los resolvemos sin detener el flujo de obra ni penalizar tu presupuesto.</p><p>¿Quieres una reforma que respete tu tiempo, tu inversión y tu visión? <a href="/contacto">Agenda una visita técnica gratuita</a> y recibe un plan a tu medida.</p></div></div></section>
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Listo Para Tu Reforma Integral?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+<BaseLayout 
+  title="Reformas Integrales | ReformaT Venezuela" 
+  description="Transformación completa de viviendas y locales con gestión llave en mano, sin sorpresas ni estrés." 
+  image="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&h=630&fit=crop" 
+  activePage="servicios"
+>
+  <header class="article-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/servicios" class="back-link">← Volver a Servicios</a>
+      <span class="article-category">Servicio Premium</span>
+      <h1 class="article-title"><span class="line">Reformas</span><span class="line gold">Integrales</span></h1>
+      <p class="article-excerpt">Gestión completa de tu proyecto: desde el diseño inicial hasta la entrega final con llave en mano.</p>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>Reformar un espacio por completo puede parecer abrumador. Por eso en ReformaT Venezuela nos encargamos de absolutamente todo: planos, permisos, demolición, instalaciones, acabados y limpieza final. Tú solo eliges el diseño; nosotros lo hacemos realidad.</p>
+
+        <h2>Un Solo Interlocutor, Cero Estrés</h2>
+        <p>Coordinamos fontaneros, electricistas, albañiles y decoradores bajo un solo cronograma y presupuesto cerrado. Sin intermediarios, sin retrasos por falta de comunicación, sin costos ocultos. Un jefe de obra dedicado supervisará cada fase y te mantendrá informado semanalmente con fotos y reportes.</p>
+
+        <blockquote>"El verdadero lujo en una reforma integral es la tranquilidad: saber que cada detalle está bajo control profesional."</blockquote>
+
+        <h2>Proyectos Llave en Mano</h2>
+        <p>Nuestro servicio incluye diseño arquitectónico, renders 3D para visualizar el resultado final, gestión de licencias municipales, compra de materiales con descuentos de proveedor y ejecución completa. Desde la primera visita hasta la entrega de las llaves, tú no tienes que preocuparte por nada.</p>
+
+        <h2>Entrega en Plazos Garantizados</h2>
+        <p>Establecemos fechas claras por escrito. Si surgen imprevistos técnicos, los resolvemos sin detener el flujo de obra ni penalizar tu presupuesto. Trabajamos con viviendas particulares, locales comerciales, oficinas y restaurantes, adaptando nuestro método a cada tipo de proyecto.</p>
+
+        <p>¿Quieres una reforma que respete tu tiempo, tu inversión y tu visión? <a href="/contacto">Agenda una visita técnica gratuita</a> y recibe un plan a tu medida.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Listo Para Tu Reforma Integral?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Solicitar Presupuesto</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
-<style>
-  .service-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
-  .back-link:hover { color: var(--gold-light); }
-  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-  .article-title .line { display: block; }
-  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: #333; }
-  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: #555; }
-  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-</style>

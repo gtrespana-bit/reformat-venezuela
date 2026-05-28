@@ -11,41 +11,26 @@ const related = allPosts.filter(p => p.data.category === data.category && p.slug
 ---
 <BaseLayout title={`${data.title} | ReformaT Venezuela`} description={data.excerpt} image={data.image} activePage="blog">
   <header class="article-hero"><div class="hero-bg" style="background-image: url('{data.image}')"></div><div class="hero-overlay"></div><div class="hero-content"><a href="/blog" class="back-link">← Volver al Blog</a><span class="article-category">{data.category}</span><h1 class="article-title">{data.title}</h1><p class="article-excerpt">{data.excerpt}</p><div class="article-meta"><span>{data.date.toLocaleDateString('es-VE', { year: 'numeric', month: 'long', day: 'numeric' })}</span><span>•</span><span>{data.readTime} lectura</span><span>•</span><span>Por {data.author}</span></div></div></header>
-  <article class="article-section"><div class="container"><div class="article-body"><Content /></div><div class="share-section"><span>Compartir artículo:</span><div class="share-btns"><button onclick="shareArticle('whatsapp')" class="share-btn wa">WA</button><button onclick="shareArticle('facebook')" class="share-btn fb">FB</button></div></div></div></article>
+  <article class="article-section"><div class="container"><div class="article-body"><Content /></div><div class="share-section"><span>Compartir:</span><div class="share-btns"><button onclick="shareArticle('whatsapp')" class="share-btn wa">WA</button><button onclick="shareArticle('facebook')" class="share-btn fb">FB</button></div></div></div></article>
   {related.length > 0 && (<section class="related-section"><div class="container"><h3 class="section-title">Artículos <span class="gold">Relacionados</span></h3><div class="related-grid">{related.map(rel => (<a href={`/blog/${rel.slug}`} class="related-card"><div class="related-img"><img src={rel.data.image || ''} alt={rel.data.title} loading="lazy" /></div><div class="related-content"><span class="related-cat">{rel.data.category}</span><h4>{rel.data.title}</h4><p>{rel.data.excerpt}</p></div></a>))}</div></div></section>)}
   
-  <!-- ✅ CTA ACTUALIZADO -->
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
 </BaseLayout>
 <style>
-  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
-  .back-link:hover { color: var(--gold-light); }
-  .article-category { display: inline-block; background: var(--gold); color: var(--bg); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 30px; line-height: 1.6; font-weight: 300; }
-  .article-meta { font-size: 0.95rem; color: rgba(255,255,255,0.8); display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; font-weight: 400; }
-  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); z-index: 101; transition: width 0.1s linear; width: 0%; }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; }
-  .article-body h2 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin: 60px 0 25px; color: var(--text); line-height: 1.2; }
-  .article-body h3 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin: 45px 0 20px; color: var(--text); }
-  .article-body p { font-size: 1.25rem; line-height: 1.9; color: #444; margin-bottom: 24px; font-weight: 300; }
-  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); transition: 0.3s; font-weight: 500; }
-  .article-body a:hover { color: var(--bg); background: var(--gold); }
-  .article-body blockquote { margin: 40px 0; padding: 25px 30px; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: #555; line-height: 1.5; }
-  .article-body img { border-radius: 12px; margin: 40px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 700; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
-  .share-section { display: flex; align-items: center; justify-content: space-between; margin-top: 60px; padding: 25px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .share-section { display: flex; align-items: center; justify-content: space-between; margin-top: 60px; padding: 25px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; max-width: 800px; margin-left: auto; margin-right: auto; }
   .share-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; color: white; }
   .share-btn.wa { background: #25D366; }
   .share-btn.fb { background: #1877F2; }
   .share-btn:hover { transform: translateY(-4px); }
   .related-section { padding: 100px 0; background: var(--bg); color: var(--white); }
-  .related-section .section-title { text-align: center; margin-bottom: 50px; font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+  .related-section .section-title { text-align: center; margin-bottom: 50px; font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; color: var(--white); }
+  .related-section .gold { color: var(--gold); }
   .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
   .related-card { display: block; background: #111; border-radius: 12px; overflow: hidden; transition: 0.4s; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.05); }
   .related-card:hover { transform: translateY(-8px); border-color: var(--gold); }
@@ -54,10 +39,7 @@ const related = allPosts.filter(p => p.data.category === data.category && p.slug
   .related-card:hover .related-img img { transform: scale(1.05); }
   .related-content { padding: 25px; }
   .related-cat { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 10px; display: block; }
-  .related-content h4 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; }
+  .related-content h4 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; color: var(--white); }
   .related-content p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
-  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } .share-section { flex-direction: column; gap: 20px; text-align: center; } .article-hero { padding-top: 120px; } }
+  @media (max-width: 900px) { .related-grid { grid-template-columns: 1fr; } .share-section { flex-direction: column; gap: 20px; text-align: center; } }
 </style>
-<script>
-  window.addEventListener('scroll', () => { const winScroll = document.body.scrollTop || document.documentElement.scrollTop; const height = document.documentElement.scrollHeight - document.documentElement.clientHeight; document.getElementById('reading-progress').style.width = ((winScroll / height) * 100) + '%'; });
-</script>

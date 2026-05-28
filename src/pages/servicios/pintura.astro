@@ -1,25 +1,54 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-<BaseLayout title="Pintura y Acabados | ReformaT Venezuela" description="Acabados decorativos, microcemento, estuco y pintura premium para transformar cualquier espacio." image="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=630&fit=crop" activePage="servicios">
-  <header class="service-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1920&q=80')"></div><div class="hero-overlay"></div><div class="hero-content"><a href="/servicios" class="back-link">← Volver a Servicios</a><span class="article-category">Acabados Decorativos</span><h1 class="article-title"><span class="line">Pintura y</span><span class="line gold">Acabados</span></h1><p class="article-excerpt">Transformamos cualquier espacio con técnicas decorativas modernas y acabados de alta calidad.</p></div></header>
-  <section class="article-section"><div class="container"><div class="article-body"><p>La pintura es el toque final que define el carácter de un espacio. En ReformaT Venezuela no solo aplicamos color: preparamos superficies con masillas profesionales, nivelamos paredes, aplicamos imprimaciones de sellado y terminamos con pinturas lavables, ecológicas y de larga duración.</p><h2>Técnicas que Marcan la Diferencia</h2><p>Trabajamos microcemento para suelos y paredes, estuco veneciano, pinturas magnéticas, efectos texturizados y papel pintado de alta gama. Cada técnica se selecciona según el uso, la iluminación y el estilo que buscas.</p><blockquote>"Un buen acabado no se mide por el precio del litro, sino por la preparación de la pared y la precisión del aplicador."</blockquote><h2>Resultados Limpios y Rápidos</h2><p>Protegemos muebles y suelos con films profesionales, usamos rodillos y pinceles de alta densidad para evitar marcas, y entregamos con limpieza profunda incluida. Sin olores fuertes, sin manchas, sin sorpresas.</p><p>¿Quieres renovar colores, tapar humedades o probar un acabado moderno? <a href="/contacto">Pide tu muestra gratuita</a> y visualiza el cambio antes de decidir.</p></div></div></section>
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Listo Para Renovar Tus Espacios?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+<BaseLayout 
+  title="Pintura y Acabados | ReformaT Venezuela" 
+  description="Acabados decorativos, microcemento, estuco y pintura premium para transformar cualquier espacio." 
+  image="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=630&fit=crop" 
+  activePage="servicios"
+>
+  <header class="article-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1920&q=80')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/servicios" class="back-link">← Volver a Servicios</a>
+      <span class="article-category">Acabados Decorativos</span>
+      <h1 class="article-title"><span class="line">Pintura y</span><span class="line gold">Acabados</span></h1>
+      <p class="article-excerpt">Transformamos cualquier espacio con técnicas decorativas modernas y acabados de alta calidad.</p>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>La pintura es el toque final que define el carácter de un espacio. En ReformaT Venezuela no solo aplicamos color: preparamos superficies con masillas profesionales, nivelamos paredes, aplicamos imprimaciones de sellado y terminamos con pinturas lavables, ecológicas y de larga duración.</p>
+
+        <h2>Técnicas que Marcan la Diferencia</h2>
+        <p>Trabajamos microcemento para suelos y paredes, estuco veneciano, pinturas magnéticas, efectos texturizados y papel pintado de alta gama. Cada técnica se selecciona según el uso, la iluminación y el estilo que buscas. Ofrecemos muestras reales en tu espacio antes de decidir el acabado final.</p>
+
+        <blockquote>"Un buen acabado no se mide por el precio del litro, sino por la preparación de la pared y la precisión del aplicador."</blockquote>
+
+        <h2>Microcemento: La Tendencia del Momento</h2>
+        <p>El microcemento es un revestimiento continuo, impermeable y sin juntas que transforma baños, cocinas y suelos con un look moderno e industrial. Aplicamos sistemas de alta resistencia con mallas de fibra de vidrio, imprimaciones específicas y selladores de poliuretano que garantizan durabilidad por más de 15 años.</p>
+
+        <h2>Resultados Limpios y Rápidos</h2>
+        <p>Protegemos muebles y suelos con films profesionales, usamos rodillos y pinceles de alta densidad para evitar marcas, y entregamos con limpieza profunda incluida. Sin olores fuertes, sin manchas, sin sorpresas. Trabajamos con marcas como Valentine, Bruguer y Montana Colors para garantizar resultados profesionales.</p>
+
+        <p>¿Quieres renovar colores, tapar humedades o probar un acabado moderno? <a href="/contacto">Pide tu muestra gratuita</a> y visualiza el cambio antes de decidir.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Listo Para Renovar Tus Espacios?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Solicitar Presupuesto</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
 </BaseLayout>
-<style>
-  .service-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
-  .back-link:hover { color: var(--gold-light); }
-  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-  .article-title .line { display: block; }
-  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: #333; }
-  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: #555; }
-  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-</style>

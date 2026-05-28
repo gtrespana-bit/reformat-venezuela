@@ -1,53 +1,23 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 const services = [
-  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales y elegantes que se convierten en el corazón de tu hogar.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", features: ["Diseño personalizado", "Materiales premium", "Optimización del espacio"] },
-  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium y diseños modernos.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", features: ["Impermeabilización garantizada", "Diseño spa moderno", "Grifería de alta gama"] },
-  { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa de viviendas y locales comerciales.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", features: ["Proyecto completo", "Gestión de permisos", "Entrega garantizada"] },
+  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales y elegantes.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", features: ["Diseño personalizado", "Materiales premium", "Optimización del espacio"] },
+  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", features: ["Impermeabilización garantizada", "Diseño spa moderno", "Grifería de alta gama"] },
+  { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa de viviendas y locales.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", features: ["Proyecto completo", "Gestión de permisos", "Entrega garantizada"] },
   { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones eléctricas seguras y eficientes.", image: "https://images.unsplash.com/photo-1621905224614-8e2b5f562c5f?w=800&h=600&fit=crop", features: ["Instalación certificada", "Domótica básica", "Revisión de seguridad"] },
   { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800&h=600&fit=crop", features: ["Detección de fugas", "Cambio de grifería", "Calefacción"] },
-  { slug: "pintura", title: "Pintura y Acabados", desc: "Acabados perfectos con técnicas decorativas modernas.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Pintura decorativa", "Microcemento", "Efectos especiales"] }
+  { slug: "pintura", title: "Pintura y Acabados", desc: "Acabados perfectos con técnicas decorativas.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Pintura decorativa", "Microcemento", "Efectos especiales"] }
 ];
 ---
-<BaseLayout title="Servicios | ReformaT Venezuela" description="Soluciones completas en reformas de cocinas, baños y proyectos integrales." activePage="servicios">
-  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Lo Que Hacemos</span><h1 class="page-title">Soluciones de <span class="gold">Reforma Integral</span></h1><p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego con excelencia y profesionalismo.</p></div></header>
-  <section class="services-page"><div class="container"><div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Transformamos Cada Rincón de Tu Hogar</h2><p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales llave en mano.</p></div><div class="services-vertical-grid">{services.map((svc) => (<a href={`/servicios/${svc.slug}`} class="service-vertical-card"><div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div><div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul><span class="card-link">Ver más detalles <span class="arrow">→</span></span></div></a>))}</div></div></section>
+<BaseLayout title="Servicios | ReformaT Venezuela" description="Soluciones completas en reformas." activePage="servicios">
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Lo Que Hacemos</span><h1 class="page-title">Soluciones de <span class="gold">Reforma Integral</span></h1><p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego.</p></div></header>
+  <section class="services-page"><div class="container"><div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Transformamos Cada Rincón de Tu Hogar</h2><p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales.</p></div><div class="services-vertical-grid">{services.map((svc) => (<a href={`/servicios/${svc.slug}`} class="service-vertical-card"><div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div><div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul><span class="card-link">Ver más detalles <span class="arrow">→</span></span></div></a>))}</div></div></section>
   
-  <!-- ✅ CTA ACTUALIZADO -->
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
+      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
 </BaseLayout>
-<style>
-  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 20px; }
-  .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 25px; line-height: 1.1; }
-  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
-  .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
-  .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
-  .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; }
-  .services-page { padding: 100px 0; background: var(--gray); }
-  .services-vertical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-  .service-vertical-card { display: block; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
-  .service-vertical-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
-  .card-img-wrap { position: relative; height: 250px; overflow: hidden; }
-  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
-  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
-  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
-  .service-vertical-card:hover .card-icon { transform: scale(1.15) rotate(15deg); }
-  .card-body { padding: 30px 25px; }
-  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; }
-  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 15px; }
-  .card-features { list-style: none; margin-bottom: 20px; }
-  .card-features li { padding: 6px 0; padding-left: 20px; position: relative; color: var(--text); font-size: 0.9rem; }
-  .card-features li::before { content: '✓'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; }
-  .arrow { transition: transform 0.3s; }
-  .service-vertical-card:hover .card-link { gap: 14px; }
-  .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
-  @media (max-width: 900px) { .services-vertical-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .services-vertical-grid { grid-template-columns: 1fr; } }
-</style>

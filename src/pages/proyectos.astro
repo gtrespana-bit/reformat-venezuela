@@ -1,29 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const projects = [
-  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", desc: "Transformación completa de piso de 120m² con diseño moderno." },
-  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", desc: "Cocina abierta al salón con isla central y acabados en mármol." },
-  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", desc: "Baño transformado en espacio spa con ducha de lluvia." },
-  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop", desc: "Reforma integral con diseño industrial y ambiente acogedor." },
-  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop", desc: "Restauración manteniendo elementos originales con toques modernos." },
-  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=800&h=600&fit=crop", desc: "Fusión de estilo rústico con funcionalidad moderna." }
+  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", desc: "Transformación completa de piso de 120m²." },
+  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", desc: "Cocina abierta al salón con isla central." },
+  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", desc: "Baño transformado en espacio spa." },
+  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop", desc: "Reforma integral con diseño industrial." },
+  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop", desc: "Restauración con toques modernos." },
+  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=800&h=600&fit=crop", desc: "Fusión de estilo rústico con funcionalidad." }
 ];
 ---
-<BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales de cocinas, baños y reformas integrales en Valencia y San Diego." activePage="proyectos">
-  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación. Descubre cómo convertimos espacios ordinarios en lugares extraordinarios.</p></div></header>
+<BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales." activePage="proyectos">
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
   <section class="projects-section"><div class="container"><div class="filter-bar">{["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div></div>))}</div></div></section>
   
-  <!-- ✅ CTA ACTUALIZADO -->
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">¿Quieres Ser Nuestro Próximo Proyecto?</h2><p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Quieres Ser Nuestro Próximo Proyecto?</h2>
+      <p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
 </BaseLayout>
 <style>
-  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.8)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 800px; padding: 0 20px; }
-  .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; }
-  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 25px; line-height: 1.1; }
-  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 600px; margin: 0 auto; }
   .projects-section { padding: 100px 0; background: var(--gray); }
   .filter-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
   .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid #ddd; border-radius: 30px; cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; transition: 0.3s; }
