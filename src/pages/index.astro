@@ -23,6 +23,7 @@ const stats = [
 
   <!-- HERO -->
   <header class="hero">
+    <!-- Video Desktop -->
     <video 
       id="v-d"
       class="hero-video hero-video--desktop" 
@@ -36,8 +37,10 @@ const stats = [
       poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
       src="/videos/hero-desktop.mp4"
       onloadedmetadata="this.play()"
+      style="position:absolute;top:0;left:0;width:100vw!important;height:100vh!important;height:100svh!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;z-index:1!important;pointer-events:none!important;opacity:1!important;visibility:visible!important;"
     ></video>
 
+    <!-- Video Mobile -->
     <video 
       id="v-m"
       class="hero-video hero-video--mobile" 
@@ -51,6 +54,7 @@ const stats = [
       poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop"
       src="/videos/hero-mobile.mp4"
       onloadedmetadata="this.play()"
+      style="position:absolute;top:0;left:0;width:100vw!important;height:100vh!important;height:100svh!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;z-index:1!important;pointer-events:none!important;opacity:1!important;visibility:visible!important;"
     ></video>
 
     <div class="hero-overlay"></div>
@@ -207,7 +211,7 @@ const stats = [
 <style>
   .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
   
-  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; }
+  /* Toggle seguro: CSS con !important anula inline si es necesario */
   .hero-video--desktop { display: block !important; }
   .hero-video--mobile  { display: none  !important; }
   
@@ -286,13 +290,7 @@ const stats = [
 
   window.addEventListener('load', () => {
     const d = document.getElementById('v-d');
-    if(d) {
-      d.play().catch(() => {
-        // Si falla en desktop, intentar forzar con interacción implícita o recarga de fuente
-        d.src = d.src; 
-        setTimeout(() => d.play().catch(() => {}), 100);
-      });
-    }
+    if(d) d.play().catch(() => {});
     const m = document.getElementById('v-m');
     if(m) m.play().catch(() => {});
   });
