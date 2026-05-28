@@ -1,61 +1,31 @@
 ---
 // src/pages/blog/[slug].astro
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
-// ✅ OBLIGATORIO: Astro necesita generar las rutas estáticas
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: { post },
-  }));
+  return posts.map((post) => ({ params: { slug: post.slug }, props: { post } }));
 }
 
-// Recibimos el post
 const { post } = Astro.props;
 if (!post) return Astro.redirect('/blog');
 
 const { data, slug, render } = post;
 const { Content } = await render();
 
-// Artículos relacionados (misma categoría, excluyendo el actual)
 const allPosts = await getCollection('blog');
-const related = allPosts
-  .filter(p => p.data.category === data.category && p.slug !== slug)
-  .slice(0, 2);
+const related = allPosts.filter(p => p.data.category === data.category && p.slug !== slug).slice(0, 2);
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{data.title} | ReformaT Venezuela</title>
-  <meta name="description" content={data.excerpt} />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
-</head>
+<BaseLayout title={`${data.title} | ReformaT Venezuela`} description={data.excerpt} image={data.image} activePage="blog">
 
-<body>
-  <!-- ✅ NAV -->
-  <nav id="navbar" class="nav">
-    <div class="nav-container">
-      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
-      <ul class="nav-links">
-        <li><a href="/">Inicio</a></li>
-        <li><a href="/servicios">Servicios</a></li>
-        <li><a href="/proyectos">Proyectos</a></li>
-        <li><a href="/blog" class="active">Blog</a></li>
-        <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
-      </ul>
-      <button id="menu-btn" class="menu-btn">☰</button>
-    </div>
-  </nav>
-
-  <!-- ✅ HERO FULL-WIDTH (CON CORRECCIÓN DE ESPACIADO) -->
+  <!-- HERO -->
   <header class="article-hero">
     <div class="hero-bg" style="background-image: url('{data.image}')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
+      <a href="/blog" class="back-link">← Volver al Blog</a>
       <span class="article-category">{data.category}</span>
       <h1 class="article-title">{data.title}</h1>
       <p class="article-excerpt">{data.excerpt}</p>
@@ -69,229 +39,86 @@ const related = allPosts
     </div>
   </header>
 
-  <!-- ✅ BARRA DE PROGRESO -->
-  <div id="reading-progress" class="progress-bar"></div>
-
-  <!-- ✅ CONTENIDO DEL ARTÍCULO -->
+  <!-- CONTENIDO -->
   <article class="article-section">
     <div class="container">
-      <div class="article-body">
-        <Content />
-      </div>
-
-      <!-- Compartir -->
+      <div class="article-body"><Content /></div>
       <div class="share-section">
         <span>Compartir artículo:</span>
         <div class="share-btns">
-          <button onclick="share('whatsapp')" class="share-btn wa">WA</button>
-          <button onclick="share('facebook')" class="share-btn fb">FB</button>
+          <button onclick="shareArticle('whatsapp')" class="share-btn wa">WA</button>
+          <button onclick="shareArticle('facebook')" class="share-btn fb">FB</button>
         </div>
       </div>
     </div>
   </article>
 
-  <!-- ✅ ARTÍCULOS RELACIONADOS -->
+  <!-- RELACIONADOS -->
   {related.length > 0 && (
-    <section class="related-section">
-      <div class="container">
-        <h3 class="section-title">Artículos <span class="gold">Relacionados</span></h3>
-        <div class="related-grid">
-          {related.map(rel => (
-            <a href={`/blog/${rel.slug}`} class="related-card">
-              <div class="related-img"><img src={rel.data.image || ''} alt={rel.data.title} loading="lazy" /></div>
-              <div class="related-content">
-                <span class="related-cat">{rel.data.category}</span>
-                <h4>{rel.data.title}</h4>
-                <p>{rel.data.excerpt}</p>
-              </div>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
+    <section class="related-section"><div class="container"><h3 class="section-title">Artículos <span class="gold">Relacionados</span></h3><div class="related-grid">{related.map(rel => (<a href={`/blog/${rel.slug}`} class="related-card"><div class="related-img"><img src={rel.data.image || ''} alt={rel.data.title} loading="lazy" /></div><div class="related-content"><span class="related-cat">{rel.data.category}</span><h4>{rel.data.title}</h4><p>{rel.data.excerpt}</p></div></a>))}</div></div></section>
   )}
 
-  <!-- ✅ CTA -->
-  <section class="cta-section">
-    <div class="container">
-      <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
-      <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
-      <a href="/contacto" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Agendar Consulta Gratuita</span>
-        <span class="btn-border"></span>
-        <span class="btn-shine"></span>
-        <span class="btn-arrow">→</span>
-      </a>
-    </div>
-  </section>
+  <!-- CTA -->
+  <section class="cta-section"><div class="container"><h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2><p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></section>
 
-  <!-- ✅ FOOTER -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-logo">ReformaT<span class="dot">.</span></div>
-      <p class="footer-desc">Transformando espacios con excelencia desde 2005.</p>
-      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p>
-    </div>
-  </footer>
+</BaseLayout>
 
-  <!-- ✅ ESTILOS GLOBALES + TIPOGRAFÍA EDITORIAL -->
-  <style>
-    :root {
-      --bg: #0a0a0a; --text: #1a1a1a; --gold: #c9a961; --gold-light: #e6d3a7;
-      --white: #fff; --gray: #f5f5f5; --gray-text: #666;
-      --font-serif: 'Cormorant Garamond', serif;
-      --font-sans: 'Manrope', sans-serif;
-      --container: 1200px;
-    }
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { font-family: var(--font-sans); background: var(--white); color: var(--text); overflow-x: hidden; line-height: 1.6; }
-    
-    /* NAV */
-    .nav { position: fixed; top: 0; width: 100%; z-index: 100; padding: 25px 0; transition: 0.4s; background: transparent; }
-    .nav.scrolled { background: rgba(10,10,10,0.95); backdrop-filter: blur(10px); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
-    .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-    .logo { font-family: var(--font-serif); font-size: 1.8rem; color: var(--white); font-weight: 700; }
-    .nav-links { display: flex; gap: 40px; }
-    .nav-links a { color: rgba(255,255,255,0.8); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
-    .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-    .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; }
-    .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+<style>
+  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
+  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
+  .back-link:hover { color: var(--gold-light); }
+  .article-category { display: inline-block; background: var(--gold); color: var(--bg); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
+  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
+  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 30px; line-height: 1.6; font-weight: 300; }
+  .article-meta { font-size: 0.95rem; color: rgba(255,255,255,0.8); display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; font-weight: 400; }
 
-    /* HERO - ✅ CORRECCIÓN DE SOLAPAMIENTO */
-    .article-hero { 
-      position: relative; 
-      min-height: 80vh; 
-      display: flex; 
-      align-items: flex-end; 
-      justify-content: center; 
-      text-align: center; 
-      color: var(--white); 
-      overflow: hidden; 
-      padding-top: 140px; /* ✅ ESPACIO PARA EL HEADER FIJO */
-      padding-bottom: 80px; 
-    }
-    .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
-    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-    .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-    .article-category { display: inline-block; background: var(--gold); color: var(--bg); padding: 6px 16px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 20px; }
-    .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 300; margin-bottom: 20px; line-height: 1.1; }
-    .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto 30px; line-height: 1.6; font-weight: 300; }
-    .article-meta { font-size: 0.95rem; color: rgba(255,255,255,0.8); display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; font-weight: 400; }
+  .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); z-index: 101; transition: width 0.1s linear; width: 0%; }
+  
+  .article-section { padding: 80px 0; background: var(--white); }
+  .article-body { max-width: 800px; margin: 0 auto; }
+  .article-body h2 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin: 60px 0 25px; color: var(--text); line-height: 1.2; }
+  .article-body h3 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin: 45px 0 20px; color: var(--text); }
+  .article-body p { font-size: 1.25rem; line-height: 1.9; color: #444; margin-bottom: 24px; font-weight: 300; }
+  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); transition: 0.3s; font-weight: 500; }
+  .article-body a:hover { color: var(--bg); background: var(--gold); }
+  .article-body blockquote { margin: 40px 0; padding: 25px 30px; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: #555; line-height: 1.5; }
+  .article-body img { border-radius: 12px; margin: 40px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
+  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 700; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
 
-    /* PROGRESS BAR */
-    .progress-bar { position: fixed; top: 0; left: 0; height: 3px; background: var(--gold); z-index: 101; transition: width 0.1s linear; width: 0%; }
+  .share-section { display: flex; align-items: center; justify-content: space-between; margin-top: 60px; padding: 25px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+  .share-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; color: white; }
+  .share-btn.wa { background: #25D366; }
+  .share-btn.fb { background: #1877F2; }
+  .share-btn:hover { transform: translateY(-4px); }
 
-    /* ARTICLE CONTENT (TIPOGRAFÍA EDITORIAL) */
-    .article-section { padding: 80px 0; background: var(--white); }
-    .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
-    .article-body { max-width: 800px; margin: 0 auto; }
-    
-    .article-body h2 { font-family: var(--font-serif); font-size: 2.8rem; font-weight: 400; margin: 60px 0 25px; color: var(--text); line-height: 1.2; }
-    .article-body h3 { font-family: var(--font-serif); font-size: 2rem; font-weight: 400; margin: 45px 0 20px; color: var(--text); }
-    .article-body p { font-size: 1.25rem; line-height: 1.9; color: #444; margin-bottom: 24px; font-weight: 300; }
-    .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); transition: 0.3s; font-weight: 500; }
-    .article-body a:hover { color: var(--bg); background: var(--gold); }
-    .article-body blockquote { margin: 40px 0; padding: 25px 30px; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-family: var(--font-serif); font-size: 1.6rem; font-style: italic; color: #555; line-height: 1.5; }
-    .article-body img { border-radius: 12px; margin: 40px 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-    .article-body ul, .article-body ol { margin: 20px 0 30px 25px; }
-    .article-body li { margin-bottom: 12px; font-size: 1.2rem; color: #444; line-height: 1.7; }
-    .article-body strong { color: var(--text); font-weight: 600; }
+  .related-section { padding: 100px 0; background: var(--bg); color: var(--white); }
+  .related-section .section-title { text-align: center; margin-bottom: 50px; font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
+  .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
+  .related-card { display: block; background: #111; border-radius: 12px; overflow: hidden; transition: 0.4s; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.05); }
+  .related-card:hover { transform: translateY(-8px); border-color: var(--gold); }
+  .related-img { height: 220px; overflow: hidden; }
+  .related-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+  .related-card:hover .related-img img { transform: scale(1.05); }
+  .related-content { padding: 25px; }
+  .related-cat { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 10px; display: block; }
+  .related-content h4 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; }
+  .related-content p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
 
-    /* Letra capital */
-    .article-body > p:first-of-type::first-letter {
-      font-family: var(--font-serif);
-      font-size: 4.5rem;
-      font-weight: 700;
-      float: left;
-      line-height: 0.75;
-      margin-right: 0.15em;
-      color: var(--gold);
-      margin-top: 8px;
-    }
+  @media (max-width: 900px) {
+    .related-grid { grid-template-columns: 1fr; }
+    .share-section { flex-direction: column; gap: 20px; text-align: center; }
+    .article-hero { padding-top: 120px; }
+  }
+</style>
 
-    /* SHARE */
-    .share-section { display: flex; align-items: center; justify-content: space-between; margin-top: 60px; padding: 25px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-    .share-section span { font-size: 0.95rem; color: var(--gray-text); }
-    .share-btns { display: flex; gap: 12px; }
-    .share-btn { width: 45px; height: 45px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; color: white; }
-    .share-btn.wa { background: #25D366; }
-    .share-btn.fb { background: #1877F2; }
-    .share-btn:hover { transform: translateY(-4px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-
-    /* RELATED */
-    .related-section { padding: 100px 0; background: var(--bg); color: var(--white); }
-    .related-section .section-title { text-align: center; margin-bottom: 50px; font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 300; }
-    .gold { color: var(--gold); }
-    .related-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; }
-    .related-card { display: block; background: #111; border-radius: 12px; overflow: hidden; transition: 0.4s; text-decoration: none; color: inherit; border: 1px solid rgba(255,255,255,0.05); }
-    .related-card:hover { transform: translateY(-8px); border-color: var(--gold); }
-    .related-img { height: 220px; overflow: hidden; }
-    .related-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-    .related-card:hover .related-img img { transform: scale(1.05); }
-    .related-content { padding: 25px; }
-    .related-cat { font-size: 0.75rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 10px; display: block; }
-    .related-content h4 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; }
-    .related-content p { color: rgba(255,255,255,0.6); font-size: 0.95rem; line-height: 1.6; }
-
-    /* CTA & BUTTONS */
-    .cta-section { padding: 100px 0; background: var(--gray); text-align: center; }
-    .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 20px; }
-    .cta-text { color: var(--gray-text); max-width: 600px; margin: 0 auto 40px; font-size: 1.15rem; }
-    .btn-premium { position: relative; display: inline-flex; align-items: center; gap: 12px; padding: 18px 45px; font-family: var(--font-sans); font-size: 0.85rem; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; border-radius: 4px; overflow: hidden; cursor: pointer; transition: all 0.4s; background: transparent; z-index: 1; }
-    .btn-content { position: relative; z-index: 2; }
-    .btn-arrow { position: relative; z-index: 2; font-size: 1.1rem; transition: transform 0.4s; display: inline-block; }
-    .btn-border { position: absolute; inset: 0; border-radius: 4px; pointer-events: none; z-index: 1; border: 2px solid var(--gold); }
-    .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transform: skewX(-20deg); transition: left 0.8s; z-index: 1; pointer-events: none; }
-    .btn-primary-premium { background: var(--gold); color: var(--bg); box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3); }
-    .btn-primary-premium:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
-    .btn-primary-premium:hover .btn-arrow { transform: translateX(8px); }
-    .btn-primary-premium:hover .btn-shine { left: 150%; }
-
-    /* FOOTER */
-    .footer { background: var(--bg); color: rgba(255,255,255,0.6); padding: 60px 0 30px; text-align: center; }
-    .footer-logo { font-family: var(--font-serif); font-size: 2rem; color: var(--white); font-weight: 700; margin-bottom: 15px; }
-    .footer-desc { max-width: 400px; margin: 0 auto 25px; }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 25px; font-size: 0.85rem; }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav-links { display: none; } .menu-btn { display: block; }
-      .related-grid { grid-template-columns: 1fr; }
-      .share-section { flex-direction: column; gap: 20px; text-align: center; }
-      .article-title { font-size: 3rem; }
-      .article-hero { padding-top: 120px; } /* Ajuste móvil */
-    }
-  </style>
-
-  <script>
-    // Scroll Progress & Nav Effect
-    window.addEventListener('scroll', () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      document.getElementById('reading-progress').style.width = ((winScroll / height) * 100) + '%';
-      
-      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80);
-    });
-
-    // Mobile Menu
-    const btn = document.getElementById('menu-btn'), nav = document.querySelector('.nav-links');
-    if(btn) btn.addEventListener('click', () => {
-      nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-      nav.style.flexDirection = 'column'; nav.style.position = 'absolute'; nav.style.top = '100%';
-      nav.style.left = '0'; nav.style.width = '100%'; nav.style.background = '#0a0a0a';
-      nav.style.padding = '20px'; nav.style.textAlign = 'center';
-    });
-
-    // Share
-    function share(p) {
-      const u = window.location.href, t = document.title;
-      const urls = {
-        whatsapp: `https://wa.me/?text=${encodeURIComponent(t + ' ' + u)}`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(u)}`
-      };
-      if(urls[p]) window.open(urls[p], '_blank', 'width=600,height=400');
-    }
-  </script>
-</body>
-</html>
+<script>
+  // Barra de progreso
+  window.addEventListener('scroll', () => {
+    const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+    const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+    document.getElementById('reading-progress').style.width = ((winScroll / height) * 100) + '%';
+  });
+</script>
