@@ -1,0 +1,14 @@
+<!-- src/components/Analytics.astro -->
+<!-- Google Analytics 4 - ReformaT Venezuela -->
+
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-213W48VR6M', {
+    page_path: window.location.pathname,
+    anonymize_ip: true,
+    cookie_flags: 'SameSite=None;Secure'
+  });
+</script>
+<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M" async></script>
