@@ -1,10 +1,12 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
 const services = [
   { title: "Cocinas de Lujo", desc: "Diseños funcionales y elegantes que convierten tu cocina en el corazón de tu hogar.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", link: "/servicios/cocinas" },
   { title: "Baños de Bienestar", desc: "Espacios de relajación con acabados premium que elevan tu rutina diaria.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", link: "/servicios/banos" },
   { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica y ejecución impecable.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", link: "/servicios/integrales" }
 ];
+
 const stats = [
   { number: 20, label: "Años de Experiencia" },
   { number: 500, label: "Proyectos Realizados" },
@@ -12,71 +14,691 @@ const stats = [
   { number: 15, label: "Premios Ganados" }
 ];
 ---
-<BaseLayout title="ReformaT Venezuela | Arquitectura y Diseño Premium" description="Más de 20 años transformando hogares y negocios en Valencia y San Diego." activePage="inicio">
+
+<BaseLayout 
+  title="ReformaT Venezuela | Arquitectura y Diseño Premium" 
+  description="Más de 20 años transformando hogares y negocios en Valencia y San Diego." 
+  activePage="inicio"
+>
+  <!-- HERO CON VIDEO RESPONSIVO -->
   <header class="hero">
-    <div class="hero-bg"></div>
+    <!-- Video Desktop (visible solo en pantallas > 768px) -->
+    <video 
+      class="hero-video hero-video-desktop" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="metadata"
+      poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
+    >
+      <source src="/videos/hero-desktop.mp4" type="video/mp4" />
+    </video>
+
+    <!-- Video Mobile (visible solo en pantallas ≤ 768px) -->
+    <video 
+      class="hero-video hero-video-mobile" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="metadata"
+      poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop"
+    >
+      <source src="/videos/hero-mobile.mp4" type="video/mp4" />
+    </video>
+    
+    <!-- Overlay oscuro para legibilidad -->
+    <div class="hero-overlay"></div>
+    
+    <!-- Contenido del hero -->
     <div class="hero-content">
       <span class="hero-tag">Arquitectura & Diseño Premium</span>
-      <h1 class="hero-title"><span class="line">Transformamos</span><span class="line gold">Espacios</span><span class="line">con Excelencia</span></h1>
+      <h1 class="hero-title">
+        <span class="line">Transformamos</span>
+        <span class="line gold">Espacios</span>
+        <span class="line">con Excelencia</span>
+      </h1>
       <p class="hero-sub">Más de 20 años creando hogares y negocios excepcionales en Valencia y San Diego.</p>
       <div class="hero-btns">
-        <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
-        <a href="/servicios" class="btn-premium btn-outline-premium"><span class="btn-content">Explorar Servicios</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+        <a href="/contacto" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Solicitar Presupuesto</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="/servicios" class="btn-premium btn-outline-premium">
+          <span class="btn-content">Explorar Servicios</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
     </div>
   </header>
-  <section class="stats-section"><div class="container stats-grid">{stats.map((s) => (<div class="stat-item"><div class="stat-num" data-target={s.number}>0</div><div class="stat-label">{s.label}</div></div>))}</div></section>
-  <section class="section bg-light"><div class="container"><div class="section-header"><span class="tag">Nuestros Servicios</span><h2 class="section-title">Diseño que Transforma Vidas</h2><p class="section-desc">Cada proyecto es una obra única, creada con precisión artesanal.</p></div><div class="services-vertical-grid">{services.map((svc) => (<a href={svc.link} class="service-vertical-card"><div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" /><div class="card-overlay"></div><span class="card-icon">✦</span></div><div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><span class="card-link">Descubrir más <span class="arrow">→</span></span></div></a>))}</div></div></section>
-  <section class="section"><div class="container about-grid"><div class="about-imgs"><div class="img-box tall"><img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Arquitectura" /></div><div class="img-box small"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Equipo" /></div></div><div class="about-text"><span class="tag">Sobre Nosotros</span><h2 class="section-title">Arquitectura con Alma,<br/>Ejecución con Precisión</h2><p>En ReformaT Venezuela, fusionamos más de 20 años de experiencia con una pasión genuina por el diseño excepcional.</p><ul class="check-list"><li>Diseño personalizado que honra tu visión</li><li>Materiales de calidad y durabilidad</li><li>Ejecución meticulosa a cada detalle</li><li>Transparencia total en presupuestos</li></ul><a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Comenzar Conversación</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a></div></div></section>
-  
-  <!-- CTA UNIFICADO -->
+
+  <!-- STATS -->
+  <section class="stats-section">
+    <div class="container stats-grid">
+      {stats.map((s, i) => (
+        <div class="stat-item">
+          <div class="stat-num" data-target={s.number}>0</div>
+          <div class="stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Nuestros Servicios</span>
+        <h2 class="section-title">Diseño que Transforma Vidas</h2>
+        <p class="section-desc">Cada proyecto es una obra única, creada con precisión artesanal.</p>
+      </div>
+      <div class="services-vertical-grid">
+        {services.map((svc) => (
+          <a href={svc.link} class="service-vertical-card">
+            <div class="card-img-wrap">
+              <img src={svc.image} alt={svc.title} loading="lazy" />
+              <div class="card-overlay"></div>
+              <span class="card-icon">✦</span>
+            </div>
+            <div class="card-body">
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
+              <span class="card-link">Descubrir más <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-imgs">
+        <div class="img-box tall">
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Arquitectura" />
+        </div>
+        <div class="img-box small">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Equipo" />
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="tag">Sobre Nosotros</span>
+        <h2 class="section-title">Arquitectura con Alma,<br/>Ejecución con Precisión</h2>
+        <p>En ReformaT Venezuela, fusionamos más de 20 años de experiencia con una pasión genuina por el diseño excepcional.</p>
+        <ul class="check-list">
+          <li><span></span>Diseño personalizado que honra tu visión</li>
+          <li><span></span>Materiales de calidad y durabilidad</li>
+          <li><span></span>Ejecución meticulosa a cada detalle</li>
+          <li><span></span>Transparencia total en presupuestos</li>
+        </ul>
+        <a href="/contacto" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Comenzar Conversación</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">Tu Espacio, Nuestra Pasión</h2>
       <p class="cta-text">Cada proyecto comienza con una conversación. Cuéntanos tu visión y hagamos realidad el espacio de tus sueños.</p>
-      <a href="/contacto" class="btn-premium btn-white-premium"><span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+      <a href="/contacto" class="btn-premium btn-white-premium">
+        <span class="btn-content">Agendar Consulta Gratuita</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
     </div>
   </section>
-  
-  <section class="section bg-light"><div class="container contact-grid"><div class="contact-info"><h2 class="section-title">Hablemos de Tu Visión</h2><p>Estamos aquí para escuchar, asesorar y crear junto a ti.</p><div class="info-item"><h4>Ubicación</h4><p>Valencia y San Diego, Carabobo</p></div><div class="info-item"><h4>Teléfono</h4><p>0422 799 7043</p></div></div><form class="contact-form"><div class="form-row"><input type="text" placeholder="Nombre" required /><input type="tel" placeholder="Teléfono" required /></div><input type="email" placeholder="Email" required /><select required><option value="" disabled selected>Tipo de Proyecto</option><option value="cocina">Reforma de Cocina</option><option value="bano">Reforma de Baño</option><option value="integral">Reforma Integral</option></select><textarea placeholder="Tu Mensaje" rows="4"></textarea><button type="submit" class="btn-premium btn-primary-premium"><span class="btn-content">Enviar Mensaje</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></button></form></div></section>
+
+  <!-- CONTACT -->
+  <section class="section bg-light">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title">Hablemos de Tu Visión</h2>
+        <p>Estamos aquí para escuchar, asesorar y crear junto a ti.</p>
+        <div class="info-item">
+          <h4>Ubicación</h4>
+          <p>Valencia y San Diego, Carabobo</p>
+        </div>
+        <div class="info-item">
+          <h4>Teléfono</h4>
+          <p>0422 799 7043</p>
+        </div>
+      </div>
+      <form class="contact-form">
+        <div class="form-row">
+          <input type="text" placeholder="Nombre" required />
+          <input type="tel" placeholder="Teléfono" required />
+        </div>
+        <input type="email" placeholder="Email" required />
+        <select required>
+          <option value="" disabled selected>Tipo de Proyecto</option>
+          <option value="cocina">Reforma de Cocina</option>
+          <option value="bano">Reforma de Baño</option>
+          <option value="integral">Reforma Integral</option>
+        </select>
+        <textarea placeholder="Tu Mensaje" rows="4"></textarea>
+        <button type="submit" class="btn-premium btn-primary-premium full-width">
+          <span class="btn-content">Enviar Mensaje</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
 </BaseLayout>
+
 <style>
-  .hero { position: relative; width: 100%; min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; background: #111; }
-  .hero-bg { position: absolute; inset: 0; background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat; z-index: 1; }
-  .hero::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.85)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .hero-tag { font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; display: block; }
-  .hero-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; margin-bottom: 30px; line-height: 1.1; }
-  .hero-title .line { display: block; }
-  .hero-title .gold { color: var(--gold); }
-  .hero-sub { font-size: 1.2rem; color: rgba(255,255,255,0.9); margin-bottom: 40px; }
-  .hero-btns { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
-  .stats-section { padding: 60px 0; background: var(--bg); color: var(--white); }
-  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-  .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; }
-  .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
-  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-  .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  .img-box { border-radius: 4px; overflow: hidden; }
-  .img-box.tall { grid-row: span 2; }
-  .img-box img { width: 100%; height: 100%; object-fit: cover; }
-  .check-list { margin: 30px 0; list-style: none; }
-  .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); }
-  .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-  .info-item { margin-bottom: 25px; }
-  .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-  .info-item p { color: var(--gray-text); }
-  .contact-form { background: var(--white); padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-  .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px; font-family: inherit; }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-  @media (max-width: 900px) { 
-    .hero-title { font-size: 3rem; } 
-    .stats-grid { grid-template-columns: repeat(2, 1fr); } 
-    .about-grid, .contact-grid { grid-template-columns: 1fr; } 
-    .hero-btns { flex-direction: column; align-items: center; } 
+  /* === HERO CON VIDEO RESPONSIVO === */
+  .hero { 
+    position: relative; 
+    width: 100%; 
+    min-height: 100vh; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: var(--white); 
+    overflow: hidden; 
+    background: #111; 
+  }
+
+  .hero-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    object-fit: cover;
+    z-index: 1;
+    display: none;
+  }
+
+  @media (min-width: 769px) {
+    .hero-video-desktop {
+      display: block;
+      min-width: 100%;
+      min-height: 100%;
+      width: auto;
+      height: auto;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-video-mobile {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-width: 100%;
+      min-height: 100%;
+    }
+    
+    .hero {
+      min-height: 100svh;
+      padding-top: 80px;
+      padding-bottom: 40px;
+    }
+  }
+
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.4) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.85) 100%
+    );
+    z-index: 2;
+  }
+
+  .hero-content { 
+    position: relative; 
+    z-index: 3; 
+    max-width: 900px; 
+    padding: 0 20px; 
+  }
+
+  .hero-tag { 
+    font-size: 0.9rem; 
+    letter-spacing: 3px; 
+    text-transform: uppercase; 
+    color: var(--gold); 
+    margin-bottom: 20px; 
+    display: block; 
+  }
+
+  .hero-title { 
+    font-family: var(--font-serif); 
+    font-size: clamp(3rem, 8vw, 7rem); 
+    font-weight: 300; 
+    margin-bottom: 30px; 
+    line-height: 1.1; 
+  }
+
+  .hero-title .line { 
+    display: block; 
+  }
+
+  .hero-title .gold { 
+    color: var(--gold); 
+  }
+
+  .hero-sub { 
+    font-size: 1.2rem; 
+    color: rgba(255, 255, 255, 0.9); 
+    margin-bottom: 40px; 
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-btns { 
+    display: flex; 
+    gap: 25px; 
+    justify-content: center; 
+    flex-wrap: wrap; 
+  }
+
+  .btn-outline-premium { 
+    background: transparent; 
+    color: var(--white); 
+    border: 1px solid rgba(255,255,255,0.4); 
+    backdrop-filter: blur(5px); 
+  }
+
+  .btn-outline-premium:hover { 
+    transform: translateY(-3px); 
+    border-color: var(--gold); 
+    color: var(--gold); 
+  }
+
+  .btn-white-premium { 
+    background: var(--white); 
+    color: var(--bg); 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2); 
+  }
+
+  .btn-white-premium .btn-border { 
+    border: 2px solid var(--white); 
+  }
+
+  .btn-white-premium:hover { 
+    transform: translateY(-3px); 
+    background: var(--gold); 
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); 
+  }
+
+  .btn-white-premium:hover .btn-arrow { 
+    transform: translateX(8px); 
+  }
+
+  .btn-white-premium:hover .btn-shine { 
+    left: 150%; 
+  }
+
+  .section { 
+    padding: 100px 0; 
+  }
+
+  .bg-light { 
+    background: var(--gray); 
+  }
+
+  .section-header { 
+    text-align: center; 
+    max-width: 700px; 
+    margin: 0 auto 60px; 
+  }
+
+  .section-title { 
+    font-family: var(--font-serif); 
+    font-size: clamp(2rem, 5vw, 3.5rem); 
+    margin-bottom: 20px; 
+  }
+
+  .tag { 
+    display: inline-block; 
+    color: var(--gold); 
+    font-size: 0.85rem; 
+    letter-spacing: 2px; 
+    text-transform: uppercase; 
+    margin-bottom: 15px; 
+    font-weight: 600; 
+  }
+
+  .section-desc { 
+    color: var(--gray-text); 
+    font-size: 1.1rem; 
+    line-height: 1.8; 
+  }
+
+  .stats-section { 
+    padding: 60px 0; 
+    background: var(--bg); 
+    color: var(--white); 
+  }
+
+  .stats-grid { 
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 30px; 
+    text-align: center; 
+  }
+
+  .stat-num { 
+    font-family: var(--font-serif); 
+    font-size: 3.5rem; 
+    color: var(--gold); 
+    line-height: 1; 
+    margin-bottom: 10px; 
+  }
+
+  .stat-label { 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    opacity: 0.7; 
+  }
+
+  .services-vertical-grid { 
+    display: grid; 
+    grid-template-columns: repeat(3, 1fr); 
+    gap: 30px; 
+  }
+
+  .service-vertical-card { 
+    display: block; 
+    background: var(--white); 
+    border-radius: 8px; 
+    overflow: hidden; 
+    box-shadow: 0 5px 20px rgba(0,0,0,0.05); 
+    transition: 0.4s; 
+    text-decoration: none; 
+    color: inherit; 
+  }
+
+  .service-vertical-card:hover { 
+    transform: translateY(-10px); 
+    box-shadow: 0 20px 50px rgba(0,0,0,0.12); 
+  }
+
+  .card-img-wrap { 
+    position: relative; 
+    height: 280px; 
+    overflow: hidden; 
+  }
+
+  .card-img-wrap img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+    transition: 0.6s; 
+  }
+
+  .service-vertical-card:hover .card-img-wrap img { 
+    transform: scale(1.08); 
+  }
+
+  .card-overlay { 
+    position: absolute; 
+    inset: 0; 
+    background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); 
+  }
+
+  .card-icon { 
+    position: absolute; 
+    bottom: 15px; 
+    right: 15px; 
+    width: 45px; 
+    height: 45px; 
+    background: var(--gold); 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 1.2rem; 
+    color: var(--bg); 
+    transition: 0.4s; 
+  }
+
+  .service-vertical-card:hover .card-icon { 
+    transform: scale(1.15) rotate(15deg); 
+  }
+
+  .card-body { 
+    padding: 30px 25px; 
+  }
+
+  .card-body h3 { 
+    font-family: var(--font-serif); 
+    font-size: 1.5rem; 
+    margin-bottom: 12px; 
+  }
+
+  .card-body p { 
+    color: var(--gray-text); 
+    font-size: 0.95rem; 
+    line-height: 1.7; 
+    margin-bottom: 20px; 
+  }
+
+  .card-link { 
+    color: var(--gold); 
+    font-weight: 600; 
+    font-size: 0.85rem; 
+    display: inline-flex; 
+    align-items: center; 
+    gap: 8px; 
+  }
+
+  .arrow { 
+    transition: transform 0.3s; 
+  }
+
+  .service-vertical-card:hover .card-link { 
+    gap: 14px; 
+  }
+
+  .service-vertical-card:hover .card-link .arrow { 
+    transform: translateX(5px); 
+  }
+
+  .about-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; 
+    align-items: center; 
+  }
+
+  .about-imgs { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+  }
+
+  .img-box { 
+    border-radius: 4px; 
+    overflow: hidden; 
+  }
+
+  .img-box.tall { 
+    grid-row: span 2; 
+  }
+
+  .img-box img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+  }
+
+  .check-list { 
+    margin: 30px 0; 
+    list-style: none;
+  }
+
+  .check-list li { 
+    margin-bottom: 15px; 
+    padding-left: 25px; 
+    position: relative; 
+    color: var(--gray-text); 
+  }
+
+  .check-list li::before { 
+    content: "✓"; 
+    position: absolute; 
+    left: 0; 
+    color: var(--gold); 
+    font-weight: bold; 
+  }
+
+  .contact-grid { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 60px; 
+  }
+
+  .info-item { 
+    margin-bottom: 25px; 
+  }
+
+  .info-item h4 { 
+    font-size: 1rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    margin-bottom: 5px; 
+  }
+
+  .info-item p { 
+    color: var(--gray-text); 
+  }
+
+  .contact-form { 
+    background: var(--white); 
+    padding: 40px; 
+    border-radius: 8px; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+  }
+
+  .contact-form input, 
+  .contact-form select, 
+  .contact-form textarea { 
+    width: 100%; 
+    padding: 15px; 
+    margin-bottom: 20px; 
+    border: 1px solid #ddd; 
+    background: #f9f9f9; 
+    border-radius: 4px; 
+    font-family: inherit; 
+  }
+
+  .contact-form input:focus, 
+  .contact-form textarea:focus { 
+    outline: none; 
+    border-color: var(--gold); 
+  }
+
+  .form-row { 
+    display: grid; 
+    grid-template-columns: 1fr 1fr; 
+    gap: 20px; 
+  }
+
+  .full-width { 
+    width: 100%; 
+    justify-content: center; 
+  }
+
+  @media (max-width: 768px) {
+    .hero-tag {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 15px;
+    }
+    
+    .hero-title { 
+      font-size: clamp(2.2rem, 10vw, 3.5rem);
+      margin-bottom: 20px;
+    }
+    
+    .hero-sub { 
+      font-size: 1rem; 
+      margin-bottom: 30px;
+      padding: 0 10px;
+    }
+    
+    .hero-btns {
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      width: 100%;
+      padding: 0 20px;
+    }
+    
+    .hero-btns .btn-premium {
+      width: 100%;
+      max-width: 280px;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .stats-grid { 
+      grid-template-columns: repeat(2, 1fr); 
+    }
+    
+    .services-vertical-grid { 
+      grid-template-columns: 1fr; 
+      max-width: 500px; 
+      margin: 0 auto; 
+    }
+    
+    .about-grid, 
+    .contact-grid { 
+      grid-template-columns: 1fr; 
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video {
+      display: none !important;
+    }
+    
+    .hero {
+      background: url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    }
   }
 </style>
+
 <script>
-  if(typeof gsap !== 'undefined') { gsap.registerPlugin(ScrollTrigger); gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 }); gsap.from('.hero-title .line', { y: 50, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 }); gsap.utils.toArray('.stat-num').forEach(el => { const t = parseInt(el.dataset.target); gsap.to(el, { innerText: t, duration: 2, snap: { innerText: 1 }, ease: 'power2.out', scrollTrigger: { trigger: el, start: 'top 85%' } }); }); }
+  if(typeof gsap !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    gsap.from('.hero-tag', { opacity: 0, y: 20, duration: 1 });
+    gsap.from('.hero-title .line', { y: 50, opacity: 0, duration: 1, stagger: 0.15, delay: 0.3 });
+    
+    gsap.utils.toArray('.stat-num').forEach(el => {
+      const t = parseInt(el.dataset.target);
+      gsap.to(el, {
+        innerText: t,
+        duration: 2,
+        snap: { innerText: 1 },
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: el,
+          start: 'top 85%'
+        }
+      });
+    });
+  }
 </script>
