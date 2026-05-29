@@ -21,9 +21,7 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- HERO -->
   <header class="hero">
-    <!-- UN solo video, siempre visible en el DOM -->
     <video 
       id="hero-video"
       class="hero-video" 
@@ -255,14 +253,23 @@ const stats = [
 <script>
   if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=parseInt(el.dataset.target);gsap.to(el,{innerText:t,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
 
-  // Asignación dinámica de video según viewport. 
-  // Elimina el uso de <source media> y CSS display:none que bloquean autoplay en Chromium.
-  window.addEventListener('DOMContentLoaded', () => {
+  // Asignación segura de video según viewport. 
+  // Nunca usa CSS display/visibility para ocultar el elemento activo, evitando bloqueo de autoplay.
+  const setHeroVideo = () => {
     const v = document.getElementById('hero-video');
     if (!v) return;
-    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
-    v.src = isDesktop ? '/videos/hero-desktop.mp4' : '/videos/hero-mobile.mp4';
-    v.load();
-    v.play().catch(() => {});
-  });
+    const isMobile = window.innerWidth < 1024;
+    const newSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
+    
+    // Solo recarga si cambia la ruta para evitar parpadeos
+    if (v.src !== window.location.origin + newSrc) {
+      v.pause();
+      v.src = newSrc;
+      v.load();
+      v.play().catch(() => {});
+    }
+  };
+
+  window.addEventListener('DOMContentLoaded', setHeroVideo);
+  window.addEventListener('resize', setHeroVideo);
 </script>
