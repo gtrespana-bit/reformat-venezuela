@@ -23,39 +23,21 @@ const stats = [
 
   <!-- HERO -->
   <header class="hero">
-    <!-- Video Desktop -->
     <video 
-      id="v-d"
-      class="hero-video hero-video--desktop" 
+      id="hero-video"
+      class="hero-video" 
       autoplay 
       muted 
       loop 
       playsinline 
       preload="auto"
-      width="1920"
-      height="1080"
       poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
-      src="/videos/hero-desktop.mp4"
-      onloadedmetadata="this.play()"
-      style="position:absolute;top:0;left:0;width:100vw!important;height:100vh!important;height:100svh!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;z-index:1!important;pointer-events:none!important;opacity:1!important;visibility:visible!important;"
-    ></video>
-
-    <!-- Video Mobile -->
-    <video 
-      id="v-m"
-      class="hero-video hero-video--mobile" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="auto"
-      width="1080"
-      height="1920"
-      poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop"
-      src="/videos/hero-mobile.mp4"
-      onloadedmetadata="this.play()"
-      style="position:absolute;top:0;left:0;width:100vw!important;height:100vh!important;height:100svh!important;min-width:100%!important;min-height:100%!important;object-fit:cover!important;z-index:1!important;pointer-events:none!important;opacity:1!important;visibility:visible!important;"
-    ></video>
+    >
+      <!-- Desktop: se carga automáticamente cuando viewport ≥ 1024px -->
+      <source src="/videos/hero-desktop.mp4" media="(min-width: 1024px)" type="video/mp4">
+      <!-- Mobile: fallback para viewport < 1024px -->
+      <source src="/videos/hero-mobile.mp4" type="video/mp4">
+    </video>
 
     <div class="hero-overlay"></div>
 
@@ -211,14 +193,7 @@ const stats = [
 <style>
   .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
   
-  /* Toggle seguro: CSS con !important anula inline si es necesario */
-  .hero-video--desktop { display: block !important; }
-  .hero-video--mobile  { display: none  !important; }
-  
-  @media (max-width: 1023px) {
-    .hero-video--desktop { display: none  !important; }
-    .hero-video--mobile  { display: block !important; }
-  }
+  .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; }
 
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
@@ -289,9 +264,7 @@ const stats = [
   if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=parseInt(el.dataset.target);gsap.to(el,{innerText:t,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
 
   window.addEventListener('load', () => {
-    const d = document.getElementById('v-d');
-    if(d) d.play().catch(() => {});
-    const m = document.getElementById('v-m');
-    if(m) m.play().catch(() => {});
+    const v = document.getElementById('hero-video');
+    if(v) v.play().catch(() => {});
   });
 </script>
