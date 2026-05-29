@@ -22,15 +22,30 @@ const stats = [
 >
 
   <header class="hero">
+    <!-- Video Desktop: visible desde el milisegundo 0 (inline style) -->
     <video 
-      id="hero-video"
-      class="hero-video" 
+      class="hero-video hero-video--desktop" 
       autoplay 
       muted 
       loop 
       playsinline 
       preload="auto"
       poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
+      src="/videos/hero-desktop.mp4"
+      style="display:block;"
+    ></video>
+
+    <!-- Video Mobile: oculto inicialmente, solo se activa en pantallas pequeñas -->
+    <video 
+      class="hero-video hero-video--mobile" 
+      autoplay 
+      muted 
+      loop 
+      playsinline 
+      preload="auto"
+      poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop"
+      src="/videos/hero-mobile.mp4"
+      style="display:none;"
     ></video>
 
     <div class="hero-overlay"></div>
@@ -187,6 +202,14 @@ const stats = [
 <style>
   .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
   .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; }
+  
+  /* Responsive seguro: los inline styles garantizan el estado inicial. 
+     La media query solo actúa en móviles, sin interferir con el parseo de escritorio. */
+  @media (max-width: 1023px) {
+    .hero-video--desktop { display: none !important; }
+    .hero-video--mobile  { display: block !important; }
+  }
+
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
   .hero-tag { display: block; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
@@ -252,24 +275,4 @@ const stats = [
 
 <script>
   if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=parseInt(el.dataset.target);gsap.to(el,{innerText:t,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
-
-  // Asignación segura de video según viewport. 
-  // Nunca usa CSS display/visibility para ocultar el elemento activo, evitando bloqueo de autoplay.
-  const setHeroVideo = () => {
-    const v = document.getElementById('hero-video');
-    if (!v) return;
-    const isMobile = window.innerWidth < 1024;
-    const newSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-    
-    // Solo recarga si cambia la ruta para evitar parpadeos
-    if (v.src !== window.location.origin + newSrc) {
-      v.pause();
-      v.src = newSrc;
-      v.load();
-      v.play().catch(() => {});
-    }
-  };
-
-  window.addEventListener('DOMContentLoaded', setHeroVideo);
-  window.addEventListener('resize', setHeroVideo);
 </script>
