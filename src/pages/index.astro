@@ -23,6 +23,7 @@ const stats = [
 
   <!-- HERO -->
   <header class="hero">
+    <!-- UN solo video, siempre visible en el DOM -->
     <video 
       id="hero-video"
       class="hero-video" 
@@ -32,12 +33,7 @@ const stats = [
       playsinline 
       preload="auto"
       poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop"
-    >
-      <!-- Desktop: se carga automáticamente cuando viewport ≥ 1024px -->
-      <source src="/videos/hero-desktop.mp4" media="(min-width: 1024px)" type="video/mp4">
-      <!-- Mobile: fallback para viewport < 1024px -->
-      <source src="/videos/hero-mobile.mp4" type="video/mp4">
-    </video>
+    ></video>
 
     <div class="hero-overlay"></div>
 
@@ -192,9 +188,7 @@ const stats = [
 
 <style>
   .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
-  
   .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; }
-
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
   .hero-tag { display: block; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
@@ -203,7 +197,6 @@ const stats = [
   .hero-title .gold { color: var(--gold); }
   .hero-sub { font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin: 0 auto 40px; max-width: 600px; }
   .hero-btns { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
-
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
   .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
   .btn-white-premium { background: var(--white); color: var(--bg); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -211,7 +204,6 @@ const stats = [
   .btn-white-premium:hover { transform: translateY(-3px); background: var(--gold); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
   .btn-white-premium:hover .btn-arrow { transform: translateX(8px); }
   .btn-white-premium:hover .btn-shine { left: 150%; }
-
   .section { padding: 100px 0; }
   .bg-light { background: var(--gray); }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
@@ -263,8 +255,14 @@ const stats = [
 <script>
   if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=parseInt(el.dataset.target);gsap.to(el,{innerText:t,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
 
-  window.addEventListener('load', () => {
+  // Asignación dinámica de video según viewport. 
+  // Elimina el uso de <source media> y CSS display:none que bloquean autoplay en Chromium.
+  window.addEventListener('DOMContentLoaded', () => {
     const v = document.getElementById('hero-video');
-    if(v) v.play().catch(() => {});
+    if (!v) return;
+    const isDesktop = window.matchMedia('(min-width: 1024px)').matches;
+    v.src = isDesktop ? '/videos/hero-desktop.mp4' : '/videos/hero-mobile.mp4';
+    v.load();
+    v.play().catch(() => {});
   });
 </script>
