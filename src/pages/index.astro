@@ -24,29 +24,27 @@ const stats = [
   <!-- HERO -->
   <header class="hero">
     
-    <!-- SCRIPT INLINE: Genera el video con estilos ABSOLUTOS desde el nacimiento -->
+    <!-- SCRIPT INLINE: Genera el video invisible que aparece suavemente al reproducirse -->
     <script is:inline>
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop';
         
-        // El estilo inline asegura que el video sea un fondo y NO empuje el contenido
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none;';
+        // opacity: 0 y transition para el fade-in suave
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
         
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="' + posterSrc + '" src="' + videoSrc + '" style="' + style + '"></video>');
+        // onplaying="this.style.opacity=1" hace que aparezca suavemente apenas empieza
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
     
     <noscript>
-      <!-- Fallback si JS está desactivado -->
       <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
     </noscript>
 
-    <!-- Overlay Oscuro -->
     <div class="hero-overlay"></div>
 
-    <!-- Contenido (Ahora siempre centrado sobre el video) -->
     <div class="hero-content">
       <span class="hero-tag">Arquitectura & Diseño Premium</span>
       <h1 class="hero-title">
@@ -197,10 +195,21 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO */
-  .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
+  /* HERO: Fondo con imagen para evitar parpadeos mientras carga el video */
+  .hero { 
+    position: relative; 
+    width: 100%; 
+    min-height: 100vh; 
+    min-height: 100svh; 
+    overflow: hidden; 
+    background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    text-align: center; 
+    color: var(--white); 
+  }
   
-  /* El video ahora tiene estilos inline críticos, pero mantenemos clase por si acaso */
   .hero-video { z-index: 1; } 
   
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
@@ -220,7 +229,6 @@ const stats = [
   .btn-white-premium:hover .btn-arrow { transform: translateX(8px); }
   .btn-white-premium:hover .btn-shine { left: 150%; }
 
-  /* RESTO DE ESTILOS (Sin cambios) */
   .section { padding: 100px 0; }
   .bg-light { background: var(--gray); }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
