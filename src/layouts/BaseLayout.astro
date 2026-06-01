@@ -12,7 +12,6 @@ interface Props {
 const { title, description, image = '', activePage = '' } = Astro.props;
 const siteUrl = 'https://reformat-venezuela.online';
 const currentPath = Astro.url.pathname;
-// Imagen OG: usa la imagen de la página si existe, o el logo por defecto
 const ogImage = image && image.startsWith('http') 
   ? image 
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
@@ -28,10 +27,12 @@ const siteName = 'ReformaT Venezuela';
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
-  <!-- ========== FAVICON (Icono en pestaña del navegador) ========== -->
-  <link rel="icon" type="image/png" href="/images/logo.png" />
-  <link rel="shortcut icon" type="image/png" href="/images/logo.png" />
-  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <!-- ========== FAVICON (Icono cuadrado en pestaña del navegador) ========== -->
+  <link rel="icon" type="image/jpg" href="/images/favicon.jpg" />
+  <link rel="shortcut icon" type="image/jpg" href="/images/favicon.jpg" />
+  <link rel="apple-touch-icon" href="/images/favicon.jpg" />
+  <link rel="icon" sizes="32x32" type="image/jpg" href="/images/favicon.jpg" />
+  <link rel="icon" sizes="16x16" type="image/jpg" href="/images/favicon.jpg" />
   
   <!-- ========== OPEN GRAPH (WhatsApp, Facebook, LinkedIn) ========== -->
   <meta property="og:type" content="website" />
@@ -42,7 +43,7 @@ const siteName = 'ReformaT Venezuela';
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
   <meta property="og:image:secure_url" content={ogImage} />
-  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
@@ -71,7 +72,6 @@ const siteName = 'ReformaT Venezuela';
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER -->
       <a href="/" class="logo">
         <img 
           src="/images/logo.png" 
@@ -101,7 +101,6 @@ const siteName = 'ReformaT Venezuela';
 
   <footer class="footer">
     <div class="container">
-      <!-- LOGO FOOTER -->
       <div class="footer-logo">
         <img 
           src="/images/logo.png" 
