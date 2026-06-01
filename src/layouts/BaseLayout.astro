@@ -42,13 +42,13 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER: Tamaño aumentado -->
+      <!-- LOGO HEADER: Tamaño aumentado significativamente -->
       <a href="/" class="logo">
         <img 
           src="/images/logo.png" 
           alt="ReformaT Venezuela - Remodelación de Viviendas" 
           width="auto"
-          height="65"
+          height="95"
           loading="eager"
         />
       </a>
@@ -77,7 +77,7 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
         <img 
           src="/images/logo.png" 
           alt="ReformaT Venezuela - Remodelación de Viviendas" 
-          width="350"
+          width="450"
           height="auto"
           loading="lazy"
         />
@@ -100,11 +100,11 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
   .nav {
     position: fixed; top: 0; left: 0; width: 100%;
     background: transparent; z-index: 1000;
-    padding: 15px 0; transition: background 0.4s, padding 0.4s;
+    padding: 20px 0; transition: background 0.4s, padding 0.4s;
   }
   .nav.scrolled {
     background: rgba(10,10,10,0.95);
-    padding: 10px 0;
+    padding: 15px 0;
     border-bottom: 1px solid rgba(201,169,97,0.2);
   }
   .nav-container {
@@ -112,18 +112,18 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     max-width: 1200px; margin: 0 auto; padding: 0 20px;
   }
   
-  /* LOGO HEADER - Tamaño aumentado */
+  /* LOGO HEADER - Tamaño aumentado significativamente */
   .logo {
     display: flex; align-items: center;
   }
   .logo img {
-    height: 65px; /* Aumentado de 50px a 65px */
+    height: 95px; /* Aumentado de 65px a 95px (casi el doble) */
     width: auto;
     display: block;
     transition: height 0.3s;
   }
   .nav.scrolled .logo img {
-    height: 55px; /* Aumentado de 45px a 55px */
+    height: 80px; /* Aumentado de 55px a 80px */
   }
   
   .nav-links {
@@ -189,16 +189,16 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
   .footer {
     background: var(--bg);
     color: rgba(255,255,255,0.7);
-    padding: 80px 0 40px;
+    padding: 90px 0 45px;
     text-align: center;
   }
   .footer-logo {
-    margin-bottom: 30px;
+    margin-bottom: 35px;
     display: flex;
     justify-content: center;
   }
   .footer-logo img {
-    max-width: 350px; /* Aumentado de 220px a 350px */
+    max-width: 450px; /* Aumentado de 350px a 450px */
     height: auto;
     display: block;
   }
@@ -221,14 +221,14 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     .menu-btn { display: block; }
   }
   @media (max-width: 768px) {
-    .logo img { height: 50px; } /* Logo grande incluso en móvil */
-    .nav.scrolled .logo img { height: 45px; }
-    .footer-logo img { max-width: 260px; } /* Más grande en footer móvil */
+    .logo img { height: 70px; } /* Aumentado de 50px a 70px */
+    .nav.scrolled .logo img { height: 60px; } /* Aumentado de 45px a 60px */
+    .footer-logo img { max-width: 350px; } /* Aumentado de 260px a 350px */
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
-    .logo img { height: 45px; }
-    .footer-logo img { max-width: 220px; }
-    .footer { padding: 60px 0 30px; }
+    .logo img { height: 60px; } /* Aumentado de 45px a 60px */
+    .footer-logo img { max-width: 300px; } /* Aumentado de 220px a 300px */
+    .footer { padding: 70px 0 35px; }
   }
 </style>
