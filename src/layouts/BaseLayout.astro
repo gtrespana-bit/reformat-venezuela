@@ -42,13 +42,13 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER: Tamaño aumentado significativamente -->
+      <!-- LOGO HEADER: Tamaño ligeramente reducido -->
       <a href="/" class="logo">
         <img 
           src="/images/logo.png" 
           alt="ReformaT Venezuela - Remodelación de Viviendas" 
           width="auto"
-          height="95"
+          height="85"
           loading="eager"
         />
       </a>
@@ -112,18 +112,18 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     max-width: 1200px; margin: 0 auto; padding: 0 20px;
   }
   
-  /* LOGO HEADER - Tamaño aumentado significativamente */
+  /* LOGO HEADER - Tamaño ligeramente reducido */
   .logo {
     display: flex; align-items: center;
   }
   .logo img {
-    height: 95px; /* Aumentado de 65px a 95px (casi el doble) */
+    height: 85px; /* Reducido de 95px a 85px */
     width: auto;
     display: block;
     transition: height 0.3s;
   }
   .nav.scrolled .logo img {
-    height: 80px; /* Aumentado de 55px a 80px */
+    height: 70px; /* Reducido de 80px a 70px */
   }
   
   .nav-links {
@@ -198,7 +198,7 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     justify-content: center;
   }
   .footer-logo img {
-    max-width: 450px; /* Aumentado de 350px a 450px */
+    max-width: 450px;
     height: auto;
     display: block;
   }
@@ -221,14 +221,14 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     .menu-btn { display: block; }
   }
   @media (max-width: 768px) {
-    .logo img { height: 70px; } /* Aumentado de 50px a 70px */
-    .nav.scrolled .logo img { height: 60px; } /* Aumentado de 45px a 60px */
-    .footer-logo img { max-width: 350px; } /* Aumentado de 260px a 350px */
+    .logo img { height: 60px; } /* Reducido de 70px a 60px */
+    .nav.scrolled .logo img { height: 55px; } /* Reducido de 60px a 55px */
+    .footer-logo img { max-width: 350px; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
-    .logo img { height: 60px; } /* Aumentado de 45px a 60px */
-    .footer-logo img { max-width: 300px; } /* Aumentado de 220px a 300px */
+    .logo img { height: 55px; } /* Reducido de 60px a 55px */
+    .footer-logo img { max-width: 300px; }
     .footer { padding: 70px 0 35px; }
   }
 </style>
