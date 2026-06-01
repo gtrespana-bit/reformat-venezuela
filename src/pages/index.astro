@@ -31,10 +31,8 @@ const stats = [
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop';
         
-        // opacity: 0 y transition para el fade-in suave
         var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
         
-        // onplaying="this.style.opacity=1" hace que aparezca suavemente apenas empieza
         document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
@@ -214,13 +212,49 @@ const stats = [
   .hero-video { z-index: 1; } 
   
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .hero-tag { display: block; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-  .hero-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 7rem); font-weight: 400; margin-bottom: 30px; line-height: 1.1; }
+  
+  /* Hero content compactado + padding para evitar overlap con navbar */
+  .hero-content { 
+    position: relative; 
+    z-index: 3; 
+    max-width: 900px; 
+    padding: 100px 20px 0; /* Padding superior para navbar fijo */
+  }
+  
+  .hero-tag { 
+    display: block; 
+    font-size: 0.85rem; 
+    letter-spacing: 2.5px; 
+    text-transform: uppercase; 
+    color: var(--gold); 
+    margin-bottom: 12px; /* Reducido de 20px */
+  }
+  
+  .hero-title { 
+    font-family: var(--font-serif); 
+    font-size: clamp(2.8rem, 7vw, 6rem); /* Ligeramente más compacto */
+    font-weight: 400; 
+    margin-bottom: 18px; /* Reducido de 30px */
+    line-height: 1.05; /* Más compacto verticalmente */
+  }
+  
   .hero-title .line { display: block; }
   .hero-title .gold { color: var(--gold); }
-  .hero-sub { font-size: 1.2rem; color: rgba(255, 255, 255, 0.95); margin: 0 auto 40px; max-width: 600px; line-height: 1.6; }
-  .hero-btns { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
+  
+  .hero-sub { 
+    font-size: 1.15rem; 
+    color: rgba(255, 255, 255, 0.95); 
+    margin: 0 auto 28px; /* Reducido de 40px */
+    max-width: 600px; 
+    line-height: 1.55; /* Ligeramente más compacto */
+  }
+  
+  .hero-btns { 
+    display: flex; 
+    gap: 18px; /* Reducido de 25px */
+    justify-content: center; 
+    flex-wrap: wrap; 
+  }
   
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
   .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
@@ -273,11 +307,28 @@ const stats = [
   .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .full-width { width: 100%; justify-content: center; }
-  @media (max-width: 1023px) { .hero-tag{font-size:0.75rem;letter-spacing:2px;margin-bottom:15px;} .hero-title{font-size:clamp(2.2rem,10vw,3.5rem);margin-bottom:20px;} .hero-sub{font-size:1rem;margin-bottom:30px;padding:0 10px;} .hero-btns{flex-direction:column;align-items:center;gap:15px;width:100%;padding:0 20px;} .hero-btns .btn-premium{width:100%;max-width:280px;justify-content:center;} }
-  @media (max-width: 900px) { .stats-grid{grid-template-columns:repeat(2,1fr);} .services-vertical-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto;} .about-grid,.contact-grid{grid-template-columns:1fr;} }
-  @media (prefers-reduced-motion: reduce) { .hero-video{display:none!important;} .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;} }
+  
+  @media (max-width: 1023px) { 
+    .hero-content { padding: 90px 20px 0; }
+    .hero-tag{font-size:0.75rem;letter-spacing:2px;margin-bottom:10px;} 
+    .hero-title{font-size:clamp(2rem,9vw,3.2rem);margin-bottom:15px;line-height:1.08;} 
+    .hero-sub{font-size:1.05rem;margin-bottom:24px;padding:0 10px;line-height:1.5;} 
+    .hero-btns{flex-direction:column;align-items:center;gap:12px;width:100%;padding:0 20px;} 
+    .hero-btns .btn-premium{width:100%;max-width:280px;justify-content:center;} 
+  }
+  
+  @media (max-width: 900px) { 
+    .stats-grid{grid-template-columns:repeat(2,1fr);} 
+    .services-vertical-grid{grid-template-columns:1fr;max-width:500px;margin:0 auto;} 
+    .about-grid,.contact-grid{grid-template-columns:1fr;} 
+  }
+  
+  @media (prefers-reduced-motion: reduce) { 
+    .hero-video{display:none!important;} 
+    .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;} 
+  }
 </style>
 
 <script>
-  if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=el.textContent;gsap.from(el,{innerText:0,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
+  if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});gsap.from('.hero-title .line',{y:40,opacity:0,duration:0.9,stagger:0.12,delay:0.2});gsap.utils.toArray('.stat-num').forEach(el=>{const t=el.textContent;gsap.from(el,{innerText:0,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
 </script>
