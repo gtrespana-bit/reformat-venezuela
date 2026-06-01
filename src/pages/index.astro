@@ -2,22 +2,22 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const services = [
-  { title: "Cocinas de Lujo", desc: "Diseños funcionales y elegantes que convierten tu cocina en el corazón de tu hogar.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", link: "/servicios/cocinas" },
-  { title: "Baños de Bienestar", desc: "Espacios de relajación con acabados premium que elevan tu rutina diaria.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", link: "/servicios/banos" },
+  { title: "Reformas de Cocina", desc: "Renovamos tu cocina con funcionalidad y diseño moderno adaptado a tus gustos.", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", link: "/servicios/cocinas" },
+  { title: "Reformas de Baño", desc: "Creamos baños cómodos y elegantes, cuidando cada detalle para tu bienestar.", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", link: "/servicios/banos" },
   { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica y ejecución impecable.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", link: "/servicios/integrales" }
 ];
 
 const stats = [
-  { number: 20, label: "Años de Experiencia" },
-  { number: 500, label: "Proyectos Realizados" },
-  { number: 100, label: "Clientes Satisfechos" },
-  { number: 15, label: "Premios Ganados" }
+  { number: "20+", label: "Años de Experiencia" },
+  { number: "2", label: "Años en Venezuela" },
+  { number: "100%", label: "Compromiso y Calidad" },
+  { number: "Rápida", label: "Ejecución Profesional" }
 ];
 ---
 
 <BaseLayout 
-  title="ReformaT Venezuela | Arquitectura y Diseño Premium" 
-  description="Más de 20 años transformando hogares y negocios en Valencia y San Diego." 
+  title="ReformaT Venezuela | Reformas de Calidad en Valencia y San Diego" 
+  description="Más de 20 años transformando hogares y negocios en Valencia y San Diego, Carabobo. Reformas integrales, cocinas, baños, electricidad y fontanería con acabados impecables." 
   activePage="inicio"
 >
 
@@ -46,13 +46,13 @@ const stats = [
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-tag">Arquitectura & Diseño Premium</span>
+      <span class="hero-tag">Calidad Excepcional en Valencia y San Diego</span>
       <h1 class="hero-title">
         <span class="line">Transformamos</span>
-        <span class="line gold">Espacios</span>
+        <span class="line gold">Tu Hogar y Negocio</span>
         <span class="line">con Excelencia</span>
       </h1>
-      <p class="hero-sub">Más de 20 años creando hogares y negocios excepcionales en Valencia y San Diego.</p>
+      <p class="hero-sub">Con más de 20 años de experiencia en reforma de viviendas y negocios, garantizamos acabados impecables y la mayor confianza.</p>
       <div class="hero-btns">
         <a href="/contacto" class="btn-premium btn-primary-premium">
           <span class="btn-content">Solicitar Presupuesto</span>
@@ -75,7 +75,7 @@ const stats = [
     <div class="container stats-grid">
       {stats.map((s) => (
         <div class="stat-item">
-          <div class="stat-num" data-target={s.number}>0</div>
+          <div class="stat-num">{s.number}</div>
           <div class="stat-label">{s.label}</div>
         </div>
       ))}
@@ -87,8 +87,8 @@ const stats = [
     <div class="container">
       <div class="section-header">
         <span class="tag">Nuestros Servicios</span>
-        <h2 class="section-title">Diseño que Transforma Vidas</h2>
-        <p class="section-desc">Cada proyecto es una obra única, creada con precisión artesanal.</p>
+        <h2 class="section-title">Damos Vida a Tus Espacios</h2>
+        <p class="section-desc">Reformas integrales, cocinas, baños, electricidad y fontanería. Ejecución rápida, técnicas avanzadas y acabados impecables.</p>
       </div>
       <div class="services-vertical-grid">
         {services.map((svc) => (
@@ -122,13 +122,13 @@ const stats = [
       </div>
       <div class="about-text">
         <span class="tag">Sobre Nosotros</span>
-        <h2 class="section-title">Arquitectura con Alma,<br/>Ejecución con Precisión</h2>
-        <p>En ReformaT Venezuela, fusionamos más de 20 años de experiencia con una pasión genuina por el diseño excepcional.</p>
+        <h2 class="section-title">Experiencia Europea,<br/>Ejecución Local</h2>
+        <p>ReformaT nace en España con más de 20 años de trayectoria en el sector de las reformas. Desde hace casi 2 años trabajamos en Venezuela, trayendo innovación, técnicas avanzadas y estándares europeos adaptados al mercado local de Valencia y San Diego, Carabobo.</p>
         <ul class="check-list">
-          <li>Diseño personalizado que honra tu visión</li>
-          <li>Materiales de calidad y durabilidad</li>
-          <li>Ejecución meticulosa a cada detalle</li>
-          <li>Transparencia total en presupuestos</li>
+          <li>Reformas integrales que transforman cada rincón con excelencia</li>
+          <li>Servicios eléctricos y de fontanería con máxima seguridad</li>
+          <li>Diseños personalizados que unen funcionalidad y estilo</li>
+          <li>Asesoramiento experto y ejecución eficiente sin sorpresas</li>
         </ul>
         <a href="/contacto" class="btn-premium btn-primary-premium">
           <span class="btn-content">Comenzar Conversación</span>
@@ -158,8 +158,8 @@ const stats = [
   <section class="section bg-light">
     <div class="container contact-grid">
       <div class="contact-info">
-        <h2 class="section-title">Hablemos de Tu Visión</h2>
-        <p>Estamos aquí para escuchar, asesorar y crear junto a ti.</p>
+        <h2 class="section-title">Hablemos de Tu Proyecto</h2>
+        <p>Estamos aquí para escuchar, asesorar y crear junto a ti. Trabajamos en toda el área de Valencia y San Diego, Carabobo.</p>
         <div class="info-item">
           <h4>Ubicación</h4>
           <p>Valencia y San Diego, Carabobo</p>
@@ -180,6 +180,8 @@ const stats = [
           <option value="cocina">Reforma de Cocina</option>
           <option value="bano">Reforma de Baño</option>
           <option value="integral">Reforma Integral</option>
+          <option value="electricidad">Servicios Eléctricos</option>
+          <option value="fontaneria">Fontanería</option>
         </select>
         <textarea placeholder="Tu Mensaje" rows="4"></textarea>
         <button type="submit" class="btn-premium btn-primary-premium full-width">
@@ -195,7 +197,6 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO: Fondo con imagen para evitar parpadeos mientras carga el video */
   .hero { 
     position: relative; 
     width: 100%; 
@@ -215,10 +216,10 @@ const stats = [
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
   .hero-tag { display: block; font-size: 0.9rem; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; }
-  .hero-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 7rem); font-weight: 300; margin-bottom: 30px; line-height: 1.1; }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(3rem, 8vw, 7rem); font-weight: 400; margin-bottom: 30px; line-height: 1.1; }
   .hero-title .line { display: block; }
   .hero-title .gold { color: var(--gold); }
-  .hero-sub { font-size: 1.2rem; color: rgba(255, 255, 255, 0.9); margin: 0 auto 40px; max-width: 600px; }
+  .hero-sub { font-size: 1.2rem; color: rgba(255, 255, 255, 0.95); margin: 0 auto 40px; max-width: 600px; line-height: 1.6; }
   .hero-btns { display: flex; gap: 25px; justify-content: center; flex-wrap: wrap; }
   
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
@@ -232,13 +233,13 @@ const stats = [
   .section { padding: 100px 0; }
   .bg-light { background: var(--gray); }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
-  .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; }
+  .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 400; }
   .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
-  .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; }
+  .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; font-weight: 400; }
   .stats-section { padding: 60px 0; background: var(--bg); color: var(--white); }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
-  .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; }
-  .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.7; }
+  .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; font-weight: 400; }
+  .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
   .services-vertical-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
   .service-vertical-card { display: block; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
   .service-vertical-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
@@ -249,8 +250,8 @@ const stats = [
   .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
   .service-vertical-card:hover .card-icon { transform: scale(1.15) rotate(15deg); }
   .card-body { padding: 30px 25px; }
-  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; }
-  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; }
+  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
+  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
   .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; }
   .arrow { transition: transform 0.3s; }
   .service-vertical-card:hover .card-link { gap: 14px; }
@@ -261,14 +262,14 @@ const stats = [
   .img-box.tall { grid-row: span 2; }
   .img-box img { width: 100%; height: 100%; object-fit: cover; }
   .check-list { margin: 30px 0; list-style: none; }
-  .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); }
+  .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); line-height: 1.6; font-weight: 400; }
   .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
   .info-item { margin-bottom: 25px; }
-  .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+  .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 600; }
   .info-item p { color: var(--gray-text); }
   .contact-form { background: var(--white); padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-  .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px; font-family: inherit; }
+  .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px; font-family: inherit; font-size: 1rem; }
   .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .full-width { width: 100%; justify-content: center; }
@@ -278,5 +279,5 @@ const stats = [
 </style>
 
 <script>
-  if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=parseInt(el.dataset.target);gsap.to(el,{innerText:t,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
+  if(typeof gsap!=='undefined'){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-tag',{opacity:0,y:20,duration:1});gsap.from('.hero-title .line',{y:50,opacity:0,duration:1,stagger:0.15,delay:0.3});gsap.utils.toArray('.stat-num').forEach(el=>{const t=el.textContent;gsap.from(el,{innerText:0,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});});}
 </script>
