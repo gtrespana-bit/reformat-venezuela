@@ -42,7 +42,17 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <a href="/" class="logo">ReformaT<span class="dot">.</span></a>
+      <!-- LOGO HEADER -->
+      <a href="/" class="logo">
+        <img 
+          src="/images/logo.png" 
+          alt="ReformaT Venezuela - Remodelación de Viviendas" 
+          height="50"
+          width="auto"
+          loading="eager"
+        />
+      </a>
+      
       <ul class="nav-links">
         <li><a href="/" class={activePage === 'inicio' ? 'active' : ''}>Inicio</a></li>
         <li><a href="/servicios" class={activePage === 'servicios' ? 'active' : ''}>Servicios</a></li>
@@ -62,7 +72,16 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">ReformaT<span class="dot">.</span></div>
+      <!-- LOGO FOOTER -->
+      <div class="footer-logo">
+        <img 
+          src="/images/logo.png" 
+          alt="ReformaT Venezuela - Remodelación de Viviendas" 
+          width="220"
+          height="auto"
+          loading="lazy"
+        />
+      </div>
       <p class="footer-desc">Transformando espacios con excelencia desde 2005.</p>
       <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p>
     </div>
@@ -76,3 +95,140 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
   </script>
 </body>
 </html>
+
+<style>
+  .nav {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: transparent; z-index: 1000;
+    padding: 20px 0; transition: background 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(10,10,10,0.95);
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .nav-container {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: 0 auto; padding: 0 20px;
+  }
+  
+  /* LOGO HEADER - Escalado para navbar */
+  .logo {
+    display: flex; align-items: center;
+  }
+  .logo img {
+    height: 50px;
+    width: auto;
+    display: block;
+    transition: height 0.3s;
+  }
+  .nav.scrolled .logo img {
+    height: 45px;
+  }
+  
+  .nav-links {
+    display: flex; gap: 35px; list-style: none; align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+    font-weight: 400;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--gold);
+  }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+  }
+  .btn-nav-premium {
+    border: 1px solid var(--gold);
+    padding: 8px 22px;
+    border-radius: 2px;
+    color: var(--gold) !important;
+    font-weight: 500;
+  }
+  .btn-nav-premium:hover {
+    background: var(--gold);
+    color: var(--bg) !important;
+  }
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    font-size: 1.5rem;
+    cursor: pointer;
+  }
+
+  /* WHATSAPP FLOAT */
+  .whatsapp-float {
+    position: fixed; bottom: 25px; right: 25px;
+    width: 60px; height: 60px;
+    background: #25D366; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s; z-index: 99;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+  }
+
+  /* FOOTER - Logo completo centrado */
+  .footer {
+    background: var(--bg);
+    color: rgba(255,255,255,0.7);
+    padding: 70px 0 35px;
+    text-align: center;
+  }
+  .footer-logo {
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-logo img {
+    max-width: 220px;
+    height: auto;
+    display: block;
+  }
+  .footer-desc {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 28px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .menu-btn { display: block; }
+  }
+  @media (max-width: 768px) {
+    .logo img { height: 42px; }
+    .nav.scrolled .logo img { height: 40px; }
+    .footer-logo img { max-width: 190px; }
+    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+  }
+  @media (max-width: 480px) {
+    .logo img { height: 38px; }
+    .footer-logo img { max-width: 170px; }
+    .footer { padding: 60px 0 30px; }
+  }
+</style>
