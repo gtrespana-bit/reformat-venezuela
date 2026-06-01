@@ -12,7 +12,11 @@ interface Props {
 const { title, description, image = '', activePage = '' } = Astro.props;
 const siteUrl = 'https://reformat-venezuela.online';
 const currentPath = Astro.url.pathname;
-const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image || '/og-default.jpg'}`;
+// Imagen OG: usa la imagen de la página si existe, o el logo por defecto
+const ogImage = image && image.startsWith('http') 
+  ? image 
+  : `${siteUrl}${image || '/images/og-default.jpg'}`;
+const siteName = 'ReformaT Venezuela';
 ---
 
 <!DOCTYPE html>
@@ -24,11 +28,36 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
+  <!-- ========== FAVICON (Icono en pestaña del navegador) ========== -->
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="shortcut icon" type="image/png" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+  
+  <!-- ========== OPEN GRAPH (WhatsApp, Facebook, LinkedIn) ========== -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content={siteName} />
+  <meta property="og:locale" content="es_VE" />
   <meta property="og:url" content={`${siteUrl}${currentPath}`} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImage} />
+  <meta property="og:image:secure_url" content={ogImage} />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
+  
+  <!-- ========== TWITTER CARDS (X / Twitter) ========== -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImage} />
+  <meta name="twitter:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
+  
+  <!-- ========== META ADICIONALES ========== -->
+  <meta name="author" content={siteName} />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="robots" content="index, follow" />
   
   <!-- ✅ Google Analytics 4 -->
   <Analytics />
@@ -42,7 +71,7 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER: Tamaño ligeramente reducido -->
+      <!-- LOGO HEADER -->
       <a href="/" class="logo">
         <img 
           src="/images/logo.png" 
@@ -72,7 +101,7 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
 
   <footer class="footer">
     <div class="container">
-      <!-- LOGO FOOTER: Tamaño aumentado -->
+      <!-- LOGO FOOTER -->
       <div class="footer-logo">
         <img 
           src="/images/logo.png" 
@@ -112,23 +141,16 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     max-width: 1200px; margin: 0 auto; padding: 0 20px;
   }
   
-  /* LOGO HEADER - Tamaño ligeramente reducido */
-  .logo {
-    display: flex; align-items: center;
-  }
+  .logo { display: flex; align-items: center; }
   .logo img {
-    height: 85px; /* Reducido de 95px a 85px */
+    height: 85px;
     width: auto;
     display: block;
     transition: height 0.3s;
   }
-  .nav.scrolled .logo img {
-    height: 70px; /* Reducido de 80px a 70px */
-  }
+  .nav.scrolled .logo img { height: 70px; }
   
-  .nav-links {
-    display: flex; gap: 35px; list-style: none; align-items: center;
-  }
+  .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
   .nav-links a {
     color: rgba(255,255,255,0.9);
     font-size: 0.9rem;
@@ -138,10 +160,7 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     position: relative;
     font-weight: 400;
   }
-  .nav-links a:hover,
-  .nav-links a.active {
-    color: var(--gold);
-  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-links a.active::after {
     content: '';
     position: absolute;
@@ -171,7 +190,6 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     cursor: pointer;
   }
 
-  /* WHATSAPP FLOAT */
   .whatsapp-float {
     position: fixed; bottom: 25px; right: 25px;
     width: 60px; height: 60px;
@@ -185,7 +203,6 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
   }
 
-  /* FOOTER - Logo aumentado */
   .footer {
     background: var(--bg);
     color: rgba(255,255,255,0.7);
@@ -215,19 +232,18 @@ const ogImage = image && image.startsWith('http') ? image : `${siteUrl}${image |
     color: rgba(255,255,255,0.5);
   }
 
-  /* RESPONSIVE */
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .menu-btn { display: block; }
   }
   @media (max-width: 768px) {
-    .logo img { height: 60px; } /* Reducido de 70px a 60px */
-    .nav.scrolled .logo img { height: 55px; } /* Reducido de 60px a 55px */
+    .logo img { height: 60px; }
+    .nav.scrolled .logo img { height: 55px; }
     .footer-logo img { max-width: 350px; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
-    .logo img { height: 55px; } /* Reducido de 60px a 55px */
+    .logo img { height: 55px; }
     .footer-logo img { max-width: 300px; }
     .footer { padding: 70px 0 35px; }
   }
