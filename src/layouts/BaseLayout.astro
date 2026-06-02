@@ -55,24 +55,15 @@ const siteName = 'ReformaT Venezuela';
   <meta name="robots" content="index, follow" />
   
   <Analytics />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-
-  <!-- âœ… FUENTES AUTO-ALOJADAS: Sin bloqueo de renderizado -->
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   
-  <!-- CSS crÃ­tico inline (Astro lo inyecta automÃ¡ticamente) -->
+  <!-- FUENTES AUTO-ALOJADAS (Sin bloqueo de renderizado) -->
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -116,12 +107,12 @@ const siteName = 'ReformaT Venezuela';
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <nav id="navbar" class="nav" role="navigation" aria-label="MenÃº principal">
+  <nav id="navbar" class="nav" role="navigation" aria-label="Menú principal">
     <div class="nav-container">
       <a href="/" class="logo">
         <img 
           src="/images/logo-header.webp" 
-          alt="ReformaT Venezuela - RemodelaciÃ³n de Viviendas" 
+          alt="ReformaT Venezuela - Remodelación de Viviendas" 
           width="200"
           height="auto"
           loading="eager"
@@ -137,7 +128,14 @@ const siteName = 'ReformaT Venezuela';
         <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Blog</a></li>
         <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
       </ul>
-      <button id="menu-btn" class="menu-btn" aria-label="Abrir menÃº de navegaciÃ³n">â˜°</button>
+      
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="3" y1="12" x2="21" y2="12"></line>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+      </button>
     </div>
   </nav>
 
@@ -152,7 +150,7 @@ const siteName = 'ReformaT Venezuela';
       <div class="footer-logo">
         <img 
           src="/images/logo-footer.webp" 
-          alt="ReformaT Venezuela - RemodelaciÃ³n de Viviendas" 
+          alt="ReformaT Venezuela - Remodelación de Viviendas" 
           width="500"
           height="auto"
           loading="lazy"
@@ -206,8 +204,7 @@ const siteName = 'ReformaT Venezuela';
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
   .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-  .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
-
+  
   .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
   .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
 
@@ -217,7 +214,7 @@ const siteName = 'ReformaT Venezuela';
   .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } }
+  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: flex; } }
   @media (max-width: 768px) { .logo img { height: 60px; } .nav.scrolled .logo img { height: 55px; } .footer-logo img { max-width: 350px; } .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; } }
   @media (max-width: 480px) { .logo img { height: 55px; } .footer-logo img { max-width: 300px; } .footer { padding: 70px 0 35px; } }
 </style>

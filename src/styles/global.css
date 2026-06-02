@@ -1,6 +1,8 @@
 /* src/styles/global.css - Estilos globales del sitio */
 
-/* FUENTES AUTO-ALOJADAS (WOFF2) - Nombres exactos */
+/* ========================================
+   FUENTES AUTO-ALOJADAS (WOFF2)
+   ======================================== */
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-400.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2'); }
@@ -50,7 +52,8 @@ img { max-width: 100%; display: block; }
 .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
 .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 20px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
 .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-.menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+.menu-btn { display: flex; align-items: center; justify-content: center; background: none; border: none; color: var(--white); cursor: pointer; }
+.menu-btn svg { width: 28px; height: 28px; }
 
 /* === WHATSAPP === */
 .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
@@ -153,7 +156,7 @@ img { max-width: 100%; display: block; }
 /* === RESPONSIVE === */
 @media (max-width: 900px) { 
   .nav-links { display: none; } 
-  .menu-btn { display: block; } 
+  .menu-btn { display: flex; } 
   .services-vertical-grid { grid-template-columns: 1fr; max-width: 500px; margin: 0 auto; }
 }
 @media (max-width: 768px) { 
