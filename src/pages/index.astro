@@ -1,33 +1,32 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { getImage } from 'astro:assets';
-import cocina from '/images/cocina.webp';
-import bano from '/images/bano.webp';
-import electricidad from '/images/electricidad.webp';
-import fontaneria from '/images/fontaneria.webp';
-import revestimientos from '/images/revestimientos.webp';
-import sueloPorcelanato from '/images/suelo-porcelanato.webp';
-import piscinas from '/images/piscinas.webp';
 
-// Optimiza imágenes para slider (mobile: 400px, desktop: 800px)
-const cocinaOpt = await getImage({ src: cocina, widths: [400, 800], format: 'webp' });
-const banoOpt = await getImage({ src: bano, widths: [400, 800], format: 'webp' });
-const electricidadOpt = await getImage({ src: electricidad, widths: [400, 800], format: 'webp' });
-const fontaneriaOpt = await getImage({ src: fontaneria, widths: [400, 800], format: 'webp' });
-const revestimientosOpt = await getImage({ src: revestimientos, widths: [400, 800], format: 'webp' });
-const sueloOpt = await getImage({ src: sueloPorcelanato, widths: [400, 800], format: 'webp' });
-const piscinasOpt = await getImage({ src: piscinas, widths: [400, 800], format: 'webp' });
+// Función auxiliar para generar srcset manual para imágenes en public/
+const getSrcSet = (baseName: string, widths: number[], ext: string = 'webp') => {
+  return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
+};
+
+// Configuración de imágenes para el slider
+const serviceImages = {
+  cocina: { src: '/images/cocina.webp', srcset: getSrcSet('cocina', [400, 800]) },
+  bano: { src: '/images/bano.webp', srcset: getSrcSet('bano', [400, 800]) },
+  electricidad: { src: '/images/electricidad.webp', srcset: getSrcSet('electricidad', [400, 800]) },
+  fontaneria: { src: '/images/fontaneria.webp', srcset: getSrcSet('fontaneria', [400, 800]) },
+  revestimientos: { src: '/images/revestimientos.webp', srcset: getSrcSet('revestimientos', [400, 800]) },
+  sueloPorcelanato: { src: '/images/suelo-porcelanato.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800]) },
+  piscinas: { src: '/images/piscinas.webp', srcset: getSrcSet('piscinas', [400, 800]) }
+};
 
 const services = [
-  { title: "Reformas de Cocina", desc: "Renovamos tu cocina con funcionalidad y diseño moderno.", image: cocinaOpt, link: "/servicios/cocinas" },
-  { title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium.", image: banoOpt, link: "/servicios/banos" },
+  { title: "Reformas de Cocina", desc: "Renovamos tu cocina con funcionalidad y diseño moderno.", image: serviceImages.cocina, link: "/servicios/cocinas" },
+  { title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium.", image: serviceImages.bano, link: "/servicios/banos" },
   { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", link: "/servicios/integrales" },
-  { title: "Servicios Eléctricos", desc: "Instalaciones seguras y eficientes.", image: electricidadOpt, link: "/servicios/electricidad" },
-  { title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: fontaneriaOpt, link: "/servicios/fontaneria" },
+  { title: "Servicios Eléctricos", desc: "Instalaciones seguras y eficientes.", image: serviceImages.electricidad, link: "/servicios/electricidad" },
+  { title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: serviceImages.fontaneria, link: "/servicios/fontaneria" },
   { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", link: "/servicios/pintura-acabados" },
-  { title: "Revestimientos", desc: "Porcelanato, wall panels y acabados de pared.", image: revestimientosOpt, link: "/servicios/revestimientos" },
-  { title: "Suelos", desc: "Instalación de cerámica, laminado y madera.", image: sueloOpt, link: "/servicios/suelos" },
-  { title: "Piscinas", desc: "Construcción, mantenimiento y equipamiento.", image: piscinasOpt, link: "/servicios/piscinas" }
+  { title: "Revestimientos", desc: "Porcelanato, wall panels y acabados de pared.", image: serviceImages.revestimientos, link: "/servicios/revestimientos" },
+  { title: "Suelos", desc: "Instalación de cerámica, laminado y madera.", image: serviceImages.sueloPorcelanato, link: "/servicios/suelos" },
+  { title: "Piscinas", desc: "Construcción, mantenimiento y equipamiento.", image: serviceImages.piscinas, link: "/servicios/piscinas" }
 ];
 
 const stats = [
@@ -123,7 +122,7 @@ const stats = [
                 {typeof svc.image === 'object' ? (
                   <img 
                     src={svc.image.src} 
-                    srcset={svc.image.srcSet}
+                    srcset={svc.image.srcset}
                     sizes="(max-width: 768px) 300px, 800px"
                     alt={svc.title} 
                     loading={index === 0 ? "eager" : "lazy"} 
