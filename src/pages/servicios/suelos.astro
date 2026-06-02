@@ -1,15 +1,14 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-
 <BaseLayout 
   title="Instalación de Suelos | Cerámica, Porcelanato, Laminado y Madera" 
   description="Instalación profesional de todo tipo de suelos: cerámicos, porcelanato, laminado, vinílico PVC y madera. Nivelación perfecta y acabados duraderos en Valencia." 
-  image="/images/suelo-porcelanato.jpg" 
+  image="/images/suelo-porcelanato.webp" 
   activePage="servicios"
 >
   <header class="article-hero">
-    <div class="hero-bg" style="background-image: url('/images/suelo-porcelanato.jpg')"></div>
+    <div class="hero-bg" style="background-image: url('/images/suelo-porcelanato.webp')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <a href="/servicios" class="back-link">← Volver a Servicios</a>
@@ -26,7 +25,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <p>Trabajamos con cerámica técnica, porcelanato de alta densidad, suelos laminados de alta resistencia, vinílicos SPC/PVC y madera natural o ingenieril. Cada material requiere una técnica de preparación del soporte, adhesivo o sistema de flotación específico. Nuestro equipo está formado para garantizar un acabado plano, estable y estéticamente impecable.</p>
 
-        <img src="/images/suelo-porcelanato.jpg" alt="Suelo de porcelanato instalado profesionalmente" />
+        <img src="/images/suelo-porcelanato.webp" alt="Suelo de porcelanato instalado profesionalmente" loading="eager" fetchpriority="high" decoding="async" />
 
         <h2>Tipos de Suelos que Instalamos</h2>
 
@@ -38,21 +37,18 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <p>Construidos por capas compactadas con una capa decorativa de alta resolución y un overlay protector. Ofrecen la apariencia de la madera con mayor resistencia a impactos y un mantenimiento sencillo.</p>
         <p><strong>Ventajas:</strong> Instalación rápida (sistema clic), económica, resistente al desgaste, compatible con calefacción por suelo radiante.</p>
 
-        <!-- FOTO LAMINADO -->
-        <img src="/images/suelo-laminado.jpg" alt="Instalación de suelo laminado" />
+        <img src="/images/suelo-laminado.webp" alt="Instalación de suelo laminado" loading="lazy" decoding="async" />
 
         <h3>Suelos Vinílicos (SPC/PVC)</h3>
         <p>La evolución del vinilo: núcleos de piedra plástica (SPC) o vinilo flexible (LVT) 100% resistentes al agua. Ideales para baños, cocinas, sótanos y zonas comerciales por su impermeabilidad total y confort al pisar.</p>
         <p><strong>Ventajas:</strong> Impermeables, confortables, silenciosos, instalación sobre suelo existente, gran realismo visual.</p>
 
-        <!-- FOTO VINÍLICO -->
-        <img src="/images/suelo-vinilico.jpg" alt="Suelo vinílico SPC en instalación" />
+        <img src="/images/suelo-vinilico.webp" alt="Suelo vinílico SPC en instalación" loading="lazy" decoding="async" />
 
         <h3>Suelos de Madera Natural e Ingenieril</h3>
         <p>La madera aporta calidez y elegancia atemporal. Trabajamos con madera maciza (más sensible a la humedad) y madera ingenieril (más estable y recomendada para el clima venezolano). Instalación pegada, clavada o flotante según el tipo.</p>
 
-        <!-- FOTO MADERA -->
-        <img src="/images/suelo-madera.jpg" alt="Suelo de madera natural" />
+        <img src="/images/suelo-madera.webp" alt="Suelo de madera natural" loading="lazy" decoding="async" />
 
         <h2>El Proceso de Instalación Técnica</h2>
 
@@ -119,12 +115,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
   .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
   .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); font-weight: 400; }
   .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body ul { margin: 1.5rem 0 1.5rem 2rem; }
   .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
   .article-body img { border-radius: 12px; margin: 2.5rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
@@ -138,7 +132,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .article-body h2 { font-size: 2rem; }
     .article-body h3 { font-size: 1.5rem; }
     .cta-section { padding: 90px 20px; }
-    .cta-title { font-size: 2.2rem; }
-    .cta-text { font-size: 1.15rem; }
   }
 </style>

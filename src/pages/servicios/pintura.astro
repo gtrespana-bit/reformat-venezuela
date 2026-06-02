@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 ---
-
 <BaseLayout 
   title="Pintura y Acabados | Transformación de Espacios en Valencia" 
   description="Servicios profesionales de pintura interior y exterior, efectos decorativos, microcemento y acabados de alta calidad en Valencia y San Diego." 
@@ -26,7 +25,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <p>En ReformaT Venezuela ofrecemos servicios integrales de pintura y acabados decorativos, combinando técnicas tradicionales con las últimas tendencias en diseño de interiores. Trabajamos con materiales de primera calidad y pinturas de marcas reconocidas para garantizar resultados duraderos y acabados impecables.</p>
 
-        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=600&fit=crop" alt="Pintura profesional de interiores" />
+        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=600&fit=crop" alt="Pintura profesional de interiores" loading="eager" fetchpriority="high" decoding="async" />
 
         <h2>Servicios de Pintura Interior y Exterior</h2>
 
@@ -66,7 +65,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <p><strong>Efecto metalizado:</strong> Acabados modernos con reflejos metálicos para espacios contemporáneos.</p>
 
-        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&h=600&fit=crop" alt="Técnicas decorativas de pintura" />
+        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?w=1200&h=600&fit=crop" alt="Técnicas decorativas de pintura" loading="lazy" decoding="async" />
 
         <h2>Microcemento: La Tendencia Actual</h2>
 
@@ -114,7 +113,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <p><strong>Relieves:</strong> Texturas tridimensionales que añaden profundidad visual.</p>
 
-        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=600&fit=crop" alt="Acabados decorativos profesionales" />
+        <img src="https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=1200&h=600&fit=crop" alt="Acabados decorativos profesionales" loading="lazy" decoding="async" />
 
         <h2>El Proceso de Trabajo</h2>
 
@@ -209,12 +208,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
   .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
   .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); font-weight: 400; }
   .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body ul { margin: 1.5rem 0 1.5rem 2rem; }
   .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
   .article-body img { border-radius: 12px; margin: 2.5rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
@@ -228,7 +225,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .article-body h2 { font-size: 2rem; }
     .article-body h3 { font-size: 1.5rem; }
     .cta-section { padding: 90px 20px; }
-    .cta-title { font-size: 2.2rem; }
-    .cta-text { font-size: 1.15rem; }
   }
 </style>

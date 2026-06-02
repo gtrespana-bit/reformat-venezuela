@@ -4,11 +4,11 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 <BaseLayout 
   title="Piscinas | Construcción, Mantenimiento y Equipos de Filtración" 
   description="Diseño y construcción de piscinas residenciales, mantenimiento integral, instalación de sistemas de filtración y control de calidad del agua en Valencia y San Diego." 
-  image="/images/piscinas.jpg" 
+  image="/images/piscinas.webp" 
   activePage="servicios"
 >
   <header class="article-hero">
-    <div class="hero-bg" style="background-image: url('/images/piscinas.jpg')"></div>
+    <div class="hero-bg" style="background-image: url('/images/piscinas.webp')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <a href="/servicios" class="back-link">← Volver a Servicios</a>
@@ -25,7 +25,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
         <p>En ReformaT Venezuela ofrecemos un servicio integral: desde el diseño y construcción de piscinas de hormigón/gunita hasta el mantenimiento preventivo y correctivo. Trabajamos con sistemas de filtración de última generación, equipos de dosificación automática y tratamientos de agua que garantizan transparencia, higiene y seguridad para tu familia.</p>
 
-        <img src="/images/piscinas.jpg" alt="Piscina residencial con acabado en gresite" />
+        <img src="/images/piscinas.webp" alt="Piscina residencial con acabado en gresite" loading="eager" fetchpriority="high" decoding="async" />
 
         <h2>Construcción de Piscinas Residenciales</h2>
 
@@ -51,7 +51,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <h3>Climatización y Iluminación</h3>
         <p>Instalamos bombas de calor para ampliar la temporada de baño y proyectores LED RGB sumergibles con control remoto o domótico para crear ambientes nocturnos espectaculares.</p>
 
-        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=1200&h=600&fit=crop" alt="Equipo de filtración y sala de máquinas de piscina" />
+        <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?w=1200&h=600&fit=crop" alt="Equipo de filtración y sala de máquinas de piscina" loading="lazy" decoding="async" />
 
         <h2>Servicio de Mantenimiento Integral</h2>
 
@@ -123,12 +123,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
   .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
   .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
   .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); font-weight: 400; }
   .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
-  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body ul { margin: 1.5rem 0 1.5rem 2rem; }
   .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
   .article-body img { border-radius: 12px; margin: 2.5rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
-  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
@@ -142,7 +140,5 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     .article-body h2 { font-size: 2rem; }
     .article-body h3 { font-size: 1.5rem; }
     .cta-section { padding: 90px 20px; }
-    .cta-title { font-size: 2.2rem; }
-    .cta-text { font-size: 1.15rem; }
   }
 </style>

@@ -2,15 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const services = [
-  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales.", image: "/images/cocina.jpg", features: ["Diseño personalizado", "Materiales premium"] },
-  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar.", image: "/images/bano.jpg", features: ["Impermeabilización", "Diseño spa"] },
+  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales.", image: "/images/cocina.webp", features: ["Diseño personalizado", "Materiales premium"] },
+  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar.", image: "/images/bano.webp", features: ["Impermeabilización", "Diseño spa"] },
   { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", features: ["Proyecto completo", "Gestión de permisos"] },
-  { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones seguras.", image: "/images/electricidad.jpg", features: ["Certificada", "Domótica"] },
-  { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales.", image: "/images/fontaneria.jpg", features: ["Detección fugas", "Grifería"] },
+  { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones seguras.", image: "/images/electricidad.webp", features: ["Certificada", "Domótica"] },
+  { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales.", image: "/images/fontaneria.webp", features: ["Detección fugas", "Grifería"] },
   { slug: "pintura-acabados", title: "Pintura y Acabados", desc: "Acabados perfectos.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Decorativa", "Microcemento"] },
-  { slug: "revestimientos", title: "Revestimientos", desc: "Paredes con estilo.", image: "/images/revestimientos.jpg", features: ["Porcelanato XL", "Wall Panels"] },
-  { slug: "suelos", title: "Suelos", desc: "Pavimentos duraderos.", image: "/images/suelo-porcelanato.jpg", features: ["Laminado", "Vinílico", "Madera"] },
-  { slug: "piscinas", title: "Piscinas", desc: "Construcción y mantenimiento.", image: "/images/piscinas.jpg", features: ["Construcción", "Filtración"] }
+  { slug: "revestimientos", title: "Revestimientos", desc: "Paredes con estilo.", image: "/images/revestimientos.webp", features: ["Porcelanato XL", "Wall Panels"] },
+  { slug: "suelos", title: "Suelos", desc: "Pavimentos duraderos.", image: "/images/suelo-porcelanato.webp", features: ["Laminado", "Vinílico", "Madera"] },
+  { slug: "piscinas", title: "Piscinas", desc: "Construcción y mantenimiento.", image: "/images/piscinas.webp", features: ["Construcción", "Filtración"] }
 ];
 ---
 
@@ -36,16 +36,14 @@ const services = [
         {services.map((svc) => (
           <a href={`/servicios/${svc.slug}`} class="service-vertical-card">
             <div class="card-img-wrap">
-              <img src={svc.image} alt={svc.title} loading="lazy" />
+              <img src={svc.image} alt={svc.title} loading="lazy" decoding="async" />
               <div class="card-overlay"></div>
               <span class="card-icon">✦</span>
             </div>
             <div class="card-body">
               <h3>{svc.title}</h3>
               <p>{svc.desc}</p>
-              <ul class="card-features">
-                {svc.features.map(f => <li>{f}</li>)}
-              </ul>
+              <ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul>
               <span class="card-link">Ver más detalles <span class="arrow">→</span></span>
             </div>
           </a>
@@ -59,10 +57,7 @@ const services = [
       <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado.</p>
       <a href="/contacto" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Agendar Consulta Gratuita</span>
-        <span class="btn-border"></span>
-        <span class="btn-shine"></span>
-        <span class="btn-arrow">→</span>
+        <span class="btn-content">Agendar Consulta Gratuita</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span>
       </a>
     </div>
   </section>
