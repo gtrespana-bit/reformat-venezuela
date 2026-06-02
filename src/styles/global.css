@@ -1,4 +1,7 @@
-﻿@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-400.woff2') format('woff2'); }
+/* ========================================
+   FUENTES AUTO-ALOJADAS (WOFF2)
+   ======================================== */
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-400.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2'); }
 @font-face { font-family: 'Cormorant Garamond'; font-weight: 700; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-700.woff2') format('woff2'); }
@@ -7,17 +10,283 @@
 @font-face { font-family: 'Manrope'; font-weight: 500; font-display: swap; src: url('/fonts/manrope-v15-latin-500.woff2') format('woff2'); }
 @font-face { font-family: 'Manrope'; font-weight: 600; font-display: swap; src: url('/fonts/manrope-v15-latin-600.woff2') format('woff2'); }
 
+/* ========================================
+   VARIABLES CSS
+   ======================================== */
 :root {
-  --bg: #0a0a0a; --white: #ffffff; --gray: #f8f9fa; --gray-text: #4a4a4a;
-  --gold: #C9A961; --gold-light: #E5C98E;
+  --bg: #0a0a0a;
+  --white: #ffffff;
+  --gray: #f8f9fa;
+  --gray-text: #4a4a4a;
+  --gold: #C9A961;
+  --gold-light: #E5C98E;
+  --text: #1a1a1a;
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
+
+/* ========================================
+   RESET Y BASE
+   ======================================== */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
-body { font-family: var(--font-sans); background: var(--bg); color: var(--text); line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body {
+  font-family: var(--font-sans);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 img, video { max-width: 100%; height: auto; display: block; }
-a { text-decoration: none; color: inherit; }
+a { text-decoration: none; color: inherit; transition: color 0.3s; }
 button { font: inherit; cursor: pointer; border: none; background: none; }
 ul { list-style: none; }
+
+/* ========================================
+   UTILIDADES
+   ======================================== */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.text-center { text-align: center; }
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+
+/* ========================================
+   BOTONES PREMIUM
+   ======================================== */
+.btn-premium {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 18px 35px;
+  background: var(--gold);
+  color: var(--bg);
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.btn-primary-premium {
+  background: var(--gold);
+  color: var(--bg);
+}
+
+.btn-border {
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,0.3);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+  transition: left 0.5s;
+}
+
+.btn-arrow {
+  transition: transform 0.3s;
+}
+
+.btn-premium:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+}
+
+.btn-premium:hover .btn-shine {
+  left: 150%;
+}
+
+.btn-premium:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* ========================================
+   TARJETAS DE SERVICIOS
+   ======================================== */
+.service-card {
+  background: var(--white);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: all 0.4s;
+  text-decoration: none;
+  color: inherit;
+}
+
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+}
+
+.card-img-wrap {
+  position: relative;
+  height: 280px;
+  overflow: hidden;
+}
+
+.card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s;
+}
+
+.service-card:hover .card-img-wrap img {
+  transform: scale(1.08);
+}
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%);
+}
+
+.card-icon {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 45px;
+  height: 45px;
+  background: var(--gold);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--bg);
+  transition: transform 0.4s;
+}
+
+.service-card:hover .card-icon {
+  transform: scale(1.15) rotate(15deg);
+}
+
+.card-body {
+  padding: 30px 25px;
+}
+
+.card-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 12px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.card-body p {
+  color: var(--gray-text);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.card-link {
+  color: var(--gold);
+  font-weight: 600;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ========================================
+   GRID DE SERVICIOS
+   ======================================== */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-top: 60px;
+}
+
+/* ========================================
+   FORMULARIOS
+   ======================================== */
+input, select, textarea {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.95rem;
+}
+
+/* ========================================
+   SECCIONES
+   ======================================== */
+.section {
+  padding: 100px 0;
+}
+
+.bg-light {
+  background: var(--gray);
+}
+
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 60px;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 20px;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.tag {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+@media (max-width: 768px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-premium {
+    padding: 15px 25px;
+    font-size: 0.9rem;
+  }
+}
