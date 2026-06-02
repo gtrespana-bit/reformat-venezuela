@@ -1,7 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Función auxiliar para generar srcset manual para imágenes en public/
 const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
@@ -104,7 +103,7 @@ const stats = [
       </div>
       
       <div class="services-slider-wrapper">
-        <button class="slider-btn slider-prev" aria-label="Servicio anterior">
+        <button class="slider-btn slider-prev" aria-label="Ver servicio anterior">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M15 18l-6-6 6-6"/>
           </svg>
@@ -144,7 +143,7 @@ const stats = [
           ))}
         </div>
         
-        <button class="slider-btn slider-next" aria-label="Siguiente servicio">
+        <button class="slider-btn slider-next" aria-label="Ver siguiente servicio">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M9 18l6-6-6-6"/>
           </svg>
@@ -159,10 +158,10 @@ const stats = [
     <div class="container about-grid">
       <div class="about-imgs">
         <div class="img-box tall">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" alt="Arquitectura" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" alt="Arquitectura de viviendas modernas" loading="lazy" decoding="async" />
         </div>
         <div class="img-box small">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" alt="Equipo" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" alt="Equipo de profesionales trabajando" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="about-text">
@@ -198,7 +197,7 @@ const stats = [
     </div>
   </section>
 
-  <section class="section bg-light">
+  <section class="section bg-light" id="contacto-rapido">
     <div class="container contact-grid">
       <div class="contact-info">
         <h2 class="section-title">Hablemos de Tu Proyecto</h2>
@@ -209,16 +208,21 @@ const stats = [
         </div>
         <div class="info-item">
           <h4>Teléfono</h4>
-          <p>0422 799 7043</p>
+          <p><a href="tel:+584227997043" style="color: var(--gold); text-decoration: none;">0422 799 7043</a></p>
         </div>
       </div>
-      <form class="contact-form">
+      <form class="contact-form" action="https://formsubmit.co/contacto@reformat-venezuela.online" method="POST">
+        <input type="hidden" name="_subject" value="Nueva consulta desde la web">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- ✅ Honeypot anti-spam -->
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        
         <div class="form-row">
-          <input type="text" placeholder="Nombre" required />
-          <input type="tel" placeholder="Teléfono" required />
+          <input type="text" id="nombre" name="nombre" placeholder="Nombre" required aria-label="Tu nombre completo" />
+          <input type="tel" id="telefono" name="telefono" placeholder="Teléfono" required aria-label="Tu número de teléfono" />
         </div>
-        <input type="email" placeholder="Email" required />
-        <select required>
+        <input type="email" id="email" name="email" placeholder="Email" required aria-label="Tu correo electrónico" />
+        <select id="proyecto" name="proyecto" required aria-label="Tipo de proyecto">
           <option value="" disabled selected>Tipo de Proyecto</option>
           <option value="cocina">Reforma de Cocina</option>
           <option value="bano">Reforma de Baño</option>
@@ -226,7 +230,7 @@ const stats = [
           <option value="electricidad">Servicios Eléctricos</option>
           <option value="fontaneria">Fontanería</option>
         </select>
-        <textarea placeholder="Tu Mensaje" rows="4"></textarea>
+        <textarea id="mensaje" name="mensaje" placeholder="Tu Mensaje" rows="4" required aria-label="Detalles de tu proyecto"></textarea>
         <button type="submit" class="btn-premium btn-primary-premium full-width">
           <span class="btn-content">Enviar Mensaje</span>
           <span class="btn-border"></span>
@@ -255,51 +259,14 @@ const stats = [
   }
   
   .hero-video { z-index: 1; } 
-  
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
-  
-  .hero-content { 
-    position: relative; 
-    z-index: 3; 
-    max-width: 900px; 
-    padding: 100px 20px 0;
-  }
-  
-  .hero-tag { 
-    display: block; 
-    font-size: 0.85rem; 
-    letter-spacing: 2.5px; 
-    text-transform: uppercase; 
-    color: var(--gold); 
-    margin-bottom: 12px;
-  }
-  
-  .hero-title { 
-    font-family: var(--font-serif); 
-    font-size: clamp(2.8rem, 7vw, 6rem);
-    font-weight: 400; 
-    margin-bottom: 18px;
-    line-height: 1.05;
-  }
-  
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
+  .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
   .hero-title .line { display: block; }
   .hero-title .gold { color: var(--gold); }
-  
-  .hero-sub { 
-    font-size: 1.15rem; 
-    color: rgba(255, 255, 255, 0.95); 
-    margin: 0 auto 28px;
-    max-width: 600px; 
-    line-height: 1.55;
-  }
-  
-  .hero-btns { 
-    display: flex; 
-    gap: 18px;
-    justify-content: center; 
-    flex-wrap: wrap; 
-  }
-  
+  .hero-sub { font-size: 1.15rem; color: rgba(255, 255, 255, 0.95); margin: 0 auto 28px; max-width: 600px; line-height: 1.55; }
+  .hero-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
   .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
   .btn-white-premium { background: var(--white); color: var(--bg); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -320,49 +287,11 @@ const stats = [
   .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; font-weight: 400; }
   .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
   
-  .services-slider-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  .services-slider {
-    display: flex;
-    gap: 30px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    padding: 20px 10px;
-    flex: 1;
-  }
-  
-  .services-slider::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .service-card-slider {
-    flex: 0 0 calc(33.333% - 20px);
-    min-width: 300px;
-    display: block;
-    background: var(--white);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-    transition: 0.4s;
-    text-decoration: none;
-    color: inherit;
-    scroll-snap-align: start;
-  }
-  
-  .service-card-slider:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.12);
-  }
-  
+  .services-slider-wrapper { position: relative; display: flex; align-items: center; gap: 20px; }
+  .services-slider { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; padding: 20px 10px; flex: 1; }
+  .services-slider::-webkit-scrollbar { display: none; }
+  .service-card-slider { flex: 0 0 calc(33.333% - 20px); min-width: 300px; display: block; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; scroll-snap-align: start; }
+  .service-card-slider:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
   .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
   .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
   .service-card-slider:hover .card-img-wrap img { transform: scale(1.08); }
@@ -377,49 +306,11 @@ const stats = [
   .service-card-slider:hover .card-link { gap: 14px; }
   .service-card-slider:hover .card-link .arrow { transform: translateX(5px); }
   
-  .slider-btn {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    background: var(--white);
-    border: 2px solid var(--gold);
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  }
-  
-  .slider-btn:hover {
-    background: var(--gold);
-    color: var(--bg);
-    transform: scale(1.1);
-  }
-  
-  .slider-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 30px;
-  }
-  
-  .slider-dot {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    background: #ddd;
-    cursor: pointer;
-    transition: all 0.3s;
-  }
-  
-  .slider-dot.active {
-    background: var(--gold);
-    width: 30px;
-    border-radius: 5px;
-  }
+  .slider-btn { flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; background: var(--white); border: 2px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  .slider-btn:hover { background: var(--gold); color: var(--bg); transform: scale(1.1); }
+  .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+  .slider-dot { width: 10px; height: 10px; border-radius: 50%; background: #ddd; cursor: pointer; transition: all 0.3s; }
+  .slider-dot.active { background: var(--gold); width: 30px; border-radius: 5px; }
   
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
   .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
@@ -454,18 +345,15 @@ const stats = [
     .hero-btns{flex-direction:column;align-items:center;gap:12px;width:100%;padding:0 20px;} 
     .hero-btns .btn-premium{width:100%;max-width:280px;justify-content:center;} 
   }
-  
   @media (max-width: 900px) { 
     .stats-grid{grid-template-columns:repeat(2,1fr);} 
     .service-card-slider { flex: 0 0 calc(50% - 15px); min-width: 250px; }
     .about-grid,.contact-grid{grid-template-columns:1fr;} 
   }
-  
   @media (max-width: 600px) {
     .service-card-slider { flex: 0 0 100%; min-width: 280px; }
     .slider-btn { display: none; }
   }
-  
   @media (prefers-reduced-motion: reduce) { 
     .hero-video{display:none!important;} 
     .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;} 
@@ -507,33 +395,10 @@ const stats = [
       }
       
       const dots = document.querySelectorAll('.slider-dot');
-      
-      function updateDots(index) {
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
-        });
-      }
-      
-      prevBtn.addEventListener('click', () => {
-        const scrollLeft = slider.scrollLeft;
-        const newIndex = Math.max(0, Math.floor(scrollLeft / cardWidth) - 1);
-        slider.scrollTo({ left: newIndex * cardWidth, behavior: 'smooth' });
-        updateDots(newIndex);
-      });
-      
-      nextBtn.addEventListener('click', () => {
-        const scrollLeft = slider.scrollLeft;
-        const currentIndex = Math.floor(scrollLeft / cardWidth);
-        const newIndex = Math.min(totalSlides - 1, currentIndex + 1);
-        slider.scrollTo({ left: newIndex * cardWidth, behavior: 'smooth' });
-        updateDots(newIndex);
-      });
-      
-      slider.addEventListener('scroll', () => {
-        const scrollLeft = slider.scrollLeft;
-        const currentIndex = Math.round(scrollLeft / cardWidth);
-        updateDots(currentIndex);
-      });
+      function updateDots(index) { dots.forEach((dot, i) => { dot.classList.toggle('active', i === index); }); }
+      prevBtn.addEventListener('click', () => { const sl = slider.scrollLeft; const n = Math.max(0, Math.floor(sl / cardWidth) - 1); slider.scrollTo({ left: n * cardWidth, behavior: 'smooth' }); updateDots(n); });
+      nextBtn.addEventListener('click', () => { const sl = slider.scrollLeft; const c = Math.floor(sl / cardWidth); const n = Math.min(totalSlides - 1, c + 1); slider.scrollTo({ left: n * cardWidth, behavior: 'smooth' }); updateDots(n); });
+      slider.addEventListener('scroll', () => { updateDots(Math.round(slider.scrollLeft / cardWidth)); });
     }
   });
 </script>
