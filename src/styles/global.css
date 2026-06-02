@@ -1,52 +1,13 @@
 /* src/styles/global.css - Estilos globales del sitio */
 
-/* ========================================
-   FUENTES AUTO-ALOJADAS (WOFF2)
-   Añadidas para eliminar render-blocking
-   ======================================== */
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-v21-latin-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Cormorant Garamond';
-  font-weight: 700;
-  font-display: swap;
-  src: url('/fonts/cormorant-garamond-v21-latin-700.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Manrope';
-  font-weight: 400;
-  font-display: swap;
-  src: url('/fonts/manrope-v15-latin-400.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Manrope';
-  font-weight: 500;
-  font-display: swap;
-  src: url('/fonts/manrope-v15-latin-500.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Manrope';
-  font-weight: 600;
-  font-display: swap;
-  src: url('/fonts/manrope-v15-latin-600.woff2') format('woff2');
-}
+/* FUENTES AUTO-ALOJADAS (WOFF2) - Nombres exactos */
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 400; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-400.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 500; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-500.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 600; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-600.woff2') format('woff2'); }
+@font-face { font-family: 'Cormorant Garamond'; font-weight: 700; font-display: swap; src: url('/fonts/cormorant-garamond-v21-latin-700.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 400; font-display: swap; src: url('/fonts/manrope-v15-latin-400.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 500; font-display: swap; src: url('/fonts/manrope-v15-latin-500.woff2') format('woff2'); }
+@font-face { font-family: 'Manrope'; font-weight: 600; font-display: swap; src: url('/fonts/manrope-v15-latin-600.woff2') format('woff2'); }
 
 /* === VARIABLES === */
 :root { 
