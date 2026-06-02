@@ -27,19 +27,16 @@ const siteName = 'ReformaT Venezuela';
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
-  <!-- ========== PRECONNECT (Acelera carga de recursos externos) ========== -->
+  <!-- ========== PRECONNECT (Solo críticos para evitar saturación de sockets) ========== -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://images.unsplash.com" />
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
-  <link rel="preconnect" href="https://www.googletagmanager.com" />
   
-  <!-- ========== FAVICON (Icono cuadrado en pestaña del navegador) ========== -->
+  <!-- ========== FAVICON ========== -->
   <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
   <link rel="shortcut icon" type="image/jpeg" href="/images/favicon.jpg" />
   <link rel="apple-touch-icon" href="/images/favicon.jpg" />
   
-  <!-- ========== OPEN GRAPH (WhatsApp, Facebook, LinkedIn) ========== -->
+  <!-- ========== OPEN GRAPH ========== -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={siteName} />
   <meta property="og:locale" content="es_VE" />
@@ -53,7 +50,7 @@ const siteName = 'ReformaT Venezuela';
   <meta property="og:image:height" content="630" />
   <meta property="og:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
   
-  <!-- ========== TWITTER CARDS (X / Twitter) ========== -->
+  <!-- ========== TWITTER CARDS ========== -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
@@ -68,16 +65,8 @@ const siteName = 'ReformaT Venezuela';
   <!-- ✅ Google Analytics 4 -->
   <Analytics />
   
-  <!-- Google Fonts con carga asíncrona -->
-  <link 
-    rel="preload" 
-    as="style" 
-    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" 
-    onload="this.onload=null;this.rel='stylesheet'"
-  />
-  <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" />
-  </noscript>
+  <!-- Google Fonts (Carga estándar estable para PageSpeed) -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" />
   
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
@@ -86,7 +75,6 @@ const siteName = 'ReformaT Venezuela';
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER: Versión optimizada pequeña -->
       <a href="/" class="logo">
         <img 
           src="/images/logo-header.webp" 
@@ -118,7 +106,6 @@ const siteName = 'ReformaT Venezuela';
 
   <footer class="footer">
     <div class="container">
-      <!-- LOGO FOOTER: Versión optimizada mediana -->
       <div class="footer-logo">
         <img 
           src="/images/logo-footer.webp" 

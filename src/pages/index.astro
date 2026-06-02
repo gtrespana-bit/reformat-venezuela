@@ -2,11 +2,10 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 // Función auxiliar para generar srcset manual para imágenes en public/
-const getSrcSet = (baseName: string, widths: number[], ext: string = 'webp') => {
+const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
 
-// Configuración de imágenes para el slider
 const serviceImages = {
   cocina: { src: '/images/cocina.webp', srcset: getSrcSet('cocina', [400, 800]) },
   bano: { src: '/images/bano.webp', srcset: getSrcSet('bano', [400, 800]) },
@@ -20,10 +19,10 @@ const serviceImages = {
 const services = [
   { title: "Reformas de Cocina", desc: "Renovamos tu cocina con funcionalidad y diseño moderno.", image: serviceImages.cocina, link: "/servicios/cocinas" },
   { title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium.", image: serviceImages.bano, link: "/servicios/banos" },
-  { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", link: "/servicios/integrales" },
+  { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=75&w=800&auto=format&fit=crop", link: "/servicios/integrales" },
   { title: "Servicios Eléctricos", desc: "Instalaciones seguras y eficientes.", image: serviceImages.electricidad, link: "/servicios/electricidad" },
   { title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: serviceImages.fontaneria, link: "/servicios/fontaneria" },
-  { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", link: "/servicios/pintura-acabados" },
+  { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=75&w=800&auto=format&fit=crop", link: "/servicios/pintura-acabados" },
   { title: "Revestimientos", desc: "Porcelanato, wall panels y acabados de pared.", image: serviceImages.revestimientos, link: "/servicios/revestimientos" },
   { title: "Suelos", desc: "Instalación de cerámica, laminado y madera.", image: serviceImages.sueloPorcelanato, link: "/servicios/suelos" },
   { title: "Piscinas", desc: "Construcción, mantenimiento y equipamiento.", image: serviceImages.piscinas, link: "/servicios/piscinas" }
@@ -43,20 +42,19 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- HERO -->
   <header class="hero">
     <script is:inline>
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-        var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop';
+        var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop';
         var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
         document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
     
     <noscript>
-      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
     </noscript>
 
     <div class="hero-overlay"></div>
@@ -86,7 +84,6 @@ const stats = [
     </div>
   </header>
 
-  <!-- STATS -->
   <section class="stats-section">
     <div class="container stats-grid">
       {stats.map((s) => (
@@ -98,7 +95,6 @@ const stats = [
     </div>
   </section>
 
-  <!-- SERVICES SLIDER -->
   <section class="section bg-light">
     <div class="container">
       <div class="section-header">
@@ -107,7 +103,6 @@ const stats = [
         <p class="section-desc">Reformas integrales, cocinas, baños, electricidad y fontanería. Ejecución rápida, técnicas avanzadas y acabados impecables.</p>
       </div>
       
-      <!-- Slider Container -->
       <div class="services-slider-wrapper">
         <button class="slider-btn slider-prev" aria-label="Servicio anterior">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -156,20 +151,18 @@ const stats = [
         </button>
       </div>
       
-      <!-- Dots Indicator -->
       <div class="slider-dots"></div>
     </div>
   </section>
 
-  <!-- ABOUT -->
   <section class="section">
     <div class="container about-grid">
       <div class="about-imgs">
         <div class="img-box tall">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600" alt="Arquitectura" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" alt="Arquitectura" loading="lazy" decoding="async" />
         </div>
         <div class="img-box small">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600" alt="Equipo" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" alt="Equipo" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="about-text">
@@ -192,7 +185,6 @@ const stats = [
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">Tu Espacio, Nuestra Pasión</h2>
@@ -206,7 +198,6 @@ const stats = [
     </div>
   </section>
 
-  <!-- CONTACT -->
   <section class="section bg-light">
     <div class="container contact-grid">
       <div class="contact-info">
@@ -255,7 +246,7 @@ const stats = [
     min-height: 100vh; 
     min-height: 100svh; 
     overflow: hidden; 
-    background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+    background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -324,13 +315,11 @@ const stats = [
   .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
   .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; font-weight: 400; }
   
-  /* STATS */
   .stats-section { padding: 60px 0; background: var(--bg); color: var(--white); }
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
   .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; font-weight: 400; }
   .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
   
-  /* SERVICES SLIDER */
   .services-slider-wrapper {
     position: relative;
     display: flex;
@@ -388,7 +377,6 @@ const stats = [
   .service-card-slider:hover .card-link { gap: 14px; }
   .service-card-slider:hover .card-link .arrow { transform: translateX(5px); }
   
-  /* Slider Buttons */
   .slider-btn {
     flex-shrink: 0;
     width: 50px;
@@ -433,7 +421,6 @@ const stats = [
     border-radius: 5px;
   }
   
-  /* ABOUT */
   .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
   .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .img-box { border-radius: 4px; overflow: hidden; }
@@ -443,14 +430,12 @@ const stats = [
   .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); line-height: 1.6; font-weight: 400; }
   .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
   
-  /* CTA */
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
   .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
   .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
   
-  /* CONTACT */
   .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
   .info-item { margin-bottom: 25px; }
   .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 600; }
@@ -461,7 +446,6 @@ const stats = [
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
   .full-width { width: 100%; justify-content: center; }
   
-  /* RESPONSIVE */
   @media (max-width: 1023px) { 
     .hero-content { padding: 90px 20px 0; }
     .hero-tag{font-size:0.75rem;letter-spacing:2px;margin-bottom:10px;} 
@@ -484,12 +468,11 @@ const stats = [
   
   @media (prefers-reduced-motion: reduce) { 
     .hero-video{display:none!important;} 
-    .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;} 
+    .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;} 
   }
 </style>
 
 <script>
-  // Stats Animation - Cargado después de window.load para evitar reflows forzados
   window.addEventListener('load', () => {
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
@@ -501,7 +484,6 @@ const stats = [
       });
     }
     
-    // Slider Functionality
     const slider = document.querySelector('.services-slider');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
@@ -509,11 +491,10 @@ const stats = [
     const cards = document.querySelectorAll('.service-card-slider');
     
     if (slider && prevBtn && nextBtn) {
-      const cardWidth = cards[0].offsetWidth + 30; // width + gap
+      const cardWidth = cards[0].offsetWidth + 30;
       const visibleCards = Math.floor(slider.offsetWidth / cardWidth);
       const totalSlides = cards.length - visibleCards + 1;
       
-      // Create dots
       for (let i = 0; i < totalSlides; i++) {
         const dot = document.createElement('div');
         dot.classList.add('slider-dot');
@@ -548,7 +529,6 @@ const stats = [
         updateDots(newIndex);
       });
       
-      // Update dots on scroll
       slider.addEventListener('scroll', () => {
         const scrollLeft = slider.scrollLeft;
         const currentIndex = Math.round(scrollLeft / cardWidth);
