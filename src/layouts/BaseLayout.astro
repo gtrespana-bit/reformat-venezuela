@@ -27,6 +27,13 @@ const siteName = 'ReformaT Venezuela';
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
+  <!-- ========== PRECONNECT (Acelera carga de recursos externos) ========== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://images.unsplash.com" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" />
+  <link rel="preconnect" href="https://www.googletagmanager.com" />
+  
   <!-- ========== FAVICON (Icono cuadrado en pestaña del navegador) ========== -->
   <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
   <link rel="shortcut icon" type="image/jpeg" href="/images/favicon.jpg" />
@@ -61,8 +68,17 @@ const siteName = 'ReformaT Venezuela';
   <!-- ✅ Google Analytics 4 -->
   <Analytics />
   
-  <!-- Google Fonts optimizadas para legibilidad -->
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet" />
+  <!-- Google Fonts con carga asíncrona -->
+  <link 
+    rel="preload" 
+    as="style" 
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" 
+    onload="this.onload=null;this.rel='stylesheet'"
+  />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" />
+  </noscript>
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 </head>
@@ -70,14 +86,16 @@ const siteName = 'ReformaT Venezuela';
 <body>
   <nav id="navbar" class="nav">
     <div class="nav-container">
-      <!-- LOGO HEADER: Ahora usa .webp -->
+      <!-- LOGO HEADER: Versión optimizada pequeña -->
       <a href="/" class="logo">
         <img 
-          src="/images/logo.webp" 
+          src="/images/logo-header.webp" 
           alt="ReformaT Venezuela - Remodelación de Viviendas" 
-          width="auto"
-          height="85"
+          width="200"
+          height="auto"
           loading="eager"
+          fetchpriority="high"
+          decoding="async"
         />
       </a>
       
@@ -100,14 +118,15 @@ const siteName = 'ReformaT Venezuela';
 
   <footer class="footer">
     <div class="container">
-      <!-- LOGO FOOTER: Ahora usa .webp -->
+      <!-- LOGO FOOTER: Versión optimizada mediana -->
       <div class="footer-logo">
         <img 
-          src="/images/logo.webp" 
+          src="/images/logo-footer.webp" 
           alt="ReformaT Venezuela - Remodelación de Viviendas" 
-          width="450"
+          width="500"
           height="auto"
           loading="lazy"
+          decoding="async"
         />
       </div>
       <p class="footer-desc">Transformando espacios con excelencia desde 2005.</p>
