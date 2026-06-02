@@ -1,4 +1,4 @@
----
+﻿---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
 
@@ -26,9 +26,6 @@ const siteName = 'ReformaT Venezuela';
   <title>{title}</title>
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
-  
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   
   <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
   <link rel="shortcut icon" type="image/jpeg" href="/images/favicon.jpg" />
@@ -58,8 +55,25 @@ const siteName = 'ReformaT Venezuela';
   <meta name="robots" content="index, follow" />
   
   <Analytics />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" />
+  <!-- âœ… FUENTES AUTO-ALOJADAS: Sin bloqueo de renderizado -->
+  <link rel="preload" href="/fonts/cormorant-garamond-v16-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v16-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v16-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v16-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-regular.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  
+  <!-- CSS crÃ­tico inline (Astro lo inyecta automÃ¡ticamente) -->
+  
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
@@ -102,12 +116,12 @@ const siteName = 'ReformaT Venezuela';
 <body>
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <nav id="navbar" class="nav" role="navigation" aria-label="Menú principal">
+  <nav id="navbar" class="nav" role="navigation" aria-label="MenÃº principal">
     <div class="nav-container">
       <a href="/" class="logo">
         <img 
           src="/images/logo-header.webp" 
-          alt="ReformaT Venezuela - Remodelación de Viviendas" 
+          alt="ReformaT Venezuela - RemodelaciÃ³n de Viviendas" 
           width="200"
           height="auto"
           loading="eager"
@@ -123,7 +137,7 @@ const siteName = 'ReformaT Venezuela';
         <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Blog</a></li>
         <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
       </ul>
-      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación">☰</button>
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menÃº de navegaciÃ³n">â˜°</button>
     </div>
   </nav>
 
@@ -138,7 +152,7 @@ const siteName = 'ReformaT Venezuela';
       <div class="footer-logo">
         <img 
           src="/images/logo-footer.webp" 
-          alt="ReformaT Venezuela - Remodelación de Viviendas" 
+          alt="ReformaT Venezuela - RemodelaciÃ³n de Viviendas" 
           width="500"
           height="auto"
           loading="lazy"
