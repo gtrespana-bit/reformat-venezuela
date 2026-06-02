@@ -45,13 +45,13 @@ const siteName = 'ReformaT Venezuela';
   <meta property="og:image:type" content="image/jpeg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
+  <meta property="og:image:alt" content={`${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
   
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImage} />
-  <meta name="twitter:image:alt" content={`${siteName} - Reformas de calidad en Valencia y San Diego`} />
+  <meta name="twitter:image:alt" content={`${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
   
   <meta name="author" content={siteName} />
   <meta name="theme-color" content="#0a0a0a" />
@@ -63,7 +63,6 @@ const siteName = 'ReformaT Venezuela';
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
-  <!-- ✅ Schema JSON-LD para SEO Local -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -85,7 +84,9 @@ const siteName = 'ReformaT Venezuela';
     },
     "areaServed": [
       {"@type": "City", "name": "Valencia"},
-      {"@type": "City", "name": "San Diego"}
+      {"@type": "City", "name": "San Diego"},
+      {"@type": "AdministrativeArea", "name": "Carabobo"},
+      {"@type": "City", "name": "Caracas"}
     ],
     "priceRange": "$$",
     "openingHoursSpecification": {
@@ -99,7 +100,6 @@ const siteName = 'ReformaT Venezuela';
 </head>
 
 <body>
-  <!-- ✅ Skip Link para accesibilidad por teclado -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <nav id="navbar" class="nav" role="navigation" aria-label="Menú principal">
@@ -146,7 +146,7 @@ const siteName = 'ReformaT Venezuela';
         />
       </div>
       <p class="footer-desc">Transformando espacios con excelencia desde 2005.</p>
-      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados.</p>
+      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. Todos los derechos reservados. | Valencia, San Diego, Carabobo y Caracas.</p>
     </div>
   </footer>
 
@@ -177,129 +177,33 @@ const siteName = 'ReformaT Venezuela';
     padding: 12px 16px; z-index: 9999; transition: top 0.3s; text-decoration: none;
   }
   .skip-link:focus { top: 0; }
-  
   *:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
   button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
   
-  .nav {
-    position: fixed; top: 0; left: 0; width: 100%;
-    background: transparent; z-index: 1000;
-    padding: 20px 0; transition: background 0.4s, padding 0.4s;
-  }
-  .nav.scrolled {
-    background: rgba(10,10,10,0.95);
-    padding: 15px 0;
-    border-bottom: 1px solid rgba(201,169,97,0.2);
-  }
-  .nav-container {
-    display: flex; justify-content: space-between; align-items: center;
-    max-width: 1200px; margin: 0 auto; padding: 0 20px;
-  }
-  
+  .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
+  .nav.scrolled { background: rgba(10,10,10,0.95); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
+  .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .logo { display: flex; align-items: center; }
-  .logo img {
-    height: 85px;
-    width: auto;
-    display: block;
-    transition: height 0.3s;
-  }
+  .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
   .nav.scrolled .logo img { height: 70px; }
-  
   .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-  .nav-links a {
-    color: rgba(255,255,255,0.9);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    transition: color 0.3s;
-    position: relative;
-    font-weight: 400;
-  }
+  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-  .nav-links a.active::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 2px;
-    background: var(--gold);
-  }
-  .btn-nav-premium {
-    border: 1px solid var(--gold);
-    padding: 8px 22px;
-    border-radius: 2px;
-    color: var(--gold) !important;
-    font-weight: 500;
-  }
-  .btn-nav-premium:hover {
-    background: var(--gold);
-    color: var(--bg) !important;
-  }
-  .menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--white);
-    font-size: 1.5rem;
-    cursor: pointer;
-  }
+  .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
+  .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
+  .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
+  .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
-  .whatsapp-float {
-    position: fixed; bottom: 25px; right: 25px;
-    width: 60px; height: 60px;
-    background: #25D366; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-    transition: all 0.3s; z-index: 99;
-  }
-  .whatsapp-float:hover {
-    transform: scale(1.1);
-    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
-  }
+  .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
+  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
 
-  .footer {
-    background: var(--bg);
-    color: rgba(255,255,255,0.7);
-    padding: 90px 0 45px;
-    text-align: center;
-  }
-  .footer-logo {
-    margin-bottom: 35px;
-    display: flex;
-    justify-content: center;
-  }
-  .footer-logo img {
-    max-width: 450px;
-    height: auto;
-    display: block;
-  }
-  .footer-desc {
-    max-width: 420px;
-    margin: 0 auto 28px;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-  .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,0.12);
-    padding-top: 28px;
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-  }
+  .footer { background: var(--bg); color: rgba(255,255,255,0.7); padding: 90px 0 45px; text-align: center; }
+  .footer-logo { margin-bottom: 35px; display: flex; justify-content: center; }
+  .footer-logo img { max-width: 450px; height: auto; display: block; }
+  .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .menu-btn { display: block; }
-  }
-  @media (max-width: 768px) {
-    .logo img { height: 60px; }
-    .nav.scrolled .logo img { height: 55px; }
-    .footer-logo img { max-width: 350px; }
-    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
-  }
-  @media (max-width: 480px) {
-    .logo img { height: 55px; }
-    .footer-logo img { max-width: 300px; }
-    .footer { padding: 70px 0 35px; }
-  }
+  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } }
+  @media (max-width: 768px) { .logo img { height: 60px; } .nav.scrolled .logo img { height: 55px; } .footer-logo img { max-width: 350px; } .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; } }
+  @media (max-width: 480px) { .logo img { height: 55px; } .footer-logo img { max-width: 300px; } .footer { padding: 70px 0 35px; } }
 </style>
