@@ -1,21 +1,14 @@
----
-// Analytics.astro - Google Analytics 4 (configuración corregida)
----
+<!-- src/components/Analytics.astro -->
+<!-- Google Analytics 4 - ReformaT Venezuela -->
+
 <script is:inline>
-  // Inicializar dataLayer
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  
-  // Configurar GA4
   gtag('js', new Date());
-  gtag('config', 'G-213W48VR6M', { 
+  gtag('config', 'G-213W48VR6M', {
+    page_path: window.location.pathname,
     anonymize_ip: true,
-    send_page_view: true 
+    cookie_flags: 'SameSite=None;Secure'
   });
-  
-  // Cargar script de GA de forma asíncrona
-  const gaScript = document.createElement('script');
-  gaScript.async = true;
-  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M';
-  document.head.appendChild(gaScript);
 </script>
+<script is:inline src="https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M" async></script>

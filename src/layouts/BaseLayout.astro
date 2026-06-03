@@ -27,10 +27,12 @@ const siteName = 'ReformaT Venezuela';
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
-  <!-- ========== FAVICON (Ruta exacta) ========== -->
-  <link rel="icon" type="image/png" href="/favicon-v3.png" />
-  <link rel="apple-touch-icon" href="/favicon-v3.png" />
-  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  
+  <link rel="icon" type="image/jpeg" href="/images/favicon.jpg" />
+  <link rel="shortcut icon" type="image/jpeg" href="/images/favicon.jpg" />
+  <link rel="apple-touch-icon" href="/images/favicon.jpg" />
   
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={siteName} />
@@ -52,19 +54,12 @@ const siteName = 'ReformaT Venezuela';
   <meta name="twitter:image:alt" content={`${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
   
   <meta name="author" content={siteName} />
+  <meta name="theme-color" content="#0a0a0a" />
   <meta name="robots" content="index, follow" />
   
   <Analytics />
   
-  <!-- FUENTES AUTO-ALOJADAS -->
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Manrope:wght@400;500;600&display=swap" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 
@@ -128,14 +123,7 @@ const siteName = 'ReformaT Venezuela';
         <li><a href="/blog" class={activePage === 'blog' ? 'active' : ''}>Blog</a></li>
         <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
       </ul>
-      
-      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación">☰</button>
     </div>
   </nav>
 
@@ -163,50 +151,29 @@ const siteName = 'ReformaT Venezuela';
   </footer>
 
   <script>
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
-      }
+    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80));
+    const menuBtn = document.getElementById('menu-btn'), navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) menuBtn.addEventListener('click', () => { 
+      const isOpen = navLinks.style.display === 'flex';
+      navLinks.style.display = isOpen ? 'none' : 'flex'; 
+      navLinks.style.flexDirection = 'column'; 
+      navLinks.style.position = 'absolute'; 
+      navLinks.style.top = '100%'; 
+      navLinks.style.left = '0'; 
+      navLinks.style.width = '100%'; 
+      navLinks.style.background = '#0a0a0a'; 
+      navLinks.style.padding = '20px'; 
+      navLinks.style.textAlign = 'center'; 
+      menuBtn.setAttribute('aria-expanded', !isOpen);
     });
-
-    const menuBtn = document.getElementById('menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        const isOpen = navLinks.style.display === 'flex';
-        navLinks.style.display = isOpen ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = '#0a0a0a';
-        navLinks.style.padding = '20px';
-        navLinks.style.textAlign = 'center';
-        navLinks.style.zIndex = '99';
-        menuBtn.setAttribute('aria-expanded', (!isOpen).toString());
-      });
-    }
-
-    window.shareArticle = (platform) => {
-      const url = window.location.href;
-      const title = document.title;
-      const links = {
-        whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
-      };
-      if (links[platform]) {
-        window.open(links[platform], '_blank', 'width=600,height=400');
-      }
-    };
+    window.shareArticle = (platform) => { const url = window.location.href; const title = document.title; const links = { whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`, facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` }; if(links[platform]) window.open(links[platform], '_blank', 'width=600,height=400'); };
   </script>
 </body>
 </html>
 
 <style>
   .skip-link {
-    position: absolute; top: -100px; left: 0; background: #0a0a0a; color: #fff;
+    position: absolute; top: -40px; left: 0; background: #0a0a0a; color: #fff;
     padding: 12px 16px; z-index: 9999; transition: top 0.3s; text-decoration: none;
   }
   .skip-link:focus { top: 0; }
@@ -225,8 +192,7 @@ const siteName = 'ReformaT Venezuela';
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
   .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-  .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; }
-  .menu-btn svg { width: 28px; height: 28px; display: block; }
+  .menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
 
   .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
   .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
@@ -237,7 +203,7 @@ const siteName = 'ReformaT Venezuela';
   .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: flex; } }
+  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: block; } }
   @media (max-width: 768px) { .logo img { height: 60px; } .nav.scrolled .logo img { height: 55px; } .footer-logo img { max-width: 350px; } .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; } }
   @media (max-width: 480px) { .logo img { height: 55px; } .footer-logo img { max-width: 300px; } .footer { padding: 70px 0 35px; } }
 </style>

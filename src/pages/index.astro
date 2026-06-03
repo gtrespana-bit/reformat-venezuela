@@ -41,29 +41,20 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO CON VIDEO DIRECTO (sin media queries) ========== -->
   <header class="hero">
-    <img 
-      class="hero-bg"
-      src="/images/hero-lcp.webp" 
-      alt="Interior moderno reformado con diseño de lujo"
-      fetchpriority="high"
-      decoding="async"
-      width="1920"
-      height="1080"
-    />
+    <script is:inline>
+      (function() {
+        var isMobile = window.innerWidth < 1024;
+        var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
+        var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop';
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
+      })();
+    </script>
     
-    <video 
-      id="hero-video"
-      class="hero-video" 
-      autoplay 
-      muted 
-      loop 
-      playsinline 
-      preload="metadata"
-      poster="/images/hero-lcp.webp"
-      src="/videos/hero-desktop.mp4"
-    ></video>
+    <noscript>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+    </noscript>
 
     <div class="hero-overlay"></div>
 
@@ -113,7 +104,9 @@ const stats = [
       
       <div class="services-slider-wrapper">
         <button class="slider-btn slider-prev" aria-label="Ver servicio anterior">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
         </button>
         
         <div class="services-slider">
@@ -128,18 +121,14 @@ const stats = [
                     alt={svc.title} 
                     loading={index === 0 ? "eager" : "lazy"} 
                     fetchpriority={index === 0 ? "high" : "auto"}
-                    decoding="async"
-                    width="800"
-                    height="533"
+                    decoding="async" 
                   />
                 ) : (
                   <img 
                     src={svc.image} 
                     alt={svc.title} 
                     loading="lazy" 
-                    decoding="async"
-                    width="800"
-                    height="533"
+                    decoding="async" 
                   />
                 )}
                 <div class="card-overlay"></div>
@@ -155,7 +144,9 @@ const stats = [
         </div>
         
         <button class="slider-btn slider-next" aria-label="Ver siguiente servicio">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
         </button>
       </div>
       
@@ -167,24 +158,10 @@ const stats = [
     <div class="container about-grid">
       <div class="about-imgs">
         <div class="img-box tall">
-          <img 
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" 
-            alt="Arquitectura de viviendas modernas" 
-            loading="lazy" 
-            decoding="async"
-            width="600"
-            height="800"
-          />
+          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" alt="Arquitectura de viviendas modernas" loading="lazy" decoding="async" />
         </div>
         <div class="img-box small">
-          <img 
-            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" 
-            alt="Equipo de profesionales trabajando" 
-            loading="lazy" 
-            decoding="async"
-            width="600"
-            height="400"
-          />
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" alt="Equipo de profesionales trabajando" loading="lazy" decoding="async" />
         </div>
       </div>
       <div class="about-text">
@@ -266,37 +243,9 @@ const stats = [
 </BaseLayout>
 
 <style>
-  .hero { 
-    position: relative; 
-    width: 100%; 
-    min-height: 100vh; 
-    min-height: 100svh; 
-    overflow: hidden; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    text-align: center; 
-    color: var(--white); 
-    background: #0a0a0a;
-  }
-  
-  .hero-bg, .hero-video {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  .hero-bg { z-index: 0; }
-  .hero-video { z-index: 1; }
-  
-  .hero-overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); 
-    z-index: 2; 
-  }
-  
+  .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
+  .hero-video { z-index: 1; } 
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
   .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
@@ -393,18 +342,12 @@ const stats = [
   }
   @media (prefers-reduced-motion: reduce) { 
     .hero-video{display:none!important;} 
+    .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;} 
   }
 </style>
 
 <script>
   window.addEventListener('load', () => {
-    // Cambiar video a versión móvil si el viewport es pequeño
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo && window.innerWidth < 1024) {
-      heroVideo.src = '/videos/hero-mobile.mp4';
-      heroVideo.load();
-    }
-
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
