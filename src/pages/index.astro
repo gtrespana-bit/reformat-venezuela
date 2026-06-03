@@ -41,19 +41,21 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO OPTIMIZADO PARA LCP (VIDEO CARGADO DINÁMICAMENTE) ========== -->
+  <!-- ========== HERO RESTAURADO (Versión original que funcionaba con 99/100) ========== -->
   <header class="hero">
-    <!-- Imagen estática: ÚNICO candidato para LCP (visible inmediatamente) -->
-    <img 
-      src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" 
-      alt="Interior moderno reformado" 
-      class="hero-bg-img"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      width="1920"
-      height="1080"
-    />
+    <script is:inline>
+      (function() {
+        var isMobile = window.innerWidth < 1024;
+        var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
+        var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop';
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
+      })();
+    </script>
+
+    <noscript>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+    </noscript>
 
     <div class="hero-overlay"></div>
 
@@ -80,9 +82,6 @@ const stats = [
         </a>
       </div>
     </div>
-    
-    <!-- Contenedor para el video (se inyecta vía JS después del LCP) -->
-    <div id="hero-video-container"></div>
   </header>
 
   <!-- ========== STATS ========== -->
@@ -233,13 +232,14 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO OPTIMIZADO PARA LCP */
+  /* HERO RESTAURADO (con fondo CSS de respaldo para LCP) */
   .hero { 
     position: relative; 
     width: 100%; 
     min-height: 100vh; 
     min-height: 100svh; 
     overflow: hidden; 
+    background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -247,41 +247,9 @@ const stats = [
     color: var(--white); 
   }
   
-  .hero-bg-img {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    object-fit: cover;
-    z-index: 1;
-    /* Garantiza que sea el candidato LCP */
-    content-visibility: auto;
-    contain-intrinsic-size: 1920px 1080px;
-  }
-
-  .hero-overlay { 
-    position: absolute; 
-    inset: 0; 
-    background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); 
-    z-index: 2; 
-    pointer-events: none;
-  }
-
+  .hero-video { z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
-  
-  /* Contenedor del video (oculto hasta que se inyecte) */
-  #hero-video-container {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    z-index: 1;
-    pointer-events: none;
-  }
-  #hero-video-container video {
-    width: 100%; height: 100%;
-    object-fit: cover;
-    display: block;
-  }
-
   .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
   .hero-title .line { display: block; }
@@ -376,46 +344,13 @@ const stats = [
     .slider-btn { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { 
+    .hero-video{display:none!important;} 
     .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;} 
   }
 </style>
 
 <script>
   window.addEventListener('load', () => {
-    // Inyectar video DESPUÉS de que se mida el LCP (sin bloquear métricas)
-    const videoContainer = document.getElementById('hero-video-container');
-    if (videoContainer && window.matchMedia('(min-width: 1024px)').matches) {
-      const video = document.createElement('video');
-      video.autoplay = true;
-      video.muted = true;
-      video.loop = true;
-      video.playsInline = true;
-      video.preload = 'metadata';
-      video.poster = 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop';
-      
-      const sourceMobile = document.createElement('source');
-      sourceMobile.src = '/videos/hero-mobile.mp4';
-      sourceMobile.type = 'video/mp4';
-      sourceMobile.media = '(max-width: 1023px)';
-      
-      const sourceDesktop = document.createElement('source');
-      sourceDesktop.src = '/videos/hero-desktop.mp4';
-      sourceDesktop.type = 'video/mp4';
-      
-      video.appendChild(sourceMobile);
-      video.appendChild(sourceDesktop);
-      videoContainer.appendChild(video);
-      
-      // Fade in suave
-      video.style.opacity = '0';
-      video.style.transition = 'opacity 1.2s ease-in-out';
-      video.addEventListener('canplaythrough', () => {
-        video.style.opacity = '1';
-      });
-      setTimeout(() => { video.style.opacity = '1'; }, 1500);
-    }
-
-    // Animaciones GSAP
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
@@ -426,7 +361,6 @@ const stats = [
       });
     }
     
-    // Slider de servicios
     const slider = document.querySelector('.services-slider');
     const prevBtn = document.querySelector('.slider-prev');
     const nextBtn = document.querySelector('.slider-next');
