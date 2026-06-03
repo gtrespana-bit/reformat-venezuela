@@ -2,11 +2,11 @@
 User-agent: *
 Allow: /
 
-# Permitir rastreo completo
+# Permitir rastreo completo del sitio
 Disallow:
 
-# Sitemap
-Sitemap: https://reformat-venezuela.online/sitemap.xml
+# Apuntar al sitemap generado automáticamente por Astro
+Sitemap: https://reformat-venezuela.online/sitemap-index.xml
 
-# Evitar indexación de recursos internos
+# Evitar que Google intente indexar archivos pesados innecesarios
 Disallow: /videos/
