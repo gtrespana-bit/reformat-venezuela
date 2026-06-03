@@ -1,0 +1,12 @@
+# robots.txt para ReformaT Venezuela
+User-agent: *
+Allow: /
+
+# Permitir rastreo completo
+Disallow:
+
+# Sitemap
+Sitemap: https://reformat-venezuela.online/sitemap.xml
+
+# Evitar indexación de recursos internos
+Disallow: /videos/
