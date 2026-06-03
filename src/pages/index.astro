@@ -41,20 +41,33 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO RESTAURADO (Versión original que funcionaba con 99/100) ========== -->
+  <!-- ========== HERO CON LCP FIX (Imagen explícita + video) ========== -->
   <header class="hero">
+    <!-- Imagen explícita: Candidato LCP válido para PageSpeed -->
+    <img 
+      src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" 
+      alt="Interior moderno reformado" 
+      class="hero-lcp-img"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      width="1920"
+      height="1080"
+    />
+
+    <!-- Video: Se superpone sobre la imagen cuando carga -->
     <script is:inline>
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = isMobile ? 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop' : 'https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
         document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
 
     <noscript>
-      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;"></video>
     </noscript>
 
     <div class="hero-overlay"></div>
@@ -115,9 +128,26 @@ const stats = [
             <a href={svc.link} class="service-card-slider">
               <div class="card-img-wrap">
                 {typeof svc.image === 'object' ? (
-                  <img src={svc.image.src} srcset={svc.image.srcset} sizes="(max-width: 768px) 300px, 800px" alt={svc.title} loading={index === 0 ? "eager" : "lazy"} fetchpriority={index === 0 ? "high" : "auto"} decoding="async" />
+                  <img 
+                    src={svc.image.src} 
+                    srcset={svc.image.srcset}
+                    sizes="(max-width: 768px) 300px, 800px"
+                    alt={svc.title} 
+                    loading={index === 0 ? "eager" : "lazy"} 
+                    fetchpriority={index === 0 ? "high" : "auto"}
+                    decoding="async"
+                    width="800"
+                    height="533"
+                  />
                 ) : (
-                  <img src={svc.image} alt={svc.title} loading="lazy" decoding="async" />
+                  <img 
+                    src={svc.image} 
+                    alt={svc.title} 
+                    loading="lazy" 
+                    decoding="async"
+                    width="800"
+                    height="533"
+                  />
                 )}
                 <div class="card-overlay"></div>
                 <span class="card-icon">✦</span>
@@ -145,10 +175,24 @@ const stats = [
     <div class="container about-grid">
       <div class="about-imgs">
         <div class="img-box tall">
-          <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" alt="Arquitectura de viviendas modernas" loading="lazy" decoding="async" />
+          <img 
+            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" 
+            alt="Arquitectura de viviendas modernas" 
+            loading="lazy" 
+            decoding="async"
+            width="600"
+            height="800"
+          />
         </div>
         <div class="img-box small">
-          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" alt="Equipo de profesionales trabajando" loading="lazy" decoding="async" />
+          <img 
+            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" 
+            alt="Equipo de profesionales trabajando" 
+            loading="lazy" 
+            decoding="async"
+            width="600"
+            height="400"
+          />
         </div>
       </div>
       <div class="about-text">
@@ -232,14 +276,13 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO RESTAURADO (con fondo CSS de respaldo para LCP) */
+  /* HERO CON LCP FIX */
   .hero { 
     position: relative; 
     width: 100%; 
     min-height: 100vh; 
     min-height: 100svh; 
     overflow: hidden; 
-    background: #111 url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -247,9 +290,18 @@ const stats = [
     color: var(--white); 
   }
   
-  .hero-video { z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
+  /* Imagen LCP: visible pero cubierta por el video */
+  .hero-lcp-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    z-index: 0;
+  }
+  
+  .hero-video { z-index: 2; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 3; }
+  .hero-content { position: relative; z-index: 4; max-width: 900px; padding: 100px 20px 0; }
   .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
   .hero-title .line { display: block; }
@@ -345,7 +397,6 @@ const stats = [
   }
   @media (prefers-reduced-motion: reduce) { 
     .hero-video{display:none!important;} 
-    .hero{background:url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop') center/cover no-repeat;} 
   }
 </style>
 
