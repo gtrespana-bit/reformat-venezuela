@@ -41,14 +41,14 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO CON IMAGEN LCP LOCAL ========== -->
+  <!-- ========== HERO DEFINITIVO (VIDEO Y LCP CORREGIDOS) ========== -->
   <header class="hero">
     
-    <!-- IMAGEN LCP LOCAL: Carga instantánea, candidato garantizado para PageSpeed -->
+    <!-- IMAGEN LCP: Visible desde el inicio, sin opacity hacks -->
     <img 
       class="hero-lcp-img"
       src="/images/hero-lcp.webp" 
-      alt="Interior moderno reformado con diseño de lujo"
+      alt="Interior moderno reformado"
       fetchpriority="high"
       loading="eager"
       decoding="async"
@@ -56,7 +56,7 @@ const stats = [
       height="1080"
     />
     
-    <!-- VIDEO: Se superpone sobre la imagen cuando carga -->
+    <!-- VIDEO: Orden correcto (desktop primero, móvil después) + preload metadata -->
     <video 
       id="hero-video" 
       class="hero-video" 
@@ -64,11 +64,11 @@ const stats = [
       muted 
       loop 
       playsinline 
-      preload="none"
+      preload="metadata"
       poster="/images/hero-lcp.webp"
     >
-      <source src="/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
       <source src="/videos/hero-desktop.mp4" type="video/mp4">
+      <source src="/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
     </video>
 
     <div class="hero-overlay"></div>
@@ -277,7 +277,7 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO CON IMAGEN LCP LOCAL + VIDEO */
+  /* HERO DEFINITIVO - SIN OPACITY HACKS */
   .hero { 
     position: relative; 
     width: 100%; 
@@ -289,36 +289,35 @@ const stats = [
     justify-content: center; 
     text-align: center; 
     color: var(--white); 
-    background: #111;
+    background: #111 url('/images/hero-lcp.webp') center/cover no-repeat;
   }
   
+  /* Imagen LCP: SIEMPRE VISIBLE desde el inicio (sin opacity) */
   .hero-lcp-img {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: cover;
-    z-index: 0;
+    z-index: 1;
   }
   
+  /* Video: Se superpone encima cuando carga */
   .hero-video {
     position: absolute;
     top: 0; left: 0;
     width: 100%; height: 100%;
     object-fit: cover;
-    z-index: 1;
-    opacity: 0;
-    transition: opacity 1.5s ease-in-out;
+    z-index: 2;
   }
-  .hero-video.playing { opacity: 1; }
   
   .hero-overlay { 
     position: absolute; 
     inset: 0; 
     background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); 
-    z-index: 2; 
+    z-index: 3; 
   }
   
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
+  .hero-content { position: relative; z-index: 4; max-width: 900px; padding: 100px 20px 0; }
   .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
   .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
   .hero-title .line { display: block; }
@@ -419,19 +418,6 @@ const stats = [
 
 <script>
   window.addEventListener('load', () => {
-    // Activar video con fade-in cuando empieza a reproducirse
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-      heroVideo.addEventListener('playing', () => heroVideo.classList.add('playing'));
-      heroVideo.addEventListener('error', () => heroVideo.style.display = 'none');
-      // Forzar carga diferida después del LCP
-      setTimeout(() => {
-        heroVideo.preload = 'auto';
-        heroVideo.load();
-        heroVideo.play().catch(() => {});
-      }, 100);
-    }
-
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
