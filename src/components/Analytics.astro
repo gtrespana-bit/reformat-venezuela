@@ -1,14 +1,21 @@
-<!-- src/components/Analytics.astro -->
+---
+// Analytics.astro - Google Analytics 4 (configuración corregida)
+---
 <script is:inline>
-  // Google Analytics 4
+  // Inicializar dataLayer
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-213W48VR6M', { anonymize_ip: true });
   
-  // Cargar script de GA
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = 'https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M';
-  document.head.appendChild(script);
+  // Configurar GA4
+  gtag('js', new Date());
+  gtag('config', 'G-213W48VR6M', { 
+    anonymize_ip: true,
+    send_page_view: true 
+  });
+  
+  // Cargar script de GA de forma asíncrona
+  const gaScript = document.createElement('script');
+  gaScript.async = true;
+  gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M';
+  document.head.appendChild(gaScript);
 </script>

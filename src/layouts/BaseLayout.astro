@@ -56,7 +56,7 @@ const siteName = 'ReformaT Venezuela';
   
   <Analytics />
   
-  <!-- FUENTES AUTO-ALOJADAS (Sin bloqueo de renderizado) -->
+  <!-- FUENTES AUTO-ALOJADAS (Preload para eliminar render-blocking) -->
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-500.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
@@ -105,6 +105,7 @@ const siteName = 'ReformaT Venezuela';
 </head>
 
 <body>
+  <!-- Skip link para accesibilidad (oculto visualmente hasta foco) -->
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
   <nav id="navbar" class="nav" role="navigation" aria-label="Menú principal">
@@ -129,8 +130,9 @@ const siteName = 'ReformaT Venezuela';
         <li><a href="/contacto" class="btn-nav-premium">Contacto</a></li>
       </ul>
       
-      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <!-- Botón hamburguesa: SOLO visible en móvil (CSS lo controla) -->
+      <button id="menu-btn" class="menu-btn" aria-label="Abrir menú de navegación" aria-expanded="false">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="6" x2="21" y2="6"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
@@ -163,58 +165,235 @@ const siteName = 'ReformaT Venezuela';
   </footer>
 
   <script>
-    window.addEventListener('scroll', () => document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 80));
-    const menuBtn = document.getElementById('menu-btn'), navLinks = document.querySelector('.nav-links');
-    if (menuBtn && navLinks) menuBtn.addEventListener('click', () => { 
-      const isOpen = navLinks.style.display === 'flex';
-      navLinks.style.display = isOpen ? 'none' : 'flex'; 
-      navLinks.style.flexDirection = 'column'; 
-      navLinks.style.position = 'absolute'; 
-      navLinks.style.top = '100%'; 
-      navLinks.style.left = '0'; 
-      navLinks.style.width = '100%'; 
-      navLinks.style.background = '#0a0a0a'; 
-      navLinks.style.padding = '20px'; 
-      navLinks.style.textAlign = 'center'; 
-      menuBtn.setAttribute('aria-expanded', !isOpen);
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        navbar.classList.toggle('scrolled', window.scrollY > 80);
+      }
     });
-    window.shareArticle = (platform) => { const url = window.location.href; const title = document.title; const links = { whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`, facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}` }; if(links[platform]) window.open(links[platform], '_blank', 'width=600,height=400'); };
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    if (menuBtn && navLinks) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = navLinks.style.display === 'flex';
+        navLinks.style.display = isOpen ? 'none' : 'flex';
+        navLinks.style.flexDirection = 'column';
+        navLinks.style.position = 'absolute';
+        navLinks.style.top = '100%';
+        navLinks.style.left = '0';
+        navLinks.style.width = '100%';
+        navLinks.style.background = '#0a0a0a';
+        navLinks.style.padding = '20px';
+        navLinks.style.textAlign = 'center';
+        navLinks.style.zIndex = '99';
+        menuBtn.setAttribute('aria-expanded', (!isOpen).toString());
+      });
+    }
+
+    // Share functionality
+    window.shareArticle = (platform) => {
+      const url = window.location.href;
+      const title = document.title;
+      const links = {
+        whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
+      };
+      if (links[platform]) {
+        window.open(links[platform], '_blank', 'width=600,height=400');
+      }
+    };
   </script>
 </body>
 </html>
 
 <style>
+  /* Skip link - accesibilidad */
   .skip-link {
-    position: absolute; top: -40px; left: 0; background: #0a0a0a; color: #fff;
-    padding: 12px 16px; z-index: 9999; transition: top 0.3s; text-decoration: none;
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: #0a0a0a;
+    color: #fff;
+    padding: 12px 16px;
+    z-index: 9999;
+    transition: top 0.3s;
+    text-decoration: none;
   }
-  .skip-link:focus { top: 0; }
-  *:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
-  button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
-  
-  .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
-  .nav.scrolled { background: rgba(10,10,10,0.95); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
-  .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-  .logo { display: flex; align-items: center; }
-  .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
-  .nav.scrolled .logo img { height: 70px; }
-  .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-  .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
-  .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
-  .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-  
-  .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
-  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+  .skip-link:focus {
+    top: 0;
+  }
 
-  .footer { background: var(--bg); color: rgba(255,255,255,0.7); padding: 90px 0 45px; text-align: center; }
-  .footer-logo { margin-bottom: 35px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 450px; height: auto; display: block; }
-  .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  /* Focus visible para accesibilidad */
+  *:focus-visible {
+    outline: 2px solid #C9A961;
+    outline-offset: 2px;
+  }
+  button:focus-visible,
+  a:focus-visible {
+    outline: 2px solid #C9A961;
+    outline-offset: 2px;
+  }
+  
+  /* NAV */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    padding: 20px 0;
+    transition: background 0.4s, padding 0.4s;
+  }
+  .nav.scrolled {
+    background: rgba(10,10,10,0.95);
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+  }
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+  .logo img {
+    height: 85px;
+    width: auto;
+    display: block;
+    transition: height 0.3s;
+  }
+  .nav.scrolled .logo img {
+    height: 70px;
+  }
+  .nav-links {
+    display: flex;
+    gap: 35px;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: rgba(255,255,255,0.9);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+    position: relative;
+    font-weight: 400;
+  }
+  .nav-links a:hover,
+  .nav-links a.active {
+    color: var(--gold);
+  }
+  .nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--gold);
+  }
+  .btn-nav-premium {
+    border: 1px solid var(--gold);
+    padding: 8px 22px;
+    border-radius: 2px;
+    color: var(--gold) !important;
+    font-weight: 500;
+  }
+  .btn-nav-premium:hover {
+    background: var(--gold);
+    color: var(--bg) !important;
+  }
+  
+  /* Menu button - OCULTO en desktop por defecto */
+  .menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--white);
+    cursor: pointer;
+    padding: 5px;
+  }
+  .menu-btn svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: flex; } }
-  @media (max-width: 768px) { .logo img { height: 60px; } .nav.scrolled .logo img { height: 55px; } .footer-logo img { max-width: 350px; } .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; } }
-  @media (max-width: 480px) { .logo img { height: 55px; } .footer-logo img { max-width: 300px; } .footer { padding: 70px 0 35px; } }
+  /* WhatsApp float */
+  .whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+    transition: all 0.3s;
+    z-index: 99;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--bg);
+    color: rgba(255,255,255,0.7);
+    padding: 90px 0 45px;
+    text-align: center;
+  }
+  .footer-logo {
+    margin-bottom: 35px;
+    display: flex;
+    justify-content: center;
+  }
+  .footer-logo img {
+    max-width: 450px;
+    height: auto;
+    display: block;
+  }
+  .footer-desc {
+    max-width: 420px;
+    margin: 0 auto 28px;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.12);
+    padding-top: 28px;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.5);
+  }
+
+  /* Responsive */
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .menu-btn { display: flex; }
+  }
+  @media (max-width: 768px) {
+    .logo img { height: 60px; }
+    .nav.scrolled .logo img { height: 55px; }
+    .footer-logo img { max-width: 350px; }
+    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+  }
+  @media (max-width: 480px) {
+    .logo img { height: 55px; }
+    .footer-logo img { max-width: 300px; }
+    .footer { padding: 70px 0 35px; }
+  }
 </style>
