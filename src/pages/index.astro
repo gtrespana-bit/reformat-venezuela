@@ -8,12 +8,13 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
 const serviceImages = {
   cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800]) },
   bano: { src: '/images/bano-800.webp', srcset: getSrcSet('bano', [400, 800]) },
-  electricidad: { src: '/images/electricidad.webp', srcset: getSrcSet('electricidad', [400, 800]) },
-  fontaneria: { src: '/images/fontaneria.webp', srcset: getSrcSet('fontaneria', [400, 800]) },
-  revestimientos: { src: '/images/revestimientos.webp', srcset: getSrcSet('revestimientos', [400, 800]) },
-  sueloPorcelanato: { src: '/images/suelo-porcelanato.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800]) },
-  piscinas: { src: '/images/piscinas.webp', srcset: getSrcSet('piscinas', [400, 800]) },
-  integrales: { src: '/images/integrales-800.webp', srcset: getSrcSet('integrales', [400, 800]) }
+  electricidad: { src: '/images/electricidad-800.webp', srcset: getSrcSet('electricidad', [400, 800]) },
+  fontaneria: { src: '/images/fontaneria-800.webp', srcset: getSrcSet('fontaneria', [400, 800]) },
+  revestimientos: { src: '/images/revestimientos-800.webp', srcset: getSrcSet('revestimientos', [400, 800]) },
+  sueloPorcelanato: { src: '/images/suelo-porcelanato-800.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800]) },
+  piscinas: { src: '/images/piscinas-800.webp', srcset: getSrcSet('piscinas', [400, 800]) },
+  integrales: { src: '/images/integrales-800.webp', srcset: getSrcSet('integrales', [400, 800]) },
+  pintura: { src: '/images/pintura-800.webp', srcset: getSrcSet('pintura', [400, 800]) }
 };
 
 const services = [
@@ -22,7 +23,7 @@ const services = [
   { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica.", image: serviceImages.integrales, link: "/servicios/integrales" },
   { title: "Servicios Eléctricos", desc: "Instalaciones seguras y eficientes.", image: serviceImages.electricidad, link: "/servicios/electricidad" },
   { title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: serviceImages.fontaneria, link: "/servicios/fontaneria" },
-  { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?q=75&w=800&auto=format&fit=crop", link: "/servicios/pintura-acabados" },
+  { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: serviceImages.pintura, link: "/servicios/pintura-acabados" },
   { title: "Revestimientos", desc: "Porcelanato, wall panels y acabados de pared.", image: serviceImages.revestimientos, link: "/servicios/revestimientos" },
   { title: "Suelos", desc: "Instalación de cerámica, laminado y madera.", image: serviceImages.sueloPorcelanato, link: "/servicios/suelos" },
   { title: "Piscinas", desc: "Construcción, mantenimiento y equipamiento.", image: serviceImages.piscinas, link: "/servicios/piscinas" }
@@ -176,7 +177,9 @@ const stats = [
       <div class="about-imgs">
         <div class="img-box tall">
           <img 
-            src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=75&w=600&auto=format&fit=crop" 
+            src="/images/arquitectura-600.webp"
+            srcset="/images/arquitectura-400.webp 400w, /images/arquitectura-600.webp 600w"
+            sizes="(max-width: 768px) 400px, 600px"
             alt="Arquitectura de viviendas modernas" 
             loading="lazy" 
             decoding="async"
@@ -186,7 +189,9 @@ const stats = [
         </div>
         <div class="img-box small">
           <img 
-            src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=75&w=600&auto=format&fit=crop" 
+            src="/images/equipo-600.webp"
+            srcset="/images/equipo-400.webp 400w, /images/equipo-600.webp 600w"
+            sizes="(max-width: 768px) 400px, 600px"
             alt="Equipo de profesionales trabajando" 
             loading="lazy" 
             decoding="async"
