@@ -41,7 +41,7 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO FINAL (nativo, sin manipulación JS) ========== -->
+  <!-- ========== HERO CON VIDEO DIRECTO (sin media queries) ========== -->
   <header class="hero">
     <img 
       class="hero-bg"
@@ -54,17 +54,16 @@ const stats = [
     />
     
     <video 
+      id="hero-video"
       class="hero-video" 
       autoplay 
       muted 
       loop 
       playsinline 
-      preload="none"
+      preload="metadata"
       poster="/images/hero-lcp.webp"
-    >
-      <source src="/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
-      <source src="/videos/hero-desktop.mp4" type="video/mp4">
-    </video>
+      src="/videos/hero-desktop.mp4"
+    ></video>
 
     <div class="hero-overlay"></div>
 
@@ -399,6 +398,13 @@ const stats = [
 
 <script>
   window.addEventListener('load', () => {
+    // Cambiar video a versión móvil si el viewport es pequeño
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo && window.innerWidth < 1024) {
+      heroVideo.src = '/videos/hero-mobile.mp4';
+      heroVideo.load();
+    }
+
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
