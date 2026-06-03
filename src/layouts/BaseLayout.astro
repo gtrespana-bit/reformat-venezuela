@@ -27,9 +27,12 @@ const siteName = 'ReformaT Venezuela';
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
   
-  <!-- ========== FAVICON (Forzando recarga con ?v=2) ========== -->
-  <link rel="icon" type="image/png" href="/favicon.png?v=2" />
-  <link rel="apple-touch-icon" href="/favicon.png?v=2" />
+  <!-- ========== FAVICON COMPLETO (Cache busting con nombre v3) ========== -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-v3.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-v3.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon-v3.png" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="msapplication-TileColor" content="#0a0a0a" />
   
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content={siteName} />
@@ -51,7 +54,6 @@ const siteName = 'ReformaT Venezuela';
   <meta name="twitter:image:alt" content={`${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
   
   <meta name="author" content={siteName} />
-  <meta name="theme-color" content="#0a0a0a" />
   <meta name="robots" content="index, follow" />
   
   <Analytics />
