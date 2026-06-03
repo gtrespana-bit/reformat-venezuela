@@ -41,14 +41,14 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO CON IMAGEN LCP + VIDEO ========== -->
+  <!-- ========== HERO CON IMAGEN LCP LOCAL ========== -->
   <header class="hero">
     
-    <!-- IMAGEN LCP: Candidato garantizado para PageSpeed -->
+    <!-- IMAGEN LCP LOCAL: Carga instantánea, candidato garantizado para PageSpeed -->
     <img 
       class="hero-lcp-img"
-      src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop" 
-      alt="Interior moderno reformado"
+      src="/images/hero-lcp.webp" 
+      alt="Interior moderno reformado con diseño de lujo"
       fetchpriority="high"
       loading="eager"
       decoding="async"
@@ -56,7 +56,7 @@ const stats = [
       height="1080"
     />
     
-    <!-- VIDEO: Se superpone sobre la imagen -->
+    <!-- VIDEO: Se superpone sobre la imagen cuando carga -->
     <video 
       id="hero-video" 
       class="hero-video" 
@@ -64,8 +64,8 @@ const stats = [
       muted 
       loop 
       playsinline 
-      preload="metadata"
-      poster="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?q=75&w=1080&auto=format&fit=crop"
+      preload="none"
+      poster="/images/hero-lcp.webp"
     >
       <source src="/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
       <source src="/videos/hero-desktop.mp4" type="video/mp4">
@@ -277,7 +277,7 @@ const stats = [
 </BaseLayout>
 
 <style>
-  /* HERO CON IMAGEN LCP + VIDEO */
+  /* HERO CON IMAGEN LCP LOCAL + VIDEO */
   .hero { 
     position: relative; 
     width: 100%; 
@@ -289,9 +289,9 @@ const stats = [
     justify-content: center; 
     text-align: center; 
     color: var(--white); 
+    background: #111;
   }
   
-  /* Imagen LCP: z-index 0, siempre presente */
   .hero-lcp-img {
     position: absolute;
     top: 0; left: 0;
@@ -300,16 +300,16 @@ const stats = [
     z-index: 0;
   }
   
-  /* Video: z-index 1, se superpone sobre la imagen */
   .hero-video {
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
     object-fit: cover;
     z-index: 1;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
   }
+  .hero-video.playing { opacity: 1; }
   
   .hero-overlay { 
     position: absolute; 
@@ -419,6 +419,19 @@ const stats = [
 
 <script>
   window.addEventListener('load', () => {
+    // Activar video con fade-in cuando empieza a reproducirse
+    const heroVideo = document.getElementById('hero-video');
+    if (heroVideo) {
+      heroVideo.addEventListener('playing', () => heroVideo.classList.add('playing'));
+      heroVideo.addEventListener('error', () => heroVideo.style.display = 'none');
+      // Forzar carga diferida después del LCP
+      setTimeout(() => {
+        heroVideo.preload = 'auto';
+        heroVideo.load();
+        heroVideo.play().catch(() => {});
+      }, 100);
+    }
+
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
