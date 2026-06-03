@@ -41,29 +41,28 @@ const stats = [
   activePage="inicio"
 >
 
-  <!-- ========== HERO DEFINITIVO (LCP estable + video fiable) ========== -->
+  <!-- ========== HERO FINAL (nativo, sin manipulación JS) ========== -->
   <header class="hero">
     <img 
       class="hero-bg"
       src="/images/hero-lcp.webp" 
       alt="Interior moderno reformado con diseño de lujo"
       fetchpriority="high"
-      loading="eager"
       decoding="async"
       width="1920"
       height="1080"
     />
     
     <video 
-      id="hero-video" 
       class="hero-video" 
       autoplay 
       muted 
       loop 
       playsinline 
-      preload="metadata"
+      preload="none"
       poster="/images/hero-lcp.webp"
     >
+      <source src="/videos/hero-mobile.mp4" type="video/mp4" media="(max-width: 1023px)">
       <source src="/videos/hero-desktop.mp4" type="video/mp4">
     </video>
 
@@ -400,16 +399,6 @@ const stats = [
 
 <script>
   window.addEventListener('load', () => {
-    // Video: selección síncrona y fiable por viewport
-    const heroVideo = document.getElementById('hero-video');
-    if (heroVideo) {
-      const isMobile = window.innerWidth < 1024;
-      const source = heroVideo.querySelector('source');
-      source.src = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-      heroVideo.load();
-      heroVideo.play().catch(() => {});
-    }
-
     if(typeof gsap!=='undefined'){
       gsap.registerPlugin(ScrollTrigger);
       gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
