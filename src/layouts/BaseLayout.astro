@@ -15,15 +15,17 @@ const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 const locale = isEnglish ? 'en_US' : 'es_VE';
-const siteName = isEnglish ? 'ReformaT Venezuela' : 'ReformaT Venezuela';
+const siteName = 'ReformaT Venezuela';
 
 const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
 
-// Rutas alternas para hreflang
-const esPath = currentPath.replace(/^\/en/, '') || '/';
-const enPath = currentPath === '/' ? '/en' : `/en${currentPath}`;
+// Rutas alternas para hreflang (LÓGICA CORREGIDA)
+const isEnRoute = currentPath.startsWith('/en');
+const basePath = isEnRoute ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const esPath = basePath;
+const enPath = basePath === '/' ? '/en' : `/en${basePath}`;
 
 // Navegación según idioma
 const navItems = isEnglish
@@ -67,8 +69,10 @@ const footerLocations = isEnglish
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
 
-  <!-- HREFLANG -->
+  <!-- HREFLANG COMPLETO -->
+  <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
   <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
+  <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
   <link rel="alternate" hreflang="en-US" href={`${siteUrl}${enPath}`} />
   <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
 
