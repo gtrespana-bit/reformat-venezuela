@@ -18,7 +18,7 @@ At ReformaT Venezuela, we've been executing kitchen remodels in **Caracas, Valen
 
 In this article, we'll give you **real, detailed, updated prices** for 2026. No fluff, no inflated numbers, no fine print. Just the truth about what it costs to remodel a kitchen in Venezuela today.
 
-![Modern remodeled kitchen with premium finishes](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Modern remodeled kitchen with premium finishes](/images/cocina-800.webp)
 
 ---
 
@@ -100,7 +100,7 @@ Let's break down a real budget for a **medium kitchen (110 sq ft) in Valencia or
 
 ### Example: 110 sq ft Kitchen, Mid-Range
 
-![Kitchen in remodeling process](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Kitchen in remodeling process](/images/cocina-800.webp)
 
 | Item | Description | Estimated price |
 |------|-------------|-----------------|

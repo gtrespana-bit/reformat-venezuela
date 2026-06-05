@@ -18,7 +18,7 @@ En ReformaT Venezuela llevamos más de 20 años ejecutando reformas de cocinas e
 
 En este artículo te vamos a dar **precios reales, desglosados y actualizados** para 2026. Sin humo, sin números inflados, sin letras pequeñas. Solo la verdad sobre lo que cuesta reformar una cocina en Venezuela hoy.
 
-![Cocina moderna reformada con acabados premium](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Cocina moderna reformada con acabados premium](/images/cocina-800.webp)
 
 ---
 
@@ -100,7 +100,7 @@ Vamos a desglosar un presupuesto real de una **cocina mediana (10 m²) en Valenc
 
 ### Ejemplo: Cocina De 10 m², Gama Media
 
-![Cocina en proceso de reforma](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Cocina en proceso de reforma](/images/cocina-800.webp)
 
 | Partida | Descripción | Precio estimado |
 |---------|-------------|-----------------|

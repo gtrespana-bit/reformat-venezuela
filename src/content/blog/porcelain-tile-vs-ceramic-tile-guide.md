@@ -16,7 +16,7 @@ At ReformaT Venezuela, we've been installing both materials in **Caracas, Valenc
 
 In this article, we explain **without unnecessary technical jargon** the real differences between porcelain and ceramic tile, when each one is appropriate, how much they cost in Venezuela in 2026, and how to make the best decision for your home or business.
 
-![Comparison of porcelain and ceramic tile installation](https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1000&h=600&fit=crop)
+![Comparison of porcelain and ceramic tile installation](/images/revestimiento-porcelanato.webp)
 
 ---
 
@@ -329,7 +329,7 @@ We chose **Option B**: high-quality national porcelain in 24x24 format, cement g
 
 **Lesson:** The most expensive option isn't always the best. A well-chosen national porcelain can deliver spectacular results.
 
-![Remodeled kitchen with national porcelain](https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1000&h=600&fit=crop)
+![Remodeled kitchen with national porcelain](/images/revestimiento-porcelanato.webp)
 
 ---
 

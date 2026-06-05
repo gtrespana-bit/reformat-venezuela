@@ -16,7 +16,7 @@ At ReformaT Venezuela, we've been executing bathroom remodels in **Caracas, Vale
 
 In this complete guide we explain **everything you need to know** about bathroom remodels in 2026: real prices, recommended materials, execution timelines and practical tips for your project to be a success.
 
-![Modern remodeled bathroom with premium finishes](https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1000&h=600&fit=crop)
+![Modern remodeled bathroom with premium finishes](/images/bano-800.webp)
 
 ---
 
@@ -51,7 +51,7 @@ So you understand exactly where your money is invested, we show you a **real bre
 
 ### Example: 54-65 sq ft Bathroom, Mid-Range
 
-![Bathroom in remodeling process](https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&h=600&fit=crop)
+![Bathroom in remodeling process](/images/bano-800.webp)
 
 | Item | Description | Estimated price |
 |------|-------------|-----------------|
@@ -100,7 +100,7 @@ Not all remodels are the same. Depending on your bathroom's current condition an
 **Timeline:** 3-5 days
 **Price:** $800 - $1,500
 
-![Bathroom with modern aesthetic remodel](https://images.unsplash.com/photo-1620626012053-93f26850d25d?w=1000&h=600&fit=crop)
+![Bathroom with modern aesthetic remodel](/images/bano-800.webp)
 
 ### 2. Partial Remodel (Complete Renovation)
 
@@ -183,7 +183,7 @@ Stay current with the latest bathroom design trends that are setting the standar
 
 ### 1. Minimalist Bathrooms
 
-![Modern minimalist bathroom](https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1000&h=600&fit=crop)
+![Modern minimalist bathroom](/images/bano-800.webp)
 
 - Clean, simple lines
 - Neutral colors (white, gray, beige)

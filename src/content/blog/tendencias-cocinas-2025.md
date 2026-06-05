@@ -16,7 +16,7 @@ En ReformaT Venezuela llevamos más de 20 años transformando cocinas en Valenci
 
 En este artículo no solo te vamos a listar tendencias. Te explicaremos **por qué** son importantes, **cómo** implementarlas en tu reforma, y **cuánto** podrías invertir en cada una. Porque sabemos que reformar la cocina es una decisión importante, y queremos que tomes la mejor decisión informada.
 
-![Cocina moderna con isla central](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Cocina moderna con isla central](/images/cocina-800.webp)
 
 ---
 
@@ -49,7 +49,7 @@ Aquí viene la parte importante. Mucha gente piensa que la domótica es solo par
 
 **Nuestro consejo:** No tienes que hacerlo todo de una vez. Empieza por la iluminación LED y los grifos. Son las inversiones que más rápido se amortizan.
 
-![Grifo inteligente con sensor](https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&h=600&fit=crop)
+![Grifo inteligente con sensor](/images/cocina-800.webp)
 
 ---
 
@@ -116,7 +116,7 @@ Las pinturas tradicionales liberan gases tóxicos durante meses. Las pinturas si
 - Disponibles en cualquier color
 - Precio: 10-20% más caras que las tradicionales, pero valen la pena
 
-![Materiales sostenibles en cocina](https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=1000&h=600&fit=crop)
+![Materiales sostenibles en cocina](/images/cocina-800.webp)
 
 ---
 
@@ -154,7 +154,7 @@ Aquí es donde mucha gente se equivoca. Una isla mal dimensionada **estroba** la
 
 **Resultado:** La familia puede cocinar 3 personas simultáneamente sin chocar.
 
-![Isla de cocina multifuncional](https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&h=600&fit=crop)
+![Isla de cocina multifuncional](/images/cocina-800.webp)
 
 ---
 
@@ -209,7 +209,7 @@ Una buena iluminación no es "poner una bombilla en el techo". Es crear **capas 
 - **IKEA Tradfri:** Opción económica, funciona bien, menos funciones. Inversión: $150-$400.
 - **Lutron Caseta:** El más profesional, instalación eléctrica (no solo bombillas). Inversión: $500-$1,200.
 
-![Iluminación de cocina por capas](https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1000&h=600&fit=crop)
+![Iluminación de cocina por capas](/images/cocina-800.webp)
 
 ---
 
@@ -271,7 +271,7 @@ No es solo el color. La **textura** define cómo se siente tu cocina:
 - Suelo de madera clara
 - Plantas verdes para dar vida
 
-![Cocina con colores cálidos y texturas](https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=1000&h=600&fit=crop)
+![Cocina con colores cálidos y texturas](/images/cocina-800.webp)
 
 ---
 

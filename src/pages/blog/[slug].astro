@@ -86,25 +86,92 @@ const { Content } = await render(post);
   .post-meta { font-size: 1rem; color: rgba(255,255,255,0.85); display: flex; gap: 15px; justify-content: center; }
   .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
   .back-link:hover { color: var(--gold-light); }
+  
   .post-content { padding: 80px 0; background: var(--white); }
-  .post-content :global(p) { font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
   .post-content :global(h2) { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; font-family: var(--font-serif); max-width: 800px; margin-left: auto; margin-right: auto; }
   .post-content :global(h3) { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; font-family: var(--font-serif); max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(h4) { font-size: 1.4rem; margin: 2rem 0 0.75rem; color: var(--text); font-weight: 600; font-family: var(--font-serif); max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(p) { font-size: 1.15rem; line-height: 1.8; color: var(--text); margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(strong) { color: var(--text); font-weight: 600; }
+  
   .post-content :global(img) { border-radius: 12px; margin: 2.5rem auto; display: block; max-width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
-  .post-content :global(ul), .post-content :global(ol) { margin: 1.5rem auto 1.5rem 2rem; max-width: 800px; }
-  .post-content :global(li) { margin-bottom: 0.75rem; font-size: 1.1rem; line-height: 1.6; }
-  .post-content :global(blockquote) { margin: 2.5rem auto; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); max-width: 800px; }
-  .post-content :global(a) { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+  
+  .post-content :global(ul), .post-content :global(ol) { margin: 1.5rem auto 1.5rem auto; max-width: 800px; padding-left: 2rem; }
+  .post-content :global(li) { margin-bottom: 0.75rem; font-size: 1.15rem; line-height: 1.6; color: var(--text); }
+  
+  .post-content :global(blockquote) { margin: 2.5rem auto; padding: 2rem 2.5rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text); max-width: 800px; font-size: 1.2rem; }
+  
+  .post-content :global(a) { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); transition: 0.3s; }
+  .post-content :global(a:hover) { opacity: 0.8; }
+  
+  /* TABLAS PROFESIONALES */
+  .post-content :global(table) { 
+    width: 100%; 
+    max-width: 800px; 
+    margin: 2rem auto; 
+    border-collapse: collapse; 
+    font-size: 1rem;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .post-content :global(thead) { 
+    background: var(--gold); 
+    color: var(--bg);
+  }
+  .post-content :global(th) { 
+    padding: 1rem 1.5rem; 
+    text-align: left; 
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .post-content :global(tbody tr) { 
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    transition: 0.2s;
+  }
+  .post-content :global(tbody tr:last-child) { border-bottom: none; }
+  .post-content :global(tbody tr:hover) { background: rgba(201,169,97,0.05); }
+  .post-content :global(td) { 
+    padding: 1rem 1.5rem; 
+    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+  .post-content :global(tbody tr:nth-child(even)) { background: rgba(0,0,0,0.02); }
+  
+  /* CÓDIGO Y HIGHLIGHTS */
+  .post-content :global(code) {
+    background: var(--gray);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: var(--gold);
+  }
+  
+  /* HORIZONTAL RULE */
+  .post-content :global(hr) {
+    border: none;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+    margin: 3rem auto;
+    max-width: 800px;
+  }
+  
   .post-cta { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .post-cta h2 { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); }
   .post-cta p { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; }
+  
   @media (max-width: 768px) {
     .post-hero { min-height: 60vh; padding-top: 120px; padding-bottom: 60px; }
     .post-title { font-size: clamp(2rem, 8vw, 3.5rem); }
-    .post-content :global(p) { font-size: 1.15rem; }
+    .post-content :global(p) { font-size: 1.05rem; }
     .post-content :global(h2) { font-size: 2rem; }
     .post-content :global(h3) { font-size: 1.5rem; }
     .post-cta { padding: 90px 20px; }
+    .post-content :global(table) { font-size: 0.9rem; }
+    .post-content :global(th), .post-content :global(td) { padding: 0.75rem 1rem; }
   }
 </style>

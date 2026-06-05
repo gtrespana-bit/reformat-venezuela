@@ -16,7 +16,7 @@ En ReformaT Venezuela llevamos más de 20 años ejecutando reformas en Valencia 
 
 En este artículo no te vamos a vender nada. Te vamos a explicar **exactamente dónde suelen estar las fugas de dinero** en una reforma, y cómo proteger tu inversión desde el primer día. Porque un presupuesto bien estructurado no es un lujo: es la base de una reforma tranquila.
 
-![Reforma en proceso con planificación](https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&h=600&fit=crop)
+![Reforma en proceso con planificación](/images/integrales-800.webp)
 
 ---
 

@@ -16,7 +16,7 @@ En ReformaT Venezuela llevamos más de 20 años ejecutando reformas de baños en
 
 En esta guía completa te explicamos **todo lo que necesitas saber** sobre reformas de baños en 2026: precios reales, materiales recomendados, plazos de ejecución y consejos prácticos para que tu proyecto sea un éxito.
 
-![Baño moderno reformado con acabados premium](https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1000&h=600&fit=crop)
+![Baño moderno reformado con acabados premium](/images/bano-800.webp)
 
 ---
 
@@ -51,7 +51,7 @@ Para que entiendas exactamente en qué se invierte tu dinero, te mostramos un **
 
 ### Ejemplo: Baño De 5-6 m², Gama Media
 
-![Baño en proceso de reforma](https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&h=600&fit=crop)
+![Baño en proceso de reforma](/images/bano-800.webp)
 
 | Partida | Descripción | Precio estimado |
 |---------|-------------|-----------------|
@@ -100,7 +100,7 @@ No todas las reformas son iguales. Dependiendo del estado actual de tu baño y t
 **Plazo:** 3-5 días  
 **Precio:** $800 - $1,500
 
-![Baño con reforma estética moderna](https://images.unsplash.com/photo-1620626012053-93f26850d25d?w=1000&h=600&fit=crop)
+![Baño con reforma estética moderna](/images/bano-800.webp)
 
 ### 2. Reforma Parcial (Renovación Completa)
 
@@ -183,7 +183,7 @@ Mantente al día con las últimas tendencias en diseño de baños que están mar
 
 ### 1. Baños Minimalistas
 
-![Baño minimalista moderno](https://images.unsplash.com/photo-1631679706909-1844bbd07221?w=1000&h=600&fit=crop)
+![Baño minimalista moderno](/images/bano-800.webp)
 
 - Líneas limpias y simples
 - Colores neutros (blanco, gris, beige)

@@ -16,7 +16,7 @@ At ReformaT Venezuela, we've been executing remodels in Valencia and San Diego f
 
 In this article we're not going to sell you anything. We're going to explain **exactly where money leaks usually happen** in a remodel, and how to protect your investment from day one. Because a well-structured budget isn't a luxury: it's the foundation of a stress-free remodel.
 
-![Remodel in progress with planning](https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1000&h=600&fit=crop)
+![Remodel in progress with planning](/images/integrales-800.webp)
 
 ---
 

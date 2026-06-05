@@ -16,7 +16,7 @@ At ReformaT Venezuela, we've been transforming kitchens in Valencia and San Dieg
 
 In this article we're not just going to list trends. We'll explain **why** they're important, **how** to implement them in your remodel, and **how much** you could invest in each one. Because we know remodeling the kitchen is an important decision, and we want you to make the best informed decision.
 
-![Modern kitchen with central island](https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1000&h=600&fit=crop)
+![Modern kitchen with central island](/images/cocina-800.webp)
 
 ---
 
@@ -49,7 +49,7 @@ Here comes the important part. Many people think home automation is only for the
 
 **Our advice:** You don't have to do everything at once. Start with LED lighting and faucets. They're the investments that pay off fastest.
 
-![Smart sensor faucet](https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=1000&h=600&fit=crop)
+![Smart sensor faucet](/images/cocina-800.webp)
 
 ---
 
@@ -116,7 +116,7 @@ Traditional paints release toxic gases for months. Zero-VOC paints are **safe fr
 - Available in any color
 - Price: 10-20% more expensive than traditional, but worth it
 
-![Sustainable materials in kitchen](https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=1000&h=600&fit=crop)
+![Sustainable materials in kitchen](/images/cocina-800.webp)
 
 ---
 
@@ -154,7 +154,7 @@ This is where many people make mistakes. A poorly dimensioned island **gets in t
 
 **Result:** The family can have 3 people cooking simultaneously without colliding.
 
-![Multifunctional kitchen island](https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&h=600&fit=crop)
+![Multifunctional kitchen island](/images/cocina-800.webp)
 
 ---
 
@@ -209,7 +209,7 @@ Good lighting isn't "putting a bulb on the ceiling". It's creating **layers of l
 - **IKEA Tradfri:** Budget option, works well, fewer functions. Investment: $150-$400.
 - **Lutron Caseta:** Most professional, electrical installation (not just bulbs). Investment: $500-$1,200.
 
-![Layered kitchen lighting](https://images.unsplash.com/photo-1565538810643-b5bdb714032a?w=1000&h=600&fit=crop)
+![Layered kitchen lighting](/images/cocina-800.webp)
 
 ---
 
@@ -271,7 +271,7 @@ It's not just color. **Texture** defines how your kitchen feels:
 - Light wood flooring
 - Green plants to bring life
 
-![Kitchen with warm colors and textures](https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=1000&h=600&fit=crop)
+![Kitchen with warm colors and textures](/images/cocina-800.webp)
 
 ---
 

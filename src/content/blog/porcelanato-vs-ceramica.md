@@ -16,7 +16,7 @@ En ReformaT Venezuela llevamos más de 20 años instalando ambos materiales en *
 
 En este artículo te explicamos **sin tecnicismos innecesarios** las diferencias reales entre porcelanato y cerámica, cuándo conviene cada uno, cuánto cuestan en Venezuela en 2026 y cómo tomar la mejor decisión para tu hogar o negocio.
 
-![Comparación de porcelanato y cerámica en instalación](https://images.unsplash.com/photo-1615529182904-14819c35db37?w=1000&h=600&fit=crop)
+![Comparación de porcelanato y cerámica en instalación](/images/revestimiento-porcelanato.webp)
 
 ---
 
@@ -329,7 +329,7 @@ Elegimos la **Opción B**: porcelanato nacional de alta calidad en formato 60x60
 
 **Lección:** No siempre lo más caro es lo mejor. Un porcelanato nacional bien elegido puede dar resultados espectaculares.
 
-![Cocina reformada con porcelanato nacional](https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1000&h=600&fit=crop)
+![Cocina reformada con porcelanato nacional](/images/revestimiento-porcelanato.webp)
 
 ---
 
