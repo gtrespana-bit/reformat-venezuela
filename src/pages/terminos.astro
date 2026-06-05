@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Términos y Condiciones | ReformaT Venezuela" description="Términos y condiciones de uso de los servicios de ReformaT Venezuela." activePage="contacto">
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="legal-title">Términos y <span class="gold">Condiciones</span></h1>
+      <p class="legal-updated">Última actualización: Junio 2026</p>
+
+      <div class="legal-content">
+        <h2>1. Aceptación de los Términos</h2>
+        <p>Al utilizar los servicios de ReformaT Venezuela y navegar por nuestro sitio web, aceptas estos términos y condiciones en su totalidad. Si no estás de acuerdo con alguna parte, te recomendamos no utilizar nuestros servicios.</p>
+
+        <h2>2. Descripción de Servicios</h2>
+        <p>ReformaT Venezuela ofrece servicios de reforma y remodelación de viviendas y negocios, incluyendo:</p>
+        <ul>
+          <li>Reformas integrales de viviendas</li>
+          <li>Reformas de cocinas y baños</li>
+          <li>Servicios de electricidad y fontanería</li>
+          <li>Instalación de revestimientos y suelos</li>
+          <li>Pintura y acabados</li>
+          <li>Construcción y remodelación de piscinas</li>
+        </ul>
+
+        <h2>3. Presupuestos y Contratación</h2>
+        <p>Todos los presupuestos son detallados, cerrados y por escrito. El precio final se mantiene salvo modificaciones solicitadas por el cliente por escrito. La contratación se formaliza mediante contrato firmado por ambas partes.</p>
+
+        <h2>4. Forma de Pago</h2>
+        <p>Los pagos se vinculan a hitos verificables del proyecto:</p>
+        <ul>
+          <li>Firma e inicio: 10-15%</li>
+          <li>Demolición y retirada: 15%</li>
+          <li>Instalaciones certificadas: 25%</li>
+          <li>Muebles y acabados: 30%</li>
+          <li>Entrega final: 15-20%</li>
+        </ul>
+
+        <h2>5. Garantía</h2>
+        <p>Ofrecemos garantía de 2 años en instalaciones de fontanería y electricidad, y 1 año en revestimientos y acabados. La garantía cubre defectos de instalación, no daños por mal uso o mantenimiento inadecuado.</p>
+
+        <h2>6. Plazos de Ejecución</h2>
+        <p>Los plazos se establecen por escrito en el contrato. Nos comprometemos a cumplir los plazos acordados, con penalizaciones en caso de retraso no justificado por causas de fuerza mayor.</p>
+
+        <h2>7. Propiedad Intelectual</h2>
+        <p>Todos los contenidos del sitio web (textos, imágenes, logos, diseños) son propiedad de ReformaT Venezuela y están protegidos por las leyes de propiedad intelectual. Queda prohibida su reproducción sin autorización expresa.</p>
+
+        <h2>8. Limitación de Responsabilidad</h2>
+        <p>ReformaT Venezuela no se hace responsable por:</p>
+        <ul>
+          <li>Daños indirectos o consecuentes derivados del uso de nuestros servicios</li>
+          <li>Interrupciones temporales del sitio web por mantenimiento técnico</li>
+          <li>Contenido de sitios web de terceros enlazados desde nuestro sitio</li>
+        </ul>
+
+        <h2>9. Legislación Aplicable</h2>
+        <p>Estos términos se rigen por las leyes de la República Bolivariana de Venezuela. Cualquier disputa será resuelta en los tribunales competentes de Valencia, Carabobo.</p>
+
+        <h2>10. Contacto</h2>
+        <p>Para cualquier consulta sobre estos términos:</p>
+        <ul>
+          <li>Email: contacto@reformat-venezuela.online</li>
+          <li>WhatsApp: +58 422-799-7043</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 180px 0 100px;
+    background: var(--white);
+    min-height: 100vh;
+  }
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .gold { color: var(--gold); }
+  .legal-updated {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 60px;
+  }
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text);
+    margin: 3rem 0 1.2rem;
+    font-weight: 500;
+  }
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+  .legal-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .legal-content ul {
+    margin: 1rem 0 1.5rem 2rem;
+  }
+  .legal-content li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .legal-content a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    transition: 0.3s;
+  }
+  .legal-content a:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .legal-page { padding: 140px 0 60px; }
+    .legal-content h2 { font-size: 1.5rem; }
+    .legal-content p, .legal-content li { font-size: 1rem; }
+  }
+</style>

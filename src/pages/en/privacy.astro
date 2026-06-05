@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacy Policy | ReformaT Venezuela" description="ReformaT Venezuela privacy policy. How we protect and use your personal data." activePage="contact">
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="legal-title">Privacy <span class="gold">Policy</span></h1>
+      <p class="legal-updated">Last updated: June 2026</p>
+
+      <div class="legal-content">
+        <h2>1. Information We Collect</h2>
+        <p>At ReformaT Venezuela we collect information you voluntarily provide when you:</p>
+        <ul>
+          <li>Contact us through the contact form (name, email, phone, message)</li>
+          <li>Request a quote or consultation</li>
+          <li>Communicate with us via WhatsApp or email</li>
+        </ul>
+
+        <h2>2. Use of Information</h2>
+        <p>We use your information solely to:</p>
+        <ul>
+          <li>Respond to your inquiries and quote requests</li>
+          <li>Provide advice on your remodeling project</li>
+          <li>Contact you to coordinate technical visits</li>
+          <li>Improve our services and customer support</li>
+        </ul>
+
+        <h2>3. Data Protection</h2>
+        <p>Your personal information is treated with the utmost confidentiality. We do not share, sell, or transfer your data to third parties without your express consent.</p>
+
+        <h2>4. Cookies</h2>
+        <p>Our website uses essential technical cookies for its operation and anonymous analytical cookies to improve user experience. You can disable cookies in your browser settings.</p>
+
+        <h2>5. Your Rights</h2>
+        <p>You have the right to:</p>
+        <ul>
+          <li>Access your personal data that we have stored</li>
+          <li>Request correction of inaccurate data</li>
+          <li>Request deletion of your data</li>
+          <li>Object to the processing of your data</li>
+        </ul>
+        <p>To exercise these rights, contact us at: <a href="mailto:contacto@reformat-venezuela.online">contacto@reformat-venezuela.online</a></p>
+
+        <h2>6. Changes to This Policy</h2>
+        <p>We reserve the right to update this privacy policy. Any changes will be published on this page with the corresponding update date.</p>
+
+        <h2>7. Contact</h2>
+        <p>If you have questions about this privacy policy, contact us:</p>
+        <ul>
+          <li>Email: contacto@reformat-venezuela.online</li>
+          <li>WhatsApp: +58 422-799-7043</li>
+          <li>Service area: Valencia, San Diego, Carabobo and Caracas</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 180px 0 100px;
+    background: var(--white);
+    min-height: 100vh;
+  }
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .gold { color: var(--gold); }
+  .legal-updated {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 60px;
+  }
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text);
+    margin: 3rem 0 1.2rem;
+    font-weight: 500;
+  }
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+  .legal-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .legal-content ul {
+    margin: 1rem 0 1.5rem 2rem;
+  }
+  .legal-content li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .legal-content a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    transition: 0.3s;
+  }
+  .legal-content a:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .legal-page { padding: 140px 0 60px; }
+    .legal-content h2 { font-size: 1.5rem; }
+    .legal-content p, .legal-content li { font-size: 1rem; }
+  }
+</style>

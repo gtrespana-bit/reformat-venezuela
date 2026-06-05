@@ -1,0 +1,134 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Terms and Conditions | ReformaT Venezuela" description="Terms and conditions for using ReformaT Venezuela services." activePage="contact">
+  <section class="legal-page">
+    <div class="container">
+      <h1 class="legal-title">Terms and <span class="gold">Conditions</span></h1>
+      <p class="legal-updated">Last updated: June 2026</p>
+
+      <div class="legal-content">
+        <h2>1. Acceptance of Terms</h2>
+        <p>By using ReformaT Venezuela services and browsing our website, you accept these terms and conditions in full. If you disagree with any part, we recommend not using our services.</p>
+
+        <h2>2. Service Description</h2>
+        <p>ReformaT Venezuela offers remodeling and renovation services for homes and businesses, including:</p>
+        <ul>
+          <li>Whole-home remodeling</li>
+          <li>Kitchen and bathroom remodels</li>
+          <li>Electrical and plumbing services</li>
+          <li>Wall coverings and flooring installation</li>
+          <li>Painting and finishes</li>
+          <li>Pool construction and remodeling</li>
+        </ul>
+
+        <h2>3. Quotes and Contracting</h2>
+        <p>All quotes are detailed, fixed and in writing. The final price is maintained unless modifications are requested by the client in writing. Contracting is formalized through a contract signed by both parties.</p>
+
+        <h2>4. Payment Terms</h2>
+        <p>Payments are tied to verifiable project milestones:</p>
+        <ul>
+          <li>Signing and start: 10-15%</li>
+          <li>Demolition and removal: 15%</li>
+          <li>Certified installations: 25%</li>
+          <li>Cabinets and finishes: 30%</li>
+          <li>Final delivery: 15-20%</li>
+        </ul>
+
+        <h2>5. Warranty</h2>
+        <p>We offer a 2-year warranty on plumbing and electrical installations, and 1 year on wall coverings and finishes. The warranty covers installation defects, not damage from misuse or improper maintenance.</p>
+
+        <h2>6. Execution Timelines</h2>
+        <p>Timelines are established in writing in the contract. We commit to meeting agreed deadlines, with penalties in case of unjustified delay due to force majeure causes.</p>
+
+        <h2>7. Intellectual Property</h2>
+        <p>All website content (texts, images, logos, designs) is property of ReformaT Venezuela and protected by intellectual property laws. Reproduction without express authorization is prohibited.</p>
+
+        <h2>8. Limitation of Liability</h2>
+        <p>ReformaT Venezuela is not responsible for:</p>
+        <ul>
+          <li>Indirect or consequential damages arising from use of our services</li>
+          <li>Temporary website interruptions due to technical maintenance</li>
+          <li>Content of third-party websites linked from our site</li>
+        </ul>
+
+        <h2>9. Applicable Law</h2>
+        <p>These terms are governed by the laws of the Bolivarian Republic of Venezuela. Any dispute will be resolved in the competent courts of Valencia, Carabobo.</p>
+
+        <h2>10. Contact</h2>
+        <p>For any questions about these terms:</p>
+        <ul>
+          <li>Email: contacto@reformat-venezuela.online</li>
+          <li>WhatsApp: +58 422-799-7043</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .legal-page {
+    padding: 180px 0 100px;
+    background: var(--white);
+    min-height: 100vh;
+  }
+  .legal-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+  .gold { color: var(--gold); }
+  .legal-updated {
+    text-align: center;
+    color: var(--gray-text);
+    font-size: 0.95rem;
+    margin-bottom: 60px;
+  }
+  .legal-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .legal-content h2 {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text);
+    margin: 3rem 0 1.2rem;
+    font-weight: 500;
+  }
+  .legal-content h2:first-child {
+    margin-top: 0;
+  }
+  .legal-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+  }
+  .legal-content ul {
+    margin: 1rem 0 1.5rem 2rem;
+  }
+  .legal-content li {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+  .legal-content a {
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--gold);
+    transition: 0.3s;
+  }
+  .legal-content a:hover {
+    opacity: 0.8;
+  }
+  @media (max-width: 768px) {
+    .legal-page { padding: 140px 0 60px; }
+    .legal-content h2 { font-size: 1.5rem; }
+    .legal-content p, .legal-content li { font-size: 1rem; }
+  }
+</style>
