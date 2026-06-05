@@ -27,7 +27,7 @@ const basePath = isEnRoute ? currentPath.replace(/^\/en/, '') || '/' : currentPa
 const esPath = basePath;
 const enPath = basePath === '/' ? '/en' : `/en${basePath}`;
 
-// Navegación según idioma
+// Navegación según idioma (sin el switcher, ahora está separado)
 const navItems = isEnglish
   ? [
       { label: 'Home', href: '/en', key: 'home' },
@@ -111,11 +111,6 @@ const footerLocations = isEnglish
 
   <Analytics />
 
-  <!-- FUENTES: Gestionadas directamente por @font-face en global.css con font-display: swap para evitar warnings de preload -->
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
-
   <!-- SCHEMA LOCALIZADO -->
   <script type="application/ld+json">
   {
@@ -188,17 +183,16 @@ const footerLocations = isEnglish
             </a>
           </li>
         ))}
-        <!-- LANGUAGE SWITCHER -->
-        <li>
-          <a
-            href={isEnglish ? esPath : enPath}
-            class="lang-switch"
-            aria-label={isEnglish ? 'Cambiar a español' : 'Switch to English'}
-          >
-            {isEnglish ? 'ES' : 'EN'}
-          </a>
-        </li>
       </ul>
+
+      <!-- LANGUAGE SWITCHER: Siempre visible, fuera del menú hamburguesa -->
+      <a
+        href={isEnglish ? esPath : enPath}
+        class="lang-switch-visible"
+        aria-label={isEnglish ? 'Cambiar a español' : 'Switch to English'}
+      >
+        {isEnglish ? 'ES' : 'EN'}
+      </a>
 
       <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -234,6 +228,34 @@ const footerLocations = isEnglish
   </footer>
 
   <script>
+    // Auto-detect language on first visit (client-side)
+    (function() {
+      const savedLang = localStorage.getItem('reformat-lang');
+      const browserLang = navigator.language || navigator.userLanguage;
+      const isEnglishRoute = window.location.pathname.startsWith('/en');
+      
+      // Si el usuario ya eligió manualmente, respetamos su elección
+      if (savedLang) return;
+      
+      // Si el navegador prefiere inglés y el usuario está en la raíz, redirigimos a /en
+      if (!isEnglishRoute && browserLang.toLowerCase().startsWith('en')) {
+        localStorage.setItem('reformat-lang', 'en');
+        window.location.replace('/en');
+      }
+      // Si el navegador prefiere español y el usuario está en /en, redirigimos a raíz
+      else if (isEnglishRoute && browserLang.toLowerCase().startsWith('es')) {
+        localStorage.setItem('reformat-lang', 'es');
+        window.location.replace('/');
+      }
+    })();
+
+    // Language switcher: guardar preferencia del usuario
+    document.querySelector('.lang-switch-visible')?.addEventListener('click', (e) => {
+      const newLang = e.currentTarget.textContent.trim() === 'EN' ? 'en' : 'es';
+      localStorage.setItem('reformat-lang', newLang);
+    });
+
+    // Mobile menu toggle
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (navbar) {
@@ -296,9 +318,26 @@ const footerLocations = isEnglish
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
   .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-  .lang-switch { font-weight: 600 !important; letter-spacing: 1.5px !important; padding: 6px 14px; border: 1px solid rgba(255,255,255,0.3); border-radius: 2px; transition: all 0.3s !important; }
-  .lang-switch:hover { border-color: var(--gold) !important; color: var(--gold) !important; }
-  .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; }
+  
+  /* Language switcher: siempre visible, fuera del menú hamburguesa */
+  .lang-switch-visible {
+    font-weight: 600 !important;
+    letter-spacing: 1.5px !important;
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    transition: all 0.3s !important;
+    color: rgba(255,255,255,0.9) !important;
+    text-decoration: none;
+    font-size: 0.85rem;
+    margin-left: 12px;
+  }
+  .lang-switch-visible:hover {
+    border-color: var(--gold) !important;
+    color: var(--gold) !important;
+  }
+  
+  .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
   .menu-btn svg { width: 28px; height: 28px; display: block; }
 
   .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
@@ -310,7 +349,26 @@ const footerLocations = isEnglish
   .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
 
-  @media (max-width: 900px) { .nav-links { display: none; } .menu-btn { display: flex; } }
-  @media (max-width: 768px) { .logo img { height: 60px; } .nav.scrolled .logo img { height: 55px; } .footer-logo img { max-width: 350px; } .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; } }
-  @media (max-width: 480px) { .logo img { height: 55px; } .footer-logo img { max-width: 300px; } .footer { padding: 70px 0 35px; } }
+  @media (max-width: 900px) {
+    .nav-links { display: none; }
+    .menu-btn { display: flex; }
+    /* En móvil, el switcher de idioma se mueve al lado del botón hamburguesa */
+    .lang-switch-visible {
+      margin-left: 8px;
+      padding: 5px 10px;
+      font-size: 0.8rem;
+    }
+  }
+  @media (max-width: 768px) {
+    .logo img { height: 60px; }
+    .nav.scrolled .logo img { height: 55px; }
+    .footer-logo img { max-width: 350px; }
+    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
+  }
+  @media (max-width: 480px) {
+    .logo img { height: 55px; }
+    .footer-logo img { max-width: 300px; }
+    .footer { padding: 70px 0 35px; }
+    .lang-switch-visible { padding: 4px 8px; font-size: 0.75rem; }
+  }
 </style>
