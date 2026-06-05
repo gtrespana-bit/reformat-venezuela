@@ -21,10 +21,6 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
 
-// Rutas para hreflang (usaremos JavaScript para el switcher)
-const esPath = isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
-const enPath = isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`);
-
 // Navegación según idioma
 const navItems = isEnglish
   ? [
@@ -68,11 +64,11 @@ const footerLocations = isEnglish
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
 
   <!-- HREFLANG -->
-  <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-  <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
-  <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
-  <link rel="alternate" hreflang="en-US" href={`${siteUrl}${enPath}`} />
-  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
+  <link rel="alternate" hreflang="es" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
+  <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
+  <link rel="alternate" hreflang="en" href={`${siteUrl}${isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`)}`} />
+  <link rel="alternate" hreflang="en-US" href={`${siteUrl}${isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`)}`} />
+  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
 
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/favicon-v3.png" />
@@ -109,7 +105,7 @@ const footerLocations = isEnglish
 
   <Analytics />
 
-  <!-- SCHEMA -->
+  <!-- SCHEMA LOCALIZADO -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -144,8 +140,8 @@ const footerLocations = isEnglish
       "closes": "18:00"
     },
     "description": "{isEnglish
-      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela.'
-      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas.'}"
+      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela. Whole-home remodels, kitchens, bathrooms with transparent USD pricing and European standards.'
+      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas con estándares europeos.'}"
   }
   </script>
 </head>
@@ -227,36 +223,55 @@ const footerLocations = isEnglish
   </footer>
 
   <script>
-    // MAPA DE TRADUCCIÓN DE RUTAS
+    // MAPA DE TRADUCCIÓN DE RUTAS (BIDIRECCIONAL)
     const routeMap = {
+      // Páginas principales
       '/': '/en',
-      '/servicios': '/en/services',
-      '/servicios/cocinas': '/en/services/kitchens',
-      '/servicios/banos': '/en/services/bathrooms',
-      '/servicios/integrales': '/en/services/whole-home',
-      '/servicios/electricidad': '/en/services/electrical',
-      '/servicios/fontaneria': '/en/services/plumbing',
-      '/servicios/pintura-acabados': '/en/services/painting',
-      '/servicios/revestimientos': '/en/services/wall-coverings',
-      '/servicios/suelos': '/en/services/flooring',
-      '/servicios/piscinas': '/en/services/pools',
-      '/proyectos': '/en/projects',
-      '/contacto': '/en/contact',
-      '/blog': '/en/blog',
       '/en': '/',
+      
+      // Servicios
+      '/servicios': '/en/services',
       '/en/services': '/servicios',
+      '/servicios/cocinas': '/en/services/kitchens',
       '/en/services/kitchens': '/servicios/cocinas',
+      '/servicios/banos': '/en/services/bathrooms',
       '/en/services/bathrooms': '/servicios/banos',
+      '/servicios/integrales': '/en/services/whole-home',
       '/en/services/whole-home': '/servicios/integrales',
+      '/servicios/electricidad': '/en/services/electrical',
       '/en/services/electrical': '/servicios/electricidad',
+      '/servicios/fontaneria': '/en/services/plumbing',
       '/en/services/plumbing': '/servicios/fontaneria',
+      '/servicios/pintura-acabados': '/en/services/painting',
       '/en/services/painting': '/servicios/pintura-acabados',
+      '/servicios/revestimientos': '/en/services/wall-coverings',
       '/en/services/wall-coverings': '/servicios/revestimientos',
+      '/servicios/suelos': '/en/services/flooring',
       '/en/services/flooring': '/servicios/suelos',
+      '/servicios/piscinas': '/en/services/pools',
       '/en/services/pools': '/servicios/piscinas',
+      
+      // Otras páginas
+      '/proyectos': '/en/projects',
       '/en/projects': '/proyectos',
+      '/contacto': '/en/contact',
       '/en/contact': '/contacto',
-      '/en/blog': '/blog'
+      '/blog': '/en/blog',
+      '/en/blog': '/blog',
+      
+      // Blog posts (ES → EN)
+      '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
+      '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
+      '/blog/presupuesto-reforma-errores': '/en/blog/remodel-budget-mistakes-avoid',
+      '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodel-carabobo-guide',
+      '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
+      
+      // Blog posts (EN → ES)
+      '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
+      '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
+      '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
+      '/en/blog/bathroom-remodel-carabobo-guide': '/blog/reformas-banos-carabobo',
+      '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025'
     };
 
     // LANGUAGE SWITCHER HANDLER
@@ -269,7 +284,7 @@ const footerLocations = isEnglish
         if (newPath) {
           window.location.href = newPath;
         } else {
-          // Fallback: si la ruta no está en el mapa, hacer la conversión básica
+          // Fallback: conversión básica
           if (currentPath.startsWith('/en')) {
             window.location.href = currentPath.replace(/^\/en/, '') || '/';
           } else {
