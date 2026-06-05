@@ -1,16 +1,16 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 const projects = [
-  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", desc: "Transformación completa de piso de 120m²." },
-  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=800&h=600&fit=crop", desc: "Cocina abierta al salón con isla central." },
-  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800&h=600&fit=crop", desc: "Baño transformado en espacio spa." },
-  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=800&h=600&fit=crop", desc: "Reforma integral con diseño industrial." },
-  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=800&h=600&fit=crop", desc: "Restauración con toques modernos." },
-  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "https://images.unsplash.com/photo-1556909118-75e7e4f0f0c5?w=800&h=600&fit=crop", desc: "Fusión de estilo rústico con funcionalidad." }
+  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "/images/integrales-800.webp", desc: "Transformación completa de piso de 120m²." },
+  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "/images/integrales-800.webp", desc: "Cocina abierta al salón con isla central." },
+  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "/images/integrales-800.webp", desc: "Baño transformado en espacio spa." },
+  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "/images/integrales-800.webp", desc: "Reforma integral con diseño industrial." },
+  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "/images/integrales-800.webp", desc: "Restauración con toques modernos." },
+  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "/images/integrales-800.webp", desc: "Fusión de estilo rústico con funcionalidad." }
 ];
 ---
 <BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales." activePage="proyectos">
-  <header class="page-hero"><div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
+  <header class="page-hero"><div class="hero-bg" style="background-image: url('/images/integrales-800.webp')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
   <section class="projects-section"><div class="container"><div class="filter-bar">{["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div></div>))}</div></div></section>
   
   <section class="cta-section">
