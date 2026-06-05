@@ -2,15 +2,15 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
-const spanishSlugs = [
-  'cuanto-cuesta-reforma-cocina-valencia',
-  'porcelanato-vs-ceramica',
-  'presupuesto-reforma-errores',
-  'reformas-banos-carabobo',
-  'tendencias-cocinas-2025'
-];
-
 export async function getStaticPaths() {
+  const spanishSlugs = [
+    'cuanto-cuesta-reforma-cocina-valencia',
+    'porcelanato-vs-ceramica',
+    'presupuesto-reforma-errores',
+    'reformas-banos-carabobo',
+    'tendencias-cocinas-2025'
+  ];
+  
   const posts = await getCollection('blog');
   const spanishPosts = posts.filter(post => spanishSlugs.includes(post.id));
   

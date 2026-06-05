@@ -2,15 +2,15 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 
-const englishSlugs = [
-  'kitchen-remodel-cost-caracas-valencia-2026',
-  'porcelain-tile-vs-ceramic-tile-guide',
-  'remodel-budget-mistakes-avoid',
-  'bathroom-remodel-carabobo-guide',
-  'kitchen-design-trends-2026'
-];
-
 export async function getStaticPaths() {
+  const englishSlugs = [
+    'kitchen-remodel-cost-caracas-valencia-2026',
+    'porcelain-tile-vs-ceramic-tile-guide',
+    'remodel-budget-mistakes-avoid',
+    'bathroom-remodel-carabobo-guide',
+    'kitchen-design-trends-2026'
+  ];
+  
   const posts = await getCollection('blog');
   const englishPosts = posts.filter(post => englishSlugs.includes(post.id));
   
