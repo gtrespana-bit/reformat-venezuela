@@ -165,7 +165,16 @@ const localBusinessSchema = {
     "longitude": -68.0077
   },
   "areaServed": areasServed,
-  "availableLanguage": ["English", "Spanish"],
+  "availableLanguage": [
+    {
+      "@type": "Language",
+      "name": "English"
+    },
+    {
+      "@type": "Language",
+      "name": "Spanish"
+    }
+  ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
