@@ -21,11 +21,43 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
 
-// Rutas alternas para hreflang (LÓGICA CORREGIDA)
+// MAPA DE TRADUCCIÓN DE RUTAS
+const routeMap: Record<string, string> = {
+  '/': '/en',
+  '/servicios': '/en/services',
+  '/servicios/cocinas': '/en/services/kitchens',
+  '/servicios/banos': '/en/services/bathrooms',
+  '/servicios/integrales': '/en/services/whole-home',
+  '/servicios/electricidad': '/en/services/electrical',
+  '/servicios/fontaneria': '/en/services/plumbing',
+  '/servicios/pintura-acabados': '/en/services/painting',
+  '/servicios/revestimientos': '/en/services/wall-coverings',
+  '/servicios/suelos': '/en/services/flooring',
+  '/servicios/piscinas': '/en/services/pools',
+  '/proyectos': '/en/projects',
+  '/contacto': '/en/contact',
+  '/blog': '/en/blog'
+};
+
+// Mapa inverso (inglés → español)
+const reverseRouteMap: Record<string, string> = Object.fromEntries(
+  Object.entries(routeMap).map(([es, en]) => [en, es])
+);
+
+// Calcular ruta alternativa usando el mapa de traducción
 const isEnRoute = currentPath.startsWith('/en');
-const basePath = isEnRoute ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
-const esPath = basePath;
-const enPath = basePath === '/' ? '/en' : `/en${basePath}`;
+let alternatePath: string;
+
+if (isEnRoute) {
+  // Estamos en inglés, buscamos la ruta en español
+  alternatePath = reverseRouteMap[currentPath] || currentPath.replace(/^\/en/, '') || '/';
+} else {
+  // Estamos en español, buscamos la ruta en inglés
+  alternatePath = routeMap[currentPath] || `/en${currentPath}`;
+}
+
+const esPath = isEnRoute ? alternatePath : currentPath;
+const enPath = isEnRoute ? currentPath : alternatePath;
 
 // Navegación según idioma (sin el switcher, ahora está separado)
 const navItems = isEnglish
@@ -234,28 +266,23 @@ const footerLocations = isEnglish
       const browserLang = navigator.language || navigator.userLanguage;
       const isEnglishRoute = window.location.pathname.startsWith('/en');
       
-      // Si el usuario ya eligió manualmente, respetamos su elección
       if (savedLang) return;
       
-      // Si el navegador prefiere inglés y el usuario está en la raíz, redirigimos a /en
       if (!isEnglishRoute && browserLang.toLowerCase().startsWith('en')) {
         localStorage.setItem('reformat-lang', 'en');
         window.location.replace('/en');
       }
-      // Si el navegador prefiere español y el usuario está en /en, redirigimos a raíz
       else if (isEnglishRoute && browserLang.toLowerCase().startsWith('es')) {
         localStorage.setItem('reformat-lang', 'es');
         window.location.replace('/');
       }
     })();
 
-    // Language switcher: guardar preferencia del usuario
     document.querySelector('.lang-switch-visible')?.addEventListener('click', (e) => {
       const newLang = e.currentTarget.textContent.trim() === 'EN' ? 'en' : 'es';
       localStorage.setItem('reformat-lang', newLang);
     });
 
-    // Mobile menu toggle
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (navbar) {
@@ -319,7 +346,6 @@ const footerLocations = isEnglish
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
   .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
   
-  /* Language switcher: siempre visible, fuera del menú hamburguesa */
   .lang-switch-visible {
     font-weight: 600 !important;
     letter-spacing: 1.5px !important;
@@ -352,7 +378,6 @@ const footerLocations = isEnglish
   @media (max-width: 900px) {
     .nav-links { display: none; }
     .menu-btn { display: flex; }
-    /* En móvil, el switcher de idioma se mueve al lado del botón hamburguesa */
     .lang-switch-visible {
       margin-left: 8px;
       padding: 5px 10px;

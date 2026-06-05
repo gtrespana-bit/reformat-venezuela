@@ -1,399 +1,126 @@
 ---
-import '../styles/global.css';
-import Analytics from '../components/Analytics.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
-interface Props {
-  title: string;
-  description: string;
-  image?: string;
-  activePage?: 'inicio' | 'servicios' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
-}
-
-const { title, description, image = '', activePage = '' } = Astro.props;
-const siteUrl = 'https://reformat-venezuela.online';
-const currentPath = Astro.url.pathname;
-const isEnglish = currentPath.startsWith('/en');
-const lang = isEnglish ? 'en' : 'es';
-const locale = isEnglish ? 'en_US' : 'es_VE';
-const siteName = 'ReformaT Venezuela';
-
-const ogImage = image && image.startsWith('http')
-  ? image
-  : `${siteUrl}${image || '/images/og-default.jpg'}`;
-
-// MAPA DE TRADUCCIÓN DE RUTAS
-const routeMap: Record<string, string> = {
-  '/': '/en',
-  '/servicios': '/en/services',
-  '/servicios/cocinas': '/en/services/kitchens',
-  '/servicios/banos': '/en/services/bathrooms',
-  '/servicios/integrales': '/en/services/whole-home',
-  '/servicios/electricidad': '/en/services/electrical',
-  '/servicios/fontaneria': '/en/services/plumbing',
-  '/servicios/pintura-acabados': '/en/services/painting',
-  '/servicios/revestimientos': '/en/services/wall-coverings',
-  '/servicios/suelos': '/en/services/flooring',
-  '/servicios/piscinas': '/en/services/pools',
-  '/proyectos': '/en/projects',
-  '/contacto': '/en/contact',
-  '/blog': '/en/blog'
-};
-
-// Mapa inverso (inglés → español)
-const reverseRouteMap: Record<string, string> = Object.fromEntries(
-  Object.entries(routeMap).map(([es, en]) => [en, es])
-);
-
-// Calcular ruta alternativa usando el mapa de traducción
-const isEnRoute = currentPath.startsWith('/en');
-let alternatePath: string;
-
-if (isEnRoute) {
-  // Estamos en inglés, buscamos la ruta en español
-  alternatePath = reverseRouteMap[currentPath] || currentPath.replace(/^\/en/, '') || '/';
-} else {
-  // Estamos en español, buscamos la ruta en inglés
-  alternatePath = routeMap[currentPath] || `/en${currentPath}`;
-}
-
-const esPath = isEnRoute ? alternatePath : currentPath;
-const enPath = isEnRoute ? currentPath : alternatePath;
-
-// Navegación según idioma (sin el switcher, ahora está separado)
-const navItems = isEnglish
-  ? [
-      { label: 'Home', href: '/en', key: 'home' },
-      { label: 'Services', href: '/en/services', key: 'services' },
-      { label: 'Projects', href: '/en/projects', key: 'projects' },
-      { label: 'Contact', href: '/en/contact', key: 'contact', premium: true }
-    ]
-  : [
-      { label: 'Inicio', href: '/', key: 'inicio' },
-      { label: 'Servicios', href: '/servicios', key: 'servicios' },
-      { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
-      { label: 'Blog', href: '/blog', key: 'blog' },
-      { label: 'Contacto', href: '/contacto', key: 'contacto', premium: true }
-    ];
-
-const whatsappText = isEnglish
-  ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
-  : 'Hola,%20me%20interesa%20una%20consulta%20para%20mi%20proyecto';
-
-const skipLinkText = isEnglish ? 'Skip to main content' : 'Saltar al contenido principal';
-const menuLabel = isEnglish ? 'Open navigation menu' : 'Abrir menú de navegación';
-const footerDesc = isEnglish
-  ? 'Transforming spaces with excellence since 2005.'
-  : 'Transformando espacios con excelencia desde 2005.';
-const footerRights = isEnglish
-  ? 'All rights reserved.'
-  : 'Todos los derechos reservados.';
-const footerLocations = isEnglish
-  ? 'Valencia, San Diego, Carabobo and Caracas.'
-  : 'Valencia, San Diego, Carabobo y Caracas.';
+const services = [
+  { slug: "kitchens", title: "Kitchen Remodeling", desc: "We design functional, elegant kitchens.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Custom Design", "Premium Materials"] },
+  { slug: "bathrooms", title: "Bathroom Renovation", desc: "Wellness spaces with spa-quality finishes.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Waterproofing", "Spa Design"] },
+  { slug: "whole-home", title: "Whole-Home Remodeling", desc: "Complete transformation of your property.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Full Project Management", "Permit Handling"] },
+  { slug: "electrical", title: "Electrical Services", desc: "Safe, code-compliant installations.", image: "/images/electricidad-800.webp", srcset: "/images/electricidad-400.webp 400w, /images/electricidad-800.webp 800w", features: ["Certified", "Smart Home Ready"] },
+  { slug: "plumbing", title: "Plumbing Services", desc: "Professional plumbing solutions.", image: "/images/fontaneria-800.webp", srcset: "/images/fontaneria-400.webp 400w, /images/fontaneria-800.webp 800w", features: ["Leak Detection", "Premium Fixtures"] },
+  { slug: "painting", title: "Painting & Finishes", desc: "Flawless interior and exterior finishes.", image: "/images/pintura-800.webp", srcset: "/images/pintura-400.webp 400w, /images/pintura-800.webp 800w", features: ["Decorative Paint", "Microcement"] },
+  { slug: "wall-coverings", title: "Wall Coverings", desc: "Stylish wall treatments.", image: "/images/revestimientos-800.webp", srcset: "/images/revestimientos-400.webp 400w, /images/revestimientos-800.webp 800w", features: ["Large-Format Porcelain", "Wall Panels"] },
+  { slug: "flooring", title: "Flooring", desc: "Durable, beautiful floors.", image: "/images/suelo-porcelanato-800.webp", srcset: "/images/suelo-porcelanato-400.webp 400w, /images/suelo-porcelanato-800.webp 800w", features: ["Laminate", "Vinyl", "Hardwood"] },
+  { slug: "pools", title: "Swimming Pools", desc: "Construction and maintenance.", image: "/images/piscinas-800.webp", srcset: "/images/piscinas-400.webp 400w, /images/piscinas-800.webp 800w", features: ["Custom Build", "Filtration Systems"] }
+];
 ---
 
-<!DOCTYPE html>
-<html lang={lang}>
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="canonical" href={`${siteUrl}${currentPath}`} />
-
-  <!-- HREFLANG COMPLETO -->
-  <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-  <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
-  <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
-  <link rel="alternate" hreflang="en-US" href={`${siteUrl}${enPath}`} />
-  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="/favicon-v3.png" />
-  <link rel="apple-touch-icon" href="/favicon-v3.png" />
-  <meta name="theme-color" content="#0a0a0a" />
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content={siteName} />
-  <meta property="og:locale" content={locale} />
-  <meta property="og:url" content={`${siteUrl}${currentPath}`} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:image:secure_url" content={ogImage} />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content={isEnglish
-    ? `${siteName} - Premium home remodeling in Valencia, San Diego, Carabobo and Caracas`
-    : `${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
-
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
-  <meta name="twitter:image:alt" content={isEnglish
-    ? `${siteName} - Premium home remodeling in Valencia, San Diego, Carabobo and Caracas`
-    : `${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
-
-  <meta name="author" content={siteName} />
-  <meta name="robots" content="index, follow" />
-
-  <Analytics />
-
-  <!-- SCHEMA LOCALIZADO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "ReformaT Venezuela",
-    "image": "/images/logo-header.webp",
-    "url": "{isEnglish ? `${siteUrl}/en` : siteUrl}",
-    "telephone": "+584227997043",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Valencia",
-      "addressRegion": "Carabobo",
-      "addressCountry": "VE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 10.1620,
-      "longitude": -68.0077
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Valencia"},
-      {"@type": "City", "name": "San Diego"},
-      {"@type": "AdministrativeArea", "name": "Carabobo"},
-      {"@type": "City", "name": "Caracas"}
-    ],
-    "priceRange": "$$",
-    "availableLanguage": ["English", "Spanish"],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "description": "{isEnglish
-      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela. Whole-home remodels, kitchens, bathrooms with transparent USD pricing and European standards.'
-      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas con estándares europeos.'}"
-  }
-  </script>
-</head>
-
-<body>
-  <a href="#main-content" class="skip-link">{skipLinkText}</a>
-
-  <nav id="navbar" class="nav" role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
-    <div class="nav-container">
-      <a href={isEnglish ? '/en' : '/'} class="logo">
-        <img
-          src="/images/logo-header.webp"
-          alt={isEnglish ? 'ReformaT Venezuela - Home Remodeling' : 'ReformaT Venezuela - Remodelación de Viviendas'}
-          width="200"
-          height="auto"
-          loading="eager"
-          fetchpriority="high"
-          decoding="async"
-        />
-      </a>
-
-      <ul class="nav-links">
-        {navItems.map((item) => (
-          <li>
-            <a
-              href={item.href}
-              class={[
-                activePage === item.key ? 'active' : '',
-                item.premium ? 'btn-nav-premium' : ''
-              ].filter(Boolean).join(' ')}
-            >
-              {item.label}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <!-- LANGUAGE SWITCHER: Siempre visible, fuera del menú hamburguesa -->
-      <a
-        href={isEnglish ? esPath : enPath}
-        class="lang-switch-visible"
-        aria-label={isEnglish ? 'Cambiar a español' : 'Switch to English'}
-      >
-        {isEnglish ? 'ES' : 'EN'}
-      </a>
-
-      <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
-          <line x1="3" y1="6" x2="21" y2="6"></line>
-          <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
-      </button>
+<BaseLayout title="Services | ReformaT Venezuela" description="Complete remodeling solutions from partial renovations to whole-home transformations." activePage="services">
+  <header class="page-hero">
+    <img
+      src="/images/integrales-800.webp"
+      srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
+      sizes="100vw"
+      alt="Modern home interior after complete remodeling"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      width="800"
+      height="533"
+      class="hero-lcp-img"
+    />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">What We Do</span>
+      <h1 class="page-title">Complete <span class="gold">Remodeling Solutions</span></h1>
+      <p class="page-subtitle">Over 20 years transforming spaces in Valencia and San Diego.</p>
     </div>
-  </nav>
+  </header>
 
-  <main id="main-content"><slot /></main>
-
-  <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" class="whatsapp-float" aria-label={isEnglish ? 'Contact via WhatsApp' : 'Contactar por WhatsApp'}>
-    <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-  </a>
-
-  <footer class="footer">
+  <section class="services-page">
     <div class="container">
-      <div class="footer-logo">
-        <img
-          src="/images/logo-footer.webp"
-          alt={isEnglish ? 'ReformaT Venezuela - Home Remodeling' : 'ReformaT Venezuela - Remodelación de Viviendas'}
-          width="500"
-          height="auto"
-          loading="lazy"
-          decoding="async"
-        />
+      <div class="section-header">
+        <span class="tag">Our Services</span>
+        <h2 class="section-title">We Transform Every Corner of Your Home</h2>
+        <p class="section-desc">Complete solutions from partial renovations to whole-home projects.</p>
       </div>
-      <p class="footer-desc">{footerDesc}</p>
-      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
+      <div class="services-vertical-grid">
+        {services.map((svc) => (
+          <a href={`/en/services/${svc.slug}`} class="service-vertical-card">
+            <div class="card-img-wrap">
+              <img 
+                src={svc.image} 
+                srcset={svc.srcset}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt={svc.title} 
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="533"
+              />
+              <div class="card-overlay"></div>
+              <span class="card-icon">✦</span>
+            </div>
+            <div class="card-body">
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
+              <ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul>
+              <span class="card-link">View full details <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
     </div>
-  </footer>
+  </section>
 
-  <script>
-    // Auto-detect language on first visit (client-side)
-    (function() {
-      const savedLang = localStorage.getItem('reformat-lang');
-      const browserLang = navigator.language || navigator.userLanguage;
-      const isEnglishRoute = window.location.pathname.startsWith('/en');
-      
-      if (savedLang) return;
-      
-      if (!isEnglishRoute && browserLang.toLowerCase().startsWith('en')) {
-        localStorage.setItem('reformat-lang', 'en');
-        window.location.replace('/en');
-      }
-      else if (isEnglishRoute && browserLang.toLowerCase().startsWith('es')) {
-        localStorage.setItem('reformat-lang', 'es');
-        window.location.replace('/');
-      }
-    })();
-
-    document.querySelector('.lang-switch-visible')?.addEventListener('click', (e) => {
-      const newLang = e.currentTarget.textContent.trim() === 'EN' ? 'en' : 'es';
-      localStorage.setItem('reformat-lang', newLang);
-    });
-
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
-      }
-    });
-
-    const menuBtn = document.getElementById('menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        const isOpen = navLinks.style.display === 'flex';
-        navLinks.style.display = isOpen ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = '#0a0a0a';
-        navLinks.style.padding = '20px';
-        navLinks.style.textAlign = 'center';
-        navLinks.style.zIndex = '99';
-        menuBtn.setAttribute('aria-expanded', (!isOpen).toString());
-      });
-    }
-
-    window.shareArticle = (platform) => {
-      const url = window.location.href;
-      const title = document.title;
-      const links = {
-        whatsapp: `https://wa.me/?text=${encodeURIComponent(title + ' ' + url)}`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(url)}`
-      };
-      if (links[platform]) {
-        window.open(links[platform], '_blank', 'width=600,height=400');
-      }
-    };
-  </script>
-</body>
-</html>
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">Ready to Transform Your Space?</h2>
+      <p class="cta-text">Schedule a free consultation and receive a detailed quote.</p>
+      <a href="/en/contact" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Schedule Free Consultation</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
 
 <style>
-  .skip-link {
-    position: absolute; top: -100px; left: 0; background: #0a0a0a; color: #fff;
-    padding: 12px 16px; z-index: 9999; transition: top 0.3s; text-decoration: none;
-  }
-  .skip-link:focus { top: 0; }
-  *:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
-  button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
+  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding: 120px 20px 60px; }
+  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 800px; }
+  .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
+  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin-bottom: 20px; }
+  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); }
 
-  .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
-  .nav.scrolled { background: rgba(10,10,10,0.95); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
-  .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-  .logo { display: flex; align-items: center; }
-  .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
-  .nav.scrolled .logo img { height: 70px; }
-  .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-  .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
-  .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
-  .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
-  
-  .lang-switch-visible {
-    font-weight: 600 !important;
-    letter-spacing: 1.5px !important;
-    padding: 6px 14px;
-    border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 2px;
-    transition: all 0.3s !important;
-    color: rgba(255,255,255,0.9) !important;
-    text-decoration: none;
-    font-size: 0.85rem;
-    margin-left: 12px;
-  }
-  .lang-switch-visible:hover {
-    border-color: var(--gold) !important;
-    color: var(--gold) !important;
-  }
-  
-  .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
-  .menu-btn svg { width: 28px; height: 28px; display: block; }
+  .services-page { padding: 100px 0; background: var(--gray); }
+  .services-vertical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+  .service-vertical-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .service-vertical-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+  .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
+  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
+  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
+  .service-vertical-card:hover .card-icon { transform: scale(1.15) rotate(15deg); }
+  .card-body { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
+  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
+  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
+  .card-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
+  .card-features li { color: var(--gray-text); font-size: 0.9rem; padding: 6px 0; padding-left: 20px; position: relative; }
+  .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+  .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
+  .arrow { transition: transform 0.3s; }
+  .service-vertical-card:hover .card-link { gap: 14px; }
+  .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
 
-  .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
-  .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
 
-  .footer { background: var(--bg); color: rgba(255,255,255,0.7); padding: 90px 0 45px; text-align: center; }
-  .footer-logo { margin-bottom: 35px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 450px; height: auto; display: block; }
-  .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
-
-  @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .menu-btn { display: flex; }
-    .lang-switch-visible {
-      margin-left: 8px;
-      padding: 5px 10px;
-      font-size: 0.8rem;
-    }
-  }
   @media (max-width: 768px) {
-    .logo img { height: 60px; }
-    .nav.scrolled .logo img { height: 55px; }
-    .footer-logo img { max-width: 350px; }
-    .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
-  }
-  @media (max-width: 480px) {
-    .logo img { height: 55px; }
-    .footer-logo img { max-width: 300px; }
-    .footer { padding: 70px 0 35px; }
-    .lang-switch-visible { padding: 4px 8px; font-size: 0.75rem; }
+    .services-vertical-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 90px 20px; }
   }
 </style>
