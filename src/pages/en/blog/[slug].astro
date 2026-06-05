@@ -29,6 +29,12 @@ const { Content } = await render(post);
   description={post.data.excerpt} 
   image={post.data.image}
   activePage="blog"
+  articleType="article"
+  publishedTime={post.data.date.toISOString()}
+  modifiedTime={post.data.date.toISOString()}
+  author="ReformaT Venezuela"
+  articleSection={post.data.category}
+  tags={[post.data.category, 'remodeling', 'Venezuela', 'Valencia', 'Caracas', 'San Diego', 'Carabobo']}
 >
   <article class="blog-post">
     <header class="post-hero">

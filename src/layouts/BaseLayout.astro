@@ -1,42 +1,37 @@
 ---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
+import SEO from '../components/SEO.astro';
 
 interface Props {
   title: string;
   description: string;
   image?: string;
   activePage?: 'inicio' | 'servicios' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
+  articleType?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  articleSection?: string;
+  tags?: string[];
 }
 
-const { title, description, image = '', activePage = '' } = Astro.props;
-const siteUrl = 'https://reformat-venezuela.online';
+const { 
+  title, 
+  description, 
+  image = '', 
+  activePage = '',
+  articleType = 'website',
+  publishedTime,
+  modifiedTime,
+  author,
+  articleSection,
+  tags
+} = Astro.props;
+
 const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
-const locale = isEnglish ? 'en_US' : 'es_VE';
-const siteName = 'ReformaT Venezuela';
-
-const ogImage = image && image.startsWith('http')
-  ? image
-  : `${siteUrl}${image || '/images/og-default.jpg'}`;
-
-// Navegación según idioma
-const navItems = isEnglish
-  ? [
-      { label: 'Home', href: '/en', key: 'home' },
-      { label: 'Services', href: '/en/services', key: 'services' },
-      { label: 'Projects', href: '/en/projects', key: 'projects' },
-      { label: 'Blog', href: '/en/blog', key: 'blog' },
-      { label: 'Contact', href: '/en/contact', key: 'contact', premium: true }
-    ]
-  : [
-      { label: 'Inicio', href: '/', key: 'inicio' },
-      { label: 'Servicios', href: '/servicios', key: 'servicios' },
-      { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
-      { label: 'Blog', href: '/blog', key: 'blog' },
-      { label: 'Contacto', href: '/contacto', key: 'contacto', premium: true }
-    ];
 
 const whatsappText = isEnglish
   ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
@@ -53,6 +48,22 @@ const footerRights = isEnglish
 const footerLocations = isEnglish
   ? 'Valencia, San Diego, Carabobo and Caracas.'
   : 'Valencia, San Diego, Carabobo y Caracas.';
+
+const navItems = isEnglish
+  ? [
+      { label: 'Home', href: '/en', key: 'home' },
+      { label: 'Services', href: '/en/services', key: 'services' },
+      { label: 'Projects', href: '/en/projects', key: 'projects' },
+      { label: 'Blog', href: '/en/blog', key: 'blog' },
+      { label: 'Contact', href: '/en/contact', key: 'contact', premium: true }
+    ]
+  : [
+      { label: 'Inicio', href: '/', key: 'inicio' },
+      { label: 'Servicios', href: '/servicios', key: 'servicios' },
+      { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
+      { label: 'Blog', href: '/blog', key: 'blog' },
+      { label: 'Contacto', href: '/contacto', key: 'contacto', premium: true }
+    ];
 ---
 
 <!DOCTYPE html>
@@ -60,91 +71,21 @@ const footerLocations = isEnglish
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{title}</title>
-  <meta name="description" content={description} />
-  <link rel="canonical" href={`${siteUrl}${currentPath}`} />
-
-  <!-- HREFLANG -->
-  <link rel="alternate" hreflang="es" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
-  <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
-  <link rel="alternate" hreflang="en" href={`${siteUrl}${isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`)}`} />
-  <link rel="alternate" hreflang="en-US" href={`${siteUrl}${isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`)}`} />
-  <link rel="alternate" hreflang="x-default" href={`${siteUrl}${isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath}`} />
-
-  <!-- FAVICON -->
-  <link rel="icon" type="image/png" href="/favicon-v3.png" />
-  <link rel="apple-touch-icon" href="/favicon-v3.png" />
-  <meta name="theme-color" content="#0a0a0a" />
-
-  <!-- OPEN GRAPH -->
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content={siteName} />
-  <meta property="og:locale" content={locale} />
-  <meta property="og:url" content={`${siteUrl}${currentPath}`} />
-  <meta property="og:title" content={title} />
-  <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImage} />
-  <meta property="og:image:secure_url" content={ogImage} />
-  <meta property="og:image:type" content="image/jpeg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content={isEnglish
-    ? `${siteName} - Premium home remodeling in Valencia, San Diego, Carabobo and Caracas`
-    : `${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
-
-  <!-- TWITTER -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={description} />
-  <meta name="twitter:image" content={ogImage} />
-  <meta name="twitter:image:alt" content={isEnglish
-    ? `${siteName} - Premium home remodeling in Valencia, San Diego, Carabobo and Caracas`
-    : `${siteName} - Reformas de calidad en Valencia, San Diego, Carabobo y Caracas`} />
-
-  <meta name="author" content={siteName} />
-  <meta name="robots" content="index, follow" />
+  
+  <SEO 
+    title={title}
+    description={description}
+    image={image}
+    type={articleType}
+    publishedTime={publishedTime}
+    modifiedTime={modifiedTime}
+    author={author}
+    articleSection={articleSection}
+    tags={tags}
+    activePage={activePage}
+  />
 
   <Analytics />
-
-  <!-- SCHEMA LOCALIZADO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "ReformaT Venezuela",
-    "image": "/images/logo-header.webp",
-    "url": "{isEnglish ? `${siteUrl}/en` : siteUrl}",
-    "telephone": "+584227997043",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Valencia",
-      "addressRegion": "Carabobo",
-      "addressCountry": "VE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 10.1620,
-      "longitude": -68.0077
-    },
-    "areaServed": [
-      {"@type": "City", "name": "Valencia"},
-      {"@type": "City", "name": "San Diego"},
-      {"@type": "AdministrativeArea", "name": "Carabobo"},
-      {"@type": "City", "name": "Caracas"}
-    ],
-    "priceRange": "$$",
-    "availableLanguage": ["English", "Spanish"],
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "description": "{isEnglish
-      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela. Whole-home remodels, kitchens, bathrooms with transparent USD pricing and European standards.'
-      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas con estándares europeos.'}"
-  }
-  </script>
 </head>
 
 <body>
@@ -180,7 +121,6 @@ const footerLocations = isEnglish
         ))}
       </ul>
 
-      <!-- LANGUAGE SWITCHER -->
       <button
         type="button"
         class="lang-switch-visible"
@@ -224,13 +164,9 @@ const footerLocations = isEnglish
   </footer>
 
   <script>
-    // MAPA DE TRADUCCIÓN DE RUTAS (BIDIRECCIONAL)
     const routeMap = {
-      // Páginas principales
       '/': '/en',
       '/en': '/',
-      
-      // Servicios
       '/servicios': '/en/services',
       '/en/services': '/servicios',
       '/servicios/cocinas': '/en/services/kitchens',
@@ -251,23 +187,17 @@ const footerLocations = isEnglish
       '/en/services/flooring': '/servicios/suelos',
       '/servicios/piscinas': '/en/services/pools',
       '/en/services/pools': '/servicios/piscinas',
-      
-      // Otras páginas
       '/proyectos': '/en/projects',
       '/en/projects': '/proyectos',
       '/contacto': '/en/contact',
       '/en/contact': '/contacto',
       '/blog': '/en/blog',
       '/en/blog': '/blog',
-      
-      // Blog posts (ES → EN)
       '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
       '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
       '/blog/presupuesto-reforma-errores': '/en/blog/remodel-budget-mistakes-avoid',
       '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodel-carabobo-guide',
       '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
-      
-      // Blog posts (EN → ES)
       '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
       '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
       '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
@@ -275,7 +205,6 @@ const footerLocations = isEnglish
       '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025'
     };
 
-    // LANGUAGE SWITCHER HANDLER
     const langSwitchBtn = document.querySelector('.lang-switch-visible');
     if (langSwitchBtn) {
       langSwitchBtn.addEventListener('click', () => {
@@ -283,19 +212,21 @@ const footerLocations = isEnglish
         const newPath = routeMap[currentPath];
         
         if (newPath) {
+          const newLang = currentPath.startsWith('/en') ? 'es' : 'en';
+          localStorage.setItem('reformat-lang', newLang);
           window.location.href = newPath;
         } else {
-          // Fallback: conversión básica
           if (currentPath.startsWith('/en')) {
+            localStorage.setItem('reformat-lang', 'es');
             window.location.href = currentPath.replace(/^\/en/, '') || '/';
           } else {
+            localStorage.setItem('reformat-lang', 'en');
             window.location.href = '/en' + currentPath;
           }
         }
       });
     }
 
-    // AUTO-DETECT LANGUAGE
     (function() {
       const savedLang = localStorage.getItem('reformat-lang');
       const browserLang = navigator.language || navigator.userLanguage;
@@ -315,7 +246,6 @@ const footerLocations = isEnglish
       }
     })();
 
-    // MOBILE MENU
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (navbar) {

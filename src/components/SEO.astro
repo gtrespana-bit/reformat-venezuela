@@ -1,0 +1,296 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  articleSection?: string;
+  tags?: string[];
+  activePage?: string;
+}
+
+const siteUrl = 'https://reformat-venezuela.online';
+const siteName = 'ReformaT Venezuela';
+const currentPath = Astro.url.pathname;
+const isEnglish = currentPath.startsWith('/en');
+const lang = isEnglish ? 'en' : 'es';
+const locale = isEnglish ? 'en_US' : 'es_VE';
+const alternateLocale = isEnglish ? 'es_VE' : 'en_US';
+
+const {
+  title,
+  description,
+  image = '',
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = 'ReformaT Venezuela',
+  articleSection,
+  tags = [],
+  activePage = ''
+} = Astro.props;
+
+const ogImage = image && image.startsWith('http')
+  ? image
+  : `${siteUrl}${image || '/images/og-default.webp'}`;
+
+const canonicalUrl = `${siteUrl}${currentPath}`;
+
+// Mapa de traducción de rutas para hreflang
+const routeMap: Record<string, string> = {
+  '/': '/en',
+  '/en': '/',
+  '/servicios': '/en/services',
+  '/en/services': '/servicios',
+  '/servicios/cocinas': '/en/services/kitchens',
+  '/en/services/kitchens': '/servicios/cocinas',
+  '/servicios/banos': '/en/services/bathrooms',
+  '/en/services/bathrooms': '/servicios/banos',
+  '/servicios/integrales': '/en/services/whole-home',
+  '/en/services/whole-home': '/servicios/integrales',
+  '/servicios/electricidad': '/en/services/electrical',
+  '/en/services/electrical': '/servicios/electricidad',
+  '/servicios/fontaneria': '/en/services/plumbing',
+  '/en/services/plumbing': '/servicios/fontaneria',
+  '/servicios/pintura-acabados': '/en/services/painting',
+  '/en/services/painting': '/servicios/pintura-acabados',
+  '/servicios/revestimientos': '/en/services/wall-coverings',
+  '/en/services/wall-coverings': '/servicios/revestimientos',
+  '/servicios/suelos': '/en/services/flooring',
+  '/en/services/flooring': '/servicios/suelos',
+  '/servicios/piscinas': '/en/services/pools',
+  '/en/services/pools': '/servicios/piscinas',
+  '/proyectos': '/en/projects',
+  '/en/projects': '/proyectos',
+  '/contacto': '/en/contact',
+  '/en/contact': '/contacto',
+  '/blog': '/en/blog',
+  '/en/blog': '/blog',
+  '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
+  '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
+  '/blog/presupuesto-reforma-errores': '/en/blog/remodel-budget-mistakes-avoid',
+  '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodel-carabobo-guide',
+  '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
+  '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
+  '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
+  '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
+  '/en/blog/bathroom-remodel-carabobo-guide': '/blog/reformas-banos-carabobo',
+  '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025'
+};
+
+const isEnRoute = currentPath.startsWith('/en');
+let alternatePath: string;
+
+if (isEnRoute) {
+  alternatePath = routeMap[currentPath] || currentPath.replace(/^\/en/, '') || '/';
+} else {
+  alternatePath = routeMap[currentPath] || `/en${currentPath}`;
+}
+
+const esPath = isEnRoute ? alternatePath : currentPath;
+const enPath = isEnRoute ? currentPath : alternatePath;
+
+// Breadcrumbs para Schema
+const breadcrumbItems = [];
+breadcrumbItems.push({ name: isEnglish ? 'Home' : 'Inicio', url: isEnglish ? '/en' : '/' });
+
+if (currentPath === '/blog' || currentPath === '/en/blog') {
+  breadcrumbItems.push({ name: 'Blog', url: currentPath });
+} else if (currentPath.startsWith('/blog/') || currentPath.startsWith('/en/blog/')) {
+  breadcrumbItems.push({ name: 'Blog', url: isEnglish ? '/en/blog' : '/blog' });
+  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: currentPath });
+} else if (currentPath === '/servicios' || currentPath === '/en/services') {
+  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: currentPath });
+} else if (currentPath.startsWith('/servicios/') || currentPath.startsWith('/en/services/')) {
+  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services' : '/servicios' });
+  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: currentPath });
+} else if (currentPath === '/proyectos' || currentPath === '/en/projects') {
+  breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: currentPath });
+} else if (currentPath === '/contacto' || currentPath === '/en/contact') {
+  breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: currentPath });
+}
+
+// Áreas servidas para LocalBusiness schema
+const areasServed = [
+  { "@type": "City", "name": "Valencia" },
+  { "@type": "City", "name": "San Diego" },
+  { "@type": "City", "name": "Naguanagua" },
+  { "@type": "City", "name": "Guacara" },
+  { "@type": "City", "name": "Los Guayos" },
+  { "@type": "AdministrativeArea", "name": "Carabobo" },
+  { "@type": "City", "name": "Caracas" },
+  { "@type": "AdministrativeArea", "name": "Chacao" },
+  { "@type": "AdministrativeArea", "name": "Baruta" },
+  { "@type": "AdministrativeArea", "name": "El Hatillo" },
+  { "@type": "AdministrativeArea", "name": "Sucre" },
+  { "@type": "AdministrativeArea", "name": "Libertador" }
+];
+---
+
+<!-- BASIC META -->
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonicalUrl} />
+<meta name="author" content={siteName} />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+<meta name="googlebot" content="index, follow" />
+
+<!-- LANGUAGE META -->
+<meta http-equiv="content-language" content={lang} />
+<meta name="language" content={isEnglish ? 'English' : 'Spanish'} />
+<meta name="geo.region" content="VE" />
+<meta name="geo.placename" content="Valencia, San Diego, Caracas, Carabobo" />
+<meta name="geo.position" content="10.1620;-68.0077" />
+<meta name="ICBM" content="10.1620, -68.0077" />
+
+<!-- HREFLANG COMPLETO -->
+<link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
+<link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
+<link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+<link rel="alternate" hreflang="en-US" href={`${siteUrl}${enPath}`} />
+<link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
+
+<!-- OPEN GRAPH -->
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={siteName} />
+<meta property="og:locale" content={locale} />
+<meta property="og:locale:alternate" content={alternateLocale} />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:secure_url" content={ogImage} />
+<meta property="og:image:type" content="image/webp" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={title} />
+
+{type === 'article' && publishedTime && (
+  <>
+    <meta property="article:published_time" content={publishedTime} />
+    <meta property="article:modified_time" content={modifiedTime || publishedTime} />
+    <meta property="article:author" content={siteName} />
+    <meta property="article:section" content={articleSection} />
+    {tags.map(tag => <meta property="article:tag" content={tag} />)}
+  </>
+)}
+
+<!-- TWITTER -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={title} />
+
+<!-- FAVICON -->
+<link rel="icon" type="image/png" href="/favicon-v3.png" />
+<link rel="apple-touch-icon" href="/favicon-v3.png" />
+<meta name="theme-color" content="#0a0a0a" />
+
+<!-- SCHEMA: WEBSITE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "{siteName}",
+  "url": "{siteUrl}",
+  "inLanguage": "{lang}",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": "{siteUrl}/blog?q={search_term_string}",
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
+
+<!-- SCHEMA: LOCAL BUSINESS -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "{siteName}",
+  "image": "{siteUrl}/images/logo-header.webp",
+  "url": "{isEnglish ? `${siteUrl}/en` : siteUrl}",
+  "telephone": "+584227997043",
+  "email": "contacto@reformat-venezuela.online",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valencia",
+    "addressRegion": "Carabobo",
+    "addressCountry": "VE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.1620,
+    "longitude": -68.0077
+  },
+  "areaServed": {JSON.stringify(areasServed).slice(1, -1)},
+  "availableLanguage": ["English", "Spanish"],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "sameAs": [
+    "{siteUrl}"
+  ]
+}
+</script>
+
+<!-- SCHEMA: BREADCRUMBS -->
+{breadcrumbItems.length > 1 && (
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {JSON.stringify(breadcrumbItems.map((item, i) => ({
+        "@type": "ListItem",
+        "position": i + 1,
+        "name": item.name,
+        "item": `${siteUrl}${item.url}`
+      }))).slice(1, -1)}
+    ]
+  }
+  </script>
+)}
+
+<!-- SCHEMA: ARTICLE (solo para posts del blog) -->
+{type === 'article' && (
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{title.split('|')[0].trim()}",
+    "description": "{description}",
+    "image": "{ogImage}",
+    "datePublished": "{publishedTime}",
+    "dateModified": "{modifiedTime || publishedTime}",
+    "author": {
+      "@type": "Organization",
+      "name": "{siteName}",
+      "url": "{siteUrl}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "{siteName}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{siteUrl}/images/logo-header.webp"
+      }
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{canonicalUrl}"
+    },
+    "inLanguage": "{lang}",
+    "articleSection": "{articleSection}",
+    "keywords": "{tags.join(', ')}"
+  }
+  </script>
+)}
