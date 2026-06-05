@@ -113,7 +113,20 @@ if (currentPath === '/blog' || currentPath === '/en/blog') {
   breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: currentPath });
 }
 
-// Áreas servidas para LocalBusiness schema
+// Construir objetos JSON como JavaScript objects, luego serializar
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": siteName,
+  "url": siteUrl,
+  "inLanguage": lang,
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${siteUrl}/blog?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
 const areasServed = [
   { "@type": "City", "name": "Valencia" },
   { "@type": "City", "name": "San Diego" },
@@ -128,6 +141,78 @@ const areasServed = [
   { "@type": "AdministrativeArea", "name": "Sucre" },
   { "@type": "AdministrativeArea", "name": "Libertador" }
 ];
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": siteName,
+  "image": `${siteUrl}/images/logo-header.webp`,
+  "url": isEnglish ? `${siteUrl}/en` : siteUrl,
+  "telephone": "+584227997043",
+  "email": "contacto@reformat-venezuela.online",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Valencia",
+    "addressRegion": "Carabobo",
+    "addressCountry": "VE"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 10.1620,
+    "longitude": -68.0077
+  },
+  "areaServed": areasServed,
+  "availableLanguage": ["English", "Spanish"],
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    "opens": "08:00",
+    "closes": "18:00"
+  },
+  "sameAs": [siteUrl]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": breadcrumbItems.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": `${siteUrl}${item.url}`
+  }))
+};
+
+const articleSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title.split('|')[0].trim(),
+  "description": description,
+  "image": ogImage,
+  "datePublished": publishedTime,
+  "dateModified": modifiedTime || publishedTime,
+  "author": {
+    "@type": "Organization",
+    "name": siteName,
+    "url": siteUrl
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": siteName,
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/images/logo-header.webp`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": canonicalUrl
+  },
+  "inLanguage": lang,
+  "articleSection": articleSection,
+  "keywords": tags.join(', ')
+};
 ---
 
 <!-- BASIC META -->
@@ -191,106 +276,17 @@ const areasServed = [
 <meta name="theme-color" content="#0a0a0a" />
 
 <!-- SCHEMA: WEBSITE -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "{siteName}",
-  "url": "{siteUrl}",
-  "inLanguage": "{lang}",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "{siteUrl}/blog?q={search_term_string}",
-    "query-input": "required name=search_term_string"
-  }
-}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
 <!-- SCHEMA: LOCAL BUSINESS -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "{siteName}",
-  "image": "{siteUrl}/images/logo-header.webp",
-  "url": "{isEnglish ? `${siteUrl}/en` : siteUrl}",
-  "telephone": "+584227997043",
-  "email": "contacto@reformat-venezuela.online",
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Valencia",
-    "addressRegion": "Carabobo",
-    "addressCountry": "VE"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 10.1620,
-    "longitude": -68.0077
-  },
-  "areaServed": {JSON.stringify(areasServed).slice(1, -1)},
-  "availableLanguage": ["English", "Spanish"],
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-    "opens": "08:00",
-    "closes": "18:00"
-  },
-  "sameAs": [
-    "{siteUrl}"
-  ]
-}
-</script>
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
 <!-- SCHEMA: BREADCRUMBS -->
 {breadcrumbItems.length > 1 && (
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {JSON.stringify(breadcrumbItems.map((item, i) => ({
-        "@type": "ListItem",
-        "position": i + 1,
-        "name": item.name,
-        "item": `${siteUrl}${item.url}`
-      }))).slice(1, -1)}
-    ]
-  }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
 )}
 
 <!-- SCHEMA: ARTICLE (solo para posts del blog) -->
 {type === 'article' && (
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "{title.split('|')[0].trim()}",
-    "description": "{description}",
-    "image": "{ogImage}",
-    "datePublished": "{publishedTime}",
-    "dateModified": "{modifiedTime || publishedTime}",
-    "author": {
-      "@type": "Organization",
-      "name": "{siteName}",
-      "url": "{siteUrl}"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "{siteName}",
-      "logo": {
-        "@type": "ImageObject",
-        "url": "{siteUrl}/images/logo-header.webp"
-      }
-    },
-    "mainEntityOfPage": {
-      "@type": "WebPage",
-      "@id": "{canonicalUrl}"
-    },
-    "inLanguage": "{lang}",
-    "articleSection": "{articleSection}",
-    "keywords": "{tags.join(', ')}"
-  }
-  </script>
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 )}
