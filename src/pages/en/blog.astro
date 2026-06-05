@@ -1,82 +1,91 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
 
-const posts = await getCollection('blog');
-const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
 ---
 
-<BaseLayout title="Blog | Home Remodeling Tips & Guides" description="Expert advice, trends, and practical guides for your remodeling project in Venezuela." activePage="blog">
-  <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80')"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Blog & Tips</span>
-      <h1 class="page-title">Ideas for <span class="gold">Your Home</span></h1>
-      <p class="page-subtitle">Practical tips, trends, and guides to help you with your remodeling project.</p>
-    </div>
-  </header>
-
-  <section class="blog-section">
-    <div class="container">
-      <div class="blog-grid">
-        {sortedPosts.map(article => (
-          <a href={`/en/blog/${article.id}`} class="blog-card">
-            <div class="blog-img">
-              <img src={article.data.image || ''} alt={article.data.title} loading="lazy" />
-              <span class="blog-category">{article.data.category}</span>
-            </div>
-            <div class="blog-content">
-              <div class="blog-meta">
-                <span>{article.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                <span>• {article.data.readTime} read</span>
-              </div>
-              <h3>{article.data.title}</h3>
-              <p>{article.data.excerpt}</p>
-              <span class="blog-link">Read article →</span>
-            </div>
-          </a>
-        ))}
+<BaseLayout 
+  title={`${post.data.title} | ReformaT Venezuela Blog`} 
+  description={post.data.excerpt} 
+  image={post.data.image}
+  activePage="blog"
+>
+  <article class="blog-post">
+    <header class="post-hero">
+      <div class="hero-bg" style="background-image: url('{post.data.image}')"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <a href="/en/blog" class="back-link">← Back to Blog</a>
+        <span class="post-category">{post.data.category}</span>
+        <h1 class="post-title">{post.data.title}</h1>
+        <div class="post-meta">
+          <span>{post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+          <span>• {post.data.readTime} read</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </header>
 
-  <section class="cta-section">
-    <div class="cta-wrapper">
-      <h2 class="cta-title">Ready to Transform Your Space?</h2>
-      <p class="cta-text">Schedule a free consultation and receive a detailed no-obligation quote.</p>
-      <a href="/en/contact" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Schedule Free Consultation</span>
-        <span class="btn-border"></span>
-        <span class="btn-shine"></span>
-        <span class="btn-arrow">→</span>
-      </a>
-    </div>
-  </section>
+    <section class="post-content">
+      <div class="container">
+        <Content />
+      </div>
+    </section>
+
+    <section class="post-cta">
+      <div class="cta-wrapper">
+        <h2>Ready to Start Your Project?</h2>
+        <p>Schedule a free consultation and let us bring your vision to life.</p>
+        <a href="/en/contact" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Schedule Free Consultation</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </section>
+  </article>
 </BaseLayout>
 
 <style>
-  .page-hero { position: relative; min-height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
+  .blog-post { min-height: 100vh; }
+  .post-hero { position: relative; min-height: 70vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .page-title { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; margin-bottom: 20px; line-height: 1; }
-  .gold { color: var(--gold); }
-  .page-subtitle { font-size: 1.4rem; color: rgba(255,255,255,0.85); max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
-  .blog-section { padding: 80px 0; background: var(--gray); }
-  .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-  .blog-card { display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
-  .blog-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
-  .blog-img { position: relative; height: 220px; overflow: hidden; }
-  .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .blog-card:hover .blog-img img { transform: scale(1.05); }
-  .blog-category { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-  .blog-content { padding: 25px; }
-  .blog-meta { font-size: 0.8rem; color: var(--gray-text); margin-bottom: 12px; display: flex; gap: 10px; }
-  .blog-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; color: var(--text); }
-  .blog-content p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px; }
-  .blog-link { color: var(--gold); font-weight: 600; font-size: 0.9rem; letter-spacing: 0.5px; }
-  @media (max-width: 900px) { .blog-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .blog-grid { grid-template-columns: 1fr; } }
+  .post-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+  .post-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; }
+  .post-meta { font-size: 1rem; color: rgba(255,255,255,0.85); display: flex; gap: 15px; justify-content: center; }
+  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
+  .back-link:hover { color: var(--gold-light); }
+  .post-content { padding: 80px 0; background: var(--white); }
+  .post-content :global(p) { font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); margin-bottom: 1.5rem; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(h2) { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; font-family: var(--font-serif); max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(h3) { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; font-family: var(--font-serif); max-width: 800px; margin-left: auto; margin-right: auto; }
+  .post-content :global(img) { border-radius: 12px; margin: 2.5rem auto; display: block; max-width: 100%; box-shadow: 0 15px 40px rgba(0,0,0,0.08); }
+  .post-content :global(ul), .post-content :global(ol) { margin: 1.5rem auto 1.5rem 2rem; max-width: 800px; }
+  .post-content :global(li) { margin-bottom: 0.75rem; font-size: 1.1rem; line-height: 1.6; }
+  .post-content :global(blockquote) { margin: 2.5rem auto; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); max-width: 800px; }
+  .post-content :global(a) { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .post-cta { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .post-cta h2 { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); }
+  .post-cta p { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; }
+  @media (max-width: 768px) {
+    .post-hero { min-height: 60vh; padding-top: 120px; padding-bottom: 60px; }
+    .post-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .post-content :global(p) { font-size: 1.15rem; }
+    .post-content :global(h2) { font-size: 2rem; }
+    .post-content :global(h3) { font-size: 1.5rem; }
+    .post-cta { padding: 90px 20px; }
+  }
 </style>
