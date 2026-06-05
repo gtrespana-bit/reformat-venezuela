@@ -1,9 +1,18 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
+const spanishSlugs = [
+  'cuanto-cuesta-reforma-cocina-valencia',
+  'porcelanato-vs-ceramica',
+  'presupuesto-reforma-errores',
+  'reformas-banos-carabobo',
+  'tendencias-cocinas-2025'
+];
+
 const posts = await getCollection('blog');
-const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const spanishPosts = posts.filter(post => spanishSlugs.includes(post.id));
+const sortedPosts = spanishPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <BaseLayout title="Blog | Consejos de Reformas y Diseño" description="Ideas, tendencias y guías prácticas para tu proyecto de reforma." activePage="blog">
   <header class="page-hero">

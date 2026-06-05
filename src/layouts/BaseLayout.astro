@@ -23,10 +23,12 @@ const ogImage = image && image.startsWith('http')
 
 // Navegación según idioma
 const navItems = isEnglish
+  const navItems = isEnglish
   ? [
       { label: 'Home', href: '/en', key: 'home' },
       { label: 'Services', href: '/en/services', key: 'services' },
       { label: 'Projects', href: '/en/projects', key: 'projects' },
+      { label: 'Blog', href: '/en/blog', key: 'blog' },
       { label: 'Contact', href: '/en/contact', key: 'contact', premium: true }
     ]
   : [

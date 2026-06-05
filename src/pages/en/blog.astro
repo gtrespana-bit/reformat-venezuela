@@ -2,8 +2,17 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
+const englishSlugs = [
+  'kitchen-remodel-cost-caracas-valencia-2026',
+  'porcelain-tile-vs-ceramic-tile-guide',
+  'remodel-budget-mistakes-avoid',
+  'bathroom-remodel-carabobo-guide',
+  'kitchen-design-trends-2026'
+];
+
 const posts = await getCollection('blog');
-const sortedPosts = posts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const englishPosts = posts.filter(post => englishSlugs.includes(post.id));
+const sortedPosts = englishPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 
 <BaseLayout title="Blog | Home Remodeling Tips & Guides" description="Expert advice, trends, and practical guides for your remodeling project in Venezuela." activePage="blog">
