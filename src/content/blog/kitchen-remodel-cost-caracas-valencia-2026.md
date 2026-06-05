@@ -3,7 +3,7 @@ title: "How Much Does a Kitchen Remodel Cost in Caracas and Valencia 2026: Compl
 excerpt: "Real prices for remodeling your kitchen in Caracas, Valencia, San Diego and Carabobo. Discover how much you should invest based on size, materials and finishes."
 date: 2026-06-04
 category: "Budgets"
-image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&h=630&fit=crop"
+image: "/images/cocina-800.webp"
 readTime: "15 min"
 author: "ReformaT Team"
 ---

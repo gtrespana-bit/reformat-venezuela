@@ -3,7 +3,7 @@ title: "Bathroom Remodels in Caracas and Carabobo: Complete Guide 2026"
 excerpt: "Everything about bathroom remodels in Caracas, Valencia and San Diego. Real prices, materials, timelines and expert tips for your project."
 date: 2026-06-05
 category: "Budgets"
-image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=630&fit=crop"
+image: "/images/bano-800.webp"
 readTime: "12 min"
 author: "ReformaT Team"
 ---

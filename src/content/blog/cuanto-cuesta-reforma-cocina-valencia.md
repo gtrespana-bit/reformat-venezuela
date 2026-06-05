@@ -3,7 +3,7 @@ title: "Cuánto Cuesta Reformar Una Cocina En Caracas y Valencia 2026: Guía Com
 excerpt: "Precios reales para reformar tu cocina en Caracas, Valencia, San Diego y Carabobo. Descubre cuánto deberías invertir según tamaño, materiales y acabados."
 date: 2026-06-04
 category: "Presupuestos"
-image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&h=630&fit=crop"
+image: "/images/cocina-800.webp"
 readTime: "15 min"
 author: "Equipo ReformaT"
 ---

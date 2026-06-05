@@ -10,13 +10,31 @@ const spanishSlugs = [
   'tendencias-cocinas-2025'
 ];
 
+// Mapeo de slugs a imágenes locales -400 para cards
+const cardImages = {
+  'cuanto-cuesta-reforma-cocina-valencia': '/images/cocina-400.webp',
+  'porcelanato-vs-ceramica': '/images/revestimientos-400.webp',
+  'presupuesto-reforma-errores': '/images/integrales-400.webp',
+  'reformas-banos-carabobo': '/images/bano-400.webp',
+  'tendencias-cocinas-2025': '/images/cocina-400.webp'
+};
+
 const posts = await getCollection('blog');
 const spanishPosts = posts.filter(post => spanishSlugs.includes(post.id));
 const sortedPosts = spanishPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
 <BaseLayout title="Blog | Consejos de Reformas y Diseño" description="Ideas, tendencias y guías prácticas para tu proyecto de reforma." activePage="blog">
   <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&q=80')"></div>
+    <img
+      src="/images/arquitectura-600.webp"
+      alt="Ideas y consejos para reformas del hogar"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      width="600"
+      height="400"
+      class="hero-lcp-img"
+    />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-tag">Blog y Consejos</span>
@@ -31,7 +49,14 @@ const sortedPosts = spanishPosts.sort((a, b) => b.data.date.valueOf() - a.data.d
         {sortedPosts.map(article => (
           <a href={`/blog/${article.id}`} class="blog-card">
             <div class="blog-img">
-              <img src={article.data.image || ''} alt={article.data.title} loading="lazy" />
+              <img 
+                src={cardImages[article.id] || article.data.image} 
+                alt={article.data.title} 
+                loading="lazy"
+                width="400"
+                height="267"
+                decoding="async"
+              />
               <span class="blog-category">{article.data.category}</span>
             </div>
             <div class="blog-content">
@@ -65,7 +90,7 @@ const sortedPosts = spanishPosts.sort((a, b) => b.data.date.valueOf() - a.data.d
 
 <style>
   .page-hero { position: relative; min-height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
-  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
   .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }

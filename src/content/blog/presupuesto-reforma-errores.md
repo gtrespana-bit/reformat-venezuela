@@ -3,7 +3,7 @@ title: "Presupuesto De Reforma: 7 Errores Que Te Costarán Miles De Dólares (Y 
 excerpt: "Los errores más frecuentes al calcular el presupuesto de una reforma y estrategias prácticas para mantener el control financiero sin sorpresas desagradables."
 date: 2024-12-28
 category: "Consejos"
-image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&h=630&fit=crop"
+image: "/images/integrales-800.webp"
 readTime: "12 min"
 author: "Equipo ReformaT"
 ---

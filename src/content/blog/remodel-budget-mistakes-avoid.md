@@ -3,7 +3,7 @@ title: "Remodel Budget: 7 Mistakes That Will Cost You Thousands (And How to Avoi
 excerpt: "The most common mistakes when calculating a remodel budget and practical strategies to maintain financial control without unpleasant surprises."
 date: 2024-12-28
 category: "Tips"
-image: "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=1200&h=630&fit=crop"
+image: "/images/integrales-800.webp"
 readTime: "12 min"
 author: "ReformaT Team"
 ---

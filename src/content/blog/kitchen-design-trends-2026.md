@@ -3,7 +3,7 @@ title: "5 Kitchen Remodel Trends for 2026: Complete Guide"
 excerpt: "Discover the latest kitchen design trends that are making a difference this year. From smart kitchens to sustainable materials, we explain everything you need to know."
 date: 2025-01-15
 category: "Kitchens"
-image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&h=630&fit=crop"
+image: "/images/cocina-800.webp"
 readTime: "12 min"
 author: "ReformaT Team"
 ---

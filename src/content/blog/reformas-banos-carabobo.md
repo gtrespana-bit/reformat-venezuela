@@ -3,7 +3,7 @@ title: "Reformas De Baños En Caracas y Carabobo: Guía Completa 2026"
 excerpt: "Todo sobre reformas de baños en Caracas, Valencia y San Diego. Precios reales, materiales, plazos y consejos de expertos para tu proyecto."
 date: 2026-06-05
 category: "Presupuestos"
-image: "https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=1200&h=630&fit=crop"
+image: "/images/bano-800.webp"
 readTime: "12 min"
 author: "Equipo ReformaT"
 ---

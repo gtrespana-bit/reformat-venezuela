@@ -3,7 +3,7 @@ title: "5 Tendencias en Reformas de Cocina para 2025: Guía Completa"
 excerpt: "Descubre las últimas tendencias en diseño de cocinas que están marcando la diferencia este año. Desde cocinas inteligentes hasta materiales sostenibles, te explicamos todo lo que necesitas saber."
 date: 2025-01-15
 category: "Cocinas"
-image: "https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&h=630&fit=crop"
+image: "/images/cocina-800.webp"
 readTime: "12 min"
 author: "Equipo ReformaT"
 ---
