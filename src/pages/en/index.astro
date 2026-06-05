@@ -1,0 +1,426 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const getSrcSet = (baseName, widths, ext = 'webp') => {
+  return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
+};
+
+const serviceImages = {
+  cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800]) },
+  bano: { src: '/images/bano-800.webp', srcset: getSrcSet('bano', [400, 800]) },
+  electricidad: { src: '/images/electricidad-800.webp', srcset: getSrcSet('electricidad', [400, 800]) },
+  fontaneria: { src: '/images/fontaneria-800.webp', srcset: getSrcSet('fontaneria', [400, 800]) },
+  revestimientos: { src: '/images/revestimientos-800.webp', srcset: getSrcSet('revestimientos', [400, 800]) },
+  sueloPorcelanato: { src: '/images/suelo-porcelanato-800.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800]) },
+  piscinas: { src: '/images/piscinas-800.webp', srcset: getSrcSet('piscinas', [400, 800]) },
+  integrales: { src: '/images/integrales-800.webp', srcset: getSrcSet('integrales', [400, 800]) },
+  pintura: { src: '/images/pintura-800.webp', srcset: getSrcSet('pintura', [400, 800]) }
+};
+
+const services = [
+  { title: "Kitchen Remodeling", desc: "Modern, functional kitchens with premium finishes and U.S.-standard fixtures.", image: serviceImages.cocina, link: "/en/services/kitchens" },
+  { title: "Bathroom Renovation", desc: "Spa-inspired bathrooms with high-end materials and expert craftsmanship.", image: serviceImages.bano, link: "/en/services/bathrooms" },
+  { title: "Whole-Home Remodeling", desc: "Complete structural and cosmetic transformations with architectural vision.", image: serviceImages.integrales, link: "/en/services/whole-home" },
+  { title: "Electrical Services", desc: "Safe, code-compliant electrical installations and upgrades.", image: serviceImages.electricidad, link: "/en/services/electrical" },
+  { title: "Plumbing Services", desc: "Professional plumbing solutions for residential and commercial properties.", image: serviceImages.fontaneria, link: "/en/services/plumbing" },
+  { title: "Painting & Finishes", desc: "Flawless interior and exterior finishes that transform every room.", image: serviceImages.pintura, link: "/en/services/painting" },
+  { title: "Wall Coverings", desc: "Porcelain tiles, wall panels, and premium surface treatments.", image: serviceImages.revestimientos, link: "/en/services/wall-coverings" },
+  { title: "Flooring", desc: "Installation of ceramic, laminate, hardwood, and porcelain flooring.", image: serviceImages.sueloPorcelanato, link: "/en/services/flooring" },
+  { title: "Swimming Pools", desc: "Pool construction, maintenance, and equipment installation.", image: serviceImages.piscinas, link: "/en/services/pools" }
+];
+
+const stats = [
+  { number: "20+", label: "Years of Experience" },
+  { number: "4", label: "Cities Served" },
+  { number: "100%", label: "Quality Commitment" },
+  { number: "Fast", label: "Professional Execution" }
+];
+---
+
+<BaseLayout
+  title="ReformaT Venezuela | Home Remodeling in Valencia, San Diego, Carabobo & Caracas"
+  description="Over 20 years transforming homes and businesses in Valencia, San Diego, Carabobo and Caracas. Whole-home remodeling, kitchens, bathrooms, electrical and plumbing with flawless finishes. English-speaking contractor."
+  activePage="home"
+>
+
+  <header class="hero">
+    <img
+      src="/images/hero-lcp.webp"
+      alt="Modern luxury home interior after renovation"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      width="1920"
+      height="1080"
+      class="hero-lcp-img"
+    />
+
+    <script is:inline>
+      (function() {
+        var isMobile = window.innerWidth < 1024;
+        var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
+        var posterSrc = '/images/hero-lcp.webp';
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
+      })();
+    </script>
+
+    <noscript>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/hero-lcp.webp" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+    </noscript>
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+      <span class="hero-tag">Premium Quality in Valencia, San Diego, Carabobo & Caracas</span>
+      <h1 class="hero-title">
+        <span class="line">We Transform</span>
+        <span class="line gold">Your Home & Business</span>
+        <span class="line">With Excellence</span>
+      </h1>
+      <p class="hero-sub">With over 20 years of experience in residential and commercial remodeling, we guarantee flawless finishes and complete trust across Carabobo and the capital.</p>
+      <div class="hero-btns">
+        <a href="/en/contact" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Get a Free Quote</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="/en/services" class="btn-premium btn-outline-premium">
+          <span class="btn-content">Explore Services</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="stats-section">
+    <div class="container stats-grid">
+      {stats.map((s) => (
+        <div class="stat-item">
+          <div class="stat-num">{s.number}</div>
+          <div class="stat-label">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section class="section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Our Services</span>
+        <h2 class="section-title">Bringing Your Spaces to Life</h2>
+        <p class="section-desc">Whole-home remodeling, kitchens, bathrooms, electrical and plumbing. Fast execution, advanced techniques, and flawless finishes in Valencia, San Diego and Caracas.</p>
+      </div>
+
+      <div class="services-slider-wrapper">
+        <button class="slider-btn slider-prev" aria-label="Previous service">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M15 18l-6-6 6-6"/>
+          </svg>
+        </button>
+
+        <div class="services-slider">
+          {services.map((svc, index) => (
+            <a href={svc.link} class="service-card-slider">
+              <div class="card-img-wrap">
+                {typeof svc.image === 'object' ? (
+                  <img
+                    src={svc.image.src}
+                    srcset={svc.image.srcset}
+                    sizes="(max-width: 768px) 300px, 800px"
+                    alt={svc.title}
+                    loading={index === 0 ? "eager" : "lazy"}
+                    fetchpriority={index === 0 ? "high" : "auto"}
+                    decoding="async"
+                    width="800"
+                    height="533"
+                  />
+                ) : (
+                  <img
+                    src={svc.image}
+                    alt={svc.title}
+                    loading="lazy"
+                    decoding="async"
+                    width="800"
+                    height="533"
+                  />
+                )}
+                <div class="card-overlay"></div>
+                <span class="card-icon">✦</span>
+              </div>
+              <div class="card-body">
+                <h3>{svc.title}</h3>
+                <p>{svc.desc}</p>
+                <span class="card-link">Learn more <span class="arrow">→</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+
+        <button class="slider-btn slider-next" aria-label="Next service">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M9 18l6-6-6-6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="slider-dots"></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container about-grid">
+      <div class="about-imgs">
+        <div class="img-box tall">
+          <img
+            src="/images/arquitectura-600.webp"
+            srcset="/images/arquitectura-400.webp 400w, /images/arquitectura-600.webp 600w"
+            sizes="(max-width: 768px) 400px, 600px"
+            alt="Modern residential architecture"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="800"
+          />
+        </div>
+        <div class="img-box small">
+          <img
+            src="/images/equipo-600.webp"
+            srcset="/images/equipo-400.webp 400w, /images/equipo-600.webp 600w"
+            sizes="(max-width: 768px) 400px, 600px"
+            alt="Professional remodeling team at work"
+            loading="lazy"
+            decoding="async"
+            width="600"
+            height="400"
+          />
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="tag">About Us</span>
+        <h2 class="section-title">European Standards,<br/>Local Execution</h2>
+        <p>ReformaT was founded in Spain with over 20 years of expertise. For nearly 2 years, we have operated in Venezuela, bringing European standards to projects in <strong>Valencia, San Diego, Carabobo and Caracas</strong>. We adapt advanced techniques to local architecture to ensure lasting results.</p>
+        <ul class="check-list">
+          <li>Whole-home remodeling that transforms every corner with excellence</li>
+          <li>Electrical and plumbing services with maximum safety standards</li>
+          <li>Custom designs that blend functionality and style</li>
+          <li>Expert guidance and efficient execution with no surprises</li>
+        </ul>
+        <a href="/en/contact" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Start a Conversation</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">Your Space, Our Passion</h2>
+      <p class="cta-text">Every project begins with a conversation. Tell us your vision and let us bring your dream space to life in Carabobo or the capital.</p>
+      <a href="/en/contact" class="btn-premium btn-white-premium">
+        <span class="btn-content">Schedule a Free Consultation</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="section bg-light" id="quick-contact">
+    <div class="container contact-grid">
+      <div class="contact-info">
+        <h2 class="section-title">Let's Talk About Your Project</h2>
+        <p>We are here to listen, advise, and build alongside you. We serve the entire Caracas metropolitan area and key zones across Carabobo.</p>
+        <div class="info-item">
+          <h4>Location</h4>
+          <p>Valencia, San Diego, Carabobo and Caracas</p>
+        </div>
+        <div class="info-item">
+          <h4>Phone</h4>
+          <p><a href="tel:+584227997043" style="color: var(--gold); text-decoration: none;">0422 799 7043</a></p>
+        </div>
+      </div>
+      <form class="contact-form" action="https://formsubmit.co/contacto@reformat-venezuela.online" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from English website">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <input type="text" id="nombre" name="nombre" placeholder="Full Name" required aria-label="Your full name" />
+          <input type="tel" id="telefono" name="telefono" placeholder="Phone Number" required aria-label="Your phone number" />
+        </div>
+        <input type="email" id="email" name="email" placeholder="Email Address" required aria-label="Your email address" />
+        <select id="proyecto" name="proyecto" required aria-label="Project type">
+          <option value="" disabled selected>Project Type</option>
+          <option value="cocina">Kitchen Remodel</option>
+          <option value="bano">Bathroom Renovation</option>
+          <option value="integral">Whole-Home Remodel</option>
+          <option value="electricidad">Electrical Services</option>
+          <option value="fontaneria">Plumbing Services</option>
+        </select>
+        <textarea id="mensaje" name="mensaje" placeholder="Tell us about your project" rows="4" required aria-label="Project details"></textarea>
+        <button type="submit" class="btn-premium btn-primary-premium full-width">
+          <span class="btn-content">Send Message</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111 url('/images/hero-lcp.webp') center/cover no-repeat; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
+  .hero-lcp-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .hero-video { z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
+  .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
+  .hero-title .line { display: block; }
+  .hero-title .gold { color: var(--gold); }
+  .hero-sub { font-size: 1.15rem; color: rgba(255, 255, 255, 0.95); margin: 0 auto 28px; max-width: 600px; line-height: 1.55; }
+  .hero-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
+  .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
+  .btn-white-premium { background: var(--white); color: var(--bg); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
+  .btn-white-premium .btn-border { border: 2px solid var(--white); }
+  .btn-white-premium:hover { transform: translateY(-3px); background: var(--gold); box-shadow: 0 8px 30px rgba(201, 169, 97, 0.5); }
+  .btn-white-premium:hover .btn-arrow { transform: translateX(8px); }
+  .btn-white-premium:hover .btn-shine { left: 150%; }
+
+  .section { padding: 100px 0; }
+  .bg-light { background: var(--gray); }
+  .section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+  .section-title { font-family: var(--font-serif); font-size: clamp(2rem, 5vw, 3.5rem); margin-bottom: 20px; font-weight: 400; }
+  .tag { display: inline-block; color: var(--gold); font-size: 0.85rem; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 15px; font-weight: 600; }
+  .section-desc { color: var(--gray-text); font-size: 1.1rem; line-height: 1.8; font-weight: 400; }
+
+  .stats-section { padding: 60px 0; background: var(--bg); color: var(--white); }
+  .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
+  .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; font-weight: 400; }
+  .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+  .services-slider-wrapper { position: relative; display: flex; align-items: center; gap: 20px; }
+  .services-slider { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; padding: 20px 10px; flex: 1; }
+  .services-slider::-webkit-scrollbar { display: none; }
+  .service-card-slider { flex: 0 0 calc(33.333% - 20px); min-width: 300px; display: block; background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; scroll-snap-align: start; }
+  .service-card-slider:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0,0,0,0.12); }
+  .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+  .service-card-slider:hover .card-img-wrap img { transform: scale(1.08); }
+  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
+  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
+  .service-card-slider:hover .card-icon { transform: scale(1.15) rotate(15deg); }
+  .card-body { padding: 30px 25px; }
+  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
+  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
+  .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; }
+  .arrow { transition: transform 0.3s; }
+  .service-card-slider:hover .card-link { gap: 14px; }
+  .service-card-slider:hover .card-link .arrow { transform: translateX(5px); }
+
+  .slider-btn { flex-shrink: 0; width: 50px; height: 50px; border-radius: 50%; background: var(--white); border: 2px solid var(--gold); color: var(--gold); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+  .slider-btn:hover { background: var(--gold); color: var(--bg); transform: scale(1.1); }
+  .slider-dots { display: flex; justify-content: center; gap: 10px; margin-top: 30px; }
+  .slider-dot { width: 10px; height: 10px; border-radius: 50%; background: #ddd; cursor: pointer; transition: all 0.3s; }
+  .slider-dot.active { background: var(--gold); width: 30px; border-radius: 5px; }
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+  .about-imgs { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .img-box { border-radius: 4px; overflow: hidden; }
+  .img-box.tall { grid-row: span 2; }
+  .img-box img { width: 100%; height: 100%; object-fit: cover; }
+  .check-list { margin: 30px 0; list-style: none; }
+  .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); line-height: 1.6; font-weight: 400; }
+  .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .info-item { margin-bottom: 25px; }
+  .info-item h4 { font-size: 1rem; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; font-weight: 600; }
+  .info-item p { color: var(--gray-text); }
+  .contact-form { background: var(--white); padding: 40px; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .contact-form input, .contact-form select, .contact-form textarea { width: 100%; padding: 15px; margin-bottom: 20px; border: 1px solid #ddd; background: #f9f9f9; border-radius: 4px; font-family: inherit; font-size: 1rem; }
+  .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .full-width { width: 100%; justify-content: center; }
+
+  @media (max-width: 1023px) {
+    .hero-content { padding: 90px 20px 0; }
+    .hero-tag{font-size:0.75rem;letter-spacing:2px;margin-bottom:10px;}
+    .hero-title{font-size:clamp(2rem,9vw,3.2rem);margin-bottom:15px;line-height:1.08;}
+    .hero-sub{font-size:1.05rem;margin-bottom:24px;padding:0 10px;line-height:1.5;}
+    .hero-btns{flex-direction:column;align-items:center;gap:12px;width:100%;padding:0 20px;}
+    .hero-btns .btn-premium{width:100%;max-width:280px;justify-content:center;}
+  }
+  @media (max-width: 900px) {
+    .stats-grid{grid-template-columns:repeat(2,1fr);}
+    .service-card-slider { flex: 0 0 calc(50% - 15px); min-width: 250px; }
+    .about-grid,.contact-grid{grid-template-columns:1fr;}
+  }
+  @media (max-width: 600px) {
+    .service-card-slider { flex: 0 0 100%; min-width: 280px; }
+    .slider-btn { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero-video{display:none!important;}
+    .hero{background:url('/images/hero-lcp.webp') center/cover no-repeat;}
+  }
+</style>
+
+<script>
+  window.addEventListener('load', () => {
+    if(typeof gsap!=='undefined'){
+      gsap.registerPlugin(ScrollTrigger);
+      gsap.from('.hero-tag',{opacity:0,y:15,duration:0.8});
+      gsap.from('.hero-title .line',{y:40,opacity:0,duration:0.9,stagger:0.12,delay:0.2});
+      gsap.utils.toArray('.stat-num').forEach(el=>{
+        const t=el.textContent;
+        gsap.from(el,{innerText:0,duration:2,snap:{innerText:1},ease:'power2.out',scrollTrigger:{trigger:el,start:'top 85%'}});
+      });
+    }
+
+    const slider = document.querySelector('.services-slider');
+    const prevBtn = document.querySelector('.slider-prev');
+    const nextBtn = document.querySelector('.slider-next');
+    const dotsContainer = document.querySelector('.slider-dots');
+    const cards = document.querySelectorAll('.service-card-slider');
+
+    if (slider && prevBtn && nextBtn) {
+      const cardWidth = cards[0].offsetWidth + 30;
+      const visibleCards = Math.floor(slider.offsetWidth / cardWidth);
+      const totalSlides = cards.length - visibleCards + 1;
+
+      for (let i = 0; i < totalSlides; i++) {
+        const dot = document.createElement('div');
+        dot.classList.add('slider-dot');
+        if (i === 0) dot.classList.add('active');
+        dot.addEventListener('click', () => {
+          slider.scrollTo({ left: i * cardWidth, behavior: 'smooth' });
+          updateDots(i);
+        });
+        dotsContainer.appendChild(dot);
+      }
+
+      const dots = document.querySelectorAll('.slider-dot');
+      function updateDots(index) { dots.forEach((dot, i) => { dot.classList.toggle('active', i === index); }); }
+      prevBtn.addEventListener('click', () => { const sl = slider.scrollLeft; const n = Math.max(0, Math.floor(sl / cardWidth) - 1); slider.scrollTo({ left: n * cardWidth, behavior: 'smooth' }); updateDots(n); });
+      nextBtn.addEventListener('click', () => { const sl = slider.scrollLeft; const c = Math.floor(sl / cardWidth); const n = Math.min(totalSlides - 1, c + 1); slider.scrollTo({ left: n * cardWidth, behavior: 'smooth' }); updateDots(n); });
+      slider.addEventListener('scroll', () => { updateDots(Math.round(slider.scrollLeft / cardWidth)); });
+    }
+  });
+</script>

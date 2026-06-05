@@ -1,0 +1,148 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Bathroom Renovation | Spa-Quality Design in Valencia"
+  description="Transform your bathroom into a wellness sanctuary. Premium fixtures, waterproofing, and flawless execution in Valencia and San Diego."
+  image="/images/bano.webp"
+  activePage="services"
+>
+  <header class="article-hero">
+    <div class="hero-bg" style="background-image: url('/images/bano.webp')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/en/services" class="back-link">← Back to Services</a>
+      <span class="article-category">Specialized Service</span>
+      <h1 class="article-title"><span class="line">Bathroom</span><span class="line gold">Renovation</span></h1>
+      <p class="article-excerpt">We create spa-inspired bathrooms that combine luxury, functionality, and durability.</p>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>Your bathroom should be more than just a functional space. It should be a personal retreat where you start and end each day feeling refreshed. At ReformaT Venezuela, we specialize in transforming outdated bathrooms into modern wellness sanctuaries that rival high-end hotels.</p>
+
+        <p>With over 20 years of experience remodeling bathrooms in Valencia and San Diego, we understand the unique challenges of Venezuelan construction and how to overcome them with European techniques and premium materials.</p>
+
+        <img src="/images/bano.webp" alt="Modern bathroom remodeled by ReformaT Venezuela" loading="eager" fetchpriority="high" decoding="async" />
+
+        <h2>Waterproofing: The Foundation That Lasts</h2>
+
+        <p>The most critical aspect of any bathroom renovation is proper waterproofing. A single leak can cause thousands of dollars in damage to walls, floors, and adjacent rooms. We use multi-layer waterproofing systems that exceed industry standards.</p>
+
+        <p>Our process includes liquid membrane application on all wet areas, reinforced corners and joints, and 48-hour water testing before tile installation. This ensures your bathroom remains leak-free for decades.</p>
+
+        <h2>Layout Optimization</h2>
+
+        <p>Many older bathrooms waste space with awkward layouts. We analyze your current configuration and propose improvements that maximize functionality without expanding the footprint.</p>
+
+        <p><strong>Wet Zone Separation:</strong> We create distinct areas for shower/bath, toilet, and vanity, improving privacy and allowing multiple users simultaneously.</p>
+
+        <p><strong>Storage Integration:</strong> Recessed niches, vanity drawers, and medicine cabinets eliminate clutter while maintaining clean lines.</p>
+
+        <p><strong>Accessibility Features:</strong> Walk-in showers, grab bars, and comfort-height toilets can be integrated seamlessly without compromising aesthetics.</p>
+
+        <h2>Premium Fixtures & Finishes</h2>
+
+        <p>We source fixtures from recognized brands that combine durability with elegant design:</p>
+
+        <ul>
+          <li><strong>Faucets:</strong> Ceramic disc valves that prevent dripping, available in chrome, brushed nickel, and matte black finishes.</li>
+          <li><strong>Shower Systems:</strong> Thermostatic valves that maintain consistent temperature, rain showerheads, and body jets.</li>
+          <li><strong>Toilets:</strong> Dual-flush systems that save water, soft-close seats, and concealed trapways for easy cleaning.</li>
+          <li><strong>Vanities:</strong> Solid wood or moisture-resistant MDF with soft-close drawers and integrated outlets.</li>
+        </ul>
+
+        <h2>Tile & Surface Selection</h2>
+
+        <p>The right tiles transform a bathroom from ordinary to extraordinary. We help you choose materials that balance beauty, durability, and maintenance:</p>
+
+        <p><strong>Porcelain Tile:</strong> Low water absorption, scratch-resistant, available in formats up to 4x8 feet for minimal grout lines.</p>
+
+        <p><strong>Natural Stone:</strong> Marble, travertine, and slate offer unique beauty but require sealing and more maintenance.</p>
+
+        <p><strong>Large-Format Tiles:</strong> Reduce grout lines, making cleaning easier and creating a more spacious feel.</p>
+
+        <h2>Lighting Design</h2>
+
+        <p>Proper bathroom lighting serves multiple purposes: task lighting for grooming, ambient lighting for relaxation, and accent lighting for architectural features.</p>
+
+        <p>We install IP-rated fixtures suitable for wet locations, color-accurate lighting around mirrors (CRI 90+), and dimmable options for different moods.</p>
+
+        <h2>The Renovation Process</h2>
+
+        <p><strong>Week 1:</strong> Demolition, plumbing rough-in, electrical updates, waterproofing application and testing.</p>
+
+        <p><strong>Week 2:</strong> Tile installation, vanity and fixture mounting, glass shower enclosure, final electrical and plumbing connections.</p>
+
+        <p>Most bathroom renovations are completed in 2 weeks, minimizing disruption to your daily routine.</p>
+
+        <h2>Why Choose ReformaT for Your Bathroom?</h2>
+
+        <ul>
+          <li>20+ years of bathroom renovation experience</li>
+          <li>Multi-layer waterproofing systems with warranty</li>
+          <li>Premium fixtures from recognized brands</li>
+          <li>In-house plumbers and tile setters</li>
+          <li>2-week typical completion time</li>
+          <li>Fixed-price quotes with no hidden costs</li>
+        </ul>
+
+        <p><strong>Ready to transform your bathroom?</strong> <a href="/en/contact">Schedule your free consultation</a> and receive a detailed proposal within 48 hours.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">Ready for Your Dream Bathroom?</h2>
+      <p class="cta-text">Schedule a free consultation and receive a detailed no-obligation quote.</p>
+      <a href="/en/contact" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Request a Quote</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
+  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; }
+  .article-title .line { display: block; }
+  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 400; }
+  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
+  .back-link:hover { color: var(--gold-light); }
+  .article-section { padding: 80px 0; background: var(--white); }
+  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); }
+  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
+  .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
+  .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
+  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
+  .article-body img { border-radius: 12px; margin: 2.5rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
+  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
+  @media (max-width: 768px) {
+    .article-hero { min-height: 70vh; padding-top: 120px; padding-bottom: 60px; }
+    .article-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .article-excerpt { font-size: 1.15rem; }
+    .article-body { font-size: 1.15rem; }
+    .article-body h2 { font-size: 2rem; }
+    .article-body h3 { font-size: 1.5rem; }
+    .cta-section { padding: 90px 20px; }
+    .cta-title { font-size: 2.2rem; }
+    .cta-text { font-size: 1.15rem; }
+  }
+</style>

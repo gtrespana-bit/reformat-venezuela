@@ -1,0 +1,124 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Contact | Home Remodeling in Valencia, San Diego, Carabobo & Caracas"
+  description="Schedule your free consultation for home remodeling in Valencia, San Diego, Carabobo and Caracas. No-obligation quotes."
+  activePage="contact"
+>
+  <header class="page-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=75&w=2070&auto=format&fit=crop')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">Let's Talk</span>
+      <h1 class="page-title">Get in <span class="gold">Touch</span></h1>
+      <p class="page-subtitle">Guaranteed response within 2 business hours. Serving Carabobo and Caracas.</p>
+    </div>
+  </header>
+
+  <section class="section bg-light">
+    <div class="container contact-full-grid">
+      <div class="contact-info-panel">
+        <h2 class="section-title">Contact Information</h2>
+        <p>We are available to assist with your remodeling project. Write to us or call directly. We serve Valencia, San Diego, all of Carabobo, and the Caracas metropolitan area.</p>
+
+        <div class="contact-detail">
+          <h4>📍 Coverage Area</h4>
+          <p>Valencia, San Diego, Carabobo and Caracas</p>
+        </div>
+        <div class="contact-detail">
+          <h4>📞 Phone / WhatsApp</h4>
+          <p><a href="https://wa.me/584227997043" class="gold-link">+58 422 799 7043</a></p>
+        </div>
+        <div class="contact-detail">
+          <h4>⏰ Business Hours</h4>
+          <p>Monday to Friday: 8:00 AM - 6:00 PM</p>
+        </div>
+      </div>
+
+      <form class="contact-form-large" action="https://formsubmit.co/contacto@reformat-venezuela.online" method="POST">
+        <input type="hidden" name="_subject" value="New inquiry from English contact page">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre-c">Full Name</label>
+            <input type="text" id="nombre-c" name="nombre" required placeholder="Your name" />
+          </div>
+          <div class="form-group">
+            <label for="telefono-c">Phone Number</label>
+            <input type="tel" id="telefono-c" name="telefono" required placeholder="+58 XXX XXX XXXX" />
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email-c">Email Address</label>
+          <input type="email" id="email-c" name="email" required placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label for="proyecto-c">Project Type</label>
+          <select id="proyecto-c" name="proyecto" required>
+            <option value="" disabled selected>Select an option</option>
+            <option value="cocina">Kitchen Remodel</option>
+            <option value="bano">Bathroom Renovation</option>
+            <option value="integral">Whole-Home Remodel</option>
+            <option value="electricidad">Electrical Services</option>
+            <option value="fontaneria">Plumbing Services</option>
+            <option value="otro">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje-c">Tell us about your project</label>
+          <textarea id="mensaje-c" name="mensaje" rows="5" required placeholder="Briefly describe what you need to remodel and your location..."></textarea>
+        </div>
+        <button type="submit" class="btn-premium btn-primary-premium full-width">
+          <span class="btn-content">Send Inquiry</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </button>
+      </form>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding: 120px 20px 60px; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 800px; }
+  .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
+  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin-bottom: 20px; }
+  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); }
+
+  .contact-full-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: start; max-width: 1100px; margin: 0 auto; padding: 80px 20px; }
+  .contact-info-panel h2 { margin-bottom: 25px; }
+  .contact-detail { margin-bottom: 30px; padding-bottom: 30px; border-bottom: 1px solid #eee; }
+  .contact-detail:last-child { border-bottom: none; }
+  .contact-detail h4 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+  .contact-detail p { color: var(--gray-text); font-size: 1rem; line-height: 1.6; }
+  .gold-link { color: var(--gold); text-decoration: none; font-weight: 600; transition: 0.3s; }
+  .gold-link:hover { text-decoration: underline; }
+
+  .contact-form-large { background: var(--white); padding: 40px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .form-group { margin-bottom: 25px; }
+  .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--text); font-size: 0.95rem; }
+  .contact-form-large input, .contact-form-large select, .contact-form-large textarea { width: 100%; padding: 16px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem; background: #fafafa; transition: 0.3s; }
+  .contact-form-large input:focus, .contact-form-large select:focus, .contact-form-large textarea:focus { outline: none; border-color: var(--gold); background: #fff; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+  .btn-premium { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 18px 35px; background: var(--gold); color: var(--bg); font-weight: 600; font-size: 1rem; text-decoration: none; border: none; cursor: pointer; transition: 0.3s; position: relative; overflow: hidden; }
+  .btn-border { position: absolute; inset: 0; border: 2px solid rgba(255,255,255,0.3); border-radius: inherit; }
+  .btn-shine { position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent); transition: 0.5s; }
+  .btn-premium:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4); }
+  .btn-premium:hover .btn-shine { left: 150%; }
+  .full-width { width: 100%; justify-content: center; }
+
+  @media (max-width: 900px) {
+    .contact-full-grid { grid-template-columns: 1fr; gap: 40px; }
+    .contact-info-panel { order: 2; }
+    .contact-form-large { order: 1; padding: 25px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>

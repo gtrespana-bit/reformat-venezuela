@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const services = [
+  { slug: "kitchens", title: "Kitchen Remodeling", desc: "We design functional, elegant kitchens.", image: "/images/cocina.webp", features: ["Custom Design", "Premium Materials"] },
+  { slug: "bathrooms", title: "Bathroom Renovation", desc: "Wellness spaces with spa-quality finishes.", image: "/images/bano.webp", features: ["Waterproofing", "Spa Design"] },
+  { slug: "whole-home", title: "Whole-Home Remodeling", desc: "Complete transformation of your property.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", features: ["Full Project Management", "Permit Handling"] },
+  { slug: "electrical", title: "Electrical Services", desc: "Safe, code-compliant installations.", image: "/images/electricidad.webp", features: ["Certified", "Smart Home Ready"] },
+  { slug: "plumbing", title: "Plumbing Services", desc: "Professional plumbing solutions.", image: "/images/fontaneria.webp", features: ["Leak Detection", "Premium Fixtures"] },
+  { slug: "painting", title: "Painting & Finishes", desc: "Flawless interior and exterior finishes.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Decorative Paint", "Microcement"] },
+  { slug: "wall-coverings", title: "Wall Coverings", desc: "Stylish wall treatments.", image: "/images/revestimientos.webp", features: ["Large-Format Porcelain", "Wall Panels"] },
+  { slug: "flooring", title: "Flooring", desc: "Durable, beautiful floors.", image: "/images/suelo-porcelanato.webp", features: ["Laminate", "Vinyl", "Hardwood"] },
+  { slug: "pools", title: "Swimming Pools", desc: "Construction and maintenance.", image: "/images/piscinas.webp", features: ["Custom Build", "Filtration Systems"] }
+];
+---
+
+<BaseLayout title="Services | ReformaT Venezuela" description="Complete remodeling solutions from partial renovations to whole-home transformations." activePage="services">
+  <header class="page-hero">
+    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-tag">What We Do</span>
+      <h1 class="page-title">Complete <span class="gold">Remodeling Solutions</span></h1>
+      <p class="page-subtitle">Over 20 years transforming spaces in Valencia and San Diego.</p>
+    </div>
+  </header>
+
+  <section class="services-page">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Our Services</span>
+        <h2 class="section-title">We Transform Every Corner of Your Home</h2>
+        <p class="section-desc">Complete solutions from partial renovations to whole-home projects.</p>
+      </div>
+      <div class="services-vertical-grid">
+        {services.map((svc) => (
+          <a href={`/en/services/${svc.slug}`} class="service-vertical-card">
+            <div class="card-img-wrap">
+              <img src={svc.image} alt={svc.title} loading="lazy" decoding="async" />
+              <div class="card-overlay"></div>
+              <span class="card-icon">✦</span>
+            </div>
+            <div class="card-body">
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
+              <ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul>
+              <span class="card-link">View full details <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">Ready to Transform Your Space?</h2>
+      <p class="cta-text">Schedule a free consultation and receive a detailed quote.</p>
+      <a href="/en/contact" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Schedule Free Consultation</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,152 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Plumbing Services | Professional Solutions in Venezuela"
+  description="Expert plumbing installations, repairs, and upgrades. Leak detection, premium fixtures, and water-efficient systems in Valencia, San Diego and Caracas."
+  image="/images/fontaneria.webp"
+  activePage="services"
+>
+  <header class="article-hero">
+    <div class="hero-bg" style="background-image: url('/images/fontaneria.webp')"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/en/services" class="back-link">← Back to Services</a>
+      <span class="article-category">Essential Service</span>
+      <h1 class="article-title"><span class="line">Plumbing</span><span class="line gold">Services</span></h1>
+      <p class="article-excerpt">Professional plumbing solutions from leak detection to complete system upgrades.</p>
+    </div>
+  </header>
+
+  <section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>Plumbing problems can range from minor annoyances to catastrophic water damage. Whether you're dealing with a leaky faucet or planning a complete bathroom renovation, you need plumbing work done right the first time.</p>
+
+        <p>At ReformaT Venezuela, our licensed plumbers handle everything from emergency repairs to complex installations in properties across Valencia, San Diego, Carabobo, and Caracas.</p>
+
+        <img src="/images/fontaneria.webp" alt="Professional plumbing work by ReformaT Venezuela" loading="eager" fetchpriority="high" decoding="async" />
+
+        <h2>Common Plumbing Issues in Venezuelan Properties</h2>
+
+        <p>Aging plumbing systems are common in Venezuelan homes and buildings. We frequently address:</p>
+
+        <ul>
+          <li><strong>Galvanized pipe corrosion:</strong> Older metal pipes that restrict water flow and can leak</li>
+          <li><strong>Low water pressure:</strong> Caused by pipe buildup, partially closed valves, or supply issues</li>
+          <li><strong>Drain blockages:</strong> Kitchen, bathroom, and main sewer line clogs</li>
+          <li><strong>Water heater problems:</strong> Inefficient heating, leaks, or inadequate capacity</li>
+          <li><strong>Fixture leaks:</strong> Dripping faucets, running toilets, and leaking supply lines</li>
+        </ul>
+
+        <h2>Our Plumbing Services</h2>
+
+        <p><strong>Leak Detection & Repair:</strong> Using electronic detection equipment to locate hidden leaks behind walls and under floors, minimizing damage and repair costs.</p>
+
+        <p><strong>Pipe Replacement:</strong> Replacing corroded galvanized pipes with modern PEX or copper piping that won't rust or restrict flow.</p>
+
+        <p><strong>Drain Cleaning:</strong> Professional drain cleaning using mechanical augers and hydro-jetting to clear tough blockages.</p>
+
+        <p><strong>Water Heater Installation:</strong> Tank and tankless water heater installation, including gas and electric models with proper venting.</p>
+
+        <p><strong>Fixture Installation:</strong> Faucets, toilets, showers, bathtubs, and specialty fixtures with proper sealing and connection.</p>
+
+        <h2>Bathroom & Kitchen Plumbing</h2>
+
+        <p>Remodeling projects often require significant plumbing work. We handle complete reconfigurations:</p>
+
+        <p><strong>Relocating Fixtures:</strong> Moving sinks, toilets, showers, and appliances to new locations with proper drain and supply line extensions.</p>
+
+        <p><strong>Adding Fixtures:</strong> Installing additional bathrooms, wet bars, or laundry connections with proper venting and drainage.</p>
+
+        <p><strong>Upgrading to Water-Efficient Models:</strong> Low-flow toilets, water-saving showerheads, and efficient faucets that reduce water consumption without sacrificing performance.</p>
+
+        <h2>Water Filtration & Treatment</h2>
+
+        <p>Water quality varies significantly across Venezuela. We install filtration systems that improve taste, remove contaminants, and protect your plumbing:</p>
+
+        <ul>
+          <li><strong>Whole-house filtration:</strong> Removes sediment, chlorine, and other contaminants from all water entering your property</li>
+          <li><strong>Under-sink systems:</strong> Point-of-use filtration for drinking and cooking water</li>
+          <li><strong>Water softeners:</strong> Reduce mineral buildup that damages fixtures and appliances</li>
+        </ul>
+
+        <h2>Our Plumbing Process</h2>
+
+        <p><strong>Diagnosis:</strong> We identify the root cause of plumbing problems, not just the symptoms.</p>
+
+        <p><strong>Quotation:</strong> Detailed quotes explaining the work needed, materials to be used, and total cost.</p>
+
+        <p><strong>Execution:</strong> Professional installation with minimal disruption to your property.</p>
+
+        <p><strong>Testing:</strong> Every repair and installation is pressure-tested and leak-checked before completion.</p>
+
+        <h2>Why Choose ReformaT for Plumbing?</h2>
+
+        <ul>
+          <li>Licensed, experienced plumbers</li>
+          <li>Electronic leak detection equipment</li>
+          <li>Knowledge of Venezuelan water systems and common issues</li>
+          <li>Premium fixtures from recognized brands</li>
+          <li>Water-efficient solutions available</li>
+          <li>Comprehensive warranties on all work</li>
+          <li>Emergency service available</li>
+        </ul>
+
+        <p><strong>Need plumbing work?</strong> <a href="/en/contact">Contact us today</a> for a free consultation and detailed quote.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">Ready to Fix Your Plumbing Problems?</h2>
+      <p class="cta-text">Schedule a free consultation with our licensed plumbers.</p>
+      <a href="/en/contact" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Request a Quote</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
+  .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
+  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; }
+  .article-title .line { display: block; }
+  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 400; }
+  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
+  .back-link:hover { color: var(--gold-light); }
+  .article-section { padding: 80px 0; background: var(--white); }
+  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); }
+  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
+  .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
+  .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
+  .article-body a { color: var(--gold); text-decoration: none; border-bottom: 1px solid var(--gold); }
+  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
+  .article-body img { border-radius: 12px; margin: 2.5rem 0; box-shadow: 0 15px 40px rgba(0,0,0,0.08); width: 100%; }
+  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold); margin-top: 8px; }
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
+  @media (max-width: 768px) {
+    .article-hero { min-height: 70vh; padding-top: 120px; padding-bottom: 60px; }
+    .article-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .article-excerpt { font-size: 1.15rem; }
+    .article-body { font-size: 1.15rem; }
+    .article-body h2 { font-size: 2rem; }
+    .article-body h3 { font-size: 1.5rem; }
+    .cta-section { padding: 90px 20px; }
+    .cta-title { font-size: 2.2rem; }
+    .cta-text { font-size: 1.15rem; }
+  }
+</style>
