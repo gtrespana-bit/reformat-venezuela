@@ -2,21 +2,33 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const services = [
-  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales.", image: "/images/cocina.webp", features: ["Diseño personalizado", "Materiales premium"] },
-  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar.", image: "/images/bano.webp", features: ["Impermeabilización", "Diseño spa"] },
-  { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa.", image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=600&fit=crop", features: ["Proyecto completo", "Gestión de permisos"] },
-  { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones seguras.", image: "/images/electricidad.webp", features: ["Certificada", "Domótica"] },
-  { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales.", image: "/images/fontaneria.webp", features: ["Detección fugas", "Grifería"] },
-  { slug: "pintura-acabados", title: "Pintura y Acabados", desc: "Acabados perfectos.", image: "https://images.unsplash.com/photo-1562259949-e8e7689d7828?w=800&h=600&fit=crop", features: ["Decorativa", "Microcemento"] },
-  { slug: "revestimientos", title: "Revestimientos", desc: "Paredes con estilo.", image: "/images/revestimientos.webp", features: ["Porcelanato XL", "Wall Panels"] },
-  { slug: "suelos", title: "Suelos", desc: "Pavimentos duraderos.", image: "/images/suelo-porcelanato.webp", features: ["Laminado", "Vinílico", "Madera"] },
-  { slug: "piscinas", title: "Piscinas", desc: "Construcción y mantenimiento.", image: "/images/piscinas.webp", features: ["Construcción", "Filtración"] }
+  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Diseño personalizado", "Materiales premium"] },
+  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Impermeabilización", "Diseño spa"] },
+  { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Proyecto completo", "Gestión de permisos"] },
+  { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones seguras.", image: "/images/electricidad-800.webp", srcset: "/images/electricidad-400.webp 400w, /images/electricidad-800.webp 800w", features: ["Certificada", "Domótica"] },
+  { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales.", image: "/images/fontaneria-800.webp", srcset: "/images/fontaneria-400.webp 400w, /images/fontaneria-800.webp 800w", features: ["Detección fugas", "Grifería"] },
+  { slug: "pintura-acabados", title: "Pintura y Acabados", desc: "Acabados perfectos.", image: "/images/pintura-800.webp", srcset: "/images/pintura-400.webp 400w, /images/pintura-800.webp 800w", features: ["Decorativa", "Microcemento"] },
+  { slug: "revestimientos", title: "Revestimientos", desc: "Paredes con estilo.", image: "/images/revestimientos-800.webp", srcset: "/images/revestimientos-400.webp 400w, /images/revestimientos-800.webp 800w", features: ["Porcelanato XL", "Wall Panels"] },
+  { slug: "suelos", title: "Suelos", desc: "Pavimentos duraderos.", image: "/images/suelo-porcelanato-800.webp", srcset: "/images/suelo-porcelanato-400.webp 400w, /images/suelo-porcelanato-800.webp 800w", features: ["Laminado", "Vinílico", "Madera"] },
+  { slug: "piscinas", title: "Piscinas", desc: "Construcción y mantenimiento.", image: "/images/piscinas-800.webp", srcset: "/images/piscinas-400.webp 400w, /images/piscinas-800.webp 800w", features: ["Construcción", "Filtración"] }
 ];
 ---
 
 <BaseLayout title="Servicios | ReformaT Venezuela" description="Soluciones completas en reformas." activePage="servicios">
   <header class="page-hero">
-    <div class="hero-bg" style="background-image: url('https://images.unsplash.com/photo-1600585154526-990dced4db0d?q=80&w=2070&auto=format&fit=crop')"></div>
+    <!-- LCP IMAGE: Local, discoverable immediately from HTML -->
+    <img
+      src="/images/integrales-800.webp"
+      srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
+      sizes="100vw"
+      alt="Interior moderno después de reforma integral"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+      width="800"
+      height="533"
+      class="hero-lcp-img"
+    />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-tag">Lo Que Hacemos</span>
@@ -24,7 +36,7 @@ const services = [
       <p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego.</p>
     </div>
   </header>
-  
+
   <section class="services-page">
     <div class="container">
       <div class="section-header">
@@ -33,10 +45,19 @@ const services = [
         <p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales.</p>
       </div>
       <div class="services-vertical-grid">
-        {services.map((svc) => (
+        {services.map((svc, index) => (
           <a href={`/servicios/${svc.slug}`} class="service-vertical-card">
             <div class="card-img-wrap">
-              <img src={svc.image} alt={svc.title} loading="lazy" decoding="async" />
+              <img 
+                src={svc.image} 
+                srcset={svc.srcset}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt={svc.title} 
+                loading="lazy"
+                decoding="async"
+                width="800"
+                height="533"
+              />
               <div class="card-overlay"></div>
               <span class="card-icon">✦</span>
             </div>
@@ -51,7 +72,7 @@ const services = [
       </div>
     </div>
   </section>
-  
+
   <section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Transformar Tu Espacio?</h2>
@@ -62,3 +83,45 @@ const services = [
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding: 120px 20px 60px; }
+  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 800px; }
+  .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
+  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin-bottom: 20px; }
+  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); }
+
+  .services-page { padding: 100px 0; background: var(--gray); }
+  .services-vertical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
+  .service-vertical-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .service-vertical-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
+  .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
+  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
+  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
+  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
+  .service-vertical-card:hover .card-icon { transform: scale(1.15) rotate(15deg); }
+  .card-body { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
+  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
+  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
+  .card-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
+  .card-features li { color: var(--gray-text); font-size: 0.9rem; padding: 6px 0; padding-left: 20px; position: relative; }
+  .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+  .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
+  .arrow { transition: transform 0.3s; }
+  .service-vertical-card:hover .card-link { gap: 14px; }
+  .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
+
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
+
+  @media (max-width: 768px) {
+    .services-vertical-grid { grid-template-columns: 1fr; }
+    .cta-section { padding: 90px 20px; }
+  }
+</style>
