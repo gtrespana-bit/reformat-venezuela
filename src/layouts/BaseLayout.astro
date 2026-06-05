@@ -21,7 +21,7 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
 
-// MAPA DE TRADUCCIÓN DE RUTAS
+// MAPA DE TRADUCCIÓN DE RUTAS (ES → EN)
 const routeMap: Record<string, string> = {
   '/': '/en',
   '/servicios': '/en/services',
@@ -39,27 +39,39 @@ const routeMap: Record<string, string> = {
   '/blog': '/en/blog'
 };
 
-// Mapa inverso (inglés → español)
-const reverseRouteMap: Record<string, string> = Object.fromEntries(
-  Object.entries(routeMap).map(([es, en]) => [en, es])
-);
+// MAPA INVERSO (EN → ES)
+const reverseRouteMap: Record<string, string> = {
+  '/en': '/',
+  '/en/services': '/servicios',
+  '/en/services/kitchens': '/servicios/cocinas',
+  '/en/services/bathrooms': '/servicios/banos',
+  '/en/services/whole-home': '/servicios/integrales',
+  '/en/services/electrical': '/servicios/electricidad',
+  '/en/services/plumbing': '/servicios/fontaneria',
+  '/en/services/painting': '/servicios/pintura-acabados',
+  '/en/services/wall-coverings': '/servicios/revestimientos',
+  '/en/services/flooring': '/servicios/suelos',
+  '/en/services/pools': '/servicios/piscinas',
+  '/en/projects': '/proyectos',
+  '/en/contact': '/contacto',
+  '/en/blog': '/blog'
+};
 
-// Calcular ruta alternativa usando el mapa de traducción
-const isEnRoute = currentPath.startsWith('/en');
-let alternatePath: string;
+// CALCULAR RUTAS ALTERNAS
+let esPath: string;
+let enPath: string;
 
-if (isEnRoute) {
-  // Estamos en inglés, buscamos la ruta en español
-  alternatePath = reverseRouteMap[currentPath] || currentPath.replace(/^\/en/, '') || '/';
+if (isEnglish) {
+  // Estamos en inglés
+  enPath = currentPath;
+  esPath = reverseRouteMap[currentPath] || '/';
 } else {
-  // Estamos en español, buscamos la ruta en inglés
-  alternatePath = routeMap[currentPath] || `/en${currentPath}`;
+  // Estamos en español
+  esPath = currentPath;
+  enPath = routeMap[currentPath] || `/en${currentPath}`;
 }
 
-const esPath = isEnRoute ? alternatePath : currentPath;
-const enPath = isEnRoute ? currentPath : alternatePath;
-
-// Navegación según idioma (sin el switcher, ahora está separado)
+// Navegación según idioma
 const navItems = isEnglish
   ? [
       { label: 'Home', href: '/en', key: 'home' },
@@ -217,7 +229,7 @@ const footerLocations = isEnglish
         ))}
       </ul>
 
-      <!-- LANGUAGE SWITCHER: Siempre visible, fuera del menú hamburguesa -->
+      <!-- LANGUAGE SWITCHER -->
       <a
         href={isEnglish ? esPath : enPath}
         class="lang-switch-visible"
@@ -260,7 +272,6 @@ const footerLocations = isEnglish
   </footer>
 
   <script>
-    // Auto-detect language on first visit (client-side)
     (function() {
       const savedLang = localStorage.getItem('reformat-lang');
       const browserLang = navigator.language || navigator.userLanguage;
