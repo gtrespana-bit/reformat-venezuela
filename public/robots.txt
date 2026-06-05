@@ -1,12 +1,13 @@
-# robots.txt para ReformaT Venezuela
 User-agent: *
 Allow: /
 
-# Permitir rastreo completo del sitio
-Disallow:
+User-agent: GPTBot
+Allow: /
 
-# Apuntar al sitemap generado automáticamente por Astro
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
 Sitemap: https://reformat-venezuela.online/sitemap-index.xml
-
-# Evitar que Google intente indexar archivos pesados innecesarios
-Disallow: /videos/
