@@ -21,55 +21,9 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.jpg'}`;
 
-// MAPA DE TRADUCCIÓN DE RUTAS (ES → EN)
-const routeMap: Record<string, string> = {
-  '/': '/en',
-  '/servicios': '/en/services',
-  '/servicios/cocinas': '/en/services/kitchens',
-  '/servicios/banos': '/en/services/bathrooms',
-  '/servicios/integrales': '/en/services/whole-home',
-  '/servicios/electricidad': '/en/services/electrical',
-  '/servicios/fontaneria': '/en/services/plumbing',
-  '/servicios/pintura-acabados': '/en/services/painting',
-  '/servicios/revestimientos': '/en/services/wall-coverings',
-  '/servicios/suelos': '/en/services/flooring',
-  '/servicios/piscinas': '/en/services/pools',
-  '/proyectos': '/en/projects',
-  '/contacto': '/en/contact',
-  '/blog': '/en/blog'
-};
-
-// MAPA INVERSO (EN → ES)
-const reverseRouteMap: Record<string, string> = {
-  '/en': '/',
-  '/en/services': '/servicios',
-  '/en/services/kitchens': '/servicios/cocinas',
-  '/en/services/bathrooms': '/servicios/banos',
-  '/en/services/whole-home': '/servicios/integrales',
-  '/en/services/electrical': '/servicios/electricidad',
-  '/en/services/plumbing': '/servicios/fontaneria',
-  '/en/services/painting': '/servicios/pintura-acabados',
-  '/en/services/wall-coverings': '/servicios/revestimientos',
-  '/en/services/flooring': '/servicios/suelos',
-  '/en/services/pools': '/servicios/piscinas',
-  '/en/projects': '/proyectos',
-  '/en/contact': '/contacto',
-  '/en/blog': '/blog'
-};
-
-// CALCULAR RUTAS ALTERNAS
-let esPath: string;
-let enPath: string;
-
-if (isEnglish) {
-  // Estamos en inglés
-  enPath = currentPath;
-  esPath = reverseRouteMap[currentPath] || '/';
-} else {
-  // Estamos en español
-  esPath = currentPath;
-  enPath = routeMap[currentPath] || `/en${currentPath}`;
-}
+// Rutas para hreflang (usaremos JavaScript para el switcher)
+const esPath = isEnglish ? currentPath.replace(/^\/en/, '') || '/' : currentPath;
+const enPath = isEnglish ? currentPath : (currentPath === '/' ? '/en' : `/en${currentPath}`);
 
 // Navegación según idioma
 const navItems = isEnglish
@@ -113,7 +67,7 @@ const footerLocations = isEnglish
   <meta name="description" content={description} />
   <link rel="canonical" href={`${siteUrl}${currentPath}`} />
 
-  <!-- HREFLANG COMPLETO -->
+  <!-- HREFLANG -->
   <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
   <link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
   <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
@@ -155,7 +109,7 @@ const footerLocations = isEnglish
 
   <Analytics />
 
-  <!-- SCHEMA LOCALIZADO -->
+  <!-- SCHEMA -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -190,8 +144,8 @@ const footerLocations = isEnglish
       "closes": "18:00"
     },
     "description": "{isEnglish
-      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela. Whole-home remodels, kitchens, bathrooms with transparent USD pricing and European standards.'
-      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas con estándares europeos.'}"
+      ? 'English-speaking home renovation contractor serving expats and investors in Venezuela.'
+      : 'Más de 20 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas.'}"
   }
   </script>
 </head>
@@ -230,13 +184,14 @@ const footerLocations = isEnglish
       </ul>
 
       <!-- LANGUAGE SWITCHER -->
-      <a
-        href={isEnglish ? esPath : enPath}
+      <button
+        type="button"
         class="lang-switch-visible"
+        data-current-lang={lang}
         aria-label={isEnglish ? 'Cambiar a español' : 'Switch to English'}
       >
         {isEnglish ? 'ES' : 'EN'}
-      </a>
+      </button>
 
       <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false">
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -272,6 +227,59 @@ const footerLocations = isEnglish
   </footer>
 
   <script>
+    // MAPA DE TRADUCCIÓN DE RUTAS
+    const routeMap = {
+      '/': '/en',
+      '/servicios': '/en/services',
+      '/servicios/cocinas': '/en/services/kitchens',
+      '/servicios/banos': '/en/services/bathrooms',
+      '/servicios/integrales': '/en/services/whole-home',
+      '/servicios/electricidad': '/en/services/electrical',
+      '/servicios/fontaneria': '/en/services/plumbing',
+      '/servicios/pintura-acabados': '/en/services/painting',
+      '/servicios/revestimientos': '/en/services/wall-coverings',
+      '/servicios/suelos': '/en/services/flooring',
+      '/servicios/piscinas': '/en/services/pools',
+      '/proyectos': '/en/projects',
+      '/contacto': '/en/contact',
+      '/blog': '/en/blog',
+      '/en': '/',
+      '/en/services': '/servicios',
+      '/en/services/kitchens': '/servicios/cocinas',
+      '/en/services/bathrooms': '/servicios/banos',
+      '/en/services/whole-home': '/servicios/integrales',
+      '/en/services/electrical': '/servicios/electricidad',
+      '/en/services/plumbing': '/servicios/fontaneria',
+      '/en/services/painting': '/servicios/pintura-acabados',
+      '/en/services/wall-coverings': '/servicios/revestimientos',
+      '/en/services/flooring': '/servicios/suelos',
+      '/en/services/pools': '/servicios/piscinas',
+      '/en/projects': '/proyectos',
+      '/en/contact': '/contacto',
+      '/en/blog': '/blog'
+    };
+
+    // LANGUAGE SWITCHER HANDLER
+    const langSwitchBtn = document.querySelector('.lang-switch-visible');
+    if (langSwitchBtn) {
+      langSwitchBtn.addEventListener('click', () => {
+        const currentPath = window.location.pathname;
+        const newPath = routeMap[currentPath];
+        
+        if (newPath) {
+          window.location.href = newPath;
+        } else {
+          // Fallback: si la ruta no está en el mapa, hacer la conversión básica
+          if (currentPath.startsWith('/en')) {
+            window.location.href = currentPath.replace(/^\/en/, '') || '/';
+          } else {
+            window.location.href = '/en' + currentPath;
+          }
+        }
+      });
+    }
+
+    // AUTO-DETECT LANGUAGE
     (function() {
       const savedLang = localStorage.getItem('reformat-lang');
       const browserLang = navigator.language || navigator.userLanguage;
@@ -281,19 +289,17 @@ const footerLocations = isEnglish
       
       if (!isEnglishRoute && browserLang.toLowerCase().startsWith('en')) {
         localStorage.setItem('reformat-lang', 'en');
-        window.location.replace('/en');
+        const newPath = routeMap[window.location.pathname] || '/en';
+        window.location.replace(newPath);
       }
       else if (isEnglishRoute && browserLang.toLowerCase().startsWith('es')) {
         localStorage.setItem('reformat-lang', 'es');
-        window.location.replace('/');
+        const newPath = routeMap[window.location.pathname] || '/';
+        window.location.replace(newPath);
       }
     })();
 
-    document.querySelector('.lang-switch-visible')?.addEventListener('click', (e) => {
-      const newLang = e.currentTarget.textContent.trim() === 'EN' ? 'en' : 'es';
-      localStorage.setItem('reformat-lang', newLang);
-    });
-
+    // MOBILE MENU
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
       if (navbar) {
@@ -368,6 +374,9 @@ const footerLocations = isEnglish
     text-decoration: none;
     font-size: 0.85rem;
     margin-left: 12px;
+    background: transparent;
+    cursor: pointer;
+    font-family: inherit;
   }
   .lang-switch-visible:hover {
     border-color: var(--gold) !important;
