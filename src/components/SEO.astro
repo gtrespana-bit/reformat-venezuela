@@ -14,7 +14,14 @@ interface Props {
 
 const siteUrl = 'https://reformat-venezuela.online';
 const siteName = 'ReformaT Venezuela';
-const currentPath = Astro.url.pathname;
+
+// Normalizar path: quitar trailing slash excepto en home
+const normalizePath = (path: string): string => {
+  if (path === '/') return '/';
+  return path.replace(/\/$/, '');
+};
+
+const currentPath = normalizePath(Astro.url.pathname);
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 const locale = isEnglish ? 'en_US' : 'es_VE';
@@ -37,11 +44,9 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.webp'}`;
 
-// Canonical URL normalizada (sin trailing slash excepto en home)
-const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
-const canonicalUrl = `${siteUrl}${normalizedPath}`;
+const canonicalUrl = `${siteUrl}${currentPath}`;
 
-// Mapa de traducción de rutas para hreflang
+// Mapa de traducción de rutas para hreflang (sin trailing slash)
 const routeMap: Record<string, string> = {
   '/': '/en',
   '/en': '/',
@@ -80,22 +85,34 @@ const routeMap: Record<string, string> = {
   '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
   '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
   '/en/blog/bathroom-remodel-carabobo-guide': '/blog/reformas-banos-carabobo',
-  '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025'
+  '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
+  '/privacidad': '/en/privacy',
+  '/en/privacy': '/privacidad',
+  '/terminos': '/en/terms',
+  '/en/terms': '/terminos'
 };
 
-const isEnRoute = currentPath.startsWith('/en');
-let alternatePath: string;
+// Obtener path alternativo (otro idioma)
+const getAlternatePath = (): string => {
+  // Buscar en el mapa primero
+  if (routeMap[currentPath]) {
+    return routeMap[currentPath];
+  }
+  
+  // Fallback: si es ruta en español, añadir /en; si es inglés, quitar /en
+  if (isEnglish) {
+    const withoutEn = currentPath.replace(/^\/en/, '') || '/';
+    return withoutEn;
+  } else {
+    return currentPath === '/' ? '/en' : `/en${currentPath}`;
+  }
+};
 
-if (isEnRoute) {
-  alternatePath = routeMap[currentPath] || currentPath.replace(/^\/en/, '') || '/';
-} else {
-  alternatePath = routeMap[currentPath] || `/en${currentPath}`;
-}
+const alternatePath = getAlternatePath();
 
-// Normalizar paths para hreflang
-const normalizeForHreflang = (path: string) => path === '/' ? '/' : path.replace(/\/$/, '');
-const esPath = normalizeForHreflang(isEnRoute ? alternatePath : currentPath);
-const enPath = normalizeForHreflang(isEnRoute ? currentPath : alternatePath);
+// Paths para hreflang (siempre normalizados)
+const esPath = isEnglish ? alternatePath : currentPath;
+const enPath = isEnglish ? currentPath : alternatePath;
 
 // Breadcrumbs para Schema
 const breadcrumbItems = [];
@@ -245,7 +262,7 @@ const articleSchema = {
 <meta name="geo.position" content="10.1620;-68.0077" />
 <meta name="ICBM" content="10.1620, -68.0077" />
 
-<!-- HREFLANG -->
+<!-- HREFLANG (con self-referencing) -->
 <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
 <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
 <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
