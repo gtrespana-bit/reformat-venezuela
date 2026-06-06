@@ -37,7 +37,9 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.webp'}`;
 
-const canonicalUrl = `${siteUrl}${currentPath}`;
+// Canonical URL normalizada (sin trailing slash excepto en home)
+const normalizedPath = currentPath === '/' ? '/' : currentPath.replace(/\/$/, '');
+const canonicalUrl = `${siteUrl}${normalizedPath}`;
 
 // Mapa de traducción de rutas para hreflang
 const routeMap: Record<string, string> = {
@@ -90,8 +92,10 @@ if (isEnRoute) {
   alternatePath = routeMap[currentPath] || `/en${currentPath}`;
 }
 
-const esPath = isEnRoute ? alternatePath : currentPath;
-const enPath = isEnRoute ? currentPath : alternatePath;
+// Normalizar paths para hreflang
+const normalizeForHreflang = (path: string) => path === '/' ? '/' : path.replace(/\/$/, '');
+const esPath = normalizeForHreflang(isEnRoute ? alternatePath : currentPath);
+const enPath = normalizeForHreflang(isEnRoute ? currentPath : alternatePath);
 
 // Breadcrumbs para Schema
 const breadcrumbItems = [];
@@ -113,7 +117,6 @@ if (currentPath === '/blog' || currentPath === '/en/blog') {
   breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: currentPath });
 }
 
-// Construir objetos JSON como JavaScript objects, luego serializar
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -242,11 +245,9 @@ const articleSchema = {
 <meta name="geo.position" content="10.1620;-68.0077" />
 <meta name="ICBM" content="10.1620, -68.0077" />
 
-<!-- HREFLANG COMPLETO -->
+<!-- HREFLANG -->
 <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-<link rel="alternate" hreflang="es-VE" href={`${siteUrl}${esPath}`} />
 <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
-<link rel="alternate" hreflang="en-US" href={`${siteUrl}${enPath}`} />
 <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
 
 <!-- OPEN GRAPH -->
