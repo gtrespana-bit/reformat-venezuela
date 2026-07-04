@@ -7,7 +7,10 @@ export default defineConfig({
     sitemap({
       i18n: {
         defaultLocale: 'es',
-        locales: ['es', 'en'],
+        locales: {
+          es: 'es',
+          en: 'en'
+        },
       },
       changefreq: 'weekly',
       priority: 0.7,
