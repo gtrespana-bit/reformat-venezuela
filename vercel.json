@@ -1,0 +1,12 @@
+{
+  "redirects": [
+    { "source": "/contact/", "destination": "/contacto/", "permanent": true },
+    { "source": "/contact", "destination": "/contacto/", "permanent": true },
+    { "source": "/remodelacion-integral-de-viviendas/", "destination": "/servicios/integrales/", "permanent": true },
+    { "source": "/remodelacion-integral-de-viviendas", "destination": "/servicios/integrales/", "permanent": true },
+    { "source": "/blog/kitchen-design-trends-2026/", "destination": "/en/blog/kitchen-design-trends-2026/", "permanent": true },
+    { "source": "/blog/kitchen-design-trends-2026", "destination": "/en/blog/kitchen-design-trends-2026/", "permanent": true },
+    { "source": "/author/admin/", "destination": "/", "permanent": true },
+    { "source": "/author/admin", "destination": "/", "permanent": true }
+  ]
+}
