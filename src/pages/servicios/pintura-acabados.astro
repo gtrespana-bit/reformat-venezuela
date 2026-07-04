@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
 ---
 <BaseLayout
   title="Pintura y Acabados | TransformaciÃ³n de Espacios en Valencia"
@@ -306,6 +307,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+
+<FAQ items={[
+  { question: "¿Qué tipos de pintura utilizan?", answer: "Trabajamos con pinturas de marcas premium como Valentine, Bruguer y Jotun, en acabados mate, satinado o brillo. Todas con baja emisión de COV para interiores saludables." },
+  { question: "¿Cuánto tiempo toma pintar un piso completo?", answer: "Un piso de 80-100 m² toma entre 4 y 6 días laborables, incluyendo preparación de paredes (masillado y lijado), imprimación donde sea necesaria y dos manos de acabado." },
+  { question: "¿Qué es el estuco veneciano?", answer: "Es un acabado decorativo a base de cal que reproduce el aspecto del mármol pulido. Se aplica en varias capas con espátula y ofrece un acabado elegante y único." },
+  { question: "¿Realizan pintura de exteriores e impermeabilización de fachadas?", answer: "Sí, realizamos pintura de fachadas con pinturas elastoméricas resistentes a la intemperie e impermeabilización de muros exteriores para proteger contra filtraciones." },
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

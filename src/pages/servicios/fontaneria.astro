@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
 ---
 <BaseLayout 
   title="FontanerÃ­a | Instalaciones y Reparaciones en Valencia y San Diego" 
@@ -56,6 +57,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+<FAQ items={[
+  { question: "¿Cómo detectan fugas de agua sin romper paredes?", answer: "Utilizamos equipos de detección por ultrasonido y cámaras termográficas que nos permiten localizar fugas con precisión sin necesidad de obras destructivas." },
+  { question: "¿Qué tipos de calentadores instalan?", answer: "Instalamos calentadores a gas, termos eléctricos, calderas de condensación y sistemas de aerotermia. Te asesoramos sobre la opción más eficiente para tu consumo." },
+  { question: "¿Ofrecen servicio de urgencias?", answer: "Sí, atendemos urgencias de fontanería como roturas de tuberías, atascos graves y fugas de agua. Contáctanos por WhatsApp para respuesta rápida." },
+  { question: "¿Cuánto cuesta desatascar una tubería?", answer: "El coste depende de la gravedad y ubicación del atasco. Realizamos inspección con cámara primero para diagnosticar antes de presupuestar, sin sorpresas." },
+]} />
+
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
   .hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: 1; }

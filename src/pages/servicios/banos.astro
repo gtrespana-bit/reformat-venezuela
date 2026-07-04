@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
 ---
 <BaseLayout
   title="Reformas de BaÃ±o | DiseÃ±o y ConstrucciÃ³n Premium en Valencia"
@@ -320,6 +321,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+
+<FAQ items={[
+  { question: "¿Cuánto dura una reforma de baño completa?", answer: "Una reforma completa de baño toma entre 2 y 4 semanas. Incluye demolición, impermeabilización, fontanería, electricidad, revestimientos y colocación de sanitarios." },
+  { question: "¿Qué tipo de impermeabilización utilizan?", answer: "Aplicamos sistemas de impermeabilización en capa continua con garantía de 10 años, cubriendo plato de ducha, paredes húmedas y suelo con materiales certificados." },
+  { question: "¿Puedo mantener la distribución actual del baño?", answer: "Sí, podemos reformar manteniendo la distribución existente o proponer una nueva. Cambiar la ubicación de sanitarios implica modificar fontanería y puede afectar el presupuesto." },
+  { question: "¿Incluyen la retirada de escombros?", answer: "Sí, nuestro servicio incluye demolición, retirada de escombros y limpieza final. Dejamos el baño listo para usar sin que tengas que preocuparte por nada." },
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
 ---
 <BaseLayout
   title="Servicios ElÃ©ctricos | Instalaciones Seguras en Valencia y San Diego"
@@ -228,6 +229,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+
+<FAQ items={[
+  { question: "¿Cuándo debo renovar la instalación eléctrica de mi hogar?", answer: "Si tu instalación tiene más de 20 años, usa cableado antiguo o los cuadros eléctricos no tienen diferenciales modernos, es momento de una renovación por seguridad." },
+  { question: "¿Ofrecen certificados eléctricos?", answer: "Sí, emitimos certificados de instalación eléctrica y boletines oficiales requeridos por las compañías distribuidoras y para trámites de compraventa de inmuebles." },
+  { question: "¿Pueden instalar domótica y automatización?", answer: "Sí, instalamos sistemas de domótica para control de iluminación, persianas, climatización y seguridad, compatibles con asistentes de voz y control desde el móvil." },
+  { question: "¿Realizan instalaciones para carga de vehículos eléctricos?", answer: "Sí, instalamos puntos de carga para vehículos eléctricos en garajes privados y comunitarios, con la potencia y protecciones adecuadas según el equipo." },
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

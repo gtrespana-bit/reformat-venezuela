@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
 ---
 <BaseLayout
   title="Reformas de Cocina en Valencia | ReformaT Venezuela"
@@ -251,6 +252,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
     </div>
   </section>
 </BaseLayout>
+
+
+<FAQ items={[
+  { question: "¿Cuánto tiempo toma una reforma de cocina completa?", answer: "Una reforma integral de cocina toma entre 4 y 8 semanas, dependiendo de la complejidad del diseño, los materiales seleccionados y si se requieren cambios en las instalaciones." },
+  { question: "¿Qué incluye el presupuesto de reforma de cocina?", answer: "Incluimos diseño 3D, demolición, instalaciones eléctricas y de fontanería, mobiliario a medida, encimeras, revestimientos y electrodomésticos empotrados. Todo detallado por partidas." },
+  { question: "¿Ofrecen garantía en los trabajos de cocina?", answer: "Sí, todos nuestros trabajos cuentan con garantía de 2 años en mano de obra y la garantía del fabricante en materiales, encimeras y electrodomésticos." },
+  { question: "¿Puedo elegir los materiales y acabados?", answer: "Por supuesto. Trabajamos con marcas premium y te asesoramos en la selección de materiales, colores y acabados que mejor se adapten a tu estilo y presupuesto." },
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
