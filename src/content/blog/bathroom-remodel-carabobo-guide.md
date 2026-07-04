@@ -460,13 +460,10 @@ Tell us about your project and we'll give you a real, transparent, no-obligation
 
 ---
 
-## ?? Related Articles
+## 📚 Related Articles
 
-- **[Porcelain Tile vs Ceramic Tile](/en/blog/porcelain-tile-vs-ceramic-tile-guide)** � Choose the right material for your bathroom
-- **[Remodel Budget Mistakes](/en/blog/remodel-budget-mistakes-avoid)** � Protect your investment from day one
+- **[Porcelain Tile vs Ceramic Tile](/en/blog/porcelain-tile-vs-ceramic-tile-guide)** — Choose the right material for your bathroom
+- **[Remodel Budget Mistakes](/en/blog/remodel-budget-mistakes-avoid)** — Protect your investment from day one
 
-Planning your bathroom remodel? **[Explore our bathroom services ?](/en/services/bathrooms)**
+Planning your bathroom remodel? **[Explore our bathroom services →](/en/services/bathrooms)**
 
----
-
-*Did you find this article useful? Share it with someone thinking about remodeling their bathroom. And if you have questions about your project, contact us. We're here to help you make the best decision.*
