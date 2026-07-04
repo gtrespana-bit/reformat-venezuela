@@ -1,0 +1,5 @@
+# Redirects 301 para URLs 404 detectadas en Google Search Console
+/contact/              /contacto/              301
+/remodelacion-integral-de-viviendas/  /servicios/integrales/  301
+/blog/kitchen-design-trends-2026/     /en/blog/kitchen-design-trends-2026/  301
+/author/admin/         /                       301
