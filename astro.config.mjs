@@ -3,6 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://reformat-venezuela.online',
+  viewTransitions: true,
   integrations: [
     sitemap({
       i18n: {
