@@ -29,7 +29,7 @@ import FAQ from '../../components/FAQ.astro';
         <p>Instalamos y reparamos grifos monomando, termostáticos y con sensor. También instalamos y mantenemos calentadores de gas, termos eléctricos y sistemas solares.</p>
         <h2>Desatascos y Limpieza</h2>
         <p>Equipos profesionales de alta presión y cámaras de inspección para desatascar sin dañar tuberías. Limpieza de bajantes y reparación de arquetas.</p>
-        <img src="/images/fontaneria-800.webp" alt="Reparación de fontanería" loading="lazy" decoding="async" />
+        <img src="/images/fontaneria-800.webp" alt="Reparación de fontanería" loading="lazy" decoding="async" width="800" height="533" />
         <h2>Proceso de Trabajo</h2>
         <h3>Fase 1: Diagnóstico y Presupuesto</h3><p>Evaluación, medidas y presupuesto cerrado antes de iniciar.</p>
         <h3>Fase 2: Preparación</h3><p>Protección del área y coordinación de materiales.</p>
@@ -56,6 +56,39 @@ import FAQ from '../../components/FAQ.astro';
       <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
     </div>
   </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Fontanería Profesional",
+  "description": "Instalaciones sanitarias, detección de fugas y sistemas de agua eficientes para hogares y negocios en Venezuela.",
+  "url": "https://reformatvenezuela.com/servicios/fontaneria",
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "ReformaT Venezuela",
+    "url": "https://reformatvenezuela.com"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Valencia"
+    },
+    {
+      "@type": "City",
+      "name": "San Diego"
+    },
+    {
+      "@type": "City",
+      "name": "Caracas"
+    },
+    {
+      "@type": "City",
+      "name": "La Guaira"
+    }
+  ]
+}
+</script>
 </BaseLayout>
 
 <FAQ items={[

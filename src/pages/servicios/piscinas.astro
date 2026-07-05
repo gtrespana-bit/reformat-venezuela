@@ -52,7 +52,7 @@ import FAQ from '../../components/FAQ.astro';
         <h3>Climatización y Iluminación</h3>
         <p>Instalamos bombas de calor para ampliar la temporada de baño y proyectores LED RGB sumergibles con control remoto o domótico para crear ambientes nocturnos espectaculares.</p>
 
-        <img src="/images/piscinas-800.webp" alt="Equipo de filtración y sala de máquinas de piscina" loading="lazy" decoding="async" />
+        <img src="/images/piscinas-800.webp" alt="Equipo de filtración y sala de máquinas de piscina" loading="lazy" decoding="async" width="800" height="534" />
 
         <h2>Servicio de Mantenimiento Integral</h2>
 
@@ -106,6 +106,39 @@ import FAQ from '../../components/FAQ.astro';
       </a>
     </div>
   </section>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Piscinas",
+  "description": "Construcción, renovación y mantenimiento de piscinas con sistemas de filtrado modernos en Venezuela.",
+  "url": "https://reformatvenezuela.com/servicios/piscinas",
+  "provider": {
+    "@type": "HomeAndConstructionBusiness",
+    "name": "ReformaT Venezuela",
+    "url": "https://reformatvenezuela.com"
+  },
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Valencia"
+    },
+    {
+      "@type": "City",
+      "name": "San Diego"
+    },
+    {
+      "@type": "City",
+      "name": "Caracas"
+    },
+    {
+      "@type": "City",
+      "name": "La Guaira"
+    }
+  ]
+}
+</script>
 </BaseLayout>
 
 <FAQ items={[
