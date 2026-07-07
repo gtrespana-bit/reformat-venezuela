@@ -62,20 +62,7 @@ const stats = [
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = '/images/hero-lcp.webp';
         var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
-        var video = document.createElement('video');
-        video.id = 'hero-video';
-        video.className = 'hero-video';
-        video.autoplay = true;
-        video.muted = true;
-        video.loop = true;
-        video.playsInline = true;
-        video.preload = 'metadata';
-        video.poster = posterSrc;
-        video.src = videoSrc;
-        video.setAttribute('style', style);
-        video.addEventListener('playing', function() { this.style.opacity = '1'; });
-        var hero = document.querySelector('.hero');
-        if (hero) hero.appendChild(video);
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
     
