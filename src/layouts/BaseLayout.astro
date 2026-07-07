@@ -1,4 +1,4 @@
-﻿---
+---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
@@ -270,24 +270,7 @@ const navItems = isEnglish
       });
     }
 
-    (function() {
-      const savedLang = localStorage.getItem('reformat-lang');
-      const browserLang = navigator.language || navigator.userLanguage;
-      const isEnglishRoute = window.location.pathname.startsWith('/en');
-      
-      if (savedLang) return;
-      
-      if (!isEnglishRoute && browserLang.toLowerCase().startsWith('en')) {
-        localStorage.setItem('reformat-lang', 'en');
-        const newPath = routeMap[window.location.pathname] || '/en';
-        window.location.replace(newPath);
-      }
-      else if (isEnglishRoute && browserLang.toLowerCase().startsWith('es')) {
-        localStorage.setItem('reformat-lang', 'es');
-        const newPath = routeMap[window.location.pathname] || '/';
-        window.location.replace(newPath);
-      }
-    })();
+    
 
     window.addEventListener('scroll', () => {
       const navbar = document.getElementById('navbar');
