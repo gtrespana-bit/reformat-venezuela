@@ -1,4 +1,4 @@
----
+﻿---
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
@@ -32,6 +32,30 @@ const {
 const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
+
+// Hreflang route mapping ES <-> EN
+const esToEnMap: Record<string, string> = {
+  '/': '/en/',
+  '/servicios/': '/en/services/',
+  '/servicios/cocinas/': '/en/services/kitchens/',
+  '/servicios/banos/': '/en/services/bathrooms/',
+  '/servicios/electricidad/': '/en/services/electrical/',
+  '/servicios/fontaneria/': '/en/services/plumbing/',
+  '/servicios/revestimientos/': '/en/services/wall-coverings/',
+  '/servicios/suelos/': '/en/services/flooring/',
+  '/servicios/piscinas/': '/en/services/pools/',
+  '/servicios/integrales/': '/en/services/whole-home/',
+  '/servicios/pintura-acabados/': '/en/services/painting/',
+  '/contacto/': '/en/contact/',
+  '/proyectos/': '/en/projects/',
+  '/blog/': '/en/blog/',
+};
+const enToEsMap: Record<string, string> = Object.fromEntries(
+  Object.entries(esToEnMap).map(([es, en]) => [en, es])
+);
+const siteBase = 'https://reformat-venezuela.online';
+const esHref = isEnglish ? `${siteBase}${enToEsMap[currentPath] || '/'}` : `${siteBase}${currentPath}`;
+const enHref = isEnglish ? `${siteBase}${currentPath}` : `${siteBase}${esToEnMap[currentPath] || '/en/'}`;
 
 const whatsappText = isEnglish
   ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
@@ -71,6 +95,12 @@ const navItems = isEnglish
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- Hreflang: indicar a Google las versiones en cada idioma -->
+  <link rel="canonical" href={`${siteBase}${currentPath}`} />
+  <link rel="alternate" hreflang="es" href={esHref} />
+  <link rel="alternate" hreflang="en" href={enHref} />
+  <link rel="alternate" hreflang="x-default" href={esHref} />
+
   
   <SEO 
     title={title}
