@@ -22,6 +22,7 @@ const normalizePath = (path: string): string => {
 };
 
 const currentPath = normalizePath(Astro.url.pathname);
+const canonicalPath = Astro.url.pathname; // Preserve trailing slash for canonical
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 const locale = isEnglish ? 'en_US' : 'es_VE';
@@ -44,7 +45,7 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.webp'}`;
 
-const canonicalUrl = `${siteUrl}${currentPath}`;
+const canonicalUrl = `${siteUrl}${canonicalPath}`;
 
 // Mapa de traducción de rutas para hreflang (sin trailing slash)
 const routeMap: Record<string, string> = {
