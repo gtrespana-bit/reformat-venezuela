@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 
 <BaseLayout
@@ -218,7 +220,21 @@ activePage="services"
 }
 </script>
 
+
+  <ServiceSchema
+    name="Whole Home Remodeling"
+    description="Professional management of complete home renovations"
+    serviceType="Whole Home Remodeling"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "What does a whole-home remodel include?", answer: "It includes project design, permit management, demolition, masonry, installations (electrical, plumbing, HVAC), finishes, carpentry, and final cleaning. Everything turnkey." },
+  { question: "How long does a whole-home renovation take?", answer: "A full renovation of an 80-120 m² home takes between 3 and 5 months. We create a detailed timeline with milestones so you're informed every step of the way." },
+  { question: "Do you handle permits and regulations?", answer: "Yes, we manage all necessary permits and ensure compliance with local building codes. We handle the paperwork so you don't have to." },
+  { question: "Can I live in the home during the renovation?", answer: "It depends on the scope. For major renovations, we recommend moving out for safety and efficiency. For partial renovations, we can phase the work to minimize disruption." }
+]} />
 
 <style>
 .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

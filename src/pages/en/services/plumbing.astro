@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 
 <BaseLayout
@@ -117,7 +119,21 @@ activePage="services"
 ]
 }
 </script>
+
+  <ServiceSchema
+    name="Plumbing Services"
+    description="Professional plumbing solutions and leak detection"
+    serviceType="Plumbing Services"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "Do you fix water leaks?", answer: "Yes, we use professional leak detection equipment to locate and repair leaks quickly, preventing water damage and reducing your water bill." },
+  { question: "Can you install new bathroom fixtures?", answer: "Absolutely. We install toilets, sinks, showers, bathtubs, and faucets from premium brands with professional installation and warranty." },
+  { question: "Do you install water heaters?", answer: "Yes, we install and maintain tank and tankless water heaters, including gas and electric models, with proper ventilation and safety compliance." },
+  { question: "What about clogged drains?", answer: "We clear clogs using professional equipment including hydro-jetting and drain cameras to identify and solve the root cause of blockages." }
+]} />
 
 <style>
 .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

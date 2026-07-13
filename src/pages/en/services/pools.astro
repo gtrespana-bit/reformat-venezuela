@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Swimming Pools | Construction, Maintenance & Equipment"
@@ -181,7 +183,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Pool Construction"
+    description="Residential pool design and construction"
+    serviceType="Pool Construction"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "Do you build custom pools?", answer: "Yes, we design and build custom pools tailored to your space, preferences, and budget. From modern infinity pools to traditional designs." },
+  { question: "What maintenance services do you offer?", answer: "We provide weekly and monthly maintenance including cleaning, chemical balancing, filter maintenance, equipment checks, and seasonal preparations." },
+  { question: "Can you renovate an existing pool?", answer: "Absolutely. We renovate pools with new tiles, updated equipment, modern finishes, lighting upgrades, and structural repairs to restore your pool to like-new condition." },
+  { question: "How long does pool construction take?", answer: "Building a new pool takes between 4 and 8 weeks, depending on size, terrain complexity, and selected finishes." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

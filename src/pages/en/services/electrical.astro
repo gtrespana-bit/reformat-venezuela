@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Electrical Services | Certified Installations in Venezuela"
@@ -260,7 +262,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Electrical Services"
+    description="Safe and efficient electrical installations and upgrades"
+    serviceType="Electrical Services"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "Do you provide certified electrical installations?", answer: "Yes, all our electrical work is certified and complies with local safety codes. We provide documentation and certificates upon completion." },
+  { question: "Can you upgrade my electrical panel?", answer: "Absolutely. We upgrade outdated panels to modern, high-capacity systems that support today's electrical demands and smart home technology." },
+  { question: "Do you install smart home systems?", answer: "Yes, we install home automation systems including smart lighting, climate control, security, and voice-controlled devices for modern living." },
+  { question: "What about energy-efficient lighting?", answer: "We specialize in LED lighting design and installation, including recessed lighting, accent lighting, and energy-saving solutions that reduce your electricity bills." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

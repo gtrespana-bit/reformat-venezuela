@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Kitchen Remodeling in Valencia | ReformaT Venezuela"
@@ -283,7 +285,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Kitchen Remodeling"
+    description="Premium kitchen design and construction in Valencia and San Diego"
+    serviceType="Kitchen Remodeling"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "How long does a complete kitchen remodel take?", answer: "A full kitchen renovation takes between 4 and 8 weeks, depending on design complexity, materials selected, and whether installations need to be modified." },
+  { question: "What's included in the kitchen remodeling quote?", answer: "We include 3D design, demolition, electrical and plumbing work, custom cabinetry, countertops, wall coverings, and built-in appliances. Everything is broken down by category." },
+  { question: "Do you offer warranties on kitchen work?", answer: "Yes, all our work comes with a 2-year labor warranty plus manufacturer warranties on materials, countertops, and appliances." },
+  { question: "Can I choose the materials and finishes?", answer: "Absolutely. We work with premium brands and guide you through selecting materials, colors, and finishes that match your style and budget." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Reformas de Cocina en Valencia | ReformaT Venezuela"
@@ -284,6 +285,12 @@ import FAQ from '../../components/FAQ.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Reformas de Cocina"
+    description="Diseno y construccion de cocinas premium en Valencia y San Diego"
+    serviceType="Kitchen Remodeling"
+  />
 </BaseLayout>
 
 <FAQ items={[

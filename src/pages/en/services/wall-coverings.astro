@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Wall Coverings | Large-Format Porcelain & Decorative Panels in Venezuela"
@@ -185,7 +187,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Wall Coverings"
+    description="Professional installation of decorative wall coverings"
+    serviceType="Wall Coverings"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "What's the difference between porcelain and ceramic tiles?", answer: "Porcelain is denser, more durable, and has lower water absorption than ceramic. It's ideal for high-traffic areas and outdoor use due to its superior durability." },
+  { question: "Do you install large-format porcelain tiles?", answer: "Yes, we specialize in large-format porcelain (up to 320x160 cm). We use professional leveling systems to ensure perfect installation without lippage." },
+  { question: "What are wall panels?", answer: "They're 3D decorative panels made of PVC, wood, or plaster that transform flat walls into textured, dimensional surfaces. Perfect for creating accent walls." },
+  { question: "Does microcement require special maintenance?", answer: "Sealed microcement requires cleaning with neutral products and reapplying sealer every 2-3 years in high-traffic areas to maintain its flawless appearance." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

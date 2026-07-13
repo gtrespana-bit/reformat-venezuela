@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Reformas Integrales | Transformación Completa en Valencia y San Diego"
@@ -225,6 +226,12 @@ import FAQ from '../../components/FAQ.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Reformas Integrales"
+    description="Gestion profesional de reformas integrales de vivienda"
+    serviceType="Whole Home Remodeling"
+  />
 </BaseLayout>
 
 <FAQ items={[

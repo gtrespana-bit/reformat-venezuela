@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 ---
 <BaseLayout 
   title="Piscinas | Construcción, Mantenimiento y Equipos de Filtración" 
@@ -139,6 +140,12 @@ import FAQ from '../../components/FAQ.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Construccion de Piscinas"
+    description="Diseno y construccion de piscinas residenciales"
+    serviceType="Pool Construction"
+  />
 </BaseLayout>
 
 <FAQ items={[

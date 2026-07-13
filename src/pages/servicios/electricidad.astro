@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Servicios Eléctricos | Instalaciones Seguras en Valencia y San Diego"
@@ -261,6 +262,12 @@ import FAQ from '../../components/FAQ.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Instalaciones Electricas"
+    description="Instalaciones electricas seguras y eficientes"
+    serviceType="Electrical Services"
+  />
 </BaseLayout>
 
 <FAQ items={[

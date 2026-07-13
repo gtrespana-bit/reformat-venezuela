@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Bathroom Renovation | Spa-Quality Design in Valencia"
@@ -352,7 +354,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Bathroom Remodeling"
+    description="Complete bathroom transformations with premium fixtures"
+    serviceType="Bathroom Remodeling"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "How long does a complete bathroom renovation take?", answer: "A full bathroom renovation takes between 2 and 4 weeks. This includes demolition, waterproofing, plumbing, electrical work, tiling, and fixture installation." },
+  { question: "What type of waterproofing do you use?", answer: "We apply continuous-layer waterproofing systems with a 10-year warranty, covering shower areas, wet walls, and floors using certified materials." },
+  { question: "Can I keep the current bathroom layout?", answer: "Yes, we can renovate while maintaining the existing layout or propose a new one. Moving fixtures requires plumbing changes and may affect the budget." },
+  { question: "Do you include debris removal?", answer: "Yes, our service includes demolition, debris removal, and final cleaning. We leave your bathroom ready to use without any hassle on your end." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

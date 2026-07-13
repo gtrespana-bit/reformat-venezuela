@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
 ---
 <BaseLayout 
   title="Fontanería | Instalaciones y Reparaciones en Valencia y San Diego" 
@@ -89,6 +90,12 @@ import FAQ from '../../components/FAQ.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Fontaneria"
+    description="Soluciones profesionales en fontaneria"
+    serviceType="Plumbing Services"
+  />
 </BaseLayout>
 
 <FAQ items={[

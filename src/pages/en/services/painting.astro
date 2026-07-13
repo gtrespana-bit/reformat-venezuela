@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 
 <BaseLayout
@@ -336,7 +338,21 @@ activePage="services"
 }
 </script>
 
+
+  <ServiceSchema
+    name="Painting and Finishing"
+    description="Professional painting and decorative finishing services"
+    serviceType="Painting and Finishing"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "What types of paint do you use?", answer: "We use premium, low-VOC paints from top brands that offer excellent coverage, durability, and are safe for your family and the environment." },
+  { question: "Do you offer decorative finishes?", answer: "Yes, we specialize in venetian plaster, microcement, wallpaper installation, textured finishes, and custom decorative techniques for unique spaces." },
+  { question: "How do you prepare surfaces before painting?", answer: "We thoroughly clean, sand, patch holes, apply primer, and protect furniture and floors. Proper preparation ensures a flawless, long-lasting finish." },
+  { question: "Do you paint exterior surfaces?", answer: "Yes, we provide exterior painting services including facades, fences, and outdoor structures using weather-resistant paints designed for Venezuela's climate." }
+]} />
 
 <style>
 .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
 <BaseLayout
   title="Flooring Installation | Porcelain, Laminate, Vinyl & Hardwood in Venezuela"
@@ -198,7 +200,21 @@ import BaseLayout from '../../../layouts/BaseLayout.astro';
   ]
 }
 </script>
+
+  <ServiceSchema
+    name="Flooring Installation"
+    description="Professional installation of all types of flooring"
+    serviceType="Flooring Installation"
+  />
 </BaseLayout>
+
+
+<FAQ title="Frequently Asked Questions" items={[
+  { question: "What types of flooring do you install?", answer: "We install porcelain tiles, ceramic tiles, laminate, vinyl SPC/PVC, engineered wood, and solid hardwood. We help you choose the best option for each space." },
+  { question: "Do you prepare the subfloor before installation?", answer: "Yes, proper subfloor preparation is essential. We level, clean, and apply moisture barriers as needed to ensure a perfect, long-lasting installation." },
+  { question: "How long does flooring installation take?", answer: "For a standard room (20-30 m²), installation takes 2-4 days depending on the material. Larger projects are scheduled with a detailed timeline." },
+  { question: "Do you offer warranties on flooring work?", answer: "Yes, we provide a 2-year installation warranty plus the manufacturer's warranty on materials. We stand behind our work." }
+]} />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }

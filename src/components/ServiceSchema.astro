@@ -1,0 +1,44 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  serviceType: string;
+  areaServed?: string[];
+  image?: string;
+}
+
+const { name, description, serviceType, areaServed = ['Valencia', 'San Diego', 'Carabobo', 'Caracas'], image } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": serviceType,
+  "name": name,
+  "description": description,
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "ReformaT Venezuela",
+    "url": "https://reformat-venezuela.online",
+    "telephone": "+58 412-9449929",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Valencia",
+      "addressRegion": "Carabobo",
+      "addressCountry": "VE"
+    },
+    "areaServed": areaServed.map(city => ({
+      "@type": "City",
+      "name": city
+    }))
+  },
+  ...(image && { "image": `https://reformat-venezuela.online${image}` }),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "47",
+    "bestRating": "5"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
