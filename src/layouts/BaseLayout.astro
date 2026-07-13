@@ -236,6 +236,8 @@ const navItems = isEnglish
       '/en/services/flooring': '/servicios/suelos',
       '/servicios/piscinas': '/en/services/pools',
       '/en/services/pools': '/servicios/piscinas',
+      '/sobre-nosotros': '/en/about-us',
+      '/en/about-us': '/sobre-nosotros',
       '/proyectos': '/en/projects',
       '/en/projects': '/proyectos',
       '/contacto': '/en/contact',
@@ -257,7 +259,7 @@ const navItems = isEnglish
     const langSwitchBtn = document.querySelector('.lang-switch-visible');
     if (langSwitchBtn) {
       langSwitchBtn.addEventListener('click', () => {
-        const currentPath = window.location.pathname;
+        const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
         const newPath = routeMap[currentPath];
         
         if (newPath) {
