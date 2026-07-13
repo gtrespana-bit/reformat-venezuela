@@ -120,7 +120,7 @@ const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
       <div class="gallery-item large">
         <img
           src="/images/cocina.webp"
-          srcset="{getSrcSet('cocina', [400, 800])}"
+          srcset={getSrcSet('cocina', [400, 800])}
           sizes="(max-width: 768px) 100vw, 50vw"
           alt="Cocina reformada con acabados de lujo"
           width="800" height="600"
@@ -284,7 +284,7 @@ const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.85) 100%);
+  background: linear-gradient(180deg, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.65) 100%);
 }
 .hero-content {
   position: relative;
