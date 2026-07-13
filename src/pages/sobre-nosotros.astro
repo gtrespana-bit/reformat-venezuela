@@ -1,60 +1,183 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
+  return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
+};
 ---
 
 <BaseLayout
-  title="Sobre Nosotros | ReformaT Venezuela — Más de 20 Años Transformando Hogares"
-  description="Conoce al equipo de ReformaT Venezuela. Más de 20 años de experiencia en reformas integrales, cocinas y baños en Valencia, San Diego, Carabobo y Caracas. Compromiso, calidad y transparencia."
+  title="Sobre Nosotros | ReformaT Venezuela — Experiencia Europea, Ejecución Local"
+  description="ReformaT nace en España con más de 20 años de trayectoria. Desde hace 2 años operamos en Venezuela aplicando estándares europeos en reformas integrales, cocinas y baños en Valencia, San Diego, Carabobo y Caracas."
   activePage="inicio"
 >
 
 <!-- HERO -->
-<header class="about-hero">
-  <div class="hero-bg" style="background-image: url('/images/equipo-reformat.webp')"></div>
+<header class="page-hero">
+  <img
+    src="/images/integrales-800.webp"
+    srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
+    sizes="100vw"
+    alt="Reforma integral con estándares europeos en Venezuela"
+    class="hero-img"
+    width="1200" height="600"
+    fetchpriority="high"
+  />
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <span class="article-category">Quiénes Somos</span>
-    <h1 class="article-title"><span class="line">Más de 20 Años</span><span class="line gold">Transformando Hogares</span></h1>
-    <p class="article-excerpt">Somos un equipo de profesionales venezolanos dedicados a convertir espacios ordinarios en lugares extraordinarios. Cada reforma cuenta una historia.</p>
+    <span class="tag">Sobre Nosotros</span>
+    <h1 class="hero-title">Experiencia Europea,<br/><span class="gold">Ejecución Local</span></h1>
+    <p class="hero-subtitle">Más de 20 años de trayectoria en España. Desde hace 2 años llevamos estándares europeos al mercado venezolano, transformando hogares con acabados de lujo y técnicas certificadas.</p>
   </div>
 </header>
 
-<!-- SOBRE NOSOTROS INTRO -->
-<section class="about-section">
-  <div class="about-container">
-    <div class="about-body">
-      <h2>Nuestra Historia</h2>
-      <p>ReformaT Venezuela nació de la pasión por el diseño y la construcción funcional. Durante más de dos décadas, hemos transformado cientos de hogares en Valencia, San Diego, Carabobo y Caracas, construyendo confianza proyecto a proyecto.</p>
-      <p>No somos solo contratistas — somos aliados en la creación de los espacios donde ocurren tus mejores momentos. Desde una cocina moderna hasta una reforma integral, cada detalle importa.</p>
-
-      <h2>Nuestra Misión</h2>
-      <p>Entregar reformas de alta calidad con transparencia, cumplimiento de plazos y precios justos. Creemos que cada familia venezolana merece un hogar que les inspire — y trabajamos cada día para hacerlo posible.</p>
-
-      <h2>Nuestra Visión</h2>
-      <p>Ser la empresa líder en reformas del centro de Venezuela, reconocida por la excelencia, la innovación y el compromiso inquebrantable con nuestros clientes.</p>
+<!-- HISTORIA + IMAGEN -->
+<section class="story-section">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-text">
+        <span class="section-tag">Nuestra Historia</span>
+        <h2>De España a Venezuela:<br/>Excelencia Sin Fronteras</h2>
+        <p>ReformaT nació en España como una empresa especializada en reformas integrales de alta calidad. Durante más de dos décadas, construimos una reputación basada en la precisión, el cumplimiento y los acabados impecables que caracterizan la construcción europea.</p>
+        <p>Hace casi 2 años decidimos expandir nuestra experiencia al mercado venezolano, detectando una necesidad real: la falta de empresas que apliquen normativas europeas, respeten los plazos y entreguen acabados de lujo con total transparencia.</p>
+        <p>Hoy operamos en <strong>Valencia, San Diego, Carabobo y Caracas</strong>, adaptando técnicas avanzadas de construcción europea a la arquitectura local, sin sacrificar la calidad que nos define.</p>
+      </div>
+      <div class="story-image">
+        <img
+          src="/images/cocina-800.webp"
+          alt="Cocina reformada con acabados europeos en Venezuela"
+          width="600" height="450"
+          loading="lazy"
+        />
+        <div class="image-badge">
+          <span class="badge-number">20+</span>
+          <span class="badge-text">Años de<br/>Experiencia</span>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <!-- VALORES -->
-    <div class="values-grid">
-      <div class="value-card">
-        <span class="value-icon">✦</span>
-        <h3>Calidad</h3>
-        <p>Materiales premium y profesionales certificados en cada proyecto.</p>
+<!-- DIFERENCIACIÓN -->
+<section class="difference-section">
+  <div class="container">
+    <span class="section-tag light">Por Qué Elegirnos</span>
+    <h2 class="section-title">Estándares Europeos en Venezuela</h2>
+    <p class="section-subtitle">El mercado de construcción y reforma en Venezuela es conocido por la informalidad, los incumplimientos y los acabados deficientes. ReformaT rompe ese patrón.</p>
+
+    <div class="difference-grid">
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+          </svg>
+        </div>
+        <h3>Normativas Europeas</h3>
+        <p>Aplicamos normativas españolas y europeas en cada proyecto: instalaciones eléctricas certificadas, fontanería según estándar, impermeabilización profesional y materiales homologados.</p>
       </div>
-      <div class="value-card">
-        <span class="value-icon">◈</span>
-        <h3>Transparencia</h3>
-        <p>Presupuestos claros, reportes semanales y cero costos sorpresa.</p>
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"/>
+            <polyline points="12 6 12 12 16 14"/>
+          </svg>
+        </div>
+        <h3>Cumplimiento de Plazos</h3>
+        <p>Cada proyecto tiene un cronograma definido y contractual. Entregamos en fecha porque planificamos con precisión y supervisamos cada fase. Sin excusas, sin retrasos injustificados.</p>
       </div>
-      <div class="value-card">
-        <span class="value-icon">◎</span>
-        <h3>Compromiso</h3>
-        <p>Plazos acordados y garantía de 2 años en mano de obra.</p>
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+          </svg>
+        </div>
+        <h3>Presupuestos Transparentes</h3>
+        <p>Presupuestos detallados e itemizados desde el primer día. Sin costos ocultos ni sorpresas. Cada euro y cada bolívar están justificados y documentados.</p>
       </div>
-      <div class="value-card">
-        <span class="value-icon">▣</span>
-        <h3>Innovación</h3>
-        <p>Diseños modernos, tendencias actuales y tecnología de punta.</p>
+      <div class="diff-card">
+        <div class="diff-icon">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+          </svg>
+        </div>
+        <h3>Acabados de Lujo</h3>
+        <p>Porcelanato de gran formato, grifería premium, carpintería a medida, iluminación LED profesional. Cada detalle refleja la calidad que solo la experiencia europea puede ofrecer.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA DE TRABAJOS -->
+<section class="gallery-section">
+  <div class="container">
+    <span class="section-tag">Nuestro Trabajo</span>
+    <h2 class="section-title">Proyectos que Hablan por Nosotros</h2>
+    <p class="section-subtitle">Cada proyecto es una muestra de nuestro compromiso con la excelencia. Acabados perfectos, materiales premium y atención al detalle.</p>
+
+    <div class="gallery-grid">
+      <div class="gallery-item large">
+        <img
+          src="/images/cocina.webp"
+          srcset="{getSrcSet('cocina', [400, 800])}"
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt="Cocina reformada con acabados de lujo"
+          width="800" height="600"
+          loading="lazy"
+        />
+        <div class="gallery-caption">
+          <span>Reforma de Cocina</span>
+          <p>Diseño moderno con materiales premium</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img
+          src="/images/bano-terminado-final.webp"
+          alt="Baño reformado con porcelanato y grifería premium"
+          width="400" height="300"
+          loading="lazy"
+        />
+        <div class="gallery-caption">
+          <span>Baño Completo</span>
+          <p>Porcelanato XL y ducha walk-in</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img
+          src="/images/cocina2.webp"
+          alt="Cocina moderna con diseño europeo"
+          width="400" height="300"
+          loading="lazy"
+        />
+        <div class="gallery-caption">
+          <span>Reforma Integral</span>
+          <p>Transformación completa del espacio</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img
+          src="/images/revestimiento-wall-panels.webp"
+          alt="Revestimiento de paredes con wall panels"
+          width="400" height="300"
+          loading="lazy"
+        />
+        <div class="gallery-caption">
+          <span>Revestimientos</span>
+          <p>Wall panels y acabados decorativos</p>
+        </div>
+      </div>
+      <div class="gallery-item">
+        <img
+          src="/images/suelo-porcelanato.webp"
+          alt="Suelo de porcelanato de gran formato"
+          width="400" height="300"
+          loading="lazy"
+        />
+        <div class="gallery-caption">
+          <span>Suelos Premium</span>
+          <p>Porcelanato de gran formato</p>
+        </div>
       </div>
     </div>
   </div>
@@ -62,89 +185,114 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <!-- PROCESO -->
 <section class="process-section">
-  <div class="about-container">
+  <div class="container">
+    <span class="section-tag">Cómo Trabajamos</span>
     <h2 class="section-title">Nuestro Proceso</h2>
-    <p class="section-subtitle">Desde la primera visita hasta la entrega final — claro y estructurado.</p>
+    <p class="section-subtitle">Metodología probada en más de 500 proyectos en España. Adaptada al mercado venezolano sin perder un ápice de rigor.</p>
 
     <div class="process-steps">
       <div class="step">
         <span class="step-number">01</span>
-        <h3>Visita Inicial</h3>
-        <p>Visitamos tu hogar, escuchamos tus ideas y tomamos medidas sin costo.</p>
+        <div class="step-content">
+          <h3>Visita Técnica Gratuita</h3>
+          <p>Visitamos tu hogar, escuchamos tus necesidades, evaluamos el espacio y tomamos medidas. Sin costo ni compromiso.</p>
+        </div>
       </div>
       <div class="step">
         <span class="step-number">02</span>
-        <h3>Diseño y Presupuesto</h3>
-        <p>Renders 3D, presupuesto detallado y cronograma definido. Sin sorpresas.</p>
+        <div class="step-content">
+          <h3>Diseño y Presupuesto Detallado</h3>
+          <p>Elaboramos renders 3D, presupuesto itemizado con cada partida y cronograma definido. Total transparencia.</p>
+        </div>
       </div>
       <div class="step">
         <span class="step-number">03</span>
-        <h3>Ejecución</h3>
-        <p>Nuestro equipo comienza a trabajar con reportes semanales y un supervisor dedicado.</p>
+        <div class="step-content">
+          <h3>Ejecución Supervisada</h3>
+          <p>Equipo profesional con supervisor dedicado. Reportes semanales de avance y control de calidad en cada fase.</p>
+        </div>
       </div>
       <div class="step">
         <span class="step-number">04</span>
-        <h3>Control de Calidad</h3>
-        <p>Inspección interna antes de la entrega final. Nada se deja al azar.</p>
-      </div>
-      <div class="step">
-        <span class="step-number">05</span>
-        <h3>Entrega y Garantía</h3>
-        <p>Inspección final conjunta, entrega de documentación y garantía de 2 años en mano de obra.</p>
+        <div class="step-content">
+          <h3>Entrega y Garantía</h3>
+          <p>Inspección final conjunta, documentación completa y garantía de 2 años en toda la mano de obra.</p>
+        </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <h2>Certificaciones y Garantías</h2>
-    <ul class="cert-list">
-      <li><strong>Garantía de 2 años</strong> en toda mano de obra</li>
-      <li>Electricistas y fontaneros certificados</li>
-      <li>Materiales premium con garantía del fabricante</li>
-      <li>Soporte técnico post-entrega</li>
-    </ul>
+<!-- CIFRAS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <span class="stat-number">20+</span>
+        <span class="stat-label">Años de Experiencia</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">500+</span>
+        <span class="stat-label">Proyectos en España</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">2</span>
+        <span class="stat-label">Años en Venezuela</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100%</span>
+        <span class="stat-label">Normativa Europea</span>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- CTA -->
 <section class="cta-section">
-  <div class="cta-wrapper">
-    <h2 class="cta-title">¿Listo para Transformar tu Hogar?</h2>
-    <p class="cta-text">Agenda una visita gratuita. Analizaremos tu espacio y prepararemos una propuesta detallada — sin compromiso.</p>
-    <a href="/contacto" class="btn-premium">Solicitar Presupuesto Gratis</a>
+  <div class="container">
+    <div class="cta-content">
+      <h2>¿Listo para una Reforma con Estándares Europeos?</h2>
+      <p>Agenda una visita técnica gratuita. Analizaremos tu espacio y prepararemos una propuesta detallada con presupuestos transparentes y plazos garantizados.</p>
+      <div class="cta-buttons">
+        <a href="/contacto" class="btn-premium btn-primary-premium">Solicitar Presupuesto</a>
+        <a href="https://wa.me/584227997043?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20reforma" target="_blank" rel="noopener" class="btn-premium btn-outline-premium">WhatsApp Directo</a>
+      </div>
+    </div>
   </div>
 </section>
 
 </BaseLayout>
 
 <style>
-/* === HERO (dark, matches site style) === */
-.about-hero {
+/* === HERO === */
+.page-hero {
   position: relative;
-  min-height: 65vh;
+  min-height: 70vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 140px 24px 80px;
   overflow: hidden;
 }
-.hero-bg {
+.hero-img {
   position: absolute;
   inset: 0;
-  background-size: cover;
-  background-position: center;
-  filter: brightness(0.3);
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.6) 0%, rgba(10,10,10,0.85) 100%);
+  background: linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.85) 100%);
 }
 .hero-content {
   position: relative;
   z-index: 1;
   max-width: 800px;
+  padding: 140px 24px 80px;
 }
-.article-category {
+.tag {
   display: inline-block;
   font-family: var(--font-sans, 'Manrope', sans-serif);
   font-size: 0.75rem;
@@ -154,7 +302,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   color: var(--gold, #c9a961);
   margin-bottom: 20px;
 }
-.article-title {
+.hero-title {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
   font-size: clamp(2.4rem, 5vw, 4rem);
   font-weight: 400;
@@ -162,79 +310,153 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   color: #fff;
   margin-bottom: 24px;
 }
-.article-title .line { display: block; }
-.article-title .gold { color: var(--gold, #c9a961); }
-.article-excerpt {
+.hero-title .gold { color: var(--gold, #c9a961); }
+.hero-subtitle {
   font-size: 1.15rem;
   line-height: 1.7;
   color: rgba(255,255,255,0.8);
-  max-width: 600px;
+  max-width: 650px;
   margin: 0 auto;
 }
 
-/* === ABOUT SECTION (white background) === */
-.about-section {
+/* === STORY SECTION === */
+.story-section {
   background: #fff;
-  padding: 80px 24px;
+  padding: 90px 24px;
 }
-.about-container {
-  max-width: 960px;
+.container {
+  max-width: 1100px;
   margin: 0 auto;
 }
-.about-body h2 {
+.story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.section-tag {
+  display: inline-block;
+  font-family: var(--font-sans, 'Manrope', sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold, #c9a961);
+  margin-bottom: 16px;
+}
+.section-tag.light { color: var(--gold, #c9a961); }
+.story-text h2 {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 1.8rem;
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
   font-weight: 400;
   color: var(--text, #2a2a2a);
-  margin: 40px 0 16px;
+  margin-bottom: 24px;
+  line-height: 1.2;
 }
-.about-body h2:first-child { margin-top: 0; }
-.about-body p {
+.story-text p {
   font-size: 1.05rem;
   line-height: 1.8;
   color: var(--text-light, #555);
   margin-bottom: 16px;
 }
+.story-image {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.story-image img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.image-badge {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: var(--gold, #c9a961);
+  color: #0a0a0a;
+  padding: 16px 20px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.badge-number {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.badge-text {
+  font-size: 0.75rem;
+  font-weight: 600;
+  line-height: 1.3;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
 
-/* === VALUES GRID === */
-.values-grid {
+/* === DIFFERENCE SECTION === */
+.difference-section {
+  background: var(--bg, #0a0a0a);
+  padding: 90px 24px;
+}
+.difference-section .section-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  text-align: center;
+  color: #fff;
+  margin-bottom: 12px;
+}
+.difference-section .section-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+}
+.difference-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
-  margin-top: 50px;
 }
-.value-card {
-  background: #f8f7f4;
-  border: 1px solid rgba(0,0,0,0.06);
+.diff-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 12px;
-  padding: 32px 28px;
-  text-align: center;
+  padding: 36px 32px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
 }
-.value-icon {
-  display: block;
-  font-size: 1.6rem;
+.diff-card:hover {
+  border-color: var(--gold, #c9a961);
+  transform: translateY(-4px);
+}
+.diff-icon {
   color: var(--gold, #c9a961);
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 }
-.value-card h3 {
+.diff-card h3 {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
   font-size: 1.3rem;
   font-weight: 500;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 8px;
+  color: #fff;
+  margin-bottom: 10px;
 }
-.value-card p {
+.diff-card p {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-light, #555);
+  color: rgba(255,255,255,0.65);
 }
 
-/* === PROCESS SECTION (light cream) === */
-.process-section {
+/* === GALLERY SECTION === */
+.gallery-section {
   background: #f8f7f4;
-  padding: 80px 24px;
+  padding: 90px 24px;
 }
-.section-title {
+.gallery-section .section-title {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
   font-size: clamp(1.8rem, 3.5vw, 2.6rem);
   font-weight: 400;
@@ -242,88 +464,171 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   color: var(--text, #2a2a2a);
   margin-bottom: 12px;
 }
-.section-subtitle {
+.gallery-section .section-subtitle {
   text-align: center;
   font-size: 1.05rem;
   color: var(--text-light, #555);
-  margin-bottom: 50px;
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.gallery-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.gallery-item.large {
+  grid-column: span 2;
+  grid-row: span 2;
+  aspect-ratio: auto;
+}
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+.gallery-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.85));
+  padding: 30px 20px 16px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.gallery-item:hover .gallery-caption {
+  opacity: 1;
+}
+.gallery-caption span {
+  display: block;
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.gallery-caption p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+}
+
+/* === PROCESS SECTION === */
+.process-section {
+  background: #fff;
+  padding: 90px 24px;
+}
+.process-section .section-title {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+  font-weight: 400;
+  text-align: center;
+  color: var(--text, #2a2a2a);
+  margin-bottom: 12px;
+}
+.process-section .section-subtitle {
+  text-align: center;
+  font-size: 1.05rem;
+  color: var(--text-light, #555);
+  max-width: 600px;
+  margin: 0 auto 50px;
+  line-height: 1.7;
 }
 .process-steps {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-bottom: 50px;
+  max-width: 750px;
+  margin: 0 auto;
 }
 .step {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  background: #fff;
+  gap: 24px;
+  background: #f8f7f4;
   border: 1px solid rgba(0,0,0,0.06);
   border-radius: 12px;
-  padding: 24px 28px;
+  padding: 28px 32px;
+  transition: border-color 0.3s ease;
+}
+.step:hover {
+  border-color: var(--gold, #c9a961);
 }
 .step-number {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   font-weight: 400;
   color: var(--gold, #c9a961);
-  min-width: 50px;
+  min-width: 55px;
   line-height: 1;
 }
-.step h3 {
+.step-content h3 {
   font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: var(--text, #2a2a2a);
-  margin-bottom: 6px;
+  margin-bottom: 8px;
 }
-.step p {
+.step-content p {
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--text-light, #555);
   margin: 0;
 }
 
-.process-section h2 {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 1.6rem;
-  font-weight: 400;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 16px;
+/* === STATS SECTION === */
+.stats-section {
+  background: var(--gold, #c9a961);
+  padding: 60px 24px;
 }
-.cert-list {
-  list-style: none;
-  padding: 0;
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  text-align: center;
+}
+.stat-item {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 6px;
 }
-.cert-list li {
-  font-size: 1rem;
-  color: var(--text-light, #555);
-  padding-left: 24px;
-  position: relative;
-}
-.cert-list li::before {
-  content: '✓';
-  position: absolute;
-  left: 0;
-  color: var(--gold, #c9a961);
+.stat-number {
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-size: clamp(2.2rem, 4vw, 3rem);
   font-weight: 700;
+  color: #0a0a0a;
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-sans, 'Manrope', sans-serif);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: rgba(10,10,10,0.7);
 }
 
-/* === CTA (dark, matches site) === */
+/* === CTA SECTION === */
 .cta-section {
   background: var(--bg, #0a0a0a);
   padding: 100px 24px;
   text-align: center;
 }
-.cta-wrapper {
+.cta-content {
   max-width: 700px;
   margin: 0 auto;
 }
-.cta-title {
+.cta-content h2 {
   font-family: var(--font-serif, 'Cormorant Garamond', serif);
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 400;
@@ -331,37 +636,60 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   margin-bottom: 20px;
   line-height: 1.2;
 }
-.cta-text {
+.cta-content p {
   font-size: 1.1rem;
   line-height: 1.7;
   color: rgba(255,255,255,0.75);
   margin-bottom: 36px;
 }
+.cta-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 .btn-premium {
   display: inline-block;
-  background: var(--gold, #c9a961);
-  color: #0a0a0a;
   font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 16px 44px;
+  padding: 16px 40px;
   border-radius: 4px;
   text-decoration: none;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
 }
-.btn-premium:hover {
+.btn-primary-premium {
+  background: var(--gold, #c9a961);
+  color: #0a0a0a;
+}
+.btn-primary-premium:hover {
   background: var(--gold-light, #e6d3a7);
+}
+.btn-outline-premium {
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+.btn-outline-premium:hover {
+  border-color: var(--gold, #c9a961);
+  color: var(--gold, #c9a961);
 }
 
 /* === RESPONSIVE === */
 @media (max-width: 768px) {
-  .about-hero { min-height: 55vh; padding: 120px 20px 60px; }
-  .about-body h2 { font-size: 1.5rem; }
-  .values-grid { grid-template-columns: 1fr; }
-  .step { flex-direction: column; gap: 8px; }
-  .step-number { font-size: 1.8rem; min-width: auto; }
+  .page-hero { min-height: 55vh; }
+  .hero-content { padding: 120px 20px 60px; }
+  .story-grid { grid-template-columns: 1fr; gap: 40px; }
+  .story-image img { height: 300px; }
+  .difference-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .gallery-item.large { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+  .step { flex-direction: column; gap: 12px; }
+  .step-number { font-size: 2rem; min-width: auto; }
   .cta-section { padding: 80px 20px; }
+  .cta-buttons { flex-direction: column; align-items: center; }
 }
 </style>
