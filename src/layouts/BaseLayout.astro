@@ -95,7 +95,12 @@ const navItems = isEnglish
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- Hreflang: indicar a Google las versiones en cada idioma -->
+    <!-- Preload fuentes críticas (woff2 self-hosted) -->
+  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+<!-- Hreflang: indicar a Google las versiones en cada idioma -->
   <link rel="canonical" href={`${siteBase}${currentPath}`} />
   <link rel="alternate" hreflang="es" href={esHref} />
   <link rel="alternate" hreflang="en" href={enHref} />
