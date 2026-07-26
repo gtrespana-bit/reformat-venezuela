@@ -2,19 +2,19 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const services = [
-  { slug: "cocinas", title: "Reformas de Cocina", desc: "Diseñamos cocinas funcionales.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Diseño personalizado", "Materiales premium"] },
-  { slug: "banos", title: "Reformas de Baño", desc: "Espacios de bienestar.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Impermeabilización", "Diseño spa"] },
-  { slug: "integrales", title: "Reformas Integrales", desc: "Transformación completa.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Proyecto completo", "Gestión de permisos"] },
-  { slug: "electricidad", title: "Servicios Eléctricos", desc: "Instalaciones seguras.", image: "/images/electricidad-800.webp", srcset: "/images/electricidad-400.webp 400w, /images/electricidad-800.webp 800w", features: ["Certificada", "Domótica"] },
-  { slug: "fontaneria", title: "Fontanería", desc: "Soluciones profesionales.", image: "/images/fontaneria-800.webp", srcset: "/images/fontaneria-400.webp 400w, /images/fontaneria-800.webp 800w", features: ["Detección fugas", "Grifería"] },
-  { slug: "pintura-acabados", title: "Pintura y Acabados", desc: "Acabados perfectos.", image: "/images/pintura-800.webp", srcset: "/images/pintura-400.webp 400w, /images/pintura-800.webp 800w", features: ["Decorativa", "Microcemento"] },
-  { slug: "revestimientos", title: "Revestimientos", desc: "Paredes con estilo.", image: "/images/revestimientos-800.webp", srcset: "/images/revestimientos-400.webp 400w, /images/revestimientos-800.webp 800w", features: ["Porcelanato XL", "Wall Panels"] },
-  { slug: "suelos", title: "Suelos", desc: "Pavimentos duraderos.", image: "/images/suelo-porcelanato-800.webp", srcset: "/images/suelo-porcelanato-400.webp 400w, /images/suelo-porcelanato-800.webp 800w", features: ["Laminado", "Vinílico", "Madera"] },
-  { slug: "piscinas", title: "Piscinas", desc: "Construcción y mantenimiento.", image: "/images/piscinas-800.webp", srcset: "/images/piscinas-400.webp 400w, /images/piscinas-800.webp 800w", features: ["Construcción", "Filtración"] }
+  { slug: "remodelacion-cocina", title: "Remodelación de Cocinas", desc: "Diseñamos cocinas funcionales y modernas.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Diseño personalizado", "Materiales premium"] },
+  { slug: "remodelacion-bano", title: "Remodelación de Baños", desc: "Espacios de bienestar y confort.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Impermeabilización", "Diseño spa"] },
+  { slug: "remodelacion-integral", title: "Remodelación Integral", desc: "Transformación completa de tu hogar.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Proyecto completo", "Gestión de permisos"] },
+  { slug: "instalacion-electrica", title: "Instalación Eléctrica", desc: "Instalaciones seguras y certificadas.", image: "/images/electricidad-800.webp", srcset: "/images/electricidad-400.webp 400w, /images/electricidad-800.webp 800w", features: ["Certificada", "Domótica"] },
+  { slug: "fontaneria-plomeria", title: "Fontanería y Plomería", desc: "Soluciones profesionales de plomería.", image: "/images/fontaneria-800.webp", srcset: "/images/fontaneria-400.webp 400w, /images/fontaneria-800.webp 800w", features: ["Detección fugas", "Grifería"] },
+  { slug: "pintura-acabados", title: "Pintura y Acabados", desc: "Acabados perfectos para tus espacios.", image: "/images/pintura-800.webp", srcset: "/images/pintura-400.webp 400w, /images/pintura-800.webp 800w", features: ["Decorativa", "Microcemento"] },
+  { slug: "revestimientos-pared", title: "Revestimientos de Pared", desc: "Paredes con estilo y durabilidad.", image: "/images/revestimientos-800.webp", srcset: "/images/revestimientos-400.webp 400w, /images/revestimientos-800.webp 800w", features: ["Porcelanato XL", "Wall Panels"] },
+  { slug: "instalacion-pisos", title: "Instalación de Pisos", desc: "Pavimentos duraderos y elegantes.", image: "/images/suelo-porcelanato-800.webp", srcset: "/images/suelo-porcelanato-400.webp 400w, /images/suelo-porcelanato-800.webp 800w", features: ["Laminado", "Vinílico", "Madera"] },
+  { slug: "piscinas-mantenimiento", title: "Piscinas y Mantenimiento", desc: "Construcción y mantenimiento de piscinas.", image: "/images/piscinas-800.webp", srcset: "/images/piscinas-400.webp 400w, /images/piscinas-800.webp 800w", features: ["Construcción", "Filtración"] }
 ];
 ---
 
-<BaseLayout title="Servicios | ReformaT Venezuela" description="Soluciones completas en reformas." activePage="servicios">
+<BaseLayout title="Servicios de Remodelación en Venezuela | ReformaT" description="Servicios profesionales de remodelación de cocinas, baños, pisos y más en Valencia, San Diego, Caracas y La Guaira. Presupuestos gratis." activePage="servicios">
   <header class="page-hero">
     <!-- LCP IMAGE: Local, discoverable immediately from HTML -->
     <img
@@ -31,18 +31,18 @@ const services = [
     />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-tag">Lo Que Hacemos</span>
-      <h1 class="page-title">Soluciones de <span class="gold">Reforma Integral</span></h1>
-      <p class="page-subtitle">Más de 20 años transformando espacios en Valencia y San Diego.</p>
+      <span class="hero-tag">Nuestros Servicios</span>
+      <h1 class="page-title">Servicios de <span class="gold">Remodelación en Venezuela</span></h1>
+      <p class="page-subtitle">Más de 20 años transformando hogares en Valencia, San Diego, Caracas y La Guaira.</p>
     </div>
   </header>
 
   <section class="services-page">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Nuestros Servicios</span>
-        <h2 class="section-title">Transformamos Cada Rincón de Tu Hogar</h2>
-        <p class="section-desc">Soluciones completas desde reformas parciales hasta proyectos integrales.</p>
+        <span class="tag">Servicios Profesionales</span>
+        <h2 class="section-title">Transformamos Cada Rincón de Tu Hogar en Venezuela</h2>
+        <p class="section-desc">Soluciones completas de remodelación desde proyectos parciales hasta remodelaciones integrales. Trabajamos en Valencia, San Diego, Caracas y La Guaira.</p>
       </div>
       <div class="services-vertical-grid">
         {services.map((svc, index) => (
