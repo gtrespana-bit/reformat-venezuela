@@ -718,54 +718,39 @@ Con más de 15 años de experiencia en el **Distrito Capital**, conocemos las pa
     background: var(--gray);
   }
   
-  /* CTA Final - Fixed with brand colors */
-  .cta-final {
-    background: linear-gradient(135deg, var(--dark-blue) 0%, var(--navy) 100%);
+  /* CTA Final Section - Fixed with brand colors and image background */
+  .cta-section {
+    background: linear-gradient(135deg, rgba(26, 54, 93, 0.95) 0%, rgba(15, 39, 68, 0.95) 100%), url('/images/cocina-iluminacion-capas.webp') center/cover;
+    background-blend-mode: multiply;
     color: white;
     padding: 100px 0;
     text-align: center;
     position: relative;
     overflow: hidden;
   }
-  
-  .cta-final::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: url('/images/cocina-iluminacion-capas.webp') center/cover;
-    opacity: 0.15;
-  }
-  
-  .cta-final .container {
+
+  .cta-wrapper {
     position: relative;
     z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
   }
-  
-  .cta-final h2 {
+
+  .cta-title {
     font-family: var(--font-serif);
     font-size: clamp(2.2rem, 5vw, 3.5rem);
     margin-bottom: 20px;
     color: var(--white);
+    line-height: 1.2;
   }
-  
-  .cta-final p {
+
+  .cta-text {
     font-size: clamp(1.1rem, 2vw, 1.3rem);
     margin-bottom: 40px;
     opacity: 0.95;
-    max-width: 650px;
-    margin-left: auto;
-    margin-right: auto;
-    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.7;
   }
-  
-  .cta-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
   }
   
   /* WhatsApp Button Premium Style */
