@@ -1,435 +1,686 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
+import { getCollection } from 'astro:content';
 
-const city = 'Valencia';
-const state = 'Carabobo';
-const services = [
-  {
-    title: 'Remodelación de Cocinas',
-    description: 'Diseños modernos y funcionales para tu cocina en Valencia. Encimeras de granito, gabinetes personalizados y más.',
-    slug: '/servicios/remodelacion-cocina'
-  },
-  {
-    title: 'Remodelación de Baños',
-    description: 'Transformamos tu baño con acabados de primera calidad. Porcelanatos, grifería moderna y diseño optimizado.',
-    slug: '/servicios/remodelacion-bano'
-  },
-  {
-    title: 'Remodelación Integral',
-    description: 'Renovación completa de apartamentos y casas en Valencia. Proyecto llave en mano con garantía incluida.',
-    slug: '/servicios/remodelacion-integral'
-  },
-  {
-    title: 'Instalación Eléctrica',
-    description: 'Electricistas certificados en Valencia. Instalaciones residenciales y comerciales con normativa CNE.',
-    slug: '/servicios/instalacion-electrica'
-  },
-  {
-    title: 'Fontanería y Plomería',
-    description: 'Reparación e instalación de tuberías, baños y cocinas. Atención de emergencias 24/7 en Valencia.',
-    slug: '/servicios/fontaneria-plomeria'
-  },
-  {
-    title: 'Pintura y Acabados',
-    description: 'Pintura profesional interior y exterior. Acabados perfectos, texturas decorativas y impermeabilización.',
-    slug: '/servicios/pintura-acabados'
-  },
-  {
-    title: 'Revestimientos de Pared',
-    description: 'Porcelanato gran formato, paneles 3D, piedra natural y microcemento para paredes en Valencia.',
-    slug: '/servicios/revestimientos-pared'
-  },
-  {
-    title: 'Instalación de Pisos',
-    description: 'Pisos laminados, porcelanato y madera. Instalación profesional con garantía en Valencia.',
-    slug: '/servicios/instalacion-pisos'
-  },
-  {
-    title: 'Piscinas y Mantenimiento',
-    description: 'Construcción, reparación y mantenimiento de piscinas. Tratamiento de agua y bombas en Valencia.',
-    slug: '/servicios/piscinas-mantenimiento'
-  }
-];
+const services = await getCollection('services');
 
-const testimonials = [
-  {
-    name: 'Roberto Fernández',
-    location: 'El Trigal, Valencia',
-    text: 'Excelente servicio en la remodelación de mi apartamento. Muy profesionales y cumplidores con los tiempos.',
-    rating: 5
-  },
-  {
-    name: 'Carmen López',
-    location: 'San Marino, Valencia',
-    text: 'Transformaron mi cocina completamente. La atención al detalle fue increíble. Súper recomendados.',
-    rating: 5
-  },
-  {
-    name: 'Luis Herrera',
-    location: 'Ciudad Jardín, Valencia',
-    text: 'Necesitaba reparación eléctrica urgente y me atendieron el mismo día. Servicio rápido y confiable.',
-    rating: 5
-  }
-];
+const cityData = {
+  name: "Caracas",
+  state: "Distrito Capital",
+  title: "Remodelaciones en Caracas | Expertos en Distrito Capital 2026",
+  description: "Especialistas en remodelación de apartamentos, casas y oficinas en Caracas. Trabajamos en Chacao, Baruta, El Hatillo, Sucre y toda el área metropolitana. Presupuestos sin compromiso.",
+  h1: "Remodelaciones en Caracas - Distrito Capital",
+  intro: `¿Buscas expertos en **remodelaciones en Caracas**? En ReformaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.
 
-const neighborhoods = [
-  'El Trigal', 'San Marino', 'Ciudad Jardín', 'Las Chimeneas', 
-  'Hacienda El Castaño', 'Altos de Valencia', 'La Morada', 
-  'Residencias El Viñedo', 'Portal de Valencia', 'Quinta Valencia',
-  'Centro de Valencia', 'Zona Industrial Valencia'
-];
+Con más de 15 años de experiencia en el **Distrito Capital**, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.`,
+  zones: [
+    "Chacao (Altamira, Los Palos Grandes, Chuao)",
+    "Baruta (El Cafetal, Las Mercedes, La Trinidad)",
+    "El Hatillo (El Retorno, Barlovento)",
+    "Sucre (Petare, Bello Monte, Los Caobos)",
+    "Libertador (El Centro, La Candelaria, San Bernardino)",
+    "El Ávila, Montalbán, El Paraíso, Los Chaguaramos"
+  ],
+  prices: {
+    cocina: "Desde $1.800 USD",
+    bano: "Desde $950 USD",
+    integral: "Desde $150 USD/m²"
+  },
+  testimonials: [
+    {
+      name: "María Fernanda Torres",
+      location: "Altamira, Chacao",
+      text: "Excelente trabajo en mi apartamento de Altamira. Cumplieron con los tiempos y el acabado fue impecable. Totalmente recomendados."
+    },
+    {
+      name: "Carlos Andrés Pérez",
+      location: "Las Mercedes, Baruta",
+      text: "Remodelaron mi oficina en Las Mercedes de manera profesional. El equipo fue muy respetuoso y limpio durante toda la obra."
+    }
+  ]
+};
 ---
 
 <BaseLayout
-  title={`Remodelaciones en Valencia, Carabobo | Precios 2026 - ReformaT Venezuela`}
-  description={`Expertos en remodelación de cocinas, baños y apartamentos en Valencia, Carabobo. Atendemos El Trigal, San Marino, Ciudad Jardín y toda la ciudad. Presupuestos gratis. ✓ Paga en $ o Bs. ✓ Garantía escrita.`}
-  canonical="/valencia"
-  keywords="remodelaciones san diego carabobo, remodelacion de cocinas san diego, remodelacion de banos san diego, reforma de apartamentos san diego, electricistas san diego, plomeros san diego, pisos san diego, pintura san diego, precios remodelacion venezuela 2026"
-  ogImage="/images/og-valencia.jpg"
+  title={cityData.title}
+  description={cityData.description}
+  image="/og-caracas.jpg"
+  canonical={`https://reformat-venezuela.online/caracas`}
+  schemaType="LocalBusiness"
 >
-  <!-- Hero Section -->
-  <section class="py-20 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto text-center">
-        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
-          Remodelaciones Profesionales en <span class="text-primary">Valencia, Carabobo</span>
-        </h1>
-        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-          Expertos en transformación de espacios residenciales y comerciales en Valencia y área metropolitana de Valencia. 
-          Más de 15 años creando hogares soñados en El Trigal, San Marino, Ciudad Jardín y todas las urbanizaciones de la ciudad.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
-            Solicitar Presupuesto Gratis
-            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-            </svg>
-          </a>
-          <a href="https://wa.me/584123456789" class="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
-            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-            </svg>
-            WhatsApp Directo
-          </a>
-        </div>
+  <main class="city-page">
+    <!-- Hero Section -->
+    <section class="hero-city">
+      <div class="container">
+        <h1>{cityData.h1}</h1>
+        <p class="lead">Especialistas en remodelación de apartamentos, casas y oficinas en todo el Distrito Capital</p>
+        <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto Gratis</a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Why Choose Us -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-          ¿Por Qué Elegir ReformaT en Valencia?
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Somos la empresa líder en remodelaciones en Carabobo con estándares internacionales
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Garantía Escrita</h3>
-          <p class="text-gray-600">Todos nuestros trabajos cuentan con garantía por escrito hasta por 2 años</p>
-        </div>
-        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Precios Transparentes</h3>
-          <p class="text-gray-600">Presupuestos detallados sin sorpresas. Aceptamos dólares y bolívares al BCV</p>
-        </div>
-        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Cumplimiento</h3>
-          <p class="text-gray-600">Entregas puntuales según cronograma. Tu tiempo es importante para nosotros</p>
-        </div>
-        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
-          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
-            </svg>
-          </div>
-          <h3 class="text-lg font-semibold mb-2">Personal Calificado</h3>
-          <p class="text-gray-600">Equipo verificado, con experiencia y referencias comprobables en Valencia</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-          Nuestros Servicios en Valencia
-        </h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Soluciones integrales para todos tus proyectos de remodelación en Carabobo
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {services.map((service) => (
-          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
-            <div class="p-6">
-              <h3 class="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
-              <p class="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
-              <a href={service.slug} class="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
-                Saber más
-                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </a>
+    <!-- Intro Section -->
+    <section class="intro-section">
+      <div class="container">
+        <div class="content-grid">
+          <div class="text-content">
+            <h2>Expertos en Remodelaciones en Caracas</h2>
+            <p set:html={cityData.intro}></p>
+            
+            <div class="trust-badges">
+              <div class="badge">
+                <span class="icon">✓</span>
+                <span>Más de 15 años en Caracas</span>
+              </div>
+              <div class="badge">
+                <span class="icon">✓</span>
+                <span>Conocemos normativas de condominios</span>
+              </div>
+              <div class="badge">
+                <span class="icon">✓</span>
+                <span>Garantía por escrito</span>
+              </div>
             </div>
           </div>
-        ))}
-      </div>
-      <div class="text-center mt-12">
-        <a href="/servicios" class="inline-flex items-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all font-semibold">
-          Ver Todos los Servicios
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Coverage Areas -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
-          Zonas que Atendemos en Valencia
-        </h2>
-        <p class="text-xl text-gray-600 text-center mb-8">
-          Llegamos a todas las urbanizaciones y sectores de Valencia y Valencia
-        </p>
-        <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
-          <div class="flex flex-wrap gap-3 justify-center">
-            {neighborhoods.map((neighborhood) => (
-              <span class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 font-medium border border-gray-200">
-                {neighborhood}
-              </span>
-            ))}
+          <div class="image-content">
+            <img 
+              src="/images/remodelacion-cocina.webp" 
+              alt="Remodelación de cocina en Caracas"
+              loading="lazy"
+              width="500"
+              height="350"
+            />
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Pricing Guide -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
-          Precios Referenciales 2026 en Valencia
-        </h2>
-        <p class="text-xl text-gray-600 text-center mb-12">
-          Precios competitivos en dólares americanos. Aceptamos bolívares al tasa BCV del día.
-        </p>
-        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Remodelación de Cocina</h3>
-            <p class="text-3xl font-bold text-primary mb-4">desde $800</p>
-            <ul class="space-y-2 text-gray-600">
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Gabinetes personalizados
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Encimeras de granito
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Instalación incluida
-              </li>
+    <!-- Services Section -->
+    <section class="services-section">
+      <div class="container">
+        <h2>Nuestros Servicios de Remodelación en Caracas</h2>
+        <p class="section-subtitle">Soluciones integrales para apartamentos, casas y oficinas en el Distrito Capital</p>
+        
+        <div class="services-grid">
+          {services.slice(0, 6).map((service) => (
+            <div class="service-card bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+              <div class="p-6">
+                <h3 class="text-xl font-bold mb-3 text-gray-900">{service.data.title}</h3>
+                <p class="text-gray-600 mb-4 leading-relaxed">{service.data.description}</p>
+                <a href={`/servicios/${service.slug}`} class="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
+                  Saber más
+                  <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+        
+        <div class="cta-center">
+          <a href="/servicios" class="btn btn-secondary">Ver Todos los Servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Zones Section -->
+    <section class="zones-section">
+      <div class="container">
+        <h2>Zonas que Atendemos en Caracas</h2>
+        <p class="section-subtitle">Llegamos a todos los municipios del Distrito Capital y área metropolitana</p>
+        
+        <div class="zones-grid">
+          {cityData.zones.map((zone) => (
+            <div class="zone-card">
+              <span class="icon">📍</span>
+              <span>{zone}</span>
+            </div>
+          ))}
+        </div>
+        
+        <div class="info-box">
+          <h3>¿Trabajas en otros municipios de Caracas?</h3>
+          <p>Sí, atendemos todas las parroquias del Distrito Capital y municipios adyacentes como Petare, Catia, El Valle, Antímano, Caricuao, etc. ¡Consúltanos!</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing-section">
+      <div class="container">
+        <h2>Precios de Remodelación en Caracas 2026</h2>
+        <p class="section-subtitle">Precios referenciales en dólares americanos (USD)</p>
+        
+        <div class="pricing-grid">
+          <div class="price-card">
+            <h3>Remodelación de Cocina</h3>
+            <div class="price">{cityData.prices.cocina}</div>
+            <ul>
+              <li>Diseño 3D incluido</li>
+              <li>Gabinetes a medida</li>
+              <li>Instalación de granito o cuarzo</li>
+              <li>Plomería y electricidad básica</li>
             </ul>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Remodelación de Baño</h3>
-            <p class="text-3xl font-bold text-primary mb-4">desde $450</p>
-            <ul class="space-y-2 text-gray-600">
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Porcelanato incluido
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Grifería moderna
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Plomería y acabados
-              </li>
+          
+          <div class="price-card featured">
+            <div class="badge-popular">Más Popular</div>
+            <h3>Remodelación de Baño</h3>
+            <div class="price">{cityData.prices.bano}</div>
+            <ul>
+              <li>Demolición incluida</li>
+              <li>Porcelanato antideslizante</li>
+              <li>Sanitarios modernos</li>
+              <li>Duchas de vidrio templado</li>
             </ul>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Pintura Interior</h3>
-            <p class="text-3xl font-bold text-primary mb-4">desde $2.50/m²</p>
-            <ul class="space-y-2 text-gray-600">
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Pintura premium
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Preparación de paredes
-              </li>
-              <li class="flex items-start">
-                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                </svg>
-                Limpieza final
-              </li>
+          
+          <div class="price-card">
+            <h3>Remodelación Integral</h3>
+            <div class="price">{cityData.prices.integral}</div>
+            <ul>
+              <li>Proyectos desde 30m²</li>
+              <li>Llave en mano</li>
+              <li>Supervisión constante</li>
+              <li>Entrega en tiempo récord</li>
             </ul>
           </div>
         </div>
-        <p class="text-center text-gray-500 mt-8 text-sm">
-          * Precios referenciales sujetos a evaluación del proyecto. Solicita tu presupuesto personalizado sin costo.
-        </p>
+        
+        <div class="pricing-note">
+          <p><strong>Nota:</strong> Precios sujetos a evaluación previa. Aceptamos pagos en efectivo (USD), transferencia bancaria, Zelle y Pago Móvil al cambio del BCV.</p>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Testimonials -->
-  <section class="py-16 bg-white">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-12">
-        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
-          Lo Que Dicen Nuestros Clientes en Valencia
-        </h2>
-        <p class="text-xl text-gray-600">
-          Historias reales de transformaciones exitosas en Carabobo
-        </p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        {testimonials.map((testimonial) => (
-          <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
-            <div class="flex mb-4">
-              {[...Array(testimonial.rating)].map((_, i) => (
-                <svg key={i} class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
-                </svg>
-              ))}
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+      <div class="container">
+        <h2>Lo Que Dicen Nuestros Clientes en Caracas</h2>
+        
+        <div class="testimonials-grid">
+          {cityData.testimonials.map((testimonial) => (
+            <div class="testimonial-card">
+              <div class="stars">★★★★★</div>
+              <p class="text">"{testimonial.text}"</p>
+              <div class="author">
+                <strong>{testimonial.name}</strong>
+                <span>{testimonial.location}</span>
+              </div>
             </div>
-            <p class="text-gray-700 mb-4 italic leading-relaxed">"{testimonial.text}"</p>
-            <div class="border-t pt-4">
-              <p class="font-bold text-gray-900">{testimonial.name}</p>
-              <p class="text-sm text-gray-600">{testimonial.location}</p>
-            </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- FAQ Section -->
-  <section class="py-16 bg-gray-50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
-          Preguntas Frecuentes en Valencia
-        </h2>
+    <!-- FAQ Section -->
+    <section class="faq-section">
+      <div class="container">
+        <h2>Preguntas Frecuentes sobre Remodelaciones en Caracas</h2>
+        
         <FAQ items={[
-          { question: "¿Cuáles son las formas de pago en Valencia?", answer: "Aceptamos pagos en dólares en efectivo, transferencias bancarias en USD, Zelle, y bolívares al tipo de cambio BCV del día. También ofrecemos planes de financiamiento para proyectos grandes." },
-          { question: "¿Cuánto tiempo tarda una remodelación típica en Valencia?", answer: "Depende del proyecto: una cocina toma 2-3 semanas, un baño 1-2 semanas, y una remodelación integral de apartamento puede tomar 6-10 semanas. Siempre entregamos un cronograma detallado antes de comenzar." },
-          { question: "¿Necesito permisos municipales en Valencia?", answer: "Para remodelaciones internas generalmente no se requieren permisos. Para modificaciones estructurales o fachadas, gestionamos los permisos ante la Alcaldía de Valencia por ti." },
-          { question: "¿La garantía es válida en toda Valencia?", answer: "Sí, nuestra garantía escrita cubre todos nuestros trabajos en Valencia, Valencia y toda la región de Carabobo. Incluye mano de obra y materiales por el período especificado." },
-          { question: "¿Trabajan los fines de semana en Valencia?", answer: "Sí, podemos coordinar trabajos sábados y domingos según las normativas de cada urbanización. Algunos edificios tienen restricciones de horario que respetamos." }
+          { 
+            question: "¿Cuánto tiempo tarda una remodelación en Caracas?", 
+            answer: "Depende del tipo de proyecto. Una cocina o baño toma entre 2-4 semanas. Una remodelación integral de apartamento puede tomar 6-12 semanas. Siempre entregamos cronograma detallado." 
+          },
+          { 
+            question: "¿Trabajan con permisos de condominios en Caracas?", 
+            answer: "Sí, gestionamos todos los permisos requeridos por tu condominio. Conocemos las normativas de los principales edificios de Chacao, Baruta y otras zonas de Caracas." 
+          },
+          { 
+            question: "¿Qué formas de pago aceptan en Venezuela?", 
+            answer: "Aceptamos pagos en efectivo (USD), transferencia bancaria en bolívares al cambio BCV, Zelle, PayPal y Pago Móvil. Ofrecemos facilidades de pago según el proyecto." 
+          },
+          { 
+            question: "¿Dan garantía por el trabajo realizado?", 
+            answer: "Sí, todos nuestros trabajos cuentan con garantía por escrito de 12 meses en acabados y 24 meses en instalaciones eléctricas e hidrosanitarias." 
+          },
+          { 
+            question: "¿El presupuesto es gratuito?", 
+            answer: "Sí, realizamos visitas técnicas sin costo en todo Caracas y ofrecemos presupuestos detallados sin compromiso de contratación." 
+          }
         ]} />
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- CTA Final -->
-  <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-4xl font-bold mb-6">
-        ¿Listo para Transformar tu Espacio en Valencia?
-      </h2>
-      <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
-        Solicita tu presupuesto gratuito hoy mismo. Sin compromisos. Asesoría profesional incluida.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-white text-primary rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
-          Contactar Ahora
-          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-          </svg>
-        </a>
-        <a href="https://wa.me/584123456789" class="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-          </svg>
-          WhatsApp: +58 412-345-6789
-        </a>
+    <!-- CTA Final -->
+    <section class="cta-final">
+      <div class="container">
+        <h2>¿Listo para Transformar tu Espacio en Caracas?</h2>
+        <p>Solicita tu presupuesto gratuito hoy mismo y recibe asesoría personalizada</p>
+        <div class="cta-buttons">
+          <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto</a>
+          <a href="https://wa.me/584123456789" class="btn btn-whatsapp">
+            <span class="icon">💬</span>
+            Contactar por WhatsApp
+          </a>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <!-- Schema.org LocalBusiness -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "HomeAndConstructionBusiness",
-    "name": "ReformaT Venezuela - Valencia",
-    "description": "Empresa líder en remodelaciones y reformas en Valencia, Carabobo. Especialistas en cocinas, baños, electricidad, plomería y proyectos integrales.",
-    "url": "https://reformat-venezuela.online/valencia",
-    "telephone": "+58-412-345-6789",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Valencia",
-      "addressRegion": "Carabobo",
-      "addressCountry": "VE"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": "10.1833",
-      "longitude": "-67.9667"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": "Valencia"
-    },
-    "priceRange": "$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      "opens": "08:00",
-      "closes": "18:00"
-    },
-    "sameAs": [
-      "https://www.instagram.com/reformatvenezuela",
-      "https://www.facebook.com/reformatvenezuela"
-    ]
-  })} />
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HomeAndConstructionBusiness",
+      "name": "ReformaT Venezuela - Caracas",
+      "description": "Especialistas en remodelaciones en Caracas y Distrito Capital. Cocinas, baños, reformas integrales y más.",
+      "url": "https://reformat-venezuela.online/caracas",
+      "telephone": "+58-412-345-6789",
+      "areaServed": {
+        "@type": "City",
+        "name": "Caracas",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Distrito Capital"
+        }
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "10.4806",
+        "longitude": "-66.9036"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "17:00"
+      },
+      "priceRange": "$$"
+    }
+  </script>
 </BaseLayout>
+
+<style>
+  .city-page {
+    padding-top: 0;
+  }
+  
+  .hero-city {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+    color: white;
+    padding: 100px 0 80px;
+    text-align: center;
+  }
+  
+  .hero-city h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .hero-city .lead {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+  
+  .intro-section,
+  .services-section,
+  .zones-section,
+  .pricing-section,
+  .testimonials-section,
+  .faq-section {
+    padding: 80px 0;
+  }
+  
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+  }
+  
+  .image-content img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .trust-badges {
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+  }
+  
+  .badge .icon {
+    color: #27ae60;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .zones-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 15px;
+    margin-top: 40px;
+  }
+  
+  .zone-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  .zone-card:hover {
+    transform: translateY(-3px);
+    background: #e9ecef;
+  }
+  
+  .zone-card .icon {
+    font-size: 1.3rem;
+  }
+  
+  .info-box {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 12px;
+    margin-top: 40px;
+    text-align: center;
+  }
+  
+  .info-box h3 {
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+  }
+  
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .price-card {
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    position: relative;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .price-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  .price-card.featured {
+    border-color: #667eea;
+    transform: scale(1.05);
+  }
+  
+  .badge-popular {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #667eea;
+    color: white;
+    padding: 6px 20px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+  
+  .price-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+    color: #1e3a5f;
+  }
+  
+  .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 20px;
+  }
+  
+  .price-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .price-card li {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .price-card li:last-child {
+    border-bottom: none;
+  }
+  
+  .price-card li::before {
+    content: "✓";
+    color: #27ae60;
+    font-weight: bold;
+  }
+  
+  .pricing-note {
+    background: #fff3cd;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    margin-top: 30px;
+    border-radius: 8px;
+  }
+  
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .testimonial-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  }
+  
+  .stars {
+    color: #ffc107;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+  
+  .testimonial-card .text {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+  
+  .testimonial-card .author {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+  
+  .testimonial-card .author strong {
+    color: #1e3a5f;
+  }
+  
+  .testimonial-card .author span {
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  .cta-final {
+    background: linear-gradient(135deg, #1e3a5f 0%, #2d5a87 100%);
+    color: white;
+    padding: 80px 0;
+    text-align: center;
+  }
+  
+  .cta-final h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .cta-final p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    opacity: 0.95;
+  }
+  
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .btn-whatsapp:hover {
+    background: #20bd5a;
+  }
+  
+  @media (max-width: 768px) {
+    .hero-city h1 {
+      font-size: 2.2rem;
+    }
+
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .price-card.featured {
+      transform: none;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Botones - Estilos completos */
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+  }
+  
+  .btn-secondary:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  }
+  
+  .btn-whatsapp:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .service-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  /* CTA Center */
+  .cta-center {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Section Subtitle */
+  .section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
+  }
+</style>

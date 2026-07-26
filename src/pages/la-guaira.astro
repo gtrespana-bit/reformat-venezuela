@@ -6,37 +6,37 @@ import { getCollection } from 'astro:content';
 const services = await getCollection('services');
 
 const cityData = {
-  name: "La Guaira",
-  state: "Estado Vargas",
-  title: "Remodelaciones en La Guaira | Expertos en Vargas 2026",
-  description: "Especialistas en remodelación de apartamentos, casas y locales comerciales en La Guaira y todo el estado Vargas. Materiales resistentes a la salinidad. Presupuestos sin compromiso.",
-  h1: "Remodelaciones en La Guaira - Estado Vargas",
-  intro: `¿Buscas expertos en **remodelaciones en La Guaira**? En ReformaT Venezuela transformamos tu espacio en la costa varguense con materiales especiales resistentes a la salinidad y humedad del mar Caribe.
+  name: "Caracas",
+  state: "Distrito Capital",
+  title: "Remodelaciones en Caracas | Expertos en Distrito Capital 2026",
+  description: "Especialistas en remodelación de apartamentos, casas y oficinas en Caracas. Trabajamos en Chacao, Baruta, El Hatillo, Sucre y toda el área metropolitana. Presupuestos sin compromiso.",
+  h1: "Remodelaciones en Caracas - Distrito Capital",
+  intro: `¿Buscas expertos en **remodelaciones en Caracas**? En ReformaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.
 
-Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clima costero y utilizamos productos anticorrosivos y tratamientos especiales para garantizar la durabilidad de tu inversión.`,
+Con más de 15 años de experiencia en el **Distrito Capital**, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.`,
   zones: [
-    "La Guaira (Centro, El Malecón, Caraballeda)",
-    "Catia La Mar (Carayaca, Carlos Soublette)",
-    "Maiquetía (Bachaquero, Los Cedros)",
-    "Macuto (Pueblo, Carmen de Uria)",
-    "Naiguatá, Caraballeda, Camurí Chico",
-    "Los Totumos, Playa Grande, Cerro Grande"
+    "Chacao (Altamira, Los Palos Grandes, Chuao)",
+    "Baruta (El Cafetal, Las Mercedes, La Trinidad)",
+    "El Hatillo (El Retorno, Barlovento)",
+    "Sucre (Petare, Bello Monte, Los Caobos)",
+    "Libertador (El Centro, La Candelaria, San Bernardino)",
+    "El Ávila, Montalbán, El Paraíso, Los Chaguaramos"
   ],
   prices: {
-    cocina: "Desde $1.900 USD",
-    bano: "Desde $1.050 USD",
-    integral: "Desde $160 USD/m²"
+    cocina: "Desde $1.800 USD",
+    bano: "Desde $950 USD",
+    integral: "Desde $150 USD/m²"
   },
   testimonials: [
     {
-      name: "Roberto Martínez",
-      location: "Caraballeda, Vargas",
-      text: "Excelente trabajo en mi apartamento frente al mar. Usaron materiales especiales contra la salinidad y quedó perfecto. Muy profesionales."
+      name: "María Fernanda Torres",
+      location: "Altamira, Chacao",
+      text: "Excelente trabajo en mi apartamento de Altamira. Cumplieron con los tiempos y el acabado fue impecable. Totalmente recomendados."
     },
     {
-      name: "Ana Gabriela Silva",
-      location: "Catia La Mar",
-      text: "Remodelaron mi casa en Catia La Mar con acabados de primera. El equipo fue limpio y respetuoso. Totalmente recomendados en Vargas."
+      name: "Carlos Andrés Pérez",
+      location: "Las Mercedes, Baruta",
+      text: "Remodelaron mi oficina en Las Mercedes de manera profesional. El equipo fue muy respetuoso y limpio durante toda la obra."
     }
   ]
 };
@@ -45,8 +45,8 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
 <BaseLayout
   title={cityData.title}
   description={cityData.description}
-  image="/og-la-guaira.jpg"
-  canonical={`https://reformat-venezuela.online/la-guaira`}
+  image="/og-caracas.jpg"
+  canonical={`https://reformat-venezuela.online/caracas`}
   schemaType="LocalBusiness"
 >
   <main class="city-page">
@@ -54,7 +54,7 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <section class="hero-city">
       <div class="container">
         <h1>{cityData.h1}</h1>
-        <p class="lead">Especialistas en remodelación con materiales resistentes a la salinidad en el litoral varguense</p>
+        <p class="lead">Especialistas en remodelación de apartamentos, casas y oficinas en todo el Distrito Capital</p>
         <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto Gratis</a>
       </div>
     </section>
@@ -64,28 +64,28 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
       <div class="container">
         <div class="content-grid">
           <div class="text-content">
-            <h2>Expertos en Remodelaciones en La Guaira</h2>
+            <h2>Expertos en Remodelaciones en Caracas</h2>
             <p set:html={cityData.intro}></p>
             
             <div class="trust-badges">
               <div class="badge">
                 <span class="icon">✓</span>
-                <span>Materiales anticorrosivos</span>
+                <span>Más de 15 años en Caracas</span>
               </div>
               <div class="badge">
                 <span class="icon">✓</span>
-                <span>Tratamientos anti-humedad</span>
+                <span>Conocemos normativas de condominios</span>
               </div>
               <div class="badge">
                 <span class="icon">✓</span>
-                <span>Experiencia en clima costero</span>
+                <span>Garantía por escrito</span>
               </div>
             </div>
           </div>
           <div class="image-content">
             <img 
-              src="/images/remodelacion-bano.webp" 
-              alt="Remodelación de baño en La Guaira"
+              src="/images/remodelacion-cocina.webp" 
+              alt="Remodelación de cocina en Caracas"
               loading="lazy"
               width="500"
               height="350"
@@ -98,8 +98,8 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- Services Section -->
     <section class="services-section">
       <div class="container">
-        <h2>Nuestros Servicios de Remodelación en La Guaira</h2>
-        <p class="section-subtitle">Soluciones especializadas para el clima costero de Vargas</p>
+        <h2>Nuestros Servicios de Remodelación en Caracas</h2>
+        <p class="section-subtitle">Soluciones integrales para apartamentos, casas y oficinas en el Distrito Capital</p>
         
         <div class="services-grid">
           {services.slice(0, 6).map((service) => (
@@ -127,8 +127,8 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- Zones Section -->
     <section class="zones-section">
       <div class="container">
-        <h2>Zonas que Atendemos en La Guaira y Vargas</h2>
-        <p class="section-subtitle">Cubrimos todo el litoral central del estado Vargas</p>
+        <h2>Zonas que Atendemos en Caracas</h2>
+        <p class="section-subtitle">Llegamos a todos los municipios del Distrito Capital y área metropolitana</p>
         
         <div class="zones-grid">
           {cityData.zones.map((zone) => (
@@ -140,8 +140,8 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
         </div>
         
         <div class="info-box">
-          <h3>¿Trabajas en otras zonas de Vargas?</h3>
-          <p>Sí, atendemos todas las parroquias del estado Vargas desde Naiguatá hasta Carayaca. ¡Consúltanos para tu proyecto costero!</p>
+          <h3>¿Trabajas en otros municipios de Caracas?</h3>
+          <p>Sí, atendemos todas las parroquias del Distrito Capital y municipios adyacentes como Petare, Catia, El Valle, Antímano, Caricuao, etc. ¡Consúltanos!</p>
         </div>
       </div>
     </section>
@@ -149,7 +149,7 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- Pricing Section -->
     <section class="pricing-section">
       <div class="container">
-        <h2>Precios de Remodelación en La Guaira 2026</h2>
+        <h2>Precios de Remodelación en Caracas 2026</h2>
         <p class="section-subtitle">Precios referenciales en dólares americanos (USD)</p>
         
         <div class="pricing-grid">
@@ -157,10 +157,10 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
             <h3>Remodelación de Cocina</h3>
             <div class="price">{cityData.prices.cocina}</div>
             <ul>
-              <li>Gabinetes con tratamiento anti-humedad</li>
-              <li>Encimeras de cuarzo o granito</li>
-              <li>Instalaciones protegidas contra salinidad</li>
-              <li>Ventilación especializada</li>
+              <li>Diseño 3D incluido</li>
+              <li>Gabinetes a medida</li>
+              <li>Instalación de granito o cuarzo</li>
+              <li>Plomería y electricidad básica</li>
             </ul>
           </div>
           
@@ -169,10 +169,10 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
             <h3>Remodelación de Baño</h3>
             <div class="price">{cityData.prices.bano}</div>
             <ul>
-              <li>Impermeabilización reforzada</li>
+              <li>Demolición incluida</li>
               <li>Porcelanato antideslizante</li>
-              <li>Grifería inoxidable grado marino</li>
-              <li>Ventilación contra humedad</li>
+              <li>Sanitarios modernos</li>
+              <li>Duchas de vidrio templado</li>
             </ul>
           </div>
           
@@ -181,9 +181,9 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
             <div class="price">{cityData.prices.integral}</div>
             <ul>
               <li>Proyectos desde 30m²</li>
-              <li>Tratamientos anticorrosivos</li>
-              <li>Materiales grado marino</li>
-              <li>Garantía extendida por clima</li>
+              <li>Llave en mano</li>
+              <li>Supervisión constante</li>
+              <li>Entrega en tiempo récord</li>
             </ul>
           </div>
         </div>
@@ -197,7 +197,7 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- Testimonials Section -->
     <section class="testimonials-section">
       <div class="container">
-        <h2>Lo Que Dicen Nuestros Clientes en La Guaira</h2>
+        <h2>Lo Que Dicen Nuestros Clientes en Caracas</h2>
         
         <div class="testimonials-grid">
           {cityData.testimonials.map((testimonial) => (
@@ -217,28 +217,28 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- FAQ Section -->
     <section class="faq-section">
       <div class="container">
-        <h2>Preguntas Frecuentes sobre Remodelaciones en La Guaira</h2>
+        <h2>Preguntas Frecuentes sobre Remodelaciones en Caracas</h2>
         
         <FAQ items={[
           { 
-            question: "¿Qué materiales usan para resistir la salinidad?", 
-            answer: "Utilizamos acero inoxidable grado marino, aluminio anodizado, maderas tratadas con preservantes, pinturas epóxicas y selladores especiales para ambientes costeros." 
+            question: "¿Cuánto tiempo tarda una remodelación en Caracas?", 
+            answer: "Depende del tipo de proyecto. Una cocina o baño toma entre 2-4 semanas. Una remodelación integral de apartamento puede tomar 6-12 semanas. Siempre entregamos cronograma detallado." 
           },
           { 
-            question: "¿Cuánto tiempo tarda una remodelación en La Guaira?", 
-            answer: "Depende del proyecto. Una cocina o baño toma entre 2-4 semanas. Una remodelación integral puede tomar 6-12 semanas. Consideramos factores climáticos en el cronograma." 
+            question: "¿Trabajan con permisos de condominios en Caracas?", 
+            answer: "Sí, gestionamos todos los permisos requeridos por tu condominio. Conocemos las normativas de los principales edificios de Chacao, Baruta y otras zonas de Caracas." 
           },
           { 
-            question: "¿Dan garantía especial por el clima costero?", 
-            answer: "Sí, ofrecemos garantía extendida de 18 meses en acabados y 30 meses en instalaciones, considerando las condiciones especiales del ambiente marino." 
+            question: "¿Qué formas de pago aceptan en Venezuela?", 
+            answer: "Aceptamos pagos en efectivo (USD), transferencia bancaria en bolívares al cambio BCV, Zelle, PayPal y Pago Móvil. Ofrecemos facilidades de pago según el proyecto." 
           },
           { 
-            question: "¿Qué formas de pago aceptan en Vargas?", 
-            answer: "Aceptamos pagos en efectivo (USD), transferencia bancaria en bolívares al cambio BCV, Zelle, PayPal y Pago Móvil. Ofrecemos facilidades según el proyecto." 
+            question: "¿Dan garantía por el trabajo realizado?", 
+            answer: "Sí, todos nuestros trabajos cuentan con garantía por escrito de 12 meses en acabados y 24 meses en instalaciones eléctricas e hidrosanitarias." 
           },
           { 
-            question: "¿El presupuesto incluye visita técnica?", 
-            answer: "Sí, realizamos visitas técnicas sin costo en toda La Guaira y estado Vargas, evaluamos condiciones específicas de salinidad y humedad." 
+            question: "¿El presupuesto es gratuito?", 
+            answer: "Sí, realizamos visitas técnicas sin costo en todo Caracas y ofrecemos presupuestos detallados sin compromiso de contratación." 
           }
         ]} />
       </div>
@@ -247,8 +247,8 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     <!-- CTA Final -->
     <section class="cta-final">
       <div class="container">
-        <h2>¿Listo para Transformar tu Espacio en La Guaira?</h2>
-        <p>Solicita tu presupuesto gratuito hoy mismo con asesoría especializada en clima costero</p>
+        <h2>¿Listo para Transformar tu Espacio en Caracas?</h2>
+        <p>Solicita tu presupuesto gratuito hoy mismo y recibe asesoría personalizada</p>
         <div class="cta-buttons">
           <a href="/contacto" class="btn btn-primary">Solicitar Presupuesto</a>
           <a href="https://wa.me/584123456789" class="btn btn-whatsapp">
@@ -264,18 +264,22 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     {
       "@context": "https://schema.org",
       "@type": "HomeAndConstructionBusiness",
-      "name": "ReformaT Venezuela - La Guaira",
-      "description": "Especialistas en remodelaciones en La Guaira y estado Vargas. Materiales resistentes a salinidad y humedad.",
-      "url": "https://reformat-venezuela.online/la-guaira",
+      "name": "ReformaT Venezuela - Caracas",
+      "description": "Especialistas en remodelaciones en Caracas y Distrito Capital. Cocinas, baños, reformas integrales y más.",
+      "url": "https://reformat-venezuela.online/caracas",
       "telephone": "+58-412-345-6789",
       "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Estado Vargas"
+        "@type": "City",
+        "name": "Caracas",
+        "containedInPlace": {
+          "@type": "AdministrativeArea",
+          "name": "Distrito Capital"
+        }
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "10.5938",
-        "longitude": "-66.8786"
+        "latitude": "10.4806",
+        "longitude": "-66.9036"
       },
       "openingHoursSpecification": {
         "@type": "OpeningHoursSpecification",
@@ -565,19 +569,118 @@ Con amplia experiencia en el **estado Vargas**, conocemos los desafíos del clim
     .hero-city h1 {
       font-size: 2.2rem;
     }
-    
+
     .content-grid {
       grid-template-columns: 1fr;
       gap: 30px;
     }
-    
+
     .price-card.featured {
       transform: none;
     }
-    
+
     .cta-buttons {
       flex-direction: column;
       align-items: center;
     }
+    
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .pricing-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Botones - Estilos completos */
+  .btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+  }
+  
+  .btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  }
+  
+  .btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.6);
+  }
+  
+  .btn-secondary {
+    background: transparent;
+    color: #667eea;
+    border: 2px solid #667eea;
+  }
+  
+  .btn-secondary:hover {
+    background: #667eea;
+    color: white;
+    transform: translateY(-3px);
+  }
+  
+  .btn-whatsapp {
+    background: #25D366;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+  }
+  
+  .btn-whatsapp:hover {
+    background: #20bd5a;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6);
+  }
+  
+  /* Services Grid */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+  
+  .service-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  }
+  
+  /* CTA Center */
+  .cta-center {
+    text-align: center;
+    margin-top: 50px;
+  }
+  
+  /* Section Subtitle */
+  .section-subtitle {
+    color: #666;
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    text-align: center;
   }
 </style>
