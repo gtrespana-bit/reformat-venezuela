@@ -1,0 +1,426 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import FAQ from '../../components/FAQ.astro';
+import TestimonialCard from '../../components/TestimonialCard.astro';
+
+const city = 'San Diego';
+const state = 'Carabobo';
+const services = [
+  {
+    title: 'Remodelación de Cocinas',
+    description: 'Diseños modernos y funcionales para tu cocina en San Diego. Encimeras de granito, gabinetes personalizados y más.',
+    slug: '/servicios/remodelacion-cocina',
+    image: '/images/kitchen-remodel.jpg'
+  },
+  {
+    title: 'Remodelación de Baños',
+    description: 'Transformamos tu baño con acabados de primera calidad. Porcelanatos, grifería moderna y diseño optimizado.',
+    slug: '/servicios/remodelacion-bano',
+    image: '/images/bathroom-remodel.jpg'
+  },
+  {
+    title: 'Remodelación Integral',
+    description: 'Renovación completa de apartamentos y casas en San Diego. Proyecto llave en mano con garantía incluida.',
+    slug: '/servicios/remodelacion-integral',
+    image: '/images/integral-remodel.jpg'
+  },
+  {
+    title: 'Instalación Eléctrica',
+    description: 'Electricistas certificados en San Diego. Instalaciones residenciales y comerciales con normativa CNE.',
+    slug: '/servicios/instalacion-electrica',
+    image: '/images/electrical-installation.jpg'
+  },
+  {
+    title: 'Fontanería y Plomería',
+    description: 'Reparación e instalación de tuberías, baños y cocinas. Atención de emergencias 24/7 en San Diego.',
+    slug: '/servicios/fontaneria-plomeria',
+    image: '/images/plumbing-services.jpg'
+  },
+  {
+    title: 'Pintura y Acabados',
+    description: 'Pintura profesional interior y exterior. Acabados perfectos, texturas decorativas y impermeabilización.',
+    slug: '/servicios/pintura-acabados',
+    image: '/images/painting-services.jpg'
+  },
+  {
+    title: 'Revestimientos de Pared',
+    description: 'Porcelanato gran formato, paneles 3D, piedra natural y microcemento para paredes en San Diego.',
+    slug: '/servicios/revestimientos-pared',
+    image: '/images/wall-coverings.jpg'
+  },
+  {
+    title: 'Instalación de Pisos',
+    description: 'Pisos laminados, porcelanato y madera. Instalación profesional con garantía en San Diego y Valencia.',
+    slug: '/servicios/instalacion-pisos',
+    image: '/images/flooring-installation.jpg'
+  }
+];
+
+const testimonials = [
+  {
+    name: 'Roberto Fernández',
+    location: 'El Trigal, San Diego',
+    text: 'Excelente servicio en la remodelación de mi apartamento. Muy profesionales y cumplidores con los tiempos.',
+    rating: 5
+  },
+  {
+    name: 'Carmen López',
+    location: 'San Marino, San Diego',
+    text: 'Transformaron mi cocina completamente. La atención al detalle fue increíble. Súper recomendados.',
+    rating: 5
+  },
+  {
+    name: 'Luis Herrera',
+    location: 'Ciudad Jardín, San Diego',
+    text: 'Necesitaba reparación eléctrica urgente y me atendieron el mismo día. Servicio rápido y confiable.',
+    rating: 5
+  }
+];
+
+const neighborhoods = [
+  'El Trigal', 'San Marino', 'Ciudad Jardín', 'Las Chimeneas', 
+  'Hacienda El Castaño', 'Altos de San Diego', 'La Morada', 
+  'Residencias El Viñedo', 'Portal de San Diego', 'Quinta San Diego',
+  'Centro de San Diego', 'Zona Industrial San Diego'
+];
+---
+
+<BaseLayout
+  title={`Remodelaciones en San Diego, Carabobo | Precios 2026 - ReformaT Venezuela`}
+  description={`Expertos en remodelación de cocinas, baños y apartamentos en San Diego, Carabobo. Atendemos El Trigal, San Marino, Ciudad Jardín y toda la ciudad. Presupuestos gratis. ✓ Paga en $ o Bs. ✓ Garantía escrita.`}
+  canonical="/san-diego"
+  keywords="remodelaciones san diego carabobo, remodelacion de cocinas san diego, remodelacion de banos san diego, reforma de apartamentos san diego, electricistas san diego, plomeros san diego, pisos san diego, pintura san diego, precios remodelacion venezuela 2026"
+  ogImage="/images/og-san-diego.jpg"
+>
+  <!-- Hero Section -->
+  <section class="py-20 bg-gradient-to-br from-primary/10 via-white to-secondary/10">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-gray-900">
+          Remodelaciones Profesionales en <span class="text-primary">San Diego, Carabobo</span>
+        </h1>
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          Expertos en transformación de espacios residenciales y comerciales en San Diego y área metropolitana de Valencia. 
+          Más de 15 años creando hogares soñados en El Trigal, San Marino, Ciudad Jardín y todas las urbanizaciones de la ciudad.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
+            Solicitar Presupuesto Gratis
+            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/584123456789" class="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
+            <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+            </svg>
+            WhatsApp Directo
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          ¿Por Qué Elegir ReformaT en San Diego?
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Somos la empresa líder en remodelaciones en Carabobo con estándares internacionales
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Garantía Escrita</h3>
+          <p class="text-gray-600">Todos nuestros trabajos cuentan con garantía por escrito hasta por 2 años</p>
+        </div>
+        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Precios Transparentes</h3>
+          <p class="text-gray-600">Presupuestos detallados sin sorpresas. Aceptamos dólares y bolívares al BCV</p>
+        </div>
+        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Cumplimiento</h3>
+          <p class="text-gray-600">Entregas puntuales según cronograma. Tu tiempo es importante para nosotros</p>
+        </div>
+        <div class="text-center p-6 rounded-xl bg-gray-50 hover:shadow-lg transition-shadow">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+            </svg>
+          </div>
+          <h3 class="text-lg font-semibold mb-2">Personal Calificado</h3>
+          <p class="text-gray-600">Equipo verificado, con experiencia y referencias comprobables en San Diego</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          Nuestros Servicios en San Diego
+        </h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Soluciones integrales para todos tus proyectos de remodelación en Carabobo
+        </p>
+      </div>
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            description={service.description}
+            slug={service.slug}
+            image={service.image}
+          />
+        ))}
+      </div>
+      <div class="text-center mt-12">
+        <a href="/servicios" class="inline-flex items-center px-8 py-4 border-2 border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-all font-semibold">
+          Ver Todos los Servicios
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Coverage Areas -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
+          Zonas que Atendemos en San Diego
+        </h2>
+        <p class="text-xl text-gray-600 text-center mb-8">
+          Llegamos a todas las urbanizaciones y sectores de San Diego y Valencia
+        </p>
+        <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
+          <div class="flex flex-wrap gap-3 justify-center">
+            {neighborhoods.map((neighborhood) => (
+              <span class="px-4 py-2 bg-white rounded-full shadow-sm text-gray-700 font-medium border border-gray-200">
+                {neighborhood}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Guide -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
+          Precios Referenciales 2026 en San Diego
+        </h2>
+        <p class="text-xl text-gray-600 text-center mb-12">
+          Precios competitivos en dólares americanos. Aceptamos bolívares al tasa BCV del día.
+        </p>
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Remodelación de Cocina</h3>
+            <p class="text-3xl font-bold text-primary mb-4">desde $800</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Gabinetes personalizados
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Encimeras de granito
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Instalación incluida
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Remodelación de Baño</h3>
+            <p class="text-3xl font-bold text-primary mb-4">desde $450</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Porcelanato incluido
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Grifería moderna
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Plomería y acabados
+              </li>
+            </ul>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+            <h3 class="text-xl font-bold text-gray-900 mb-2">Pintura Interior</h3>
+            <p class="text-3xl font-bold text-primary mb-4">desde $2.50/m²</p>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Pintura premium
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Preparación de paredes
+              </li>
+              <li class="flex items-start">
+                <svg class="w-5 h-5 text-green-500 mr-2 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Limpieza final
+              </li>
+            </ul>
+          </div>
+        </div>
+        <p class="text-center text-gray-500 mt-8 text-sm">
+          * Precios referenciales sujetos a evaluación del proyecto. Solicita tu presupuesto personalizado sin costo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl md:text-4xl font-bold mb-4 text-gray-900">
+          Lo Que Dicen Nuestros Clientes en San Diego
+        </h2>
+        <p class="text-xl text-gray-600">
+          Historias reales de transformaciones exitosas en Carabobo
+        </p>
+      </div>
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <TestimonialCard
+            name={testimonial.name}
+            location={testimonial.location}
+            text={testimonial.text}
+            rating={testimonial.rating}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-3xl md:text-4xl font-bold mb-8 text-center text-gray-900">
+          Preguntas Frecuentes en San Diego
+        </h2>
+        <FAQ items={[
+          { question: "¿Cuáles son las formas de pago en San Diego?", answer: "Aceptamos pagos en dólares en efectivo, transferencias bancarias en USD, Zelle, y bolívares al tipo de cambio BCV del día. También ofrecemos planes de financiamiento para proyectos grandes." },
+          { question: "¿Cuánto tiempo tarda una remodelación típica en San Diego?", answer: "Depende del proyecto: una cocina toma 2-3 semanas, un baño 1-2 semanas, y una remodelación integral de apartamento puede tomar 6-10 semanas. Siempre entregamos un cronograma detallado antes de comenzar." },
+          { question: "¿Necesito permisos municipales en San Diego?", answer: "Para remodelaciones internas generalmente no se requieren permisos. Para modificaciones estructurales o fachadas, gestionamos los permisos ante la Alcaldía de San Diego por ti." },
+          { question: "¿La garantía es válida en toda San Diego?", answer: "Sí, nuestra garantía escrita cubre todos nuestros trabajos en San Diego, Valencia y toda la región de Carabobo. Incluye mano de obra y materiales por el período especificado." },
+          { question: "¿Trabajan los fines de semana en San Diego?", answer: "Sí, podemos coordinar trabajos sábados y domingos según las normativas de cada urbanización. Algunos edificios tienen restricciones de horario que respetamos." }
+        ]} />
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Final -->
+  <section class="py-20 bg-gradient-to-r from-primary to-secondary text-white">
+    <div class="container mx-auto px-4 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6">
+        ¿Listo para Transformar tu Espacio en San Diego?
+      </h2>
+      <p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+        Solicita tu presupuesto gratuito hoy mismo. Sin compromisos. Asesoría profesional incluida.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-white text-primary rounded-lg hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
+          Contactar Ahora
+          <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+          </svg>
+        </a>
+        <a href="https://wa.me/584123456789" class="inline-flex items-center px-8 py-4 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
+          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+          </svg>
+          WhatsApp: +58 412-345-6789
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Schema.org LocalBusiness -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "ReformaT Venezuela - San Diego",
+    "description": "Empresa líder en remodelaciones y reformas en San Diego, Carabobo. Especialistas en cocinas, baños, electricidad, plomería y proyectos integrales.",
+    "url": "https://reformat-venezuela.online/san-diego",
+    "telephone": "+58-412-345-6789",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "San Diego",
+      "addressRegion": "Carabobo",
+      "addressCountry": "VE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "10.1833",
+      "longitude": "-67.9667"
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": "San Diego"
+    },
+    "priceRange": "$$",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "sameAs": [
+      "https://www.instagram.com/reformatvenezuela",
+      "https://www.facebook.com/reformatvenezuela"
+    ]
+  })} />
+</BaseLayout>
