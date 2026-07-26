@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ServiceCard from '../../components/ServiceCard.astro';
 import FAQ from '../../components/FAQ.astro';
-import TestimonialCard from '../../components/TestimonialCard.astro';
 
 const city = 'Valencia';
 const state = 'Carabobo';
@@ -10,86 +8,84 @@ const services = [
   {
     title: 'Remodelación de Cocinas',
     description: 'Diseños modernos y funcionales para tu cocina en Valencia. Encimeras de granito, gabinetes personalizados y más.',
-    slug: '/servicios/remodelacion-cocina',
-    image: '/images/kitchen-remodel.jpg'
+    slug: '/servicios/remodelacion-cocina'
   },
   {
     title: 'Remodelación de Baños',
     description: 'Transformamos tu baño con acabados de primera calidad. Porcelanatos, grifería moderna y diseño optimizado.',
-    slug: '/servicios/remodelacion-bano',
-    image: '/images/bathroom-remodel.jpg'
+    slug: '/servicios/remodelacion-bano'
   },
   {
     title: 'Remodelación Integral',
     description: 'Renovación completa de apartamentos y casas en Valencia. Proyecto llave en mano con garantía incluida.',
-    slug: '/servicios/remodelacion-integral',
-    image: '/images/integral-remodel.jpg'
+    slug: '/servicios/remodelacion-integral'
   },
   {
     title: 'Instalación Eléctrica',
     description: 'Electricistas certificados en Valencia. Instalaciones residenciales y comerciales con normativa CNE.',
-    slug: '/servicios/instalacion-electrica',
-    image: '/images/electrical-installation.jpg'
+    slug: '/servicios/instalacion-electrica'
   },
   {
     title: 'Fontanería y Plomería',
     description: 'Reparación e instalación de tuberías, baños y cocinas. Atención de emergencias 24/7 en Valencia.',
-    slug: '/servicios/fontaneria-plomeria',
-    image: '/images/plumbing-services.jpg'
+    slug: '/servicios/fontaneria-plomeria'
   },
   {
     title: 'Pintura y Acabados',
     description: 'Pintura profesional interior y exterior. Acabados perfectos, texturas decorativas y impermeabilización.',
-    slug: '/servicios/pintura-acabados',
-    image: '/images/painting-services.jpg'
+    slug: '/servicios/pintura-acabados'
   },
   {
     title: 'Revestimientos de Pared',
     description: 'Porcelanato gran formato, paneles 3D, piedra natural y microcemento para paredes en Valencia.',
-    slug: '/servicios/revestimientos-pared',
-    image: '/images/wall-coverings.jpg'
+    slug: '/servicios/revestimientos-pared'
   },
   {
     title: 'Instalación de Pisos',
-    description: 'Pisos laminados, porcelanato y madera. Instalación profesional con garantía en Valencia y San Diego.',
-    slug: '/servicios/instalacion-pisos',
-    image: '/images/flooring-installation.jpg'
+    description: 'Pisos laminados, porcelanato y madera. Instalación profesional con garantía en Valencia.',
+    slug: '/servicios/instalacion-pisos'
+  },
+  {
+    title: 'Piscinas y Mantenimiento',
+    description: 'Construcción, reparación y mantenimiento de piscinas. Tratamiento de agua y bombas en Valencia.',
+    slug: '/servicios/piscinas-mantenimiento'
   }
 ];
 
 const testimonials = [
   {
-    name: 'María González',
-    location: 'El Viñedo, Valencia',
-    text: 'Excelente trabajo en la remodelación de mi cocina. Cumplieron con los tiempos y el presupuesto. Muy profesionales.',
+    name: 'Roberto Fernández',
+    location: 'El Trigal, Valencia',
+    text: 'Excelente servicio en la remodelación de mi apartamento. Muy profesionales y cumplidores con los tiempos.',
     rating: 5
   },
   {
-    name: 'Carlos Rodríguez',
-    location: 'Prebo, Valencia',
-    text: 'Remodelaron mi apartamento completo en El Viñedo. La calidad de los acabados es impresionante. Totalmente recomendados.',
+    name: 'Carmen López',
+    location: 'San Marino, Valencia',
+    text: 'Transformaron mi cocina completamente. La atención al detalle fue increíble. Súper recomendados.',
     rating: 5
   },
   {
-    name: 'Ana Martínez',
-    location: 'Los Guayos, Valencia',
-    text: 'Necesitaba urgentemente reparación de tuberías y me atendieron de inmediato. Servicio rápido y efectivo.',
+    name: 'Luis Herrera',
+    location: 'Ciudad Jardín, Valencia',
+    text: 'Necesitaba reparación eléctrica urgente y me atendieron el mismo día. Servicio rápido y confiable.',
     rating: 5
   }
 ];
 
 const neighborhoods = [
-  'El Viñedo', 'Prebo', 'Los Guayos', 'San Blas', 'Candelaria', 
-  'El Parral', 'Miguel Peña', 'Rafael Urdaneta', 'Tacarigua', 
-  'Zona Industrial', 'Centro de Valencia', 'Altamira de Cáceres'
+  'El Trigal', 'San Marino', 'Ciudad Jardín', 'Las Chimeneas', 
+  'Hacienda El Castaño', 'Altos de Valencia', 'La Morada', 
+  'Residencias El Viñedo', 'Portal de Valencia', 'Quinta Valencia',
+  'Centro de Valencia', 'Zona Industrial Valencia'
 ];
 ---
 
 <BaseLayout
   title={`Remodelaciones en Valencia, Carabobo | Precios 2026 - ReformaT Venezuela`}
-  description={`Expertos en remodelación de cocinas, baños y apartamentos en Valencia, Carabobo. Atendemos El Viñedo, Prebo, Los Guayos y toda la ciudad. Presupuestos gratis. ✓ Paga en $ o Bs. ✓ Garantía escrita.`}
+  description={`Expertos en remodelación de cocinas, baños y apartamentos en Valencia, Carabobo. Atendemos El Trigal, San Marino, Ciudad Jardín y toda la ciudad. Presupuestos gratis. ✓ Paga en $ o Bs. ✓ Garantía escrita.`}
   canonical="/valencia"
-  keywords="remodelaciones valencia carabobo, remodelacion de cocinas valencia, remodelacion de banos valencia, reforma de apartamentos valencia, electricistas valencia, plomeros valencia, pisos valencia, pintura valencia, precios remodelacion venezuela 2026"
+  keywords="remodelaciones san diego carabobo, remodelacion de cocinas san diego, remodelacion de banos san diego, reforma de apartamentos san diego, electricistas san diego, plomeros san diego, pisos san diego, pintura san diego, precios remodelacion venezuela 2026"
   ogImage="/images/og-valencia.jpg"
 >
   <!-- Hero Section -->
@@ -100,8 +96,8 @@ const neighborhoods = [
           Remodelaciones Profesionales en <span class="text-primary">Valencia, Carabobo</span>
         </h1>
         <p class="text-xl text-gray-600 mb-8 leading-relaxed">
-          Expertos en transformación de espacios residenciales y comerciales en Valencia y toda la región de Carabobo. 
-          Más de 15 años creando hogares soñados en El Viñedo, Prebo, Los Guayos y todas las urbanizaciones de la ciudad.
+          Expertos en transformación de espacios residenciales y comerciales en Valencia y área metropolitana de Valencia. 
+          Más de 15 años creando hogares soñados en El Trigal, San Marino, Ciudad Jardín y todas las urbanizaciones de la ciudad.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
           <a href="/contacto" class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-lg hover:bg-primary/90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 font-semibold">
@@ -186,12 +182,18 @@ const neighborhoods = [
       </div>
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {services.map((service) => (
-          <ServiceCard
-            title={service.title}
-            description={service.description}
-            slug={service.slug}
-            image={service.image}
-          />
+          <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1">
+            <div class="p-6">
+              <h3 class="text-xl font-bold mb-3 text-gray-900">{service.title}</h3>
+              <p class="text-gray-600 mb-4 leading-relaxed">{service.description}</p>
+              <a href={service.slug} class="inline-flex items-center text-primary font-semibold hover:text-primary/80 transition-colors">
+                Saber más
+                <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                </svg>
+              </a>
+            </div>
+          </div>
         ))}
       </div>
       <div class="text-center mt-12">
@@ -213,7 +215,7 @@ const neighborhoods = [
           Zonas que Atendemos en Valencia
         </h2>
         <p class="text-xl text-gray-600 text-center mb-8">
-          Llegamos a todas las urbanizaciones y sectores de Valencia y San Diego
+          Llegamos a todas las urbanizaciones y sectores de Valencia y Valencia
         </p>
         <div class="bg-gradient-to-br from-primary/5 to-secondary/5 rounded-2xl p-8">
           <div class="flex flex-wrap gap-3 justify-center">
@@ -332,12 +334,20 @@ const neighborhoods = [
       </div>
       <div class="grid md:grid-cols-3 gap-8">
         {testimonials.map((testimonial) => (
-          <TestimonialCard
-            name={testimonial.name}
-            location={testimonial.location}
-            text={testimonial.text}
-            rating={testimonial.rating}
-          />
+          <div class="bg-gray-50 rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow">
+            <div class="flex mb-4">
+              {[...Array(testimonial.rating)].map((_, i) => (
+                <svg key={i} class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                </svg>
+              ))}
+            </div>
+            <p class="text-gray-700 mb-4 italic leading-relaxed">"{testimonial.text}"</p>
+            <div class="border-t pt-4">
+              <p class="font-bold text-gray-900">{testimonial.name}</p>
+              <p class="text-sm text-gray-600">{testimonial.location}</p>
+            </div>
+          </div>
         ))}
       </div>
     </div>
@@ -354,7 +364,7 @@ const neighborhoods = [
           { question: "¿Cuáles son las formas de pago en Valencia?", answer: "Aceptamos pagos en dólares en efectivo, transferencias bancarias en USD, Zelle, y bolívares al tipo de cambio BCV del día. También ofrecemos planes de financiamiento para proyectos grandes." },
           { question: "¿Cuánto tiempo tarda una remodelación típica en Valencia?", answer: "Depende del proyecto: una cocina toma 2-3 semanas, un baño 1-2 semanas, y una remodelación integral de apartamento puede tomar 6-10 semanas. Siempre entregamos un cronograma detallado antes de comenzar." },
           { question: "¿Necesito permisos municipales en Valencia?", answer: "Para remodelaciones internas generalmente no se requieren permisos. Para modificaciones estructurales o fachadas, gestionamos los permisos ante la Alcaldía de Valencia por ti." },
-          { question: "¿La garantía es válida en toda Valencia?", answer: "Sí, nuestra garantía escrita cubre todos nuestros trabajos en Valencia, San Diego y toda la región de Carabobo. Incluye mano de obra y materiales por el período especificado." },
+          { question: "¿La garantía es válida en toda Valencia?", answer: "Sí, nuestra garantía escrita cubre todos nuestros trabajos en Valencia, Valencia y toda la región de Carabobo. Incluye mano de obra y materiales por el período especificado." },
           { question: "¿Trabajan los fines de semana en Valencia?", answer: "Sí, podemos coordinar trabajos sábados y domingos según las normativas de cada urbanización. Algunos edificios tienen restricciones de horario que respetamos." }
         ]} />
       </div>
@@ -403,8 +413,8 @@ const neighborhoods = [
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "10.1621",
-      "longitude": "-68.0077"
+      "latitude": "10.1833",
+      "longitude": "-67.9667"
     },
     "areaServed": {
       "@type": "City",
