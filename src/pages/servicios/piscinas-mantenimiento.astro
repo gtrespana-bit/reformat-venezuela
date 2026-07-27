@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
 <BaseLayout 
   title="Piscinas | Construcción, Mantenimiento y Equipos de Filtración" 
@@ -9,7 +10,13 @@ import ServiceSchema from '../../components/ServiceSchema.astro';
   image="/images/piscinas.webp" 
   activePage="servicios"
 >
-  <header class="article-hero">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Piscinas y Mantenimiento', url: '/servicios/piscinas-mantenimiento' }
+]} />
+
+<header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/piscinas.webp')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">

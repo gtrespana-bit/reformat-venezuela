@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
 <BaseLayout
   title="Instalación Eléctrica en Valencia, Caracas y San Diego | Precios 2026"
@@ -9,7 +10,13 @@ import ServiceSchema from '../../components/ServiceSchema.astro';
   image="/images/electricidad.webp"
   activePage="servicios"
 >
-  <header class="article-hero">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Instalación Eléctrica', url: '/servicios/instalacion-electrica' }
+]} />
+
+<header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/electricidad.webp')"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">

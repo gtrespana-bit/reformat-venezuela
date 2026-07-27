@@ -1,0 +1,76 @@
+---
+interface Crumb {
+  name: string;
+  url: string;
+}
+interface Props {
+  items: Crumb[];
+}
+const { items } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "name": item.name,
+    "item": `https://reformat-venezuela.online${item.url}`
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />
+
+<nav class="breadcrumb" aria-label="Ruta de navegación">
+  <ol>
+    {items.map((item, i) => (
+      <li>
+        {i < items.length - 1 ? (
+          <a href={item.url}>{item.name}</a>
+        ) : (
+          <span aria-current="page">{item.name}</span>
+        )}
+      </li>
+    ))}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px clamp(20px, 4vw, 48px);
+  }
+  .breadcrumb ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: .82rem;
+  }
+  .breadcrumb li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #8a8a8a;
+  }
+  .breadcrumb li + li::before {
+    content: '›';
+    color: #c9a961;
+    font-weight: 600;
+  }
+  .breadcrumb a {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .breadcrumb a:hover { color: #c9a961; }
+  .breadcrumb span[aria-current] {
+    color: #1a2332;
+    font-weight: 600;
+  }
+</style>
