@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/cocina.webp"
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Remodelación de Cocinas', url: '/servicios/remodelacion-cocina' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/cocina.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Remodelación de Cocinas', url: '/servicios/remodelacion-cocina' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>La cocina es mucho más que un lugar para preparar alimentos. Es el corazón del hogar, donde la familia se reúne cada mañana, donde se comparten conversaciones mientras se cocina, donde los niños hacen sus tareas mientras preparas la cena. Una cocina bien diseñada no solo mejora la funcionalidad de tu hogar, sino que transforma tu calidad de vida diaria.</p>

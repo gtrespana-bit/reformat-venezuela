@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/pintura-800.webp"
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Pintura y Acabados', url: '/servicios/pintura-acabados' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/pintura-800.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Pintura y Acabados', url: '/servicios/pintura-acabados' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>La pintura y los acabados son el toque final que define la personalidad de tu hogar. Un trabajo profesional de pintura no solo mejora la estética, sino que protege las superficies, aumenta la durabilidad de las paredes y puede transformar completamente la percepción de un espacio. Es la diferencia entre un resultado que dura 2 años y uno que dura 15.</p>

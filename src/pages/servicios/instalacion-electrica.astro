@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/electricidad.webp"
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Instalación Eléctrica', url: '/servicios/instalacion-electrica' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/electricidad.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Instalación Eléctrica', url: '/servicios/instalacion-electrica' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>La instalación eléctrica es el sistema nervioso de tu hogar. Una instalación obsoleta o mal ejecutada es un riesgo real: puede causar incendios, dañar electrodomésticos costosos y limitar completamente lo que puedes hacer en tu espacio. En ReformaT Venezuela diseñamos y ejecutamos instalaciones que combinan seguridad, eficiencia y preparación para el futuro.</p>

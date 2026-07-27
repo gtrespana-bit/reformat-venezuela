@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/revestimientos.webp" 
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Revestimientos de Pared', url: '/servicios/revestimientos-pared' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/revestimientos.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Revestimientos de Pared', url: '/servicios/revestimientos-pared' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>Los revestimientos de pared han dejado de ser un simple elemento protector para convertirse en el protagonista del diseño interior. Un revestimiento bien seleccionado y correctamente instalado no solo protege tus paredes de la humedad y el desgaste, sino que define la personalidad de cada ambiente, aporta textura, profundidad y un valor estético incomparable.</p>

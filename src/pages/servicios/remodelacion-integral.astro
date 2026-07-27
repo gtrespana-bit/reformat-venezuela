@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/integrales-800.webp"
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Remodelación Integral', url: '/servicios/remodelacion-integral' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/integrales-800.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Remodelación Integral', url: '/servicios/remodelacion-integral' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>Una remodelación integral es mucho más que renovar un espacio. Es reimaginar completamente tu hogar o negocio, optimizar cada metro cuadrado, actualizar instalaciones y crear un entorno que refleje tu estilo de vida actual. Es una inversión importante que, ejecutada correctamente, transforma tu calidad de vida y aumenta significativamente el valor de tu propiedad.</p>

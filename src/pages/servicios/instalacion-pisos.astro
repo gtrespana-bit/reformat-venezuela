@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/suelo-porcelanato.webp" 
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Instalación de Suelos', url: '/servicios/instalacion-pisos' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/suelo-porcelanato.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Instalación de Suelos', url: '/servicios/instalacion-pisos' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>El suelo es la base sobre la que se construye el confort de un hogar. Un pavimento bien instalado no solo define la estética de cada estancia, sino que aporta aislamiento térmico y acústico, facilita la limpieza y resiste el paso del tiempo y el tráfico diario. En ReformaT Venezuela dominamos la instalación de todos los sistemas de pavimentación modernos, adaptándonos al clima y a las necesidades de cada espacio.</p>

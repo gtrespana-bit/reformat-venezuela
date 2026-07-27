@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/fontaneria.webp" 
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Fontanería y Plomería', url: '/servicios/fontaneria-plomeria' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/fontaneria.webp')"></div>
@@ -26,7 +22,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
       <p class="article-excerpt">Instalaciones, reparaciones y mantenimiento con máxima seguridad y eficiencia.</p>
     </div>
   </header>
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Fontanería y Plomería', url: '/servicios/fontaneria-plomeria' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>La fontanería es un sistema crítico. Una fuga pequeña puede convertirse en un problema estructural costoso. En ReformaT Venezuela ofrecemos soluciones integrales con materiales de primera y garantía de trabajo.</p>

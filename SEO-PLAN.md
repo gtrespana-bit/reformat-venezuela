@@ -14,7 +14,7 @@
 
 ## 🟡 Prioridad MEDIA — Semanas 2-4
 
-- [ ] **5. Contenido profundo en páginas de servicios** — Proceso paso a paso, materiales, FAQs propias, testimonios, precios (mínimo 800 palabras por página)
+- [x] **5. Contenido profundo en páginas de servicios** — ✅ Completado 2026-07-26. Las 10 páginas superan 800 palabras. Script: `scripts/expand-content.mjs`. FAQ movidas dentro del layout en 5 páginas.
 - [ ] **6. Landing pages de zonas específicas (long-tail local)** — remodelacion-cocina-chacao, remodelacion-bano-las-mercedes, etc.
 - [ ] **7. Blog con keywords long-tail** — Artículos: costos, errores comunes, materiales, guías. Cada artículo enlaza a servicios.
 - [ ] **8. Cross-linking ciudad ↔ servicio** — En cada servicio, sección "Servicio en tu ciudad" con links a las 4 ciudades

@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/piscinas.webp" 
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Piscinas y Mantenimiento', url: '/servicios/piscinas-mantenimiento' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/piscinas.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Piscinas y Mantenimiento', url: '/servicios/piscinas-mantenimiento' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>Una piscina es mucho más que un elemento decorativo o de ocio. Es un espacio de desconexión, ejercicio y convivencia familiar que, bien diseñado y mantenido, aumenta significativamente el valor de tu propiedad. En el clima de Valencia y San Diego, una piscina se convierte en el corazón del hogar durante gran parte del año.</p>

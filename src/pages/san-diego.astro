@@ -78,10 +78,7 @@ const faqItems = [
 
 <BaseLayout title={cityData.title} description={cityData.description}>
 
-  <Breadcrumb items={[
-    { name: 'Inicio', url: '/' },
-    { name: 'San Diego', url: '/san-diego' }
-  ]} />
+  
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero">
@@ -103,7 +100,12 @@ const faqItems = [
     </div>
   </section>
 
-  <!-- ═══════════════ INTRO ═══════════════ -->
+  <Breadcrumb items={[
+    { name: 'Inicio', url: '/' },
+    { name: 'San Diego', url: '/san-diego' }
+  ]} />
+
+<!-- ═══════════════ INTRO ═══════════════ -->
   <section class="section intro">
     <div class="container intro-grid">
       <div class="intro-media">

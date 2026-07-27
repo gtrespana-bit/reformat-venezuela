@@ -10,11 +10,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   image="/images/bano.webp"
   activePage="servicios"
 >
-  <Breadcrumb items={[
-  { name: 'Inicio', url: '/' },
-  { name: 'Servicios', url: '/servicios' },
-  { name: 'Remodelación de Baños', url: '/servicios/remodelacion-bano' }
-]} />
+  
 
 <header class="article-hero">
     <div class="hero-bg" style="background-image: url('/images/bano.webp')"></div>
@@ -27,7 +23,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </header>
 
-  <section class="article-section">
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Remodelación de Baños', url: '/servicios/remodelacion-bano' }
+]} />
+
+<section class="article-section">
     <div class="container">
       <div class="article-body">
         <p>El baño es el primer espacio que visitas al despertar y el último antes de dormir. Es tu refugio personal, el lugar donde te preparas para enfrentar el día y donde te relajas después de una jornada intensa. Un baño bien diseñado no solo mejora tu calidad de vida, sino que añade valor real a tu propiedad y previene problemas costosos de humedad y filtraciones.</p>
