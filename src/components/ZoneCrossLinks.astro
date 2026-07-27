@@ -1,0 +1,121 @@
+---
+interface Props {
+  zone: string;      // slug: 'valencia-centro'
+  service: string;   // 'bano' | 'cocina' | 'integral'
+}
+
+const { zone, service } = Astro.props;
+
+const zoneNames: Record<string, string> = {
+  'altamira': 'Altamira',
+  'alto-hatillo': 'Alto Hatillo',
+  'campo-alegre': 'Campo Alegre',
+  'chacao': 'Chacao',
+  'country-club': 'Country Club',
+  'el-hatillo': 'El Hatillo',
+  'el-parral': 'El Parral',
+  'el-penon': 'El Peñón',
+  'el-trigal': 'El Trigal',
+  'el-vinedo': 'El Viñedo',
+  'guacara': 'Guacara',
+  'guataparo': 'Guataparo',
+  'la-castellana': 'La Castellana',
+  'la-lagunita': 'La Lagunita',
+  'las-mercedes': 'Las Mercedes',
+  'la-trigalena': 'La Trigaleña',
+  'los-guayos': 'Los Guayos',
+  'los-naranjos': 'Los Naranjos',
+  'manongo': 'Manongo',
+  'naguanagua': 'Naguanagua',
+  'prados-del-este': 'Prados del Este',
+  'prebo': 'Prebo',
+  'puerto-cabello': 'Puerto Cabello',
+  'san-diego': 'San Diego',
+  'tocuyito': 'Tocuyito',
+  'valencia-centro': 'Valencia Centro',
+  'valles-de-camoruco': 'Valles de Camoruco',
+};
+
+const metroGroups: Record<string, string[]> = {
+  caracas: [
+    'chacao', 'altamira', 'campo-alegre', 'country-club', 'las-mercedes',
+    'el-hatillo', 'alto-hatillo', 'la-lagunita', 'los-naranjos',
+    'prados-del-este', 'la-castellana', 'el-penon',
+  ],
+  carabobo: [
+    'el-trigal', 'la-trigalena', 'el-vinedo', 'guataparo', 'prebo',
+    'valencia-centro', 'naguanagua', 'manongo', 'san-diego', 'los-guayos',
+    'guacara', 'tocuyito', 'puerto-cabello', 'valles-de-camoruco', 'el-parral',
+  ],
+};
+
+const serviceNames: Record<string, string> = {
+  bano: 'Remodelación de Baños',
+  cocina: 'Remodelación de Cocinas',
+  integral: 'Reforma Integral',
+};
+
+const blogByService: Record<string, { name: string; url: string }> = {
+  cocina: { name: 'Cuánto cuesta reformar una cocina en Valencia', url: '/blog/cuanto-cuesta-reforma-cocina-valencia/' },
+  bano: { name: 'Cuánto cuesta remodelar un baño en Caracas', url: '/blog/cuanto-cuesta-remodelar-bano-caracas/' },
+  integral: { name: 'Reforma integral: qué incluye y precios', url: '/blog/remodelacion-integral-que-incluye/' },
+};
+
+const group = Object.values(metroGroups).find((g) => g.includes(zone)) || [];
+const neighbors = group.filter((z) => z !== zone).slice(0, 4);
+const otherServices = Object.keys(serviceNames).filter((s) => s !== service);
+const zoneName = zoneNames[zone] || zone;
+const blog = blogByService[service];
+---
+
+<section class="zone-crosslinks">
+  <div class="container">
+    <div class="zc-grid">
+      <div class="zc-col">
+        <h3>También trabajamos en zonas cercanas</h3>
+        <ul>
+          {neighbors.map((z) => (
+            <li><a href={`/remodelacion-${service}-${z}/`}>{serviceNames[service]} en {zoneNames[z] || z}</a></li>
+          ))}
+        </ul>
+      </div>
+      <div class="zc-col">
+        <h3>Otros servicios en {zoneName}</h3>
+        <ul>
+          {otherServices.map((s) => (
+            <li><a href={`/remodelacion-${s}-${zone}/`}>{serviceNames[s]} en {zoneName}</a></li>
+          ))}
+          <li><a href="/servicios/">Ver todos los servicios</a></li>
+        </ul>
+      </div>
+      {blog && (
+        <div class="zc-col">
+          <h3>Guía útil</h3>
+          <ul>
+            <li><a href={blog.url}>{blog.name}</a></li>
+            <li><a href="/blog/">Ver todos los artículos</a></li>
+          </ul>
+        </div>
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .zone-crosslinks { background: var(--gray); padding: 70px 24px; }
+  .zc-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px; max-width: var(--container); margin: 0 auto;
+  }
+  .zc-col h3 {
+    font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600;
+    margin-bottom: 18px; color: var(--text);
+  }
+  .zc-col ul { list-style: none; padding: 0; margin: 0; }
+  .zc-col li { margin-bottom: 11px; }
+  .zc-col a {
+    color: var(--gold); text-decoration: none; font-size: 0.98rem;
+    border-bottom: 1px solid transparent; transition: 0.3s;
+  }
+  .zc-col a:hover { border-bottom-color: var(--gold); }
+</style>

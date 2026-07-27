@@ -1,0 +1,147 @@
+---
+import { getCollection } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  lang?: 'es' | 'en';
+  category?: string;
+}
+
+const { currentSlug, lang = 'es', category = '' } = Astro.props;
+const isEn = lang === 'en';
+
+const esSlugs = [
+  'cuanto-cuesta-reforma-cocina-valencia',
+  'porcelanato-vs-ceramica',
+  'presupuesto-reforma-errores',
+  'reformas-banos-carabobo',
+  'tendencias-cocinas-2025',
+  'remodelacion-apartamentos-caracas',
+  'cuanto-cuesta-remodelar-bano-caracas',
+  'guia-pisos-porcelanato-marmol-madera',
+  'mantenimiento-piscinas-venezuela',
+  'remodelacion-integral-que-incluye',
+  'errores-remodelar-zonas-premium-caracas',
+];
+const enSlugs = [
+  'kitchen-remodel-cost-caracas-valencia-2026',
+  'porcelain-tile-vs-ceramic-tile-guide',
+  'remodel-budget-mistakes-avoid',
+  'bathroom-remodel-carabobo-guide',
+  'kitchen-design-trends-2026',
+];
+
+const allPosts = await getCollection('blog');
+const pool = allPosts.filter(
+  (p) => (isEn ? enSlugs : esSlugs).includes(p.id) && p.id !== currentSlug
+);
+const sameCat = pool.filter((p) => p.data.category === category);
+const others = pool.filter((p) => p.data.category !== category);
+const related = [...sameCat, ...others].slice(0, 3);
+
+const blogBase = isEn ? '/en/blog' : '/blog';
+
+const services = isEn
+  ? [
+      { name: 'Kitchen Remodeling', url: '/en/services/kitchens/' },
+      { name: 'Bathroom Remodeling', url: '/en/services/bathrooms/' },
+      { name: 'Whole-Home Renovation', url: '/en/services/whole-home/' },
+    ]
+  : [
+      { name: 'Remodelación de Cocinas', url: '/servicios/remodelacion-cocina/' },
+      { name: 'Remodelación de Baños', url: '/servicios/remodelacion-bano/' },
+      { name: 'Reformas Integrales', url: '/servicios/remodelacion-integral/' },
+    ];
+
+const zones = isEn
+  ? []
+  : [
+      { name: 'Remodelaciones en Valencia', url: '/valencia/' },
+      { name: 'Remodelaciones en Caracas', url: '/caracas/' },
+      { name: 'Remodelaciones en San Diego', url: '/san-diego/' },
+    ];
+
+const t = isEn
+  ? { related: 'Related Articles', services: 'Related Services', zones: 'Service Areas', read: 'read' }
+  : { related: 'Artículos Relacionados', services: 'Servicios Relacionados', zones: 'Zonas de Servicio', read: 'lectura' };
+---
+
+{related.length > 0 && (
+  <section class="related-content">
+    <div class="container">
+      <h2 class="related-title">{t.related}</h2>
+      <div class="related-grid">
+        {related.map((post) => (
+          <a href={`${blogBase}/${post.id}/`} class="related-card">
+            <span class="related-cat">{post.data.category}</span>
+            <h3>{post.data.title}</h3>
+            <span class="related-read">{post.data.readTime} {t.read} →</span>
+          </a>
+        ))}
+      </div>
+
+      <div class="related-links">
+        <div class="related-col">
+          <h4>{t.services}</h4>
+          <ul>
+            {services.map((s) => (
+              <li><a href={s.url}>{s.name}</a></li>
+            ))}
+          </ul>
+        </div>
+        {zones.length > 0 && (
+          <div class="related-col">
+            <h4>{t.zones}</h4>
+            <ul>
+              {zones.map((z) => (
+                <li><a href={z.url}>{z.name}</a></li>
+              ))}
+            </ul>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
+
+<style>
+  .related-content { background: var(--gray); padding: 80px 24px; }
+  .related-title {
+    font-family: var(--font-serif); font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 500; text-align: center; margin-bottom: 45px; color: var(--text);
+  }
+  .related-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px; max-width: var(--container); margin: 0 auto 50px;
+  }
+  .related-card {
+    background: var(--white); padding: 32px 28px; border-radius: 12px;
+    text-decoration: none; display: flex; flex-direction: column; gap: 12px;
+    transition: transform 0.3s, box-shadow 0.3s; border: 1px solid rgba(0,0,0,0.05);
+  }
+  .related-card:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(0,0,0,0.08); }
+  .related-cat {
+    color: var(--gold); font-size: 0.8rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .related-card h3 {
+    font-family: var(--font-serif); font-size: 1.35rem; font-weight: 500;
+    color: var(--text); line-height: 1.3; margin: 0;
+  }
+  .related-read { color: var(--gray-text); font-size: 0.9rem; margin-top: auto; }
+  .related-links {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 40px; max-width: 800px; margin: 0 auto;
+  }
+  .related-col h4 {
+    font-family: var(--font-serif); font-size: 1.2rem; font-weight: 600;
+    margin-bottom: 16px; color: var(--text);
+  }
+  .related-col ul { list-style: none; padding: 0; margin: 0; }
+  .related-col li { margin-bottom: 10px; }
+  .related-col a {
+    color: var(--gold); text-decoration: none; font-size: 1rem;
+    border-bottom: 1px solid transparent; transition: 0.3s;
+  }
+  .related-col a:hover { border-bottom-color: var(--gold); }
+</style>

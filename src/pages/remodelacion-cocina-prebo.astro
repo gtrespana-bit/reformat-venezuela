@@ -3,6 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ---
 
 <BaseLayout
@@ -96,6 +97,8 @@ import Breadcrumb from '../components/Breadcrumb.astro';
   areaServed={['Prebo I', 'Prebo II', 'Camoruco', 'El Viñedo', 'Valencia']}
   image="/images/cocina.webp"
 />
+
+<ZoneCrossLinks zone="prebo" service="cocina" />
 
 <!-- CTA -->
 <section class="cta-section">

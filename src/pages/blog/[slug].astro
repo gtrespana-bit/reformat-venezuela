@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
+import RelatedContent from '../../components/RelatedContent.astro';
 
 export async function getStaticPaths() {
   const spanishSlugs = [
@@ -71,17 +72,9 @@ const { Content } = await render(post);
         <Content />
       </div>
     
-      <div class="related-services">
-        <h2>Servicios Relacionados</h2>
-        <p>Si este artículo te fue útil, explora nuestros servicios de reformas profesionales:</p>
-        <ul>
-          <li><a href="/servicios/cocinas/">Reformas de Cocina en Valencia</a></li>
-          <li><a href="/servicios/banos/">Reformas de Baño</a></li>
-          <li><a href="/servicios/integrales/">Reformas Integrales</a></li>
-          <li><a href="/servicios/">Ver todos los servicios</a></li>
-        </ul>
-      </div>
     </section>
+
+    <RelatedContent currentSlug={post.id} lang="es" category={post.data.category} />
 
     <section class="post-cta">
       <div class="cta-wrapper">
