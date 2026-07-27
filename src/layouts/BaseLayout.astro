@@ -219,7 +219,7 @@ const navItems = isEnglish
 
         <div class="footer-col">
           <h3 class="footer-heading">{isEnglish ? 'Service Areas' : 'Zonas de Servicio'}</h3>
-          <ul class="footer-links">
+          <ul class="footer-links footer-links-2col">
             {[
               { es: 'Caracas', en: 'Caracas', href: '/caracas' },
               { es: 'Valencia', en: 'Valencia', href: '/valencia' },
@@ -441,6 +441,8 @@ const navItems = isEnglish
   .footer-links li { margin-bottom: 9px; }
   .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
   .footer-links a:hover { color: var(--gold); }
+  .footer-links-2col { column-count: 2; column-gap: 24px; }
+  .footer-links-2col li { break-inside: avoid; }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; }
 
   @media (max-width: 900px) {
@@ -465,6 +467,7 @@ const navItems = isEnglish
     .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
     .footer-brand { text-align: center; }
     .footer-links { display: inline-block; text-align: left; }
+    .footer-links-2col { column-count: 1; }
     .footer-logo img { max-width: 260px; }
     .footer { padding: 55px 0 30px; }
     .lang-switch-visible { padding: 4px 8px; font-size: 0.75rem; }
