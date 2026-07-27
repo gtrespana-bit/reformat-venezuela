@@ -465,5 +465,5 @@ Cuéntanos tu proyecto y te daremos un presupuesto real, transparente y sin comp
 - **[Porcelanato vs Cerámica: Cuál Elegir](/blog/porcelanato-vs-ceramica)** — Elige el material perfecto para tu baño
 - **[Presupuesto de Reforma: 7 Errores Comunes](/blog/presupuesto-reforma-errores)** — Controla el presupuesto de tu reforma
 
-¿Planificando la reforma de tu baño? **[Consulta nuestro servicio de baños →](/servicios/banos)**
+¿Planificando la reforma de tu baño? **[Consulta nuestro servicio de baños →](/servicios/remodelacion-bano)**
 

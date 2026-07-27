@@ -147,6 +147,6 @@ En ReformaT Venezuela manejamos todo el proceso: permisos, diseño, obra y acaba
 **Solicita tu consulta gratuita por WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 
 O explora nuestros servicios:
-- [Remodelación de Cocinas en Caracas](/servicios/zonas/remodelacion-cocina-altamira)
-- [Remodelación de Baños](/servicios/remodelacion-banos)
+- [Remodelación de Cocinas en Caracas](/remodelacion-cocina-altamira)
+- [Remodelación de Baños](/servicios/remodelacion-bano)
 - [Remodelación Integral](/servicios/remodelacion-integral)

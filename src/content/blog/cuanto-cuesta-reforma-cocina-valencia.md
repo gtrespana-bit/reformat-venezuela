@@ -361,5 +361,5 @@ Cuéntanos tu proyecto y te daremos un presupuesto real, transparente y sin comp
 - **[Presupuesto de Reforma: 7 Errores Comunes](/blog/presupuesto-reforma-errores)** — Evita sorpresas financieras en tu proyecto
 - **[Tendencias en Cocinas 2025](/blog/tendencias-cocinas-2025)** — Inspírate con las últimas tendencias en diseño de cocinas
 
-¿Necesitas un presupuesto personalizado para tu reforma de cocina? **[Solicita tu cotización gratuita →](/servicios/cocinas)**
+¿Necesitas un presupuesto personalizado para tu reforma de cocina? **[Solicita tu cotización gratuita →](/servicios/remodelacion-cocina)**
 

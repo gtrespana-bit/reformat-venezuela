@@ -444,5 +444,5 @@ Cuéntanos tu proyecto y te recomendaremos la mejor combinación de materiales p
 - **[Cuánto Cuesta Reformar una Cocina](/blog/cuanto-cuesta-reforma-cocina-valencia)** — Guía de precios actualizada para tu proyecto
 - **[Presupuesto de Reforma: 7 Errores Comunes](/blog/presupuesto-reforma-errores)** — Protege tu inversión desde el primer día
 
-¿Necesitas asesoramiento para elegir revestimientos? **[Consulta nuestro servicio de revestimientos →](/servicios/revestimientos)**
+¿Necesitas asesoramiento para elegir revestimientos? **[Consulta nuestro servicio de revestimientos →](/servicios/revestimientos-pared)**
 

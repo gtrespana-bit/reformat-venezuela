@@ -131,9 +131,9 @@ En zonas como **Altamira, La Castellana, Campo Alegre y La Lagunita**, los baño
 Un baño de lujo en estas zonas parte de $12,000 y puede superar $25,000 con materiales importados.
 
 Para proyectos en estas zonas, revisa nuestras páginas específicas:
-- [Remodelación de Baños en Altamira](/servicios/zonas/remodelacion-bano-altamira)
-- [Remodelación de Baños en La Lagunita](/servicios/zonas/remodelacion-bano-la-lagunita)
-- [Remodelación de Baños en La Castellana](/servicios/zonas/remodelacion-bano-la-castellana)
+- [Remodelación de Baños en Altamira](/remodelacion-bano-altamira)
+- [Remodelación de Baños en La Lagunita](/remodelacion-bano-la-lagunita)
+- [Remodelación de Baños en La Castellana](/remodelacion-bano-la-castellana)
 
 ---
 
@@ -158,6 +158,6 @@ En ReformaT Venezuela hacemos la visita técnica gratuita, medimos tu baño y te
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 
 Servicios relacionados:
-- [Remodelación de Baños](/servicios/remodelacion-banos)
+- [Remodelación de Baños](/servicios/remodelacion-bano)
 - [Fontanería y Plomería](/servicios/fontaneria-plomeria)
 - [Instalación de Pisos](/servicios/instalacion-pisos)

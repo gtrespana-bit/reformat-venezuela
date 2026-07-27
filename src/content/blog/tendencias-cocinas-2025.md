@@ -338,5 +338,5 @@ No dejes que tu cocina obsoleta siga limitando tu vida diaria. Imagina despertar
 - **[Cuánto Cuesta Reformar una Cocina](/blog/cuanto-cuesta-reforma-cocina-valencia)** — Presupuestos reales para hacer realidad tu cocina ideal
 - **[Porcelanato vs Cerámica: Cuál Elegir](/blog/porcelanato-vs-ceramica)** — Los mejores materiales para encimeras y revestimientos
 
-¿Quieres una cocina con las últimas tendencias? **[Diseña tu cocina con nosotros →](/servicios/cocinas)**
+¿Quieres una cocina con las últimas tendencias? **[Diseña tu cocina con nosotros →](/servicios/remodelacion-cocina)**
 

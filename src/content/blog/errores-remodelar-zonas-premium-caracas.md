@@ -209,12 +209,12 @@ Esto puede añadir 4-6 semanas al cronograma si no se prevé desde el inicio.
 **Carabobo Premium:** Guataparo, El Viñedo, Prebo, El Parral, Mañongo, Valles de Camorúco.
 
 Para información específica de tu zona:
-- [Remodelación en La Lagunita](/servicios/zonas/remodelacion-integral-la-lagunita)
-- [Remodelación en Altamira](/servicios/zonas/remodelacion-integral-altamira)
-- [Remodelación en Country Club](/servicios/zonas/remodelacion-integral-country-club)
-- [Remodelación en Campo Alegre](/servicios/zonas/remodelacion-integral-campo-alegre)
-- [Remodelación en Guataparo](/servicios/zonas/remodelacion-integral-guataparo)
-- [Remodelación en El Viñedo](/servicios/zonas/remodelacion-integral-el-vinedo)
+- [Remodelación en La Lagunita](/remodelacion-integral-la-lagunita)
+- [Remodelación en Altamira](/remodelacion-integral-altamira)
+- [Remodelación en Country Club](/remodelacion-integral-country-club)
+- [Remodelación en Campo Alegre](/remodelacion-integral-campo-alegre)
+- [Remodelación en Guataparo](/remodelacion-integral-guataparo)
+- [Remodelación en El Viñedo](/remodelacion-integral-el-vinedo)
 
 ---
 

@@ -197,10 +197,10 @@ Casas y townhouses con más libertad constructiva:
 - Presupuestos desde $25,000
 
 Para proyectos en estas zonas, revisa:
-- [Remodelación Integral en La Lagunita](/servicios/zonas/remodelacion-integral-la-lagunita)
-- [Remodelación Integral en Altamira](/servicios/zonas/remodelacion-integral-altamira)
-- [Remodelación Integral en Guataparo](/servicios/zonas/remodelacion-integral-guataparo)
-- [Remodelación Integral en El Viñedo](/servicios/zonas/remodelacion-integral-el-vinedo)
+- [Remodelación Integral en La Lagunita](/remodelacion-integral-la-lagunita)
+- [Remodelación Integral en Altamira](/remodelacion-integral-altamira)
+- [Remodelación Integral en Guataparo](/remodelacion-integral-guataparo)
+- [Remodelación Integral en El Viñedo](/remodelacion-integral-el-vinedo)
 
 ---
 
