@@ -186,17 +186,78 @@ const navItems = isEnglish
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-logo">
-        <img
-          src="/images/logo-footer.webp"
-          alt={isEnglish ? 'ReformaT Venezuela - Home Remodeling' : 'ReformaT Venezuela - Remodelación de Viviendas'}
-          width="500"
-          height="137"
-          loading="lazy"
-          decoding="async"
-        />
+      <div class="footer-grid">
+        <div class="footer-col footer-brand">
+          <div class="footer-logo">
+            <img
+              src="/images/logo-footer.webp"
+              alt={isEnglish ? 'ReformaT Venezuela - Home Remodeling' : 'ReformaT Venezuela - Remodelación de Viviendas'}
+              width="500"
+              height="137"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <p class="footer-desc">{footerDesc}</p>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">{isEnglish ? 'Services' : 'Servicios'}</h3>
+          <ul class="footer-links">
+            {[
+              { es: 'Remodelación de Cocinas', en: 'Kitchen Remodeling', href: isEnglish ? '/en/services/kitchens' : '/servicios/remodelacion-cocina' },
+              { es: 'Remodelación de Baños', en: 'Bathroom Remodeling', href: isEnglish ? '/en/services/bathrooms' : '/servicios/remodelacion-banos' },
+              { es: 'Remodelación Integral', en: 'Full Home Remodeling', href: isEnglish ? '/en/services/full-remodel' : '/servicios/remodelacion-integral' },
+              { es: 'Instalación de Pisos', en: 'Flooring Installation', href: isEnglish ? '/en/services/flooring' : '/servicios/instalacion-pisos' },
+              { es: 'Fontanería / Plomería', en: 'Plumbing', href: isEnglish ? '/en/services/plumbing' : '/servicios/fontaneria-plomeria' },
+              { es: 'Piscinas', en: 'Pools', href: isEnglish ? '/en/services/pools' : '/servicios/piscinas-mantenimiento' },
+            ].map((l) => (
+              <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">{isEnglish ? 'Service Areas' : 'Zonas de Servicio'}</h3>
+          <ul class="footer-links">
+            {[
+              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas' : '/caracas' },
+              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia' : '/valencia' },
+              { es: 'San Diego', en: 'San Diego', href: isEnglish ? '/en/san-diego' : '/san-diego' },
+              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira' : '/la-guaira' },
+              { es: 'Chacao', en: 'Chacao', href: '/servicios/zonas/remodelacion-integral-chacao' },
+              { es: 'Las Mercedes', en: 'Las Mercedes', href: '/servicios/zonas/remodelacion-integral-las-mercedes' },
+              { es: 'El Hatillo', en: 'El Hatillo', href: '/servicios/zonas/remodelacion-integral-el-hatillo' },
+              { es: 'La Lagunita', en: 'La Lagunita', href: '/servicios/zonas/remodelacion-integral-la-lagunita' },
+              { es: 'Altamira', en: 'Altamira', href: '/servicios/zonas/remodelacion-integral-altamira' },
+              { es: 'El Viñedo', en: 'El Viñedo', href: '/servicios/zonas/remodelacion-integral-el-vinedo' },
+              { es: 'Guataparo', en: 'Guataparo', href: '/servicios/zonas/remodelacion-integral-guataparo' },
+            ].map((l) => (
+              <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h3 class="footer-heading">{isEnglish ? 'Company' : 'Empresa'}</h3>
+          <ul class="footer-links">
+            {[
+              { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
+              { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
+              { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
+              { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
+            ].map((l) => (
+              <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
+            ))}
+            <li>
+              <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" rel="noopener">
+                {isEnglish ? 'WhatsApp: +58 422-7997043' : 'WhatsApp: +58 422-7997043'}
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <p class="footer-desc">{footerDesc}</p>
+
       <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
     </div>
   </footer>
@@ -369,11 +430,18 @@ const navItems = isEnglish
   .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
   .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
 
-  .footer { background: var(--bg); color: rgba(255,255,255,0.7); padding: 90px 0 45px; text-align: center; }
-  .footer-logo { margin-bottom: 35px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 450px; height: auto; display: block; }
-  .footer-desc { max-width: 420px; margin: 0 auto 28px; font-size: 1rem; line-height: 1.6; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 28px; font-size: 0.85rem; color: rgba(255,255,255,0.5); }
+  .footer { background: var(--bg); color: rgba(255,255,255,0.7); padding: 70px 0 35px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 45px; text-align: left; }
+  .footer-brand { text-align: center; }
+  .footer-logo { margin-bottom: 20px; display: flex; justify-content: center; }
+  .footer-logo img { max-width: 320px; height: auto; display: block; }
+  .footer-desc { max-width: 340px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
+  .footer-heading { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
+  .footer-links { list-style: none; padding: 0; margin: 0; }
+  .footer-links li { margin-bottom: 9px; }
+  .footer-links a { color: rgba(255,255,255,0.65); text-decoration: none; font-size: 0.9rem; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; }
 
   @media (max-width: 900px) {
     .nav-links { display: none; }
@@ -387,13 +455,18 @@ const navItems = isEnglish
   @media (max-width: 768px) {
     .logo img { height: 60px; }
     .nav.scrolled .logo img { height: 55px; }
-    .footer-logo img { max-width: 350px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+    .footer-brand { grid-column: 1 / -1; }
+    .footer-logo img { max-width: 300px; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
     .logo img { height: 55px; }
-    .footer-logo img { max-width: 300px; }
-    .footer { padding: 70px 0 35px; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
+    .footer-brand { text-align: center; }
+    .footer-links { display: inline-block; text-align: left; }
+    .footer-logo img { max-width: 260px; }
+    .footer { padding: 55px 0 30px; }
     .lang-switch-visible { padding: 4px 8px; font-size: 0.75rem; }
   }
 
