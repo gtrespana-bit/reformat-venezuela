@@ -82,7 +82,7 @@ const faqItems = [
 
   <!-- ═══════════════ HERO ═══════════════ -->
   <section class="hero">
-    <div class="hero-bg" style={`background-image: url('${cityData.heroImage}')`}></div>
+    <img class="hero-bg" src={cityData.heroImage} alt="Remodelaciones y reformas de casas y apartamentos en San Diego, Carabobo | ReformaT" fetchpriority="high" loading="eager" decoding="async" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-badge">Carabobo · +15 años de experiencia</span>
@@ -279,7 +279,7 @@ const faqItems = [
 
   <!-- ═══════════════ CTA ═══════════════ -->
   <section class="cta" id="contacto">
-    <div class="cta-bg" style={`background-image: url('/images/cocina-terminada-final.webp')`}></div>
+    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt="Cocina moderna terminada lista para entrega en San Diego | ReformaT" loading="lazy" decoding="async" />
     <div class="cta-overlay"></div>
     <div class="cta-content">
       <span class="section-tag section-tag-light">Da el primer paso</span>
@@ -447,11 +447,8 @@ const faqItems = [
     overflow: hidden;
   }
   .hero-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transform: scale(1.05);
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    position: absolute; inset: 0; transform: scale(1.05);
   }
   .hero-overlay {
     position: absolute;
@@ -788,10 +785,8 @@ const faqItems = [
     overflow: hidden;
   }
   .cta-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+    position: absolute; inset: 0;
   }
   .cta-overlay {
     position: absolute;

@@ -10,7 +10,7 @@ const projects = [
 ];
 ---
 <BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales." activePage="proyectos">
-  <header class="page-hero"><div class="hero-bg" style="background-image: url('/images/integrales-800.webp')"></div><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
+  <header class="page-hero"><img class="hero-bg" src="/images/integrales-800.webp" alt="Proyecto de remodelación residencial en Venezuela | ReformaT" fetchpriority="high" loading="eager" decoding="async" /><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
   <section class="projects-section"><div class="container"><div class="filter-bar">{["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div></div>))}</div></div></section>
   
   <section class="cta-section">
