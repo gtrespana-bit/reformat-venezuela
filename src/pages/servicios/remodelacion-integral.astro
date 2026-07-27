@@ -190,7 +190,15 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Qué incluye una remodelación integral?", answer: "Incluye diseño del proyecto, gestión de permisos, demolición, albañilería, instalaciones (eléctrica, fontanería, climatización), acabados, carpintería y limpieza final. Todo llave en mano." },
+  { question: "¿Cuánto tiempo toma una remodelación integral de vivienda?", answer: "Una remodelación integral de vivienda de 80-120 m² toma entre 3 y 5 meses. Elaboramos un cronograma detallado con hitos de seguimiento para que estés informado en todo momento." },
+  { question: "¿Necesito desalojar la vivienda durante la remodelación?", answer: "En remodelaciones integrales completas, generalmente sí. Podemos planificar la obra por fases si necesitas permanecer en parte de la vivienda, aunque alarga los plazos." },
+  { question: "¿Ofrecen financiación para remodelaciones integrales?", answer: "Trabajamos con entidades financieras que ofrecen financiación para remodelaciones con condiciones ventajosas. Te orientamos sobre las opciones disponibles al presupuestar." },
+  { question: "¿Gestionan los permisos y licencias de obra?", answer: "Sí, nos encargamos de toda la gestión: proyecto técnico, solicitud de licencias, tasas municipales y coordinación con la comunidad de vecinos si aplica." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu remodelación integral?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -243,13 +251,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Qué incluye una remodelación integral?", answer: "Incluye diseño del proyecto, gestión de permisos, demolición, albañilería, instalaciones (eléctrica, fontanería, climatización), acabados, carpintería y limpieza final. Todo llave en mano." },
-  { question: "¿Cuánto tiempo toma una remodelación integral de vivienda?", answer: "Una remodelación integral de vivienda de 80-120 m² toma entre 3 y 5 meses. Elaboramos un cronograma detallado con hitos de seguimiento para que estés informado en todo momento." },
-  { question: "¿Necesito desalojar la vivienda durante la remodelación?", answer: "En remodelaciones integrales completas, generalmente sí. Podemos planificar la obra por fases si necesitas permanecer en parte de la vivienda, aunque alarga los plazos." },
-  { question: "¿Ofrecen financiación para remodelaciones integrales?", answer: "Trabajamos con entidades financieras que ofrecen financiación para remodelaciones con condiciones ventajosas. Te orientamos sobre las opciones disponibles al presupuestar." },
-  { question: "¿Gestionan los permisos y licencias de obra?", answer: "Sí, nos encargamos de toda la gestión: proyecto técnico, solicitud de licencias, tasas municipales y coordinación con la comunidad de vecinos si aplica." },
-]} />
+
 
 
 

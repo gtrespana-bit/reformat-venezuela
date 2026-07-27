@@ -97,7 +97,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Qué diferencia hay entre porcelanato y cerámica?", answer: "El porcelanato es más denso, resistente y con menor absorción de agua que la cerámica. Es ideal para zonas de alto tráfico y exteriores por su durabilidad superior." },
+  { question: "¿Instalan porcelanato de gran formato?", answer: "Sí, somos especialistas en porcelanato de gran formato (hasta 320x160 cm). Usamos sistemas de nivelación profesional para garantizar una instalación perfecta sin lippage." },
+  { question: "¿Qué son los wall panels?", answer: "Son paneles decorativos 3D de PVC, madera o yeso que transforman paredes lisas en superficies con textura y relieve. Ideales para crear paredes de acento." },
+  { question: "¿El microcemento necesita mantenimiento especial?", answer: "El microcemento sellado requiere limpieza con productos neutros y una reaplicación de sellador cada 2-3 años en zonas de alto uso para mantener su aspecto impecable." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Renovar Tus Paredes?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -150,12 +157,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Qué diferencia hay entre porcelanato y cerámica?", answer: "El porcelanato es más denso, resistente y con menor absorción de agua que la cerámica. Es ideal para zonas de alto tráfico y exteriores por su durabilidad superior." },
-  { question: "¿Instalan porcelanato de gran formato?", answer: "Sí, somos especialistas en porcelanato de gran formato (hasta 320x160 cm). Usamos sistemas de nivelación profesional para garantizar una instalación perfecta sin lippage." },
-  { question: "¿Qué son los wall panels?", answer: "Son paneles decorativos 3D de PVC, madera o yeso que transforman paredes lisas en superficies con textura y relieve. Ideales para crear paredes de acento." },
-  { question: "¿El microcemento necesita mantenimiento especial?", answer: "El microcemento sellado requiere limpieza con productos neutros y una reaplicación de sellador cada 2-3 años en zonas de alto uso para mantener su aspecto impecable." },
-]} />
+
 
 
 

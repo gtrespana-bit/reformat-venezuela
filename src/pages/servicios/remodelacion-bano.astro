@@ -318,7 +318,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Cuánto dura una remodelación de baño completa?", answer: "Una remodelación completa de baño toma entre 2 y 4 semanas. Incluye demolición, impermeabilización, fontanería, electricidad, revestimientos y colocación de sanitarios." },
+  { question: "¿Qué tipo de impermeabilización utilizan?", answer: "Aplicamos sistemas de impermeabilización en capa continua con garantía de 10 años, cubriendo plato de ducha, paredes húmedas y suelo con materiales certificados." },
+  { question: "¿Puedo mantener la distribución actual del baño?", answer: "Sí, podemos remodelar manteniendo la distribución existente o proponer una nueva. Cambiar la ubicación de sanitarios implica modificar fontanería y puede afectar el presupuesto." },
+  { question: "¿Incluyen la retirada de escombros?", answer: "Sí, nuestro servicio incluye demolición, retirada de escombros y limpieza final. Dejamos el baño listo para usar sin que tengas que preocuparte por nada." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Nuevo Baño?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -371,12 +378,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Cuánto dura una remodelación de baño completa?", answer: "Una remodelación completa de baño toma entre 2 y 4 semanas. Incluye demolición, impermeabilización, fontanería, electricidad, revestimientos y colocación de sanitarios." },
-  { question: "¿Qué tipo de impermeabilización utilizan?", answer: "Aplicamos sistemas de impermeabilización en capa continua con garantía de 10 años, cubriendo plato de ducha, paredes húmedas y suelo con materiales certificados." },
-  { question: "¿Puedo mantener la distribución actual del baño?", answer: "Sí, podemos remodelar manteniendo la distribución existente o proponer una nueva. Cambiar la ubicación de sanitarios implica modificar fontanería y puede afectar el presupuesto." },
-  { question: "¿Incluyen la retirada de escombros?", answer: "Sí, nuestro servicio incluye demolición, retirada de escombros y limpieza final. Dejamos el baño listo para usar sin que tengas que preocuparte por nada." },
-]} />
+
 
 
 

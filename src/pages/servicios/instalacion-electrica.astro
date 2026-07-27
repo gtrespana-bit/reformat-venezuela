@@ -226,7 +226,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Cuándo debo renovar la instalación eléctrica de mi hogar?", answer: "Si tu instalación tiene más de 20 años, usa cableado antiguo o los cuadros eléctricos no tienen diferenciales modernos, es momento de una renovación por seguridad." },
+  { question: "¿Ofrecen certificados eléctricos?", answer: "Sí, emitimos certificados de instalación eléctrica y boletines oficiales requeridos por las compañías distribuidoras y para trámites de compraventa de inmuebles." },
+  { question: "¿Pueden instalar domótica y automatización?", answer: "Sí, instalamos sistemas de domótica para control de iluminación, persianas, climatización y seguridad, compatibles con asistentes de voz y control desde el móvil." },
+  { question: "¿Realizan instalaciones para carga de vehículos eléctricos?", answer: "Sí, instalamos puntos de carga para vehículos eléctricos en garajes privados y comunitarios, con la potencia y protecciones adecuadas según el equipo." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Instalación Eléctrica?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -279,12 +286,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Cuándo debo renovar la instalación eléctrica de mi hogar?", answer: "Si tu instalación tiene más de 20 años, usa cableado antiguo o los cuadros eléctricos no tienen diferenciales modernos, es momento de una renovación por seguridad." },
-  { question: "¿Ofrecen certificados eléctricos?", answer: "Sí, emitimos certificados de instalación eléctrica y boletines oficiales requeridos por las compañías distribuidoras y para trámites de compraventa de inmuebles." },
-  { question: "¿Pueden instalar domótica y automatización?", answer: "Sí, instalamos sistemas de domótica para control de iluminación, persianas, climatización y seguridad, compatibles con asistentes de voz y control desde el móvil." },
-  { question: "¿Realizan instalaciones para carga de vehículos eléctricos?", answer: "Sí, instalamos puntos de carga para vehículos eléctricos en garajes privados y comunitarios, con la potencia y protecciones adecuadas según el equipo." },
-]} />
+
 
 
 

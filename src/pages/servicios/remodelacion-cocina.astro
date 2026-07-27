@@ -249,7 +249,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Cuánto tiempo toma una remodelación de cocina completa?", answer: "Una remodelación integral de cocina toma entre 4 y 8 semanas, dependiendo de la complejidad del diseño, los materiales seleccionados y si se requieren cambios en las instalaciones." },
+  { question: "¿Qué incluye el presupuesto de remodelación de cocina?", answer: "Incluimos diseño 3D, demolición, instalaciones eléctricas y de fontanería, mobiliario a medida, encimeras, revestimientos y electrodomésticos empotrados. Todo detallado por partidas." },
+  { question: "¿Ofrecen garantía en los trabajos de cocina?", answer: "Sí, todos nuestros trabajos cuentan con garantía de 2 años en mano de obra y la garantía del fabricante en materiales, encimeras y electrodomésticos." },
+  { question: "¿Puedo elegir los materiales y acabados?", answer: "Por supuesto. Trabajamos con marcas premium y te asesoramos en la selección de materiales, colores y acabados que mejor se adapten a tu estilo y presupuesto." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Nueva Cocina?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -302,12 +309,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Cuánto tiempo toma una remodelación de cocina completa?", answer: "Una remodelación integral de cocina toma entre 4 y 8 semanas, dependiendo de la complejidad del diseño, los materiales seleccionados y si se requieren cambios en las instalaciones." },
-  { question: "¿Qué incluye el presupuesto de remodelación de cocina?", answer: "Incluimos diseño 3D, demolición, instalaciones eléctricas y de fontanería, mobiliario a medida, encimeras, revestimientos y electrodomésticos empotrados. Todo detallado por partidas." },
-  { question: "¿Ofrecen garantía en los trabajos de cocina?", answer: "Sí, todos nuestros trabajos cuentan con garantía de 2 años en mano de obra y la garantía del fabricante en materiales, encimeras y electrodomésticos." },
-  { question: "¿Puedo elegir los materiales y acabados?", answer: "Por supuesto. Trabajamos con marcas premium y te asesoramos en la selección de materiales, colores y acabados que mejor se adapten a tu estilo y presupuesto." },
-]} />
+
 
 
 

@@ -104,7 +104,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
     </div>
   </section>
 
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Cuánto cuesta construir una piscina residencial?", answer: "El coste varía según tamaño, materiales y equipamiento. Una piscina de obra de 6x3 m con equipo de filtración completo parte desde un presupuesto que podemos detallar sin compromiso." },
+  { question: "¿Qué sistema de filtración recomiendan?", answer: "Recomendamos sistemas de filtración con bomba de velocidad variable y filtro de vidrio activo. Consumen menos energía, filtran mejor y reducen el uso de productos químicos." },
+  { question: "¿Ofrecen mantenimiento periódico de piscinas?", answer: "Sí, ofrecemos planes de mantenimiento semanal o quincenal que incluyen control de pH, limpieza de fondo y paredes, revisión de equipos y tratamiento del agua." },
+  { question: "¿Cuánto tarda la construcción de una piscina?", answer: "La construcción de una piscina de obra toma entre 4 y 8 semanas, dependiendo del tamaño, la complejidad del terreno y los acabados seleccionados." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Piscina o Mantenimiento?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -157,12 +164,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Cuánto cuesta construir una piscina residencial?", answer: "El coste varía según tamaño, materiales y equipamiento. Una piscina de obra de 6x3 m con equipo de filtración completo parte desde un presupuesto que podemos detallar sin compromiso." },
-  { question: "¿Qué sistema de filtración recomiendan?", answer: "Recomendamos sistemas de filtración con bomba de velocidad variable y filtro de vidrio activo. Consumen menos energía, filtran mejor y reducen el uso de productos químicos." },
-  { question: "¿Ofrecen mantenimiento periódico de piscinas?", answer: "Sí, ofrecemos planes de mantenimiento semanal o quincenal que incluyen control de pH, limpieza de fondo y paredes, revisión de equipos y tratamiento del agua." },
-  { question: "¿Cuánto tarda la construcción de una piscina?", answer: "La construcción de una piscina de obra toma entre 4 y 8 semanas, dependiendo del tamaño, la complejidad del terreno y los acabados seleccionados." },
-]} />
+
 
 
 

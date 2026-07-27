@@ -59,7 +59,14 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
       </div>
     </div>
   </section>
-  <section class="cta-section">
+  
+<FAQ items={[
+  { question: "¿Cómo detectan fugas de agua sin romper paredes?", answer: "Utilizamos equipos de detección por ultrasonido y cámaras termográficas que nos permiten localizar fugas con precisión sin necesidad de obras destructivas." },
+  { question: "¿Qué tipos de calentadores instalan?", answer: "Instalamos calentadores a gas, termos eléctricos, calderas de condensación y sistemas de aerotermia. Te asesoramos sobre la opción más eficiente para tu consumo." },
+  { question: "¿Ofrecen servicio de urgencias?", answer: "Sí, atendemos urgencias de fontanería como roturas de tuberías, atascos graves y fugas de agua. Contáctanos por WhatsApp para respuesta rápida." },
+  { question: "¿Cuánto cuesta desatascar una tubería?", answer: "El coste depende de la gravedad y ubicación del atasco. Realizamos inspección con cámara primero para diagnosticar antes de presupuestar, sin sorpresas." },
+]} />
+<section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Instalación de Fontanería?</h2>
       <p class="cta-text">Solicita una consulta gratuita y recibe un presupuesto detallado sin compromiso.</p>
@@ -107,12 +114,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-<FAQ items={[
-  { question: "¿Cómo detectan fugas de agua sin romper paredes?", answer: "Utilizamos equipos de detección por ultrasonido y cámaras termográficas que nos permiten localizar fugas con precisión sin necesidad de obras destructivas." },
-  { question: "¿Qué tipos de calentadores instalan?", answer: "Instalamos calentadores a gas, termos eléctricos, calderas de condensación y sistemas de aerotermia. Te asesoramos sobre la opción más eficiente para tu consumo." },
-  { question: "¿Ofrecen servicio de urgencias?", answer: "Sí, atendemos urgencias de fontanería como roturas de tuberías, atascos graves y fugas de agua. Contáctanos por WhatsApp para respuesta rápida." },
-  { question: "¿Cuánto cuesta desatascar una tubería?", answer: "El coste depende de la gravedad y ubicación del atasco. Realizamos inspección con cámara primero para diagnosticar antes de presupuestar, sin sorpresas." },
-]} />
+
 
 
 
