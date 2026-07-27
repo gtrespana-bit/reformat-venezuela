@@ -173,18 +173,24 @@ const localBusinessSchema = {
   "telephone": "+584227997043",
   "email": "contacto@reformat-venezuela.online",
   "priceRange": "$$",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5.0",
+    "reviewCount": "3",
+    "bestRating": "5"
+  },
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Avenida Bolívar, Centro Profesional",
-    "addressLocality": "Valencia",
+    "streetAddress": "Callejón Los Cocos S/N",
+    "addressLocality": "San Diego",
     "addressRegion": "Carabobo",
-    "postalCode": "2001",
+    "postalCode": "2006",
     "addressCountry": "VE"
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": 10.1620,
-    "longitude": -68.0077
+    "latitude": 10.2669,
+    "longitude": -67.9659
   },
   "areaServed": areasServed,
   "availableLanguage": [
@@ -203,7 +209,7 @@ const localBusinessSchema = {
     "opens": "08:00",
     "closes": "18:00"
   },
-  "sameAs": [siteUrl]
+  "sameAs": [siteUrl, 'https://www.google.com/search?kgmid=/g/11z5xwxddz&hl=es-US&q=ReformaT+Venezuela&shem=epsd1,ltae,rimspwouoe&shndl=30&source=sh/x/loc/osrp/m5/1&kgs=3c2f9293123e15be&utm_source=epsd1,ltae,rimspwouoe,sh/x/loc/osrp/m5/1']
 };
 
 const breadcrumbSchema = {
@@ -260,9 +266,9 @@ const articleSchema = {
 <meta http-equiv="content-language" content={lang} />
 <meta name="language" content={lang} />
 <meta name="geo.region" content="VE" />
-<meta name="geo.placename" content="Valencia, San Diego, Caracas, Carabobo" />
-<meta name="geo.position" content="10.1620;-68.0077" />
-<meta name="ICBM" content="10.1620, -68.0077" />
+<meta name="geo.placename" content="San Diego, Valencia, Caracas, Carabobo" />
+<meta name="geo.position" content="10.2669;-67.9659" />
+<meta name="ICBM" content="10.2669, -67.9659" />
 
 <!-- HREFLANG (con self-referencing) -->
 <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
