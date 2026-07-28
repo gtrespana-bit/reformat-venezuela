@@ -328,21 +328,21 @@ const faqItems = [
 
 <style>
   /* ── Tokens ── */
+  /* Alias locales -> tokens globales.
+     Antes este bloque definía su propio sistema (navy #1a2332 azulado y un
+     --ink #2d2d2d que pisaba el negro cálido global). Ahora solo traduce. */
   .hero, .section, .cta {
-    --gold: #c9a961;
-    --gold-light: #e8d5a8;
-    --navy: #1a2332;
-    --navy-soft: #2c3e50;
-    --ink: #2d2d2d;
-    --muted: #6b7280;
-    --surface: #ffffff;
-    --surface-alt: #f8f7f4;
-    --border: #e8e6e1;
-    --radius: 14px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
-    --shadow-md: 0 8px 30px rgba(0,0,0,.08);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,.12);
-    --transition: .3s cubic-bezier(.4,0,.2,1);
+    --navy: var(--ink);
+    --navy-soft: var(--ink-soft);
+    --muted: var(--text-muted);
+    --surface: var(--white);
+    --surface-alt: var(--bone);
+    --border: var(--sand);
+    --radius: var(--r-md);
+    --shadow-sm: var(--e-1);
+    --shadow-md: var(--e-2);
+    --shadow-lg: var(--e-3);
+    --transition: var(--dur-base) var(--ease-out);
   }
 
   /* ── Layout helpers ── */
@@ -387,7 +387,7 @@ const faqItems = [
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-ink); /* texto sobre fondo claro: 4.9:1 */
   }
   .section-tag-light { color: var(--gold-light); }
 
@@ -397,7 +397,7 @@ const faqItems = [
     align-items: center;
     gap: 10px;
     padding: 15px 32px;
-    border-radius: 60px;
+    border-radius: var(--r-full);
     font-size: .95rem;
     font-weight: 600;
     text-decoration: none;
@@ -480,7 +480,7 @@ const faqItems = [
     display: inline-block;
     padding: 8px 20px;
     border: 1px solid rgba(201,169,97,.5);
-    border-radius: 60px;
+    border-radius: var(--r-full);
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: .12em;
@@ -635,7 +635,7 @@ const faqItems = [
   .service-icon {
     width: 56px;
     height: 56px;
-    border-radius: 14px;
+    border-radius: var(--r-md);
     background: rgba(201,169,97,.1);
     color: var(--gold);
     display: flex;
@@ -681,7 +681,7 @@ const faqItems = [
     padding: 20px 24px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: var(--r-md);
     transition: var(--transition);
   }
   .zone-item:hover {

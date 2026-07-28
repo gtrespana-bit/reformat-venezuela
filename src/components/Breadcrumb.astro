@@ -56,21 +56,21 @@ const schema = {
     display: flex;
     align-items: center;
     gap: 6px;
-    color: #8a8a8a;
+    color: var(--text-muted);
   }
   .breadcrumb li + li::before {
     content: '›';
-    color: #c9a961;
+    color: var(--gold-ink);
     font-weight: 600;
   }
   .breadcrumb a {
-    color: #6b7280;
+    color: var(--text-muted);
     text-decoration: none;
     transition: color .2s;
   }
-  .breadcrumb a:hover { color: #c9a961; }
+  .breadcrumb a:hover { color: var(--gold-ink-strong); }
   .breadcrumb span[aria-current] {
-    color: #1a2332;
+    color: var(--ink);
     font-weight: 600;
   }
 </style>

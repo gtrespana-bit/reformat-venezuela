@@ -11,7 +11,7 @@ const projects = [
 ---
 <BaseLayout title="Projects | Remodeling Portfolio" description="Gallery of real remodeling projects completed in Venezuela." activePage="projects">
   <header class="page-hero"><img class="hero-bg" src="/images/integrales-800.webp" alt="Proyecto de remodelación residencial en Venezuela | ReformaT" fetchpriority="high" loading="eager" decoding="async" /><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Our Portfolio</span><h1 class="page-title">Completed <span class="gold">Projects</span></h1><p class="page-subtitle">Every project is a transformation story.</p></div></header>
-  <section class="projects-section"><div class="container"><div class="filter-bar">{["All", "Whole-Home", "Kitchen", "Bathroom", "Commercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location">📍 {p.location}</span></div></div></div>))}</div></div></section>
+  <section class="projects-section"><div class="container"><div class="filter-bar">{["All", "Whole-Home", "Kitchen", "Bathroom", "Commercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {p.location}</span></div></div></div>))}</div></div></section>
 
   <section class="cta-section">
     <div class="cta-wrapper">
@@ -24,20 +24,24 @@ const projects = [
 <style>
   .projects-section { padding: 100px 0; background: var(--gray); }
   .filter-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
-  .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid #ddd; border-radius: 30px; cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; transition: 0.3s; }
-  .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--bg); border-color: var(--gold); }
+  .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-full); cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--text); transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+  .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--ink); border-color: var(--gold); }
+  .filter-btn:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 2px; }
   .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-  .project-card { border-radius: 8px; overflow: hidden; background: var(--white); box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; }
-  .project-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+  .project-card { border-radius: var(--r-md); overflow: hidden; background: var(--white); box-shadow: var(--e-1); transition: 0.4s; }
+  .project-card:hover { transform: translateY(-8px); box-shadow: var(--e-3); }
   .project-img { position: relative; height: 300px; overflow: hidden; }
   .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
   .project-card:hover .project-img img { transform: scale(1.08); }
-  .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; opacity: 0; transition: opacity 0.4s; }
-  .project-card:hover .project-overlay { opacity: 1; }
-  .project-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; margin-bottom: 10px; }
+  .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.45) 45%, transparent 75%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; }
+  /* La info es visible siempre: antes solo aparecía en :hover, así que en
+     móvil (la mayoría del tráfico) las tarjetas eran fotos mudas. */
+  .project-overlay p { color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.5; max-height: 0; opacity: 0; overflow: hidden; transition: max-height var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out), margin var(--dur-base) var(--ease-out); margin-bottom: 0; }
+  @media (hover: hover) { .project-card:hover .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
+  @media (hover: none) { .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
+  .project-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 4px 12px; border-radius: var(--r-lg); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; margin-bottom: 10px; }
   .project-overlay h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 8px; }
-  .project-overlay p { color: rgba(255,255,255,0.8); font-size: 0.9rem; line-height: 1.5; margin-bottom: 10px; }
-  .project-location { color: var(--gold); font-size: 0.85rem; }
+  .project-location { color: var(--gold); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
   @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
 </style>
