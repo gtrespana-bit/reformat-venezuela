@@ -3,7 +3,7 @@ title: "Decorative Wall Cladding 2026: Stone, Wood and Panels with Prices"
 excerpt: "Guide to decorative wall coverings in Venezuela: stone, wood, panels and microcement. Real prices, uses and recommendations for Caracas and Carabobo."
 date: 2026-07-27
 category: "Materials"
-image: "/images/revestimiento-piedra.webp"
+image: "/images/revestimientos-400.webp"
 readTime: "11 min"
 author: "ReformaT Team"
 ---
@@ -45,6 +45,6 @@ At ReformaT Venezuela we install stone, wood, panels and microcement in homes an
 - In humid areas, avoid natural wood without proper treatment.
 - Microcement and manufactured stone offer the best durability/price ratio for most homes.
 
-If you want to see samples and get a quote for your walls in **Caracas or Carabobo**, [contact us](/contact).
+If you want to see samples and get a quote for your walls in **Caracas or Carabobo**, [contact us](/en/contact).
 
-Related: [Microcement vs Paint](/blog/microcement-vs-paint-finishes) • [Flooring Guide 2026](/blog/flooring-guide-2026-venezuela)
+Related: [Microcement vs Paint](/en/blog/microcement-vs-paint-finishes) • [Flooring Guide 2026](/en/blog/flooring-guide-porcelain-marble-wood)

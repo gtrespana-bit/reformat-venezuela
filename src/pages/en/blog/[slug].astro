@@ -4,27 +4,23 @@ import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
   const englishSlugs = [
-    'kitchen-remodel-cost-caracas-valencia-2026',
-    'porcelain-tile-vs-ceramic-tile-guide',
-    'remodel-budget-mistakes-avoid',
-    'bathroom-remodel-carabobo-guide',
-    'kitchen-design-trends-2026',
-    'kitchen-before-after-real-case-venezuela',
-    'bathroom-remodel-cost-caracas-2026',
-    'premium-caracas-remodeling-mistakes',
-    'plumbing-costs-caracas-valencia-2026',
-    'water-leak-detection-guide',
-    'flooring-guide-2026-venezuela',
-    'choosing-remodeling-company-venezuela',
-    'full-remodel-timeline-2026',
-    'electrical-installation-costs-venezuela-2026',
-    'pool-maintenance-venezuela-guide',
-    'porcelain-vs-ceramic-guide-venezuela',
-    'budget-remodel-mistakes-avoid',
-    'permits-condo-remodel-venezuela',
-    'painting-prices-per-m2-venezuela-2026',
-    'bathroom-remodels-caracas-carabobo-2026',
-    'microcement-vs-paint-finishes'
+    'kitchen-remodel-before-after-case-study',
+    'how-to-choose-remodeling-company-venezuela',
+    'bathroom-remodel-cost-caracas',
+    'how-long-full-remodel-takes',
+    'remodeling-mistakes-premium-areas-caracas',
+    'plumbing-prices-caracas',
+    'how-to-detect-water-leaks',
+    'flooring-guide-porcelain-marble-wood',
+    'electrical-installation-prices-venezuela',
+    'pool-maintenance-venezuela',
+    'microcement-vs-paint-finishes',
+    'remodel-permits-apartment-condominium',
+    'interior-painting-prices-m2-venezuela',
+    'apartment-remodeling-caracas',
+    'full-home-remodel-what-it-includes',
+    'stone-wood-wall-cladding-prices',
+    'signs-electrical-rewiring-needed'
   ];
   
   const posts = await getCollection('blog');
