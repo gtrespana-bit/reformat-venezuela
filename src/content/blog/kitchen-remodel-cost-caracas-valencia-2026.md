@@ -14,7 +14,7 @@ Remodeling your kitchen is one of the most important decisions you'll make as a 
 
 But before you start, you need to know **how much a kitchen remodel actually costs** in **Caracas, Valencia, San Diego or anywhere in Carabobo** in 2026. And here's the problem: online you'll find absurd ranges from $2,000 to $25,000, with no context or breakdown.
 
-At ReformaT Venezuela, we've been executing kitchen remodels in **Caracas, Valencia and San Diego** for over 20 years. We've worked with budgets of $2,500 and $12,000. The difference isn't about "charging more or less," but about **what each project includes**.
+At ReformaT Venezuela, we've been executing kitchen remodels in **Caracas, Valencia and San Diego** for over 23 years. We've worked with budgets of $2,500 and $12,000. The difference isn't about "charging more or less," but about **what each project includes**.
 
 In this article, we'll give you **real, detailed, updated prices** for 2026. No fluff, no inflated numbers, no fine print. Just the truth about what it costs to remodel a kitchen in Venezuela today.
 

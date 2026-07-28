@@ -14,7 +14,7 @@ Reformar la cocina es una de las decisiones más importantes que tomarás como p
 
 Pero antes de empezar, necesitas saber **cuánto cuesta realmente** una reforma de cocina en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** en 2026. Y aquí está el problema: en internet encontrarás rangos absurdos que van desde $2,000 hasta $25,000, sin contexto ni desglose.
 
-En ReformaT Venezuela llevamos más de 20 años ejecutando reformas de cocinas en **Caracas, Valencia y San Diego**. Hemos trabajado con presupuestos de $2,500 y de $12,000. La diferencia no está en "cobrar más o menos", sino en **qué incluye cada proyecto**.
+En ReformaT Venezuela llevamos más de 23 años ejecutando reformas de cocinas en **Caracas, Valencia y San Diego**. Hemos trabajado con presupuestos de $2,500 y de $12,000. La diferencia no está en "cobrar más o menos", sino en **qué incluye cada proyecto**.
 
 En este artículo te vamos a dar **precios reales, desglosados y actualizados** para 2026. Sin humo, sin números inflados, sin letras pequeñas. Solo la verdad sobre lo que cuesta reformar una cocina en Venezuela hoy.
 

@@ -35,6 +35,12 @@ const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 
+/* Páginas que arrancan con fondo claro: la barra transparente con texto blanco
+   quedaba invisible sobre blanco hasta hacer scroll. Ahí se pinta sólida desde el inicio. */
+const lightHeaderRoutes = ['/privacidad', '/terminos', '/en/privacy', '/en/terms', '/404', '/en/404'];
+const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+const needsSolidNav = lightHeaderRoutes.includes(normalizedPath);
+
 const whatsappText = isEnglish
   ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
   : 'Hola,%20me%20interesa%20una%20consulta%20para%20mi%20proyecto';
@@ -42,8 +48,8 @@ const whatsappText = isEnglish
 const skipLinkText = isEnglish ? 'Skip to main content' : 'Saltar al contenido principal';
 const menuLabel = isEnglish ? 'Open navigation menu' : 'Abrir menú de navegación';
 const footerDesc = isEnglish
-  ? 'Transforming spaces with excellence since 2005.'
-  : 'Transformando espacios con excelencia desde 2005.';
+  ? 'Transforming spaces with excellence since 2003.'
+  : 'Transformando espacios con excelencia desde 2003.';
 const footerRights = isEnglish
   ? 'All rights reserved.'
   : 'Todos los derechos reservados.';
@@ -76,6 +82,7 @@ const navItems = isEnglish
     <!-- Preload fuentes críticas (woff2 self-hosted) -->
   <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
 <!-- Canonical + hreflang: emitidos por SEO.astro (fuente unica) -->
@@ -101,7 +108,7 @@ const navItems = isEnglish
 <body>
   <a href="#main-content" class="skip-link">{skipLinkText}</a>
 
-  <nav id="navbar" class="nav" role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
+  <nav id="navbar" class={`nav${needsSolidNav ? ' nav-solid' : ''}`} role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
     <div class="nav-container">
       <a href={isEnglish ? '/en' : '/'} class="logo">
         <img
@@ -217,6 +224,7 @@ const navItems = isEnglish
           <ul class="footer-links">
             {[
               { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
+              { es: 'Sobre Nosotros', en: 'About Us', href: isEnglish ? '/en/about-us' : '/sobre-nosotros' },
               { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
               { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
               { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
@@ -232,7 +240,13 @@ const navItems = isEnglish
         </div>
       </div>
 
-      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
+        <ul class="footer-legal">
+          <li><a href={isEnglish ? '/en/privacy' : '/privacidad'}>{isEnglish ? 'Privacy Policy' : 'Política de Privacidad'}</a></li>
+          <li><a href={isEnglish ? '/en/terms' : '/terminos'}>{isEnglish ? 'Terms of Use' : 'Términos de Uso'}</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 <!-- Mobile Sticky CTA Bar -->
@@ -404,7 +418,8 @@ const navItems = isEnglish
   button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
 
   .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
-  .nav.scrolled { background: rgba(10,10,10,0.95); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
+  .nav.scrolled, .nav-solid { background: rgba(20,18,14,0.96); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); backdrop-filter: blur(10px); }
+  .nav-solid .logo img { height: 70px; }
   .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .logo { display: flex; align-items: center; }
   .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
@@ -446,7 +461,7 @@ const navItems = isEnglish
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 45px; text-align: left; }
   .footer-brand { text-align: center; }
   .footer-logo { margin-bottom: 20px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 320px; height: auto; display: block; }
+  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 525 / 142; }
   .footer-desc { max-width: 340px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
   .footer-heading { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
   .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -455,7 +470,11 @@ const navItems = isEnglish
   .footer-links a:hover { color: var(--gold); }
   .footer-links-2col { column-count: 2; column-gap: 24px; }
   .footer-links-2col li { break-inside: avoid; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-bottom p { margin: 0; }
+  .footer-legal { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-legal a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+  .footer-legal a:hover { color: var(--gold); }
 
   @media (max-width: 900px) {
     .nav-links { display: none; }

@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 En Venezuela, el clima tropical es ideal para disfrutar una piscina todo el año. Pero ese mismo clima —sol intenso, lluvias torrenciales, humedad alta— es el enemigo número uno del agua cristalina.
 
-Una piscina sin mantenimiento adecuado desarrolla algas en 72 horas, corroe el equipo en 2 años y requiere una remodelación completa en 5. Una piscina bien mantenida dura 20+ años con costos predecibles.
+Una piscina sin mantenimiento adecuado desarrolla algas en 72 horas, corroe el equipo en 2 años y requiere una remodelación completa en 5. Una piscina bien mantenida dura 23+ años con costos predecibles.
 
 En ReformaT Venezuela construimos y remodelamos piscinas en **Caracas, Valencia, San Diego, La Lagunita, El Hatillo, Guataparo y El Viñedo**. Esta guía te da todo lo que necesitas para mantener la tuya impecable.
 
@@ -97,7 +97,7 @@ El sistema de filtración es el riñón de la piscina. Sin él, el agua se entur
 | Filtro | Trimestral | 8-12 años | $200 - $900 |
 | Calentador | Anual | 5-10 años | $500 - $2,000 |
 | Iluminación LED | Anual | 10+ años | $50 - $200/foco |
-| Tablero eléctrico | Anual | 15+ años | $150 - $400 |
+| Tablero eléctrico | Anual | 23+ años | $150 - $400 |
 
 ---
 

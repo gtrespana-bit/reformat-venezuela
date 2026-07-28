@@ -14,7 +14,7 @@ Of all the items in a remodel, electrical installation is the only one where a m
 
 And yet, it is also the item where people most try to save by hiring anyone who "knows about electricity." The problem is that a poorly done installation doesn't fail on the first day — it fails two years later, when it's already covered by drywall and paint.
 
-At ReformaT Venezuela we have over 20 years executing residential electrical installations in **Caracas, Valencia, San Diego and all of Carabobo**. In this guide we give you **real and detailed prices for 2026**, with no fine print.
+At ReformaT Venezuela we have over 23 years executing residential electrical installations in **Caracas, Valencia, San Diego and all of Carabobo**. In this guide we give you **real and detailed prices for 2026**, with no fine print.
 
 ![Modern electrical panel with protections](/images/electricidad-cuadro-detalle.webp)
 

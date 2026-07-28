@@ -25,8 +25,8 @@ Rangos orientativos en dólares por m², con materiales y mano de obra.
 | Revestimiento | Rango de precio por m² | Durabilidad | Ideal para |
 |---------------|------------------------|-------------|------------|
 | Piedra natural (laje, pizarra) | $35 - $80 | 30+ años | Fachadas, muros de acento, exteriores |
-| Piedra artificial / cultura | $25 - $55 | 20+ años | Interiores, chimeneas, muros |
-| Madera natural (machihembrado) | $30 - $70 | 20+ años | Salas, cabeceros, calidez |
+| Piedra artificial / cultura | $25 - $55 | 23+ años | Interiores, chimeneas, muros |
+| Madera natural (machihembrado) | $30 - $70 | 23+ años | Salas, cabeceros, calidez |
 | Paneles WPC / madera composite | $20 - $45 | 15-20 años | Interiores húmedos, bajo mantenimiento |
 | Paneles 3D decorativos | $15 - $40 | 10-15 años | Paredes de acento, diseño moderno |
 | Porcelanato de gran formato | $25 - $60 | 30+ años | Baños, cocinas, look continuo |

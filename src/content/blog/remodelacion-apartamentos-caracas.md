@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 Si vives en un apartamento en Caracas y estás pensando en remodelar, hay reglas que no aplican a casas independientes. Los edificios residenciales tienen normativas internas, horarios restringidos, límites de carga en ascensores y juntas de condominio que pueden frenar tu proyecto si no planificas bien.
 
-En ReformaT Venezuela llevamos más de 20 años remodelando apartamentos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo y La Lagunita**. Conocemos las normas de los edificios más conocidos de la ciudad y sabemos cómo trabajar sin conflictos con los vecinos.
+En ReformaT Venezuela llevamos más de 23 años remodelando apartamentos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo y La Lagunita**. Conocemos las normas de los edificios más conocidos de la ciudad y sabemos cómo trabajar sin conflictos con los vecinos.
 
 Esta guía te da todo lo que necesitas: costos reales, tiempos, permisos y los errores que debes evitar.
 
@@ -63,7 +63,7 @@ Los edificios antiguos de Caracas (pre-2000) frecuentemente tienen:
 - Tuberías de hierro galvanizado (corrosión garantizada después de 20 años)
 - Capacidad eléctrica insuficiente para electrodomésticos modernos
 
-Si tu apartamento tiene más de 20 años, presupuesta una actualización de instalaciones. Puede sumar $800-$2,000 pero evita incendios y filtraciones futuras.
+Si tu apartamento tiene más de 23 años, presupuesta una actualización de instalaciones. Puede sumar $800-$2,000 pero evita incendios y filtraciones futuras.
 
 ---
 

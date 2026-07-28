@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 "Pintar cuesta X por metro cuadrado." Esa frase, sin contexto, no significa nada. Porque el precio por m² cambia drásticamente según el estado de la pared, el tipo de pintura, la cantidad de manos, la altura del techo y si hay que reparar grietas antes.
 
-En ReformaT Venezuela llevamos más de 20 años pintando viviendas en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos los **precios reales por m² para 2026**, desglosados para que entiendas exactamente qué estás pagando.
+En ReformaT Venezuela llevamos más de 23 años pintando viviendas en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos los **precios reales por m² para 2026**, desglosados para que entiendas exactamente qué estás pagando.
 
 ![Pintura interior profesional terminada](/images/pintura-interior-terminada.webp)
 

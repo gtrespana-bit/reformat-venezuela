@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 La cocina ha dejado de ser ese espacio puramente funcional donde solo se cocina. Hoy en día, es el **corazón del hogar**, el lugar donde la familia se reúne, donde se reciben amigos, donde se trabaja e incluso donde los niños hacen sus tareas. 
 
-En ReformaT Venezuela llevamos más de 20 años transformando cocinas en Valencia y San Diego, y hemos visto cómo las tendencias han evolucionado. Pero 2025 trae consigo cambios realmente significativos que combinan **tecnología, sostenibilidad y diseño atemporal**.
+En ReformaT Venezuela llevamos más de 23 años transformando cocinas en Valencia y San Diego, y hemos visto cómo las tendencias han evolucionado. Pero 2025 trae consigo cambios realmente significativos que combinan **tecnología, sostenibilidad y diseño atemporal**.
 
 En este artículo no solo te vamos a listar tendencias. Te explicaremos **por qué** son importantes, **cómo** implementarlas en tu reforma, y **cuánto** podrías invertir en cada una. Porque sabemos que reformar la cocina es una decisión importante, y queremos que tomes la mejor decisión informada.
 
@@ -311,7 +311,7 @@ En Valencia y San Diego, Carabobo, estos son los rangos reales:
 
 ### ¿Por Qué Elegir ReformaT Venezuela?
 
-- **20+ años** transformando cocinas en Valencia y San Diego
+- **23+ años** transformando cocinas en Valencia y San Diego
 - **Más de 500 cocinas** reformadas con clientes satisfechos
 - **Garantía real** de 2 años en todos nuestros trabajos
 - **Presupuesto cerrado** sin sorpresas ni costos ocultos

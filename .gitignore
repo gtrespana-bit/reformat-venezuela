@@ -1,4 +1,3 @@
-```
 # Dependencies
 node_modules/
 
@@ -65,4 +64,8 @@ istanbul.yml
 .jest/
 jest.config.js
 jest.coverage.report.xml
-```
+
+# Informes y artefactos de auditoría (no versionar)
+lighthouse-*.json
+*.report.html
+.astro/
