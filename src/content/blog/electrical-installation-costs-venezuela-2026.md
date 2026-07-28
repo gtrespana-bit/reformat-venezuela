@@ -119,6 +119,6 @@ For internal changes to your apartment generally no, but if you touch the main p
 
 An electrical installation is not an expense, it is an investment in safety that lasts decades. The difference between a $1,500 job and a $3,000 job is often the difference between sleeping peacefully and having a latent risk inside the walls.
 
-If you are in **Caracas, Valencia, San Diego or any area of Carabobo** and need professional electrical installation, [request a free consultation](/contact). We evaluate your home, give you a detailed quote with no obligation.
+If you are in **Caracas, Valencia, San Diego or any area of Carabobo** and need professional electrical installation, [request a free consultation](/en/contact). We evaluate your home, give you a detailed quote with no obligation.
 
-You can also see our complete [electrical installation service](/servicios/instalacion-electrica) or learn how we work on [full remodels](/servicios/remodelacion-integral).
+You can also see our complete [electrical installation service](/en/services/electrical/) or learn how we work on [full remodels](/en/services/whole-home/).

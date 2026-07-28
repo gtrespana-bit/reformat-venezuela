@@ -190,6 +190,6 @@ Don’t choose flooring only from photos. At ReformaT Venezuela we show you phys
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 
 Related articles:
-- [Porcelain vs Ceramic: Complete Guide](/en/blog/porcelain-vs-ceramic-guide-venezuela)
-- [How Much Does a Kitchen Remodel Cost](/en/blog/kitchen-remodel-cost-caracas-valencia-2026)
+- [Porcelain vs Ceramic: Complete Guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)
+- [How Much Does a Kitchen Remodel Cost](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)
 - [What a Full Remodel Includes](/en/blog/full-home-remodel-what-it-includes)

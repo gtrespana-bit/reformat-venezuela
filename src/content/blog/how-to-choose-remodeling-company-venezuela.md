@@ -41,7 +41,7 @@ This is the most effective filter. A professional quote must include:
 - **Clear payment terms**
 - **What is NOT included** (to avoid surprises)
 
-If they give you a global “eyeball” number without breakdown, it’s not a quote — it’s a gamble. Always compare at least three detailed quotes. To understand real ranges, review our guides on [kitchen prices](/en/blog/kitchen-remodel-cost-caracas-valencia-2026) and [bathroom prices](/en/blog/bathroom-remodel-cost-caracas).
+If they give you a global “eyeball” number without breakdown, it’s not a quote — it’s a gamble. Always compare at least three detailed quotes. To understand real ranges, review our guides on [kitchen prices](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/) and [bathroom prices](/en/blog/bathroom-remodel-cost-caracas).
 
 ---
 

@@ -14,6 +14,7 @@ interface Props {
   author?: string;
   articleSection?: string;
   tags?: string[];
+  noindex?: boolean;
 }
 
 const { 
@@ -26,7 +27,8 @@ const {
   modifiedTime,
   author,
   articleSection,
-  tags
+  tags,
+  noindex = false
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
@@ -90,6 +92,7 @@ const navItems = isEnglish
     articleSection={articleSection}
     tags={tags}
     activePage={activePage}
+    noindex={noindex}
   />
 
   <Analytics />
@@ -278,13 +281,13 @@ const navItems = isEnglish
       '/en/blog': '/blog',
       '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
       '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
-      '/blog/presupuesto-reforma-errores': '/en/blog/remodel-budget-mistakes-avoid',
-      '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodel-carabobo-guide',
+      '/blog/presupuesto-reforma-errores': '/en/blog/budget-remodel-mistakes-avoid',
+      '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodels-caracas-carabobo-2026',
       '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
       '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
       '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
-      '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
-      '/en/blog/bathroom-remodel-carabobo-guide': '/blog/reformas-banos-carabobo',
+      '/en/blog/budget-remodel-mistakes-avoid': '/blog/presupuesto-reforma-errores',
+      '/en/blog/bathroom-remodels-caracas-carabobo-2026': '/blog/reformas-banos-carabobo',
       '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
       '/blog/antes-despues-reforma-cocina-caso-real': '/en/blog/kitchen-remodel-before-after-case-study',
       '/en/blog/kitchen-remodel-before-after-case-study': '/blog/antes-despues-reforma-cocina-caso-real',
@@ -319,7 +322,11 @@ const navItems = isEnglish
       '/blog/revestimiento-piedra-madera-pared-precios': '/en/blog/stone-wood-wall-cladding-prices',
       '/en/blog/stone-wood-wall-cladding-prices': '/blog/revestimiento-piedra-madera-pared-precios',
       '/blog/senales-reinstalacion-electrica-casa': '/en/blog/signs-electrical-rewiring-needed',
-      '/en/blog/signs-electrical-rewiring-needed': '/blog/senales-reinstalacion-electrica-casa'
+      '/en/blog/signs-electrical-rewiring-needed': '/blog/senales-reinstalacion-electrica-casa',
+      '/privacidad': '/en/privacy',
+      '/en/privacy': '/privacidad',
+      '/terminos': '/en/terms',
+      '/en/terms': '/terminos'
     };
 
     const langSwitchBtn = document.querySelector('.lang-switch-visible');

@@ -42,7 +42,7 @@ Before touching a wall, everything was defined on paper:
 - **Lighting plan:** general lighting + under-cabinet lights in work areas
 - **New installations:** dedicated electrical circuits and complete plumbing
 
-This phase took two weeks and prevents most surprises later. To understand the cost of a kitchen like this, see our [kitchen remodel pricing guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026).
+This phase took two weeks and prevents most surprises later. To understand the cost of a kitchen like this, see our [kitchen remodel pricing guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/).
 
 ![Project plan and kitchen design](/images/integrales-plano-diseno.webp)
 
@@ -83,7 +83,7 @@ We installed:
 - **Ceramic backsplash** on work walls
 - **Surface leveling** before installation
 
-Porcelain was chosen for durability and easy cleaning — two critical factors in a kitchen. If you’re deciding between materials, compare them in our [porcelain vs ceramic guide](/en/blog/porcelain-vs-ceramic-guide-venezuela).
+Porcelain was chosen for durability and easy cleaning — two critical factors in a kitchen. If you’re deciding between materials, compare them in our [porcelain vs ceramic guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/).
 
 ---
 
@@ -146,7 +146,7 @@ What we learned (and applies to any kitchen):
 
 ### How much does a kitchen remodel like this cost?
 
-It depends on size and materials. A medium kitchen with island and quartz usually falls in the mid-to-high range. See real ranges in our [kitchen pricing guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026).
+It depends on size and materials. A medium kitchen with island and quartz usually falls in the mid-to-high range. See real ranges in our [kitchen pricing guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/).
 
 ### Can I use the kitchen during the work?
 

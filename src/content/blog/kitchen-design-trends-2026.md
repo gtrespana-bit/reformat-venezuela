@@ -335,8 +335,8 @@ Don't let your obsolete kitchen continue limiting your daily life. Imagine wakin
 
 ## 📚 Related Articles
 
-- **[Kitchen Remodel Cost in Caracas & Valencia](/en/blog/kitchen-remodel-cost-caracas-valencia-2026)** — Real prices for your dream kitchen
-- **[Porcelain vs Ceramic Tile Guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide)** — Best materials for countertops and backsplashes
+- **[Kitchen Remodel Cost in Caracas & Valencia](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)** — Real prices for your dream kitchen
+- **[Porcelain vs Ceramic Tile Guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)** — Best materials for countertops and backsplashes
 
 Want a trendy kitchen? **[Design your kitchen with us →](/en/services/kitchens)**
 

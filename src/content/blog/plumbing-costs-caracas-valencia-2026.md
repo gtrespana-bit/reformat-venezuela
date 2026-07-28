@@ -115,4 +115,4 @@ For active leaks, the priority is to close the main valve and contact us. We ass
 
 Plumbing is one of those jobs where cheap literally gets you wet. A professional installation saves you expensive damage and gives you peace of mind for decades.
 
-If you’re in **Caracas, Valencia, San Diego, or Carabobo** and need a professional plumber, [request a free consultation](/contact). You can also see our [plumbing and pipe service](/servicios/fontaneria-plomeria) or how we integrate it into [bathroom remodeling](/servicios/remodelacion-bano).
+If you’re in **Caracas, Valencia, San Diego, or Carabobo** and need a professional plumber, [request a free consultation](/en/contact). You can also see our [plumbing and pipe service](/en/services/plumbing/) or how we integrate it into [bathroom remodeling](/en/services/bathrooms/).

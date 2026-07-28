@@ -441,8 +441,8 @@ Tell us about your project and we'll recommend the best material combination for
 
 ## 📚 Related Articles
 
-- **[Kitchen Remodel Cost Guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026)** — Updated pricing for your kitchen project
-- **[Bathroom Remodel Guide in Carabobo](/en/blog/bathroom-remodel-carabobo-guide)** — Complete guide for bathroom renovations
+- **[Kitchen Remodel Cost Guide](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)** — Updated pricing for your kitchen project
+- **[Bathroom Remodel Guide in Carabobo](/en/blog/bathroom-remodels-caracas-carabobo-2026/)** — Complete guide for bathroom renovations
 
 Need help choosing materials? **[Check our flooring & cladding services →](/en/services/flooring)**
 

@@ -5,6 +5,8 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
 
+const whatsappBudgetText = 'Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20por%20aquí.';
+
 const serviceImages = {
   cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800]) },
   bano: { src: '/images/bano-800.webp', srcset: getSrcSet('bano', [400, 800]) },
@@ -18,22 +20,55 @@ const serviceImages = {
 };
 
 const services = [
-  { title: "Reformas de Cocina", desc: "Renovamos tu cocina con funcionalidad y diseño moderno.", image: serviceImages.cocina, link: "/servicios/remodelacion-cocina" },
-  { title: "Reformas de Baño", desc: "Espacios de bienestar con acabados premium.", image: serviceImages.bano, link: "/servicios/remodelacion-bano" },
-  { title: "Reformas Integrales", desc: "Transformación completa de espacios con visión arquitectónica.", image: serviceImages.integrales, link: "/servicios/remodelacion-integral" },
-  { title: "Servicios Eléctricos", desc: "Instalaciones seguras y eficientes.", image: serviceImages.electricidad, link: "/servicios/instalacion-electrica" },
-  { title: "Fontanería", desc: "Soluciones profesionales en fontanería.", image: serviceImages.fontaneria, link: "/servicios/fontaneria-plomeria" },
-  { title: "Pintura y Acabados", desc: "Acabados impecables que transforman cada rincón.", image: serviceImages.pintura, link: "/servicios/pintura-acabados" },
-  { title: "Revestimientos", desc: "Porcelanato, wall panels y acabados de pared.", image: serviceImages.revestimientos, link: "/servicios/revestimientos-pared" },
-  { title: "Suelos", desc: "Instalación de cerámica, laminado y madera.", image: serviceImages.sueloPorcelanato, link: "/servicios/instalacion-pisos" },
-  { title: "Piscinas", desc: "Construcción, mantenimiento y equipamiento.", image: serviceImages.piscinas, link: "/servicios/piscinas-mantenimiento" }
+  { title: "Reformas de Cocina", desc: "Diseños funcionales, gabinetes premium, iluminación técnica y acabados modernos.", image: serviceImages.cocina, link: "/servicios/remodelacion-cocina" },
+  { title: "Reformas de Baño", desc: "Baños tipo spa con impermeabilización, grifería de calidad y revestimientos duraderos.", image: serviceImages.bano, link: "/servicios/remodelacion-bano" },
+  { title: "Reformas Integrales", desc: "Transformación completa de viviendas, apartamentos y negocios con planificación profesional.", image: serviceImages.integrales, link: "/servicios/remodelacion-integral" },
+  { title: "Servicios Eléctricos", desc: "Tableros, cableado, iluminación LED y soluciones eléctricas seguras.", image: serviceImages.electricidad, link: "/servicios/instalacion-electrica" },
+  { title: "Fontanería", desc: "Detección de fugas, cambio de tuberías, grifería, sanitarios y puntos de agua.", image: serviceImages.fontaneria, link: "/servicios/fontaneria-plomeria" },
+  { title: "Pintura y Acabados", desc: "Acabados interiores y exteriores con preparación profesional y terminaciones limpias.", image: serviceImages.pintura, link: "/servicios/pintura-acabados" },
+  { title: "Revestimientos", desc: "Porcelanato, piedra, wall panels y acabados decorativos para muros con carácter.", image: serviceImages.revestimientos, link: "/servicios/revestimientos-pared" },
+  { title: "Suelos", desc: "Cerámica, porcelanato, laminado y madera instalados con nivelación y detalle.", image: serviceImages.sueloPorcelanato, link: "/servicios/instalacion-pisos" },
+  { title: "Piscinas", desc: "Construcción, mantenimiento, filtración, revestimientos y control de calidad del agua.", image: serviceImages.piscinas, link: "/servicios/piscinas-mantenimiento" }
 ];
 
-const stats = [
-  { number: "20+", label: "Años de Experiencia" },
-  { number: "4", label: "Ciudades Atendidas" },
-  { number: "100%", label: "Compromiso y Calidad" },
-  { number: "Rápida", label: "Ejecución Profesional" }
+const trustStats = [
+  { number: "20+", label: "Años de experiencia", desc: "Trayectoria europea aplicada a proyectos en Venezuela" },
+  { number: "Gratis", label: "Visita técnica", desc: "Evaluamos tu espacio y te orientamos sin compromiso" },
+  { number: "Garantía", label: "Por escrito", desc: "Trabajos respaldados con condiciones claras" },
+  { number: "WhatsApp", label: "Atención directa", desc: "Envíanos fotos y recibe orientación inicial rápida" }
+];
+
+const heroBadges = [
+  "Valencia y Caracas",
+  "Presupuesto claro",
+  "Visita técnica gratis",
+  "Garantía por escrito"
+];
+
+const processSteps = [
+  { step: "01", title: "Visita técnica", desc: "Revisamos medidas, estado actual, instalaciones y objetivos del proyecto." },
+  { step: "02", title: "Presupuesto detallado", desc: "Recibes una propuesta clara por partidas, materiales, tiempos y alcance." },
+  { step: "03", title: "Planificación", desc: "Definimos acabados, logística, cronograma, compras y permisos si aplican." },
+  { step: "04", title: "Ejecución supervisada", desc: "Coordinamos obra, proveedores y avances con seguimiento directo." },
+  { step: "05", title: "Entrega con garantía", desc: "Revisamos contigo, limpiamos el espacio y entregamos garantías por escrito." }
+];
+
+const aboutBadges = [
+  "Estándares europeos",
+  "Supervisión directa",
+  "+20 años",
+  "Garantía escrita"
+];
+
+const testimonials = [
+  { text: "Nos ayudaron a aterrizar la idea de la cocina, explicaron materiales y mantuvieron comunicación durante la obra. El resultado se siente moderno y bien terminado.", name: "Cliente residencial", location: "San Diego, Carabobo" },
+  { text: "Valoramos mucho el presupuesto claro y la organización. Cada etapa tuvo seguimiento y los acabados del baño quedaron como esperábamos.", name: "Cliente residencial", location: "Valencia, Carabobo" },
+  { text: "Necesitábamos una reforma integral sin improvisaciones. Nos dieron una ruta de trabajo y soluciones prácticas para instalaciones y acabados.", name: "Cliente de apartamento", location: "Caracas" }
+];
+
+const serviceAreas = [
+  "Valencia", "San Diego", "Naguanagua", "Guacara", "Los Guayos", "Caracas",
+  "Chacao", "Baruta", "El Hatillo", "La Guaira", "Puerto Cabello", "Tocuyito"
 ];
 ---
 
@@ -73,36 +108,41 @@ const stats = [
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-tag">Calidad Excepcional en Valencia, San Diego, Carabobo y Caracas</span>
+      <span class="hero-tag">Reformas premium en Valencia, San Diego, Carabobo y Caracas</span>
       <h1 class="hero-title">
-        <span class="line">Remodelaciones</span>
-        <span class="line gold">en Venezuela</span>
-        <span class="line">con Excelencia</span>
+        <span class="line">Remodelaciones en Venezuela</span>
+        <span class="line gold">con acabados premium</span>
       </h1>
-      <p class="hero-sub">Con más de 20 años de experiencia en remodelaciones y reformas de viviendas y negocios, garantizamos acabados impecables y la mayor confianza en Valencia, San Diego, Carabobo y Caracas.</p>
+      <p class="hero-sub">Cocinas, baños y reformas integrales con presupuesto claro, supervisión profesional y garantía por escrito.</p>
       <div class="hero-btns">
-        <a href="/contacto" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Solicitar Presupuesto</span>
+        <a href={`https://wa.me/584227997043?text=${whatsappBudgetText}`} target="_blank" rel="noopener" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Presupuesto por WhatsApp</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
-        <a href="/servicios" class="btn-premium btn-outline-premium">
-          <span class="btn-content">Explorar Servicios</span>
+        <a href="/proyectos" class="btn-premium btn-outline-premium">
+          <span class="btn-content">Ver proyectos reales</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
       </div>
+      <div class="hero-badges" aria-label="Señales de confianza">
+        {heroBadges.map((badge) => (
+          <span>{badge}</span>
+        ))}
+      </div>
     </div>
   </header>
 
-  <section class="stats-section">
+  <section class="stats-section premium-trust" aria-label="Confianza y garantías">
     <div class="container stats-grid">
-      {stats.map((s) => (
+      {trustStats.map((s) => (
         <div class="stat-item">
           <div class="stat-num">{s.number}</div>
           <div class="stat-label">{s.label}</div>
+          <p class="trust-desc">{s.desc}</p>
         </div>
       ))}
     </div>
@@ -116,59 +156,31 @@ const stats = [
         <p class="section-desc">Reformas integrales, cocinas, baños, electricidad y fontanería. Ejecución rápida, técnicas avanzadas y acabados impecables en Valencia, San Diego y Caracas.</p>
       </div>
       
-      <div class="services-slider-wrapper">
-        <button class="slider-btn slider-prev" aria-label="Ver servicio anterior">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M15 18l-6-6 6-6"/>
-          </svg>
-        </button>
-        
-        <div class="services-slider">
-          {services.map((svc, index) => (
-            <a href={svc.link} class="service-card-slider">
-              <div class="card-img-wrap">
-                {typeof svc.image === 'object' ? (
-                  <img 
-                    src={svc.image.src} 
-                    srcset={svc.image.srcset}
-                    sizes="(max-width: 768px) 300px, 800px"
-                    alt={svc.title} 
-                    loading={index === 0 ? "eager" : "lazy"} 
-                    fetchpriority={index === 0 ? "high" : "auto"}
-                    decoding="async"
-                    width="800"
-                    height="533"
-                  />
-                ) : (
-                  <img 
-                    src={svc.image} 
-                    alt={svc.title} 
-                    loading="lazy" 
-                    decoding="async"
-                    width="800"
-                    height="533"
-                  />
-                )}
-                <div class="card-overlay"></div>
-                <span class="card-icon">✦</span>
-              </div>
-              <div class="card-body">
-                <h3>{svc.title}</h3>
-                <p>{svc.desc}</p>
-                <span class="card-link">Descubrir más <span class="arrow">→</span></span>
-              </div>
-            </a>
-          ))}
-        </div>
-        
-        <button class="slider-btn slider-next" aria-label="Ver siguiente servicio">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M9 18l6-6-6-6"/>
-          </svg>
-        </button>
+      <div class="home-services-grid">
+        {services.map((svc, index) => (
+          <a href={svc.link} class="home-service-card">
+            <div class="home-service-img">
+              <img
+                src={svc.image.src}
+                srcset={svc.image.srcset}
+                sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
+                alt={svc.title}
+                loading={index < 3 ? "eager" : "lazy"}
+                fetchpriority={index === 0 ? "high" : "auto"}
+                decoding="async"
+                width="800"
+                height="533"
+              />
+              <span class="home-service-kicker">Servicio premium</span>
+            </div>
+            <div class="home-service-body">
+              <h3>{svc.title}</h3>
+              <p>{svc.desc}</p>
+              <span class="card-link">Ver servicio <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
       </div>
-      
-      <div class="slider-dots"></div>
     </div>
   </section>
 
@@ -210,6 +222,11 @@ const stats = [
           <li>Diseños personalizados que unen funcionalidad y estilo</li>
           <li>Asesoramiento experto y ejecución eficiente sin sorpresas</li>
         </ul>
+        <div class="about-badges" aria-label="Diferenciales de ReformaT">
+          {aboutBadges.map((badge) => (
+            <span>{badge}</span>
+          ))}
+        </div>
         <a href="/contacto" class="btn-premium btn-primary-premium">
           <span class="btn-content">Comenzar Conversación</span>
           <span class="btn-border"></span>
@@ -220,16 +237,81 @@ const stats = [
     </div>
   </section>
 
-  <section class="cta-section">
+
+  <section class="section process-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Cómo Trabajamos</span>
+        <h2 class="section-title">Un Proceso Claro de Principio a Fin</h2>
+        <p class="section-desc">Remodelar debe sentirse organizado, no improvisado. Por eso cada proyecto se divide en etapas claras, con comunicación directa y decisiones documentadas.</p>
+      </div>
+      <div class="process-grid">
+        {processSteps.map((item) => (
+          <article class="process-card">
+            <span class="process-number">{item.step}</span>
+            <h3>{item.title}</h3>
+            <p>{item.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light testimonials-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Confianza</span>
+        <h2 class="section-title">Lo Que Más Valoran Nuestros Clientes</h2>
+        <p class="section-desc">Comunicación clara, presupuesto organizado y acabados cuidados son las señales que convierten una remodelación en una experiencia tranquila.</p>
+      </div>
+      <div class="testimonials-grid-home">
+        {testimonials.map((t) => (
+          <figure class="testimonial-home-card">
+            <blockquote>“{t.text}”</blockquote>
+            <figcaption>
+              <strong>{t.name}</strong>
+              <span>{t.location}</span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section service-areas-section">
+    <div class="container areas-grid">
+      <div>
+        <span class="tag">Zonas de Cobertura</span>
+        <h2 class="section-title">Remodelamos en Carabobo, Caracas y La Guaira</h2>
+        <p class="section-desc">Atendemos viviendas, apartamentos y negocios en las principales zonas residenciales y comerciales. Si tu zona no aparece, escríbenos y revisamos disponibilidad.</p>
+      </div>
+      <div class="area-chips">
+        {serviceAreas.map((area) => (
+          <a href={area === 'Caracas' ? '/caracas' : area === 'Valencia' ? '/valencia' : area === 'San Diego' ? '/san-diego' : area === 'La Guaira' ? '/la-guaira' : '/contacto'}>{area}</a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section cta-whatsapp-section">
     <div class="cta-wrapper">
-      <h2 class="cta-title">Tu Remodelación, Nuestra Pasión</h2>
-      <p class="cta-text">Cada proyecto comienza con una conversación. Cuéntanos tu visión y hagamos realidad el espacio de tus sueños en Carabobo o la capital.</p>
-      <a href="/contacto" class="btn-premium btn-white-premium">
-        <span class="btn-content">Agendar Consulta Gratuita</span>
-        <span class="btn-border"></span>
-        <span class="btn-shine"></span>
-        <span class="btn-arrow">→</span>
-      </a>
+      <span class="tag tag-on-dark">Presupuesto rápido</span>
+      <h2 class="cta-title">¿Quieres saber cuánto podría costar tu remodelación?</h2>
+      <p class="cta-text">Envíanos fotos por WhatsApp y te damos una orientación inicial. Si el proyecto encaja, coordinamos una visita técnica y presupuesto detallado.</p>
+      <div class="cta-actions-home">
+        <a href={`https://wa.me/584227997043?text=${whatsappBudgetText}`} target="_blank" rel="noopener" class="btn-premium btn-white-premium">
+          <span class="btn-content">Enviar fotos por WhatsApp</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href="#contacto-rapido" class="btn-premium btn-outline-premium btn-cta-outline">
+          <span class="btn-content">Usar formulario</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -390,6 +472,18 @@ const stats = [
     .hero-video{display:none!important;} 
     .hero{background:url('/images/hero-lcp.webp') center/cover no-repeat;} 
   }
+</style>
+
+<style>
+  .hero-badges{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:28px}.hero-badges span{padding:9px 14px;border:1px solid rgba(201,169,97,.45);border-radius:999px;background:rgba(10,10,10,.35);color:rgba(255,255,255,.92);font-size:.78rem;font-weight:600;backdrop-filter:blur(8px)}.hero-badges span:before{content:"✓";color:var(--gold);font-weight:800;margin-right:7px}
+  .premium-trust{background:linear-gradient(135deg,#090909,#141414);border-top:1px solid rgba(201,169,97,.22);border-bottom:1px solid rgba(201,169,97,.16)}.premium-trust .stat-item{padding:24px 18px;border:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);border-radius:14px;transition:.3s}.premium-trust .stat-item:hover{transform:translateY(-4px);border-color:rgba(201,169,97,.42);background:rgba(201,169,97,.06)}.trust-desc{margin-top:10px;color:rgba(255,255,255,.62);font-size:.84rem;line-height:1.55}
+  .home-services-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.home-service-card{display:block;overflow:hidden;border-radius:18px;background:#fff;color:inherit;text-decoration:none;border:1px solid rgba(0,0,0,.06);box-shadow:0 10px 30px rgba(0,0,0,.055);transition:.35s}.home-service-card:hover{transform:translateY(-8px);box-shadow:0 24px 55px rgba(0,0,0,.12);border-color:rgba(201,169,97,.45)}.home-service-img{position:relative;height:230px;overflow:hidden;background:#111}.home-service-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s}.home-service-card:hover .home-service-img img{transform:scale(1.07)}.home-service-img:after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.58),transparent 60%)}.home-service-kicker{position:absolute;left:18px;bottom:16px;z-index:2;background:rgba(201,169,97,.94);color:#111;border-radius:999px;padding:6px 12px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.home-service-body{padding:26px 24px 28px}.home-service-body h3{font-family:var(--font-serif);font-size:1.55rem;margin-bottom:10px;color:var(--text);font-weight:600}.home-service-body p{color:var(--gray-text);font-size:.96rem;line-height:1.65;margin-bottom:18px}
+  .about-badges{display:flex;flex-wrap:wrap;gap:10px;margin:-8px 0 30px}.about-badges span{padding:8px 12px;border-radius:999px;border:1px solid rgba(201,169,97,.35);background:rgba(201,169,97,.08);color:#6f5413;font-size:.82rem;font-weight:700}
+  .process-section{background:#fff}.process-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px}.process-card{padding:30px 22px;border-radius:16px;background:linear-gradient(180deg,#fff,#f8f6ef);border:1px solid rgba(0,0,0,.06);box-shadow:0 8px 25px rgba(0,0,0,.045)}.process-number{display:inline-block;font-family:var(--font-serif);font-size:2.15rem;color:rgba(201,169,97,.55);line-height:1;margin-bottom:18px}.process-card h3{font-family:var(--font-serif);font-size:1.28rem;color:var(--text);margin-bottom:10px}.process-card p{color:var(--gray-text);font-size:.9rem;line-height:1.6}
+  .testimonials-grid-home{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}.testimonial-home-card{margin:0;padding:34px 30px;border-radius:18px;background:#fff;border:1px solid rgba(0,0,0,.06);box-shadow:0 12px 32px rgba(0,0,0,.055)}.testimonial-home-card:before{content:"“";display:block;font-family:var(--font-serif);font-size:4rem;line-height:.7;color:rgba(201,169,97,.5);margin-bottom:12px}.testimonial-home-card blockquote{margin:0 0 24px;color:var(--text);font-size:1rem;line-height:1.75;font-style:italic}.testimonial-home-card figcaption strong{display:block;color:var(--text);font-size:.95rem}.testimonial-home-card figcaption span{display:block;color:var(--gray-text);font-size:.85rem;margin-top:4px}
+  .service-areas-section{background:#fff}.areas-grid{display:grid;grid-template-columns:.95fr 1.25fr;gap:60px;align-items:center}.area-chips{display:flex;flex-wrap:wrap;gap:12px}.area-chips a{display:inline-flex;align-items:center;padding:11px 16px;border-radius:999px;border:1px solid rgba(201,169,97,.3);background:#faf8f2;color:#6f5413;text-decoration:none;font-weight:700;font-size:.88rem;transition:.25s}.area-chips a:hover{background:var(--gold);color:#111;transform:translateY(-2px)}.tag-on-dark{color:var(--gold)!important}.cta-actions-home{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}.btn-cta-outline{border-color:rgba(255,255,255,.55)!important;color:#fff!important}.btn-cta-outline:hover{border-color:var(--gold)!important;color:var(--gold)!important}.cta-whatsapp-section{background:radial-gradient(circle at top,rgba(201,169,97,.18),transparent 45%),var(--bg)}
+  @media(max-width:1100px){.home-services-grid{grid-template-columns:repeat(2,1fr)}.process-grid{grid-template-columns:repeat(3,1fr)}.areas-grid{grid-template-columns:1fr;gap:34px}.testimonials-grid-home{grid-template-columns:1fr 1fr}}
+  @media(max-width:700px){.home-services-grid,.process-grid,.testimonials-grid-home{grid-template-columns:1fr}.home-service-img{height:220px}.hero-badges{gap:8px}.hero-badges span{font-size:.72rem;padding:8px 11px}.premium-trust .stat-item{padding:20px 14px}.cta-actions-home{flex-direction:column;align-items:center}}
 </style>
 
 <script>
