@@ -80,11 +80,12 @@ const navItems = isEnglish
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- Preload fuentes críticas (woff2 self-hosted) -->
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/manrope-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
+  <!-- Solo se precargan los pesos realmente usados sobre el pliegue:
+       Manrope 400 (cuerpo) y Cormorant 600 (titulares). Precargar 5 fuentes
+       provocaba avisos de "preloaded but not used" y competía por ancho de
+       banda con el LCP. El resto carga por @font-face con font-display:swap. -->
+  <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin />
 <!-- Canonical + hreflang: emitidos por SEO.astro (fuente unica) -->
 
   
@@ -160,6 +161,8 @@ const navItems = isEnglish
       </button>
     </div>
   </nav>
+
+  <div class="nav-overlay" aria-hidden="true"></div>
 
   <main id="main-content">
 <slot />
@@ -384,6 +387,7 @@ const navItems = isEnglish
        dejaba la página desplazable por detrás. */
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.querySelector('.nav-links');
+    const navOverlay = document.querySelector('.nav-overlay');
     if (menuBtn && navLinks) {
       const closeMenu = () => {
         document.body.classList.remove('nav-open');
@@ -398,13 +402,11 @@ const navItems = isEnglish
         }
       };
 
-      menuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+      menuBtn.addEventListener('click', toggleMenu);
+      /* Cerrar al navegar. No se previene el evento: el enlace debe seguir su curso. */
       navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+      if (navOverlay) navOverlay.addEventListener('click', closeMenu);
       document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
-      document.addEventListener('click', (e) => {
-        if (!document.body.classList.contains('nav-open')) return;
-        if (!navLinks.contains(e.target) && e.target !== menuBtn) closeMenu();
-      });
       window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
     }
 
@@ -467,6 +469,7 @@ const navItems = isEnglish
   }
   
   .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
+  .nav-overlay { display: none; }
   .menu-btn svg { width: 28px; height: 28px; display: block; }
   .menu-btn .icon-close { display: none; }
   body.nav-open .menu-btn .icon-open { display: none; }
@@ -512,7 +515,7 @@ const navItems = isEnglish
       box-shadow: -24px 0 60px rgba(0,0,0,.45);
       transform: translateX(100%);
       transition: transform var(--dur-base) var(--ease-out);
-      z-index: 1002;
+      z-index: 2;
       overflow-y: auto;
     }
     body.nav-open .nav-links { transform: translateX(0); }
@@ -520,18 +523,26 @@ const navItems = isEnglish
     .nav-links a.active::after { bottom: -6px; }
     .nav-links .btn-nav-premium { margin-top: 8px; }
 
-    /* Velo */
-    body.nav-open::after {
-      content: '';
+    /* Velo.
+       Va en .nav-overlay (elemento propio) y NO en body::after: el
+       pseudo-elemento de body se pintaba por encima del panel porque
+       .nav-links vive dentro de .nav, que crea su propio contexto de
+       apilamiento (position:fixed + z-index:1000). Sus hijos no pueden
+       superar ese contexto, así que el z-index:1002 del panel no servía
+       frente a un velo colgado del body. Resultado: capa oscura encima
+       del menú e intercepción de todos los clics. */
+    .nav-overlay {
+      display: block;
       position: fixed; inset: 0;
       background: rgba(0,0,0,.55);
-      z-index: 1001;
-      animation: navFade var(--dur-fast) var(--ease-out);
+      opacity: 0; visibility: hidden;
+      transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base);
+      z-index: 998;
     }
-    @keyframes navFade { from { opacity: 0; } to { opacity: 1; } }
+    body.nav-open .nav-overlay { opacity: 1; visibility: visible; }
     body.nav-open { overflow: hidden; }
 
-    .menu-btn { display: flex; position: relative; z-index: 1003; }
+    .menu-btn { display: flex; position: relative; z-index: 3; }
     .lang-switch-visible {
       margin-left: 8px;
       padding: 5px 10px;
