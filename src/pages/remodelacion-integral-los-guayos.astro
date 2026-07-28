@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Los Guayos</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Los Guayos, Los Guayos Centro, La Florida y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Los Guayos</h3>
         <p>Los Guayos es un municipio con casas tradicionales de 100 a 300 m² y urbanizaciones de los 80-2010. Mezcla viviendas familiares con propiedades de inversión para alquiler. Las casas de Los Guayos suelen tener instalaciones eléctricas antiguas y problemas de humedad en paredes perimetrales. La impermeabilización y el recableado son frecuentes.</p>
       </div>
+
+      <ZoneGallery zone="los-guayos" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Los Guayos</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Los Guayos</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Los Guayos</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Los Guayos, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de Los Guayos, trabajamos en Los Guayos Centro, La Florida, El Carmen y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="los-guayos" service="integral" lang="es" />
   </div>
 </section>
 

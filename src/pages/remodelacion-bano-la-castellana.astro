@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en La Castellana</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en La Castellana y La Castellana, Altamira, Campo Alegre.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de La Castellana</h3>
         <p>La Castellana combina edificios residenciales de los 70-90 con torres corporativas. Los apartamentos van de 100 a 250 m², muchos con layouts tradicionales que se prestan para abrir hacia conceptos modernos. La Castellana tiene edificios con instalaciones antiguas y presión de agua variable. Revisamos montantes y bajantes antes de intervenir los acabados.</p>
       </div>
+
+      <ZoneGallery zone="la-castellana" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en La Castellana</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en La Castellana</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en La Castellana</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en La Castellana, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de La Castellana, trabajamos en La Castellana, Altamira, Campo Alegre y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="la-castellana" service="bano" lang="es" />
   </div>
 </section>
 

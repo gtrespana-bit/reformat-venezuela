@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>¿Buscas una <strong>remodelación de cocina en Prados del Este</strong>? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de Prados del Este y Prados del Este, Las Mercedes, Cerro Verde. Con más de 23 años de experiencia, conocemos las tipologías de viviendas de la zona.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Cocinas a la medida de Prados del Este</h3>
         <p>Prados del Este es una urbanización consolidada con casas unifamiliares de 200 a 500 m² y algunos edificios bajos. Las viviendas datan mayormente de los 70-90. Las casas de Prados del Este suelen tener estructuras sólidas pero techos y terrazas con filtraciones por falta de mantenimiento. La impermeabilización es el primer paso en casi toda reforma aquí.</p>
       </div>
+
+      <ZoneGallery zone="prados-del-este" service="cocina" />
 
 
 <h2>Qué incluye nuestra remodelación de cocinas en Prados del Este</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Prados del Este</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>Cómo trabajamos en Prados del Este</h2>
 <h3>1. Visita técnica y medición</h3>
 <p>Visitamos tu vivienda en Prados del Este, tomamos medidas exactas y evaluamos instalaciones de agua, gas y electricidad. Sin compromiso.</p>
 <h3>2. Diseño 3D y presupuesto</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Prados del Este, trabajamos en Prados del Este, Las Mercedes, Cerro Verde y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="prados-del-este" service="cocina" lang="es" />
   </div>
 </section>
 

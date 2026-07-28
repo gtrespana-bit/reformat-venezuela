@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Valles de Camoruco</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Valles de Camoruco, Camoruco, El Viñedo y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Valles de Camoruco</h3>
         <p>Valles de Camoruco es una zona residencial con casas de 180 a 450 m² y algunos edificios, construidos entre los 70 y los 2000. Urbanización consolidada y bien ubicada. Las casas de Camoruco tienen estructuras sólidas pero instalaciones envejecidas. La renovación integral implica actualizar electricidad, agua y acabados en una sola obra.</p>
       </div>
+
+      <ZoneGallery zone="valles-de-camoruco" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Valles de Camoruco</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Valles de Camoruco</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Valles de Camoruco</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Valles de Camoruco, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de Valles de Camoruco, trabajamos en Camoruco, El Viñedo, Prebo y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="valles-de-camoruco" service="integral" lang="es" />
   </div>
 </section>
 

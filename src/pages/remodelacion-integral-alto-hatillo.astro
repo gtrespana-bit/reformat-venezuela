@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Alto Hatillo</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Alto Hatillo, La Boyera, El Cigarral y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Alto Hatillo</h3>
         <p>Alto Hatillo es una zona de desarrollo más reciente con casas en parcelas de montaña, townhouses y conjuntos cerrados de los 90-2010. Las viviendas van de 150 a 400 m² con vistas a la ciudad. Las casas de montaña del Alto Hatillo enfrentan humedad por ladera, muros de contención y accesos estrechos para materiales. Evaluamos drenajes y contenciones antes de cualquier obra interior.</p>
       </div>
+
+      <ZoneGallery zone="alto-hatillo" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Alto Hatillo</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Alto Hatillo</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Alto Hatillo</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Alto Hatillo, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Alto Hatillo, trabajamos en La Boyera, El Cigarral, Los Geranios y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="alto-hatillo" service="integral" lang="es" />
   </div>
 </section>
 

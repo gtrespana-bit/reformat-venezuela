@@ -1,0 +1,107 @@
+---
+import { getImagesForZone } from '../data/zone-media';
+
+interface Props {
+  zone: string;
+  service: 'cocina' | 'bano' | 'integral';
+}
+
+const { zone, service } = Astro.props;
+
+// Normalizar zona para visualización (ej. "el-hatillo" -> "El Hatillo")
+const formatZone = (str: string) => {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+const zoneNameFormatted = formatZone(zone);
+const serviceLabel = service === 'cocina' ? 'Cocina' : service === 'bano' ? 'Baño' : 'Reforma Integral';
+
+// Selección determinista de 3 imágenes
+const images = getImagesForZone(zone, service);
+
+const altTexts = [
+  `Proyecto premium de remodelación de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted} - Vista principal`,
+  `Detalle de acabados y diseño de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted}`,
+  `Resultado final de obra de ${serviceLabel.toLowerCase()} residencial en ${zoneNameFormatted}`
+];
+---
+
+<div class="zone-gallery-wrapper">
+  <h3 class="gallery-title">Galería de Proyectos en {zoneNameFormatted}</h3>
+  <p class="gallery-subtitle">Muestra real de materiales, acabados y ejecución de obras en la zona.</p>
+  
+  <div class="zone-gallery-grid">
+    <div class="gallery-item large">
+      <img src={images[0]} alt={altTexts[0]} loading="lazy" width="800" height="534" />
+    </div>
+    <div class="gallery-item small-1">
+      <img src={images[1]} alt={altTexts[1]} loading="lazy" width="400" height="267" />
+    </div>
+    <div class="gallery-item small-2">
+      <img src={images[2]} alt={altTexts[2]} loading="lazy" width="400" height="267" />
+    </div>
+  </div>
+</div>
+
+<style>
+  .zone-gallery-wrapper {
+    margin: 3rem 0;
+  }
+  .gallery-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+  .gallery-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+  .zone-gallery-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 16px;
+    height: 480px;
+  }
+  .gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    box-shadow: var(--e-1);
+    background: var(--sand);
+  }
+  .gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .gallery-item:hover img {
+    transform: scale(1.04);
+  }
+  .large {
+    grid-row: span 2;
+  }
+  
+  @media (max-width: 768px) {
+    .zone-gallery-grid {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      height: auto;
+      gap: 12px;
+    }
+    .large {
+      grid-row: span 1;
+      height: 250px;
+    }
+    .gallery-item {
+      height: 180px;
+    }
+  }
+</style>

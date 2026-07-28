@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in El Hatillo? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in El Hatillo and Casco Histórico, La Boyera, El Calvario. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to El Hatillo</h3>
         <p>El Hatillo's old town preserves colonial homes and 40s-60s quintas with inner courtyards, high ceilings and load-bearing walls. Outside the old town there are neighborhoods with homes from the 80s-2000s. El Hatillo's historic homes have load-bearing walls, wooden beams and obsolete electrical systems. Any structural work requires reinforcement and, in the old town, respect for the architectural heritage.</p>
       </div>
+
+      <ZoneGallery zone="el-hatillo" service="cocina" />
 
 <h2>What our kitchen remodel in El Hatillo includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in El Hatillo</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in El Hatillo</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in El Hatillo, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond El Hatillo, we work in Casco Histórico, La Boyera, El Calvario and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="el-hatillo" service="cocina" lang="en" />
   </div>
 </section>
 

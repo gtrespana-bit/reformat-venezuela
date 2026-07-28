@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in Prebo? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in Prebo and Prebo I, Prebo II, Camoruco. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Prebo</h3>
         <p>Prebo is one of Valencia's most central and commercial areas, with 70s-90s residential buildings and apartments of 80 to 200 m². High density and a good location. Prebo buildings have old utilities and small spaces. Remodeling here optimizes every square meter: linear kitchens, compact bathrooms and integrated storage.</p>
       </div>
+
+      <ZoneGallery zone="prebo" service="cocina" />
 
 <h2>What our kitchen remodel in Prebo includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Prebo</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in Prebo</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in Prebo, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond Prebo, we work in Prebo I, Prebo II, Camoruco and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="prebo" service="cocina" lang="en" />
   </div>
 </section>
 

@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>¿Buscas una <strong>remodelación de cocina en El Peñón</strong>? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de El Peñón y El Peñón, Baruta, Las Mercedes. Con más de 23 años de experiencia, conocemos las tipologías de viviendas de la zona.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Cocinas a la medida de El Peñón</h3>
         <p>El Peñón es una zona residencial con casas y algunos edificios de mediana altura, de 150 a 400 m², construidos entre los 70 y los 2000. Combina viviendas familiares con propiedades de inversión. Las casas de El Peñón en ladera requieren atención a muros de contención y drenajes. La humedad por terreno es un factor a evaluar antes de remodelar.</p>
       </div>
+
+      <ZoneGallery zone="el-penon" service="cocina" />
 
 
 <h2>Qué incluye nuestra remodelación de cocinas en El Peñón</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en El Peñón</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>Cómo trabajamos en El Peñón</h2>
 <h3>1. Visita técnica y medición</h3>
 <p>Visitamos tu vivienda en El Peñón, tomamos medidas exactas y evaluamos instalaciones de agua, gas y electricidad. Sin compromiso.</p>
 <h3>2. Diseño 3D y presupuesto</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de El Peñón, trabajamos en El Peñón, Baruta, Las Mercedes y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="el-penon" service="cocina" lang="es" />
   </div>
 </section>
 

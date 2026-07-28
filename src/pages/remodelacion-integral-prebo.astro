@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Prebo</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Prebo, Prebo I, Prebo II y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Prebo</h3>
         <p>Prebo es una de las zonas más céntricas y comerciales de Valencia, con edificios residenciales de los 70-90 y apartamentos de 80 a 200 m². Alta densidad y buena ubicación. Los edificios de Prebo tienen instalaciones antiguas y espacios reducidos. La remodelación aquí optimiza cada metro: cocinas lineales, baños compactos y almacenamiento integrado.</p>
       </div>
+
+      <ZoneGallery zone="prebo" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Prebo</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Prebo</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Prebo</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Prebo, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de Prebo, trabajamos en Prebo I, Prebo II, Camoruco y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="prebo" service="integral" lang="es" />
   </div>
 </section>
 

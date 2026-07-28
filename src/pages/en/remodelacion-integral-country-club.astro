@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in Country Club: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in Country Club and Valle Arriba, El Country, Las Mercedes.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Country Club</h3>
         <p>Country Club is one of Caracas' most exclusive neighborhoods, with large single-family homes (300-800 m²) and a few penthouses. Many properties date from the 60s-80s and need a full reconfiguration. Country Club homes usually have solid concrete structures but very old utilities and leaky roofs. A full remodel here involves renewing roofs, waterproofing and complete plumbing systems.</p>
       </div>
+
+      <ZoneGallery zone="country-club" service="integral" />
 
 <h2>What a full remodel in Country Club includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Country Club</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in Country Club</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in Country Club, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Country Club, we work in Valle Arriba, El Country, Las Mercedes and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="country-club" service="integral" lang="en" />
   </div>
 </section>
 

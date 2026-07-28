@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in El Trigal: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in El Trigal and El Trigal Norte, El Trigal Sur, El Trigal Centro.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to El Trigal</h3>
         <p>El Trigal is one of Valencia's largest and most traditional neighborhoods, with single-family homes of 150 to 400 m² and residential buildings. Homes mostly date from the 70s-90s. El Trigal homes usually have old 110V electrical systems and corroded galvanized-iron pipes. Electrical and plumbing upgrades are a priority in almost every remodel.</p>
       </div>
+
+      <ZoneGallery zone="el-trigal" service="integral" />
 
 <h2>What a full remodel in El Trigal includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in El Trigal</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in El Trigal</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in El Trigal, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond El Trigal, we work in El Trigal Norte, El Trigal Sur, El Trigal Centro and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="el-trigal" service="integral" lang="en" />
   </div>
 </section>
 

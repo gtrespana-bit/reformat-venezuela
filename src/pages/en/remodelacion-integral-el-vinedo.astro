@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in El Viñedo: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in El Viñedo and El Viñedo, Camoruco, Prebo.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to El Viñedo</h3>
         <p>El Viñedo is an upper-middle-class neighborhood with homes of 200 to 500 m² and a few buildings. Homes range from the 70s to the 2000s, many with gardens and service areas. El Viñedo has homes with solid concrete structures but aging utilities. Bathroom and kitchen renewals usually involve replacing the entire cold and hot water network.</p>
       </div>
+
+      <ZoneGallery zone="el-vinedo" service="integral" />
 
 <h2>What a full remodel in El Viñedo includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in El Viñedo</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in El Viñedo</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in El Viñedo, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond El Viñedo, we work in El Viñedo, Camoruco, Prebo and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="el-vinedo" service="integral" lang="en" />
   </div>
 </section>
 

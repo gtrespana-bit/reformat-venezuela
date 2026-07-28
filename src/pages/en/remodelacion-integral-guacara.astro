@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in Guacara: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in Guacara and Guacara Centro, La Emboscada, Yagua.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Guacara</h3>
         <p>Guacara is an industrial-residential municipality with homes of 120 to 350 m² and neighborhoods from the 80s-2010. Many homes belong to long-term families. Guacara homes frequently have leaky roofs and electrical systems overloaded by unplanned additions. We assess electrical capacity before remodeling.</p>
       </div>
+
+      <ZoneGallery zone="guacara" service="integral" />
 
 <h2>What a full remodel in Guacara includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Guacara</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in Guacara</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in Guacara, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond Guacara, we work in Guacara Centro, La Emboscada, Yagua and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="guacara" service="integral" lang="en" />
   </div>
 </section>
 

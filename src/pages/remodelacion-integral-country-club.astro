@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Country Club</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Country Club, Valle Arriba, El Country y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Country Club</h3>
         <p>Country Club es una de las urbanizaciones más exclusivas de Caracas, con casas unifamiliares de gran metraje (300-800 m²) y algunos penthouses. Muchas propiedades datan de los 60-80 y requieren redistribución total. Las casas del Country Club suelen tener estructuras de hormigón sólidas pero instalaciones muy antiguas y cubiertas con filtraciones. La remodelación integral aquí implica renovar techos, impermeabilización y sistemas hidrosanitarios completos.</p>
       </div>
+
+      <ZoneGallery zone="country-club" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Country Club</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Country Club</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Country Club</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Country Club, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Country Club, trabajamos en Valle Arriba, El Country, Las Mercedes y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="country-club" service="integral" lang="es" />
   </div>
 </section>
 

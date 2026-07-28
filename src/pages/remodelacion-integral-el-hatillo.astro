@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en El Hatillo</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en El Hatillo, Casco Histórico, La Boyera y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en El Hatillo</h3>
         <p>El casco de El Hatillo conserva casas coloniales y quintas de los años 40-60 con patios internos, techos altos y muros de carga. Fuera del casco hay urbanizaciones con casas de los 80-2000. Las casas históricas de El Hatillo tienen muros de carga, vigas de madera y sistemas eléctricos obsoletos. Cualquier intervención estructural requiere refuerzo y, en el casco, respeto por el patrimonio arquitectónico.</p>
       </div>
+
+      <ZoneGallery zone="el-hatillo" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en El Hatillo</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en El Hatillo</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en El Hatillo</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en El Hatillo, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de El Hatillo, trabajamos en Casco Histórico, La Boyera, El Calvario y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="el-hatillo" service="integral" lang="es" />
   </div>
 </section>
 

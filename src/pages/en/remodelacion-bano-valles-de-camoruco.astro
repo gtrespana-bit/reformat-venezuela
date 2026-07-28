@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a bathroom remodel in Valles de Camoruco? At ReformaT Venezuela we design and build modern, functional, custom bathrooms for homes in Valles de Camoruco and Camoruco, El Viñedo, Prebo. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Valles de Camoruco</h3>
         <p>Valles de Camoruco is a residential area with homes of 180 to 450 m² and a few buildings, built between the 70s and the 2000s. An established, well-located neighborhood. Camoruco homes have solid structures but aging utilities. A full renewal involves updating electricity, water and finishes in a single project.</p>
       </div>
+
+      <ZoneGallery zone="valles-de-camoruco" service="bano" />
 
 <h2>What our bathroom remodel in Valles de Camoruco includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Valles de Camoruco</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>How we work in Valles de Camoruco</h2>
 <h3>1. Technical visit & diagnosis</h3>
 <p>A technician visits your home in Valles de Camoruco, measures, inspects hidden utilities and detects moisture or structural issues. No obligation.</p>
 <h3>2. Design & fixed quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond Valles de Camoruco, we work in Camoruco, El Viñedo, Prebo and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="valles-de-camoruco" service="bano" lang="en" />
   </div>
 </section>
 

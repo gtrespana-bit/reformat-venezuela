@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en Los Naranjos</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en Los Naranjos y Los Naranjos de La Lagunita, El Hatillo, La Boyera.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de Los Naranjos</h3>
         <p>Los Naranjos es una zona residencial familiar con casas y townhouses de los 80-2000, de 150 a 350 m². Es una urbanización tranquila con alto porcentaje de familias de largo plazo. Muchas casas de Los Naranjos tienen 25-40 años y necesitan actualización de instalaciones eléctricas e hidrosanitarias, además de abrir espacios que originalmente eran muy compartimentados.</p>
       </div>
+
+      <ZoneGallery zone="los-naranjos" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en Los Naranjos</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Los Naranjos</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en Los Naranjos</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en Los Naranjos, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Los Naranjos, trabajamos en Los Naranjos de La Lagunita, El Hatillo, La Boyera y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="los-naranjos" service="bano" lang="es" />
   </div>
 </section>
 

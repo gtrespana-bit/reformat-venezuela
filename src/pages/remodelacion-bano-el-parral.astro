@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en El Parral</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en El Parral y El Parral, Camoruco, El Viñedo.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de El Parral</h3>
         <p>El Parral es un sector con gran auge inmobiliario en Valencia, con viviendas nuevas de 100 a 300 m² y propiedades de 15-20 años que necesitan actualización. Alta rentabilidad para revalorización. Las viviendas nuevas de El Parral requieren personalización de acabados de constructora, mientras que las de 15-20 años necesitan renovación de instalaciones y actualización estética.</p>
       </div>
+
+      <ZoneGallery zone="el-parral" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en El Parral</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en El Parral</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en El Parral</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en El Parral, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de El Parral, trabajamos en El Parral, Camoruco, El Viñedo y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="el-parral" service="bano" lang="es" />
   </div>
 </section>
 

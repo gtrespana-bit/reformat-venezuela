@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in Country Club? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in Country Club and Valle Arriba, El Country, Las Mercedes. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Country Club</h3>
         <p>Country Club is one of Caracas' most exclusive neighborhoods, with large single-family homes (300-800 m²) and a few penthouses. Many properties date from the 60s-80s and need a full reconfiguration. Country Club homes usually have solid concrete structures but very old utilities and leaky roofs. A full remodel here involves renewing roofs, waterproofing and complete plumbing systems.</p>
       </div>
+
+      <ZoneGallery zone="country-club" service="cocina" />
 
 <h2>What our kitchen remodel in Country Club includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Country Club</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in Country Club</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in Country Club, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Country Club, we work in Valle Arriba, El Country, Las Mercedes and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="country-club" service="cocina" lang="en" />
   </div>
 </section>
 
