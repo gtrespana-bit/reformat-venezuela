@@ -2,9 +2,11 @@
 interface Props {
   zone: string;      // slug: 'valencia-centro'
   service: string;   // 'bano' | 'cocina' | 'integral'
+  lang?: 'es' | 'en';
 }
 
-const { zone, service } = Astro.props;
+const { zone, service, lang = 'es' } = Astro.props;
+const en = lang === 'en';
 
 const zoneNames: Record<string, string> = {
   'altamira': 'Altamira',
@@ -50,15 +52,15 @@ const metroGroups: Record<string, string[]> = {
 };
 
 const serviceNames: Record<string, string> = {
-  bano: 'Remodelación de Baños',
-  cocina: 'Remodelación de Cocinas',
-  integral: 'Reforma Integral',
+  bano: en ? 'Bathroom Remodeling' : 'Remodelación de Baños',
+  cocina: en ? 'Kitchen Remodeling' : 'Remodelación de Cocinas',
+  integral: en ? 'Full Home Remodeling' : 'Reforma Integral',
 };
 
 const blogByService: Record<string, { name: string; url: string }> = {
-  cocina: { name: 'Cuánto cuesta reformar una cocina en Valencia', url: '/blog/cuanto-cuesta-reforma-cocina-valencia/' },
-  bano: { name: 'Cuánto cuesta remodelar un baño en Caracas', url: '/blog/cuanto-cuesta-remodelar-bano-caracas/' },
-  integral: { name: 'Reforma integral: qué incluye y precios', url: '/blog/remodelacion-integral-que-incluye/' },
+  cocina: { name: en ? 'How much does a kitchen remodel cost in Valencia' : 'Cuánto cuesta reformar una cocina en Valencia', url: en ? '/en/blog/kitchen-remodel-cost-caracas-valencia-2026/' : '/blog/cuanto-cuesta-reforma-cocina-valencia/' },
+  bano: { name: en ? 'How much does a bathroom remodel cost in Caracas' : 'Cuánto cuesta remodelar un baño en Caracas', url: en ? '/en/blog/bathroom-remodel-carabobo-guide/' : '/blog/cuanto-cuesta-remodelar-bano-caracas/' },
+  integral: { name: en ? 'Full home remodel: what it includes and prices' : 'Reforma integral: qué incluye y precios', url: en ? '/en/blog/remodel-budget-mistakes-avoid/' : '/blog/remodelacion-integral-que-incluye/' },
 };
 
 const group = Object.values(metroGroups).find((g) => g.includes(zone)) || [];
@@ -66,34 +68,35 @@ const neighbors = group.filter((z) => z !== zone).slice(0, 4);
 const otherServices = Object.keys(serviceNames).filter((s) => s !== service);
 const zoneName = zoneNames[zone] || zone;
 const blog = blogByService[service];
+const prefix = en ? '/en' : '';
 ---
 
 <section class="zone-crosslinks">
   <div class="container">
     <div class="zc-grid">
       <div class="zc-col">
-        <h3>También trabajamos en zonas cercanas</h3>
+        <h3>{en ? 'We also work in nearby areas' : 'También trabajamos en zonas cercanas'}</h3>
         <ul>
           {neighbors.map((z) => (
-            <li><a href={`/remodelacion-${service}-${z}/`}>{serviceNames[service]} en {zoneNames[z] || z}</a></li>
+            <li><a href={`${prefix}/remodelacion-${service}-${z}/`}>{serviceNames[service]} {en ? 'in' : 'en'} {zoneNames[z] || z}</a></li>
           ))}
         </ul>
       </div>
       <div class="zc-col">
-        <h3>Otros servicios en {zoneName}</h3>
+        <h3>{en ? 'Other services in' : 'Otros servicios en'} {zoneName}</h3>
         <ul>
           {otherServices.map((s) => (
-            <li><a href={`/remodelacion-${s}-${zone}/`}>{serviceNames[s]} en {zoneName}</a></li>
+            <li><a href={`${prefix}/remodelacion-${s}-${zone}/`}>{serviceNames[s]} {en ? 'in' : 'en'} {zoneName}</a></li>
           ))}
-          <li><a href="/servicios/">Ver todos los servicios</a></li>
+          <li><a href={en ? '/en/services/' : '/servicios/'}>{en ? 'View all services' : 'Ver todos los servicios'}</a></li>
         </ul>
       </div>
       {blog && (
         <div class="zc-col">
-          <h3>Guía útil</h3>
+          <h3>{en ? 'Useful guide' : 'Guía útil'}</h3>
           <ul>
             <li><a href={blog.url}>{blog.name}</a></li>
-            <li><a href="/blog/">Ver todos los artículos</a></li>
+            <li><a href={en ? '/en/blog/' : '/blog/'}>{en ? 'View all articles' : 'Ver todos los artículos'}</a></li>
           </ul>
         </div>
       )}

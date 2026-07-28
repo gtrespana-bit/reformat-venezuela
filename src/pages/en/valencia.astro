@@ -1,0 +1,410 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+
+<BaseLayout title="Remodeling in Valencia | Carabobo Experts 2026" description="Specialists in apartment, home and office remodeling in Valencia, San Diego, Naguanagua and the entire central region. No-obligation quotes." image="/images/cocina-800.webp">
+
+  <section class="hero">
+    <img class="hero-bg" src="/images/cocina-800.webp" alt="Remodeling in Valencia | ReformaT" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Carabobo · 15+ years of experience</span>
+      <h1>Remodeling in <em>Valencia</em></h1>
+      <p class="hero-sub">We transform apartments, homes and offices with signature design, premium materials and flawless execution across the central region.</p>
+      <div class="hero-actions">
+        <a href="#contacto" class="btn btn-gold">Get a free quote</a>
+        <a href="https://wa.me/584129449929?text=Hello%2C%20I%20want%20a%20quote%20for%20my%20remodeling%20in%20Valencia" class="btn btn-outline" target="_blank" rel="noopener">Message on WhatsApp</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>200+</strong><span>Projects delivered</span></div>
+        <div class="stat"><strong>15+</strong><span>Years of experience</span></div>
+        <div class="stat"><strong>5.0</strong><span>Client rating</span></div>
+      </div>
+    </div>
+  </section>
+
+  <Breadcrumb items={[
+    { name: 'Home', url: '/en' },
+    { name: "Valencia", url: "/en/valencia" }
+  ]} />
+
+  <section class="section intro">
+    <div class="container intro-grid">
+      <div class="intro-media">
+        <img src="/images/cocina-terminada-final.webp" alt="Remodeling project in Valencia" loading="lazy" />
+      </div>
+      <div class="intro-body">
+        <span class="section-tag">Why ReformaT</span>
+        <h2>Remodeling experts in Carabobo</h2>
+        <p>At ReformaT Venezuela we transform your apartment, home or office in Valencia with the highest quality and professionalism.</p>
+        <p>With more than 15 years of experience in <strong>Carabobo</strong>, we know the particularities of Valencia's buildings and neighborhoods, condominium regulations and the best materials for the region's climate.</p>
+        <ul class="intro-checks">
+          <li>Certified in-house crew, no subcontractors</li>
+          <li>Fixed quote and guaranteed schedule</li>
+          <li>Condominium permit management</li>
+          <li>Written warranty on all work</li>
+        </ul>
+        <a href="#contacto" class="btn btn-dark">Learn more about us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Services</span>
+        <h2>Complete remodeling solutions</h2>
+        <p>From a single renovation to a turnkey project, we cover every stage to premium standards.</p>
+        <a href="/en/services" class="btn btn-dark" style="margin-top: 28px;">View all services</a>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Kitchen Remodeling</h3>
+            <p>Custom kitchens with modern design and full functionality.</p>
+            <a href="/en/services/kitchens" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Bathroom Remodeling</h3>
+            <p>Wellness spaces with premium finishes, fully waterproofed.</p>
+            <a href="/en/services/bathrooms" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Full Home Remodeling</h3>
+            <p>Complete turnkey transformations of homes and apartments.</p>
+            <a href="/en/services/whole-home" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Flooring Installation</h3>
+            <p>Porcelain, ceramic, laminate and solid wood flooring.</p>
+            <a href="/en/services/flooring" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Plumbing</h3>
+            <p>Professional plumbing and waterproofing solutions.</p>
+            <a href="/en/services/plumbing" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+        <article class="service-card">
+            <div class="service-icon">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h3>Electrical</h3>
+            <p>Safe, modern electrical installations and upgrades.</p>
+            <a href="/en/services/electrical" class="card-link">
+              View details
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Coverage</span>
+        <h2>We serve the entire area</h2>
+        <p>Our team travels to the main municipalities and neighborhoods of Valencia.</p>
+      </div>
+      <div class="zones-grid">
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Valencia Centro (El Viñedo, El Palotal, Candelaria)</span>
+          </div>
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>San Diego (Urb. San José, El Bosque, La Coromoto)</span>
+          </div>
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Naguanagua (El Trigal, Vistahermosa, Campo de Carabobo)</span>
+          </div>
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Guacara (Centro, San Agustín, Las Adjuntas)</span>
+          </div>
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Puerto Cabello (Bartolomé Salom, Morón)</span>
+          </div>
+          <div class="zone-item">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>Los Guayos, Tocuyito, Tacarigua</span>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">How we work</span>
+        <h2>Our remodeling process in Valencia</h2>
+        <p>Working in Valencia demands knowledge of its buildings, condominium rules and urban logistics. Our process is designed to minimize disruption and meet deadlines in the central region.</p>
+      </div>
+      <div class="zones-grid">
+        <div class="zone-item"><strong>1. Free technical visit</strong><span>We assess the space, take measurements and listen to your vision with no obligation.</span></div>
+        <div class="zone-item"><strong>2. Fixed quote</strong><span>You receive a detailed quote in USD with materials, labor and schedule.</span></div>
+        <div class="zone-item"><strong>3. Design & planning</strong><span>We define materials, finishes and dates. We coordinate permits where needed.</span></div>
+        <div class="zone-item"><strong>4. Supervised execution</strong><span>Our in-house crew executes the work with daily supervision and progress reports.</span></div>
+        <div class="zone-item"><strong>5. Handover & warranty</strong><span>We deliver clean and working, with a written warranty on all work.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Why ReformaT</span>
+        <h2>Why choose us in Valencia, Carabobo</h2>
+        <p>More than 15 years remodeling apartments, homes and offices in Valencia make us the trusted choice for residential and commercial projects in Carabobo.</p>
+      </div>
+      <div class="intro-grid">
+        <div class="intro-body">
+          <ul class="intro-checks">
+          <li>Condominium permit and board management in San Diego, Naguanagua and El Trigal buildings</li>
+          <li>Coordination of loading/unloading schedules with building administrations</li>
+          <li>In-house crew that travels across Valencia, San Diego and Carabobo with no hidden surcharges</li>
+          <li>Knowledge of remodeling regulations in the main Carabobo municipalities</li>
+          <li>Fixed quote in USD with a guaranteed written schedule</li>
+          </ul>
+          <a href="#contacto" class="btn btn-dark">Get a quote in Valencia</a>
+        </div>
+        <div class="intro-body">
+          <p>We serve Valencia Centro, San Diego, Naguanagua, Guacara and Puerto Cabello, with travel included and no hidden costs. Every project is executed to high standards adapted to the construction reality of Carabobo.</p>
+          <p>Our commitment is simple: <strong>fixed quote, guaranteed schedule and flawless finishes</strong>. That is how we have built our reputation in Valencia and across the central region of Venezuela.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header section-header-light">
+        <span class="section-tag">Investment</span>
+        <h2>Transparent prices, no surprises</h2>
+        <p>Every project is unique. These are our starting points; the final quote is set after a free technical visit.</p>
+      </div>
+      <div class="pricing-grid">
+          <div class="price-card">
+            <span class="price-label">Kitchen Remodeling</span>
+            <span class="price-value">From $2,200</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Bathroom Remodeling</span>
+            <span class="price-value">From $1,500</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Floors & Wall Finishes</span>
+            <span class="price-value">From $30/m²</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Professional Painting</span>
+            <span class="price-value">From $7/m²</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Full Home Remodeling</span>
+            <span class="price-value">From $12,000</span>
+          </div>
+          <div class="price-card">
+            <span class="price-label">Interior Design</span>
+            <span class="price-value">Free consultation</span>
+          </div>
+      </div>
+      <p class="pricing-note">* Reference prices in USD. Do not include materials unless stated otherwise.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Testimonials</span>
+        <h2>What our clients say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <figure class="testimonial-card">
+            <div class="stars" aria-label="5 of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote>"They completely transformed my apartment. The kitchen design turned out spectacular and they met the estimated time."</blockquote>
+            <figcaption>
+              <strong>Ana María Rodríguez</strong>
+              <span>El Viñedo, Valencia</span>
+            </figcaption>
+          </figure>
+        <figure class="testimonial-card">
+            <div class="stars" aria-label="5 of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote>"Excellent professional service. My office in San Diego turned out modern and functional. Highly recommended."</blockquote>
+            <figcaption>
+              <strong>Luis Eduardo Mendoza</strong>
+              <span>San Diego, Carabobo</span>
+            </figcaption>
+          </figure>
+        <figure class="testimonial-card">
+            <div class="stars" aria-label="5 of 5 stars">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            </div>
+            <blockquote>"They renovated my bathroom in Naguanagua. Excellent communication throughout the project and first-rate finishes."</blockquote>
+            <figcaption>
+              <strong>Gabriela Hernández</strong>
+              <span>Naguanagua, Carabobo</span>
+            </figcaption>
+          </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container container-narrow">
+      <div class="section-header">
+        <span class="section-tag">FAQ</span>
+        <h2>Frequently asked questions</h2>
+      </div>
+      <FAQ items={[
+    { question: "How much does a remodel cost in Valencia?", answer: "Prices vary by scope: a kitchen remodel from $2,200, a bathroom from $1,500, and full remodels from $12,000. We offer free, no-obligation quotes for projects across Valencia and Carabobo." },
+    { question: "Do you work in buildings with condominium rules?", answer: "Yes, we have extensive experience in residential and commercial buildings. We know the rules of the main condominiums in San Diego, Naguanagua, El Trigal and other areas of Carabobo, and we manage the necessary permits." },
+    { question: "How long does a remodel take in Valencia?", answer: "It depends on the project: a kitchen takes 2-4 weeks, a bathroom 2-3 weeks, and a full remodel 6-12 weeks. We always set a clear schedule before starting." },
+    { question: "Do you offer a warranty on the work?", answer: "Yes, all our work includes a written warranty. We use first-quality materials and skilled labor to guarantee lasting results." },
+    { question: "Do you serve the whole state of Carabobo?", answer: "Yes, beyond Valencia we serve San Diego, Naguanagua, Guacara, Puerto Cabello, Los Guayos, Tocuyito and nearby areas. Contact us to check availability." }
+  ]} title="Frequently Asked Questions" />
+    </div>
+  </section>
+
+  <section class="cta" id="contacto">
+    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt="Finished modern kitchen ready for handover in Valencia | ReformaT" loading="lazy" decoding="async" />
+    <div class="cta-overlay"></div>
+    <div class="cta-content">
+      <span class="section-tag section-tag-light">Take the first step</span>
+      <h2>Ready to transform your space in Valencia?</h2>
+      <p>Book a free technical visit. We assess your project, advise you on materials and deliver a detailed quote with no obligation.</p>
+      <div class="cta-actions">
+        <a href="https://wa.me/584129449929?text=Hello%2C%20I%20want%20a%20quote%20for%20my%20remodel%20in%20Valencia" class="btn btn-gold" target="_blank" rel="noopener">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Direct WhatsApp
+        </a>
+        <a href="/en/contact" class="btn btn-outline-light">Contact form</a>
+      </div>
+    </div>
+  </section>
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `ReformaT Venezuela - Valencia`,
+    "description": "Specialists in apartment, home and office remodeling in Valencia, San Diego, Naguanagua and the entire central region. No-obligation quotes.",
+    "areaServed": { "@type": "City", "name": "Valencia" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Valencia", "addressRegion": "Carabobo", "addressCountry": "VE" },
+    "priceRange": "$$",
+    "openingHours": "Mo-Fr 08:00-17:00"
+  })} />
+</BaseLayout>
+
+<style>
+.hero { position: relative; min-height: 80vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 120px 24px 60px; }
+.hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
+.hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,15,15,0.92), rgba(15,15,15,0.55) 55%, rgba(15,15,15,0.35)); z-index: 2; }
+.hero-content { position: relative; z-index: 3; max-width: 1000px; text-align: center; color: #fff; }
+.hero-badge { display:inline-block; background: rgba(201,169,97,.18); border:1px solid var(--gold); color:var(--gold); padding:8px 22px; border-radius:30px; font-size:.8rem; font-weight:600; text-transform:uppercase; letter-spacing:1.5px; margin-bottom:24px; }
+.hero h1 { font-family: var(--font-serif); font-size: clamp(2.8rem,6vw,4.8rem); line-height:1.08; margin:0 0 20px; font-weight:400; }
+.hero h1 em { font-style: normal; color: var(--gold); }
+.hero-sub { font-size: 1.25rem; max-width: 720px; margin: 0 auto 36px; line-height:1.7; color: rgba(255,255,255,.88); }
+.hero-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-bottom:40px; }
+.hero-stats { display:flex; gap:40px; justify-content:center; flex-wrap:wrap; }
+.hero-stats .stat { text-align:center; }
+.hero-stats strong { display:block; font-family:var(--font-serif); font-size:2.4rem; color:var(--gold); }
+.hero-stats span { font-size:.9rem; color:rgba(255,255,255,.8); }
+.section { padding: 90px 24px; }
+.section-alt { background: var(--gray); }
+.section-dark { background: var(--bg); color:#fff; }
+.container { max-width:1200px; margin:0 auto; }
+.container-narrow { max-width:860px; }
+.section-header { text-align:center; max-width:760px; margin:0 auto 56px; }
+.section-tag { display:inline-block; color:var(--gold); font-size:.8rem; font-weight:700; letter-spacing:2px; text-transform:uppercase; margin-bottom:14px; }
+.section-header h2 { font-family:var(--font-serif); font-size:clamp(2rem,4vw,3rem); font-weight:500; line-height:1.15; margin:0 0 16px; }
+.section-header p { font-size:1.1rem; color:#555; line-height:1.6; }
+.section-header-light h2 { color:#fff; }
+.section-header-light p { color:rgba(255,255,255,.8); }
+.intro { background:#fff; }
+.intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+.intro-media { position:relative; }
+.intro-media img { width:100%; border-radius:14px; box-shadow:0 20px 50px rgba(0,0,0,.12); }
+.intro-body h2 { font-family:var(--font-serif); font-size:clamp(1.8rem,3.5vw,2.6rem); font-weight:500; line-height:1.2; margin:0 0 18px; }
+.intro-body p { font-size:1.1rem; line-height:1.75; color:#444; margin-bottom:16px; }
+.intro-checks { list-style:none; padding:0; margin:22px 0; }
+.intro-checks li { padding-left:30px; position:relative; margin-bottom:12px; color:#333; }
+.intro-checks li::before { content:'✓'; position:absolute; left:0; color:var(--gold); font-weight:700; }
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
+.service-card { background:#fff; border-radius:14px; padding:32px 28px; box-shadow:0 6px 24px rgba(0,0,0,.06); transition:transform .3s, box-shadow .3s; }
+.service-card:hover { transform:translateY(-4px); box-shadow:0 14px 36px rgba(0,0,0,.1); }
+.service-icon { width:54px; height:54px; border-radius:12px; background:rgba(201,169,97,.12); color:var(--gold); display:flex; align-items:center; justify-content:center; margin-bottom:18px; }
+.service-card h3 { font-family:var(--font-serif); font-size:1.4rem; font-weight:600; margin:0 0 10px; }
+.service-card p { color:#666; font-size:.98rem; line-height:1.6; margin:0 0 16px; }
+.card-link { color:var(--gold); font-weight:600; text-decoration:none; font-size:.92rem; display:inline-flex; align-items:center; gap:6px; }
+.zones-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:18px; }
+.zone-item { display:flex; gap:14px; align-items:flex-start; background:#fff; padding:20px 22px; border-radius:10px; box-shadow:0 4px 14px rgba(0,0,0,.05); color:#333; }
+.zone-item svg { color:var(--gold); flex-shrink:0; margin-top:2px; }
+.zone-item strong { display:block; font-size:1.05rem; margin-bottom:4px; }
+.zone-item span { color:#666; font-size:.95rem; }
+.pricing-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:18px; }
+.price-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:24px; text-align:center; }
+.price-label { display:block; color:rgba(255,255,255,.85); font-size:.95rem; margin-bottom:8px; }
+.price-value { display:block; font-family:var(--font-serif); font-size:1.5rem; color:var(--gold); }
+.pricing-note { text-align:center; color:rgba(255,255,255,.55); font-size:.85rem; margin-top:28px; }
+.testimonials-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:28px; }
+.testimonial-card { background:#fff; border-radius:14px; padding:30px; box-shadow:0 6px 24px rgba(0,0,0,.06); margin:0; }
+.stars { color:#e0a82e; margin-bottom:14px; }
+.testimonial-card blockquote { font-size:1.05rem; line-height:1.7; color:#444; margin:0 0 18px; font-style:italic; }
+.testimonial-card figcaption strong { display:block; color:#222; }
+.testimonial-card figcaption span { color:#888; font-size:.9rem; }
+.cta { position:relative; padding:110px 24px; overflow:hidden; text-align:center; }
+.cta-bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:1; }
+.cta-overlay { position:absolute; inset:0; background:linear-gradient(rgba(15,15,15,.85),rgba(15,15,15,.9)); z-index:2; }
+.cta-content { position:relative; z-index:3; max-width:760px; margin:0 auto; }
+.cta-content h2 { font-family:var(--font-serif); font-size:clamp(2rem,4.5vw,3.2rem); font-weight:400; color:#fff; margin:0 0 18px; }
+.cta-content > p { font-size:1.15rem; color:rgba(255,255,255,.85); line-height:1.7; margin:0 0 32px; }
+.cta-actions { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; }
+.btn { display:inline-flex; align-items:center; gap:8px; padding:14px 30px; border-radius:6px; font-weight:600; text-decoration:none; font-size:.95rem; transition:.25s; }
+.btn-gold { background:var(--gold); color:#1a1a1a; }
+.btn-gold:hover { filter:brightness(1.08); transform:translateY(-2px); }
+.btn-outline { border:1px solid rgba(255,255,255,.4); color:#fff; }
+.btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+.btn-outline-light { border:1px solid rgba(255,255,255,.5); color:#fff; }
+.btn-outline-light:hover { border-color:var(--gold); color:var(--gold); }
+.btn-dark { background:#1a1a1a; color:#fff; }
+.btn-dark:hover { background:#000; transform:translateY(-2px); }
+@media (max-width:860px){ .intro-grid{ grid-template-columns:1fr; gap:36px; } }
+@media (max-width:600px){ .hero-stats{ gap:24px; } .hero-stats strong{ font-size:1.9rem; } .section{ padding:60px 20px; } }
+</style>
