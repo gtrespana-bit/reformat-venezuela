@@ -1,50 +1,344 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+
 const projects = [
-  { title: "Reforma Integral Piso Centro", category: "Integral", location: "Valencia Centro", image: "/images/integrales-proyecto-completo.webp", desc: "Transformación completa de piso de 120m²." },
-  { title: "Cocina Moderna Open Space", category: "Cocina", location: "San Diego", image: "/images/cocina-isla-central.webp", desc: "Cocina abierta al salón con isla central." },
-  { title: "Baño Spa Principal", category: "Baño", location: "Valencia Norte", image: "/images/bano-ducha-walkin.webp", desc: "Baño transformado en espacio spa." },
-  { title: "Local Comercial Restaurante", category: "Comercial", location: "Boulevard Valencia", image: "/images/arquitectura-600.webp", desc: "Reforma integral con diseño industrial." },
-  { title: "Reforma Piso Antiguo", category: "Integral", location: "Casco Histórico", image: "/images/integrales-despues.webp", desc: "Restauración con toques modernos." },
-  { title: "Cocina Rústica Moderna", category: "Cocina", location: "Urbanización El Parral", image: "/images/cocina-terminada-final.webp", desc: "Fusión de estilo rústico con funcionalidad." }
+  { 
+    title: "Remodelación Baño Principal", 
+    category: "Baño", 
+    location: "Caracas", 
+    image: "/images/proyectos/bano-caracas/baño principal finalizado 1.webp", 
+    desc: "Transformación completa con porcelanato premium, mampara de vidrio templado y acabados de lujo.",
+    slug: "bano-caracas",
+    duration: "3 semanas"
+  },
+  { 
+    title: "Remodelación Baño Residencial", 
+    category: "Baño", 
+    location: "La Trigaleña", 
+    image: "/images/proyectos/bano-la-trigalena/baño final 1.webp", 
+    desc: "Renovación integral con cambio de porcelanato, mueble nuevo y grifería moderna.",
+    slug: "bano-la-trigalena",
+    duration: "2 semanas"
+  },
+  { 
+    title: "Remodelación Baño San Diego", 
+    category: "Baño", 
+    location: "San Diego, Carabobo", 
+    image: "/images/proyectos/bano-san-diego/baño finalizado 1.webp", 
+    desc: "Transformación completa de baño con diseño contemporáneo y acabados premium.",
+    slug: "bano-san-diego",
+    duration: "2 semanas"
+  },
+  { 
+    title: "Remodelación Baños Quinta", 
+    category: "Baño", 
+    location: "Quinta La Lagunita", 
+    image: "/images/proyectos/banos-quinta-la-lagunita/Baño Zona 1 Completado 2 (1).webp", 
+    desc: "Remodelación completa de baños en quinta con demolición, nueva distribución y acabados de lujo.",
+    slug: "banos-quinta-la-lagunita",
+    duration: "4 semanas"
+  }
 ];
 ---
-<BaseLayout title="Proyectos | Portafolio de Reformas" description="Galería de proyectos reales." activePage="proyectos">
-  <header class="page-hero"><img class="hero-bg" src="/images/integrales-800.webp" alt="Proyecto de remodelación residencial en Venezuela | ReformaT" fetchpriority="high" loading="eager" decoding="async" /><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Nuestro Portafolio</span><h1 class="page-title">Proyectos <span class="gold">Realizados</span></h1><p class="page-subtitle">Cada proyecto es una historia de transformación.</p></div></header>
-  <section class="projects-section"><div class="container"><div class="filter-bar">{["Todos", "Integral", "Cocina", "Baño", "Comercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {p.location}</span></div></div></div>))}</div></div></section>
+
+<BaseLayout 
+  title="Proyectos | Portafolio de Reformas | ReformaT Venezuela" 
+  description="Galería de proyectos reales de remodelación en Caracas, Valencia y áreas. Baños, cocinas y reformas integrales con acabados premium." 
+  activePage="proyectos"
+>
+  <!-- Hero Section -->
+  <header class="projects-hero">
+    <div class="hero-backdrop"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">Portafolio</span>
+        <h1 class="hero-title">Proyectos Realizados</h1>
+        <p class="hero-lead">Cada proyecto es una historia de transformación. Descubre nuestras remodelaciones completadas con acabados premium.</p>
+      </div>
+    </div>
+  </header>
+
+  <!-- Projects Section -->
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-list">
+        {projects.map((p, index) => (
+          <a href={`/proyectos/${p.slug}`} class="project-card">
+            <div class="project-card-image">
+              <img src={p.image} alt={p.title} loading="lazy" />
+              <span class="project-card-badge">{p.category}</span>
+            </div>
+            <div class="project-card-content">
+              <h3 class="project-card-title">{p.title}</h3>
+              <p class="project-card-desc">{p.desc}</p>
+              <div class="project-card-meta">
+                <span class="project-card-location">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  {p.location}
+                </span>
+                <span class="project-card-duration">{p.duration}</span>
+              </div>
+              <span class="project-card-cta">
+                Ver proyecto
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12"/>
+                  <polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
   
+  <!-- CTA Section -->
   <section class="cta-section">
-    <div class="cta-wrapper">
-      <h2 class="cta-title">¿Quieres Ser Nuestro Próximo Proyecto?</h2>
-      <p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p>
-      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar Presupuesto</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    <div class="container">
+      <div class="cta-inner">
+        <h2 class="cta-title">¿Tienes un proyecto en mente?</h2>
+        <p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p>
+        <a href="/contacto" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Solicitar Presupuesto</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
 <style>
-  .projects-section { padding: 100px 0; background: var(--gray); }
-  .filter-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
-  .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-full); cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--text); transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
-  .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-  .filter-btn:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 2px; }
-  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-  .project-card { border-radius: var(--r-md); overflow: hidden; background: var(--white); box-shadow: var(--e-1); transition: 0.4s; }
-  .project-card:hover { transform: translateY(-8px); box-shadow: var(--e-3); }
-  .project-img { position: relative; height: 300px; overflow: hidden; }
-  .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .project-card:hover .project-img img { transform: scale(1.08); }
-  .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.45) 45%, transparent 75%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; }
-  /* La info es visible siempre: antes solo aparecía en :hover, así que en
-     móvil (la mayoría del tráfico) las tarjetas eran fotos mudas. */
-  .project-overlay p { color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.5; max-height: 0; opacity: 0; overflow: hidden; transition: max-height var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out), margin var(--dur-base) var(--ease-out); margin-bottom: 0; }
-  @media (hover: hover) { .project-card:hover .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
-  @media (hover: none) { .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
-  .project-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 4px 12px; border-radius: var(--r-lg); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; margin-bottom: 10px; }
-  .project-overlay h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 8px; }
-  .project-location { color: var(--gold); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
-  @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+  /* Hero */
+  .projects-hero {
+    position: relative;
+    padding: 120px 0 80px;
+    background: var(--ink);
+    overflow: hidden;
+  }
+  
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,97,0.08) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 80%, rgba(201,169,97,0.05) 0%, transparent 50%);
+  }
+  
+  .projects-hero .container {
+    position: relative;
+    z-index: 1;
+  }
+  
+  .hero-inner {
+    max-width: 640px;
+  }
+  
+  .hero-eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 20px;
+  }
+  
+  .hero-lead {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+  }
+
+  /* Projects Section */
+  .projects-section {
+    padding: 80px 0 100px;
+    background: var(--bone);
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  
+  .projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+  
+  .project-card {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 32px;
+    padding: 24px;
+    background: var(--white);
+    border-radius: var(--r-md);
+    border: 1px solid var(--sand);
+    text-decoration: none;
+    color: inherit;
+    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+  }
+  
+  .project-card:hover {
+    box-shadow: var(--e-2);
+    transform: translateY(-2px);
+    border-color: rgba(201,169,97,0.3);
+  }
+  
+  .project-card-image {
+    position: relative;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+    background: var(--sand);
+  }
+  
+  .project-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .project-card:hover .project-card-image img {
+    transform: scale(1.04);
+  }
+  
+  .project-card-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    padding: 5px 12px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--gold);
+    border-radius: var(--r-sm);
+  }
+  
+  .project-card-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .project-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+  
+  .project-card-desc {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+  }
+  
+  .project-card-meta {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  
+  .project-card-location {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.85rem;
+    color: var(--text-light);
+  }
+  
+  .project-card-duration {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 4px 10px;
+    background: var(--bone);
+    border-radius: var(--r-sm);
+  }
+  
+  .project-card-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--gold-ink);
+    transition: gap 0.3s ease;
+  }
+  
+  .project-card:hover .project-card-cta {
+    gap: 12px;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    padding: 100px 0;
+    background: var(--ink);
+  }
+  
+  .cta-inner {
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .cta-title {
+    font-family: var(--font-serif);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 16px;
+  }
+  
+  .cta-text {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 32px;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .projects-hero {
+      padding: 80px 0 60px;
+    }
+    
+    .project-card {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 16px;
+    }
+    
+    .project-card-image {
+      aspect-ratio: 16/10;
+    }
+    
+    .project-card-title {
+      font-size: 1.3rem;
+    }
+    
+    .projects-section {
+      padding: 60px 0 80px;
+    }
+  }
 </style>
-<script>
-  document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.style.display = (filter === 'todos' || card.dataset.category === filter) ? 'block' : 'none'; }); }); });
-</script>
