@@ -407,3 +407,61 @@ Si solo pudieras hacer **tres** cosas:
 ---
 
 *Nota metodológica: no pude tomar capturas de pantalla renderizadas (el sandbox no permite descargar un navegador headless). Todo lo anterior sale de leer el código de las 253 páginas construidas, del informe Lighthouse del repo y del cálculo directo de ratios de contraste WCAG. Las cifras (166 apariciones de "+15 años", 79 `!important`, 192 archivos CSS, 6 proyectos con la misma imagen) están verificadas con `grep` sobre el repo.*
+
+---
+
+## ✅ ESTADO DE EJECUCIÓN
+
+### Fase 1 — completada (commit `7c70d9c`)
+
+**Hallazgo crítico no previsto en la auditoría inicial:** los 7 `.woff2` de
+`public/fonts` eran archivos placeholder corruptos e idénticos entre sí
+(mismo MD5). Manrope contenía 15 glifos (`A ÁĂҮүҺһӨө₴`, sin `a-z` ni tildes)
+y Cormorant 153 glifos cirílicos. **El sitio nunca mostró sus tipografías:**
+el navegador caía a la fuente del sistema en todo el texto. El problema real
+era mucho mayor que el faux-bold reportado. Sustituidos por los reales de
+`@fontsource` con latín completo verificado.
+
+| Tarea | Estado |
+|---|---|
+| 1. Tokens en `:root` (color, radio, espaciado, elevación, curvas) | ✅ |
+| 2. Fuentes reales + Manrope 700 → fin del faux-bold | ✅ |
+| 3. `--gold-ink` / `--gold-ink-strong`, 8 fallos de contraste | ✅ |
+| 4. Paleta azul/morado/verde eliminada | ✅ |
+| 5. Home: 79 `!important` → 0, CSS y JS muertos fuera | ✅ |
+| 6. `src/data/brand.ts`, cifras unificadas a 23 años / 2003 | ✅ |
+
+### Fase 2 — completada (commit `0dcd262`)
+
+| Tarea | Estado |
+|---|---|
+| 7. Sistema de botón unificado, páginas ciudad migradas | ✅ |
+| 8. Hero unificado (`.article-hero` / `.page-hero` únicos) | ✅ |
+| 9. Escala de espaciado, radio y sombra aplicada (45 archivos) | ✅ |
+| 10. Fondos crema `--bone` y negro cálido `--ink` | ✅ |
+| 11. Nav sólida en páginas claras + menú móvil deslizante | ✅ |
+| 12. Privacidad, Términos y Sobre Nosotros enlazados | ✅ |
+| 13. Emojis → SVG, `.btn-shine` y `✦` fuera | ✅ |
+
+**Impacto medible:**
+
+| Métrica | Antes | Después |
+|---|---|---|
+| Archivos CSS emitidos | 192 | **28** |
+| Peso de `dist/_astro` | 1.6 MB | **316 KB** |
+| `!important` en la home | 79 | **0** |
+| Colores fuera de marca en `dist` | ~430 líneas | **0** |
+| Bloques `<style>` duplicados | 162 idénticos | **0** |
+| Fuentes reales servidas | 0 de 7 | **8 de 8** |
+
+Hallazgos adicionales resueltos en Fase 2: las 4 páginas de ciudad tenían su
+propio sistema de tokens con `navy #1a2332` (y un `--ink` que pisaba el negro
+cálido global); el componente `Breadcrumb`, presente en ~200 páginas, también
+lo usaba; y `.section-tag` / `.stars` de ciudad eran oro sobre fondo claro.
+
+### Pendiente
+
+- **Fase 3** — punto 4 (galería + antes/después + CTA sticky en las 162 páginas
+  de zona) y punto 5 (Proyectos: a la espera de imágenes y textos del cliente).
+  La estructura de Proyectos ya está corregida; falta el contenido real.
+- **Fase 4** — `astro:assets`, hero a 2400 px, estado in-page en formularios.
