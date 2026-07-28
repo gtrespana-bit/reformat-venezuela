@@ -32,7 +32,7 @@ const services = [
     <div class="hero-content">
       <span class="hero-tag">What We Do</span>
       <h1 class="page-title">Complete <span class="gold">Remodeling Solutions</span></h1>
-      <p class="page-subtitle">Over 20 years transforming spaces in Valencia and San Diego.</p>
+      <p class="page-subtitle">Over 23 years transforming spaces in Valencia and San Diego.</p>
     </div>
   </header>
 
@@ -58,7 +58,7 @@ const services = [
                 height="533"
               />
               <div class="card-overlay"></div>
-              <span class="card-icon">✦</span>
+              <span class="card-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
             </div>
             <div class="card-body">
               <h3>{svc.title}</h3>
@@ -84,8 +84,6 @@ const services = [
 </BaseLayout>
 
 <style>
-  .page-hero { position: relative; min-height: 60vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding: 120px 20px 60px; }
-  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 800px; }
   .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
@@ -94,21 +92,21 @@ const services = [
 
   .services-page { padding: 100px 0; background: var(--gray); }
   .services-vertical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-  .service-vertical-card { background: var(--white); border-radius: 8px; overflow: hidden; box-shadow: 0 5px 20px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .service-vertical-card { background: var(--white); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-1); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
   .service-vertical-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
   .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
   .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
   .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
   .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
   .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
-  .service-vertical-card:hover .card-icon { transform: scale(1.15) rotate(15deg); }
+  .service-vertical-card:hover .card-icon { transform: scale(1.08); }
   .card-body { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
   .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
   .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
   .card-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
   .card-features li { color: var(--gray-text); font-size: 0.9rem; padding: 6px 0; padding-left: 20px; position: relative; }
   .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  .card-link { color: var(--gold); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
+  .card-link { color: var(--gold-ink); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
   .arrow { transition: transform 0.3s; }
   .service-vertical-card:hover .card-link { gap: 14px; }
   .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }

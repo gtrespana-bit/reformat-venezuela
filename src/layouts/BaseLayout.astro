@@ -35,6 +35,12 @@ const currentPath = Astro.url.pathname;
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 
+/* Páginas que arrancan con fondo claro: la barra transparente con texto blanco
+   quedaba invisible sobre blanco hasta hacer scroll. Ahí se pinta sólida desde el inicio. */
+const lightHeaderRoutes = ['/privacidad', '/terminos', '/en/privacy', '/en/terms', '/404', '/en/404'];
+const normalizedPath = currentPath.replace(/\/$/, '') || '/';
+const needsSolidNav = lightHeaderRoutes.includes(normalizedPath);
+
 const whatsappText = isEnglish
   ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
   : 'Hola,%20me%20interesa%20una%20consulta%20para%20mi%20proyecto';
@@ -42,8 +48,8 @@ const whatsappText = isEnglish
 const skipLinkText = isEnglish ? 'Skip to main content' : 'Saltar al contenido principal';
 const menuLabel = isEnglish ? 'Open navigation menu' : 'Abrir menú de navegación';
 const footerDesc = isEnglish
-  ? 'Transforming spaces with excellence since 2005.'
-  : 'Transformando espacios con excelencia desde 2005.';
+  ? 'Transforming spaces with excellence since 2003.'
+  : 'Transformando espacios con excelencia desde 2003.';
 const footerRights = isEnglish
   ? 'All rights reserved.'
   : 'Todos los derechos reservados.';
@@ -76,6 +82,7 @@ const navItems = isEnglish
     <!-- Preload fuentes críticas (woff2 self-hosted) -->
   <link rel="preload" href="/fonts/manrope-v15-latin-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/manrope-v15-latin-600.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="/fonts/manrope-v15-latin-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-700.woff2" as="font" type="font/woff2" crossorigin />
 <!-- Canonical + hreflang: emitidos por SEO.astro (fuente unica) -->
@@ -101,7 +108,7 @@ const navItems = isEnglish
 <body>
   <a href="#main-content" class="skip-link">{skipLinkText}</a>
 
-  <nav id="navbar" class="nav" role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
+  <nav id="navbar" class={`nav${needsSolidNav ? ' nav-solid' : ''}`} role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
     <div class="nav-container">
       <a href={isEnglish ? '/en' : '/'} class="logo">
         <img
@@ -115,7 +122,7 @@ const navItems = isEnglish
         />
       </a>
 
-      <ul class="nav-links">
+      <ul class="nav-links" id="primary-nav">
         {navItems.map((item) => (
           <li>
             <a
@@ -140,11 +147,15 @@ const navItems = isEnglish
         {isEnglish ? 'ES' : 'EN'}
       </button>
 
-      <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false">
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <line x1="3" y1="12" x2="21" y2="12"></line>
+      <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false" aria-controls="primary-nav">
+        <svg class="icon-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
           <line x1="3" y1="6" x2="21" y2="6"></line>
+          <line x1="3" y1="12" x2="21" y2="12"></line>
           <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+        <svg class="icon-close" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+          <line x1="18" y1="6" x2="6" y2="18"></line>
         </svg>
       </button>
     </div>
@@ -217,6 +228,7 @@ const navItems = isEnglish
           <ul class="footer-links">
             {[
               { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
+              { es: 'Sobre Nosotros', en: 'About Us', href: isEnglish ? '/en/about-us' : '/sobre-nosotros' },
               { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
               { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
               { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
@@ -232,7 +244,13 @@ const navItems = isEnglish
         </div>
       </div>
 
-      <p class="footer-bottom">&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
+      <div class="footer-bottom">
+        <p>&copy; {new Date().getFullYear()} ReformaT Venezuela. {footerRights} | {footerLocations}</p>
+        <ul class="footer-legal">
+          <li><a href={isEnglish ? '/en/privacy' : '/privacidad'}>{isEnglish ? 'Privacy Policy' : 'Política de Privacidad'}</a></li>
+          <li><a href={isEnglish ? '/en/terms' : '/terminos'}>{isEnglish ? 'Terms of Use' : 'Términos de Uso'}</a></li>
+        </ul>
+      </div>
     </div>
   </footer>
 <!-- Mobile Sticky CTA Bar -->
@@ -360,23 +378,34 @@ const navItems = isEnglish
       }
     });
 
+    /* Menú móvil: panel deslizante.
+       Antes se abría inyectando 11 estilos inline desde JS: sin animación,
+       no cerraba al pulsar fuera ni con Escape, no atrapaba el foco y
+       dejaba la página desplazable por detrás. */
     const menuBtn = document.getElementById('menu-btn');
     const navLinks = document.querySelector('.nav-links');
     if (menuBtn && navLinks) {
-      menuBtn.addEventListener('click', () => {
-        const isOpen = navLinks.style.display === 'flex';
-        navLinks.style.display = isOpen ? 'none' : 'flex';
-        navLinks.style.flexDirection = 'column';
-        navLinks.style.position = 'absolute';
-        navLinks.style.top = '100%';
-        navLinks.style.left = '0';
-        navLinks.style.width = '100%';
-        navLinks.style.background = '#0a0a0a';
-        navLinks.style.padding = '20px';
-        navLinks.style.textAlign = 'center';
-        navLinks.style.zIndex = '99';
-        menuBtn.setAttribute('aria-expanded', (!isOpen).toString());
+      const closeMenu = () => {
+        document.body.classList.remove('nav-open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+      };
+      const toggleMenu = () => {
+        const open = document.body.classList.toggle('nav-open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        if (open) {
+          const first = navLinks.querySelector('a');
+          if (first) first.focus({ preventScroll: true });
+        }
+      };
+
+      menuBtn.addEventListener('click', (e) => { e.stopPropagation(); toggleMenu(); });
+      navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+      document.addEventListener('click', (e) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        if (!navLinks.contains(e.target) && e.target !== menuBtn) closeMenu();
       });
+      window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
     }
 
     window.shareArticle = (platform) => {
@@ -404,7 +433,8 @@ const navItems = isEnglish
   button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
 
   .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
-  .nav.scrolled { background: rgba(10,10,10,0.95); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); }
+  .nav.scrolled, .nav-solid { background: rgba(20,18,14,0.96); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); backdrop-filter: blur(10px); }
+  .nav-solid .logo img { height: 70px; }
   .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .logo { display: flex; align-items: center; }
   .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
@@ -413,7 +443,7 @@ const navItems = isEnglish
   .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
-  .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: 2px; color: var(--gold) !important; font-weight: 500; }
+  .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: var(--r-sm); color: var(--gold) !important; font-weight: 500; }
   .btn-nav-premium:hover { background: var(--gold); color: var(--bg) !important; }
   
   .lang-switch-visible {
@@ -421,7 +451,7 @@ const navItems = isEnglish
     letter-spacing: 1.5px !important;
     padding: 6px 14px;
     border: 1px solid rgba(255,255,255,0.3);
-    border-radius: 2px;
+    border-radius: var(--r-sm);
     transition: all 0.3s !important;
     color: rgba(255,255,255,0.9) !important;
     text-decoration: none;
@@ -438,6 +468,9 @@ const navItems = isEnglish
   
   .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
   .menu-btn svg { width: 28px; height: 28px; display: block; }
+  .menu-btn .icon-close { display: none; }
+  body.nav-open .menu-btn .icon-open { display: none; }
+  body.nav-open .menu-btn .icon-close { display: block; color: var(--gold); }
 
   .whatsapp-float { position: fixed; bottom: 25px; right: 25px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); transition: all 0.3s; z-index: 99; }
   .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
@@ -446,7 +479,7 @@ const navItems = isEnglish
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 45px; text-align: left; }
   .footer-brand { text-align: center; }
   .footer-logo { margin-bottom: 20px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 320px; height: auto; display: block; }
+  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 525 / 142; }
   .footer-desc { max-width: 340px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
   .footer-heading { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
   .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -455,11 +488,50 @@ const navItems = isEnglish
   .footer-links a:hover { color: var(--gold); }
   .footer-links-2col { column-count: 2; column-gap: 24px; }
   .footer-links-2col li { break-inside: avoid; }
-  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.12); padding-top: 24px; font-size: 0.85rem; color: rgba(255,255,255,0.5); text-align: center; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+  .footer-bottom p { margin: 0; }
+  .footer-legal { list-style: none; padding: 0; margin: 0; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+  .footer-legal a { color: rgba(255,255,255,0.55); text-decoration: none; transition: color var(--dur-fast) var(--ease-out); }
+  .footer-legal a:hover { color: var(--gold); }
 
   @media (max-width: 900px) {
-    .nav-links { display: none; }
-    .menu-btn { display: flex; }
+    /* Panel deslizante desde la derecha */
+    .nav-links {
+      display: flex;
+      position: fixed;
+      inset: 0 0 0 auto;
+      width: min(320px, 82vw);
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 28px;
+      padding: 96px 32px 40px;
+      background: rgba(20,18,14,.98);
+      backdrop-filter: blur(16px);
+      border-left: 1px solid rgba(201,169,97,.22);
+      box-shadow: -24px 0 60px rgba(0,0,0,.45);
+      transform: translateX(100%);
+      transition: transform var(--dur-base) var(--ease-out);
+      z-index: 1002;
+      overflow-y: auto;
+    }
+    body.nav-open .nav-links { transform: translateX(0); }
+    .nav-links a { font-size: 1.05rem; letter-spacing: .08em; }
+    .nav-links a.active::after { bottom: -6px; }
+    .nav-links .btn-nav-premium { margin-top: 8px; }
+
+    /* Velo */
+    body.nav-open::after {
+      content: '';
+      position: fixed; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 1001;
+      animation: navFade var(--dur-fast) var(--ease-out);
+    }
+    @keyframes navFade { from { opacity: 0; } to { opacity: 1; } }
+    body.nav-open { overflow: hidden; }
+
+    .menu-btn { display: flex; position: relative; z-index: 1003; }
     .lang-switch-visible {
       margin-left: 8px;
       padding: 5px 10px;
@@ -495,7 +567,7 @@ const navItems = isEnglish
 }
 .mobile-cta-btn {
   flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
-  padding: 12px 10px; border-radius: 8px; font-family: var(--font-sans);
+  padding: 12px 10px; border-radius: var(--r-md); font-family: var(--font-sans);
   font-size: 0.9rem; font-weight: 600; text-decoration: none; transition: all 0.2s;
 }
 .mobile-cta-call {

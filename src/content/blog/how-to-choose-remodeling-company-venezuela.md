@@ -12,7 +12,7 @@ author: "ReformaT Team"
 
 Choosing the wrong remodeling company costs more than choosing the right one. A low budget can end up costing twice as much when you have to redo the work, fix defects, or finish a half-abandoned project.
 
-In Venezuela, the remodeling sector has little regulation and a lot of informality. That doesn’t mean there aren’t excellent professionals — there are. But you need to know how to distinguish them. At ReformaT Venezuela we have over 20 years of experience (with European origins) working in **Caracas, Valencia, San Diego, and Carabobo**, and this guide gives you objective criteria to choose well.
+In Venezuela, the remodeling sector has little regulation and a lot of informality. That doesn’t mean there aren’t excellent professionals — there are. But you need to know how to distinguish them. At ReformaT Venezuela we have over 23 years of experience (with European origins) working in **Caracas, Valencia, San Diego, and Carabobo**, and this guide gives you objective criteria to choose well.
 
 ![Professional remodeling team working on site](/images/integrales-equipo-trabajando.webp)
 
@@ -154,4 +154,4 @@ Many serious companies offer the first visit and quote at no obligation. At Refo
 
 Choosing a remodeling company is a decision that affects your wallet, your time, and your peace of mind for months. The criteria are simple: verifiable experience, detailed quote, written warranty, clear contract, and professional communication. If a company meets these points, you’re on the right track.
 
-If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a serious evaluation with no obligation, [contact us](/en/contact). At ReformaT Venezuela we provide a detailed quote, with warranty, backed by over 20 years of experience on every project. Learn more about us on [About Us](/en/about-us).
+If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a serious evaluation with no obligation, [contact us](/en/contact). At ReformaT Venezuela we provide a detailed quote, with warranty, backed by over 23 years of experience on every project. Learn more about us on [About Us](/en/about-us).

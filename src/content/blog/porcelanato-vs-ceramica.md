@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 Si estás planificando una reforma en Venezuela, tarde o temprano te enfrentarás a esta pregunta: **¿porcelanato o cerámica?** Ambos son materiales populares para pisos y paredes, pero tienen diferencias técnicas importantes que afectan la durabilidad, el mantenimiento y el resultado final de tu proyecto.
 
-En ReformaT Venezuela llevamos más de 20 años instalando ambos materiales en **Caracas, Valencia, San Diego y toda el área de Carabobo**. Hemos trabajado con cerámicas económicas de $10/m² y porcelanatos importados de $80/m². Y te podemos decir con total honestidad: **no siempre el más caro es el mejor para tu caso**.
+En ReformaT Venezuela llevamos más de 23 años instalando ambos materiales en **Caracas, Valencia, San Diego y toda el área de Carabobo**. Hemos trabajado con cerámicas económicas de $10/m² y porcelanatos importados de $80/m². Y te podemos decir con total honestidad: **no siempre el más caro es el mejor para tu caso**.
 
 En este artículo te explicamos **sin tecnicismos innecesarios** las diferencias reales entre porcelanato y cerámica, cuándo conviene cada uno, cuánto cuestan en Venezuela en 2026 y cómo tomar la mejor decisión para tu hogar o negocio.
 

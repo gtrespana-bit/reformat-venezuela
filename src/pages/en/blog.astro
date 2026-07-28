@@ -124,22 +124,20 @@ const sortedPosts = englishPosts.sort((a, b) => b.data.date.valueOf() - a.data.d
 </BaseLayout>
 
 <style>
-  .page-hero { position: relative; min-height: 65vh; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 120px; padding-bottom: 60px; }
-  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: 30px; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+  .hero-tag { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: var(--r-full); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
   .page-title { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6rem); font-weight: 300; margin-bottom: 20px; line-height: 1; }
   .gold { color: var(--gold); }
   .page-subtitle { font-size: 1.4rem; color: rgba(255,255,255,0.85); max-width: 650px; margin: 0 auto; line-height: 1.6; font-weight: 300; }
   .blog-section { padding: 80px 0; background: var(--gray); }
   .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-  .blog-card { display: block; background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 5px 25px rgba(0,0,0,0.05); transition: 0.4s; text-decoration: none; color: inherit; }
-  .blog-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+  .blog-card { display: block; background: var(--white); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-1); transition: 0.4s; text-decoration: none; color: inherit; }
+  .blog-card:hover { transform: translateY(-8px); box-shadow: var(--e-3); }
   .blog-img { position: relative; height: 220px; overflow: hidden; }
   .blog-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
   .blog-card:hover .blog-img img { transform: scale(1.05); }
-  .blog-category { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--bg); padding: 5px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+  .blog-category { position: absolute; top: 15px; left: 15px; background: var(--gold); color: var(--bg); padding: 5px 12px; border-radius: var(--r-lg); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
   .blog-content { padding: 25px; }
   .blog-meta { font-size: 0.8rem; color: var(--gray-text); margin-bottom: 12px; display: flex; gap: 10px; }
   .blog-content h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; line-height: 1.3; color: var(--text); }

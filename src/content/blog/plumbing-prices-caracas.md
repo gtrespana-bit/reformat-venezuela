@@ -12,7 +12,7 @@ author: "ReformaT Team"
 
 Plumbing shares one trait with electricity: mistakes are not visible until it’s too late. A poorly soldered pipe inside the wall can drip for months before a moisture stain appears. By then, the damage already includes drywall, paint, flooring, and sometimes the apartment below.
 
-That’s why hiring the cheapest plumber is one of the riskiest decisions in a remodel. At ReformaT Venezuela we have over 20 years executing sanitary installations in **Caracas, Valencia, San Diego, and all of Carabobo**. Here are the **real 2026 prices** so you know what is reasonable to pay.
+That’s why hiring the cheapest plumber is one of the riskiest decisions in a remodel. At ReformaT Venezuela we have over 23 years executing sanitary installations in **Caracas, Valencia, San Diego, and all of Carabobo**. Here are the **real 2026 prices** so you know what is reasonable to pay.
 
 ![Professional plumbing installation](/images/fontaneria.webp)
 

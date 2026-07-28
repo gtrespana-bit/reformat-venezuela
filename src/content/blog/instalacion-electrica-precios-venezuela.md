@@ -14,7 +14,7 @@ De todos los rubros de una reforma, la instalación eléctrica es el único dond
 
 Y sin embargo, es también el rubro donde más se intenta ahorrar contratando a cualquiera que "sabe de electricidad". El problema es que una instalación mal hecha no falla el primer día: falla a los dos años, cuando ya está tapada por drywall y pintura.
 
-En ReformaT Venezuela llevamos más de 20 años ejecutando instalaciones eléctricas residenciales en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos **precios reales y desglosados para 2026**, sin letra pequeña.
+En ReformaT Venezuela llevamos más de 23 años ejecutando instalaciones eléctricas residenciales en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos **precios reales y desglosados para 2026**, sin letra pequeña.
 
 ![Tablero eléctrico moderno con protecciones](/images/electricidad-cuadro-detalle.webp)
 

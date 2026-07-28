@@ -12,7 +12,7 @@ author: "ReformaT Team"
 
 If you're planning a remodel in Venezuela, sooner or later you'll face this question: **porcelain tile or ceramic tile?** Both are popular materials for floors and walls, but they have important technical differences that affect durability, maintenance and the final result of your project.
 
-At ReformaT Venezuela, we've been installing both materials in **Caracas, Valencia, San Diego and throughout Carabobo** for over 20 years. We've worked with budget ceramics at $10/sq ft and imported porcelain at $80/sq ft. And we can tell you with complete honesty: **the most expensive option isn't always the best for your case**.
+At ReformaT Venezuela, we've been installing both materials in **Caracas, Valencia, San Diego and throughout Carabobo** for over 23 years. We've worked with budget ceramics at $10/sq ft and imported porcelain at $80/sq ft. And we can tell you with complete honesty: **the most expensive option isn't always the best for your case**.
 
 In this article, we explain **without unnecessary technical jargon** the real differences between porcelain and ceramic tile, when each one is appropriate, how much they cost in Venezuela in 2026, and how to make the best decision for your home or business.
 

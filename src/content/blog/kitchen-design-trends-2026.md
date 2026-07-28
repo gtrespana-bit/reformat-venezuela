@@ -12,7 +12,7 @@ author: "ReformaT Team"
 
 The kitchen has stopped being that purely functional space where you only cook. Today, it's the **heart of the home**, the place where the family gathers, where friends are entertained, where you work and even where children do their homework.
 
-At ReformaT Venezuela, we've been transforming kitchens in Valencia and San Diego for over 20 years, and we've seen how trends have evolved. But 2026 brings truly significant changes that combine **technology, sustainability and timeless design**.
+At ReformaT Venezuela, we've been transforming kitchens in Valencia and San Diego for over 23 years, and we've seen how trends have evolved. But 2026 brings truly significant changes that combine **technology, sustainability and timeless design**.
 
 In this article we're not just going to list trends. We'll explain **why** they're important, **how** to implement them in your remodel, and **how much** you could invest in each one. Because we know remodeling the kitchen is an important decision, and we want you to make the best informed decision.
 

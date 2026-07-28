@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 El baño es una de las habitaciones más importantes de tu hogar. Es donde empiezas y terminas cada día, donde te relajas después de un largo trabajo y donde cuidas tu higiene y bienestar. Un baño bien diseñado no solo mejora tu calidad de vida, sino que **aumenta significativamente el valor de tu propiedad**.
 
-En ReformaT Venezuela llevamos más de 20 años ejecutando reformas de baños en **Caracas, Valencia, San Diego y toda el área de Carabobo**. Hemos transformado baños antiguos y oscuros en espacios modernos, funcionales y llenos de luz.
+En ReformaT Venezuela llevamos más de 23 años ejecutando reformas de baños en **Caracas, Valencia, San Diego y toda el área de Carabobo**. Hemos transformado baños antiguos y oscuros en espacios modernos, funcionales y llenos de luz.
 
 En esta guía completa te explicamos **todo lo que necesitas saber** sobre reformas de baños en 2026: precios reales, materiales recomendados, plazos de ejecución y consejos prácticos para que tu proyecto sea un éxito.
 
@@ -141,7 +141,7 @@ No todas las reformas son iguales. Dependiendo del estado actual de tu baño y t
 
 ## Materiales Recomendados Para Baños En Venezuela
 
-Elegir los materiales correctos es crucial para la durabilidad y el aspecto final de tu baño. Aquí te damos nuestras recomendaciones basadas en 20 años de experiencia en **Caracas y Carabobo**.
+Elegir los materiales correctos es crucial para la durabilidad y el aspecto final de tu baño. Aquí te damos nuestras recomendaciones basadas en 23 años de experiencia en **Caracas y Carabobo**.
 
 ### Revestimiento De Paredes
 
@@ -170,8 +170,8 @@ Elegir los materiales correctos es crucial para la durabilidad y el aspecto fina
 |-------|------|-----------------|-------------|
 | **FV** | Media | $80-$150 por juego | 8-10 años |
 | **Ferrum** | Media | $70-$130 por juego | 7-10 años |
-| **Grohe** | Alta | $200-$400 por juego | 15+ años |
-| **Hansgrohe** | Premium | $250-$500 por juego | 15+ años |
+| **Grohe** | Alta | $200-$400 por juego | 23+ años |
+| **Hansgrohe** | Premium | $250-$500 por juego | 23+ años |
 
 **Nuestra recomendación:** FV o Ferrum para gama media. Grohe si tu presupuesto lo permite.
 

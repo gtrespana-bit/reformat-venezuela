@@ -12,7 +12,7 @@ author: "Equipo ReformaT"
 
 La fontanería comparte un rasgo con la electricidad: los errores no se ven hasta que es tarde. Una tubería mal soldada dentro de la pared puede estar goteando durante meses antes de que aparezca la mancha de humedad. Para entonces, el daño ya incluye drywall, pintura, piso y a veces el apartamento de abajo.
 
-Por eso, contratar al más barato en fontanería es una de las decisiones más riesgosas de una reforma. En ReformaT Venezuela llevamos más de 20 años ejecutando instalaciones sanitarias en **Caracas, Valencia, San Diego y todo Carabobo**. Aquí te damos los **precios reales de 2026** para que sepas qué es razonable pagar.
+Por eso, contratar al más barato en fontanería es una de las decisiones más riesgosas de una reforma. En ReformaT Venezuela llevamos más de 23 años ejecutando instalaciones sanitarias en **Caracas, Valencia, San Diego y todo Carabobo**. Aquí te damos los **precios reales de 2026** para que sepas qué es razonable pagar.
 
 ![Instalación de fontanería profesional](/images/fontaneria.webp)
 

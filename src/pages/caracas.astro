@@ -26,7 +26,7 @@ const cityData = {
   introImage: "/images/cocina-terminada-final.webp",
   intro: `¿Buscas expertos en **remodelaciones en Caracas**? En ReformaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.
 
-Con más de 15 años de experiencia en el **Distrito Capital**, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.`,
+Con más de 23 años de experiencia en el **Distrito Capital**, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.`,
   zones: [
     "Chacao (Altamira, Los Palos Grandes, Chuao)",
     "Baruta (Las Mercedes, El Cafetal, Santa Fe)",
@@ -98,7 +98,7 @@ const faqItems = [
     <img class="hero-bg" src={cityData.heroImage} alt="Remodelaciones y reformas de apartamentos y casas en Caracas | ReformaT" fetchpriority="high" loading="eager" decoding="async" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-badge">Distrito Capital · +15 años de experiencia</span>
+      <span class="hero-badge">Distrito Capital · +23 años de experiencia</span>
       <h1>Remodelaciones en <em>Caracas</em></h1>
       <p class="hero-sub">Transformamos apartamentos, casas y oficinas con diseño de autor, materiales premium y ejecución impecable en toda el área metropolitana.</p>
       <div class="hero-actions">
@@ -129,7 +129,7 @@ const faqItems = [
         <span class="section-tag">Por qué ReformaT</span>
         <h2>Expertos en remodelaciones<br/>en el Distrito Capital</h2>
         <p>En ReformaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.</p>
-        <p>Con más de 15 años de experiencia en el <strong>Distrito Capital</strong>, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.</p>
+        <p>Con más de 23 años de experiencia en el <strong>Distrito Capital</strong>, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.</p>
         <ul class="intro-checks">
           <li>Equipo propio certificado, sin subcontratas</li>
           <li>Presupuesto cerrado y cronograma garantizado</li>
@@ -212,7 +212,7 @@ const faqItems = [
       <div class="section-header">
         <span class="section-tag">Por qué ReformaT</span>
         <h2>Por qué elegirnos en Caracas, Distrito Capital</h2>
-        <p>Más de 15 años remodelando apartamentos, casas y oficinas en la capital nos convierten en la opción de confianza para proyectos residenciales y comerciales en el Distrito Capital.</p>
+        <p>Más de 23 años remodelando apartamentos, casas y oficinas en la capital nos convierten en la opción de confianza para proyectos residenciales y comerciales en el Distrito Capital.</p>
       </div>
       <div class="intro-grid">
         <div class="intro-body">
@@ -331,21 +331,21 @@ const faqItems = [
 
 <style>
   /* ── Tokens ── */
+  /* Alias locales -> tokens globales.
+     Antes este bloque definía su propio sistema (navy #1a2332 azulado y un
+     --ink #2d2d2d que pisaba el negro cálido global). Ahora solo traduce. */
   .hero, .section, .cta {
-    --gold: #c9a961;
-    --gold-light: #e8d5a8;
-    --navy: #1a2332;
-    --navy-soft: #2c3e50;
-    --ink: #2d2d2d;
-    --muted: #6b7280;
-    --surface: #ffffff;
-    --surface-alt: #f8f7f4;
-    --border: #e8e6e1;
-    --radius: 14px;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,.06);
-    --shadow-md: 0 8px 30px rgba(0,0,0,.08);
-    --shadow-lg: 0 20px 60px rgba(0,0,0,.12);
-    --transition: .3s cubic-bezier(.4,0,.2,1);
+    --navy: var(--ink);
+    --navy-soft: var(--ink-soft);
+    --muted: var(--text-muted);
+    --surface: var(--white);
+    --surface-alt: var(--bone);
+    --border: var(--sand);
+    --radius: var(--r-md);
+    --shadow-sm: var(--e-1);
+    --shadow-md: var(--e-2);
+    --shadow-lg: var(--e-3);
+    --transition: var(--dur-base) var(--ease-out);
   }
 
   /* ── Layout helpers ── */
@@ -390,7 +390,7 @@ const faqItems = [
     font-weight: 700;
     letter-spacing: .18em;
     text-transform: uppercase;
-    color: var(--gold);
+    color: var(--gold-ink); /* texto sobre fondo claro: 4.9:1 */
   }
   .section-tag-light { color: var(--gold-light); }
 
@@ -400,7 +400,7 @@ const faqItems = [
     align-items: center;
     gap: 10px;
     padding: 15px 32px;
-    border-radius: 60px;
+    border-radius: var(--r-full);
     font-size: .95rem;
     font-weight: 600;
     text-decoration: none;
@@ -483,7 +483,7 @@ const faqItems = [
     display: inline-block;
     padding: 8px 20px;
     border: 1px solid rgba(201,169,97,.5);
-    border-radius: 60px;
+    border-radius: var(--r-full);
     font-size: .75rem;
     font-weight: 600;
     letter-spacing: .12em;
@@ -638,7 +638,7 @@ const faqItems = [
   .service-icon {
     width: 56px;
     height: 56px;
-    border-radius: 14px;
+    border-radius: var(--r-md);
     background: rgba(201,169,97,.1);
     color: var(--gold);
     display: flex;
@@ -665,7 +665,7 @@ const faqItems = [
     gap: 6px;
     font-size: .85rem;
     font-weight: 600;
-    color: var(--gold);
+    color: var(--gold-ink);
     text-decoration: none;
     transition: var(--transition);
   }
@@ -684,7 +684,7 @@ const faqItems = [
     padding: 20px 24px;
     background: var(--surface);
     border: 1px solid var(--border);
-    border-radius: 12px;
+    border-radius: var(--r-md);
     transition: var(--transition);
   }
   .zone-item:hover {
