@@ -15,14 +15,20 @@ interface Props {
 const siteUrl = 'https://reformat-venezuela.online';
 const siteName = 'ReformaT Venezuela';
 
-// Normalizar path: quitar trailing slash excepto en home
+// Helpers para trailingSlash unificado (vercel.json trailingSlash: true)
 const normalizePath = (path: string): string => {
   if (path === '/') return '/';
   return path.replace(/\/$/, '');
 };
 
-const currentPath = normalizePath(Astro.url.pathname);
-const canonicalPath = Astro.url.pathname; // Preserve trailing slash for canonical
+const ensureTrailingSlash = (path: string): string => {
+  if (!path) return '/';
+  if (path === '/') return '/';
+  return path.endsWith('/') ? path : `${path}/`;
+};
+
+const rawPath = Astro.url.pathname || '/';
+const currentPath = normalizePath(rawPath);
 const isEnglish = currentPath.startsWith('/en');
 const lang = isEnglish ? 'en' : 'es';
 const locale = isEnglish ? 'en_US' : 'es_VE';
@@ -45,7 +51,8 @@ const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.webp'}`;
 
-const canonicalUrl = `${siteUrl}${canonicalPath}`;
+// Canonical SIEMPRE con trailing slash para coherencia con sitemap y vercel.json
+const canonicalUrl = `${siteUrl}${ensureTrailingSlash(rawPath)}`;
 
 // Mapa de traducción de rutas para hreflang (sin trailing slash)
 const routeMap: Record<string, string> = {
@@ -129,14 +136,11 @@ const routeMap: Record<string, string> = {
   '/en/terms': '/terminos'
 };
 
-// Obtener path alternativo (otro idioma)
+// Obtener path alternativo (otro idioma) - lógica robusta
 const getAlternatePath = (): string => {
-  // Buscar en el mapa primero
   if (routeMap[currentPath]) {
     return routeMap[currentPath];
   }
-  
-  // Fallback: si es ruta en español, añadir /en; si es inglés, quitar /en
   if (isEnglish) {
     const withoutEn = currentPath.replace(/^\/en/, '') || '/';
     return withoutEn;
@@ -147,47 +151,52 @@ const getAlternatePath = (): string => {
 
 const alternatePath = getAlternatePath();
 
-// Paths para hreflang (siempre normalizados)
+// Paths para hreflang (siempre normalizados, luego con trailing slash)
 const esPath = isEnglish ? alternatePath : currentPath;
 const enPath = isEnglish ? currentPath : alternatePath;
 
-// Solo emitir hreflang "en" si la version en ingles realmente existe.
-// Casos sin EN: posts de blog en espanol que no estan traducidos (fuera del routeMap).
-// Todas las demas paginas ES (home, servicios, ciudades, zonas) SI tienen contraparte EN.
+const esPathSlashed = ensureTrailingSlash(esPath || '/');
+const enPathSlashed = ensureTrailingSlash(enPath || '/en/');
+
+// Validación de existencia real de traducción
+// Zone pages y ciudades y servicios tienen contraparte EN con mismo slug o mapeado
+// Solo los blog posts pueden no tener traducción
 const isUntranslatedEsBlogPost = !isEnglish && currentPath.startsWith('/blog/') && !routeMap[currentPath];
+const isUntranslatedEnBlogPost = isEnglish && currentPath.startsWith('/en/blog/') && !routeMap[currentPath];
+
 const emitEnHreflang = !isUntranslatedEsBlogPost;
+const emitEsHreflang = !isUntranslatedEnBlogPost;
+
+// x-default: apunta a ES si existe, si no a la versión actual
+const xDefaultPath = isEnglish && isUntranslatedEnBlogPost ? enPathSlashed : esPathSlashed;
 
 // Breadcrumbs para Schema
 const breadcrumbItems = [];
-breadcrumbItems.push({ name: isEnglish ? 'Home' : 'Inicio', url: isEnglish ? '/en' : '/' });
+breadcrumbItems.push({ name: isEnglish ? 'Home' : 'Inicio', url: ensureTrailingSlash(isEnglish ? '/en' : '/') });
 
 if (currentPath === '/blog' || currentPath === '/en/blog') {
-  breadcrumbItems.push({ name: 'Blog', url: currentPath });
+  breadcrumbItems.push({ name: 'Blog', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath.startsWith('/blog/') || currentPath.startsWith('/en/blog/')) {
-  breadcrumbItems.push({ name: 'Blog', url: isEnglish ? '/en/blog' : '/blog' });
-  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: currentPath });
+  breadcrumbItems.push({ name: 'Blog', url: isEnglish ? '/en/blog/' : '/blog/' });
+  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/servicios' || currentPath === '/en/services') {
-  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: currentPath });
+  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath.startsWith('/servicios/') || currentPath.startsWith('/en/services/')) {
-  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services' : '/servicios' });
-  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: currentPath });
+  breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services/' : '/servicios/' });
+  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/proyectos' || currentPath === '/en/projects') {
-  breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: currentPath });
+  breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/contacto' || currentPath === '/en/contact') {
-  breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: currentPath });
+  breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: ensureTrailingSlash(currentPath) });
 }
 
+// FIX AUDITORIA #6: Eliminar SearchAction que apunta a /blog?q= inexistente
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   "name": siteName,
   "url": siteUrl,
-  "inLanguage": lang,
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${siteUrl}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
-  }
+  "inLanguage": lang
 };
 
 const areasServed = [
@@ -206,21 +215,16 @@ const areasServed = [
   { "@type": "City", "name": "La Guaira" }
 ];
 
+// FIX AUDITORIA #4: Eliminar aggregateRating auto-calificado para evitar self-serving reviews
 const localBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": siteName,
   "image": `${siteUrl}/images/logo-header.webp`,
-  "url": isEnglish ? `${siteUrl}/en` : siteUrl,
+  "url": isEnglish ? `${siteUrl}/en/` : `${siteUrl}/`,
   "telephone": "+584227997043",
   "email": "contacto@reformat-venezuela.online",
   "priceRange": "$$",
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "5.0",
-    "reviewCount": "3",
-    "bestRating": "5"
-  },
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "Callejón Los Cocos S/N",
@@ -236,14 +240,8 @@ const localBusinessSchema = {
   },
   "areaServed": areasServed,
   "availableLanguage": [
-    {
-      "@type": "Language",
-      "name": "English"
-    },
-    {
-      "@type": "Language",
-      "name": "Spanish"
-    }
+    { "@type": "Language", "name": "English" },
+    { "@type": "Language", "name": "Spanish" }
   ],
   "openingHoursSpecification": {
     "@type": "OpeningHoursSpecification",
@@ -261,7 +259,7 @@ const breadcrumbSchema = {
     "@type": "ListItem",
     "position": i + 1,
     "name": item.name,
-    "item": `${siteUrl}${item.url}`
+    "item": `${siteUrl}${ensureTrailingSlash(item.url)}`
   }))
 };
 
@@ -312,10 +310,10 @@ const articleSchema = {
 <meta name="geo.position" content="10.2669;-67.9659" />
 <meta name="ICBM" content="10.2669, -67.9659" />
 
-<!-- HREFLANG (con self-referencing) -->
-<link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-{emitEnHreflang && <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />}
-<link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
+<!-- HREFLANG (con self-referencing) - FIX #1 y #5: trailingSlash unificado y validación de existencia -->
+{emitEsHreflang && <link rel="alternate" hreflang="es" href={`${siteUrl}${esPathSlashed}`} />}
+{emitEnHreflang && <link rel="alternate" hreflang="en" href={`${siteUrl}${enPathSlashed}`} />}
+<link rel="alternate" hreflang="x-default" href={`${siteUrl}${xDefaultPath}`} />
 
 <!-- OPEN GRAPH -->
 <meta property="og:type" content={type} />
@@ -356,10 +354,10 @@ const articleSchema = {
 <link rel="manifest" href="/manifest.json" />
 <meta name="theme-color" content="#0a0a0a" />
 
-<!-- SCHEMA: WEBSITE -->
+<!-- SCHEMA: WEBSITE (sin SearchAction) -->
 <script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
 
-<!-- SCHEMA: LOCAL BUSINESS -->
+<!-- SCHEMA: LOCAL BUSINESS (sin aggregateRating) -->
 <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
 
 <!-- SCHEMA: BREADCRUMBS -->

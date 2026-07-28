@@ -1,10 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
-import { getCollection } from 'astro:content';
 import Breadcrumb from '../components/Breadcrumb.astro';
 
-const services = await getCollection('services');
+const services = [
+  { slug: 'remodelacion-cocina', data: { title: 'Remodelación de Cocinas', description: 'Cocinas funcionales y modernas con materiales premium y acabados impecables.' } },
+  { slug: 'remodelacion-bano', data: { title: 'Remodelación de Baños', description: 'Baños renovados con diseño premium, griferías y acabados de alta gama.' } },
+  { slug: 'remodelacion-integral', data: { title: 'Remodelación Integral', description: 'Transformación completa de apartamentos, casas y oficinas llave en mano.' } },
+  { slug: 'instalacion-pisos', data: { title: 'Instalación de Pisos', description: 'Porcelanato, cerámica, laminado y madera con instalación certificada.' } },
+  { slug: 'pintura-acabados', data: { title: 'Pintura y Acabados', description: 'Pintura profesional interior y exterior, microcemento y texturas.' } },
+  { slug: 'fontaneria-plomeria', data: { title: 'Fontanería y Plomería', description: 'Instalaciones, fugas, tuberías y mantenimiento preventivo certificado.' } },
+  { slug: 'instalacion-electrica', data: { title: 'Instalación Eléctrica', description: 'Instalaciones seguras, cableado, tableros y certificación eléctrica.' } },
+  { slug: 'revestimientos-pared', data: { title: 'Revestimientos de Pared', description: 'Piedra natural, madera, porcelanato y paneles decorativos WPC.' } },
+  { slug: 'piscinas-mantenimiento', data: { title: 'Piscinas y Mantenimiento', description: 'Construcción, remodelación y mantenimiento de piscinas residenciales.' } },
+];
+
 
 const cityData = {
   name: "La Guaira",
