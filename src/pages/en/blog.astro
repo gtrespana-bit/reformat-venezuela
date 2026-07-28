@@ -3,20 +3,44 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 
 const englishSlugs = [
-  'kitchen-remodel-cost-caracas-valencia-2026',
-  'porcelain-tile-vs-ceramic-tile-guide',
-  'remodel-budget-mistakes-avoid',
-  'bathroom-remodel-carabobo-guide',
-  'kitchen-design-trends-2026'
+  'kitchen-remodel-before-after-case-study',
+  'how-to-choose-remodeling-company-venezuela',
+  'bathroom-remodel-cost-caracas',
+  'how-long-full-remodel-takes',
+  'remodeling-mistakes-premium-areas-caracas',
+  'plumbing-prices-caracas',
+  'how-to-detect-water-leaks',
+  'flooring-guide-porcelain-marble-wood',
+  'electrical-installation-prices-venezuela',
+  'pool-maintenance-venezuela',
+  'microcement-vs-paint-finishes',
+  'remodel-permits-apartment-condominium',
+  'interior-painting-prices-m2-venezuela',
+  'apartment-remodeling-caracas',
+  'full-home-remodel-what-it-includes',
+  'stone-wood-wall-cladding-prices',
+  'signs-electrical-rewiring-needed'
 ];
 
 // Mapeo de slugs a imágenes locales -400 para cards
 const cardImages = {
-  'kitchen-remodel-cost-caracas-valencia-2026': '/images/cocina-400.webp',
-  'porcelain-tile-vs-ceramic-tile-guide': '/images/revestimientos-400.webp',
-  'remodel-budget-mistakes-avoid': '/images/integrales-400.webp',
-  'bathroom-remodel-carabobo-guide': '/images/bano-400.webp',
-  'kitchen-design-trends-2026': '/images/cocina-400.webp'
+  'kitchen-remodel-before-after-case-study': '/images/cocina-400.webp',
+  'how-to-choose-remodeling-company-venezuela': '/images/equipo-400.webp',
+  'bathroom-remodel-cost-caracas': '/images/bano-400.webp',
+  'how-long-full-remodel-takes': '/images/integrales-400.webp',
+  'remodeling-mistakes-premium-areas-caracas': '/images/arquitectura-400.webp',
+  'plumbing-prices-caracas': '/images/fontaneria-400.webp',
+  'how-to-detect-water-leaks': '/images/fontaneria-400.webp',
+  'flooring-guide-porcelain-marble-wood': '/images/suelo-porcelanato-400.webp',
+  'electrical-installation-prices-venezuela': '/images/electricidad-400.webp',
+  'pool-maintenance-venezuela': '/images/piscinas-400.webp',
+  'microcement-vs-paint-finishes': '/images/pintura-400.webp',
+  'remodel-permits-apartment-condominium': '/images/arquitectura-400.webp',
+  'interior-painting-prices-m2-venezuela': '/images/pintura-400.webp',
+  'apartment-remodeling-caracas': '/images/arquitectura-400.webp',
+  'full-home-remodel-what-it-includes': '/images/integrales-400.webp',
+  'stone-wood-wall-cladding-prices': '/images/revestimientos-400.webp',
+  'signs-electrical-rewiring-needed': '/images/electricidad-400.webp'
 };
 
 const posts = await getCollection('blog');
