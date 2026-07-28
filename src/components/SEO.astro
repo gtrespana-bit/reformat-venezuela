@@ -75,6 +75,8 @@ const routeMap: Record<string, string> = {
   '/en/projects': '/proyectos',
   '/contacto': '/en/contact',
   '/en/contact': '/contacto',
+  '/sobre-nosotros': '/en/about-us',
+  '/en/about-us': '/sobre-nosotros',
   '/blog': '/en/blog',
   '/en/blog': '/blog',
   '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
@@ -114,6 +116,12 @@ const alternatePath = getAlternatePath();
 // Paths para hreflang (siempre normalizados)
 const esPath = isEnglish ? alternatePath : currentPath;
 const enPath = isEnglish ? currentPath : alternatePath;
+
+// Solo emitir hreflang "en" si la version en ingles realmente existe.
+// Casos sin EN: posts de blog en espanol que no estan traducidos (fuera del routeMap).
+// Todas las demas paginas ES (home, servicios, ciudades, zonas) SI tienen contraparte EN.
+const isUntranslatedEsBlogPost = !isEnglish && currentPath.startsWith('/blog/') && !routeMap[currentPath];
+const emitEnHreflang = !isUntranslatedEsBlogPost;
 
 // Breadcrumbs para Schema
 const breadcrumbItems = [];
@@ -272,7 +280,7 @@ const articleSchema = {
 
 <!-- HREFLANG (con self-referencing) -->
 <link rel="alternate" hreflang="es" href={`${siteUrl}${esPath}`} />
-<link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />
+{emitEnHreflang && <link rel="alternate" hreflang="en" href={`${siteUrl}${enPath}`} />}
 <link rel="alternate" hreflang="x-default" href={`${siteUrl}${esPath}`} />
 
 <!-- OPEN GRAPH -->
