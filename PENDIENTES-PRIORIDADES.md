@@ -64,22 +64,35 @@ Este archivo es el source of truth consolidado de AUDITORIA-SEO-2026.md + SEO-PL
 
 ---
 
-## 🟠 FASE 2 — IMPORTANTE — ⏳ SIGUIENTE
+## 🟠 FASE 2 — IMPORTANTE — ✅ COMPLETADA (2026-07-28)
 
 ### 6. Títulos >60 caracteres (truncamiento SERP)
 - **Detectado:**
   - Home: 72 chars `ReformaT Venezuela | Reformas en Valencia, San Diego, Carabobo y Caracas`
-  - Cocina: 72 chars
-- **Propuesto:**
-  - Home: `Reformas en Valencia, Carabobo y Caracas | ReformaT` (54 chars)
-  - Cocina: `Remodelación de Cocinas en Valencia y Caracas | ReformaT` (56 chars)
-  - Revisar todos los títulos en `src/pages/index.astro`, `src/pages/servicios/*.astro`, ciudad pages
-- **Estado:** ⏳ PENDIENTE
+  - Cocina: 71 chars, Baño 69, Integral 69, Pisos 64, Pintura 66, Fontanería 69, Eléctrica 69, Piscinas 62
+  - EN: index 79, flooring 74, painting 76, wall-coverings 72, whole-home 61
+- **Fix aplicado (2026-07-28):**
+  - `src/pages/index.astro`: 72 → 51 `Reformas en Valencia, Carabobo y Caracas | ReformaT`
+  - `remodelacion-cocina`: 71 → 53 `Remodelación de Cocinas Valencia y Caracas | ReformaT`
+  - `remodelacion-bano`: 69 → 51 `Remodelación de Baños Valencia y Caracas | ReformaT`
+  - `remodelacion-integral`: 69 → 51 `Remodelación Integral Valencia y Caracas | ReformaT`
+  - `instalacion-pisos`: 64 → 50 `Instalación de Pisos Valencia y Caracas | ReformaT`
+  - `pintura-acabados`: 66 → 48 `Pintura y Acabados Valencia y Caracas | ReformaT`
+  - `fontaneria-plomeria`: 69 → 51 `Fontanería y Plomería Valencia y Caracas | ReformaT`
+  - `instalacion-electrica`: 69 → 51 `Instalación Eléctrica Valencia y Caracas | ReformaT`
+  - `revestimientos-pared`: 59 → 43 `Revestimientos de Pared Valencia | ReformaT`
+  - `piscinas-mantenimiento`: 62 → 44 `Piscinas y Mantenimiento Valencia | ReformaT`
+  - `caracas`: 61 → 42 `Remodelaciones en Caracas | ReformaT Venezuela`
+  - EN index: 79 → 50 `Home Remodeling in Valencia and Caracas | ReformaT`
+  - EN flooring: 74 → 51, painting 76 → 49, wall-coverings 72 → 44, whole-home 61 → 42
+- **Verificación:** `dist/index.html` title 51 chars, `dist/servicios/remodelacion-cocina/index.html` 53 chars ✓ Todos ≤60
+- **Estado:** ✅ DONE
 
 ### 7. BaseLayout duplicado hreflang mapping (dead code)
-- `src/layouts/BaseLayout.astro` tiene `esToEnMap` y `esHref/enHref` no usados (SEO.astro es fuente única)
-- Limpiar para evitar confusión
-- **Estado:** ⏳ PENDIENTE OPCIONAL
+- **Problema:** `src/layouts/BaseLayout.astro` tenía `esToEnMap`, `enToEsMap`, `siteBase`, `esHref`, `enHref` definidos pero nunca usados (SEO.astro es fuente única según comentario)
+- **Fix:** Eliminados 4 constants, quedan solo `currentPath`, `isEnglish`, `lang`
+- **Verificación:** build OK 245 páginas, sin regresión
+- **Estado:** ✅ DONE
 
 ---
 
@@ -101,27 +114,36 @@ Este archivo es el source of truth consolidado de AUDITORIA-SEO-2026.md + SEO-PL
 
 ---
 
-## 📊 Resumen técnico Fase 1
+## 📊 Resumen técnico Fase 1 + Fase 2
 
-- **Archivos tocados:** 7
+- **Fase 1 — Archivos tocados (7 + 1 doc):**
   - `src/components/SEO.astro` (fix hreflang + trailingSlash + no aggregateRating + no SearchAction)
   - `src/components/ServiceSchema.astro`
-  - `src/pages/index.astro`
+  - `src/pages/index.astro` (enlaces rotos)
   - `src/pages/caracas.astro`
   - `src/pages/valencia.astro`
   - `src/pages/san-diego.astro`
   - `src/pages/la-guaira.astro`
-- **Build:** 245 páginas OK
-- **Checks:**
+- **Fase 2 — Archivos tocados (15):**
+  - `src/pages/index.astro` (título 72→51)
+  - 9x `src/pages/servicios/*.astro` (títulos 59-71 → 43-53)
+  - `src/pages/caracas.astro` (61→42)
+  - 4x `src/pages/en/services/*.astro` + `src/pages/en/index.astro` (79→50)
+  - `src/layouts/BaseLayout.astro` (dead code removal)
+- **Build:** 245 páginas OK en ambas fases
+- **Checks Fase 1:**
   - canonical con trailingSlash ✓
   - hreflang con trailingSlash ✓
   - hreflang no emite 404 ✓
-  - services-grid no vacío ✓
+  - services-grid no vacío (6 cards) ✓
   - no aggregateRating ✓
   - no SearchAction ✓
   - enlaces home corregidos ✓
+- **Checks Fase 2:**
+  - Todos los títulos ≤53 chars ✓
+  - BaseLayout sin código muerto ✓
 
-## ▶️ Próximos pasos recomendados
-1. Fase 2: acortar títulos (15 min)
-2. Fase 2 opcional: limpiar dead code BaseLayout
-3. Fase 3: contenido zone pages + GBP + backlinks (trabajo semanal)
+## ▶️ Próximos pasos recomendados (Fase 3)
+1. Zone pages: añadir prueba local única por zona (foto/cifra) — contenido
+2. Google Business Profile — externo
+3. Backlinks — seguir BACKLINKS-PLAN.md Tier 1-5
