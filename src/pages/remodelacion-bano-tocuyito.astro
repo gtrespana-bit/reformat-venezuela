@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en Tocuyito</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en Tocuyito y Tocuyito Centro, La Libertad, El Naipe.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de Tocuyito</h3>
         <p>Tocuyito es un municipio con casas de 100 a 300 m², muchas autoconstruidas y ampliadas por etapas. Las viviendas van de los 80 a la actualidad. Las casas de Tocuyito suelen tener ampliaciones no planificadas con instalaciones improvisadas. La regularización eléctrica e hidrosanitaria es el primer paso en toda reforma.</p>
       </div>
+
+      <ZoneGallery zone="tocuyito" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en Tocuyito</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Tocuyito</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en Tocuyito</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en Tocuyito, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de Tocuyito, trabajamos en Tocuyito Centro, La Libertad, El Naipe y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="tocuyito" service="bano" lang="es" />
   </div>
 </section>
 

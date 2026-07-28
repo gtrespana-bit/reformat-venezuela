@@ -8,15 +8,15 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
 const whatsappBudgetText = 'Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20por%20aquí.';
 
 const serviceImages = {
-  cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800]) },
-  bano: { src: '/images/bano-800.webp', srcset: getSrcSet('bano', [400, 800]) },
-  electricidad: { src: '/images/electricidad-800.webp', srcset: getSrcSet('electricidad', [400, 800]) },
-  fontaneria: { src: '/images/fontaneria-800.webp', srcset: getSrcSet('fontaneria', [400, 800]) },
-  revestimientos: { src: '/images/revestimientos-800.webp', srcset: getSrcSet('revestimientos', [400, 800]) },
-  sueloPorcelanato: { src: '/images/suelo-porcelanato-800.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800]) },
-  piscinas: { src: '/images/piscinas-800.webp', srcset: getSrcSet('piscinas', [400, 800]) },
-  integrales: { src: '/images/integrales-800.webp', srcset: getSrcSet('integrales', [400, 800]) },
-  pintura: { src: '/images/pintura-800.webp', srcset: getSrcSet('pintura', [400, 800]) }
+  cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800, 1600]) },
+  bano: { src: '/images/bano-800.webp', srcset: getSrcSet('bano', [400, 800, 1600]) },
+  electricidad: { src: '/images/electricidad-800.webp', srcset: getSrcSet('electricidad', [400, 800, 1600]) },
+  fontaneria: { src: '/images/fontaneria-800.webp', srcset: getSrcSet('fontaneria', [400, 800, 1600]) },
+  revestimientos: { src: '/images/revestimientos-800.webp', srcset: getSrcSet('revestimientos', [400, 800, 1600]) },
+  sueloPorcelanato: { src: '/images/suelo-porcelanato-800.webp', srcset: getSrcSet('suelo-porcelanato', [400, 800, 1600]) },
+  piscinas: { src: '/images/piscinas-800.webp', srcset: getSrcSet('piscinas', [400, 800, 1600]) },
+  integrales: { src: '/images/integrales-800.webp', srcset: getSrcSet('integrales', [400, 800, 1600]) },
+  pintura: { src: '/images/pintura-800.webp', srcset: getSrcSet('pintura', [400, 800, 1600]) }
 };
 
 const services = [
@@ -86,8 +86,8 @@ const serviceAreas = [
       fetchpriority="high"
       loading="eager"
       decoding="async"
-      width="1920"
-      height="1080"
+      width="2400"
+      height="1600"
       class="hero-lcp-img"
     />
     
@@ -707,6 +707,50 @@ const serviceAreas = [
     .hero-video { display: none; }
     .hero { background: url('/images/hero-lcp.webp') center/cover no-repeat; }
   }
+
+  /* Estilos para mensaje de éxito (Fase 4) */
+  .form-success-message {
+    background: var(--white);
+    padding: 60px 40px;
+    border-radius: var(--r-md);
+    box-shadow: var(--e-2);
+    text-align: center;
+    border: 1px solid var(--sand);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 550px;
+    margin: 0 auto;
+    animation: fadeIn var(--dur-base) var(--ease-out);
+  }
+  .success-icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(201, 169, 97, 0.1);
+    color: var(--gold-ink-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+  }
+  .form-success-message h3 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    color: var(--ink);
+    margin-bottom: 15px;
+  }
+  .form-success-message p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
 </style>
 
 <script>
@@ -728,4 +772,58 @@ const serviceAreas = [
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
     targets.forEach((el) => io.observe(el));
   })();
+
+  // Envío de formulario vía AJAX (Fase 4)
+  function initHomeForm() {
+    const form = document.querySelector('.contact-form') as HTMLFormElement;
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const btnText = button?.querySelector('.btn-content') as HTMLElement;
+      
+      if (!button || !btnText) return;
+
+      const originalText = btnText.textContent;
+      btnText.textContent = 'Enviando...';
+      button.disabled = true;
+
+      try {
+        const formData = new FormData(form);
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          const successDiv = document.createElement('div');
+          successDiv.className = 'form-success-message';
+          successDiv.innerHTML = `
+            <div class="success-icon-wrapper">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <h3>¡Mensaje Enviado!</h3>
+            <p>Gracias por contactarnos. Uno de nuestros asesores técnicos revisará tu solicitud y te contactará en un plazo máximo de 2 horas hábiles.</p>
+          `;
+          form.replaceWith(successDiv);
+        } else {
+          throw new Error('Response not OK');
+        }
+      } catch (err) {
+        alert('Hubo un error al enviar el formulario. Por favor, inténtalo de nuevo o contáctanos por WhatsApp.');
+        btnText.textContent = originalText;
+        button.disabled = false;
+      }
+    });
+  }
+
+  initHomeForm();
+  document.addEventListener('astro:page-load', initHomeForm);
 </script>

@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in Campo Alegre: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in Campo Alegre and Torre Europa, Centro Lido, El Rosal.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Campo Alegre</h3>
         <p>Campo Alegre mixes luxury residential towers with mixed-use (office-residential) buildings. Apartments are typically 100 to 250 m², many partially remodeled in the 2000s and now in need of a full update. As a high-traffic, mixed-use area, Campo Alegre buildings have strict rules on worker access and material loading. We plan job logistics outside peak hours.</p>
       </div>
+
+      <ZoneGallery zone="campo-alegre" service="integral" />
 
 <h2>What a full remodel in Campo Alegre includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Campo Alegre</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in Campo Alegre</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in Campo Alegre, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Campo Alegre, we work in Torre Europa, Centro Lido, El Rosal and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="campo-alegre" service="integral" lang="en" />
   </div>
 </section>
 

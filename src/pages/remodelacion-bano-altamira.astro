@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en Altamira</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en Altamira y Plaza Francia, Campo Alegre, Los Palos Grandes.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de Altamira</h3>
         <p>Altamira se caracteriza por edificios de mediana y gran altura construidos entre los 70 y los 90, con apartamentos amplios de 120 a 300 m². Muchas unidades conservan distribuciones originales con pasillos largos y cocinas cerradas. Los edificios de Altamira frecuentemente tienen instalaciones de cobre y hierro galvanizado originales que ya cumplieron su ciclo. La presión de agua irregular de la zona hace recomendable instalar sistemas de bombeo y filtración.</p>
       </div>
+
+      <ZoneGallery zone="altamira" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en Altamira</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Altamira</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en Altamira</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en Altamira, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Altamira, trabajamos en Plaza Francia, Campo Alegre, Los Palos Grandes y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="altamira" service="bano" lang="es" />
   </div>
 </section>
 

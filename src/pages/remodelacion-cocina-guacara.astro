@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>¿Buscas una <strong>remodelación de cocina en Guacara</strong>? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de Guacara y Guacara Centro, La Emboscada, Yagua. Con más de 23 años de experiencia, conocemos las tipologías de viviendas de la zona.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Cocinas a la medida de Guacara</h3>
         <p>Guacara es un municipio industrial-residencial con casas de 120 a 350 m² y urbanizaciones de los 80-2010. Muchas viviendas pertenecen a familias de largo plazo. Las casas de Guacara frecuentemente tienen techos con filtraciones y sistemas eléctricos sobrecargados por ampliaciones no planificadas. Evaluamos la capacidad eléctrica antes de remodelar.</p>
       </div>
+
+      <ZoneGallery zone="guacara" service="cocina" />
 
 
 <h2>Qué incluye nuestra remodelación de cocinas en Guacara</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Guacara</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>Cómo trabajamos en Guacara</h2>
 <h3>1. Visita técnica y medición</h3>
 <p>Visitamos tu vivienda en Guacara, tomamos medidas exactas y evaluamos instalaciones de agua, gas y electricidad. Sin compromiso.</p>
 <h3>2. Diseño 3D y presupuesto</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Carabobo</h2>
       <p>Además de Guacara, trabajamos en Guacara Centro, La Emboscada, Yagua y todo el estado Carabobo. Consulta nuestra página de <a href="/valencia">remodelaciones en Valencia</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="guacara" service="cocina" lang="es" />
   </div>
 </section>
 

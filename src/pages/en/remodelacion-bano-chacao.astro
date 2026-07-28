@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a bathroom remodel in Chacao? At ReformaT Venezuela we design and build modern, functional, custom bathrooms for homes in Chacao and Altamira, Los Palos Grandes, Chuao. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Chacao</h3>
         <p>Chacao's housing stock combines 70s-90s residential buildings with contemporary towers. Apartments of 80 to 220 m² abound, with compartmentalized layouts that today's owners want to open up into more modern concepts. In Chacao most buildings are over 30 years old, so drain stacks, water risers and electrical panels are often at the limit of their service life. Before closing any finish we inspect and renew the hidden utilities.</p>
       </div>
+
+      <ZoneGallery zone="chacao" service="bano" />
 
 <h2>What our bathroom remodel in Chacao includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Chacao</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>How we work in Chacao</h2>
 <h3>1. Technical visit & diagnosis</h3>
 <p>A technician visits your home in Chacao, measures, inspects hidden utilities and detects moisture or structural issues. No obligation.</p>
 <h3>2. Design & fixed quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Chacao, we work in Altamira, Los Palos Grandes, Chuao and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="chacao" service="bano" lang="en" />
   </div>
 </section>
 

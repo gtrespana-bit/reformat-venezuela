@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in La Lagunita? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in La Lagunita and El Country, La Lagunita Country Club, Valle Arriba. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to La Lagunita</h3>
         <p>La Lagunita is a residential neighborhood of single-family homes on large lots, many with gardens and pools. Properties range from 250 to 700 m², built between the 70s and the 2000s. La Lagunita homes frequently have pools, gardens and service areas that need waterproofing and exterior renewal alongside the interior remodel.</p>
       </div>
+
+      <ZoneGallery zone="la-lagunita" service="cocina" />
 
 <h2>What our kitchen remodel in La Lagunita includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in La Lagunita</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in La Lagunita</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in La Lagunita, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond La Lagunita, we work in El Country, La Lagunita Country Club, Valle Arriba and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="la-lagunita" service="cocina" lang="en" />
   </div>
 </section>
 

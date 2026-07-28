@@ -1,0 +1,276 @@
+---
+import { BRAND, waLink } from '../data/brand';
+
+interface Props {
+  zone: string;
+  service: 'cocina' | 'bano' | 'integral';
+  lang?: 'es' | 'en';
+}
+
+const { zone, service, lang = 'es' } = Astro.props;
+
+// Formatear el nombre de la zona
+const formatZone = (str: string) => {
+  return str
+    .split('-')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+};
+
+const zoneNameFormatted = formatZone(zone);
+
+// Precios estimados por servicio
+const pricing = {
+  cocina: {
+    price: '$2,500',
+    title: lang === 'es' ? 'Remodelación de Cocina' : 'Kitchen Remodeling',
+    items: lang === 'es' 
+      ? ['Diseño 3D de distribución', 'Mobiliario a medida', 'Instalación de encimera', 'Garantía por escrito']
+      : ['3D Layout Design', 'Custom Cabinetry', 'Countertop Installation', 'Written Warranty']
+  },
+  bano: {
+    price: '$1,200',
+    title: lang === 'es' ? 'Remodelación de Baño' : 'Bathroom Remodeling',
+    items: lang === 'es'
+      ? ['Desmontaje y demolición', 'Impermeabilización total', 'Grifería y sanitarios', 'Piso antideslizante']
+      : ['Demolition & Removal', 'Full Waterproofing', 'Fixtures & Fittings', 'Anti-slip Flooring']
+  },
+  integral: {
+    price: '$8,000',
+    title: lang === 'es' ? 'Reforma Integral' : 'Whole-Home Remodeling',
+    items: lang === 'es'
+      ? ['Proyecto de arquitectura', 'Electricidad y plomería', 'Pintura y acabados', 'Supervisión continua']
+      : ['Architectural Project', 'Plumbing & Electrical', 'Painting & Finishes', 'Continuous Supervision']
+  }
+}[service];
+
+// Crear el mensaje de WhatsApp según el idioma
+const whatsappMessage = lang === 'es'
+  ? `Hola, quiero solicitar presupuesto para remodelación de ${service === 'cocina' ? 'cocina' : service === 'bano' ? 'baño' : 'hogar integral'} en ${zoneNameFormatted}`
+  : `Hello, I would like to request a quote for ${service === 'cocina' ? 'kitchen' : service === 'bano' ? 'bathroom' : 'whole-home'} remodeling in ${zoneNameFormatted}`;
+
+const whatsappUrl = waLink(whatsappMessage);
+---
+
+<aside class="zone-aside-card" data-zone-aside>
+  <div class="aside-price-box">
+    <span class="price-label">{lang === 'es' ? 'Desde' : 'Starting at'}</span>
+    <span class="price-amount">{pricing.price}</span>
+    <span class="price-currency">USD</span>
+  </div>
+  
+  <div class="aside-content">
+    <h3 class="aside-title">{pricing.title}</h3>
+    <span class="aside-location">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </svg>
+      {zoneNameFormatted}
+    </span>
+    
+    <hr class="aside-divider" />
+    
+    <ul class="aside-features-list">
+      {pricing.items.map((item) => (
+        <li>
+          <svg class="check-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="20 6 9 17 4 12"/>
+          </svg>
+          <span>{item}</span>
+        </li>
+      ))}
+    </ul>
+    
+    <div class="aside-cta-box">
+      <a href={whatsappUrl} class="btn-whatsapp-aside" target="_blank" rel="noopener">
+        <svg width="20" height="24" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        {lang === 'es' ? 'Consultar en WhatsApp' : 'Inquire on WhatsApp'}
+      </a>
+      
+      <a href="/contacto" class="btn-aside-contact">
+        {lang === 'es' ? 'Solicitar Visita Gratis' : 'Request Free Visit'}
+      </a>
+      
+      <div class="aside-phone-text">
+        <span>{lang === 'es' ? 'O llama al' : 'Or call'}</span>
+        <a href={`tel:${BRAND.phone}`} class="phone-link-aside">{BRAND.phoneDisplay}</a>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .zone-aside-card {
+    position: sticky;
+    top: 100px;
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    box-shadow: var(--e-2);
+    overflow: hidden;
+    margin-bottom: 2rem;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  
+  .aside-price-box {
+    background: var(--ink);
+    color: var(--white);
+    padding: 24px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .price-label {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 4px;
+  }
+  
+  .price-amount {
+    font-family: var(--font-serif);
+    font-size: 3rem;
+    color: var(--gold);
+    line-height: 1;
+    font-weight: 500;
+  }
+  
+  .price-currency {
+    font-size: 0.85rem;
+    color: var(--gold);
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 1px;
+  }
+  
+  .aside-content {
+    padding: 24px;
+  }
+  
+  .aside-title {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    color: var(--text);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  
+  .aside-location {
+    font-size: 0.85rem;
+    color: var(--gold-ink);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  
+  .aside-divider {
+    border: none;
+    border-top: 1px solid var(--sand);
+    margin: 16px 0;
+  }
+  
+  .aside-features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 24px 0;
+  }
+  
+  .aside-features-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    margin-bottom: 12px;
+    line-height: 1.4;
+  }
+  
+  .check-icon {
+    color: var(--gold-ink-strong);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  
+  .aside-cta-box {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .btn-whatsapp-aside {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    background: #0e8039;
+    color: var(--white);
+    padding: 14px 20px;
+    border-radius: var(--r-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease-out);
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-whatsapp-aside:hover {
+    background: #0b662d;
+  }
+  
+  .btn-aside-contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--white);
+    color: var(--ink);
+    border: 1px solid var(--ink);
+    padding: 14px 20px;
+    border-radius: var(--r-sm);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+  
+  .btn-aside-contact:hover {
+    background: var(--ink);
+    color: var(--white);
+  }
+  
+  .aside-phone-text {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-top: 8px;
+  }
+  
+  .phone-link-aside {
+    display: block;
+    color: var(--gold-ink-strong);
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    margin-top: 2px;
+  }
+  
+  .phone-link-aside:hover {
+    text-decoration: underline;
+  }
+  
+  @media (max-width: 1023px) {
+    .zone-aside-card {
+      position: relative;
+      top: 0;
+      margin-top: 2rem;
+    }
+  }
+</style>

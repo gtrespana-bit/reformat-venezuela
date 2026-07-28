@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in Las Mercedes? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in Las Mercedes and Tolón, Cerro Verde, Chuao. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Las Mercedes</h3>
         <p>Las Mercedes combines 80s-90s residential buildings with new towers. There are apartments of 90 to 200 m² and several lofts in mixed-use buildings. It is a dynamic area with high owner turnover. Las Mercedes' nightlife and commercial activity mean many apartments are remodeled for quick rental or resale. We optimize budgets to maximize return without sacrificing quality on critical points.</p>
       </div>
+
+      <ZoneGallery zone="las-mercedes" service="cocina" />
 
 <h2>What our kitchen remodel in Las Mercedes includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Las Mercedes</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in Las Mercedes</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in Las Mercedes, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Las Mercedes, we work in Tolón, Cerro Verde, Chuao and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="las-mercedes" service="cocina" lang="en" />
   </div>
 </section>
 

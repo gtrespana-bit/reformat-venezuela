@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Altamira</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Altamira, Plaza Francia, Campo Alegre y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Altamira</h3>
         <p>Altamira se caracteriza por edificios de mediana y gran altura construidos entre los 70 y los 90, con apartamentos amplios de 120 a 300 m². Muchas unidades conservan distribuciones originales con pasillos largos y cocinas cerradas. Los edificios de Altamira frecuentemente tienen instalaciones de cobre y hierro galvanizado originales que ya cumplieron su ciclo. La presión de agua irregular de la zona hace recomendable instalar sistemas de bombeo y filtración.</p>
       </div>
+
+      <ZoneGallery zone="altamira" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Altamira</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Altamira</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Altamira</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Altamira, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Altamira, trabajamos en Plaza Francia, Campo Alegre, Los Palos Grandes y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="altamira" service="integral" lang="es" />
   </div>
 </section>
 

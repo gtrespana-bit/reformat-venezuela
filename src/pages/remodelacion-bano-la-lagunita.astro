@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Expertos en <strong>remodelación de baños en La Lagunita</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes: impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en La Lagunita y El Country, La Lagunita Country Club, Valle Arriba.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Baños pensados para las viviendas de La Lagunita</h3>
         <p>La Lagunita es una urbanización residencial de casas unifamiliares en parcelas amplias, muchas con jardín y piscina. Las propiedades van de 250 a 700 m², construidas entre los 70 y los 2000. Las casas de La Lagunita con frecuencia tienen piscinas, jardines y áreas de servicio que requieren impermeabilización y renovación de exteriores junto con la remodelación interior.</p>
       </div>
+
+      <ZoneGallery zone="la-lagunita" service="bano" />
 
 
 <h2>Qué incluye nuestra remodelación de baños en La Lagunita</h2>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en La Lagunita</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>Cómo trabajamos en La Lagunita</h2>
 <h3>1. Visita técnica y diagnóstico</h3>
 <p>Un técnico visita tu vivienda en La Lagunita, mide, revisa instalaciones ocultas y detecta problemas de humedad o estructura. Sin compromiso.</p>
 <h3>2. Diseño y presupuesto cerrado</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de La Lagunita, trabajamos en El Country, La Lagunita Country Club, Valle Arriba y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="la-lagunita" service="bano" lang="es" />
   </div>
 </section>
 

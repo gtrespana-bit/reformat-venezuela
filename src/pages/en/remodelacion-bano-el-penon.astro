@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a bathroom remodel in El Peñón? At ReformaT Venezuela we design and build modern, functional, custom bathrooms for homes in El Peñón and El Peñón, Baruta, Las Mercedes. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to El Peñón</h3>
         <p>El Peñón is a residential area with homes and some mid-rise buildings of 150 to 400 m², built between the 70s and the 2000s. It mixes family homes with investment properties. Hillside homes in El Peñón require attention to retaining walls and drains. Ground moisture is a factor to assess before remodeling.</p>
       </div>
+
+      <ZoneGallery zone="el-penon" service="bano" />
 
 <h2>What our bathroom remodel in El Peñón includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in El Peñón</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>How we work in El Peñón</h2>
 <h3>1. Technical visit & diagnosis</h3>
 <p>A technician visits your home in El Peñón, measures, inspects hidden utilities and detects moisture or structural issues. No obligation.</p>
 <h3>2. Design & fixed quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond El Peñón, we work in El Peñón, Baruta, Las Mercedes and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="el-penon" service="bano" lang="en" />
   </div>
 </section>
 

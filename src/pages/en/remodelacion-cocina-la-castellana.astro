@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a kitchen remodel in La Castellana? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in La Castellana and La Castellana, Altamira, Campo Alegre. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to La Castellana</h3>
         <p>La Castellana combines 70s-90s residential buildings with corporate towers. Apartments range from 100 to 250 m², many with traditional layouts that lend themselves to being opened up into modern concepts. La Castellana has buildings with aging utilities and variable water pressure. We inspect risers and drain stacks before touching the finishes.</p>
       </div>
+
+      <ZoneGallery zone="la-castellana" service="cocina" />
 
 <h2>What our kitchen remodel in La Castellana includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in La Castellana</h2>
+
+      <BeforeAfter service="cocina" />
+
+      <h2>How we work in La Castellana</h2>
 <h3>1. Technical visit & measurement</h3>
 <p>We visit your home in La Castellana, take exact measurements and assess the water, gas and electrical utilities. No obligation.</p>
 <h3>2. 3D design & quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond La Castellana, we work in La Castellana, Altamira, Campo Alegre and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="la-castellana" service="cocina" lang="en" />
   </div>
 </section>
 

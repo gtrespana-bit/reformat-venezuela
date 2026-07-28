@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Full home remodeling in Chacao: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in Chacao and Altamira, Los Palos Grandes, Chuao.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Chacao</h3>
         <p>Chacao's housing stock combines 70s-90s residential buildings with contemporary towers. Apartments of 80 to 220 m² abound, with compartmentalized layouts that today's owners want to open up into more modern concepts. In Chacao most buildings are over 30 years old, so drain stacks, water risers and electrical panels are often at the limit of their service life. Before closing any finish we inspect and renew the hidden utilities.</p>
       </div>
+
+      <ZoneGallery zone="chacao" service="integral" />
 
 <h2>What a full remodel in Chacao includes</h2>
 <p>A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.</p>
@@ -64,7 +68,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Chacao</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>How we work in Chacao</h2>
 <h3>1. Diagnosis & preliminary project</h3>
 <p>We visit your home in Chacao, assess the structure and utilities, and define the scope and target budget with you.</p>
 <h3>2. Executive project</h3>
@@ -80,6 +87,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Caracas</h2>
       <p>Beyond Chacao, we work in Altamira, Los Palos Grandes, Chuao and across all of Caracas. See our <a href="/en/caracas">remodeling in Caracas</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="chacao" service="integral" lang="en" />
   </div>
 </section>
 

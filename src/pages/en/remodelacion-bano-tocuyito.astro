@@ -1,9 +1,11 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro';
+---import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../../components/ZoneGallery.astro';
+import BeforeAfter from '../../components/BeforeAfter.astro';
+import ZoneAside from '../../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p>Looking for a bathroom remodel in Tocuyito? At ReformaT Venezuela we design and build modern, functional, custom bathrooms for homes in Tocuyito and Tocuyito Centro, La Libertad, El Naipe. With more than 23 years of experience, we know the housing types of the area.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
         <h3>Kitchens tailored to Tocuyito</h3>
         <p>Tocuyito is a municipality with homes of 100 to 300 m², many self-built and expanded in stages. Homes range from the 80s to today. Tocuyito homes usually have unplanned additions with improvised utilities. Electrical and plumbing regularization is the first step in any remodel.</p>
       </div>
+
+      <ZoneGallery zone="tocuyito" service="bano" />
 
 <h2>What our bathroom remodel in Tocuyito includes</h2>
 <ul>
@@ -63,7 +67,10 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>How we work in Tocuyito</h2>
+
+      <BeforeAfter service="bano" />
+
+      <h2>How we work in Tocuyito</h2>
 <h3>1. Technical visit & diagnosis</h3>
 <p>A technician visits your home in Tocuyito, measures, inspects hidden utilities and detects moisture or structural issues. No obligation.</p>
 <h3>2. Design & fixed quote</h3>
@@ -79,6 +86,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
       <h2>Service throughout Valencia</h2>
       <p>Beyond Tocuyito, we work in Tocuyito Centro, La Libertad, El Naipe and across the state of Carabobo. See our <a href="/en/valencia">remodeling in Valencia</a> page for every service available in your area.</p>
     </div>
+    <ZoneAside zone="tocuyito" service="bano" lang="en" />
   </div>
 </section>
 

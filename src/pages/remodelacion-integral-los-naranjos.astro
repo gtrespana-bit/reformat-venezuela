@@ -1,9 +1,11 @@
----
-import BaseLayout from '../layouts/BaseLayout.astro';
+---import BaseLayout from '../layouts/BaseLayout.astro';
 import FAQ from '../components/FAQ.astro';
 import ServiceSchema from '../components/ServiceSchema.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
+import ZoneGallery from '../components/ZoneGallery.astro';
+import BeforeAfter from '../components/BeforeAfter.astro';
+import ZoneAside from '../components/ZoneAside.astro';
 ---
 
 <BaseLayout
@@ -32,7 +34,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 ]} />
 
 <section class="article-section">
-  <div class="container">
+  <div class="container article-layout">
     <div class="article-body">
       <p><strong>Remodelación integral de viviendas en Los Naranjos</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en Los Naranjos, Los Naranjos de La Lagunita, El Hatillo y toda el área metropolitana.</p>
 
@@ -40,6 +42,8 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
         <h3>Proyectos integrales en Los Naranjos</h3>
         <p>Los Naranjos es una zona residencial familiar con casas y townhouses de los 80-2000, de 150 a 350 m². Es una urbanización tranquila con alto porcentaje de familias de largo plazo. Muchas casas de Los Naranjos tienen 25-40 años y necesitan actualización de instalaciones eléctricas e hidrosanitarias, además de abrir espacios que originalmente eran muy compartimentados.</p>
       </div>
+
+      <ZoneGallery zone="los-naranjos" service="integral" />
 
 
 <h2>Qué incluye una remodelación integral en Los Naranjos</h2>
@@ -65,7 +69,10 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
 </tbody>
 </table>
 
-<h2>Cómo trabajamos en Los Naranjos</h2>
+
+      <BeforeAfter service="integral" />
+
+      <h2>Cómo trabajamos en Los Naranjos</h2>
 <h3>1. Diagnóstico y anteproyecto</h3>
 <p>Visitamos tu vivienda en Los Naranjos, evaluamos estructura e instalaciones y definimos contigo el alcance y el presupuesto objetivo.</p>
 <h3>2. Proyecto ejecutivo</h3>
@@ -81,6 +88,7 @@ import ZoneCrossLinks from '../components/ZoneCrossLinks.astro';
       <h2>Servicio en todo Caracas</h2>
       <p>Además de Los Naranjos, trabajamos en Los Naranjos de La Lagunita, El Hatillo, La Boyera y todo Caracas. Consulta nuestra página de <a href="/caracas">remodelaciones en Caracas</a> para ver todos los servicios disponibles en tu zona.</p>
     </div>
+    <ZoneAside zone="los-naranjos" service="integral" lang="es" />
   </div>
 </section>
 
