@@ -1,0 +1,71 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  class?: string;
+}
+
+const { src, alt, class: className = '' } = Astro.props;
+---
+
+<div class={`gallery-image ${className}`} data-src={src} data-alt={alt}>
+  <img src={src} alt={alt} loading="lazy" />
+  <div class="gallery-image-overlay">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <circle cx="11" cy="11" r="8"/>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      <line x1="11" y1="8" x2="11" y2="14"/>
+      <line x1="8" y1="11" x2="14" y2="11"/>
+    </svg>
+  </div>
+</div>
+
+<style>
+  .gallery-image {
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--r-md);
+    cursor: zoom-in;
+    background: var(--sand);
+    box-shadow: var(--e-1);
+  }
+  
+  .gallery-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s var(--ease-out);
+  }
+  
+  .gallery-image:hover img {
+    transform: scale(1.03);
+  }
+  
+  .gallery-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20, 18, 14, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+  }
+  
+  .gallery-image:hover .gallery-image-overlay {
+    background: rgba(20, 18, 14, 0.3);
+  }
+  
+  .gallery-image-overlay svg {
+    width: 40px;
+    height: 40px;
+    color: white;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .gallery-image:hover .gallery-image-overlay svg {
+    opacity: 1;
+    transform: scale(1);
+  }
+</style>
