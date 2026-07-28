@@ -69,7 +69,7 @@ Porcelain tile represents 70% of the floors we install at ReformaT Venezuela. Th
 
 **3. Using generic tile adhesive.** Porcelain requires C2 (flexible) adhesive. C1 adhesive will cause the tile to detach in 1-2 years due to thermal expansion differences.
 
-For professional installation, see our [flooring installation service](/servicios/instalacion-pisos).
+For professional installation, see our [flooring installation service](/en/services/flooring/).
 
 ---
 
@@ -164,7 +164,7 @@ This is the most frequent question in our consultations. The honest answer:
 | Terrace / Exterior | R11 porcelain                | Travertine                | Untreated wood            |
 | Pool area          | Non-slip porcelain           | Travertine                | Polished marble           |
 
-For pool areas, we also offer [pool maintenance and remodeling](/servicios/piscinas-mantenimiento).
+For pool areas, we also offer [pool maintenance and remodeling](/en/services/pools/).
 
 ---
 
@@ -190,6 +190,6 @@ Don’t choose flooring only from photos. At ReformaT Venezuela we show you phys
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 
 Related articles:
-- [Porcelain vs Ceramic: Complete Guide](/blog/porcelain-tile-vs-ceramic-tile-guide)
-- [How Much Does a Kitchen Remodel Cost](/blog/kitchen-remodel-cost-caracas-valencia-2026)
-- [What a Full Remodel Includes](/blog/remodelacion-integral-que-incluye)
+- [Porcelain vs Ceramic: Complete Guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)
+- [How Much Does a Kitchen Remodel Cost](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)
+- [What a Full Remodel Includes](/en/blog/full-home-remodel-what-it-includes/)

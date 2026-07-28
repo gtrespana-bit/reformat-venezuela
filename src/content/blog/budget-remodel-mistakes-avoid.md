@@ -264,7 +264,7 @@ We offer:
 
 ## 📚 Related Articles
 
-- **[How Much Does a Kitchen Remodel Cost](/blog/kitchen-remodel-cost-caracas-valencia-2026)** — Real and detailed prices for your kitchen remodel
-- **[Bathroom Remodels in Carabobo](/blog/reformas-banos-carabobo)** — Complete guide of budgets and materials for bathrooms
+- **[How Much Does a Kitchen Remodel Cost](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)** — Real and detailed prices for your kitchen remodel
+- **[Bathroom Remodels in Carabobo](/en/blog/bathroom-remodels-caracas-carabobo-2026/)** — Complete guide of budgets and materials for bathrooms
 
-Ready for a quote without surprises? **[Request your free quote →](/contact)**
+Ready for a quote without surprises? **[Request your free quote →](/en/contact)**

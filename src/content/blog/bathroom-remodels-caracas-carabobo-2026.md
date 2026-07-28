@@ -437,7 +437,7 @@ Tell us about your project and we will give you a real, transparent quote with n
 
 ## 📚 Related Articles
 
-- **[Porcelain vs Ceramic: Which to Choose](/blog/porcelain-vs-ceramic-guide-venezuela)** — Choose the perfect material for your bathroom
-- **[Budget Remodel: 7 Common Mistakes](/blog/budget-remodel-mistakes-avoid)** — Control your remodel budget
+- **[Porcelain vs Ceramic: Which to Choose](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)** — Choose the perfect material for your bathroom
+- **[Budget Remodel: 7 Common Mistakes](/en/blog/budget-remodel-mistakes-avoid/)** — Control your remodel budget
 
-Planning your bathroom remodel? **[Consult our bathroom service →](/servicios/remodelacion-bano)**
+Planning your bathroom remodel? **[Consult our bathroom service →](/en/services/bathrooms/)**

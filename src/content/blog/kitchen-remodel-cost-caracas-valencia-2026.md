@@ -345,8 +345,8 @@ Tell us about your project and we will give you a real, transparent quote with n
 
 ## 📚 Related Articles
 
-- **[Porcelain vs Ceramic: Which to Choose](/blog/porcelain-tile-vs-ceramic-tile-guide)** — Compare materials before deciding on your kitchen finishes
-- **[Budget Remodel Mistakes: 7 Common Errors](/blog/presupuesto-reforma-errores)** — Avoid financial surprises in your project
-- **[Kitchen Trends 2025](/blog/tendencias-cocinas-2025)** — Get inspired with the latest kitchen design trends
+- **[Porcelain vs Ceramic: Which to Choose](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)** — Compare materials before deciding on your kitchen finishes
+- **[Budget Remodel Mistakes: 7 Common Errors](/en/blog/budget-remodel-mistakes-avoid/)** — Avoid financial surprises in your project
+- **[Kitchen Trends 2025](/en/blog/kitchen-design-trends-2026/)** — Get inspired with the latest kitchen design trends
 
-Need a personalized quote for your kitchen remodel? **[Request your free quote →](/servicios/remodelacion-cocina)**
+Need a personalized quote for your kitchen remodel? **[Request your free quote →](/en/services/kitchens/)**

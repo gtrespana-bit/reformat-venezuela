@@ -73,7 +73,7 @@ The most expensive mistake in Venezuelan bathrooms is skimping on waterproofing.
 A cheap faucet will leak in 2 years. Brands like Grohe, Hansgrohe, or good-quality local FV last 10+ years. The difference between an $80 and $300 faucet pays for itself.
 
 **3. Non-slip porcelain tile ($25-$60/m²)**  
-In the shower area, a slippery floor is a real risk. Matte or textured porcelain (R10-R11) costs only $5-$10 more per m² than glossy. For more details, read our [porcelain vs ceramic guide](/en/blog/porcelain-vs-ceramic-guide-venezuela).
+In the shower area, a slippery floor is a real risk. Matte or textured porcelain (R10-R11) costs only $5-$10 more per m² than glossy. For more details, read our [porcelain vs ceramic guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/).
 
 ### Save on:
 

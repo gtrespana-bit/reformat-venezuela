@@ -93,7 +93,7 @@ Para que te hagas una idea con números concretos (pintura interior estándar, c
 - **Omitir el sellador** — en paredes nuevas o resanadas es indispensable
 - **Pintar con humedad** — en el clima venezolano, pintar sobre pared húmeda garantiza desprendimiento
 
-Si tienes problemas de humedad antes de pintar, revisa nuestro artículo sobre [soluciones de humedad en paredes](/blog/humedad-paredes-venezuela-soluciones).
+Si tienes problemas de humedad antes de pintar, revisa nuestro artículo sobre [soluciones de humedad en paredes](/blog/microcemento-vs-pintura-acabados/).
 
 ---
 

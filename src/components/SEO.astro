@@ -10,6 +10,7 @@ interface Props {
   articleSection?: string;
   tags?: string[];
   activePage?: string;
+  noindex?: boolean;
 }
 
 const siteUrl = 'https://reformat-venezuela.online';
@@ -44,7 +45,8 @@ const {
   author = 'ReformaT Venezuela',
   articleSection,
   tags = [],
-  activePage = ''
+  activePage = '',
+  noindex = false
 } = Astro.props;
 
 const ogImage = image && image.startsWith('http')
@@ -66,9 +68,6 @@ const routeMap: Record<string, string> = {
   '/en/services/bathrooms': '/servicios/remodelacion-bano',
   '/servicios/remodelacion-integral': '/en/services/whole-home',
   '/en/services/whole-home': '/servicios/remodelacion-integral',
-  '/servicios/remodelacion-vivienda': '/en/services/whole-home',
-  '/servicios/remodelacion-apartamentos': '/en/services/whole-home',
-  '/servicios/remodelacion-casas': '/en/services/whole-home',
   '/servicios/instalacion-electrica': '/en/services/electrical',
   '/en/services/electrical': '/servicios/instalacion-electrica',
   '/servicios/fontaneria-plomeria': '/en/services/plumbing',
@@ -91,13 +90,13 @@ const routeMap: Record<string, string> = {
   '/en/blog': '/blog',
   '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
   '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
-  '/blog/presupuesto-reforma-errores': '/en/blog/remodel-budget-mistakes-avoid',
-  '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodel-carabobo-guide',
+  '/blog/presupuesto-reforma-errores': '/en/blog/budget-remodel-mistakes-avoid',
+  '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodels-caracas-carabobo-2026',
   '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
   '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
   '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
-  '/en/blog/remodel-budget-mistakes-avoid': '/blog/presupuesto-reforma-errores',
-  '/en/blog/bathroom-remodel-carabobo-guide': '/blog/reformas-banos-carabobo',
+  '/en/blog/budget-remodel-mistakes-avoid': '/blog/presupuesto-reforma-errores',
+  '/en/blog/bathroom-remodels-caracas-carabobo-2026': '/blog/reformas-banos-carabobo',
   '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
   '/blog/antes-despues-reforma-cocina-caso-real': '/en/blog/kitchen-remodel-before-after-case-study',
   '/en/blog/kitchen-remodel-before-after-case-study': '/blog/antes-despues-reforma-cocina-caso-real',
@@ -164,11 +163,19 @@ const enPathSlashed = ensureTrailingSlash(enPath || '/en/');
 // Validación de existencia real de traducción
 // Zone pages y ciudades y servicios tienen contraparte EN con mismo slug o mapeado
 // Solo los blog posts pueden no tener traducción
+const untranslatedEsPaths = new Set([
+  '/servicios/remodelacion-vivienda',
+  '/servicios/remodelacion-apartamentos',
+  '/servicios/remodelacion-casas'
+]);
+
 const isUntranslatedEsBlogPost = !isEnglish && currentPath.startsWith('/blog/') && !routeMap[currentPath];
 const isUntranslatedEnBlogPost = isEnglish && currentPath.startsWith('/en/blog/') && !routeMap[currentPath];
+const isUntranslatedEsPage = !isEnglish && untranslatedEsPaths.has(currentPath);
 
-const emitEnHreflang = !isUntranslatedEsBlogPost;
-const emitEsHreflang = !isUntranslatedEnBlogPost;
+const emitEnHreflang = !noindex && !isUntranslatedEsBlogPost && !isUntranslatedEsPage;
+const emitEsHreflang = !noindex && !isUntranslatedEnBlogPost;
+const emitXDefault = !noindex;
 
 // x-default: apunta a ES si existe, si no a la versión actual
 const xDefaultPath = isEnglish && isUntranslatedEnBlogPost ? enPathSlashed : esPathSlashed;
@@ -302,8 +309,8 @@ const articleSchema = {
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalUrl} />
 <meta name="author" content={siteName} />
-<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="googlebot" content="index, follow" />
+<meta name="robots" content={noindex ? "noindex, follow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"} />
+<meta name="googlebot" content={noindex ? "noindex, follow" : "index, follow"} />
 
 <!-- LANGUAGE META -->
 <meta http-equiv="content-language" content={lang} />
@@ -316,7 +323,7 @@ const articleSchema = {
 <!-- HREFLANG (con self-referencing) - FIX #1 y #5: trailingSlash unificado y validación de existencia -->
 {emitEsHreflang && <link rel="alternate" hreflang="es" href={`${siteUrl}${esPathSlashed}`} />}
 {emitEnHreflang && <link rel="alternate" hreflang="en" href={`${siteUrl}${enPathSlashed}`} />}
-<link rel="alternate" hreflang="x-default" href={`${siteUrl}${xDefaultPath}`} />
+{emitXDefault && <link rel="alternate" hreflang="x-default" href={`${siteUrl}${xDefaultPath}`} />}
 
 <!-- OPEN GRAPH -->
 <meta property="og:type" content={type} />

@@ -131,8 +131,8 @@ Paint is not "bad" and microcement is not always "better". They are different to
 If you want **speed and low cost** → Paint.  
 If you want **durability, modern aesthetics and low maintenance** in wet areas → Microcement.
 
-If you're in **Caracas, Valencia, San Diego or Carabobo** and need help deciding for your project, [contact us](/contact). We can show you real samples and give you a transparent quote.
+If you're in **Caracas, Valencia, San Diego or Carabobo** and need help deciding for your project, [contact us](/en/contact). We can show you real samples and give you a transparent quote.
 
 Related articles:
-- [Porcelain vs Ceramic Guide](/blog/porcelain-vs-ceramic-guide-venezuela)
-- [Full Remodel What It Includes](/blog/remodelacion-integral-que-incluye)
+- [Porcelain vs Ceramic Guide](/en/blog/porcelain-tile-vs-ceramic-tile-guide/)
+- [Full Remodel What It Includes](/en/blog/full-home-remodel-what-it-includes/)
