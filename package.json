@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "node scripts/check-images.mjs && astro build",
+    "check:images": "node scripts/check-images.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
