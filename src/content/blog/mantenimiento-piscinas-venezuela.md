@@ -3,7 +3,7 @@ title: "Mantenimiento de Piscinas en Venezuela: Guía Completa 2026"
 excerpt: "Todo sobre mantenimiento de piscinas en Venezuela: costos mensuales, productos, frecuencia, y cómo evitar los errores que arruinan el agua y el equipo."
 date: 2026-07-27
 category: "Guías"
-image: "/images/piscina-800.webp"
+image: "/images/piscinas-800.webp"
 readTime: "13 min"
 author: "Equipo ReformaT"
 ---
@@ -16,7 +16,7 @@ Una piscina sin mantenimiento adecuado desarrolla algas en 72 horas, corroe el e
 
 En ReformaT Venezuela construimos y remodelamos piscinas en **Caracas, Valencia, San Diego, La Lagunita, El Hatillo, Guataparo y El Viñedo**. Esta guía te da todo lo que necesitas para mantener la tuya impecable.
 
-![Piscina residencial con agua cristalina en zona premium](/images/piscina-800.webp)
+![Piscina residencial con agua cristalina en zona premium](/images/piscinas-800.webp)
 
 ---
 
