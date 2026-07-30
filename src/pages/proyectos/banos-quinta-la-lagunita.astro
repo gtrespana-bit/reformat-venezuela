@@ -2,806 +2,2112 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const project = {
-  title: 'Remodelación de Baños en Quinta',
-  location: 'Quinta La Lagunita, Caracas',
-  category: 'Baño',
+  title: 'Remodelación Integral de Baño de Lujo en Quinta de Guataparo',
+  location: 'Urbanización Guataparo, Valencia',
+  category: 'Baños de Alta Gama & Arquitectura',
   year: '2024',
   duration: '4 semanas',
-  description: 'Remodelación completa de baños en quinta residencial. Proyecto de gran envergadura que incluyó demolición total, apertura de ventanales, construcción de muros separadores, instalación de microcemento, porcelanato y acabados premium en dos zonas de baño independientes.',
+  description: 'Reforma monumental en quinta de lujo en Guataparo, Valencia: división en dos salas independientes, demolición de fachada para ventanal con rotura térmica, microcemento blanco, piedra volcánica y porcelanato metro verde con sanitarios italianos y ROCA.',
+  heroImage: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp',
   scope: [
-    'Demolición completa de baños existentes',
-    'Apertura de ventanales para iluminación natural',
-    'Construcción de muros separadores de bloque',
-    'Aislamiento de ducha en zona 1',
-    'Instalación de ventanas nuevas',
-    'Piso microcemento en ambas zonas',
-    'Instalación de porcelanato en paredes',
-    'Encimeras de hormigón personalizadas',
-    'Lavabos sobrepuestos de diseño',
-    'Sistema de ducha completo',
-    'Acabados y detalles finales premium'
+    'Demolición total de baños existentes y tabiques interiores de altura parcial',
+    'Demolición estructural en muro exterior para apertura de gran ventanal panorámico',
+    'Excavación en solera de hormigón para reubicar desagüe de inodoro 110 mm',
+    'Sustitución de red de plomería integral por tubería multicapa PEX-Al-PEX',
+    'Construcción de tabique separador independiente en bloque de hormigón 15 cm',
+    'Vaciado de 2 encimeras flotantes de hormigón y plato de ducha in situ',
+    'Revestimiento integral en microcemento blanco impermeable en paredes y ducha',
+    'Instalación de pilar escultórico en piedra volcánica importada en encimera principal',
+    'Revestimiento de acento con porcelanato tipo metro en color verde esmaltado',
+    'Montaje de ventanal de aluminio a medida con rotura de puente térmico y cristal UV',
+    'Instalación de lavabos y grifería sobrepuestos importados de Italia e inodoro ROCA'
   ],
-  beforeImages: [
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-1.webp', alt: 'Estado anterior - Vista 1' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-2.webp', alt: 'Estado anterior - Vista 2' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-3.webp', alt: 'Estado anterior - Vista 3' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-4.webp', alt: 'Estado anterior - Vista 4' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-5.webp', alt: 'Estado anterior - Vista 5' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-6.webp', alt: 'Estado anterior - Vista 6' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-7.webp', alt: 'Estado anterior - Vista 7' }
+  specs: [
+    { label: 'Revestimiento Principal', value: 'Microcemento color blanco sellado impermeable en paredes y suelo' },
+    { label: 'Revestimiento de Acento', value: 'Porcelanato tipo metro (subway tile) en color verde esmaltado' },
+    { label: 'Elemento Escultórico', value: 'Piedra volcánica importada bajo encimera flotante de hormigón' },
+    { label: 'Encimeras y Ducha', value: 'Estructura de hormigón armado flotante revestida en microcemento' },
+    { label: 'Intervención de Luz', value: 'Ventanal a medida en aluminio con rotura térmica y cristal doble UV' },
+    { label: 'División de Ambientes', value: 'Tabique de bloque de hormigón 15 cm enfoscado en mortero fino' },
+    { label: 'Red de Plomería', value: 'Tubería multicapa PEX-Al-PEX para agua fría y caliente' },
+    { label: 'Red de Desagüe', value: 'Canalización subterránea en PVC (110 mm poceta / 40 mm lavabos)' },
+    { label: 'Sanitario Principal', value: 'Inodoro importado de alta gama marca ROCA' },
+    { label: 'Lavabos y Grifería', value: 'Lavabos sobrepuestos de porcelana y grifería importados de Italia' },
+    { label: 'Plato de Ducha', value: 'Plato de hormigón in situ acabado en microcemento antideslizante' }
   ],
-  duringImages: [
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-1.webp', alt: 'Proceso de demolición' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-3.webp', alt: 'Demolición en curso' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp', alt: 'Apertura de ventanal' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal-2.webp', alt: 'Apertura en proceso' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque.webp', alt: 'Muro separador' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-2.webp', alt: 'Muro en construcción' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp', alt: 'Detalle de muro' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventanal-nuevo.webp', alt: 'Instalación de ventanal' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventana-2-mas-muros.webp', alt: 'Ventana y muros' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventanal-3-mas-muros.webp', alt: 'Ventanal y muros' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventana-4-mas-muros.webp', alt: 'Ventana completada' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-aislamiento-ducha.webp', alt: 'Aislamiento de ducha' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-encimera-hormigon.webp', alt: 'Encimera de hormigón' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-encimera-hormigon.webp', alt: 'Encimera zona 2' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-porcelanato.webp', alt: 'Porcelanato zona 1' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp', alt: 'Microcemento y lavabo' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-piso-microcemento-mas-lavabo.webp', alt: 'Microcemento zona 2' }
-  ],
-  afterImages: [
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp', alt: 'Zona 1 completada' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-3.webp', alt: 'Zona 1 - Vista 2' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp', alt: 'Zona 1 - Final' },
-    { src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp', alt: 'Zona 2 completada' }
+  gallery: [
+    // 1. BAÑOS TERMINADOS Y LUJO
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp',
+      alt: 'Zona 1 del baño en Guataparo terminado con ventanal panorámico, microcemento blanco y piedra volcánica',
+      title: 'Zona Principal: Ventanal Panorámico y Piedra Volcánica',
+      caption: 'Vista maestra de la Zona 1 del baño en Guataparo, Valencia. Destaca la encimera flotante de hormigón revestida en microcemento blanco, el pilar escultórico de piedra volcánica importada y el gran ventanal con rotura de puente térmico.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Piedra Volcánica',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp',
+      alt: 'Ducha de microcemento blanco, porcelanato metro verde y lavabo sobrepuesto italiano',
+      title: 'Ducha Escultórica y Porcelanato Metro Verde',
+      caption: 'Armonía entre la pureza del microcemento blanco en la ducha de hormigón y la sofisticación del porcelanato tipo metro en color verde esmaltado tras el lavabo importado de Italia.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Porcelanato Verde',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-3.webp',
+      alt: 'Perspectiva del lavabo italiano sobre encimera de hormigón y microcemento blanco',
+      title: 'Lavabo y Grifería Importados de Italia',
+      caption: 'Detalle de la encimera de hormigón con acabado en microcemento blanco impermeable, coronada por un lavabo sobrepuesto de porcelana fina y grifería monomando italiana de alta especificación.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Grifería Italiana',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp',
+      alt: 'Sala sanitaria independiente con inodoro ROCA importado, microcemento y porcelanato metro verde',
+      title: 'Zona 2: Sala Sanitaria Independiente con Inodoro ROCA',
+      caption: 'El segundo ambiente independiente, separado por tabique de bloque de hormigón de 15 cm. Equipado con su propio lavabo sobrepuesto, pared en metro verde esmaltado e inodoro importado marca ROCA.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Inodoro ROCA',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp',
+      alt: 'Pavimento continuo de microcemento blanco y detalle del lavabo sobrepuesto en Guataparo',
+      title: 'Continuidad Monolítica en Pavimento de Microcemento',
+      caption: 'Vista del pavimento ejecutado sin juntas en microcemento blanco sellado, ofreciendo una superficie fácil de limpiar, antideslizante en húmedo y visualmente infinita.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Suelo Microcemento',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-piso-microcemento-mas-lavabo.webp',
+      alt: 'Detalle del pavimento en Zona 2 y encimera flotante en microcemento blanco',
+      title: 'Zona 2: Encimera Flotante y Privacidad Acústica',
+      caption: 'Perspectiva del área privada de la Zona 2 donde el muro de hormigón de 15 cm garantiza aislamiento total, manteniendo el mismo código de lujo italiano y microcemento blanco.',
+      category: 'final',
+      categoryLabel: 'Baño Terminado',
+      badge: 'Privacidad Total',
+      orientation: 'portrait'
+    },
+    // 2. VENTANAL Y LUZ NATURAL
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventanal-nuevo.webp',
+      alt: 'Ventanal panorámico de aluminio con rotura de puente térmico instalado en quinta de Guataparo',
+      title: 'Ventanal Panorámico de Aluminio y Cristal UV',
+      caption: 'Instalación finalizada del ventanal de gran tamaño con perfilería de aluminio negro, rotura de puente térmico y acristalamiento doble con filtro de protección solar UV.',
+      category: 'ventanal',
+      categoryLabel: 'Ventanal y Luz Natural',
+      badge: 'Ventanal Panorámico',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp',
+      alt: 'Demolición estructural de pared exterior en quinta de Guataparo para abrir el vano del ventanal',
+      title: 'Demolición Exterior: Apertura de Luz Natural',
+      caption: 'Trabajos de albañilería estructural donde se demolió el muro exterior ciego para abrir un boquete monumental que permitiera el ingreso de luz natural y ventilación.',
+      category: 'ventanal',
+      categoryLabel: 'Ventanal y Luz Natural',
+      badge: 'Apertura Muro Exterior',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal-2.webp',
+      alt: 'Consolidación estructural del vano exterior para el ventanal panorámico',
+      title: 'Consolidación Estructural del Vano Exterior',
+      caption: 'Refuerzo de dinteles y jambas en el muro exterior de hormigón para recibir la perfilería pesada de aluminio del nuevo ventanal de rotura térmica.',
+      category: 'ventanal',
+      categoryLabel: 'Ventanal y Luz Natural',
+      badge: 'Estructura Exterior',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventana-2-mas-muros.webp',
+      alt: 'Fase de colocación de marcos de aluminio con rotura térmica y albañilería interior',
+      title: 'Instalación de Marcos con Rotura de Puente Térmico',
+      caption: 'Montaje milimétrico de los marcos de aluminio térmicos en el vano exterior, garantizando estanqueidad e impermeabilización perimetral antes de revestir.',
+      category: 'ventanal',
+      categoryLabel: 'Ventanal y Luz Natural',
+      badge: 'Rotura Térmica',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventanal-3-mas-muros.webp',
+      alt: 'Alineación de cristales dobles UV en el ventanal de la quinta en Guataparo',
+      title: 'Acristalamiento Doble con Tratamiento UV',
+      caption: 'Colocación de los vidrios dobles herméticos tratados contra rayos ultravioleta, bloqueando el calentamiento solar del baño sin sacrificar claridad en Valencia.',
+      category: 'ventanal',
+      categoryLabel: 'Ventanal y Luz Natural',
+      badge: 'Cristal Doble UV',
+      orientation: 'portrait'
+    },
+    // 3. OBRA DE HORMIGÓN Y MICROCEMENTO
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp',
+      alt: 'Construcción del tabique separador en bloque de hormigón de 15 cm en quinta de Guataparo',
+      title: 'Tabique Separador en Bloque de Hormigón de 15 cm',
+      caption: 'Levantamiento del tabique central con bloques de hormigón estructural de 15 cm de espesor para dividir el gran baño original en dos salas totalmente independientes.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Bloque Hormigón 15cm',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque.webp',
+      alt: 'Enfoscado con mortero de cemento fino sobre tabique de bloque en Guataparo',
+      title: 'Enfoscado con Mortero de Cemento de Acabado Fino',
+      caption: 'Maestreado y enfoscado del tabique separador con mortero de cemento alisado para proporcionar una base perfectamente plana para el microcemento blanco y porcelanato.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Enfoscado Fino',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-2.webp',
+      alt: 'Vista de la división en dos ambientes independientes tras levantar el muro de 15 cm',
+      title: 'División de la Planta en Dos Áreas Independientes',
+      caption: 'Perspectiva estructural donde se aprecia cómo la división creó la Zona 1 (ducha y lavabo) y la Zona 2 (inodoro y lavabo privado) con absoluta privacidad.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Salas Independientes',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-encimera-hormigon.webp',
+      alt: 'Vaciado de encimera flotante de hormigón armado en la Zona 1 de Guataparo',
+      title: 'Encimera Flotante de Hormigón Armado (Zona 1)',
+      caption: 'Vaciado in situ de la monumental encimera flotante de hormigón en la zona principal, con armadura de acero anclada estructuralmente a la albañilería.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Encimera Hormigón',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-encimera-hormigon.webp',
+      alt: 'Vaciado de segunda encimera flotante de hormigón en la Zona 2 independiente',
+      title: 'Segunda Encimera Flotante de Hormigón (Zona 2)',
+      caption: 'Construcción de la encimera de hormigón independiente en la sala sanitaria número 2, regularizada y sellada para la aplicación de capas de microcemento blanco.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Encimera Zona 2',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-aislamiento-ducha.webp',
+      alt: 'Impermeabilización técnica y preparación del plato de ducha de hormigón en Zona 1',
+      title: 'Impermeabilización Técnica y Ducha de Hormigón',
+      caption: 'Preparación hidrófuga en paredes de la ducha y conformación del plato de ducha escultórico de hormigón in situ con pendientes milimétricas hacia el desagüe.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Impermeabilización',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-porcelanato.webp',
+      alt: 'Instalación del porcelanato tipo metro en color verde esmaltado en paredes de lavabo',
+      title: 'Colocación de Porcelanato Tipo Metro Verde',
+      caption: 'Instalación de precisión del porcelanato tipo metro en color verde esmaltado, aportando una nota de contraste arquitectónico de altísimo nivel frente al microcemento.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Porcelanato Metro',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-instalacion-ventana-4-mas-muros.webp',
+      alt: 'Regularización de paramentos de hormigón para recibir revestimiento de microcemento blanco',
+      title: 'Regularización de Paramentos de Hormigón',
+      caption: 'Trabajo final de maestreado en paredes perimetrales y dinteles para garantizar la máxima adherencia de las capas de microcemento blanco impermeable.',
+      category: 'obra',
+      categoryLabel: 'Obra de Hormigón y Microcemento',
+      badge: 'Paramentos Lisos',
+      orientation: 'portrait'
+    },
+    // 4. ESTADO ORIGINAL Y DEMOLICIÓN
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-1.webp',
+      alt: 'Estado original del baño de gran tamaño en la quinta de Guataparo antes de la reforma',
+      title: 'Estado Original: Gran Baño Sin Dividir',
+      caption: 'Vista original del baño de la quinta en Guataparo, Valencia. Una estancia de gran superficie que requería una redistribución arquitectónica en dos áreas independientes.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-2.webp',
+      alt: 'Antigua zona de ducha y revestimientos convencionales previos en Guataparo',
+      title: 'Estado Original: Ducha y Tabiques Parciales',
+      caption: 'Perspectiva de la ducha anterior con tabiques de altura parcial y muretes laterales que bloqueaban la circulación espacial y la luz.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-3.webp',
+      alt: 'Pared exterior cerrada que impedía el ingreso de luz natural en el baño original',
+      title: 'Estado Original: Pared Exterior Sin Ventanal',
+      caption: 'Muro exterior de hormigón que carecía de aberturas amplias, manteniendo el baño en penumbra antes de la apertura del ventanal panorámico.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-4.webp',
+      alt: 'Plomería y sanitarios antiguos del baño antes de reubicar desagües en hormigón',
+      title: 'Estado Original: Sanitarios y Plomería Antigua',
+      caption: 'Instalaciones hidráulicas y sanitarios de época que fueron eliminados para dar paso al nuevo sistema en tubería multicapa PEX-Al-PEX.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-5.webp',
+      alt: 'Perspectiva general de la quinta de Guataparo previa a las obras de remodelación',
+      title: 'Estado Original: Distribución Previa',
+      caption: 'Punto de vista general del baño anterior en Guataparo antes de iniciar la demolición de los tabiques y pisos de hormigón.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-6.webp',
+      alt: 'Detalle de alicatado antiguo y mobiliario del baño en quinta antes de demoler',
+      title: 'Estado Original: Acabados Desgastados',
+      caption: 'Mobiliario y cerámica de revestimiento original anterior a su sustitución integral por encimeras de hormigón, microcemento y piedra volcánica.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-antes-7.webp',
+      alt: 'Vista complementaria del baño de gran tamaño en Guataparo, Valencia',
+      title: 'Estado Original: Vista Complementaria',
+      caption: 'Registro fotográfico original previo a la intervención de ingeniería e interiorismo de ReformaT Venezuela en Guataparo.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-1.webp',
+      alt: 'Proceso de demolición de tabiques de altura parcial y excavación de solera en Guataparo',
+      title: 'Demolición Estructural y Excavación en Hormigón',
+      caption: 'Fase de demolición integral: demolición de pisos y solera de hormigón para reubicar desagües de 110 mm para poceta y 40 mm para los dos lavabos.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Demolición Total',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-3.webp',
+      alt: 'Retirada total de plomería antigua en la quinta residencial en Valencia',
+      title: 'Retirada Integral de Plomería y Escombros',
+      caption: 'Extracción de todas las tuberías de alimentación galvanizadas y desescombro completo, dejando la estructura lista para tender red multicapa PEX-Al-PEX.',
+      category: 'demolicion',
+      categoryLabel: 'Original y Demolición',
+      badge: 'Retirada Plomería',
+      orientation: 'portrait'
+    }
   ]
 };
 
-const heroImage = project.afterImages[0].src;
-const allImages = [...project.beforeImages, ...project.duringImages, ...project.afterImages];
+const heroImage = project.heroImage;
 ---
 
 <BaseLayout 
-  title={`${project.title} en ${project.location} | ReformaT Venezuela`} 
+  title={`${project.title} | Caso de Estudio | ReformaT Venezuela`} 
   description={project.description}
   image={heroImage}
   activePage="proyectos"
 >
-  <!-- Hero -->
+  <!-- 1. EDITORIAL LUXURY HERO -->
   <header class="project-hero">
-    <div class="hero-image">
-      <img src={heroImage} alt={project.title} fetchpriority="high" loading="eager" decoding="async" />
-    </div>
+    <div class="hero-backdrop" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Inicio</a>
-          <span class="separator">/</span>
-          <a href="/proyectos">Proyectos</a>
-          <span class="separator">/</span>
-          <span class="current">{project.title}</span>
-        </nav>
-        <span class="hero-badge">{project.category}</span>
-        <h1 class="hero-title">{project.title}</h1>
-        <p class="hero-location">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          {project.location}
+        <div class="hero-kicker">
+          <span class="kicker-badge">CASO DE ESTUDIO</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-sub">ARQUITECTURA E INTERIORISMO · GUATAPARO, VALENCIA</span>
+        </div>
+
+        <h1 class="hero-title">Remodelación Integral de Baño de Lujo en Quinta de Guataparo</h1>
+        
+        <p class="hero-subtitle">
+          División arquitectónica de un gran baño en dos áreas independientes con muro de hormigón 15 cm, apertura de fachada para ventanal con rotura térmica, microcemento blanco, piedra volcánica importada y porcelanato metro verde con sanitarios italianos y ROCA.
         </p>
+
+        <!-- Quick Executive Ribbon -->
+        <div class="hero-stats-ribbon">
+          <div class="stat-item">
+            <span class="stat-label">Ubicación</span>
+            <span class="stat-value">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              Guataparo, Valencia
+            </span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Intervención</span>
+            <span class="stat-value">1 Baño -> 2 Salas Independientes</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Plazo de Obra</span>
+            <span class="stat-value">4 Semanas</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Revestimiento</span>
+            <span class="stat-value">Microcemento + Metro Verde</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Lujo & Escultura</span>
+            <span class="stat-value">Piedra Volcánica + Italia & ROCA</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Project Info -->
-  <section class="project-body">
+  <!-- BREADCRUMBS TRAS EL HERO -->
+  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
     <div class="container">
-      <div class="project-layout">
-        <!-- Main Content -->
-        <div class="project-main">
-          <div class="project-desc">
-            <h2 class="section-title">Descripción del Proyecto</h2>
-            <p class="section-text">{project.description}</p>
+      <div class="breadcrumb-inner">
+        <a href="/">Inicio</a>
+        <span class="separator">/</span>
+        <a href="/proyectos">Proyectos</a>
+        <span class="separator">/</span>
+        <span class="current">Baño de Lujo Quinta Guataparo</span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 2. DUAL-SHOWCASE: DOS AMBIENTES INDEPENDIENTES (ZERO CROPPING) -->
+  <section class="dual-showcase-section">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow-text">VISTA MAESTRA DEL PROYECTO</span>
+        <h2 class="editorial-title">Dos Salas Independientes de Lujo en Guataparo</h2>
+        <p class="editorial-subtitle">
+          El gran baño original se reconfiguró mediante un tabique de bloque de hormigón de 15 cm en dos ambientes privados: un santuario escultórico de ducha y lavabo con ventanal panorámico (Zona 1) y un aseo sanitario privado con lavabo independiente (Zona 2).
+        </p>
+      </div>
+
+      <div class="showcase-grid">
+        <!-- Card 1: Zona 1 Ducha y Piedra Volcánica -->
+        <article class="showcase-card">
+          <div class="showcase-image-frame">
+            <span class="showcase-badge">Zona 1 · Ducha y Piedra Volcánica</span>
+            <img 
+              src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp" 
+              alt="Zona 1 del baño en quinta de Guataparo con encimera flotante de hormigón, microcemento blanco y piedra volcánica" 
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="showcase-content">
+            <h3 class="showcase-title">Santuario Principal y Piedra Volcánica</h3>
+            <p class="showcase-desc">
+              La Zona 1 alberga la ducha escultórica en hormigón y una monumental encimera flotante en microcemento blanco, apoyada visualmente sobre una piedra volcánica importada. Frente a ella se abre un gran ventanal de aluminio con rotura de puente térmico.
+            </p>
+            <ul class="showcase-highlights">
+              <li>• Pilar escultórico decorativo en piedra volcánica importada</li>
+              <li>• Ventanal panorámico con rotura térmica y cristal doble UV</li>
+              <li>• Lavabo sobrepuesto y grifería importados de Italia</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 2: Zona 2 Sala Sanitaria Privada -->
+        <article class="showcase-card">
+          <div class="showcase-image-frame">
+            <span class="showcase-badge">Zona 2 · Sala Sanitaria Privada ROCA</span>
+            <img 
+              src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" 
+              alt="Sala sanitaria independiente en Guataparo con inodoro importado ROCA y porcelanato metro verde" 
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="showcase-content">
+            <h3 class="showcase-title">Sala Sanitaria Privada e Inodoro ROCA</h3>
+            <p class="showcase-desc">
+              Separada con aislamiento absoluto por el muro de bloque de hormigón de 15 cm enfoscado con mortero fino. Esta sala dispone de su propio lavabo sobrepuesto italiano, encimera en microcemento blanco, pared en metro verde e inodoro marca ROCA importado.
+            </p>
+            <ul class="showcase-highlights">
+              <li>• Inodoro de lujo marca ROCA importado y doble descarga</li>
+              <li>• Aislamiento y privacidad mediante muro de hormigón de 15 cm</li>
+              <li>• Pared de acento en porcelanato tipo metro verde esmaltado</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
+  <section class="technical-narrative-section">
+    <div class="container">
+      <div class="narrative-layout">
+        <!-- Main Editorial Narrative -->
+        <div class="narrative-main">
+          <span class="eyebrow-text">MEMORIA TÉCNICA DEL PROYECTO</span>
+          <h2 class="editorial-title">Ingeniería, Microcemento, Piedra Volcánica y Porcelanato Metro</h2>
+
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">01. La Transformación Espacial: División en Dos Salas Independientes</h3>
+            <p class="chapter-text">
+              Este proyecto de gran envergadura en una quinta de la urbanización <strong>Guataparo (Valencia, Carabobo)</strong> partió de un replanteo arquitectónico radical. La vivienda disponía de un baño principal de gran formato que, sin embargo, adolecía de una distribución dispersa y tabiques interiores de altura parcial que bloqueaban las visuales sin aportar verdadera intimidad.
+            </p>
+            <p class="chapter-text">
+              El encargo consistió en demoler el baño por completo y dividir el espacio en <strong>dos salas totalmente independientes y privadas</strong>: una zona dedicada al ritual de baño con ducha escultórica y lavabo de gran formato, y una sala sanitaria independiente equipada con inodoro y su propio lavabo privado.
+            </p>
           </div>
 
-          <!-- Before/After -->
-          <div class="ba-section">
-            <h2 class="section-title">Transformación</h2>
-            <div class="ba-grid">
-              <div class="ba-item" data-src={project.beforeImages[0].src} data-alt={project.beforeImages[0].alt}>
-                <img src={project.beforeImages[0].src} alt={project.beforeImages[0].alt} loading="lazy" />
-                <span class="ba-label">Antes</span>
-              </div>
-              <div class="ba-item" data-src={project.afterImages[0].src} data-alt={project.afterImages[0].alt}>
-                <img src={project.afterImages[0].src} alt={project.afterImages[0].alt} loading="lazy" />
-                <span class="ba-label">Después</span>
-              </div>
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">02. Apertura Panorámica: Demolición Exterior y Rotura Térmica</h3>
+            <p class="chapter-text">
+              Uno de los mayores defectos de la quinta original era que la pared exterior impedía por completo la entrada de luz natural. El equipo de <strong>ReformaT Venezuela</strong> ejecutó una demolición estructural controlada en la fachada para abrir un vano monumental y montar un <strong>ventanal de gran tamaño fabricado a medida en aluminio</strong>.
+            </p>
+            <ul class="editorial-list">
+              <li>
+                <strong>Rotura de puente térmico:</strong> Perfilería técnica con aislante interior que impide el intercambio de temperatura entre el exterior valenciano y la sala de baño, evitando pérdidas térmicas ni condensación en cristales.
+              </li>
+              <li>
+                <strong>Cristal doble tratado con protección UV:</strong> Acristalamiento hermético de doble hoja con filtro contra rayos ultravioleta, el cual inunda la ducha de luz natural del sol sin permitir el ingreso de calor solar.
+              </li>
+            </ul>
+          </div>
+
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">03. Ingeniería Hidráulica Subterránea y Red Multicapa PEX-Al-PEX</h3>
+            <p class="chapter-text">
+              Al reubicar por completo todas las piezas sanitarias (ducha, dos lavabos e inodoro), ninguna toma hidráulica antigua quedó en su sitio original. Se procedió a demoler la solera de piso y perforar ordenadamente la estructura de hormigón para canalizar las nuevas líneas subterráneas:
+            </p>
+            <ul class="editorial-list">
+              <li>
+                <strong>Reubicación de descarga de poceta (110 mm):</strong> Se tendió una nueva línea principal en PVC de alta capacidad de 4 pulgadas desde la nueva sala sanitaria hasta las bajantes exteriores del hogar.
+              </li>
+              <li>
+                <strong>Red de agua fría y caliente en multicapa PEX-Al-PEX:</strong> Toda la distribución se ejecutó con tubería multicapa polietileno-aluminio, nuestro estándar de ingeniería indiscutible que elimina fugas, corrosión e incrustaciones para las próximas décadas.
+              </li>
+              <li>
+                <strong>Tabique separador de bloque de hormigón de 15 cm:</strong> Para dividir las dos salas con máxima firmeza estructural y aislamiento acústico, se levantó un muro separador en bloque de hormigón de 15 cm, el cual se enfoscó con mortero de cemento alisado con acabado fino.
+              </li>
+            </ul>
+          </div>
+
+          <!-- PEDAGOGICAL CALLOUT: MICROCEMENTO EN ZONAS HÚMEDAS -->
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">04. Encimeras Flotantes de Hormigón, Piedra Volcánica y Microcemento Blanco</h3>
+            <p class="chapter-text">
+              En cada una de las dos salas independientes se construyó una <strong>encimera flotante de hormigón estructural armado</strong> in situ. En la sala principal, frente al gran ventanal, se introdujo una solución escultórica única: una <strong>piedra volcánica importada</strong> instalada a manera de pilar o punto de apoyo decorativo de la monumental encimera (siendo la estructura de hormigón plenamente sólida y autoportante).
+            </p>
+            
+            <div class="highlight-callout">
+              <span class="callout-badge">¿POR QUÉ USAR MICROCEMENTO BLANCO EN DUCHAS Y ENCIMERAS HÚMEDAS?</span>
+              <p>
+                Tanto las dos encimeras de hormigón como las paredes de la ducha y el plato de ducha escultórico fueron revestidos con <strong>microcemento en color blanco continuo</strong>.
+              </p>
+              <ul class="callout-list">
+                <li>
+                  <strong>100% impermeable en zonas húmedas:</strong> El microcemento técnico sellado con poliuretano alifático bicomponente es completamente impermeable y altamente resistente a la inmersión y al flujo continuo de agua, por lo que es una opción de ingeniería óptima y garantizada para duchas y baños de lujo.
+                </li>
+                <li>
+                  <strong>Lienzo blanco sin juntas:</strong> Al carecer de lechadas ni juntas de dilatación visibles, el microcemento blanco crea una superficie infinita, monolítica y monacal que amplifica la luz del nuevo ventanal y simplifica el mantenimiento en Guataparo.
+                </li>
+              </ul>
             </div>
           </div>
 
-          <!-- Gallery -->
-          <div class="gallery-section">
-            <h2 class="section-title">Galería</h2>
-            <div class="gallery-grid">
-              {allImages.map((img, i) => (
-                <div class="gallery-item" data-src={img.src} data-alt={img.alt} data-index={i}>
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                  <div class="gallery-hover">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="11" cy="11" r="8"/>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                      <line x1="11" y1="8" x2="11" y2="14"/>
-                      <line x1="8" y1="11" x2="14" y2="11"/>
-                    </svg>
-                  </div>
-                </div>
-              ))}
-            </div>
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">05. Porcelanato Metro Verde, Lavabos Italianos e Inodoro ROCA</h3>
+            <p class="chapter-text">
+              Para aportar un contraste de color arquitectónico con personalidad editorial, las paredes traseras de ambos lavabos se revistieron con <strong>porcelanato tipo metro (subway tile) en color verde esmaltado</strong>. El reflejo esmaltado del verde junto a la pureza del microcemento blanco y la textura rústica de la piedra volcánica genera una atmósfera de lujo superlativo.
+            </p>
+            <p class="chapter-text">
+              Sobre cada una de las encimeras de hormigón se instaló un <strong>lavabo sobrepuesto importado desde Italia</strong>, acompañado de <strong>griferías monomando italianas</strong> de alta especificación en acabado metálico cepillado. Para culminar la sala sanitaria número 2, se instaló un inodoro importado de la reconocida marca internacional <strong>ROCA</strong>, combinando diseño ergonómico de prestigio mundial con descarga eficiente.
+            </p>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <aside class="project-sidebar">
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Detalles del Proyecto</h3>
-            <dl class="details-list">
-              <div class="detail-row">
-                <dt>Ubicación</dt>
-                <dd>{project.location}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Categoría</dt>
-                <dd>{project.category}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Duración</dt>
-                <dd>{project.duration}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Año</dt>
-                <dd>{project.year}</dd>
-              </div>
+        <!-- Sticky Sidebar: Technical Specifications & Scope Checklist -->
+        <aside class="narrative-sidebar">
+          <!-- Card 1: Ficha Técnica -->
+          <div class="spec-card">
+            <div class="spec-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+              <h3 class="spec-title">Ficha Técnica del Proyecto</h3>
+            </div>
+            <dl class="spec-list">
+              {project.specs.map(item => (
+                <div class="spec-row">
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
             </dl>
           </div>
 
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Alcance del Trabajo</h3>
+          <!-- Card 2: Checklist Alcance del Trabajo -->
+          <div class="spec-card">
+            <div class="spec-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 11 12 14 22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <h3 class="spec-title">Alcance Contratado</h3>
+            </div>
             <ul class="scope-list">
               {project.scope.map(item => (
                 <li class="scope-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  {item}
+                  <span class="check-icon">✓</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <!-- Card 3: Sello de Garantía -->
+          <div class="guarantee-card">
+            <span class="guarantee-eyebrow">ESTÁNDAR REFORMAT VENEZUELA</span>
+            <h4 class="guarantee-title">Quintas de Lujo en Guataparo por Contrato</h4>
+            <p class="guarantee-text">
+              Desde la estanqueidad de ventanales con rotura térmica hasta el sellado impermeable en microcemento, garantizamos cada partida por escrito en Valencia.
+            </p>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="project-cta">
+  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
+  <section class="before-after-section">
     <div class="container">
-      <h2 class="cta-title">¿Listo para Transformar tu Espacio?</h2>
-      <p class="cta-text">Solicita una consulta gratuita y descubre cómo podemos renovar tu propiedad.</p>
-      <a href="/contacto" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Solicitar Presupuesto</span>
-        <span class="btn-border"></span>
-        <span class="btn-arrow">→</span>
-      </a>
+      <div class="section-heading">
+        <span class="eyebrow-text">TRANSFORMACIÓN E INGENIERÍA EN GUATAPARO</span>
+        <h2 class="editorial-title">Comparativa: Demolición de Fachada y Salas Independientes</h2>
+        <p class="editorial-subtitle">
+          Observe el impacto del gran ventanal panorámico en el antiguo muro ciego y la reconfiguración del espacio en dos ambientes privados con muro de 15 cm.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Comparison 1: Muro Exterior Ciego vs Ventanal Panorámico -->
+        <div class="comparison-pair">
+          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" data-alt="Demolición estructural de muro exterior en quinta de Guataparo para ventanal" data-title="Demolición Exterior: Apertura de Vano Panorámico">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label before-label">Obra · Demolición Exterior</span>
+              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" alt="Demolición de pared exterior ciega en Guataparo" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Apertura del muro de fachada ciego que antes mantenía el baño de la quinta en penumbra.</p>
+          </div>
+          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp" data-alt="Baño de lujo terminado en Guataparo con ventanal panorámico y piedra volcánica" data-title="Baño Terminado: Ventanal Panorámico y Piedra Volcánica">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label after-label">Después · Ventanal y Lujo</span>
+              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp" alt="Baño finalizado en Guataparo con ventanal de aluminio y piedra volcánica" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Luz natural con cristal doble UV, encimera flotante en microcemento y piedra volcánica.</p>
+          </div>
+        </div>
+
+        <!-- Comparison 2: Muro Separador de Hormigón vs Sala Sanitaria 2 -->
+        <div class="comparison-pair">
+          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" data-alt="Construcción de tabique separador en bloque de hormigón 15 cm en Guataparo" data-title="Obra: Tabique Separador en Bloque 15 cm">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label before-label">Obra · Bloque Hormigón 15cm</span>
+              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" alt="Levantamiento de tabique separador de hormigón en quinta de Valencia" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Construcción del tabique central de 15 cm enfoscado en mortero para dividir el baño.</p>
+          </div>
+          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" data-alt="Sala sanitaria independiente en Guataparo con inodoro ROCA e Italia" data-title="Sala Sanitaria Independiente: Inodoro ROCA">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label after-label">Después · Sala Privada ROCA</span>
+              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" alt="Sala sanitaria Zona 2 terminada en Guataparo con inodoro ROCA" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Ambiente independiente y aislado con inodoro ROCA, lavabo italiano y metro verde.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
-    <button class="lightbox-close" aria-label="Cerrar">&times;</button>
-    <button class="lightbox-prev" aria-label="Anterior">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT - 28 FOTOS) -->
+  <section class="gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
+        <h2 class="editorial-title">Galería Detallada del Proyecto (28 Fotos Reales)</h2>
+        <p class="editorial-subtitle">
+          Explore cada una de las 28 fotografías documentales del proyecto en Guataparo sin recortes: la demolición exterior, las encimeras de hormigón, los ventanales con rotura térmica y los acabados en microcemento e Italia.
+        </p>
+
+        <!-- Interactive Filter Tabs -->
+        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            <span>Todas las Fotos</span>
+            <span class="filter-count">28</span>
+          </button>
+          <button class="filter-btn" data-filter="final" role="tab" aria-selected="false">
+            <span>Baños Terminados y Lujo</span>
+            <span class="filter-count">6</span>
+          </button>
+          <button class="filter-btn" data-filter="ventanal" role="tab" aria-selected="false">
+            <span>Ventanal y Luz Natural</span>
+            <span class="filter-count">5</span>
+          </button>
+          <button class="filter-btn" data-filter="obra" role="tab" aria-selected="false">
+            <span>Hormigón y Microcemento</span>
+            <span class="filter-count">9</span>
+          </button>
+          <button class="filter-btn" data-filter="demolicion" role="tab" aria-selected="false">
+            <span>Original y Demolición</span>
+            <span class="filter-count">8</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Masonry Grid with Zero-Crop Images -->
+      <div class="gallery-masonry" id="gallery-grid">
+        {project.gallery.map((img, idx) => (
+          <article 
+            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}`}
+            data-category={img.category}
+            data-index={idx}
+            data-src={img.src}
+            data-alt={img.alt}
+            data-title={img.title}
+            data-caption={img.caption}
+          >
+            <div class="card-image-box">
+              <span class="card-badge">{img.badge}</span>
+              <img 
+                src={img.src} 
+                alt={img.alt} 
+                loading="lazy" 
+                decoding="async" 
+              />
+              <div class="card-hover-overlay">
+                <span class="hover-zoom-btn">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                  Ampliar imagen
+                </span>
+              </div>
+            </div>
+            <div class="card-caption-box">
+              <span class="card-category-tag">{img.categoryLabel}</span>
+              <h3 class="card-title">{img.title}</h3>
+              <p class="card-desc">{img.caption}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LUXURY CALL TO ACTION -->
+  <section class="project-cta-luxury">
+    <div class="cta-backdrop" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <span class="cta-kicker">¿TIENES UNA QUINTA O VIVIENDA DE LUJO EN VALENCIA O CARACAS?</span>
+        <h2 class="cta-title">Microcemento, Piedra Volcánica e Ingeniería de Lujo</h2>
+        <p class="cta-text">
+          Diseñamos y ejecutamos reformas de alta envergadura con división de ambientes, ventanales panorámicos con rotura de puente térmico y materiales importados garantizados por contrato.
+        </p>
+        <div class="cta-actions">
+          <a href="/contacto" class="btn-premium btn-primary-premium">
+            <span class="btn-content">Solicitar Presupuesto Técnico en Guataparo</span>
+            <span class="btn-border"></span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="/servicios/remodelacion-bano" class="btn-secondary-luxury">
+            <span>Ver Servicio de Reformas de Baños</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
+    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
+    <button class="lightbox-prev" aria-label="Imagen anterior">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="15 18 9 12 15 6"/>
       </svg>
     </button>
-    <button class="lightbox-next" aria-label="Siguiente">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <button class="lightbox-next" aria-label="Imagen siguiente">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"/>
       </svg>
     </button>
+
     <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
-    <div class="lightbox-counter">
-      <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-meta">
+          <span id="lightbox-badge" class="lightbox-badge"></span>
+          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">28</span></span>
+        </div>
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  /* Hero */
+  /* ==========================================================
+     1. EDITORIAL LUXURY HERO
+     ========================================================== */
   .project-hero {
     position: relative;
-    padding: 60px 0 0;
+    padding: 185px 0 85px;
     background: var(--ink);
-  }
-  
-  .hero-image {
-    position: relative;
-    width: 100%;
-    max-height: 500px;
+    color: var(--white);
     overflow: hidden;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
   }
-  
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    object-position: center;
+
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(201,169,97,0.12) 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(201,169,97,0.07) 0%, transparent 50%);
+    pointer-events: none;
   }
-  
+
   .hero-content {
-    padding: 40px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 1050px;
   }
-  
-  .breadcrumb {
+
+  /* Breadcrumbs Tras el Hero */
+  .breadcrumb-after-hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 18px 0;
+  }
+
+  .breadcrumb-inner {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 16px;
+    font-size: 0.84rem;
+    font-family: var(--font-sans);
   }
-  
-  .breadcrumb a {
-    color: rgba(255,255,255,0.5);
+
+  .breadcrumb-inner a {
+    color: var(--text-muted);
     text-decoration: none;
-    transition: color 0.2s;
-  }
-  
-  .breadcrumb a:hover {
-    color: var(--gold);
-  }
-  
-  .breadcrumb .current {
-    color: var(--gold);
-  }
-  
-  .separator {
-    opacity: 0.4;
-  }
-  
-  .hero-badge {
-    display: inline-block;
-    padding: 5px 14px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--gold);
-    border-radius: var(--r-sm);
-    margin-bottom: 16px;
-  }
-  
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
+    transition: color 0.2s ease;
     font-weight: 500;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 12px;
   }
-  
-  .hero-location {
+
+  .breadcrumb-inner a:hover {
+    color: var(--gold-ink);
+  }
+
+  .breadcrumb-inner .separator {
+    color: var(--sand);
+    font-weight: 300;
+    margin: 0 4px;
+  }
+
+  .breadcrumb-inner .current {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .hero-kicker {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.6);
+    gap: 12px;
+    margin-bottom: 20px;
   }
 
-  /* Body Layout */
-  .project-body {
-    padding: 60px 0 80px;
+  .kicker-badge {
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: var(--r-sm);
+  }
+
+  .kicker-line {
+    width: 28px;
+    height: 1px;
+    background: rgba(201,169,97,0.5);
+  }
+
+  .kicker-sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 20px;
+    max-width: 980px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.22rem);
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    max-width: 860px;
+    margin-bottom: 38px;
+    font-family: var(--font-sans);
+  }
+
+  /* Executive Stats Ribbon */
+  .hero-stats-ribbon {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--r-md);
+    backdrop-filter: blur(8px);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .stat-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* ==========================================================
+     2. DUAL-SHOWCASE: DOS AMBIENTES INDEPENDIENTES
+     ========================================================== */
+  .dual-showcase-section {
+    padding: 80px 0;
     background: var(--bone);
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  
-  .project-layout {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 48px;
-    align-items: start;
-  }
-  
-  .project-main {
-    min-width: 0;
-  }
-  
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  
-  .section-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-light);
+
+  .section-heading {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
   }
 
-  /* Before/After */
-  .ba-section {
-    margin-top: 48px;
+  .eyebrow-text {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin-bottom: 12px;
   }
-  
-  .ba-grid {
+
+  .editorial-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .editorial-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .showcase-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
   }
-  
-  .ba-item {
-    position: relative;
-    border-radius: var(--r-sm);
+
+  .showcase-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
     overflow: hidden;
-    cursor: zoom-in;
-    aspect-ratio: 4/3;
-    background: var(--sand);
+    box-shadow: var(--e-1);
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    display: flex;
+    flex-direction: column;
   }
-  
-  .ba-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+
+  .showcase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
   }
-  
-  .ba-item:hover img {
-    transform: scale(1.03);
+
+  .showcase-image-frame {
+    position: relative;
+    background: var(--ink-soft);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
   }
-  
-  .ba-label {
+
+  .showcase-badge {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    padding: 5px 14px;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 6px 14px;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: var(--r-sm);
-  }
-  
-  .ba-item:first-child .ba-label {
-    background: rgba(255, 77, 77, 0.9);
-    color: white;
-  }
-  
-  .ba-item:last-child .ba-label {
     background: var(--gold);
-    color: var(--bg);
-  }
-
-  /* Gallery */
-  .gallery-section {
-    margin-top: 48px;
-  }
-  
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  
-  .gallery-item {
-    position: relative;
+    color: var(--ink);
     border-radius: var(--r-sm);
-    overflow: hidden;
-    cursor: zoom-in;
-    aspect-ratio: 1;
-    background: var(--sand);
-  }
-  
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  
-  .gallery-item:hover img {
-    transform: scale(1.05);
-  }
-  
-  .gallery-hover {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(20,18,14,0);
-    transition: background 0.3s ease;
-  }
-  
-  .gallery-item:hover .gallery-hover {
-    background: rgba(20,18,14,0.3);
-  }
-  
-  .gallery-hover svg {
-    width: 28px;
-    height: 28px;
-    color: white;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .gallery-item:hover .gallery-hover svg {
-    opacity: 1;
-    transform: scale(1);
+    box-shadow: var(--e-1);
   }
 
-  /* Sidebar */
-  .project-sidebar {
-    position: sticky;
-    top: 100px;
+  /* CRITICAL: NO CROPPING ON SHOWCASE IMAGES */
+  .showcase-image-frame img {
+    width: 100%;
+    height: auto;
+    max-height: 580px;
+    object-fit: contain;
+    border-radius: var(--r-sm);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .showcase-content {
+    padding: 30px 28px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    flex: 1;
   }
-  
-  .sidebar-card {
-    padding: 24px;
-    background: var(--white);
-    border-radius: var(--r-md);
-    border: 1px solid var(--sand);
-  }
-  
-  .sidebar-title {
+
+  .showcase-title {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .showcase-desc {
+    font-size: 0.98rem;
+    line-height: 1.68;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  .showcase-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--sand);
+    padding-top: 18px;
+  }
+
+  .showcase-highlights li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ==========================================================
+     3. TECHNICAL NARRATIVE & SIDEBAR (2-COLUMN EDITORIAL GRID)
+     ========================================================== */
+  .technical-narrative-section {
+    padding: 90px 0;
+    background: var(--white);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .narrative-layout {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .narrative-main {
+    min-width: 0;
+  }
+
+  .editorial-chapter {
+    margin-top: 48px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .editorial-chapter:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .chapter-title {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--sand);
   }
-  
-  .details-list {
-    margin: 0;
+
+  .chapter-text {
+    font-size: 1.05rem;
+    line-height: 1.78;
+    color: var(--text-light);
+    margin-bottom: 18px;
   }
-  
-  .detail-row {
+
+  .editorial-list {
+    margin: 20px 0 0 20px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .editorial-list li {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--text-light);
+  }
+
+  .editorial-list strong {
+    color: var(--text);
+  }
+
+  .highlight-callout {
+    margin: 28px 0;
+    padding: 28px 32px;
+    background: var(--bone);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold-ink);
+    margin-bottom: 10px;
+  }
+
+  .highlight-callout p {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: var(--text);
+    margin: 0 0 16px;
+  }
+
+  .callout-list {
+    margin: 0 0 0 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .callout-list li {
+    font-size: 0.96rem;
+    line-height: 1.68;
+    color: var(--text-light);
+  }
+
+  /* Sidebar */
+  .narrative-sidebar {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .spec-card,
+  .guarantee-card {
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    padding: 28px;
+  }
+
+  .spec-header {
+    display: flex;
     align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--sand);
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
   }
-  
-  .detail-row:last-child {
+
+  .spec-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .spec-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .spec-row:last-child {
     border-bottom: none;
+    padding-bottom: 0;
   }
-  
-  .detail-row dt {
-    font-size: 0.85rem;
+
+  .spec-row dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     color: var(--text-muted);
   }
-  
-  .detail-row dd {
-    font-size: 0.9rem;
+
+  .spec-row dd {
+    font-size: 0.94rem;
     font-weight: 500;
     color: var(--text);
     margin: 0;
+    line-height: 1.45;
   }
-  
+
   .scope-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
-  
+
   .scope-item {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.55;
     color: var(--text-light);
   }
-  
-  .scope-item svg {
+
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
     margin-top: 2px;
   }
 
-  /* CTA */
-  .project-cta {
-    padding: 80px 0;
+  .guarantee-card {
     background: var(--ink);
-    text-align: center;
-  }
-  
-  .project-cta .container {
-    max-width: 600px;
-  }
-  
-  .cta-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    font-weight: 500;
     color: var(--white);
-    margin-bottom: 12px;
-  }
-  
-  .cta-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 28px;
+    border: 1px solid rgba(201,169,97,0.3);
   }
 
-  /* Lightbox */
+  .guarantee-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .guarantee-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .guarantee-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+
+  /* ==========================================================
+     4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED)
+     ========================================================== */
+  .before-after-section {
+    padding: 85px 0;
+    background: var(--bone);
+  }
+
+  .comparison-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .comparison-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    padding: 24px;
+    box-shadow: var(--e-1);
+  }
+
+  .comparison-item {
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
+
+  .comparison-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .comparison-image-wrapper {
+    position: relative;
+    background: var(--ink-soft);
+    border-radius: var(--r-sm);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .comparison-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--r-sm);
+    box-shadow: var(--e-1);
+  }
+
+  .before-label {
+    background: #e63946;
+    color: #ffffff;
+  }
+
+  .after-label {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  /* ZERO CROPPING IN COMPARISON IMAGES */
+  .comparison-image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
+  .comparison-caption {
+    margin-top: 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  /* ==========================================================
+     5. GALLERY WITH FILTER TABS AND ZERO-CROP LAYOUT
+     ========================================================== */
+  .gallery-section {
+    padding: 95px 0 100px;
+    background: var(--white);
+  }
+
+  .gallery-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-full);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .filter-btn:hover {
+    background: var(--sand);
+    color: var(--text);
+  }
+
+  .filter-btn.active {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+
+  .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(201,169,97,0.2);
+    color: var(--gold-ink);
+    border-radius: 12px;
+  }
+
+  .filter-btn.active .filter-count {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  /* Zero-Crop Grid Cards */
+  .gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .gallery-card {
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+  }
+
+  .gallery-card.card-landscape {
+    grid-column: span 2;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,0.4);
+  }
+
+  .gallery-card.hidden {
+    display: none !important;
+  }
+
+  .card-image-box {
+    position: relative;
+    background: var(--ink-soft);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    overflow: hidden;
+  }
+
+  .card-landscape .card-image-box {
+    min-height: 420px;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: var(--r-sm);
+    box-shadow: var(--e-1);
+  }
+
+  /* CRITICAL: NATURAL ASPECT RATIO - ZERO CROPPING */
+  .card-image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 2px;
+    transition: transform 0.4s var(--ease-out);
+  }
+
+  .gallery-card:hover .card-image-box img {
+    transform: scale(1.02);
+  }
+
+  .card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20,18,14,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-card:hover .card-hover-overlay {
+    opacity: 1;
+  }
+
+  .hover-zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--r-full);
+    box-shadow: var(--e-2);
+    transform: translateY(8px);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-card:hover .hover-zoom-btn {
+    transform: translateY(0);
+  }
+
+  .card-caption-box {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-category-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.92rem;
+    line-height: 1.62;
+    color: var(--text-muted);
+  }
+
+  /* ==========================================================
+     6. LUXURY CTA SECTION
+     ========================================================== */
+  .project-cta-luxury {
+    position: relative;
+    padding: 100px 0;
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cta-backdrop {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 50% 10%, rgba(201,169,97,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(201,169,97,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .cta-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .cta-text {
+    font-size: 1.08rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+  }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .btn-secondary-luxury {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--r-full);
+    transition: all 0.25s ease;
+  }
+
+  .btn-secondary-luxury:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ==========================================================
+     7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING)
+     ========================================================== */
   .lightbox {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    background: rgba(14,12,10,0.96);
+    backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 40px;
   }
-  
+
   .lightbox.active {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .lightbox-content {
-    max-width: 90vw;
-    max-height: 80vh;
-    text-align: center;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
+    max-width: 1100px;
+    max-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.96);
+    transition: transform 0.3s var(--ease-out);
   }
-  
+
   .lightbox.active .lightbox-content {
     transform: scale(1);
   }
-  
-  .lightbox-content img {
+
+  .lightbox-img-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 72vh;
+    margin-bottom: 24px;
+  }
+
+  /* CRITICAL: LIGHTBOX IMAGE COMPLETELY UNCROPPED */
+  .lightbox-img-wrapper img {
     max-width: 100%;
-    max-height: 75vh;
+    max-height: 72vh;
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   }
-  
+
+  .lightbox-info {
+    text-align: center;
+    max-width: 780px;
+    color: var(--white);
+  }
+
+  .lightbox-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .lightbox-badge {
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: var(--r-sm);
+  }
+
+  .lightbox-counter {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+
+  .lightbox-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
   .lightbox-caption {
-    margin-top: 16px;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
   }
-  
+
   .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    top: 24px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
     border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 1.5rem;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-size: 1.8rem;
     cursor: pointer;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10;
   }
-  
+
   .lightbox-close:hover {
     background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
   }
-  
+
   .lightbox-prev,
   .lightbox-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
     cursor: pointer;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
-  }
-  
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255,255,255,0.2);
-  }
-  
-  .lightbox-prev { left: 20px; }
-  .lightbox-next { right: 20px; }
-  
-  .lightbox-counter {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    padding: 6px 14px;
-    background: rgba(255,255,255,0.1);
-    border-radius: var(--r-full);
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10;
   }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .project-layout {
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255,255,255,0.22);
+  }
+
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ==========================================================
+     8. RESPONSIVE BREAKPOINTS
+     ========================================================== */
+  @media (max-width: 1024px) {
+    .narrative-layout {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 48px;
     }
-    
-    .project-sidebar {
+
+    .narrative-sidebar {
       position: static;
-    }
-    
-    .gallery-grid {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    
-    .ba-grid {
-      grid-template-columns: 1fr;
+
+    .guarantee-card {
+      grid-column: span 2;
+    }
+
+    .gallery-masonry {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-card.card-landscape {
+      grid-column: span 2;
     }
   }
-  
-  @media (max-width: 600px) {
+
+  @media (max-width: 768px) {
     .project-hero {
-      padding-top: 40px;
+      padding: 145px 0 65px;
     }
-    
-    .hero-image {
-      max-height: 300px;
+
+    .hero-stats-ribbon {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
     }
-    
-    .hero-content {
-      padding: 24px 24px 32px;
+
+    .stat-divider {
+      width: 100%;
+      height: 1px;
     }
-    
-    .project-body {
-      padding: 40px 0 60px;
+
+    .showcase-grid,
+    .comparison-pair {
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
-    
-    .gallery-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+
+    .showcase-image-frame,
+    .comparison-image-wrapper {
+      min-height: 340px;
     }
-    
+
+    .narrative-sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .guarantee-card {
+      grid-column: span 1;
+    }
+
+    .gallery-masonry {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-card.card-landscape {
+      grid-column: span 1;
+    }
+
+    .lightbox {
+      padding: 20px 14px;
+    }
+
     .lightbox-prev,
     .lightbox-next {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
     }
-    
-    .lightbox-prev { left: 10px; }
-    .lightbox-next { right: 10px; }
+
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+
+    .lightbox-close {
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+    }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    /* ==========================================================
+       1. GALLERY FILTER TABS
+       ========================================================== */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryCards = document.querySelectorAll('.gallery-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetFilter = btn.getAttribute('data-filter');
+
+        // Toggle active button state
+        filterButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Filter cards
+        galleryCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (targetFilter === 'all' || category === targetFilter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    /* ==========================================================
+       2. INTERACTIVE LIGHTBOX SYSTEM
+       ========================================================== */
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxBadge = document.getElementById('lightbox-badge');
     const lightboxCurrent = document.getElementById('lightbox-current');
-    const lightboxTotal = document.getElementById('lightbox-total');
     const closeBtn = document.querySelector('.lightbox-close');
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
-    
-    let currentImages = [];
+
+    // Build items list from gallery and comparison pairs
+    interface LightboxItem {
+      src: string;
+      alt: string;
+      title: string;
+      caption: string;
+      badge: string;
+    }
+
+    let items: LightboxItem[] = [];
     let currentIndex = 0;
-    
-    function openLightbox(images, index) {
-      currentImages = images;
+
+    // Populate items from gallery cards
+    const cardElements = document.querySelectorAll('.gallery-card');
+    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
+      const img = el.querySelector('img');
+      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
+      return {
+        src: el.getAttribute('data-src') || img?.src || '',
+        alt: el.getAttribute('data-alt') || img?.alt || '',
+        title: el.getAttribute('data-title') || 'Remodelación de Baño',
+        caption: el.getAttribute('data-caption') || '',
+        badge: badge
+      };
+    });
+
+    function openLightbox(newItems: LightboxItem[], index: number) {
+      if (!lightbox || !lightboxImg) return;
+      items = newItems;
       currentIndex = index;
       updateLightbox();
       lightbox.classList.add('active');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
-    
+
     function closeLightbox() {
+      if (!lightbox) return;
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
-    
+
     function updateLightbox() {
-      const img = currentImages[currentIndex];
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.alt;
-      lightboxCurrent.textContent = currentIndex + 1;
-      lightboxTotal.textContent = currentImages.length;
+      if (!lightboxImg || !items[currentIndex]) return;
+      const current = items[currentIndex];
+      lightboxImg.src = current.src;
+      lightboxImg.alt = current.alt;
+      if (lightboxTitle) lightboxTitle.textContent = current.title;
+      if (lightboxCaption) lightboxCaption.textContent = current.caption;
+      if (lightboxBadge) lightboxBadge.textContent = current.badge;
+      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
     }
-    
+
     function prevImage() {
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      if (!items.length) return;
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
       updateLightbox();
     }
-    
+
     function nextImage() {
-      currentIndex = (currentIndex + 1) % currentImages.length;
+      if (!items.length) return;
+      currentIndex = (currentIndex + 1) % items.length;
       updateLightbox();
     }
-    
+
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (prevBtn) prevBtn.addEventListener('click', prevImage);
     if (nextBtn) nextBtn.addEventListener('click', nextImage);
-    
+
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
       });
     }
-    
+
     document.addEventListener('keydown', (e) => {
       if (!lightbox || !lightbox.classList.contains('active')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowRight') nextImage();
     });
-    
-    // Collect all gallery images
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const allGalleryImages = Array.from(galleryItems).map(item => ({
-      src: item.dataset.src,
-      alt: item.dataset.alt
-    }));
-    
-    galleryItems.forEach((el, idx) => {
+
+    // Attach click events to gallery cards
+    cardElements.forEach((el, idx) => {
       el.addEventListener('click', () => {
-        openLightbox(allGalleryImages, idx);
+        openLightbox(galleryItems, idx);
       });
     });
-    
-    // Before/After clicks
-    document.querySelectorAll('.ba-item').forEach((el) => {
+
+    // Attach click events to Before/After comparison items
+    document.querySelectorAll('.comparison-item').forEach(el => {
       el.addEventListener('click', () => {
-        const src = el.dataset.src;
-        const alt = el.dataset.alt;
-        openLightbox([{ src, alt }], 0);
+        const img = el.querySelector('img');
+        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
+        const item: LightboxItem = {
+          src: el.getAttribute('data-src') || img?.src || '',
+          alt: el.getAttribute('data-alt') || img?.alt || '',
+          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
+          caption: el.querySelector('.comparison-caption')?.textContent || '',
+          badge: label
+        };
+        openLightbox([item], 0);
+      });
+    });
+
+    // Attach click events to showcase cards
+    document.querySelectorAll('.showcase-card').forEach(el => {
+      el.addEventListener('click', () => {
+        const img = el.querySelector('img');
+        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
+        if (!img) return;
+        const item: LightboxItem = {
+          src: img.src,
+          alt: img.alt,
+          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
+          caption: el.querySelector('.showcase-desc')?.textContent || '',
+          badge: badge
+        };
+        openLightbox([item], 0);
       });
     });
   });
