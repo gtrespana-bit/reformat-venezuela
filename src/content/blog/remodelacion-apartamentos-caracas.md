@@ -5,14 +5,14 @@ date: 2026-07-27
 category: "Guías"
 image: "/images/arquitectura-600.webp"
 readTime: "14 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Remodelar un Apartamento en Caracas No Es Como Remodelar una Casa
 
 Si vives en un apartamento en Caracas y estás pensando en remodelar, hay reglas que no aplican a casas independientes. Los edificios residenciales tienen normativas internas, horarios restringidos, límites de carga en ascensores y juntas de condominio que pueden frenar tu proyecto si no planificas bien.
 
-En ReformaT Venezuela llevamos más de 23 años remodelando apartamentos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo y La Lagunita**. Conocemos las normas de los edificios más conocidos de la ciudad y sabemos cómo trabajar sin conflictos con los vecinos.
+En RemodelaT Venezuela llevamos más de 23 años remodelando apartamentos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo y La Lagunita**. Conocemos las normas de los edificios más conocidos de la ciudad y sabemos cómo trabajar sin conflictos con los vecinos.
 
 Esta guía te da todo lo que necesitas: costos reales, tiempos, permisos y los errores que debes evitar.
 
@@ -142,7 +142,7 @@ Zonas premium con apartamentos de gran metraje (150-300 m²). Las remodelaciones
 
 ## ¿Listo para Remodelar tu Apartamento en Caracas?
 
-En ReformaT Venezuela manejamos todo el proceso: permisos, diseño, obra y acabados. Trabajamos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo, La Lagunita, Campo Alegre, Country Club, Alto Hatillo, Los Naranjos y Prados del Este**.
+En RemodelaT Venezuela manejamos todo el proceso: permisos, diseño, obra y acabados. Trabajamos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo, La Lagunita, Campo Alegre, Country Club, Alto Hatillo, Los Naranjos y Prados del Este**.
 
 **Solicita tu valoración técnica por WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

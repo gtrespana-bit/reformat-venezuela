@@ -1,4 +1,4 @@
-# 🔍 Auditoría SEO Técnica — ReformaT Venezuela
+# 🔍 Auditoría SEO Técnica — RemodelaT Venezuela
 > Fecha: 2026-07-27 · Basada en análisis del código + build real (148 páginas)
 
 He revisado el código fuente, compilado el sitio y verificado el HTML generado. El proyecto está **muy por encima de la media** en SEO on-page (schema, sitemap, i18n, contenido, zonas locales). Por eso este informe **omite lo que ya hacéis bien** y se centra solo en lo que **realmente necesita arreglo**.
@@ -79,9 +79,9 @@ Pero **no hay input de búsqueda en `/blog`**. Si Google muestra la caja de bús
 
 ### 7. Títulos > 60 caracteres (se truncarán en SERP)
 Verificado:
-- Home: **72** chars — "ReformaT Venezuela | Reformas en Valencia, San Diego, Carabobo y Caracas"
+- Home: **72** chars — "RemodelaT Venezuela | Reformas en Valencia, San Diego, Carabobo y Caracas"
 - Cocina: **72** chars
-Recortar a ≤60 para que no se corte con "…". Ej. "Reformas en Valencia, Carabobo y Caracas | ReformaT".
+Recortar a ≤60 para que no se corte con "…". Ej. "Reformas en Valencia, Carabobo y Caracas | RemodelaT".
 
 ### 8. Zone pages: añadir "prueba" local única
 Lo bueno: las zone pages **sí** tienen contenido diferenciado (características del parque inmobiliario, normativas de condominio, etc.) — **no** son doorway pages. ✓

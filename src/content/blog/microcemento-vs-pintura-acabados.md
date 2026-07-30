@@ -5,14 +5,14 @@ date: 2026-07-22
 category: "Materiales"
 image: "/images/pintura-microcemento-bano.webp"
 readTime: "12 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: Dos Mundos, Dos Presupuestos
 
 Cuando llega el momento de acabar las paredes, muchos propietarios en Venezuela se debaten entre la pintura de siempre y el microcemento que está de moda. La respuesta honesta es que no hay uno mejor que otro: hay uno más adecuado para tu espacio, tu presupuesto y tu estilo de vida.
 
-En ReformaT Venezuela aplicamos ambos acabados a diario en **Caracas, Valencia, San Diego y Carabobo**. Esta comparativa te ayuda a decidir con información real, no con marketing.
+En RemodelaT Venezuela aplicamos ambos acabados a diario en **Caracas, Valencia, San Diego y Carabobo**. Esta comparativa te ayuda a decidir con información real, no con marketing.
 
 ![Microcemento aplicado en pared de baño](/images/pintura-microcemento-bano.webp)
 

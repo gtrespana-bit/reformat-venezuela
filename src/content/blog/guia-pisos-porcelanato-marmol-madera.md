@@ -5,7 +5,7 @@ date: 2026-07-27
 category: "Materiales"
 image: "/images/suelo-porcelanato-800.webp"
 readTime: "15 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Elegir Piso No Es Solo Estética: Es una Decisión de 20 Años
@@ -37,7 +37,7 @@ Esta guía compara los tres materiales más solicitados en remodelaciones venezo
 
 ### ¿Por qué domina?
 
-El porcelanato representa el 70% de los pisos que instalamos en ReformaT Venezuela. Las razones:
+El porcelanato representa el 70% de los pisos que instalamos en RemodelaT Venezuela. Las razones:
 
 1. **Relación precio/durabilidad imbatible.** Un porcelanato de $25/m² dura lo mismo que un mármol de $120/m².
 2. **Versatilidad total.** Hay porcelanatos que imitan madera, mármol, cemento y piedra con realismo fotográfico.
@@ -185,7 +185,7 @@ Para áreas de piscina, también ofrecemos [mantenimiento y remodelación de pis
 
 ## Solicita tu asesoría técnica
 
-No elijas piso solo por fotos. En ReformaT Venezuela te mostramos muestras físicas, calculamos el metraje exacto (con desperdicio incluido) y te damos el presupuesto instalado llave en mano.
+No elijas piso solo por fotos. En RemodelaT Venezuela te mostramos muestras físicas, calculamos el metraje exacto (con desperdicio incluido) y te damos el presupuesto instalado llave en mano.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

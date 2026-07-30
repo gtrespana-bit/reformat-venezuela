@@ -113,7 +113,7 @@ const BASE = 'src/pages/servicios/';
 <img src="/images/suelo-laminado-madera.webp" alt="Suelo laminado imitación madera instalado en sala moderna" loading="lazy" decoding="async" />
 
 <h2>Preparación del Soporte: La Clave del Éxito</h2>
-<p>El 80% de los problemas en suelos instalados se deben a una mala preparación del soporte. En ReformaT dedicamos el tiempo necesario a esta fase crítica:</p>
+<p>El 80% de los problemas en suelos instalados se deben a una mala preparación del soporte. En RemodelaT dedicamos el tiempo necesario a esta fase crítica:</p>
 <ul>
 <li><strong>Nivelación:</strong> Aplicamos pasta autonivelante cuando las irregularidades superan los 3 mm por metro lineal. Usamos productos Weber y Sika con secado rápido.</li>
 <li><strong>Impermeabilización:</strong> En plantas bajas y zonas húmedas, aplicamos barrera de vapor y membrana impermeabilizante antes de la instalación.</li>

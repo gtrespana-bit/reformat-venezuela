@@ -5,14 +5,14 @@ date: 2026-07-25
 category: "Guides"
 image: "/images/piscinas-400.webp"
 readTime: "11 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: A Poorly Maintained Pool Costs 3 Times More
 
 In Venezuela's climate, a pool is a luxury that requires consistent care. Many owners neglect maintenance and end up with green water, algae, equipment failures, or expensive repairs.
 
-At ReformaT Venezuela we have maintained and remodeled hundreds of pools in **Caracas, Valencia, San Diego and Carabobo**. In this guide we give you the real 2026 maintenance routine, costs, and when it's better to call professionals.
+At RemodelaT Venezuela we have maintained and remodeled hundreds of pools in **Caracas, Valencia, San Diego and Carabobo**. In this guide we give you the real 2026 maintenance routine, costs, and when it's better to call professionals.
 
 ![Well-maintained residential pool in Venezuela](/images/piscinas-400.webp)
 
@@ -85,7 +85,7 @@ At ReformaT Venezuela we have maintained and remodeled hundreds of pools in **Ca
 - You want warranty on chemicals and work
 - You had repeated problems in the past
 
-At ReformaT we offer **monthly maintenance plans** with visit, chemicals, filter cleaning and 24/7 support for emergencies.
+At RemodelaT we offer **monthly maintenance plans** with visit, chemicals, filter cleaning and 24/7 support for emergencies.
 
 ---
 

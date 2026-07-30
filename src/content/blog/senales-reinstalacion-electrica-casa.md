@@ -5,7 +5,7 @@ date: 2026-07-26
 category: "Guías"
 image: "/images/electricidad-seguridad.webp"
 readTime: "10 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: Tu Casa Te Avisa Antes de Fallar
@@ -14,7 +14,7 @@ Las instalaciones eléctricas no fallan de golpe: avisan. El problema es que la 
 
 En Venezuela, una gran parte del parque de viviendas tiene más de 25 años y fue cableado para un consumo muy inferior al actual. En los 80, una casa tenía televisor, nevera y plancha. Hoy tiene aire acondicionado, microondas, horno eléctrico, varios televisores, cargadores y computadoras. El cableado original simplemente no fue diseñado para esto.
 
-En ReformaT Venezuela hemos inspeccionado cientos de viviendas en **Caracas, Valencia y San Diego**. Estas son las 7 señales que, cuando aparecen juntas, indican que necesitas una reinstalación.
+En RemodelaT Venezuela hemos inspeccionado cientos de viviendas en **Caracas, Valencia y San Diego**. Estas son las 7 señales que, cuando aparecen juntas, indican que necesitas una reinstalación.
 
 ![Instalación eléctrica segura y ordenada](/images/electricidad-800.webp)
 
@@ -93,7 +93,7 @@ No siempre. Si existe tubería conduit accesible, se puede recablear por ahí. S
 Depende de la gravedad. Si hay olor a quemado, tomacorrientes calientes o breakers que se disparan constantemente, reduce la carga y hazlo revisar pronto. No esperes a que algo falle.
 
 ### ¿Cuánto cuesta una revisión eléctrica?
-Una inspección profesional es económica comparada con el costo de un incendio. En ReformaT ofrecemos [valoración técnica](/contacto) para evaluar tu caso.
+Una inspección profesional es económica comparada con el costo de un incendio. En RemodelaT ofrecemos [valoración técnica](/contacto) para evaluar tu caso.
 
 ---
 

@@ -5,7 +5,7 @@ date: 2026-06-04
 category: "Presupuestos"
 image: "/images/cocina-800.webp"
 readTime: "15 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: El Precio Real De Una Cocina Nueva
@@ -14,7 +14,7 @@ Reformar la cocina es una de las decisiones más importantes que tomarás como p
 
 Pero antes de empezar, necesitas saber **cuánto cuesta realmente** una reforma de cocina en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** en 2026. Y aquí está el problema: en internet encontrarás rangos absurdos que van desde $2,000 hasta $25,000, sin contexto ni desglose.
 
-En ReformaT Venezuela llevamos más de 23 años ejecutando reformas de cocinas en **Caracas, Valencia y San Diego**. Hemos trabajado con presupuestos de $2,500 y de $12,000. La diferencia no está en "cobrar más o menos", sino en **qué incluye cada proyecto**.
+En RemodelaT Venezuela llevamos más de 23 años ejecutando reformas de cocinas en **Caracas, Valencia y San Diego**. Hemos trabajado con presupuestos de $2,500 y de $12,000. La diferencia no está en "cobrar más o menos", sino en **qué incluye cada proyecto**.
 
 En este artículo te vamos a dar **precios reales, desglosados y actualizados** para 2026. Sin humo, sin números inflados, sin letras pequeñas. Solo la verdad sobre lo que cuesta reformar una cocina en Venezuela hoy.
 
@@ -258,7 +258,7 @@ El tiempo es dinero, y también comodidad. Estos son los plazos realistas para u
 - Licencias municipales (si son necesarias)
 - **Tráfico en Caracas** (puede añadir 3-5 días)
 
-En ReformaT Venezuela nos comprometemos con **plazos por escrito** y penalizaciones si no los cumplimos. Porque sabemos que estar sin cocina es un trastorno enorme.
+En RemodelaT Venezuela nos comprometemos con **plazos por escrito** y penalizaciones si no los cumplimos. Porque sabemos que estar sin cocina es un trastorno enorme.
 
 ---
 
@@ -304,7 +304,7 @@ Ambas opciones tienen ventajas:
 - **Tú compras**: Control total de calidad y precio, pero más gestión
 - **Contratista compra**: Más cómodo, suele tener descuentos con proveedores, pero debes verificar calidades
 
-En ReformaT trabajamos con ambas modalidades. Tú decides.
+En RemodelaT trabajamos con ambas modalidades. Tú decides.
 
 ### ¿Cuánto aumenta el valor de mi propiedad con una cocina nueva?
 
@@ -330,7 +330,7 @@ Una cocina bien reformada no es un gasto. Es una inversión en tu calidad de vid
 
 ### ¿Listo Para Empezar Tu Reforma?
 
-En ReformaT Venezuela te ofrecemos:
+En RemodelaT Venezuela te ofrecemos:
 
 ✅ **Valoración técnica inicial** a tu vivienda en **Caracas, Valencia, San Diego o Carabobo**
 

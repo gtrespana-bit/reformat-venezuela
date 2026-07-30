@@ -14,7 +14,7 @@ const services = [
     heroImage: '/images/cocina.webp',
     bodyImage: '/images/cocina-isla-central.webp',
     priceFrom: '$2,500',
-    intro: (zone, neighborhoods) => `¿Buscas una <strong>remodelación de cocina en ${zone}</strong>? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${zone} y ${neighborhoods}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona y las soluciones que mejor aprovechan cada espacio.`,
+    intro: (zone, neighborhoods) => `¿Buscas una <strong>remodelación de cocina en ${zone}</strong>? En RemodelaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${zone} y ${neighborhoods}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona y las soluciones que mejor aprovechan cada espacio.`,
     sections: (zone) => `
 <h2>Diseño de Cocinas a Medida para ${zone}</h2>
 <p>Cada cocina es única. Nuestro equipo de diseño realiza un levantamiento detallado del espacio, analiza la distribución existente y propone soluciones que maximizan el almacenamiento, la circulación y la ergonomía. Trabajamos con renders 3D fotorrealistas para que veas tu cocina terminada antes de iniciar la obra.</p>
@@ -58,7 +58,7 @@ const services = [
     intro: (zone, neighborhoods) => `Expertos en <strong>remodelación de baños en ${zone}</strong>. Transformamos baños antiguos en espacios modernos, seguros y eficientes. Impermeabilización garantizada, duchas de obra, grifería premium y acabados de lujo para viviendas en ${zone} y ${neighborhoods}.`,
     sections: (zone) => `
 <h2>Remodelación Integral de Baños en ${zone}</h2>
-<p>Un baño bien diseñado mejora tu calidad de vida y revaloriza tu vivienda. En ReformaT ejecutamos remodelaciones completas que incluyen demolición, nuevas instalaciones hidrosanitarias, impermeabilización certificada, alicatados, sanitarios, grifería y accesorios.</p>
+<p>Un baño bien diseñado mejora tu calidad de vida y revaloriza tu vivienda. En RemodelaT ejecutamos remodelaciones completas que incluyen demolición, nuevas instalaciones hidrosanitarias, impermeabilización certificada, alicatados, sanitarios, grifería y accesorios.</p>
 <p>En ${zone}, muchas viviendas tienen baños con más de 20 años de antigüedad. Las tuberías de hierro galvanizado se corroen, la impermeabilización falla y la distribución no aprovecha el espacio. Nosotros solucionamos todo eso en una sola obra.</p>
 
 <h2>Impermeabilización Garantizada</h2>
@@ -101,7 +101,7 @@ const services = [
     intro: (zone, neighborhoods) => `<strong>Remodelación integral de viviendas en ${zone}</strong>: apartamentos, casas y oficinas llave en mano. Diseño, permisos, obra y acabados con un único interlocutor. Más de 200 proyectos entregados en ${zone}, ${neighborhoods} y toda el área metropolitana.`,
     sections: (zone) => `
 <h2>Remodelación Integral Llave en Mano en ${zone}</h2>
-<p>Una remodelación integral transforma por completo tu vivienda: nueva distribución, instalaciones renovadas, acabados premium y diseño de autor. En ReformaT gestionamos todo el proceso con un único equipo, un único presupuesto y un único responsable de proyecto.</p>
+<p>Una remodelación integral transforma por completo tu vivienda: nueva distribución, instalaciones renovadas, acabados premium y diseño de autor. En RemodelaT gestionamos todo el proceso con un único equipo, un único presupuesto y un único responsable de proyecto.</p>
 <p>En ${zone}, muchos apartamentos y casas tienen más de 20-30 años. Las instalaciones eléctricas e hidrosanitarias están obsoletas, la distribución no se adapta a la vida moderna y los acabados muestran el paso del tiempo. Una remodelación integral resuelve todo esto y revaloriza tu propiedad entre un 20% y un 40%.</p>
 
 <h2>¿Qué Incluye Nuestra Remodelación Integral?</h2>
@@ -125,7 +125,7 @@ const services = [
 <li><strong>Semana 15:</strong> Montaje final, limpieza y entrega</li>
 </ul>
 
-<h2>¿Por Qué Elegir ReformaT en ${zone}?</h2>
+<h2>¿Por Qué Elegir RemodelaT en ${zone}?</h2>
 <p>Conocemos ${zone} como la palma de nuestra mano: las normativas de sus condominios, los horarios de obra permitidos, las particularidades estructurales de sus edificios y las mejores soluciones para cada tipo de vivienda. Nuestro equipo ha trabajado en más de 50 proyectos en la zona.</p>
 <p>Además, al ser una empresa local con base en Valencia y presencia en Caracas, ofrecemos tiempos de respuesta rápidos, visitas de seguimiento semanales y garantía de cercanía durante y después de la obra.</p>`,
     faqs: (zone) => [
@@ -201,7 +201,7 @@ for (const service of services) {
       continue;
     }
 
-    const title = `${service.name} en ${zone.name} | Precios 2026 | ReformaT`;
+    const title = `${service.name} en ${zone.name} | Precios 2026 | RemodelaT`;
     const description = `${zone.description} Presupuestos gratis. +15 años de experiencia. Garantía por escrito.`;
     const h1Line1 = `${service.name} en`;
     const h1Line2 = zone.name;
@@ -253,7 +253,7 @@ import Breadcrumb from '../components/Breadcrumb.astro';
         <p>${zone.localInsight}</p>
       </div>
 
-      <img src="${service.bodyImage}" alt="${service.name} en ${zone.name} - ReformaT Venezuela" loading="eager" fetchpriority="high" decoding="async" />
+      <img src="${service.bodyImage}" alt="${service.name} en ${zone.name} - RemodelaT Venezuela" loading="eager" fetchpriority="high" decoding="async" />
 
       ${service.sections(zone.name)}
 

@@ -5,14 +5,14 @@ date: 2026-07-27
 category: "Materials"
 image: "/images/revestimientos-400.webp"
 readTime: "11 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: Walls That Make a Difference
 
 Beyond paint, decorative wall cladding has become one of the most requested upgrades in Venezuelan remodels. It adds texture, warmth and a premium look without having to remodel the entire room.
 
-At ReformaT Venezuela we install stone, wood, panels and microcement in homes and offices in **Caracas, Valencia and Carabobo**. Here is a practical 2026 guide with real prices.
+At RemodelaT Venezuela we install stone, wood, panels and microcement in homes and offices in **Caracas, Valencia and Carabobo**. Here is a practical 2026 guide with real prices.
 
 ---
 

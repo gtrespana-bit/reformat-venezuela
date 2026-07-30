@@ -326,7 +326,7 @@ const SERVICES = {
 <h3>4. Entrega y garantía</h3>
 <p>Entregamos con limpieza final, prueba de funcionamiento y garantía por escrito: 5 años en impermeabilización y 2 años en instalación.</p>
 
-<h2>Por qué ReformaT en ${z.name}</h2>
+<h2>Por qué RemodelaT en ${z.name}</h2>
 <p>${z.style} Conocemos las tipologías de vivienda de ${z.name} —cerca de ${z.landmark}— y los retos específicos de la zona. ${z.challenge}</p>`,
     faq: (z) => [
       { question: `¿Cuánto cuesta remodelar un baño en ${z.name}?`, answer: `Un baño estándar en ${z.name} parte desde $1,200 (4-6 m² con calidades medias). Los baños con ducha de obra oscilan entre $2,800 y $5,500, y los premium tipo spa superan los $5,500. Elaboramos presupuesto detallado sin compromiso.` },
@@ -346,8 +346,8 @@ const SERVICES = {
     waText: 'mi cocina',
     priceFrom: '$2,500',
     priceLabel: 'cocinas',
-    excerpt: (z) => `¿Buscas una remodelación de cocina en ${z.name}? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${z.name} y ${z.barrios.slice(0, 3).join(', ')}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona.`,
-    intro: (z) => `¿Buscas una <strong>remodelación de cocina en ${z.name}</strong>? En ReformaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${z.name} y ${z.barrios.slice(0, 3).join(', ')}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona.`,
+    excerpt: (z) => `¿Buscas una remodelación de cocina en ${z.name}? En RemodelaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${z.name} y ${z.barrios.slice(0, 3).join(', ')}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona.`,
+    intro: (z) => `¿Buscas una <strong>remodelación de cocina en ${z.name}</strong>? En RemodelaT Venezuela diseñamos y ejecutamos cocinas modernas, funcionales y a medida para los hogares de ${z.name} y ${z.barrios.slice(0, 3).join(', ')}. Con más de 15 años de experiencia, conocemos las tipologías de viviendas de la zona.`,
     localTitle: (z) => `Cocinas a la medida de ${z.name}`,
     localBody: (z) => `${z.housing} ${z.challenge}`,
     sections: (z) => `
@@ -383,7 +383,7 @@ const SERVICES = {
 <h3>4. Instalación y entrega</h3>
 <p>Instalamos encimera, electrodomésticos y acabados finales. Entregamos con limpieza y garantía por escrito de 2 años.</p>
 
-<h2>Por qué ReformaT en ${z.name}</h2>
+<h2>Por qué RemodelaT en ${z.name}</h2>
 <p>${z.style} Conocemos las tipologías de vivienda de ${z.name} —cerca de ${z.landmark}— y diseñamos cocinas que aprovechan cada espacio. ${z.challenge}</p>`,
     faq: (z) => [
       { question: `¿Cuánto cuesta remodelar una cocina en ${z.name}?`, answer: `Una remodelación de cocina estándar en ${z.name} parte desde $2,500 (gabinetes, encimera, salpicadero e instalaciones). Las cocinas premium con isla central y electrodomésticos integrados oscilan entre $5,000 y $12,000. Elaboramos presupuesto detallado sin compromiso.` },
@@ -409,7 +409,7 @@ const SERVICES = {
     localBody: (z) => `${z.housing} ${z.challenge}`,
     sections: (z) => `
 <h2>Qué incluye una remodelación integral en ${z.name}</h2>
-<p>Una remodelación integral transforma por completo tu vivienda: nueva distribución, instalaciones renovadas, acabados premium y diseño de autor. En ReformaT gestionamos todo el proceso con un único equipo, un único presupuesto y un único responsable de proyecto.</p>
+<p>Una remodelación integral transforma por completo tu vivienda: nueva distribución, instalaciones renovadas, acabados premium y diseño de autor. En RemodelaT gestionamos todo el proceso con un único equipo, un único presupuesto y un único responsable de proyecto.</p>
 <ul>
 <li><strong>Diseño y proyecto:</strong> levantamiento de planos, diseño 3D fotorrealista, memoria de calidades y presupuesto cerrado</li>
 <li><strong>Gestión de permisos:</strong> trámites ante condominio, alcaldía y entes competentes según la zona</li>
@@ -441,7 +441,7 @@ const SERVICES = {
 <h3>4. Entrega llave en mano</h3>
 <p>Entregamos la vivienda lista para habitar, con limpieza final, pruebas de instalaciones y garantía por escrito de hasta 5 años.</p>
 
-<h2>Por qué ReformaT en ${z.name}</h2>
+<h2>Por qué RemodelaT en ${z.name}</h2>
 <p>${z.style} Conocemos las tipologías de vivienda de ${z.name} —cerca de ${z.landmark}— y los retos específicos de cada urbanización. ${z.challenge}</p>`,
     faq: (z) => [
       { question: `¿Cuánto cuesta una remodelación integral en ${z.name}?`, answer: `Una remodelación integral en ${z.name} parte desde $15,000 para apartamentos de 80 m² con calidades estándar. Proyectos premium con redistribución completa y acabados de lujo: $25,000-$50,000+. Presupuesto cerrado por partidas sin sorpresas.` },
@@ -504,7 +504,7 @@ function faqItems(faq) {
 
 function buildPage(zone, svc) {
   const s = SERVICES[svc];
-  const title = `${s.titleRoom} en ${zone.name} | Precios 2026 | ReformaT`;
+  const title = `${s.titleRoom} en ${zone.name} | Precios 2026 | RemodelaT`;
   const description = `Especialistas en ${s.titleRoom.toLowerCase()} en ${zone.name}, ${zone.city}. Trabajamos en ${zone.barrios.slice(0, 3).join(', ')} y todo ${zone.region === 'Caracas' ? 'el municipio' : 'Carabobo'}. Presupuestos gratis. +15 años de experiencia. Garantía por escrito.`;
   const waMsg = encodeURIComponent(`Hola, quiero remodelar ${s.waText} en ${zone.name}`);
   const pageUrl = `/${s.file}-${zone.slug}`;

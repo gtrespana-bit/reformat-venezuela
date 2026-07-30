@@ -5,14 +5,14 @@ date: 2026-07-26
 category: "Budgeting"
 image: "/images/pintura-400.webp"
 readTime: "10 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Price per m² That Nobody Explains Well
 
 When asking for a painting quote, the most common answer is "it depends on the m²." But what does that really mean? Many people receive vague numbers and later discover that "per m²" does not include preparation, primer, number of coats, or protection of furniture.
 
-At ReformaT Venezuela we have painted thousands of square meters in **Caracas, Valencia, San Diego and Carabobo**. Here are the **real 2026 prices**, broken down.
+At RemodelaT Venezuela we have painted thousands of square meters in **Caracas, Valencia, San Diego and Carabobo**. Here are the **real 2026 prices**, broken down.
 
 ---
 

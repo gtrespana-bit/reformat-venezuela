@@ -2,7 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 
-const whatsappText = 'Hello, I would like a technical assessment and more information about the ReformaT Method for my remodeling project.';
+const whatsappText = 'Hello, I would like a technical assessment and more information about the RemodelaT Method for my remodeling project.';
 
 const methodSteps = [
   ['01', 'Real technical diagnosis', 'We review measurements, existing utilities, moisture, substrates, slopes, access, logistics and the real conditions of the property before promising a solution.'],
@@ -34,16 +34,16 @@ const comparisonRows = [
 ---
 
 <BaseLayout
-  title="The ReformaT Method | Luxury Remodeling with Technical Precision"
-  description="Discover the ReformaT Method: technical diagnosis, specified materials, supervised execution, testing before closing, finish control and warranty by scope."
+  title="The RemodelaT Method | Luxury Remodeling with Technical Precision"
+  description="Discover the RemodelaT Method: technical diagnosis, specified materials, supervised execution, testing before closing, finish control and warranty by scope."
   image="/images/integrales-proyecto-completo.webp"
   activePage="metodo"
 >
   <header class="method-hero">
-    <img src="/images/integrales-proyecto-completo.webp" alt="Luxury remodeling executed with the ReformaT Method" class="method-hero-img" fetchpriority="high" loading="eager" decoding="async" />
+    <img src="/images/integrales-proyecto-completo.webp" alt="Luxury remodeling executed with the RemodelaT Method" class="method-hero-img" fetchpriority="high" loading="eager" decoding="async" />
     <div class="method-hero-overlay"></div>
     <div class="container method-hero-content">
-      <span class="method-eyebrow">The ReformaT Method</span>
+      <span class="method-eyebrow">The RemodelaT Method</span>
       <h1>Luxury remodeling without improvisation</h1>
       <p>A work protocol for homeowners who value technical precision, proper materials, flawless finishes and documented warranties.</p>
       <div class="method-hero-actions">
@@ -53,13 +53,13 @@ const comparisonRows = [
     </div>
   </header>
 
-  <section class="method-intro section"><div class="container intro-grid"><div><span class="tag">The standard</span><h2>It is not enough for a project to look good. It has to be built correctly.</h2></div><div class="intro-copy"><p>The final finish matters, but in high-end remodeling the true difference happens before that: diagnosis, substrate preparation, material specification, technical testing and supervision.</p><p>The ReformaT Method is designed to avoid common risks in poorly planned work: incompatible materials, utilities closed without testing, uneven surfaces, leaks, poor cuts or unclear warranties.</p></div></div></section>
+  <section class="method-intro section"><div class="container intro-grid"><div><span class="tag">The standard</span><h2>It is not enough for a project to look good. It has to be built correctly.</h2></div><div class="intro-copy"><p>The final finish matters, but in high-end remodeling the true difference happens before that: diagnosis, substrate preparation, material specification, technical testing and supervision.</p><p>The RemodelaT Method is designed to avoid common risks in poorly planned work: incompatible materials, utilities closed without testing, uneven surfaces, leaks, poor cuts or unclear warranties.</p></div></div></section>
 
   <section class="method-steps-section section bg-light"><div class="container"><div class="section-header"><span class="tag">Work protocol</span><h2 class="section-title">10 stages to control a demanding remodel</h2><p class="section-desc">Each phase reduces risk, improves the final result and helps the owner understand what is being done and why.</p></div><div class="method-steps-grid">{methodSteps.map(([number, title, text]) => (<article class="method-step-card"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>))}</div></div></section>
 
   <section class="technical-checks-section section"><div class="container checks-grid"><div class="checks-heading"><span class="tag">Technical control</span><h2>What we check before the finish hides it</h2><p>A porcelain tile, shower screen or custom kitchen can look spectacular. But if behind it there is moisture, poor leveling, the wrong adhesive or an untested installation, the result is not luxury: it is risk.</p></div><div class="checks-list">{technicalChecks.map((check) => (<article class="check-card"><h3>{check.area}</h3><ul>{check.items.map((item) => <li>{item}</li>)}</ul></article>))}</div></div></section>
 
-  <section class="comparison-section section"><div class="container"><div class="section-header on-dark"><span class="tag">The difference</span><h2 class="section-title">Improvised work vs. work with a method</h2><p class="section-desc">This is not about criticizing others. It is about explaining what changes when a remodel is executed with technical criteria and documented responsibility.</p></div><div class="comparison-card"><div class="comparison-head"><span>Without a method</span><span>The ReformaT Method</span></div>{comparisonRows.map(([withoutMethod, withMethod]) => (<div class="comparison-row"><p>{withoutMethod}</p><p>{withMethod}</p></div>))}</div></div></section>
+  <section class="comparison-section section"><div class="container"><div class="section-header on-dark"><span class="tag">The difference</span><h2 class="section-title">Improvised work vs. work with a method</h2><p class="section-desc">This is not about criticizing others. It is about explaining what changes when a remodel is executed with technical criteria and documented responsibility.</p></div><div class="comparison-card"><div class="comparison-head"><span>Without a method</span><span>The RemodelaT Method</span></div>{comparisonRows.map(([withoutMethod, withMethod]) => (<div class="comparison-row"><p>{withoutMethod}</p><p>{withMethod}</p></div>))}</div></div></section>
 
   <GuaranteeMatrix lang="en" variant="light" />
 

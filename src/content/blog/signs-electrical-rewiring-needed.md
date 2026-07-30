@@ -5,7 +5,7 @@ date: 2026-07-26
 category: "Guides"
 image: "/images/electricidad-400.webp"
 readTime: "10 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: Your House Warns You Before It Fails
@@ -14,7 +14,7 @@ Electrical installations don't fail suddenly — they give warnings. The problem
 
 In Venezuela, a large part of the housing stock is over 25 years old and was wired for much lower consumption than today. In the 80s, a house had a TV, fridge and iron. Today it has air conditioning, microwave, electric oven, multiple TVs, chargers and computers. The original wiring was simply not designed for this.
 
-At ReformaT Venezuela we have inspected hundreds of homes in **Caracas, Valencia and San Diego**. These are the 7 signs that, when they appear together, indicate you need a rewire.
+At RemodelaT Venezuela we have inspected hundreds of homes in **Caracas, Valencia and San Diego**. These are the 7 signs that, when they appear together, indicate you need a rewire.
 
 ![Safe and organized electrical installation](/images/electricidad-800.webp)
 
@@ -91,7 +91,7 @@ Not always. If there is accessible conduit pipe, it can be rewired through it. W
 It depends on the severity. If there is a burning smell, hot outlets or breakers tripping constantly, reduce the load and have it checked soon. Don't wait for something to fail.
 
 ### How much does an electrical inspection cost?
-A professional inspection is cheap compared to the cost of a fire. At ReformaT we offer a [technical assessment](/en/contact) to evaluate your case.
+A professional inspection is cheap compared to the cost of a fire. At RemodelaT we offer a [technical assessment](/en/contact) to evaluate your case.
 
 ---
 

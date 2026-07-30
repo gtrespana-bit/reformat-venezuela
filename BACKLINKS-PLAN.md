@@ -1,4 +1,4 @@
-# 🔗 Plan de Backlinks Locales — ReformaT Venezuela
+# 🔗 Plan de Backlinks Locales — RemodelaT Venezuela
 
 > Objetivo: Conseguir 20-30 backlinks de calidad desde sitios venezolanos en 4-8 semanas
 > Dominio: https://remodelat.net
@@ -9,7 +9,7 @@
 
 ## 📋 Textos base para registros
 
-**Nombre comercial:** ReformaT Venezuela
+**Nombre comercial:** RemodelaT Venezuela
 **Descripción corta (80 caracteres):**
 Remodelaciones integrales en Venezuela: cocinas, baños, pisos, piscinas y más.
 
@@ -17,7 +17,7 @@ Remodelaciones integrales en Venezuela: cocinas, baños, pisos, piscinas y más.
 Empresa de remodelaciones en Valencia, Caracas y Carabobo. Reformas de cocinas, baños, pisos, pintura, fontanería y piscinas. Presupuesto sin compromiso.
 
 **Descripción larga (300 caracteres):**
-ReformaT Venezuela es una empresa de remodelaciones y reformas integrales con sede en Valencia, Carabobo. Ofrecemos remodelación de cocinas, baños, apartamentos y casas completas. Instalación de pisos, pintura, fontanería, electricidad y mantenimiento de piscinas. Servicio en Valencia, San Diego, Caracas, La Guaira y toda la región central de Venezuela.
+RemodelaT Venezuela es una empresa de remodelaciones y reformas integrales con sede en Valencia, Carabobo. Ofrecemos remodelación de cocinas, baños, apartamentos y casas completas. Instalación de pisos, pintura, fontanería, electricidad y mantenimiento de piscinas. Servicio en Valencia, San Diego, Caracas, La Guaira y toda la región central de Venezuela.
 
 **Categorías sugeridas:**
 - Construcción / Reformas

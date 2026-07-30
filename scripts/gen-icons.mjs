@@ -30,8 +30,8 @@ for (const { name, size } of sizes) {
 
 // manifest.json
 const manifest = {
-  name: 'ReformaT Venezuela',
-  short_name: 'ReformaT',
+  name: 'RemodelaT Venezuela',
+  short_name: 'RemodelaT',
   description:
     'Reformas integrales, cocinas y baños con estándares europeos en Valencia, San Diego, Carabobo y Caracas.',
   start_url: '/',

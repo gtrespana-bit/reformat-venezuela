@@ -92,7 +92,7 @@ function buildSections(c) {
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Por qué ReformaT</span>
+        <span class="section-tag">Por qué RemodelaT</span>
         <h2>Por qué elegirnos en ${c.name}, ${c.region}</h2>
         <p>${c.whyIntro}</p>
       </div>

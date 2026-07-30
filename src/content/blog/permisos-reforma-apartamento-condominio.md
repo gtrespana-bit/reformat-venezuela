@@ -5,14 +5,14 @@ date: 2026-07-18
 category: "Guías"
 image: "/images/arquitectura-600.webp"
 readTime: "11 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: El Trámite Que Nadie Te Explica
 
 Muchos propietarios descubren los permisos de condominio cuando ya tienen los materiales comprados y la obra a punto de empezar. Y entonces se topan con la junta, los horarios restringidos y las fianzas. Planificar esto desde el principio te ahorra semanas de espera y conflictos con los vecinos.
 
-En ReformaT Venezuela gestionamos reformas en apartamentos todos los días en **Caracas, Valencia, San Diego y Carabobo**, y esta guía te explica exactamente qué necesitas y cómo manejarlo.
+En RemodelaT Venezuela gestionamos reformas en apartamentos todos los días en **Caracas, Valencia, San Diego y Carabobo**, y esta guía te explica exactamente qué necesitas y cómo manejarlo.
 
 ![Edificio de apartamentos en remodelación](/images/arquitectura-600.webp)
 
@@ -139,4 +139,4 @@ Depende. Algunas responden en días, otras tardan semanas. Presenta la solicitud
 
 Los permisos de condominio no son un obstáculo, son una parte normal de reformar un apartamento. Leer el reglamento, presentar el proyecto por escrito, respetar horarios y coordinar escombros te ahorra conflictos y retrasos.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y vas a remodelar tu apartamento, [contáctanos](/contacto). En ReformaT Venezuela gestionamos la coordinación con el condominio como parte de nuestro servicio de [reforma integral](/servicios/remodelacion-integral), para que tú no tengas que pelear con la junta. Para planificar los tiempos, revisa nuestra guía de [plazos de una reforma integral](/blog/cuanto-tarda-reforma-integral-plazos).
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y vas a remodelar tu apartamento, [contáctanos](/contacto). En RemodelaT Venezuela gestionamos la coordinación con el condominio como parte de nuestro servicio de [reforma integral](/servicios/remodelacion-integral), para que tú no tengas que pelear con la junta. Para planificar los tiempos, revisa nuestra guía de [plazos de una reforma integral](/blog/cuanto-tarda-reforma-integral-plazos).

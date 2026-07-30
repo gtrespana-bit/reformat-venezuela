@@ -5,14 +5,14 @@ date: 2026-07-27
 category: "Guides"
 image: "/images/arquitectura-400.webp"
 readTime: "14 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: Remodeling an Apartment in Caracas
 
 Remodeling an apartment in Caracas has specific challenges that don't exist in houses: condominium rules, limited access, logistics of materials through elevators, neighbor relations, and older buildings with outdated installations.
 
-At ReformaT Venezuela we have completed hundreds of apartment remodels in **Chacao, Altamira, La Castellana, Campo Alegre, Los Naranjos, Prados del Este and other areas** of Caracas. This guide summarizes the key points for 2026.
+At RemodelaT Venezuela we have completed hundreds of apartment remodels in **Chacao, Altamira, La Castellana, Campo Alegre, Los Naranjos, Prados del Este and other areas** of Caracas. This guide summarizes the key points for 2026.
 
 ---
 
