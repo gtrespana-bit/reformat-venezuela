@@ -332,7 +332,7 @@ Una cocina bien reformada no es un gasto. Es una inversión en tu calidad de vid
 
 En ReformaT Venezuela te ofrecemos:
 
-✅ **Visita técnica gratuita** a tu vivienda en **Caracas, Valencia, San Diego o Carabobo**
+✅ **Valoración técnica inicial** a tu vivienda en **Caracas, Valencia, San Diego o Carabobo**
 
 ✅ **Presupuesto detallado y cerrado**, sin sorpresas ni letras pequeñas
 
@@ -361,5 +361,5 @@ Cuéntanos tu proyecto y te daremos un presupuesto real, transparente y sin comp
 - **[Presupuesto de Reforma: 7 Errores Comunes](/blog/presupuesto-reforma-errores)** — Evita sorpresas financieras en tu proyecto
 - **[Tendencias en Cocinas 2025](/blog/tendencias-cocinas-2025)** — Inspírate con las últimas tendencias en diseño de cocinas
 
-¿Necesitas un presupuesto personalizado para tu reforma de cocina? **[Solicita tu cotización gratuita →](/servicios/remodelacion-cocina)**
+¿Necesitas un presupuesto personalizado para tu reforma de cocina? **[Solicita tu valoración técnica →](/servicios/remodelacion-cocina)**
 

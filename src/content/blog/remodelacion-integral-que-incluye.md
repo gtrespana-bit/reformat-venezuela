@@ -217,7 +217,7 @@ Para proyectos en estas zonas, revisa:
 
 ---
 
-## Solicita tu Consulta Gratuita
+## Solicita tu valoración técnica
 
 En ReformaT Venezuela hacemos la visita técnica, medimos, escuchamos lo que necesitas y te entregamos un presupuesto desglosado en 72 horas. Sin compromiso.
 

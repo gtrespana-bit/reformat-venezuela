@@ -119,6 +119,6 @@ Para cambios internos de tu apartamento generalmente no, pero si tocas el tabler
 
 Una instalación eléctrica no es un gasto, es una inversión en seguridad que dura décadas. La diferencia entre un trabajo de $1,500 y uno de $3,000 suele ser la diferencia entre dormir tranquilo y tener un riesgo latente dentro de las paredes.
 
-Si estás en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** y necesitas una instalación eléctrica profesional, [solicita una consulta gratuita](/contacto). Evaluamos tu vivienda, te damos un presupuesto desglosado y sin compromiso.
+Si estás en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** y necesitas una instalación eléctrica profesional, [solicita una valoración técnica](/contacto). Evaluamos tu vivienda, te damos un presupuesto desglosado y sin compromiso.
 
 También puedes ver nuestro servicio completo de [instalación eléctrica](/servicios/instalacion-electrica) o conocer cómo trabajamos en [reformas integrales](/servicios/remodelacion-integral).

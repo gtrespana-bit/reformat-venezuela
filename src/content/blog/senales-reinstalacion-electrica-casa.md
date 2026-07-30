@@ -93,7 +93,7 @@ No siempre. Si existe tubería conduit accesible, se puede recablear por ahí. S
 Depende de la gravedad. Si hay olor a quemado, tomacorrientes calientes o breakers que se disparan constantemente, reduce la carga y hazlo revisar pronto. No esperes a que algo falle.
 
 ### ¿Cuánto cuesta una revisión eléctrica?
-Una inspección profesional es económica comparada con el costo de un incendio. En ReformaT ofrecemos [consulta gratuita](/contacto) para evaluar tu caso.
+Una inspección profesional es económica comparada con el costo de un incendio. En ReformaT ofrecemos [valoración técnica](/contacto) para evaluar tu caso.
 
 ---
 

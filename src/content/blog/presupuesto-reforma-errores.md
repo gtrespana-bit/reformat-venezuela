@@ -246,10 +246,10 @@ Porque creemos en la reforma bien hecha, bien explicada y bien presupuestada. Of
 
 No arriesgues tu inversión en una reforma mal planificada.
 
-📞 **Llámanos al 0422-799-7043** o **escríbenos a hola@reformatvenezuela.com**
+📞 **Llámanos al 0422-799-7043** o **escríbenos a contacto@reformat-venezuela.online**
 
 Te ofrecemos:
-- Visita técnica gratuita a tu vivienda
+- Valoración técnica inicial a tu vivienda
 - Presupuesto detallado y transparente, sin compromiso
 - Asesoramiento real sobre materiales, plazos y opciones
 - Explicación clara de cada partida, sin tecnicismos innecesarios
@@ -264,5 +264,5 @@ Te ofrecemos:
 - **[Cuánto Cuesta Reformar una Cocina](/blog/cuanto-cuesta-reforma-cocina-valencia)** — Precios reales y desglosados para tu reforma de cocina
 - **[Reformas de Baños en Carabobo](/blog/reformas-banos-carabobo)** — Guía completa de presupuestos y materiales para baños
 
-¿Listo para un presupuesto sin sorpresas? **[Solicita tu cotización gratuita →](/contacto)**
+¿Listo para un presupuesto sin sorpresas? **[Solicita tu valoración técnica →](/contacto)**
 

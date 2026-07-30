@@ -437,7 +437,7 @@ Un baño bien reformado no es un lujo. Es una necesidad para tu bienestar y el d
 
 En ReformaT Venezuela somos expertos en reformas de baños en **Caracas y Carabobo**. Te ofrecemos:
 
-✅ **Visita técnica gratuita** a tu vivienda en **Caracas, Valencia, San Diego o Carabobo**
+✅ **Valoración técnica inicial** a tu vivienda en **Caracas, Valencia, San Diego o Carabobo**
 
 ✅ **Presupuesto detallado y cerrado**, sin sorpresas ni letras pequeñas
 

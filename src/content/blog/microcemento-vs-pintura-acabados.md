@@ -123,4 +123,4 @@ La pintura: repintar cada 5-8 años. El microcemento: renovar el sellado cada 5-
 
 Pintura y microcemento no compiten: se complementan. La pintura gana en versatilidad y precio; el microcemento en durabilidad y estética contemporánea. La mejor decisión suele ser combinarlos estratégicamente.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres asesoría sobre qué acabado conviene para tu espacio, [solicita una consulta gratuita](/contacto). Nuestro equipo de [pintura y acabados](/servicios/pintura-acabados) y [revestimientos](/servicios/revestimientos-pared) te recomienda la mejor opción según tu presupuesto.
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres asesoría sobre qué acabado conviene para tu espacio, [solicita una valoración técnica](/contacto). Nuestro equipo de [pintura y acabados](/servicios/pintura-acabados) y [revestimientos](/servicios/revestimientos-pared) te recomienda la mejor opción según tu presupuesto.

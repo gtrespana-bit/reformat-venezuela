@@ -418,7 +418,7 @@ Así optimizas tu presupuesto sin sacrificar durabilidad donde realmente la nece
 
 En ReformaT Venezuela te ayudamos a elegir el material perfecto para tu proyecto en **Caracas, Valencia, San Diego o Carabobo**. Te ofrecemos:
 
-✅ **Asesoramiento gratuito** sobre materiales y formatos
+✅ **Asesoramiento técnico** sobre materiales y formatos
 
 ✅ **Presupuesto detallado** con material + instalación
 

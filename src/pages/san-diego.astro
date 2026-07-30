@@ -38,7 +38,7 @@ const cityData = {
     "Pisos y Revestimientos": "Desde $30/m²",
     "Pintura Profesional": "Desde $7/m²",
     "Remodelación Integral": "Desde $12,000",
-    "Diseño de Interiores": "Consulta gratuita"
+    "Diseño de Interiores": "Valoración técnica"
   },
   testimonials: [
     {
@@ -77,11 +77,11 @@ const faqItems = [
   },
   {
     question: `¿Dan garantía por el trabajo realizado?`,
-    answer: `Sí, todos nuestros trabajos cuentan con garantía por escrito de 12 meses en acabados y 24 meses en instalaciones eléctricas e hidrosanitarias.`
+    answer: `Sí, todos nuestros trabajos cuentan con garantía por escrito. La cobertura depende de la partida: acabados, instalaciones, impermeabilización y materiales de fabricante se documentan en el contrato.`
   },
   {
-    question: `¿El presupuesto es gratuito?`,
-    answer: `Sí, realizamos visitas técnicas sin costo en todo San Diego y ofrecemos presupuestos detallados sin compromiso de contratación.`
+    question: `¿Cómo funciona la valoración técnica?`,
+    answer: `Primero revisamos ubicación, alcance y nivel de acabado. Si el proyecto encaja con nuestro estándar, coordinamos una visita técnica y preparamos un presupuesto detallado por partidas.`
   }
 ];
 ---
@@ -99,7 +99,7 @@ const faqItems = [
       <h1>Remodelaciones en <em>San Diego</em></h1>
       <p class="hero-sub">Transformamos apartamentos, casas y oficinas con diseño de autor, materiales premium y ejecución impecable en todo el municipio San Diego.</p>
       <div class="hero-actions">
-        <a href="#contacto" class="btn btn-gold">Solicitar presupuesto gratis</a>
+        <a href="#contacto" class="btn btn-gold">Solicitar valoración técnica</a>
         <a href="https://wa.me/584227997043" class="btn btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       </div>
       <div class="hero-stats">
@@ -194,7 +194,7 @@ const faqItems = [
         <p>San Diego es uno de los municipios con mayor crecimiento residencial de Carabobo. Adaptamos nuestro proceso a casas nuevas, remodelaciones parciales y ampliaciones en sus urbanizaciones.</p>
       </div>
       <div class="zones-grid">
-        <div class="zone-item"><strong>1. Visita técnica gratuita</strong><span>Evaluamos el espacio, tomamos medidas y escuchamos tu visión sin compromiso.</span></div>
+        <div class="zone-item"><strong>1. Valoración técnica inicial</strong><span>Evaluamos el espacio, tomamos medidas y escuchamos tu visión sin compromiso.</span></div>
         <div class="zone-item"><strong>2. Presupuesto cerrado</strong><span>Recibes un presupuesto detallado en USD con materiales, mano de obra y cronograma.</span></div>
         <div class="zone-item"><strong>3. Diseño y planificación</strong><span>Definimos materiales, acabados y fechas. Coordinamos permisos si aplica.</span></div>
         <div class="zone-item"><strong>4. Ejecución supervisada</strong><span>Nuestro equipo propio ejecuta la obra con supervisión diaria y reportes de avance.</span></div>
@@ -236,7 +236,7 @@ const faqItems = [
       <div class="section-header section-header-light">
         <span class="section-tag">Inversión</span>
         <h2>Precios transparentes, sin sorpresas</h2>
-        <p>Cada proyecto es único. Estos son nuestros puntos de partida; el presupuesto final se define tras una visita técnica gratuita.</p>
+        <p>Cada proyecto es único. Estos son nuestros puntos de partida; el presupuesto final se define tras una valoración técnica inicial.</p>
       </div>
       <div class="pricing-grid">
         {Object.entries(cityData.prices).map(([service, price]) => (
@@ -294,7 +294,7 @@ const faqItems = [
     <div class="cta-content">
       <span class="section-tag section-tag-light">Da el primer paso</span>
       <h2>¿Listo para transformar tu espacio en San Diego?</h2>
-      <p>Agenda una visita técnica gratuita. Evaluamos tu proyecto, te asesoramos en materiales y te entregamos un presupuesto detallado sin compromiso.</p>
+      <p>Agenda una valoración técnica inicial. Evaluamos tu proyecto, te asesoramos en materiales y te entregamos un presupuesto detallado sin compromiso.</p>
       <div class="cta-actions">
         <a href="https://wa.me/584227997043?text=Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación%20en%20San%20Diego" class="btn btn-gold" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>

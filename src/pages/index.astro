@@ -5,7 +5,7 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
 
-const whatsappBudgetText = 'Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20por%20aquí.';
+const whatsappBudgetText = 'Hola,%20quiero%20solicitar%20una%20valoración%20técnica%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20y%20ubicación%20por%20aquí.';
 
 const serviceImages = {
   cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800, 1600]) },
@@ -20,61 +20,68 @@ const serviceImages = {
 };
 
 const services = [
-  { title: "Reformas de Cocina", desc: "Diseños funcionales, gabinetes premium, iluminación técnica y acabados modernos.", image: serviceImages.cocina, link: "/servicios/remodelacion-cocina" },
-  { title: "Reformas de Baño", desc: "Baños tipo spa con impermeabilización, grifería de calidad y revestimientos duraderos.", image: serviceImages.bano, link: "/servicios/remodelacion-bano" },
-  { title: "Reformas Integrales", desc: "Transformación completa de viviendas, apartamentos y negocios con planificación profesional.", image: serviceImages.integrales, link: "/servicios/remodelacion-integral" },
-  { title: "Servicios Eléctricos", desc: "Tableros, cableado, iluminación LED y soluciones eléctricas seguras.", image: serviceImages.electricidad, link: "/servicios/instalacion-electrica" },
-  { title: "Fontanería", desc: "Detección de fugas, cambio de tuberías, grifería, sanitarios y puntos de agua.", image: serviceImages.fontaneria, link: "/servicios/fontaneria-plomeria" },
-  { title: "Pintura y Acabados", desc: "Acabados interiores y exteriores con preparación profesional y terminaciones limpias.", image: serviceImages.pintura, link: "/servicios/pintura-acabados" },
-  { title: "Revestimientos", desc: "Porcelanato, piedra, wall panels y acabados decorativos para muros con carácter.", image: serviceImages.revestimientos, link: "/servicios/revestimientos-pared" },
-  { title: "Suelos", desc: "Cerámica, porcelanato, laminado y madera instalados con nivelación y detalle.", image: serviceImages.sueloPorcelanato, link: "/servicios/instalacion-pisos" },
-  { title: "Piscinas", desc: "Construcción, mantenimiento, filtración, revestimientos y control de calidad del agua.", image: serviceImages.piscinas, link: "/servicios/piscinas-mantenimiento" }
-];
-
-const trustStats = [
-  { number: "20+", label: "Años de experiencia", desc: "Trayectoria europea aplicada a proyectos en Venezuela" },
-  { number: "Gratis", label: "Visita técnica", desc: "Evaluamos tu espacio y te orientamos sin compromiso" },
-  { number: "Garantía", label: "Por escrito", desc: "Trabajos respaldados con condiciones claras" },
-  { number: "WhatsApp", label: "Atención directa", desc: "Envíanos fotos y recibe orientación inicial rápida" }
-];
-
-const heroBadges = [
-  "Valencia y Caracas",
-  "Presupuesto claro",
-  "Visita técnica gratis",
-  "Garantía por escrito"
+  { title: "Remodelaciones Integrales", desc: "Viviendas completas con planificación técnica, coordinación de oficios y acabados de alto estándar.", image: serviceImages.integrales, link: "/servicios/remodelacion-integral" },
+  { title: "Cocinas de Diseño", desc: "Mobiliario a medida, superficies de alta resistencia, iluminación técnica y herrajes duraderos.", image: serviceImages.cocina, link: "/servicios/remodelacion-cocina" },
+  { title: "Baños Tipo Spa", desc: "Impermeabilización documentada, pendientes correctas, grifería de calidad y revestimientos precisos.", image: serviceImages.bano, link: "/servicios/remodelacion-bano" },
+  { title: "Pisos y Revestimientos", desc: "Porcelanato, piedra, madera y piezas de gran formato instaladas con el adhesivo y soporte adecuados.", image: serviceImages.sueloPorcelanato, link: "/servicios/instalacion-pisos" },
+  { title: "Revestimientos de Pared", desc: "Wall panels, piedra, microcemento y detalles decorativos con cortes limpios y encuentros cuidados.", image: serviceImages.revestimientos, link: "/servicios/revestimientos-pared" },
+  { title: "Pintura y Acabados", desc: "Preparación profesional de superficies, corrección de imperfecciones y terminaciones limpias.", image: serviceImages.pintura, link: "/servicios/pintura-acabados" },
+  { title: "Instalaciones Eléctricas", desc: "Tableros, cableado, iluminación LED y protecciones dimensionadas dentro de proyectos de remodelación.", image: serviceImages.electricidad, link: "/servicios/instalacion-electrica" },
+  { title: "Fontanería y Plomería", desc: "Renovación de tuberías, puntos de agua, pruebas de funcionamiento y soluciones ocultas bien ejecutadas.", image: serviceImages.fontaneria, link: "/servicios/fontaneria-plomeria" },
+  { title: "Piscinas y Exteriores", desc: "Revestimientos, filtración, mantenimiento y acabados exteriores para viviendas de alto valor.", image: serviceImages.piscinas, link: "/servicios/piscinas-mantenimiento" }
 ];
 
 const processSteps = [
-  { step: "01", title: "Visita técnica", desc: "Revisamos medidas, estado actual, instalaciones y objetivos del proyecto." },
-  { step: "02", title: "Presupuesto detallado", desc: "Recibes una propuesta clara por partidas, materiales, tiempos y alcance." },
-  { step: "03", title: "Planificación", desc: "Definimos acabados, logística, cronograma, compras y permisos si aplican." },
-  { step: "04", title: "Ejecución supervisada", desc: "Coordinamos obra, proveedores y avances con seguimiento directo." },
-  { step: "05", title: "Entrega con garantía", desc: "Revisamos contigo, limpiamos el espacio y entregamos garantías por escrito." }
+  { step: "01", title: "Diagnóstico técnico", desc: "Medimos, revisamos instalaciones, soportes, humedades, pendientes y condiciones reales antes de prometer una solución." },
+  { step: "02", title: "Especificación", desc: "Definimos materiales compatibles con cada uso: adhesivos, impermeabilizantes, grifería, iluminación, herrajes y acabados." },
+  { step: "03", title: "Presupuesto por partidas", desc: "Recibes una propuesta clara, con alcance, calidades, tiempos, exclusiones y condiciones de garantía por escrito." },
+  { step: "04", title: "Ejecución supervisada", desc: "Controlamos obra, proveedores, pruebas técnicas y remates para evitar improvisaciones en las fases críticas." },
+  { step: "05", title: "Entrega verificada", desc: "Revisión conjunta, checklist de acabados, limpieza final, documentación fotográfica y garantía aplicable." }
 ];
 
 const aboutBadges = [
   "Estándares europeos",
   "Supervisión directa",
-  "+20 años",
+  "+23 años",
   "Garantía escrita"
 ];
 
 const testimonials = [
-  { text: "Nos ayudaron a aterrizar la idea de la cocina, explicaron materiales y mantuvieron comunicación durante la obra. El resultado se siente moderno y bien terminado.", name: "Cliente residencial", location: "San Diego, Carabobo" },
-  { text: "Valoramos mucho el presupuesto claro y la organización. Cada etapa tuvo seguimiento y los acabados del baño quedaron como esperábamos.", name: "Cliente residencial", location: "Valencia, Carabobo" },
-  { text: "Necesitábamos una reforma integral sin improvisaciones. Nos dieron una ruta de trabajo y soluciones prácticas para instalaciones y acabados.", name: "Cliente de apartamento", location: "Caracas" }
+  { text: "Lo que más valoramos fue que explicaron por qué cada material debía usarse en una zona específica. No se trató solo de que se viera bonito, sino de que quedara bien hecho.", name: "Propietario de vivienda", location: "San Diego, Carabobo" },
+  { text: "El baño quedó impecable, pero la diferencia estuvo en el proceso: impermeabilización documentada, pruebas antes de cerrar y revisión de cada remate.", name: "Cliente residencial", location: "Valencia, Carabobo" },
+  { text: "Buscábamos una remodelación sin improvisaciones. Recibimos cronograma, presupuesto por partidas y seguimiento constante durante toda la obra.", name: "Propietario de apartamento", location: "Caracas" }
 ];
 
 const serviceAreas = [
   "Valencia", "San Diego", "Naguanagua", "Guacara", "Los Guayos", "Caracas",
   "Chacao", "Baruta", "El Hatillo", "La Guaira", "Puerto Cabello", "Tocuyito"
 ];
+
+const qualityPillars = [
+  { title: "No usamos soluciones genéricas", desc: "Cada adhesivo, impermeabilizante, tubería, protección eléctrica o sellado se elige según soporte, uso, formato y exposición." },
+  { title: "Lo oculto se prueba antes de cerrar", desc: "Instalaciones, pendientes, impermeabilización y puntos críticos se revisan antes de cubrirlos con acabados costosos." },
+  { title: "Acabados revisados al detalle", desc: "Alineaciones, juntas, cortes, esquinas, siliconas, encuentros y limpieza final forman parte de la entrega, no son extras." }
+];
+
+const comparisonRows = [
+  ["Material elegido solo por disponibilidad", "Material especificado según soporte, uso y ficha técnica"],
+  ["El mismo pego para cualquier cerámica o porcelanato", "Adhesivo compatible con absorción, formato, peso y superficie"],
+  ["Instalaciones cerradas sin evidencia de pruebas", "Pruebas y revisión antes de cubrir paredes, pisos o techos"],
+  ["Presupuesto global difícil de controlar", "Presupuesto por partidas, alcance definido y condiciones claras"],
+  ["El acabado final depende del oficio del día", "Supervisión directa, checklist de remates y garantía por escrito"]
+];
+
+const fitItems = [
+  "Quieres una remodelación duradera, no solo una obra que se vea bien el día de entrega.",
+  "Valoras materiales correctos, supervisión técnica, limpieza, orden y comunicación.",
+  "Prefieres invertir una vez en un resultado bien ejecutado antes que corregir retrabajos.",
+  "Buscas acabados de alto estándar en una casa, apartamento, quinta o townhouse de valor."
+];
 ---
 
 <BaseLayout 
-  title="Reformas en Valencia, Carabobo y Caracas | ReformaT" 
-  description="Más de 23 años transformando hogares y negocios en Valencia, San Diego, Carabobo y Caracas. Reformas integrales, cocinas, baños, electricidad y fontanería con acabados impecables." 
+  title="Remodelaciones de Lujo en Venezuela | ReformaT" 
+  description="Remodelaciones residenciales de alto estándar en Venezuela. Cocinas, baños y reformas integrales con método técnico, materiales adecuados, acabados impecables y garantía por escrito." 
   activePage="inicio"
 >
 
@@ -108,15 +115,15 @@ const serviceAreas = [
     <div class="hero-overlay"></div>
 
     <div class="hero-content">
-      <span class="hero-tag">Reformas premium en Valencia, San Diego, Carabobo y Caracas</span>
+      <span class="hero-tag">Remodelaciones residenciales de alto estándar</span>
       <h1 class="hero-title">
-        <span class="line">Remodelaciones en Venezuela</span>
-        <span class="line gold">con acabados premium</span>
+        <span class="line">Remodelaciones de lujo</span>
+        <span class="line gold">con precisión técnica</span>
       </h1>
-      <p class="hero-sub">Cocinas, baños y reformas integrales con presupuesto claro, supervisión profesional y garantía por escrito.</p>
+      <p class="hero-sub">Cocinas, baños y reformas integrales para propietarios exigentes: materiales adecuados, supervisión de obra, acabados impecables y garantía por escrito.</p>
       <div class="hero-btns">
         <a href={`https://wa.me/584227997043?text=${whatsappBudgetText}`} target="_blank" rel="noopener" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Presupuesto por WhatsApp</span>
+          <span class="btn-content">Solicitar valoración técnica</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
@@ -131,7 +138,7 @@ const serviceAreas = [
       <p class="hero-proof" aria-label="Señales de confianza">
         <span>23+ años</span>
         <i></i>
-        <span>Visita técnica gratis</span>
+        <span>Método técnico</span>
         <i></i>
         <span>Garantía por escrito</span>
       </p>
@@ -141,16 +148,35 @@ const serviceAreas = [
   <section class="premium-proof-section" aria-label="Confianza y garantías">
     <div class="premium-proof-panel" data-reveal>
       <div class="proof-item">
-        <strong>20+</strong>
+        <strong>23+</strong>
         <span>Años de experiencia</span>
       </div>
       <div class="proof-item">
-        <strong>Gratis</strong>
-        <span>Visita técnica inicial</span>
+        <strong>Método</strong>
+        <span>Materiales especificados</span>
       </div>
       <div class="proof-item">
         <strong>Garantía</strong>
-        <span>Trabajos por escrito</span>
+        <span>Entrega documentada</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="section positioning-section">
+    <div class="container positioning-grid">
+      <div class="positioning-copy" data-reveal>
+        <span class="tag">Nuestro posicionamiento</span>
+        <h2 class="section-title">No competimos por ser la opción más económica. Competimos por hacerlo bien.</h2>
+        <p>ReformaT es para propietarios que no buscan simplemente “hacer una obra”, sino invertir en una remodelación bien ejecutada, con materiales adecuados, supervisión técnica, acabados impecables y garantía real.</p>
+        <p>Una remodelación de alto estándar no se define solo por cómo se ve el día de la entrega. Se define por cómo envejece, cómo funcionan sus instalaciones y cómo resisten sus acabados con el uso diario.</p>
+      </div>
+      <div class="quality-pillars" data-reveal>
+        {qualityPillars.map((pillar) => (
+          <article class="quality-pillar">
+            <h3>{pillar.title}</h3>
+            <p>{pillar.desc}</p>
+          </article>
+        ))}
       </div>
     </div>
   </section>
@@ -158,9 +184,9 @@ const serviceAreas = [
   <section class="section bg-light">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">Nuestros Servicios</span>
-        <h2 class="section-title">Remodelaciones que Dan Vida a Tus Espacios</h2>
-        <p class="section-desc">Reformas integrales, cocinas, baños, electricidad y fontanería. Ejecución rápida, técnicas avanzadas y acabados impecables en Valencia, San Diego y Caracas.</p>
+        <span class="tag">Servicios de alto estándar</span>
+        <h2 class="section-title">Remodelaciones para viviendas donde el detalle importa</h2>
+        <p class="section-desc">Proyectos integrales, cocinas, baños, pisos y revestimientos ejecutados con planificación, especialidades técnicas coordinadas y acabados pensados para durar.</p>
       </div>
       
       <div class="home-services-grid">
@@ -178,7 +204,7 @@ const serviceAreas = [
                 width="800"
                 height="533"
               />
-              <span class="home-service-kicker">Servicio premium</span>
+              <span class="home-service-kicker">Alto estándar</span>
             </div>
             <div class="home-service-body">
               <h3>{svc.title}</h3>
@@ -186,6 +212,28 @@ const serviceAreas = [
               <span class="card-link">Ver servicio <span class="arrow">→</span></span>
             </div>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section technical-standard-section" id="metodo-reformat">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="tag">Método ReformaT</span>
+        <h2 class="section-title">Lo que no se ve también debe estar perfecto</h2>
+        <p class="section-desc">El lujo real está en las decisiones técnicas: usar el material correcto, preparar bien el soporte, probar antes de cerrar y revisar cada remate antes de entregar.</p>
+      </div>
+      <div class="comparison-card" data-reveal>
+        <div class="comparison-head">
+          <span>Obra sin especificación</span>
+          <span>Método ReformaT</span>
+        </div>
+        {comparisonRows.map(([common, reformat]) => (
+          <div class="comparison-row">
+            <p>{common}</p>
+            <p>{reformat}</p>
+          </div>
         ))}
       </div>
     </div>
@@ -221,13 +269,13 @@ const serviceAreas = [
       </div>
       <div class="about-text" data-reveal>
         <span class="tag">Sobre Nosotros</span>
-        <h2 class="section-title">Experiencia Europea en Reformas,<br/>Ejecución Local en Venezuela</h2>
-        <p>ReformaT nace en España con más de 23 años de trayectoria. Desde hace casi 2 años operamos en Venezuela, llevando estándares europeos a proyectos en <strong>Valencia, San Diego, Carabobo y Caracas</strong>. Adaptamos técnicas avanzadas a la arquitectura local para garantizar resultados duraderos.</p>
+        <h2 class="section-title">Experiencia europea,<br/>ejecución local sin improvisación</h2>
+        <p>ReformaT nace en España con más de 23 años de trayectoria en remodelaciones. En Venezuela trabajamos con un criterio claro: adaptar estándares europeos a la realidad local sin sacrificar precisión, seguridad ni calidad de acabado.</p>
         <ul class="check-list">
-          <li>Reformas integrales que transforman cada rincón con excelencia</li>
-          <li>Servicios eléctricos y de fontanería con máxima seguridad</li>
-          <li>Diseños personalizados que unen funcionalidad y estilo</li>
-          <li>Asesoramiento experto y ejecución eficiente sin sorpresas</li>
+          <li>Remodelaciones integrales con planificación, control de obra y garantía</li>
+          <li>Instalaciones eléctricas y sanitarias revisadas antes de cerrar</li>
+          <li>Diseño personalizado con materiales compatibles con cada aplicación</li>
+          <li>Acabados finales revisados junto al propietario antes de entregar</li>
         </ul>
         <div class="about-badges" aria-label="Diferenciales de ReformaT">
           {aboutBadges.map((badge) => (
@@ -235,7 +283,7 @@ const serviceAreas = [
           ))}
         </div>
         <a href="/contacto" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Comenzar Conversación</span>
+          <span class="btn-content">Conocer nuestro estándar</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
@@ -248,9 +296,9 @@ const serviceAreas = [
   <section class="section process-section">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">Cómo Trabajamos</span>
-        <h2 class="section-title">Un Proceso Claro de Principio a Fin</h2>
-        <p class="section-desc">Remodelar debe sentirse organizado, no improvisado. Por eso cada proyecto se divide en etapas claras, con comunicación directa y decisiones documentadas.</p>
+        <span class="tag">Cómo trabajamos</span>
+        <h2 class="section-title">Un método diseñado para evitar improvisaciones</h2>
+        <p class="section-desc">El cliente exigente no compra solo acabados: compra tranquilidad. Por eso cada fase tiene diagnóstico, especificación, ejecución supervisada y revisión documentada.</p>
       </div>
       <div class="process-grid">
         {processSteps.map((item) => (
@@ -264,12 +312,27 @@ const serviceAreas = [
     </div>
   </section>
 
-  <section class="section bg-light testimonials-section">
+  <section class="section bg-light fit-section">
+    <div class="container fit-grid">
+      <div data-reveal>
+        <span class="tag">Para quién trabajamos</span>
+        <h2 class="section-title">Para propietarios que valoran la perfección, la garantía y la durabilidad</h2>
+        <p class="section-desc">No somos la alternativa para resolver una obra de cualquier manera. Somos la alternativa para quienes prefieren un proceso serio, materiales correctos y acabados que estén a la altura de su vivienda.</p>
+      </div>
+      <ul class="fit-list" data-reveal>
+        {fitItems.map((item) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section testimonials-section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="tag">Confianza</span>
-        <h2 class="section-title">Lo Que Más Valoran Nuestros Clientes</h2>
-        <p class="section-desc">Comunicación clara, presupuesto organizado y acabados cuidados son las señales que convierten una remodelación en una experiencia tranquila.</p>
+        <h2 class="section-title">Lo que más valoran los propietarios exigentes</h2>
+        <p class="section-desc">La tranquilidad de saber qué se está haciendo, por qué se hace así y cómo se garantiza el resultado final.</p>
       </div>
       <div class="testimonials-grid-home">
         {testimonials.map((t) => (
@@ -289,8 +352,8 @@ const serviceAreas = [
     <div class="container areas-grid">
       <div>
         <span class="tag">Zonas de Cobertura</span>
-        <h2 class="section-title">Remodelamos en Carabobo, Caracas y La Guaira</h2>
-        <p class="section-desc">Atendemos viviendas, apartamentos y negocios en las principales zonas residenciales y comerciales. Si tu zona no aparece, escríbenos y revisamos disponibilidad.</p>
+        <h2 class="section-title">Remodelamos viviendas de alto valor en Carabobo, Caracas y La Guaira</h2>
+        <p class="section-desc">Atendemos casas, apartamentos, quintas y townhouses en zonas residenciales exigentes. Si tu zona no aparece, revisamos disponibilidad y alcance del proyecto.</p>
       </div>
       <div class="area-chips" data-reveal>
         {serviceAreas.map((area) => (
@@ -302,18 +365,18 @@ const serviceAreas = [
 
   <section class="cta-section cta-whatsapp-section">
     <div class="cta-wrapper">
-      <span class="tag tag-on-dark">Presupuesto rápido</span>
-      <h2 class="cta-title">¿Quieres saber cuánto podría costar tu remodelación?</h2>
-      <p class="cta-text">Envíanos fotos por WhatsApp y te damos una orientación inicial. Si el proyecto encaja, coordinamos una visita técnica y presupuesto detallado.</p>
+      <span class="tag tag-on-dark">Valoración técnica</span>
+      <h2 class="cta-title">¿Tu proyecto requiere un acabado impecable?</h2>
+      <p class="cta-text">Envíanos fotos, ubicación y alcance aproximado. Revisamos si el proyecto encaja con nuestro estándar y coordinamos una valoración técnica con presupuesto detallado.</p>
       <div class="cta-actions-home">
         <a href={`https://wa.me/584227997043?text=${whatsappBudgetText}`} target="_blank" rel="noopener" class="btn-premium btn-white-premium">
-          <span class="btn-content">Enviar fotos por WhatsApp</span>
+          <span class="btn-content">Solicitar valoración por WhatsApp</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
         <a href="#contacto-rapido" class="btn-premium btn-outline-premium btn-cta-outline">
-          <span class="btn-content">Usar formulario</span>
+          <span class="btn-content">Completar formulario técnico</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
@@ -325,8 +388,8 @@ const serviceAreas = [
   <section class="section bg-light" id="contacto-rapido">
     <div class="container contact-grid">
       <div class="contact-info">
-        <h2 class="section-title">Hablemos de Tu Proyecto de Remodelación</h2>
-        <p>Estamos aquí para escuchar, asesorar y crear junto a ti. Cubrimos toda el área metropolitana de Caracas y las principales zonas de Carabobo.</p>
+        <h2 class="section-title">Cuéntanos tu proyecto con el nivel de detalle que merece</h2>
+        <p>Mientras más información tengamos, mejor podremos orientar tu remodelación: zona, tipo de vivienda, alcance, nivel de acabado y fecha estimada de inicio.</p>
         <div class="info-item">
           <h3>Ubicación</h3>
           <p>Valencia, San Diego, Carabobo y Caracas</p>
@@ -347,16 +410,41 @@ const serviceAreas = [
         </div>
         <input type="email" id="email" name="email" placeholder="Email" required aria-label="Tu correo electrónico" />
         <select id="proyecto" name="proyecto" required aria-label="Tipo de proyecto">
-          <option value="" disabled selected>Tipo de Proyecto</option>
-          <option value="cocina">Reforma de Cocina</option>
-          <option value="bano">Reforma de Baño</option>
-          <option value="integral">Reforma Integral</option>
-          <option value="electricidad">Servicios Eléctricos</option>
-          <option value="fontaneria">Fontanería</option>
+          <option value="" disabled selected>Tipo de proyecto</option>
+          <option value="integral">Remodelación integral</option>
+          <option value="cocina">Cocina de diseño</option>
+          <option value="bano">Baño tipo spa</option>
+          <option value="pisos-revestimientos">Pisos / revestimientos</option>
+          <option value="otro">Otro alcance</option>
         </select>
-        <textarea id="mensaje" name="mensaje" placeholder="Tu Mensaje" rows="4" required aria-label="Detalles de tu proyecto"></textarea>
+        <div class="form-row">
+          <input type="text" id="zona" name="zona" placeholder="Zona / urbanización" required aria-label="Zona o urbanización" />
+          <select id="propiedad" name="propiedad" required aria-label="Tipo de propiedad">
+            <option value="" disabled selected>Tipo de propiedad</option>
+            <option value="casa">Casa / quinta</option>
+            <option value="apartamento">Apartamento</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="local">Local u oficina</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <select id="acabado" name="nivel_acabado" required aria-label="Nivel de acabado deseado">
+            <option value="" disabled selected>Nivel de acabado</option>
+            <option value="alto-estandar">Alto estándar</option>
+            <option value="lujo">Lujo</option>
+            <option value="signature">Proyecto personalizado / signature</option>
+          </select>
+          <select id="inicio" name="fecha_inicio" required aria-label="Fecha estimada de inicio">
+            <option value="" disabled selected>Inicio estimado</option>
+            <option value="inmediato">Lo antes posible</option>
+            <option value="1-3-meses">1 a 3 meses</option>
+            <option value="3-6-meses">3 a 6 meses</option>
+            <option value="sin-fecha">Aún estoy evaluando</option>
+          </select>
+        </div>
+        <textarea id="mensaje" name="mensaje" placeholder="Describe el alcance, metraje aproximado, materiales deseados y si puedes enviar fotos o planos por WhatsApp" rows="4" required aria-label="Detalles de tu proyecto"></textarea>
         <button type="submit" class="btn-premium btn-primary-premium full-width">
-          <span class="btn-content">Enviar Mensaje</span>
+          <span class="btn-content">Solicitar valoración técnica</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
@@ -513,6 +601,59 @@ const serviceAreas = [
   .home-service-card:hover .card-link { gap: 14px; }
   .home-service-card:hover .card-link .arrow { transform: translateX(5px); }
 
+
+
+  /* ---------- POSICIONAMIENTO Y ESTÁNDAR TÉCNICO ---------- */
+  .positioning-section { background: var(--white); }
+  .positioning-grid {
+    display: grid; grid-template-columns: .98fr 1.02fr;
+    gap: clamp(40px, 6vw, 78px); align-items: center;
+  }
+  .positioning-copy { max-width: 610px; }
+  .positioning-copy .section-title { font-size: clamp(2rem, 4.4vw, 3.25rem); }
+  .positioning-copy p { color: var(--text-muted); font-size: 1.06rem; line-height: 1.85; margin-bottom: 18px; }
+  .quality-pillars { display: grid; gap: 16px; }
+  .quality-pillar {
+    padding: 26px 28px; border-radius: var(--r-md);
+    background: linear-gradient(180deg, var(--bone), var(--white));
+    border: 1px solid var(--sand); box-shadow: var(--e-1);
+  }
+  .quality-pillar h3 { font-family: var(--font-serif); font-size: 1.38rem; color: var(--text); margin-bottom: 8px; }
+  .quality-pillar p { color: var(--text-muted); line-height: 1.7; font-size: .98rem; }
+
+  .technical-standard-section { background: var(--ink); color: var(--white); }
+  .technical-standard-section .section-title { color: var(--white); }
+  .technical-standard-section .section-desc { color: rgba(255,255,255,.78); }
+  .comparison-card {
+    max-width: 1000px; margin: 0 auto; overflow: hidden;
+    border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg);
+    background: rgba(255,255,255,.045); box-shadow: var(--e-3);
+  }
+  .comparison-head, .comparison-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .comparison-head span {
+    padding: 18px 24px; background: rgba(201,169,97,.16); color: var(--gold-light);
+    font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
+  }
+  .comparison-row { border-top: 1px solid rgba(242,237,228,.12); }
+  .comparison-row p {
+    padding: 20px 24px; margin: 0; color: rgba(255,255,255,.74); line-height: 1.65;
+    border-right: 1px solid rgba(242,237,228,.12);
+  }
+  .comparison-row p:last-child { border-right: 0; color: rgba(255,255,255,.9); }
+
+  .fit-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--s-5); align-items: center; }
+  .fit-list { list-style: none; display: grid; gap: 14px; }
+  .fit-list li {
+    position: relative; padding: 18px 20px 18px 50px;
+    background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-md);
+    box-shadow: var(--e-1); color: var(--text-muted); line-height: 1.65;
+  }
+  .fit-list li::before {
+    content: ""; position: absolute; left: 20px; top: 24px;
+    width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink);
+    box-shadow: 0 0 0 6px rgba(201,169,97,.13);
+  }
+
   /* ---------- SOBRE NOSOTROS ---------- */
   .about-grid {
     display: grid; grid-template-columns: .92fr 1.08fr;
@@ -659,7 +800,7 @@ const serviceAreas = [
   @media (max-width: 1100px) {
     .home-services-grid { grid-template-columns: repeat(2, 1fr); }
     .process-grid { grid-template-columns: repeat(3, 1fr); }
-    .areas-grid { grid-template-columns: 1fr; gap: 34px; }
+    .areas-grid, .positioning-grid, .fit-grid { grid-template-columns: 1fr; gap: 34px; }
     .testimonials-grid-home { grid-template-columns: 1fr 1fr; }
   }
   @media (max-width: 1023px) {
@@ -684,8 +825,9 @@ const serviceAreas = [
     .img-box.small { height: 190px; bottom: 28px; }
   }
   @media (max-width: 700px) {
-    .home-services-grid, .process-grid, .testimonials-grid-home { grid-template-columns: 1fr; }
+    .home-services-grid, .process-grid, .testimonials-grid-home, .comparison-head, .comparison-row { grid-template-columns: 1fr; }
     .home-service-img { height: 220px; }
+    .comparison-row p { border-right: 0; border-bottom: 1px solid rgba(242,237,228,.12); }
     .cta-actions-home { flex-direction: column; align-items: center; }
   }
   @media (max-width: 560px) {

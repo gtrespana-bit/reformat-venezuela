@@ -162,4 +162,4 @@ El cuarzo es el equilibrio ideal entre durabilidad, estética y mantenimiento. E
 
 Una reforma de cocina bien ejecutada transforma no solo el espacio, sino la vida diaria del hogar. La clave está en planificar todo antes de empezar, invertir en instalaciones de calidad y elegir materiales duraderos.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres una cocina como esta, [solicita una consulta gratuita](/contacto). En ReformaT Venezuela te mostramos más proyectos reales y te damos un presupuesto detallado. Conoce nuestro servicio de [remodelación de cocinas](/servicios/remodelacion-cocina) y cómo elegir bien en [cómo elegir empresa de reformas](/blog/como-elegir-empresa-reformas-venezuela).
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres una cocina como esta, [solicita una valoración técnica](/contacto). En ReformaT Venezuela te mostramos más proyectos reales y te damos un presupuesto detallado. Conoce nuestro servicio de [remodelación de cocinas](/servicios/remodelacion-cocina) y cómo elegir bien en [cómo elegir empresa de reformas](/blog/como-elegir-empresa-reformas-venezuela).

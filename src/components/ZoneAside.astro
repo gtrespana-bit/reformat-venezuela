@@ -32,14 +32,14 @@ const pricing = {
     price: '$1,200',
     title: lang === 'es' ? 'Remodelación de Baño' : 'Bathroom Remodeling',
     items: lang === 'es'
-      ? ['Desmontaje y demolición', 'Impermeabilización total', 'Grifería y sanitarios', 'Piso antideslizante']
+      ? ['Desmontaje y demolición', 'Impermeabilización total', 'Grifería y sanitarios', 'Garantía por escrito']
       : ['Demolition & Removal', 'Full Waterproofing', 'Fixtures & Fittings', 'Anti-slip Flooring']
   },
   integral: {
     price: '$8,000',
     title: lang === 'es' ? 'Reforma Integral' : 'Whole-Home Remodeling',
     items: lang === 'es'
-      ? ['Proyecto de arquitectura', 'Electricidad y plomería', 'Pintura y acabados', 'Supervisión continua']
+      ? ['Proyecto técnico', 'Electricidad y plomería', 'Pintura y acabados', 'Supervisión continua']
       : ['Architectural Project', 'Plumbing & Electrical', 'Painting & Finishes', 'Continuous Supervision']
   }
 }[service];
@@ -54,7 +54,7 @@ const whatsappUrl = waLink(whatsappMessage);
 
 <aside class="zone-aside-card" data-zone-aside>
   <div class="aside-price-box">
-    <span class="price-label">{lang === 'es' ? 'Desde' : 'Starting at'}</span>
+    <span class="price-label">{lang === 'es' ? 'Referencia' : 'Reference'}</span>
     <span class="price-amount">{pricing.price}</span>
     <span class="price-currency">USD</span>
   </div>
@@ -91,7 +91,7 @@ const whatsappUrl = waLink(whatsappMessage);
       </a>
       
       <a href="/contacto" class="btn-aside-contact">
-        {lang === 'es' ? 'Solicitar Visita Gratis' : 'Request Free Visit'}
+        {lang === 'es' ? 'Solicitar valoración' : 'Request assessment'}
       </a>
       
       <div class="aside-phone-text">
