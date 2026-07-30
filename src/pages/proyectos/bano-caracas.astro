@@ -2,59 +2,185 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const project = {
-  title: 'Remodelación de Baño Principal',
+  title: 'Remodelación de Baño Principal y Aseo Adaptado',
   location: 'Caracas, Venezuela',
-  category: 'Baño',
+  category: 'Baños & Accesibilidad',
   year: '2024',
   duration: '3 semanas',
-  description: 'Transformación completa de baño principal en residencia de Caracas. El proyecto incluyó demolición total, instalación de nueva plomería, porcelanato premium, mampara de vidrio templado y acabados de lujo.',
+  description: 'Reforma integral de baño principal con fontanería multicapa PEX-Al-PEX y conversión arquitectónica de armario empotrado en aseo accesible con puerta corredera flotante para movilidad reducida.',
+  heroImage: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp',
   scope: [
-    'Demolición completa del baño existente',
-    'Rediseño de distribución para optimizar espacio',
-    'Instalación de plomería nueva',
-    'Porcelanato premium en piso y paredes',
-    'Mampara de vidrio templado',
-    'Ducha walk-in con sistema de drenaje moderno',
-    'Espejo con iluminación LED integrada',
-    'Grifería y accesorios de diseño contemporáneo',
-    'Ventilación mejorada'
+    'Demolición completa de cerámica antigua y armario empotrado original',
+    'Sustitución integral de plomería por tubería multicapa PEX-Al-PEX',
+    'Canalización subterránea de desagües (110mm / 40mm) y agua hacia el nuevo aseo',
+    'Construcción de cerramientos en Drywall hidrófugo RH de 13mm en dormitorio',
+    'Instalación de porcelanato español gris cemento 60x60 y suelo efecto madera',
+    'Técnica premium de doble encolado con cuñas autonivelantes',
+    'Griferías ROCA negro mate con sistema de lluvia y mampara de cristal templado',
+    'Puerta corredera flotante para accesibilidad de persona mayor con movilidad reducida'
   ],
-  beforeImages: [
-    { src: '/images/proyectos/bano-caracas/bano-principal-antes-1.webp', alt: 'Baño principal antes de la remodelación' },
-    { src: '/images/proyectos/bano-caracas/bano-princiapal-antes-2.webp', alt: 'Estado anterior del baño' }
+  specs: [
+    { label: 'Revestimiento Paredes', value: 'Porcelanato español importado 60x60 cm (Gris Cemento)' },
+    { label: 'Revestimiento Suelos', value: 'Porcelanato efecto madera antideslizante' },
+    { label: 'Técnica de Instalación', value: 'Doble encolado + sistema de cuñas autonivelantes' },
+    { label: 'Red de Fontanería', value: 'Multicapa PEX-Al-PEX para agua fría y caliente' },
+    { label: 'Red de Desagües', value: 'PVC de alta capacidad (110 mm poceta / 40 mm lavabo)' },
+    { label: 'Estructura Aseo Adaptado', value: 'Drywall hidrófugo RH 13 mm + perfiles acero 60 mm' },
+    { label: 'Mobiliario y Sanitarios', value: 'Mueble 100 cm (baño) y 45 cm (aseo) con grifería ROCA' },
+    { label: 'Zona de Ducha', value: 'Rociador lluvia + teléfono mural en negro mate ROCA' },
+    { label: 'Mampara de Baño', value: 'Cristal templado de seguridad + perfilería aluminio negro' },
+    { label: 'Iluminación', value: 'Espejos LED perimetrales + downlights LED tono 6500K' },
+    { label: 'Accesibilidad', value: 'Puerta corredera flotante sin obstáculos de giro' }
   ],
-  duringImages: [
-    { src: '/images/proyectos/bano-caracas/bano-principal-porcelanato-instalacion.webp', alt: 'Instalación de porcelanato' },
-    { src: '/images/proyectos/bano-caracas/bano-principal-mampara-mas-ducha-instalada.webp', alt: 'Mampara y ducha' },
-    { src: '/images/proyectos/bano-caracas/bano-principal-poceta-instalada.webp', alt: 'Inodoro instalado' },
-    { src: '/images/proyectos/bano-caracas/bano-principal-espejo-instalado.webp', alt: 'Espejo con LED' }
-  ],
-  afterImages: [
-    { src: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp', alt: 'Resultado final - Vista principal' },
-    { src: '/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp', alt: 'Detalles de acabados' },
-    { src: '/images/proyectos/bano-caracas/bano-principal-finalizado-3.webp', alt: 'Perspectiva completa' },
-    { src: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp', alt: 'Segundo baño: armario convertido en baño' },
-    { src: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp', alt: 'Segundo baño con puerta instalada' },
-    { src: '/images/proyectos/bano-caracas/bano-2-finalizado-1.webp', alt: 'Segundo baño finalizado - Vista general' },
-    { src: '/images/proyectos/bano-caracas/bano-2-finalizado-2.webp', alt: 'Segundo baño finalizado - Detalle de acabados' }
+  gallery: [
+    // 1. BAÑO PRINCIPAL FINALIZADO
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp',
+      alt: 'Baño principal finalizado con porcelanato gris cemento 60x60 y suelo efecto madera',
+      title: 'Baño Principal Finalizado: Armonía Arquitectónica',
+      caption: 'Vista principal del baño terminado. Perfecta combinación entre porcelanato español gris cemento en 60x60, suelo cálido efecto madera antideslizante y luminarias LED 6500K.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Resultado Final',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp',
+      alt: 'Detalle de acabados premium en baño principal: mueble ROCA, poceta e iluminación LED',
+      title: 'Detalle de Acabados Premium y Perfilería Negra',
+      caption: 'Detalle de acabados en la confluencia entre la zona de lavabo con mueble ROCA de 100 cm, el inodoro de doble descarga y el panel fijo de ducha en cristal templado.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Resultado Final',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-finalizado-3.webp',
+      alt: 'Perspectiva integral del baño principal renovado con luces LED 6500K',
+      title: 'Perspectiva Integral del Baño Principal Renovado',
+      caption: 'Vista general que muestra la amplitud visual, la iluminación por capas con tono blanco 6500K y la elegancia del revestimiento cerámico español con juntas milimétricas.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Resultado Final',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-mampara-mas-ducha-instalada.webp',
+      alt: 'Ducha walk-in instalada con grifería ROCA efecto lluvia negro mate y mampara de cristal templado',
+      title: 'Ducha con Grifería ROCA Negro Mate y Mampara Templada',
+      caption: 'Zona de ducha con rociador efecto lluvia y teléfono mural en negro mate marca ROCA, separada con mampara de cristal de seguridad templado y perfilería minimalista en aluminio negro.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Ducha Walk-In',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-poceta-instalada.webp',
+      alt: 'Inodoro ecológico de doble descarga instalado sobre suelo porcelanato efecto madera',
+      title: 'Inodoro de Doble Descarga y Revestimiento Gris Cemento',
+      caption: 'Instalación del inodoro ecológico de doble descarga en el baño principal, contrastando sobre el porcelanato efecto madera en suelo y gris cemento 60x60 en paredes.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Sanitarios ROCA',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-espejo-instalado.webp',
+      alt: 'Mueble ROCA de 100 cm y espejo retroiluminado con luz LED blanca 6500K en baño principal',
+      title: 'Mueble ROCA de 100 cm y Espejo LED Retroiluminado',
+      caption: 'Vista apaisada del frente de lavabo en el baño principal: mueble de 100 cm con grifería ROCA negra y espejo LED con temperatura de color blanca pura 6500K.',
+      category: 'principal',
+      categoryLabel: 'Baño Principal',
+      badge: 'Iluminación LED 6500K',
+      orientation: 'landscape'
+    },
+    // 2. ASEO ADAPTADO (EX-ARMARIO)
+    {
+      src: '/images/proyectos/bano-caracas/bano-2-finalizado-1.webp',
+      alt: 'Nuevo aseo adaptado en antiguo armario con lavabo compacto de 45 cm y espejo LED',
+      title: 'Aseo Adaptado Finalizado: Lavabo de 45 cm e Inodoro',
+      caption: 'Aprovechamiento milimétrico del antiguo armario empotrado. Se instaló un mueble lavabo compacto de 45 cm, inodoro de doble descarga, espejo LED y luz de techo 6500K.',
+      category: 'aseo',
+      categoryLabel: 'Aseo Adaptado',
+      badge: 'Espacio Optimizado',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-2-finalizado-2.webp',
+      alt: 'Revestimiento en porcelanato gris cemento 60x60 y suelo efecto madera en aseo adaptado',
+      title: 'Aseo Adaptado: Continuidad Estética en Porcelanato',
+      caption: 'Mismo diseño que el baño principal: paredes en porcelanato gris cemento 60x60 y suelo efecto madera, con canalizaciones subterráneas de 110mm para inodoro y 40mm para lavabo.',
+      category: 'aseo',
+      categoryLabel: 'Aseo Adaptado',
+      badge: 'Revestimiento Integral',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp',
+      alt: 'Puerta corredera flotante en aseo adaptado para facilitar el acceso en el dormitorio',
+      title: 'Aseo Adaptado: Instalación de Puerta Corredera Flotante',
+      caption: 'Solución de accesibilidad para persona mayor con movilidad reducida: puerta corredera flotante que elimina el radio de giro y maximiza la facilidad de acceso en el dormitorio.',
+      category: 'aseo',
+      categoryLabel: 'Aseo Adaptado',
+      badge: 'Accesibilidad',
+      orientation: 'portrait'
+    },
+    // 3. ANTES Y PROCESO DE OBRA
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-antes-1.webp',
+      alt: 'Baño principal en su estado original antes de la reforma integral',
+      title: 'Baño Principal Original: Vista General',
+      caption: 'Estado original del baño principal antes de la intervención. Cerámica antigua y distribución convencional que requería una demolición total hasta el soporte.',
+      category: 'proceso',
+      categoryLabel: 'Antes y Proceso',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-princiapal-antes-2.webp',
+      alt: 'Estado original del área de ducha y sanitarios en el baño principal',
+      title: 'Baño Principal Original: Zona de Ducha',
+      caption: 'Perspectiva anterior del área de ducha y lavabo, con antiguas tuberías galvanizadas y alicatado para reemplazar por red multicapa PEX-Al-PEX.',
+      category: 'proceso',
+      categoryLabel: 'Antes y Proceso',
+      badge: 'Estado Original',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-principal-porcelanato-instalacion.webp',
+      alt: 'Proceso de instalación de porcelanato 60x60 con cuñas autonivelantes y doble encolado',
+      title: 'Instalación de Porcelanato 60x60 con Cuñas Autonivelantes',
+      caption: 'Fase de revestimiento utilizando técnica de doble encolado y sistema de cuñas autonivelantes para garantizar planitud absoluta en porcelanato gris cemento (paredes) y efecto madera (suelo).',
+      category: 'proceso',
+      categoryLabel: 'Antes y Proceso',
+      badge: 'Proceso de Obra',
+      orientation: 'portrait'
+    },
+    {
+      src: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp',
+      alt: 'Construcción de estructura en Drywall RH 13mm en antiguo armario empotrado para nuevo aseo',
+      title: 'Estructura en Drywall RH: De Armario a Aseo',
+      caption: 'Construcción de los cerramientos en Drywall con montantes y canales de 60 mm y placas hidrófugas (RH) de 13 mm sobre el espacio del antiguo armario empotrado del dormitorio.',
+      category: 'proceso',
+      categoryLabel: 'Antes y Proceso',
+      badge: 'Estructura Drywall RH',
+      orientation: 'portrait'
+    }
   ]
 };
 
-const heroImage = project.afterImages[0].src;
-const allImages = [...project.beforeImages, ...project.duringImages, ...project.afterImages];
+const heroImage = project.heroImage;
 ---
 
 <BaseLayout 
-  title={`${project.title} en ${project.location} | ReformaT Venezuela`} 
+  title={`${project.title} | Caso de Estudio | ReformaT Venezuela`} 
   description={project.description}
   image={heroImage}
   activePage="proyectos"
 >
-  <!-- Hero -->
+  <!-- 1. EDITORIAL LUXURY HERO -->
   <header class="project-hero">
-    <div class="hero-image">
-      <img src={heroImage} alt={project.title} fetchpriority="high" loading="eager" decoding="async" />
-    </div>
+    <div class="hero-backdrop" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
         <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -62,729 +188,1735 @@ const allImages = [...project.beforeImages, ...project.duringImages, ...project.
           <span class="separator">/</span>
           <a href="/proyectos">Proyectos</a>
           <span class="separator">/</span>
-          <span class="current">{project.title}</span>
+          <span class="current">Baño Principal y Aseo Adaptado</span>
         </nav>
-        <span class="hero-badge">{project.category}</span>
-        <h1 class="hero-title">{project.title}</h1>
-        <p class="hero-location">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-            <circle cx="12" cy="10" r="3"/>
-          </svg>
-          {project.location}
+
+        <div class="hero-kicker">
+          <span class="kicker-badge">CASO DE ESTUDIO</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-sub">ARQUITECTURA INTERIOR · CARACAS</span>
+        </div>
+
+        <h1 class="hero-title">Remodelación de Baño Principal y Creación de Aseo Adaptado</h1>
+        
+        <p class="hero-subtitle">
+          Transformación integral con fontanería multicapa PEX-Al-PEX y reconversión inteligente de un armario empotrado en un aseo accesible con puerta corredera flotante para movilidad reducida.
         </p>
+
+        <!-- Quick Executive Ribbon -->
+        <div class="hero-stats-ribbon">
+          <div class="stat-item">
+            <span class="stat-label">Ubicación</span>
+            <span class="stat-value">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                <circle cx="12" cy="10" r="3"/>
+              </svg>
+              Caracas, Venezuela
+            </span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Alcance Espacial</span>
+            <span class="stat-value">2 Baños (Principal + Aseo Adaptado)</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Plazo de Obra</span>
+            <span class="stat-value">3 Semanas</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Revestimiento Premium</span>
+            <span class="stat-value">Porcelanato Español 60x60</span>
+          </div>
+          <div class="stat-divider" aria-hidden="true"></div>
+          <div class="stat-item">
+            <span class="stat-label">Accesibilidad</span>
+            <span class="stat-value">Puerta Corredera Flotante</span>
+          </div>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Project Info -->
-  <section class="project-body">
+  <!-- 2. DUAL-SHOWCASE: LOS DOS ESPACIOS DEL PROYECTO (ZERO CROPPING) -->
+  <section class="dual-showcase-section">
     <div class="container">
-      <div class="project-layout">
-        <!-- Main Content -->
-        <div class="project-main">
-          <div class="project-desc">
-            <h2 class="section-title">Descripción del Proyecto</h2>
-            <p class="section-text">{project.description}</p>
+      <div class="section-heading">
+        <span class="eyebrow-text">VISTA DOBLE DEL PROYECTO</span>
+        <h2 class="editorial-title">Un Reto Arquitectónico en Dos Espacios</h2>
+        <p class="editorial-subtitle">
+          El proyecto resolvió dos necesidades en paralelo: la modernización total de un baño principal de residencia y la creación de un nuevo aseo accesible en el dormitorio para garantizar proximidad a una persona mayor con movilidad reducida.
+        </p>
+      </div>
+
+      <div class="showcase-grid">
+        <!-- Card 1: Baño Principal -->
+        <article class="showcase-card">
+          <div class="showcase-image-frame">
+            <span class="showcase-badge">Baño Principal · Reforma Integral</span>
+            <img 
+              src="/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp" 
+              alt="Baño principal finalizado con porcelanato español gris cemento 60x60 y suelo efecto madera" 
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="showcase-content">
+            <h3 class="showcase-title">Baño Principal Renovado</h3>
+            <p class="showcase-desc">
+              Reforma integral de suelo a techo con porcelanato español en tono gris cemento (60x60 cm) en paredes, suelo efecto madera cálido, mueble de 100 cm con grifería ROCA, inodoro ecológico de doble descarga y espejo con iluminación LED 6500K.
+            </p>
+            <ul class="showcase-highlights">
+              <li>• Ducha walk-in con grifería ROCA en negro mate efecto lluvia</li>
+              <li>• Mampara de cristal templado de seguridad con perfilería negra</li>
+              <li>• Tuberías de alimentación nuevas en multicapa PEX-Al-PEX</li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card 2: Aseo Adaptado -->
+        <article class="showcase-card">
+          <div class="showcase-image-frame">
+            <span class="showcase-badge">Aseo Adaptado · Ex-Armario Empotrado</span>
+            <img 
+              src="/images/proyectos/bano-caracas/bano-2-finalizado-1.webp" 
+              alt="Nuevo aseo adaptado en antiguo armario empotrado con lavabo de 45 cm y puerta corredera flotante" 
+              loading="eager"
+              decoding="async"
+            />
+          </div>
+          <div class="showcase-content">
+            <h3 class="showcase-title">Aseo Adaptado en Antiguo Armario</h3>
+            <p class="showcase-desc">
+              Creación desde cero de un aseo compacto en el espacio que ocupaba un armario empotrado. Diseñado para ofrecer la máxima cercanía en el dormitorio a una persona mayor, aprovechando cada centímetro con precisión milimétrica.
+            </p>
+            <ul class="showcase-highlights">
+              <li>• Puerta corredera flotante para facilitar el acceso sin obstáculos</li>
+              <li>• Cerramiento hidrófugo en Drywall RH 13 mm altamente resistente</li>
+              <li>• Mueble lavabo compacto de 45 cm e inodoro en continuidad estética</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
+  <section class="technical-narrative-section">
+    <div class="container">
+      <div class="narrative-layout">
+        <!-- Main Editorial Narrative -->
+        <div class="narrative-main">
+          <span class="eyebrow-text">MEMORIA TÉCNICA DEL PROYECTO</span>
+          <h2 class="editorial-title">Ingeniería, Accesibilidad y Acabados de Alta Especificación</h2>
+
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">01. El Reto Espacial y la Prioridad de Accesibilidad</h3>
+            <p class="chapter-text">
+              Este proyecto supuso una intervención de alta complejidad técnica y humana en una residencia de Caracas. El encargo no se limitaba a modernizar el baño principal existente; la prioridad absoluta del cliente era garantizar autonomía y comodidad para una persona mayor con movilidad reducida que residía en la vivienda.
+            </p>
+            <p class="chapter-text">
+              Para evitar desplazamientos largos, se decidió transformar un antiguo armario empotrado situado dentro del dormitorio en un aseo privado equipado con inodoro y lavabo. Al tratarse de un dormitorio de dimensiones acotadas, el equipo técnico de <strong>ReformaT Venezuela</strong> realizó un estudio milimétrico de la planta para aprovechar cada centímetro disponible sin comprometer la ergonomía ni el paso libre.
+            </p>
           </div>
 
-          <!-- Before/After -->
-          <div class="ba-section">
-            <h2 class="section-title">Transformación</h2>
-            <div class="ba-grid">
-              <div class="ba-item" data-src={project.beforeImages[0].src} data-alt={project.beforeImages[0].alt}>
-                <img src={project.beforeImages[0].src} alt={project.beforeImages[0].alt} loading="lazy" />
-                <span class="ba-label">Antes</span>
-              </div>
-              <div class="ba-item" data-src={project.afterImages[0].src} data-alt={project.afterImages[0].alt}>
-                <img src={project.afterImages[0].src} alt={project.afterImages[0].alt} loading="lazy" />
-                <span class="ba-label">Después</span>
-              </div>
-            </div>
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">02. Armonía Estética: Porcelanato Español y Suelo Madera</h3>
+            <p class="chapter-text">
+              Para dotar a la vivienda de una coherencia visual elegante y contemporánea, se implementó exactamente el mismo lenguaje de materiales en ambos espacios:
+            </p>
+            <ul class="editorial-list">
+              <li>
+                <strong>Porcelanato español en paredes (60x60 cm):</strong> Se seleccionó una cerámica importada en tono gris cemento que aporta sobriedad arquitectónica, alta resistencia a la humedad y facilidad de mantenimiento.
+              </li>
+              <li>
+                <strong>Porcelanato efecto madera en suelos:</strong> Para contrarrestar el tono neutro de las paredes, se instaló un pavimento porcelánico con textura de madera natural antideslizante, otorgando calidez al tacto visual y máxima seguridad en superficies mojadas.
+              </li>
+              <li>
+                <strong>Técnica de instalación premium:</strong> Toda la cerámica fue colocada utilizando la técnica de <em>doble encolado</em> sobre soporte regularizado, incorporando un <em>sistema de cuñas autonivelantes</em> que elimina cualquier desnivel ("cejas") entre piezas, garantizando juntas milimétricas y perfectamente planas.
+              </li>
+            </ul>
           </div>
 
-          <!-- Gallery -->
-          <div class="gallery-section">
-            <h2 class="section-title">Galería</h2>
-            <div class="gallery-grid">
-              {allImages.map((img, i) => (
-                <div class="gallery-item" data-src={img.src} data-alt={img.alt} data-index={i}>
-                  <img src={img.src} alt={img.alt} loading="lazy" />
-                  <div class="gallery-hover">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="11" cy="11" r="8"/>
-                      <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                      <line x1="11" y1="8" x2="11" y2="14"/>
-                      <line x1="8" y1="11" x2="14" y2="11"/>
-                    </svg>
-                  </div>
-                </div>
-              ))}
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">03. Hazaña de Fontanería: Conexión Subterránea y PEX-Al-PEX</h3>
+            <p class="chapter-text">
+              En el baño principal se ejecutó una demolición completa de todos los revestimientos y soleras antiguas hasta descubrir la albañilería base. Se retiró por completo el sistema de tuberías galvanizadas obsoleto y se rediseñó la infraestructura hidráulica del hogar:
+            </p>
+            <div class="highlight-callout">
+              <span class="callout-badge">SOLUCIÓN INGENIERIL</span>
+              <p>
+                Como el nuevo aseo (antiguo armario empotrado) no disponía de ninguna toma de agua ni red de saneamiento, durante la remodelación del baño principal <strong>se canalizaron a través del suelo todas las acometidas hacia el nuevo espacio</strong>. Se pasaron conductos de desagüe de PVC de alta capacidad en diámetro de <strong>110 mm (4 pulgadas)</strong> para la poceta e inodoro y de <strong>40 mm (1½ pulgadas)</strong> para el lavabo, además de las líneas de alimentación en tubería multicapa <strong>PEX-Al-PEX</strong> para agua fría y caliente.
+              </p>
             </div>
+            <p class="chapter-text">
+              El uso de tubería multicapa <strong>PEX-Al-PEX</strong> (polietileno reticulado con alma de aluminio) previene corrosiones, fugas e incrustaciones térmicas, garantizando décadas de funcionamiento ininterrumpido. En el baño principal se instaló un inodoro de doble descarga, un mueble de lavabo de 100 cm con grifería ROCA y una zona de ducha con rociador de lluvia y teléfono mural en negro mate marca ROCA, separada por una mampara de cristal de seguridad templado con perfilería negra.
+            </p>
+          </div>
+
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">04. Ingeniería del Aseo Adaptado: Drywall RH y Puerta Corredera Flotante</h3>
+            <p class="chapter-text">
+              La reconversión del armario en el nuevo aseo requirió una solución estructural ligera, resistente y ultracompacta:
+            </p>
+            <ul class="editorial-list">
+              <li>
+                <strong>Cerramiento hidrófugo Drywall RH:</strong> Tras demoler la carpintería del antiguo armario, se montó un cerramiento técnico utilizando perfiles, montantes y canales estructurales de acero galvanizado de <strong>60 mm</strong> y placas de drywall hidrófugo de <strong>13 mm (RH)</strong> especiales para resistir vapor, agua y condiciones prolongadas de humedad.
+              </li>
+              <li>
+                <strong>Puerta corredera flotante:</strong> Para garantizar un acceso sin barreras y no invadir la zona de circulación del dormitorio con el barrido de una puerta abatible tradicional, se diseñó e instaló un sistema de puerta corredera flotante superior. Esta decisión facilitó de forma decisiva el ingreso autónomo de la persona con movilidad reducida.
+              </li>
+              <li>
+                <strong>Optimización de sanitarios:</strong> Se instaló un mueble de lavabo compacto de 45 cm y una poceta ergonómica, logrando un aseo cómodo y visualmente holgado en un espacio donde antes solo existía almacenamiento de ropa.
+              </li>
+            </ul>
+          </div>
+
+          <div class="editorial-chapter">
+            <h3 class="chapter-title">05. Iluminación por Capas LED 6500K</h3>
+            <p class="chapter-text">
+              En ambos baños se prestó especial atención a la iluminación arquitectónica. Se instalaron <strong>espejos con iluminación LED perimetral integrada</strong> y downlights LED de techo en temperatura de color <strong>6500K (blanco puro)</strong>. Esta elección maximiza el confort visual, resalta la textura del porcelanato gris cemento y ofrece una luminosidad clara que evita sombras y previene accidentes de visibilidad en el uso diario.
+            </p>
           </div>
         </div>
 
-        <!-- Sidebar -->
-        <aside class="project-sidebar">
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Detalles del Proyecto</h3>
-            <dl class="details-list">
-              <div class="detail-row">
-                <dt>Ubicación</dt>
-                <dd>{project.location}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Categoría</dt>
-                <dd>{project.category}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Duración</dt>
-                <dd>{project.duration}</dd>
-              </div>
-              <div class="detail-row">
-                <dt>Año</dt>
-                <dd>{project.year}</dd>
-              </div>
+        <!-- Sticky Sidebar: Technical Specifications & Scope Checklist -->
+        <aside class="narrative-sidebar">
+          <!-- Card 1: Ficha Técnica -->
+          <div class="spec-card">
+            <div class="spec-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+                <polyline points="10 9 9 9 8 9"/>
+              </svg>
+              <h3 class="spec-title">Ficha Técnica del Proyecto</h3>
+            </div>
+            <dl class="spec-list">
+              {project.specs.map(item => (
+                <div class="spec-row">
+                  <dt>{item.label}</dt>
+                  <dd>{item.value}</dd>
+                </div>
+              ))}
             </dl>
           </div>
 
-          <div class="sidebar-card">
-            <h3 class="sidebar-title">Alcance del Trabajo</h3>
+          <!-- Card 2: Checklist Alcance del Trabajo -->
+          <div class="spec-card">
+            <div class="spec-header">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <polyline points="9 11 12 14 22 4"/>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <h3 class="spec-title">Alcance Contratado</h3>
+            </div>
             <ul class="scope-list">
               {project.scope.map(item => (
                 <li class="scope-item">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="20 6 9 17 4 12"/>
-                  </svg>
-                  {item}
+                  <span class="check-icon">✓</span>
+                  <span>{item}</span>
                 </li>
               ))}
             </ul>
+          </div>
+
+          <!-- Card 3: Sello de Garantía -->
+          <div class="guarantee-card">
+            <span class="guarantee-eyebrow">ESTÁNDAR REFORMAT VENEZUELA</span>
+            <h4 class="guarantee-title">Obras Ejecutadas con Garantía por Contrato</h4>
+            <p class="guarantee-text">
+              Cada instalación hidráulica en tubería multicapa y cada junta de porcelanato cuenta con supervisión de ingeniería civil y respaldo formal.
+            </p>
           </div>
         </aside>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="project-cta">
+  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
+  <section class="before-after-section">
     <div class="container">
-      <h2 class="cta-title">¿Listo para Transformar tu Baño?</h2>
-      <p class="cta-text">Solicita una consulta gratuita y descubre cómo podemos renovar tu espacio.</p>
-      <a href="/contacto" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Solicitar Presupuesto</span>
-        <span class="btn-border"></span>
-        <span class="btn-arrow">→</span>
-      </a>
+      <div class="section-heading">
+        <span class="eyebrow-text">TRANSFORMACIÓN ARQUITECTÓNICA</span>
+        <h2 class="editorial-title">Comparativa Visual: Antes y Después</h2>
+        <p class="editorial-subtitle">
+          Observe la evolución desde el estado original de la cerámica anterior y la estructura en Drywall RH del antiguo armario hasta los acabados finales de lujo.
+        </p>
+      </div>
+
+      <div class="comparison-grid">
+        <!-- Comparison 1: Baño Principal -->
+        <div class="comparison-pair">
+          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" data-alt="Baño principal en su estado original antes de la reforma integral" data-title="Baño Principal Original: Estado Previo">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label before-label">Antes · Obra Original</span>
+              <img src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" alt="Baño principal antes de la remodelación en Caracas" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Estado inicial con cerámica desgastada e instalaciones que requerían sustitución de fontanería.</p>
+          </div>
+          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" data-alt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" data-title="Baño Principal Renovado: Acabados Premium">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label after-label">Después · Resultado Final</span>
+              <img src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" alt="Baño principal finalizado con porcelanato gris cemento 60x60" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Porcelanato gris cemento 60x60, mueble ROCA, inodoro doble descarga y mampara templada.</p>
+          </div>
+        </div>
+
+        <!-- Comparison 2: Aseo Adaptado -->
+        <div class="comparison-pair">
+          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" data-alt="Construcción en Drywall RH 13mm del nuevo aseo en antiguo armario empotrado" data-title="Estructura Drywall RH: Antiguo Armario">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label before-label">Proceso · Drywall RH 13mm</span>
+              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" alt="Estructura en Drywall hidrófugo RH para nuevo aseo" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Montaje de cerramientos con perfiles galvanizados de 60 mm en el hueco del antiguo armario.</p>
+          </div>
+          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" data-alt="Aseo adaptado terminado con puerta corredera flotante para accesibilidad" data-title="Aseo Adaptado: Puerta Corredera Flotante">
+            <div class="comparison-image-wrapper">
+              <span class="comparison-label after-label">Después · Aseo Accesible</span>
+              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" alt="Aseo adaptado terminado con puerta corredera flotante en dormitorio" loading="lazy" />
+            </div>
+            <p class="comparison-caption">Puerta corredera flotante de acceso optimizado para persona con movilidad reducida.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true">
-    <button class="lightbox-close" aria-label="Cerrar">&times;</button>
-    <button class="lightbox-prev" aria-label="Anterior">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT) -->
+  <section class="gallery-section" id="galeria">
+    <div class="container">
+      <div class="section-heading">
+        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
+        <h2 class="editorial-title">Galería Detallada del Proyecto (13 Fotos Reales)</h2>
+        <p class="editorial-subtitle">
+          Explore cada fase del proyecto sin recortes artificiales: las fotografías preservan su proporción real para poder apreciar con precisión la fontanería, las pendientes y los acabados de revestimiento.
+        </p>
+
+        <!-- Interactive Filter Tabs -->
+        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
+          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
+            <span>Todos los Espacios</span>
+            <span class="filter-count">13</span>
+          </button>
+          <button class="filter-btn" data-filter="principal" role="tab" aria-selected="false">
+            <span>Baño Principal</span>
+            <span class="filter-count">6</span>
+          </button>
+          <button class="filter-btn" data-filter="aseo" role="tab" aria-selected="false">
+            <span>Aseo Adaptado</span>
+            <span class="filter-count">3</span>
+          </button>
+          <button class="filter-btn" data-filter="proceso" role="tab" aria-selected="false">
+            <span>Antes y Proceso de Obra</span>
+            <span class="filter-count">4</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Masonry Grid with Zero-Crop Images -->
+      <div class="gallery-masonry" id="gallery-grid">
+        {project.gallery.map((img, idx) => (
+          <article 
+            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}`}
+            data-category={img.category}
+            data-index={idx}
+            data-src={img.src}
+            data-alt={img.alt}
+            data-title={img.title}
+            data-caption={img.caption}
+          >
+            <div class="card-image-box">
+              <span class="card-badge">{img.badge}</span>
+              <img 
+                src={img.src} 
+                alt={img.alt} 
+                loading="lazy" 
+                decoding="async" 
+              />
+              <div class="card-hover-overlay">
+                <span class="hover-zoom-btn">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <circle cx="11" cy="11" r="8"/>
+                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                    <line x1="11" y1="8" x2="11" y2="14"/>
+                    <line x1="8" y1="11" x2="14" y2="11"/>
+                  </svg>
+                  Ampliar imagen
+                </span>
+              </div>
+            </div>
+            <div class="card-caption-box">
+              <span class="card-category-tag">{img.categoryLabel}</span>
+              <h3 class="card-title">{img.title}</h3>
+              <p class="card-desc">{img.caption}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- 6. LUXURY CALL TO ACTION -->
+  <section class="project-cta-luxury">
+    <div class="cta-backdrop" aria-hidden="true"></div>
+    <div class="container">
+      <div class="cta-inner">
+        <span class="cta-kicker">¿TIENES UN PROYECTO SIMILAR EN MENTE?</span>
+        <h2 class="cta-title">Diseño, Precisión e Ingeniería para tu Baño</h2>
+        <p class="cta-text">
+          Sea una remodelación de baño principal de alta gama o una adaptación especializada para accesibilidad y movilidad reducida, nuestro equipo técnico planifica y ejecuta cada obra bajo contrato formal en Caracas y Valencia.
+        </p>
+        <div class="cta-actions">
+          <a href="/contacto" class="btn-premium btn-primary-premium">
+            <span class="btn-content">Solicitar Presupuesto y Asesoría Técnica</span>
+            <span class="btn-border"></span>
+            <span class="btn-arrow">→</span>
+          </a>
+          <a href="/servicios/remodelacion-bano" class="btn-secondary-luxury">
+            <span>Ver Servicio de Reformas de Baños</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
+  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
+    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
+    <button class="lightbox-prev" aria-label="Imagen anterior">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="15 18 9 12 15 6"/>
       </svg>
     </button>
-    <button class="lightbox-next" aria-label="Siguiente">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <button class="lightbox-next" aria-label="Imagen siguiente">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <polyline points="9 18 15 12 9 6"/>
       </svg>
     </button>
+
     <div class="lightbox-content">
-      <img id="lightbox-img" src="" alt="" />
-      <p id="lightbox-caption" class="lightbox-caption"></p>
-    </div>
-    <div class="lightbox-counter">
-      <span id="lightbox-current">1</span> / <span id="lightbox-total">1</span>
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-img" src="" alt="" />
+      </div>
+      <div class="lightbox-info">
+        <div class="lightbox-meta">
+          <span id="lightbox-badge" class="lightbox-badge"></span>
+          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">13</span></span>
+        </div>
+        <h3 id="lightbox-title" class="lightbox-title"></h3>
+        <p id="lightbox-caption" class="lightbox-caption"></p>
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  /* Hero */
+  /* ==========================================================
+     1. EDITORIAL LUXURY HERO
+     ========================================================== */
   .project-hero {
     position: relative;
-    padding: 60px 0 0;
+    padding: 100px 0 70px;
     background: var(--ink);
-  }
-  
-  .hero-image {
-    position: relative;
-    width: 100%;
-    max-height: 500px;
+    color: var(--white);
     overflow: hidden;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
   }
-  
-  .hero-image img {
-    width: 100%;
-    height: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    object-position: center;
+
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(201,169,97,0.12) 0%, transparent 55%),
+      radial-gradient(circle at 20% 80%, rgba(201,169,97,0.07) 0%, transparent 50%);
+    pointer-events: none;
   }
-  
+
   .hero-content {
-    padding: 40px 0;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-left: 24px;
-    padding-right: 24px;
+    position: relative;
+    z-index: 1;
+    max-width: 1050px;
   }
-  
+
   .breadcrumb {
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
     gap: 8px;
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.5);
-    margin-bottom: 16px;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 24px;
+    font-family: var(--font-sans);
   }
-  
+
   .breadcrumb a {
-    color: rgba(255,255,255,0.5);
+    color: rgba(255,255,255,0.6);
     text-decoration: none;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
   }
-  
+
   .breadcrumb a:hover {
     color: var(--gold);
   }
-  
+
+  .breadcrumb .separator {
+    opacity: 0.35;
+  }
+
   .breadcrumb .current {
     color: var(--gold);
-  }
-  
-  .separator {
-    opacity: 0.4;
-  }
-  
-  .hero-badge {
-    display: inline-block;
-    padding: 5px 14px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--bg);
-    background: var(--gold);
-    border-radius: var(--r-sm);
-    margin-bottom: 16px;
-  }
-  
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 500;
-    color: var(--white);
-    line-height: 1.2;
-    margin-bottom: 12px;
   }
-  
-  .hero-location {
+
+  .hero-kicker {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    font-size: 1rem;
-    color: rgba(255,255,255,0.6);
+    gap: 12px;
+    margin-bottom: 20px;
   }
 
-  /* Body Layout */
-  .project-body {
-    padding: 60px 0 80px;
+  .kicker-badge {
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: var(--gold);
+    border-radius: var(--r-sm);
+  }
+
+  .kicker-line {
+    width: 28px;
+    height: 1px;
+    background: rgba(201,169,97,0.5);
+  }
+
+  .kicker-sub {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+  }
+
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.3rem, 5vw, 3.8rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.12;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 20px;
+    max-width: 980px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1.05rem, 2vw, 1.22rem);
+    line-height: 1.65;
+    color: rgba(255,255,255,0.78);
+    max-width: 860px;
+    margin-bottom: 38px;
+    font-family: var(--font-sans);
+  }
+
+  /* Executive Stats Ribbon */
+  .hero-stats-ribbon {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: var(--r-md);
+    backdrop-filter: blur(8px);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .stat-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .stat-value {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+  }
+
+  .stat-divider {
+    width: 1px;
+    height: 32px;
+    background: rgba(255,255,255,0.12);
+  }
+
+  /* ==========================================================
+     2. DUAL-SHOWCASE: LOS DOS ESPACIOS DEL PROYECTO
+     ========================================================== */
+  .dual-showcase-section {
+    padding: 80px 0;
     background: var(--bone);
   }
-  
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  
-  .project-layout {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 48px;
-    align-items: start;
-  }
-  
-  .project-main {
-    min-width: 0;
-  }
-  
-  .section-title {
-    font-family: var(--font-serif);
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-  
-  .section-text {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-light);
+
+  .section-heading {
+    text-align: center;
+    max-width: 780px;
+    margin: 0 auto 50px;
   }
 
-  /* Before/After */
-  .ba-section {
-    margin-top: 48px;
+  .eyebrow-text {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin-bottom: 12px;
   }
-  
-  .ba-grid {
+
+  .editorial-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .editorial-subtitle {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: var(--text-muted);
+  }
+
+  .showcase-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
   }
-  
-  .ba-item {
-    position: relative;
-    border-radius: var(--r-sm);
+
+  .showcase-card {
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
     overflow: hidden;
-    cursor: zoom-in;
-    aspect-ratio: 4/3;
-    background: var(--sand);
+    box-shadow: var(--e-1);
+    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
+    display: flex;
+    flex-direction: column;
   }
-  
-  .ba-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
+
+  .showcase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
   }
-  
-  .ba-item:hover img {
-    transform: scale(1.03);
+
+  .showcase-image-frame {
+    position: relative;
+    background: var(--ink-soft);
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 480px;
   }
-  
-  .ba-label {
+
+  .showcase-badge {
     position: absolute;
-    bottom: 12px;
-    left: 12px;
-    padding: 5px 14px;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    padding: 6px 14px;
     font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    border-radius: var(--r-sm);
-  }
-  
-  .ba-item:first-child .ba-label {
-    background: rgba(255, 77, 77, 0.9);
-    color: white;
-  }
-  
-  .ba-item:last-child .ba-label {
     background: var(--gold);
-    color: var(--bg);
-  }
-
-  /* Gallery */
-  .gallery-section {
-    margin-top: 48px;
-  }
-  
-  .gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-  }
-  
-  .gallery-item {
-    position: relative;
+    color: var(--ink);
     border-radius: var(--r-sm);
-    overflow: hidden;
-    cursor: zoom-in;
-    aspect-ratio: 1;
-    background: var(--sand);
-  }
-  
-  .gallery-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.4s ease;
-  }
-  
-  .gallery-item:hover img {
-    transform: scale(1.05);
-  }
-  
-  .gallery-hover {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(20,18,14,0);
-    transition: background 0.3s ease;
-  }
-  
-  .gallery-item:hover .gallery-hover {
-    background: rgba(20,18,14,0.3);
-  }
-  
-  .gallery-hover svg {
-    width: 28px;
-    height: 28px;
-    color: white;
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.3s ease, transform 0.3s ease;
-  }
-  
-  .gallery-item:hover .gallery-hover svg {
-    opacity: 1;
-    transform: scale(1);
+    box-shadow: var(--e-1);
   }
 
-  /* Sidebar */
-  .project-sidebar {
-    position: sticky;
-    top: 100px;
+  /* CRITICAL: NO CROPPING ON SHOWCASE IMAGES */
+  .showcase-image-frame img {
+    width: 100%;
+    height: auto;
+    max-height: 580px;
+    object-fit: contain;
+    border-radius: var(--r-sm);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+
+  .showcase-content {
+    padding: 30px 28px;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    flex: 1;
   }
-  
-  .sidebar-card {
-    padding: 24px;
-    background: var(--white);
-    border-radius: var(--r-md);
-    border: 1px solid var(--sand);
-  }
-  
-  .sidebar-title {
+
+  .showcase-title {
     font-family: var(--font-serif);
-    font-size: 1.1rem;
+    font-size: 1.7rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+
+  .showcase-desc {
+    font-size: 0.98rem;
+    line-height: 1.68;
+    color: var(--text-light);
+    margin-bottom: 20px;
+  }
+
+  .showcase-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    border-top: 1px solid var(--sand);
+    padding-top: 18px;
+  }
+
+  .showcase-highlights li {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* ==========================================================
+     3. TECHNICAL NARRATIVE & SIDEBAR (2-COLUMN EDITORIAL GRID)
+     ========================================================== */
+  .technical-narrative-section {
+    padding: 90px 0;
+    background: var(--white);
+    border-top: 1px solid var(--sand);
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .narrative-layout {
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .narrative-main {
+    min-width: 0;
+  }
+
+  .editorial-chapter {
+    margin-top: 48px;
+    padding-bottom: 38px;
+    border-bottom: 1px solid var(--sand);
+  }
+
+  .editorial-chapter:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .chapter-title {
+    font-family: var(--font-serif);
+    font-size: 1.55rem;
     font-weight: 600;
     color: var(--text);
     margin-bottom: 16px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid var(--sand);
   }
-  
-  .details-list {
-    margin: 0;
+
+  .chapter-text {
+    font-size: 1.05rem;
+    line-height: 1.78;
+    color: var(--text-light);
+    margin-bottom: 18px;
   }
-  
-  .detail-row {
+
+  .editorial-list {
+    margin: 20px 0 0 20px;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 0;
-    border-bottom: 1px solid var(--sand);
+    flex-direction: column;
+    gap: 14px;
   }
-  
-  .detail-row:last-child {
-    border-bottom: none;
+
+  .editorial-list li {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--text-light);
   }
-  
-  .detail-row dt {
-    font-size: 0.85rem;
-    color: var(--text-muted);
+
+  .editorial-list strong {
+    color: var(--text);
   }
-  
-  .detail-row dd {
-    font-size: 0.9rem;
-    font-weight: 500;
+
+  .highlight-callout {
+    margin: 28px 0;
+    padding: 26px 30px;
+    background: var(--bone);
+    border-left: 4px solid var(--gold);
+    border-radius: 0 var(--r-md) var(--r-md) 0;
+  }
+
+  .callout-badge {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold-ink);
+    margin-bottom: 8px;
+  }
+
+  .highlight-callout p {
+    font-size: 1rem;
+    line-height: 1.75;
     color: var(--text);
     margin: 0;
   }
-  
+
+  /* Sidebar */
+  .narrative-sidebar {
+    position: sticky;
+    top: 110px;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .spec-card,
+  .guarantee-card {
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    padding: 28px;
+  }
+
+  .spec-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .spec-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .spec-list {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .spec-row {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+
+  .spec-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .spec-row dt {
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .spec-row dd {
+    font-size: 0.94rem;
+    font-weight: 500;
+    color: var(--text);
+    margin: 0;
+    line-height: 1.45;
+  }
+
   .scope-list {
     list-style: none;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 14px;
   }
-  
+
   .scope-item {
     display: flex;
     align-items: flex-start;
-    gap: 10px;
-    font-size: 0.85rem;
-    line-height: 1.5;
+    gap: 12px;
+    font-size: 0.92rem;
+    line-height: 1.55;
     color: var(--text-light);
   }
-  
-  .scope-item svg {
+
+  .check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
     flex-shrink: 0;
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 50%;
     margin-top: 2px;
   }
 
-  /* CTA */
-  .project-cta {
-    padding: 80px 0;
+  .guarantee-card {
     background: var(--ink);
-    text-align: center;
-  }
-  
-  .project-cta .container {
-    max-width: 600px;
-  }
-  
-  .cta-title {
-    font-family: var(--font-serif);
-    font-size: clamp(1.6rem, 3vw, 2rem);
-    font-weight: 500;
     color: var(--white);
-    margin-bottom: 12px;
-  }
-  
-  .cta-text {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 28px;
+    border: 1px solid rgba(201,169,97,0.3);
   }
 
-  /* Lightbox */
+  .guarantee-eyebrow {
+    display: block;
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .guarantee-title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 10px;
+  }
+
+  .guarantee-text {
+    font-size: 0.88rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.7);
+    margin: 0;
+  }
+
+  /* ==========================================================
+     4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED)
+     ========================================================== */
+  .before-after-section {
+    padding: 85px 0;
+    background: var(--bone);
+  }
+
+  .comparison-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .comparison-pair {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    background: var(--white);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    padding: 24px;
+    box-shadow: var(--e-1);
+  }
+
+  .comparison-item {
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+    transition: transform 0.3s ease;
+  }
+
+  .comparison-item:hover {
+    transform: translateY(-3px);
+  }
+
+  .comparison-image-wrapper {
+    position: relative;
+    background: var(--ink-soft);
+    border-radius: var(--r-sm);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 420px;
+    overflow: hidden;
+  }
+
+  .comparison-label {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 14px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border-radius: var(--r-sm);
+    box-shadow: var(--e-1);
+  }
+
+  .before-label {
+    background: #e63946;
+    color: #ffffff;
+  }
+
+  .after-label {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  /* ZERO CROPPING IN COMPARISON IMAGES */
+  .comparison-image-wrapper img {
+    width: 100%;
+    height: auto;
+    max-height: 480px;
+    object-fit: contain;
+    border-radius: 2px;
+  }
+
+  .comparison-caption {
+    margin-top: 14px;
+    font-size: 0.92rem;
+    line-height: 1.55;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  /* ==========================================================
+     5. GALLERY WITH FILTER TABS AND ZERO-CROP LAYOUT
+     ========================================================== */
+  .gallery-section {
+    padding: 95px 0 100px;
+    background: var(--white);
+  }
+
+  .gallery-filters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 36px;
+  }
+
+  .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-full);
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: all 0.25s ease;
+  }
+
+  .filter-btn:hover {
+    background: var(--sand);
+    color: var(--text);
+  }
+
+  .filter-btn.active {
+    background: var(--ink);
+    color: var(--white);
+    border-color: var(--ink);
+  }
+
+  .filter-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px 8px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(201,169,97,0.2);
+    color: var(--gold-ink);
+    border-radius: 12px;
+  }
+
+  .filter-btn.active .filter-count {
+    background: var(--gold);
+    color: var(--ink);
+  }
+
+  /* Zero-Crop Grid Cards */
+  .gallery-masonry {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    align-items: start;
+  }
+
+  .gallery-card {
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+  }
+
+  .gallery-card.card-landscape {
+    grid-column: span 2;
+  }
+
+  .gallery-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,0.4);
+  }
+
+  .gallery-card.hidden {
+    display: none !important;
+  }
+
+  .card-image-box {
+    position: relative;
+    background: var(--ink-soft);
+    padding: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    overflow: hidden;
+  }
+
+  .card-landscape .card-image-box {
+    min-height: 420px;
+  }
+
+  .card-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: var(--r-sm);
+    box-shadow: var(--e-1);
+  }
+
+  /* CRITICAL: NATURAL ASPECT RATIO - ZERO CROPPING */
+  .card-image-box img {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: contain;
+    border-radius: 2px;
+    transition: transform 0.4s var(--ease-out);
+  }
+
+  .gallery-card:hover .card-image-box img {
+    transform: scale(1.02);
+  }
+
+  .card-hover-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(20,18,14,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gallery-card:hover .card-hover-overlay {
+    opacity: 1;
+  }
+
+  .hover-zoom-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--white);
+    color: var(--ink);
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--r-full);
+    box-shadow: var(--e-2);
+    transform: translateY(8px);
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-card:hover .hover-zoom-btn {
+    transform: translateY(0);
+  }
+
+  .card-caption-box {
+    padding: 22px 24px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-category-tag {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--gold-ink);
+    margin-bottom: 8px;
+  }
+
+  .card-title {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 10px;
+    line-height: 1.3;
+  }
+
+  .card-desc {
+    font-size: 0.92rem;
+    line-height: 1.62;
+    color: var(--text-muted);
+  }
+
+  /* ==========================================================
+     6. LUXURY CTA SECTION
+     ========================================================== */
+  .project-cta-luxury {
+    position: relative;
+    padding: 100px 0;
+    background: var(--ink);
+    color: var(--white);
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .cta-backdrop {
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse at 50% 10%, rgba(201,169,97,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 90%, rgba(201,169,97,0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  .cta-inner {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+  }
+
+  .cta-kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+
+  .cta-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    font-weight: 500;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+
+  .cta-text {
+    font-size: 1.08rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 36px;
+  }
+
+  .cta-actions {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+
+  .btn-secondary-luxury {
+    display: inline-flex;
+    align-items: center;
+    padding: 15px 28px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: var(--r-full);
+    transition: all 0.25s ease;
+  }
+
+  .btn-secondary-luxury:hover {
+    background: rgba(255,255,255,0.1);
+    border-color: var(--gold);
+    color: var(--gold);
+  }
+
+  /* ==========================================================
+     7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING)
+     ========================================================== */
   .lightbox {
     position: fixed;
     inset: 0;
-    z-index: 9999;
-    background: rgba(0,0,0,0.95);
+    z-index: 10000;
+    background: rgba(14,12,10,0.96);
+    backdrop-filter: blur(12px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
+    padding: 40px;
   }
-  
+
   .lightbox.active {
     opacity: 1;
     visibility: visible;
   }
-  
+
   .lightbox-content {
-    max-width: 90vw;
-    max-height: 80vh;
-    text-align: center;
-    transform: scale(0.95);
-    transition: transform 0.3s ease;
+    max-width: 1100px;
+    max-height: 90vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.96);
+    transition: transform 0.3s var(--ease-out);
   }
-  
+
   .lightbox.active .lightbox-content {
     transform: scale(1);
   }
-  
-  .lightbox-content img {
+
+  .lightbox-img-wrapper {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-height: 72vh;
+    margin-bottom: 24px;
+  }
+
+  /* CRITICAL: LIGHTBOX IMAGE COMPLETELY UNCROPPED */
+  .lightbox-img-wrapper img {
     max-width: 100%;
-    max-height: 75vh;
+    max-height: 72vh;
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 4px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
   }
-  
+
+  .lightbox-info {
+    text-align: center;
+    max-width: 780px;
+    color: var(--white);
+  }
+
+  .lightbox-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 8px;
+  }
+
+  .lightbox-badge {
+    padding: 4px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: var(--r-sm);
+  }
+
+  .lightbox-counter {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    font-weight: 600;
+  }
+
+  .lightbox-title {
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+
   .lightbox-caption {
-    margin-top: 16px;
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.7);
+    font-size: 0.96rem;
+    line-height: 1.6;
+    color: rgba(255,255,255,0.75);
+    margin: 0;
   }
-  
+
   .lightbox-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    top: 24px;
+    right: 28px;
+    width: 48px;
+    height: 48px;
     border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
-    font-size: 1.5rem;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
+    font-size: 1.8rem;
     cursor: pointer;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10;
   }
-  
+
   .lightbox-close:hover {
     background: rgba(255,255,255,0.2);
+    transform: scale(1.05);
   }
-  
+
   .lightbox-prev,
   .lightbox-next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
     border: none;
-    background: rgba(255,255,255,0.1);
-    color: white;
+    background: rgba(255,255,255,0.08);
+    color: var(--white);
     cursor: pointer;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background 0.2s ease;
-  }
-  
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255,255,255,0.2);
-  }
-  
-  .lightbox-prev { left: 20px; }
-  .lightbox-next { right: 20px; }
-  
-  .lightbox-counter {
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 0.85rem;
-    color: rgba(255,255,255,0.5);
-    padding: 6px 14px;
-    background: rgba(255,255,255,0.1);
-    border-radius: var(--r-full);
+    transition: background 0.2s ease, transform 0.2s ease;
+    z-index: 10;
   }
 
-  /* Responsive */
-  @media (max-width: 900px) {
-    .project-layout {
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    background: rgba(255,255,255,0.22);
+  }
+
+  .lightbox-prev { left: 28px; }
+  .lightbox-next { right: 28px; }
+
+  /* ==========================================================
+     8. RESPONSIVE BREAKPOINTS
+     ========================================================== */
+  @media (max-width: 1024px) {
+    .narrative-layout {
       grid-template-columns: 1fr;
-      gap: 32px;
+      gap: 48px;
     }
-    
-    .project-sidebar {
+
+    .narrative-sidebar {
       position: static;
-    }
-    
-    .gallery-grid {
+      display: grid;
       grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
-    
-    .ba-grid {
-      grid-template-columns: 1fr;
+
+    .guarantee-card {
+      grid-column: span 2;
+    }
+
+    .gallery-masonry {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .gallery-card.card-landscape {
+      grid-column: span 2;
     }
   }
-  
-  @media (max-width: 600px) {
+
+  @media (max-width: 768px) {
     .project-hero {
-      padding-top: 40px;
+      padding: 70px 0 50px;
     }
-    
-    .hero-image {
-      max-height: 300px;
+
+    .hero-stats-ribbon {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px;
     }
-    
-    .hero-content {
-      padding: 24px 24px 32px;
+
+    .stat-divider {
+      width: 100%;
+      height: 1px;
     }
-    
-    .project-body {
-      padding: 40px 0 60px;
+
+    .showcase-grid,
+    .comparison-pair {
+      grid-template-columns: 1fr;
+      gap: 24px;
     }
-    
-    .gallery-grid {
-      grid-template-columns: 1fr 1fr;
-      gap: 8px;
+
+    .showcase-image-frame,
+    .comparison-image-wrapper {
+      min-height: 340px;
     }
-    
+
+    .narrative-sidebar {
+      grid-template-columns: 1fr;
+    }
+
+    .guarantee-card {
+      grid-column: span 1;
+    }
+
+    .gallery-masonry {
+      grid-template-columns: 1fr;
+    }
+
+    .gallery-card.card-landscape {
+      grid-column: span 1;
+    }
+
+    .lightbox {
+      padding: 20px 14px;
+    }
+
     .lightbox-prev,
     .lightbox-next {
-      width: 36px;
-      height: 36px;
+      width: 44px;
+      height: 44px;
     }
-    
-    .lightbox-prev { left: 10px; }
-    .lightbox-next { right: 10px; }
+
+    .lightbox-prev { left: 12px; }
+    .lightbox-next { right: 12px; }
+
+    .lightbox-close {
+      top: 16px;
+      right: 16px;
+      width: 42px;
+      height: 42px;
+    }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    /* ==========================================================
+       1. GALLERY FILTER TABS
+       ========================================================== */
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryCards = document.querySelectorAll('.gallery-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetFilter = btn.getAttribute('data-filter');
+
+        // Toggle active button state
+        filterButtons.forEach(b => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        // Filter cards
+        galleryCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (targetFilter === 'all' || category === targetFilter) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    /* ==========================================================
+       2. INTERACTIVE LIGHTBOX SYSTEM
+       ========================================================== */
     const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
+    const lightboxTitle = document.getElementById('lightbox-title');
     const lightboxCaption = document.getElementById('lightbox-caption');
+    const lightboxBadge = document.getElementById('lightbox-badge');
     const lightboxCurrent = document.getElementById('lightbox-current');
-    const lightboxTotal = document.getElementById('lightbox-total');
     const closeBtn = document.querySelector('.lightbox-close');
     const prevBtn = document.querySelector('.lightbox-prev');
     const nextBtn = document.querySelector('.lightbox-next');
-    
-    let currentImages = [];
+
+    // Build items list from gallery and comparison pairs
+    interface LightboxItem {
+      src: string;
+      alt: string;
+      title: string;
+      caption: string;
+      badge: string;
+    }
+
+    let items: LightboxItem[] = [];
     let currentIndex = 0;
-    
-    function openLightbox(images, index) {
-      currentImages = images;
+
+    // Populate items from gallery cards
+    const cardElements = document.querySelectorAll('.gallery-card');
+    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
+      const img = el.querySelector('img');
+      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
+      return {
+        src: el.getAttribute('data-src') || img?.src || '',
+        alt: el.getAttribute('data-alt') || img?.alt || '',
+        title: el.getAttribute('data-title') || 'Remodelación de Baño',
+        caption: el.getAttribute('data-caption') || '',
+        badge: badge
+      };
+    });
+
+    function openLightbox(newItems: LightboxItem[], index: number) {
+      if (!lightbox || !lightboxImg) return;
+      items = newItems;
       currentIndex = index;
       updateLightbox();
       lightbox.classList.add('active');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
     }
-    
+
     function closeLightbox() {
+      if (!lightbox) return;
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
     }
-    
+
     function updateLightbox() {
-      const img = currentImages[currentIndex];
-      lightboxImg.src = img.src;
-      lightboxImg.alt = img.alt;
-      lightboxCaption.textContent = img.alt;
-      lightboxCurrent.textContent = currentIndex + 1;
-      lightboxTotal.textContent = currentImages.length;
+      if (!lightboxImg || !items[currentIndex]) return;
+      const current = items[currentIndex];
+      lightboxImg.src = current.src;
+      lightboxImg.alt = current.alt;
+      if (lightboxTitle) lightboxTitle.textContent = current.title;
+      if (lightboxCaption) lightboxCaption.textContent = current.caption;
+      if (lightboxBadge) lightboxBadge.textContent = current.badge;
+      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
     }
-    
+
     function prevImage() {
-      currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+      if (!items.length) return;
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
       updateLightbox();
     }
-    
+
     function nextImage() {
-      currentIndex = (currentIndex + 1) % currentImages.length;
+      if (!items.length) return;
+      currentIndex = (currentIndex + 1) % items.length;
       updateLightbox();
     }
-    
+
     if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
     if (prevBtn) prevBtn.addEventListener('click', prevImage);
     if (nextBtn) nextBtn.addEventListener('click', nextImage);
-    
+
     if (lightbox) {
       lightbox.addEventListener('click', (e) => {
         if (e.target === lightbox) closeLightbox();
       });
     }
-    
+
     document.addEventListener('keydown', (e) => {
       if (!lightbox || !lightbox.classList.contains('active')) return;
       if (e.key === 'Escape') closeLightbox();
       if (e.key === 'ArrowLeft') prevImage();
       if (e.key === 'ArrowRight') nextImage();
     });
-    
-    // Collect all gallery images
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    const allGalleryImages = Array.from(galleryItems).map(item => ({
-      src: item.dataset.src,
-      alt: item.dataset.alt
-    }));
-    
-    galleryItems.forEach((el, idx) => {
+
+    // Attach click events to gallery cards
+    cardElements.forEach((el, idx) => {
       el.addEventListener('click', () => {
-        openLightbox(allGalleryImages, idx);
+        openLightbox(galleryItems, idx);
       });
     });
-    
-    // Before/After clicks
-    document.querySelectorAll('.ba-item').forEach((el) => {
+
+    // Attach click events to Before/After comparison items
+    document.querySelectorAll('.comparison-item').forEach(el => {
       el.addEventListener('click', () => {
-        const src = el.dataset.src;
-        const alt = el.dataset.alt;
-        openLightbox([{ src, alt }], 0);
+        const img = el.querySelector('img');
+        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
+        const item: LightboxItem = {
+          src: el.getAttribute('data-src') || img?.src || '',
+          alt: el.getAttribute('data-alt') || img?.alt || '',
+          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
+          caption: el.querySelector('.comparison-caption')?.textContent || '',
+          badge: label
+        };
+        openLightbox([item], 0);
+      });
+    });
+
+    // Attach click events to showcase cards
+    document.querySelectorAll('.showcase-card').forEach(el => {
+      el.addEventListener('click', () => {
+        const img = el.querySelector('img');
+        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
+        if (!img) return;
+        const item: LightboxItem = {
+          src: img.src,
+          alt: img.alt,
+          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
+          caption: el.querySelector('.showcase-desc')?.textContent || '',
+          badge: badge
+        };
+        openLightbox([item], 0);
       });
     });
   });

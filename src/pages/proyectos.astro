@@ -3,57 +3,61 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
   { 
-    title: "Remodelación Baño Principal", 
-    category: "Baño", 
-    location: "Caracas", 
+    title: "Remodelación de Baño Principal y Aseo Adaptado", 
+    category: "Baños & Accesibilidad", 
+    location: "Caracas, Venezuela", 
     image: "/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp", 
-    desc: "Transformación completa con porcelanato premium, mampara de vidrio templado y acabados de lujo.",
+    desc: "Reforma integral con fontanería multicapa PEX-Al-PEX, porcelanato español 60x60 y transformación de armario empotrado en un aseo accesible con puerta corredera flotante.",
     slug: "bano-caracas",
-    duration: "3 semanas"
+    duration: "3 semanas",
+    specs: ["Porcelanato Español 60x60", "Multicapa PEX-Al-PEX", "Drywall RH & Puerta Flotante"]
   },
   { 
-    title: "Remodelación Baño Residencial", 
-    category: "Baño", 
-    location: "La Trigaleña", 
+    title: "Remodelación de Baño Residencial", 
+    category: "Baños", 
+    location: "La Trigaleña, Valencia", 
     image: "/images/proyectos/bano-la-trigalena/bano-final-1.webp", 
-    desc: "Renovación integral con cambio de porcelanato, mueble nuevo y grifería moderna.",
+    desc: "Renovación integral con cambio de porcelanato en suelo y paredes, mueble lavabo contemporáneo y grifería de alta gama.",
     slug: "bano-la-trigalena",
-    duration: "2 semanas"
+    duration: "2 semanas",
+    specs: ["Porcelanato Premium", "Grifería de Diseño", "Mueble a Medida"]
   },
   { 
-    title: "Remodelación Baño San Diego", 
-    category: "Baño", 
+    title: "Remodelación Integral de Baño", 
+    category: "Baños", 
     location: "San Diego, Carabobo", 
     image: "/images/proyectos/bano-san-diego/bano-finalizado-1.webp", 
-    desc: "Transformación completa de baño con diseño contemporáneo y acabados premium.",
+    desc: "Transformación completa de baño residencial con diseño contemporáneo, optimización del espacio y acabados de primera calidad.",
     slug: "bano-san-diego",
-    duration: "2 semanas"
+    duration: "2 semanas",
+    specs: ["Redistribución", "Mampara de Vidrio", "Iluminación LED"]
   },
   { 
-    title: "Remodelación Baños Quinta", 
-    category: "Baño", 
-    location: "Quinta La Lagunita", 
+    title: "Remodelación de Baños en Quinta", 
+    category: "Baños de Lujo", 
+    location: "Quinta La Lagunita, Caracas", 
     image: "/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp", 
-    desc: "Remodelación completa de baños en quinta con demolición, nueva distribución y acabados de lujo.",
+    desc: "Remodelación de múltiples baños en quinta de lujo con demolición completa, nueva distribución arquitectónica, encimeras de hormigón y acabados en microcemento.",
     slug: "banos-quinta-la-lagunita",
-    duration: "4 semanas"
+    duration: "4 semanas",
+    specs: ["Microcemento & Hormigón", "Ventanal Panorámico", "Baños Múltiples"]
   }
 ];
 ---
 
 <BaseLayout 
-  title="Proyectos | Portafolio de Reformas | ReformaT Venezuela" 
-  description="Galería de proyectos reales de remodelación en Caracas, Valencia y áreas. Baños, cocinas y reformas integrales con acabados premium." 
+  title="Proyectos | Portafolio de Reformas de Lujo | ReformaT Venezuela" 
+  description="Galería de proyectos reales de remodelación en Caracas, Valencia y áreas premium. Baños, cocinas y reformas integrales con acabados garantizados." 
   activePage="proyectos"
 >
   <!-- Hero Section -->
   <header class="projects-hero">
-    <div class="hero-backdrop"></div>
+    <div class="hero-backdrop" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-inner">
-        <span class="hero-eyebrow">Portafolio</span>
+        <span class="hero-eyebrow">PORTAFOLIO DE OBRAS REALES</span>
         <h1 class="hero-title">Proyectos Realizados</h1>
-        <p class="hero-lead">Cada proyecto es una historia de transformación. Descubre nuestras remodelaciones completadas con acabados premium.</p>
+        <p class="hero-lead">Cada proyecto representa rigor técnico, ingeniería de detalle y acabados de especificación premium en residencias de Caracas y Valencia.</p>
       </div>
     </div>
   </header>
@@ -62,34 +66,47 @@ const projects = [
   <section class="projects-section">
     <div class="container">
       <div class="projects-list">
-        {projects.map((p, index) => (
-          <a href={`/proyectos/${p.slug}`} class="project-card">
-            <div class="project-card-image">
-              <img src={p.image} alt={p.title} loading="lazy" />
-              <span class="project-card-badge">{p.category}</span>
-            </div>
+        {projects.map((p) => (
+          <article class="project-card">
+            <a href={`/proyectos/${p.slug}`} class="project-card-image-link" aria-label={`Ver caso de estudio de ${p.title}`}>
+              <div class="project-card-image">
+                <span class="project-card-badge">{p.category}</span>
+                <img src={p.image} alt={`${p.title} en ${p.location}`} loading="lazy" decoding="async" />
+              </div>
+            </a>
             <div class="project-card-content">
-              <h3 class="project-card-title">{p.title}</h3>
-              <p class="project-card-desc">{p.desc}</p>
               <div class="project-card-meta">
                 <span class="project-card-location">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                   {p.location}
                 </span>
-                <span class="project-card-duration">{p.duration}</span>
+                <span class="project-card-duration">⏱️ {p.duration}</span>
               </div>
-              <span class="project-card-cta">
-                Ver proyecto
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <line x1="5" y1="12" x2="19" y2="12"/>
-                  <polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </span>
+              <h2 class="project-card-title">
+                <a href={`/proyectos/${p.slug}`}>{p.title}</a>
+              </h2>
+              <p class="project-card-desc">{p.desc}</p>
+              
+              <ul class="project-card-specs">
+                {p.specs.map(spec => (
+                  <li class="spec-tag">{spec}</li>
+                ))}
+              </ul>
+
+              <div class="project-card-footer">
+                <a href={`/proyectos/${p.slug}`} class="project-card-cta">
+                  <span>Explorar caso de estudio</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </a>
+              </div>
             </div>
-          </a>
+          </article>
         ))}
       </div>
     </div>
@@ -99,10 +116,11 @@ const projects = [
   <section class="cta-section">
     <div class="container">
       <div class="cta-inner">
+        <span class="cta-kicker">INGENIERÍA Y DISEÑO PARA TU HOGAR</span>
         <h2 class="cta-title">¿Tienes un proyecto en mente?</h2>
-        <p class="cta-text">Cuéntanos tu visión y hagamos realidad la transformación de tu espacio.</p>
+        <p class="cta-text">Cuéntanos tu visión y te presentaremos un plan de ejecución con presupuesto detallado y acabados garantizados por contrato.</p>
         <a href="/contacto" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Solicitar Presupuesto</span>
+          <span class="btn-content">Solicitar Presupuesto Técnico</span>
           <span class="btn-border"></span>
           <span class="btn-arrow">→</span>
         </a>
@@ -115,16 +133,20 @@ const projects = [
   /* Hero */
   .projects-hero {
     position: relative;
-    padding: 120px 0 80px;
+    padding: 110px 0 75px;
     background: var(--ink);
+    color: var(--white);
     overflow: hidden;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
   }
   
   .hero-backdrop {
     position: absolute;
     inset: 0;
-    background: radial-gradient(ellipse at 30% 50%, rgba(201,169,97,0.08) 0%, transparent 60%),
-                radial-gradient(ellipse at 70% 80%, rgba(201,169,97,0.05) 0%, transparent 50%);
+    background: 
+      radial-gradient(circle at 75% 30%, rgba(201,169,97,0.12) 0%, transparent 60%),
+      radial-gradient(circle at 25% 75%, rgba(201,169,97,0.06) 0%, transparent 50%);
+    pointer-events: none;
   }
   
   .projects-hero .container {
@@ -133,14 +155,14 @@ const projects = [
   }
   
   .hero-inner {
-    max-width: 640px;
+    max-width: 680px;
   }
   
   .hero-eyebrow {
     display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.15em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
     color: var(--gold);
     margin-bottom: 16px;
@@ -148,22 +170,22 @@ const projects = [
   
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-size: clamp(2.4rem, 5vw, 3.6rem);
     font-weight: 500;
     color: var(--white);
     line-height: 1.1;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   
   .hero-lead {
-    font-size: 1.1rem;
+    font-size: 1.12rem;
     line-height: 1.7;
-    color: rgba(255,255,255,0.6);
+    color: rgba(255,255,255,0.72);
   }
 
   /* Projects Section */
   .projects-section {
-    padding: 80px 0 100px;
+    padding: 85px 0 100px;
     background: var(--bone);
   }
   
@@ -176,59 +198,69 @@ const projects = [
   .projects-list {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: 40px;
   }
   
   .project-card {
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 32px;
-    padding: 24px;
+    grid-template-columns: 380px 1fr;
+    gap: 40px;
+    padding: 32px;
     background: var(--white);
     border-radius: var(--r-md);
     border: 1px solid var(--sand);
-    text-decoration: none;
-    color: inherit;
-    transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+    transition: box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out), border-color 0.35s ease;
   }
   
   .project-card:hover {
     box-shadow: var(--e-2);
-    transform: translateY(-2px);
-    border-color: rgba(201,169,97,0.3);
+    transform: translateY(-3px);
+    border-color: rgba(201,169,97,0.4);
   }
   
+  .project-card-image-link {
+    display: block;
+    border-radius: var(--r-sm);
+    overflow: hidden;
+  }
+
+  /* CRITICAL: PORTRAIT ASPECT RATIO TO ELIMINATE CROPPING */
   .project-card-image {
     position: relative;
     border-radius: var(--r-sm);
     overflow: hidden;
-    aspect-ratio: 4/3;
-    background: var(--sand);
+    aspect-ratio: 4 / 5;
+    background: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   .project-card-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
+    object-fit: contain;
+    transition: transform 0.45s var(--ease-out);
   }
   
   .project-card:hover .project-card-image img {
-    transform: scale(1.04);
+    transform: scale(1.03);
   }
   
   .project-card-badge {
     position: absolute;
-    top: 12px;
-    left: 12px;
-    padding: 5px 12px;
-    font-size: 0.7rem;
-    font-weight: 600;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    padding: 5px 14px;
+    font-size: 0.72rem;
+    font-weight: 700;
     letter-spacing: 0.05em;
     text-transform: uppercase;
-    color: var(--bg);
+    color: var(--ink);
     background: var(--gold);
     border-radius: var(--r-sm);
+    box-shadow: var(--e-1);
   }
   
   .project-card-content {
@@ -237,108 +269,166 @@ const projects = [
     justify-content: center;
   }
   
-  .project-card-title {
-    font-family: var(--font-serif);
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-  
-  .project-card-desc {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: var(--text-muted);
-    margin-bottom: 20px;
-  }
-  
   .project-card-meta {
     display: flex;
     align-items: center;
     gap: 20px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
   
   .project-card-location {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    font-size: 0.85rem;
+    font-size: 0.88rem;
+    font-weight: 500;
     color: var(--text-light);
   }
   
   .project-card-duration {
-    font-size: 0.85rem;
-    color: var(--text-muted);
-    padding: 4px 10px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--gold-ink);
+    padding: 4px 12px;
     background: var(--bone);
+    border: 1px solid var(--sand);
     border-radius: var(--r-sm);
   }
   
+  .project-card-title {
+    font-family: var(--font-serif);
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+
+  .project-card-title a {
+    color: var(--text);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .project-card-title a:hover {
+    color: var(--gold-ink);
+  }
+  
+  .project-card-desc {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: var(--text-light);
+    margin-bottom: 22px;
+  }
+
+  .project-card-specs {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .spec-tag {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    background: var(--bone);
+    border: 1px solid var(--sand);
+    padding: 5px 14px;
+    border-radius: var(--r-full);
+  }
+  
+  .project-card-footer {
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--sand);
+  }
+
   .project-card-cta {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     font-weight: 600;
     color: var(--gold-ink);
-    transition: gap 0.3s ease;
+    text-decoration: none;
+    transition: gap 0.3s ease, color 0.2s ease;
   }
   
   .project-card:hover .project-card-cta {
     gap: 12px;
+    color: var(--ink);
   }
 
   /* CTA Section */
   .cta-section {
     padding: 100px 0;
     background: var(--ink);
+    color: var(--white);
   }
   
   .cta-inner {
-    max-width: 600px;
+    max-width: 680px;
     margin: 0 auto;
     text-align: center;
+  }
+
+  .cta-kicker {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
   }
   
   .cta-title {
     font-family: var(--font-serif);
-    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-size: clamp(2rem, 4vw, 2.8rem);
     font-weight: 500;
     color: var(--white);
     margin-bottom: 16px;
   }
   
   .cta-text {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 32px;
+    font-size: 1.08rem;
+    line-height: 1.72;
+    color: rgba(255,255,255,0.72);
+    margin-bottom: 36px;
   }
 
   /* Responsive */
-  @media (max-width: 768px) {
-    .projects-hero {
-      padding: 80px 0 60px;
-    }
-    
+  @media (max-width: 900px) {
     .project-card {
       grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 16px;
+      gap: 24px;
+      padding: 24px;
     }
     
     .project-card-image {
-      aspect-ratio: 16/10;
+      aspect-ratio: 16 / 10;
     }
     
     .project-card-title {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
     }
     
     .projects-section {
       padding: 60px 0 80px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .project-card-image {
+      aspect-ratio: 4 / 3;
+    }
+
+    .project-card-meta {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
     }
   }
 </style>
