@@ -246,7 +246,7 @@ Porque creemos en la reforma bien hecha, bien explicada y bien presupuestada. Of
 
 No arriesgues tu inversión en una reforma mal planificada.
 
-📞 **Llámanos al 0422-799-7043** o **escríbenos a contacto@reformat-venezuela.online**
+📞 **Llámanos al 0422-799-7043** o **escríbenos a contacto@remodelat.net**
 
 Te ofrecemos:
 - Valoración técnica inicial a tu vivienda

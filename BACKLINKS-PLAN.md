@@ -1,7 +1,7 @@
 # 🔗 Plan de Backlinks Locales — ReformaT Venezuela
 
 > Objetivo: Conseguir 20-30 backlinks de calidad desde sitios venezolanos en 4-8 semanas
-> Dominio: https://reformat-venezuela.online
+> Dominio: https://remodelat.net
 > WhatsApp: +58 422-7997043
 > Zonas: Valencia, San Diego, Caracas, La Guaira, Carabobo
 
@@ -109,7 +109,7 @@ remodelaciones venezuela, reformas valencia, remodelacion cocinas caracas, refor
 | 36 | YouTube | youtube.com | Videos de antes/después con links en descripción |
 | 37 | TikTok Business | tiktok.com | Bio con link |
 
-**Acción:** Asegurar que TODOS tengan link a reformat-venezuela.online en bio/perfil.
+**Acción:** Asegurar que TODOS tengan link a remodelat.net en bio/perfil.
 
 ---
 

@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://reformat-venezuela.online/sitemap-index.xml
+Sitemap: https://remodelat.net/sitemap-index.xml
