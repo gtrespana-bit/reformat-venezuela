@@ -166,4 +166,4 @@ Quartz offers the ideal balance between durability, aesthetics, and low maintena
 
 A well-executed kitchen remodel transforms not just the space, but daily home life. The key is planning everything before starting, investing in quality installations, and choosing durable materials.
 
-If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a kitchen like this, [request a free consultation](/en/contact). At ReformaT Venezuela we show you more real projects and provide a detailed quote. Learn about our [kitchen remodeling service](/en/services/kitchens) and how to choose the right company in [how to choose a remodeling company](/en/blog/how-to-choose-remodeling-company-venezuela).
+If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a kitchen like this, [request a technical assessment](/en/contact). At ReformaT Venezuela we show you more real projects and provide a detailed quote. Learn about our [kitchen remodeling service](/en/services/kitchens) and how to choose the right company in [how to choose a remodeling company](/en/blog/how-to-choose-remodeling-company-venezuela).

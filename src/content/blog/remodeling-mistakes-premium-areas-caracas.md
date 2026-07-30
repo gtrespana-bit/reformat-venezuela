@@ -16,7 +16,7 @@ In premium zones of Caracas and Carabobo — **La Lagunita, Country Club, Campo 
 
 They are not whims. They are condominium and urbanization regulations designed to protect property values. Ignoring them costs time, money, and relationships with neighbors.
 
-After 20 years remodeling in these zones, here are the 7 mistakes we see repeated over and over.
+After more than 23 years remodeling in these zones, here are the 7 mistakes we see repeated over and over.
 
 ![Premium residence in an exclusive Caracas zone](/images/arquitectura-600.webp)
 
@@ -218,7 +218,7 @@ For specific information about your zone:
 
 ---
 
-## Request a Free Consultation
+## Request a Technical Assessment
 
 At ReformaT Venezuela we know the rules of every building and premium urbanization. We help you with permits, insurance, logistics, and construction. Everything under one contract, with one responsible party.
 

@@ -91,7 +91,7 @@ Not always. If there is accessible conduit pipe, it can be rewired through it. W
 It depends on the severity. If there is a burning smell, hot outlets or breakers tripping constantly, reduce the load and have it checked soon. Don't wait for something to fail.
 
 ### How much does an electrical inspection cost?
-A professional inspection is cheap compared to the cost of a fire. At ReformaT we offer a [free consultation](/en/contact) to evaluate your case.
+A professional inspection is cheap compared to the cost of a fire. At ReformaT we offer a [technical assessment](/en/contact) to evaluate your case.
 
 ---
 
@@ -99,4 +99,4 @@ A professional inspection is cheap compared to the cost of a fire. At ReformaT w
 
 Electricity is one of those things you don't see until it fails. But your house gives clear signs: tripping breakers, heat, flickering, lack of ground. Listening to them in time is the difference between a planned remodel and an emergency.
 
-If you are in **Caracas, Valencia, San Diego or Carabobo**, [contact us](/en/contact) for a no-obligation evaluation. Our [electrical installation team](/en/services/electrical) will inspect your home and tell you exactly what you need, without inflating the diagnosis.
+If you are in **Caracas, Valencia, San Diego or Carabobo**, [contact us](/en/contact) for a technical assessment. Our [electrical installation team](/en/services/electrical) will inspect your home and tell you exactly what you need, without inflating the diagnosis.

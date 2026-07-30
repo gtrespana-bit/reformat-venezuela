@@ -146,7 +146,7 @@ Almost never. If one is much lower, it probably omits items, uses inferior mater
 Real portfolio, verifiable references, written quote, contract, warranty, and willingness to visit the site before quoting.
 
 ### Should I pay for the visit or the quote?
-Many serious companies offer the first visit and quote at no obligation. At ReformaT the [initial consultation is free](/en/contact).
+Many serious companies start with a technical assessment before preparing a proposal. At ReformaT, the [initial assessment](/en/contact) helps define scope, finish level and warranty conditions.
 
 ---
 
@@ -154,4 +154,4 @@ Many serious companies offer the first visit and quote at no obligation. At Refo
 
 Choosing a remodeling company is a decision that affects your wallet, your time, and your peace of mind for months. The criteria are simple: verifiable experience, detailed quote, written warranty, clear contract, and professional communication. If a company meets these points, you’re on the right track.
 
-If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a serious evaluation with no obligation, [contact us](/en/contact). At ReformaT Venezuela we provide a detailed quote, with warranty, backed by over 23 years of experience on every project. Learn more about us on [About Us](/en/about-us).
+If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a serious technical assessment, [contact us](/en/contact). At ReformaT Venezuela we provide a detailed quote, with warranty, backed by over 23 years of experience on every project. Learn more about us on [About Us](/en/about-us).

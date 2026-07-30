@@ -183,7 +183,7 @@ For pool areas, we also offer [pool maintenance and remodeling](/en/services/poo
 
 ---
 
-## Request Free Advice
+## Request technical advice
 
 Don’t choose flooring only from photos. At ReformaT Venezuela we show you physical samples, calculate the exact square footage (including waste), and give you a turnkey installed quote.
 

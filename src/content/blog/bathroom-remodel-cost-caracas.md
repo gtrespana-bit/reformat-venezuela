@@ -33,7 +33,7 @@ But before getting excited with Pinterest images, you need real numbers. How muc
 
 ## Breakdown: Where the Money Goes
 
-For a standard 6 m² bathroom in Caracas with mid-range finishes ($5,000):
+For a standard 6 m² bathroom in Caracas with functional specification ($5,000):
 
 | Item                          | Cost          | % of Total |
 |-------------------------------|---------------|------------|
@@ -128,7 +128,7 @@ In areas like **Altamira, La Castellana, Campo Alegre, and La Lagunita**, bathro
 - Underfloor heating (yes, also used in luxury bathrooms in Caracas)
 - Indirect LED lighting in niches
 
-A luxury bathroom in these zones starts at $12,000 and can exceed $25,000 with imported materials.
+A luxury bathroom in these zones has a reference investment from $12,000 and can exceed $25,000 with imported materials.
 
 For projects in these zones, see our specific pages:
 - [Bathroom Remodeling in Altamira](/en/remodelacion-bano-altamira)
@@ -153,7 +153,7 @@ The difference is logistics and demand, not material quality.
 
 ## Request a No-Obligation Quote
 
-At ReformaT Venezuela we do a free technical visit, measure your bathroom, and deliver a detailed quote within 48 hours. No surprises, no hidden costs.
+At ReformaT Venezuela we do a initial technical assessment, measure your bathroom, and deliver a detailed quote within 48 hours. No surprises, no hidden costs.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

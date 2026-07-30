@@ -47,7 +47,7 @@ The price of a bathroom remodel in **Caracas, Valencia, San Diego** or any area 
 
 ## Complete Breakdown: Where Does the Money Go?
 
-To help you understand exactly where your money goes, here is a **real breakdown** of a medium bathroom remodel (5-6 m²) with mid-range finishes.
+To help you understand exactly where your money goes, here is a **real breakdown** of a medium bathroom remodel (5-6 m²) with functional specification.
 
 ### Example: 5-6 m² Bathroom, Mid-Range
 
@@ -61,7 +61,7 @@ To help you understand exactly where your money goes, here is a **real breakdown
 | **Waterproofing**           | Floor and walls (shower and sink area) - CRITICAL     | $150 - $250     |
 | **Wall covering**           | National porcelain, approx. 20-25 m²                  | $400 - $650     |
 | **Flooring**                | Non-slip porcelain, 5-6 m²                            | $150 - $250     |
-| **Sanitary fixtures**       | Toilet, sink, shower or bathtub (mid-range)           | $400 - $700     |
+| **Sanitary fixtures**       | Toilet, sink, shower or bathtub (functional specification)           | $400 - $700     |
 | **Faucets**                 | Mixers, shower, sink faucet (FV or similar)           | $200 - $350     |
 | **Vanity**                  | Cabinet with mirror and storage                       | $250 - $450     |
 | **Accessories**             | Towel bars, soap dish, toilet paper holder, hooks     | $80 - $150      |
@@ -139,7 +139,7 @@ Not all remodels are the same. Depending on the current condition of your bathro
 
 ## Recommended Materials for Bathrooms in Venezuela
 
-Choosing the right materials is crucial for durability and the final look of your bathroom. Here are our recommendations based on 20 years of experience in **Caracas and Carabobo**.
+Choosing the right materials is crucial for durability and the final look of your bathroom. Here are our recommendations based on more than 23 years of experience in **Caracas and Carabobo**.
 
 ### Wall Coverings
 
@@ -171,7 +171,7 @@ Choosing the right materials is crucial for durability and the final look of you
 | **Grohe** | High    | $200-$400 per set   | 15+ years  |
 | **Hansgrohe** | Premium | $250-$500 per set | 15+ years |
 
-**Our recommendation:** FV or Ferrum for mid-range. Grohe if your budget allows.
+**Our recommendation:** FV or Ferrum for functional specification. Grohe if your budget allows.
 
 ---
 
@@ -234,7 +234,7 @@ Time is a crucial factor. Nobody wants to be without a bathroom for weeks. Here 
 
 ## Common Mistakes in Bathroom Remodels (And How to Avoid Them)
 
-After 20 years remodeling bathrooms in **Caracas and Carabobo**, we have seen every imaginable mistake. Here are the most frequent and how to avoid them:
+After more than 23 years remodeling bathrooms in **Caracas and Carabobo**, we have seen every imaginable mistake. Here are the most frequent and how to avoid them:
 
 ### ❌ Mistake #1: Poor Waterproofing
 **Consequence:** Moisture, leaks, structural damage, mold
@@ -413,7 +413,7 @@ A well-remodeled bathroom is not a luxury. It is a necessity for your well-being
 
 At ReformaT Venezuela we are experts in bathroom remodels in **Caracas and Carabobo**. We offer:
 
-✅ **Free technical visit** to your home in **Caracas, Valencia, San Diego or Carabobo**
+✅ **Initial technical assessment** to your home in **Caracas, Valencia, San Diego or Carabobo**
 
 ✅ **Detailed and closed budget**, no surprises or fine print
 
@@ -431,7 +431,7 @@ At ReformaT Venezuela we are experts in bathroom remodels in **Caracas and Carab
 - **Caracas**: Chacao, Baruta, El Hatillo, Sucre, Libertador, all parishes
 - **Carabobo**: Valencia, San Diego, Naguanagua, Guacara, Los Guayos
 
-Tell us about your project and we will give you a real, transparent quote with no obligation. Because your bathroom deserves quality. And you deserve clarity.
+Tell us about your project and we will give you a real, transparent proposal after a technical assessment. Because your bathroom deserves quality. And you deserve clarity.
 
 ---
 

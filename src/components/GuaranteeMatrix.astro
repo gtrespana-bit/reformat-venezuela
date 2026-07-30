@@ -5,17 +5,62 @@ interface Props {
   description?: string;
   variant?: 'light' | 'dark';
   compact?: boolean;
+  lang?: 'es' | 'en';
 }
 
-const {
-  eyebrow = 'Garantías por partidas',
-  title = 'Cada garantía queda vinculada a una partida concreta',
-  description = 'No prometemos una garantía genérica sin explicar qué cubre. La cobertura se documenta por escrito según el alcance, los materiales instalados, las condiciones de uso y la garantía del fabricante.',
-  variant = 'light',
-  compact = false
-} = Astro.props;
+const { variant = 'light', compact = false, lang = 'es' } = Astro.props;
+const isEnglish = lang === 'en';
 
-const guaranteeRows = [
+const eyebrow = Astro.props.eyebrow ?? (isEnglish ? 'Warranty by scope' : 'Garantías por partidas');
+const title = Astro.props.title ?? (isEnglish
+  ? 'Every warranty is tied to a specific trade or scope of work'
+  : 'Cada garantía queda vinculada a una partida concreta');
+const description = Astro.props.description ?? (isEnglish
+  ? 'We do not offer a vague blanket promise without explaining what is covered. Coverage is documented in writing according to the scope, installed materials, site conditions and manufacturer warranties.'
+  : 'No prometemos una garantía genérica sin explicar qué cubre. La cobertura se documenta por escrito según el alcance, los materiales instalados, las condiciones de uso y la garantía del fabricante.');
+
+const guaranteeRows = isEnglish ? [
+  {
+    part: 'Waterproofing',
+    coverage: 'Up to 5 years depending on system applied',
+    evidence: 'Flood testing, process photos and documented wet areas before closing walls or floors.'
+  },
+  {
+    part: 'Plumbing / sanitary utilities',
+    coverage: 'Up to 2 years on installation labor',
+    evidence: 'Pressure tests, drain checks, water points and final operating tests.'
+  },
+  {
+    part: 'Electrical installation',
+    coverage: 'Up to 2 years on installation labor',
+    evidence: 'Identified circuits, checked protections, installed points and functional testing.'
+  },
+  {
+    part: 'Flooring and wall coverings',
+    coverage: 'Up to 2 years on installation labor',
+    evidence: 'Prepared substrate, compatible adhesive, leveling, joints, cuts and bond reviewed.'
+  },
+  {
+    part: 'Carpentry and cabinetry',
+    coverage: 'Coverage according to fabrication, hardware and adjustment',
+    evidence: 'Doors, drawers, hinges, edges, anchors, plumbs and operation checked.'
+  },
+  {
+    part: 'Paint, microcement and finishes',
+    coverage: 'Coverage according to product and surface preparation',
+    evidence: 'Surface preparation, coats, sealers, texture and final finish checked.'
+  },
+  {
+    part: 'Fixtures, sanitaryware and equipment',
+    coverage: 'Manufacturer warranty + installation labor',
+    evidence: 'Product reference or invoice, correct installation, operating test and handover.'
+  },
+  {
+    part: 'Final handover',
+    coverage: 'Finish checklist and handover record',
+    evidence: 'Joint inspection, final cleaning, adjustment list and documented conditions.'
+  }
+] : [
   {
     part: 'Impermeabilización',
     coverage: 'Hasta 5 años según sistema aplicado',
@@ -57,6 +102,10 @@ const guaranteeRows = [
     evidence: 'Revisión conjunta, limpieza final, lista de ajustes y condiciones documentadas.'
   }
 ];
+
+const labels = isEnglish
+  ? { part: 'Scope', coverage: 'Indicative coverage', evidence: 'How it is supported', note: 'Final coverage is established in each project estimate/contract. Warranty does not replace normal maintenance, proper use or manufacturer warranty terms.' }
+  : { part: 'Partida', coverage: 'Cobertura orientativa', evidence: 'Cómo se respalda', note: 'La cobertura definitiva se establece en el presupuesto/contrato de cada proyecto. La garantía no sustituye el mantenimiento normal, el buen uso ni las garantías propias de fabricantes.' };
 ---
 
 <section class:list={["guarantee-matrix-section", `guarantee-${variant}`, compact && 'is-compact']}>
@@ -69,9 +118,9 @@ const guaranteeRows = [
 
     <div class="guarantee-table" role="table" aria-label="Garantías por partidas ReformaT">
       <div class="guarantee-row guarantee-head" role="row">
-        <span role="columnheader">Partida</span>
-        <span role="columnheader">Cobertura orientativa</span>
-        <span role="columnheader">Cómo se respalda</span>
+        <span role="columnheader">{labels.part}</span>
+        <span role="columnheader">{labels.coverage}</span>
+        <span role="columnheader">{labels.evidence}</span>
       </div>
       {guaranteeRows.map((row) => (
         <div class="guarantee-row" role="row">
@@ -83,7 +132,7 @@ const guaranteeRows = [
     </div>
 
     <p class="guarantee-note">
-      La cobertura definitiva se establece en el presupuesto/contrato de cada proyecto. La garantía no sustituye el mantenimiento normal, el buen uso ni las garantías propias de fabricantes.
+      {labels.note}
     </p>
   </div>
 </section>

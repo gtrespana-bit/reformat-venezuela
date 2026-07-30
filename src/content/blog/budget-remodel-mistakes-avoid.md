@@ -253,8 +253,8 @@ Don't risk your investment on a poorly planned remodel.
 📞 **Call us at 0422-799-7043** or **write to contacto@reformat-venezuela.online**
 
 We offer:
-- Free technical visit to your home
-- Detailed and transparent budget, no obligation
+- Initial technical assessment to your home
+- Detailed and transparent budget, technical assessment
 - Real advice on materials, timelines and options
 - Clear explanation of each item, without unnecessary technicalities
 
@@ -267,4 +267,4 @@ We offer:
 - **[How Much Does a Kitchen Remodel Cost](/en/blog/kitchen-remodel-cost-caracas-valencia-2026/)** — Real and detailed prices for your kitchen remodel
 - **[Bathroom Remodels in Carabobo](/en/blog/bathroom-remodels-caracas-carabobo-2026/)** — Complete guide of budgets and materials for bathrooms
 
-Ready for a quote without surprises? **[Request your free quote →](/en/contact)**
+Ready for a quote without surprises? **[Request your technical assessment →](/en/contact)**

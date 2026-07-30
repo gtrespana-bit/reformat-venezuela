@@ -206,9 +206,9 @@ Houses and townhouses with more construction freedom:
 
 ---
 
-## Request Your Free Consultation
+## Request Your Technical Assessment
 
-At ReformaT Venezuela we do the technical visit, measure, listen to what you need and deliver a detailed quote within 72 hours. No obligation.
+At ReformaT Venezuela we do the technical visit, measure, listen to what you need and deliver a detailed quote within 72 hours. Technical assessment.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

@@ -1,50 +1,126 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-const projects = [
-  { title: "Downtown Apartment Full Remodel", category: "Whole-Home", location: "Downtown Valencia", image: "/images/integrales-800.webp", desc: "Complete transformation of a 1,300 sq ft apartment." },
-  { title: "Modern Open-Concept Kitchen", category: "Kitchen", location: "San Diego", image: "/images/integrales-800.webp", desc: "Open kitchen with central island connected to living area." },
-  { title: "Master Bathroom Spa Retreat", category: "Bathroom", location: "North Valencia", image: "/images/integrales-800.webp", desc: "Bathroom transformed into a spa sanctuary." },
-  { title: "Commercial Restaurant Space", category: "Commercial", location: "Valencia Boulevard", image: "/images/integrales-800.webp", desc: "Full remodel with industrial design aesthetic." },
-  { title: "Historic Apartment Restoration", category: "Whole-Home", location: "Historic District", image: "/images/integrales-800.webp", desc: "Restoration with modern touches." },
-  { title: "Modern Rustic Kitchen", category: "Kitchen", location: "El Parral Neighborhood", image: "/images/integrales-800.webp", desc: "Fusion of rustic style with modern functionality." }
-];
+import { projectCasesEnList } from '../../data/project-cases-en';
 ---
-<BaseLayout title="Projects | Remodeling Portfolio" description="Gallery of real remodeling projects completed in Venezuela." activePage="projects">
-  <header class="page-hero"><img class="hero-bg" src="/images/integrales-800.webp" alt="Proyecto de remodelación residencial en Venezuela | ReformaT" fetchpriority="high" loading="eager" decoding="async" /><div class="hero-overlay"></div><div class="hero-content"><span class="hero-tag">Our Portfolio</span><h1 class="page-title">Completed <span class="gold">Projects</span></h1><p class="page-subtitle">Every project is a transformation story.</p></div></header>
-  <section class="projects-section"><div class="container"><div class="filter-bar">{["All", "Whole-Home", "Kitchen", "Bathroom", "Commercial"].map((cat, i) => (<button class={`filter-btn ${i === 0 ? 'active' : ''}`} data-filter={cat.toLowerCase()}>{cat}</button>))}</div><div class="projects-grid">{projects.map((p) => (<div class="project-card" data-category={p.category.toLowerCase()}><div class="project-img"><img src={p.image} alt={p.title} loading="lazy" /><div class="project-overlay"><span class="project-tag">{p.category}</span><h3>{p.title}</h3><p>{p.desc}</p><span class="project-location"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="vertical-align:-2px"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg> {p.location}</span></div></div></div>))}</div></div></section>
+
+<BaseLayout
+  title="Real Remodeling Projects in Venezuela | ReformaT Portfolio"
+  description="Real case studies of high-end bathroom and whole-home remodeling projects in Caracas, Valencia, San Diego and Guataparo. Technical execution, premium finishes and documented warranties."
+  activePage="projects"
+>
+  <header class="projects-hero">
+    <div class="hero-backdrop" aria-hidden="true"></div>
+    <div class="container">
+      <div class="hero-inner">
+        <span class="hero-eyebrow">REAL PROJECT PORTFOLIO</span>
+        <h1 class="hero-title">Case studies with technical detail</h1>
+        <p class="hero-lead">A high-end remodeling portfolio should prove more than style. These projects show real homes, real site conditions, technical decisions, materials and finished details.</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="projects-list">
+        {projectCasesEnList.map((p) => (
+          <article class="project-card">
+            <a href={`/en/projects/${p.slug}`} class="project-card-image-link" aria-label={`View case study: ${p.title}`}>
+              <div class="project-card-image">
+                <span class="project-card-badge">{p.category}</span>
+                <img src={p.heroImage} alt={`${p.title} in ${p.location}`} loading="lazy" decoding="async" />
+              </div>
+            </a>
+            <div class="project-card-content">
+              <div class="project-card-meta">
+                <span class="project-card-location">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                    <circle cx="12" cy="10" r="3"/>
+                  </svg>
+                  {p.location}
+                </span>
+                <span class="project-card-duration">Duration: {p.duration}</span>
+              </div>
+              <h2 class="project-card-title">
+                <a href={`/en/projects/${p.slug}`}>{p.title}</a>
+              </h2>
+              <p class="project-card-desc">{p.excerpt}</p>
+              <ul class="project-card-specs">
+                {p.technicalHighlights.slice(0, 3).map((spec) => (
+                  <li class="spec-tag">{spec}</li>
+                ))}
+              </ul>
+              <div class="project-card-footer">
+                <a href={`/en/projects/${p.slug}`} class="project-card-cta">
+                  <span>Explore case study</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <line x1="5" y1="12" x2="19" y2="12"/>
+                    <polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <section class="cta-section">
-    <div class="cta-wrapper">
-      <h2 class="cta-title">Want to Be Our Next Project?</h2>
-      <p class="cta-text">Tell us your vision and let us bring your space transformation to life.</p>
-      <a href="/en/contact" class="btn-premium btn-primary-premium"><span class="btn-content">Request a Quote</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span></a>
+    <div class="container">
+      <div class="cta-inner">
+        <span class="cta-kicker">TECHNICAL ASSESSMENT</span>
+        <h2 class="cta-title">Want your project executed with this level of control?</h2>
+        <p class="cta-text">Tell us your location, property type, scope and finish level. We will review whether your project fits the ReformaT standard.</p>
+        <a href="/en/contact" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Request technical assessment</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 </BaseLayout>
+
 <style>
-  .projects-section { padding: 100px 0; background: var(--gray); }
-  .filter-bar { display: flex; gap: 15px; justify-content: center; margin-bottom: 50px; flex-wrap: wrap; }
-  .filter-btn { padding: 10px 25px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-full); cursor: pointer; font-family: var(--font-sans); font-size: 0.9rem; font-weight: 600; color: var(--text); transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
-  .filter-btn:hover, .filter-btn.active { background: var(--gold); color: var(--ink); border-color: var(--gold); }
-  .filter-btn:focus-visible { outline: 2px solid var(--gold-ink); outline-offset: 2px; }
-  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
-  .project-card { border-radius: var(--r-md); overflow: hidden; background: var(--white); box-shadow: var(--e-1); transition: 0.4s; }
-  .project-card:hover { transform: translateY(-8px); box-shadow: var(--e-3); }
-  .project-img { position: relative; height: 300px; overflow: hidden; }
-  .project-img img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .project-card:hover .project-img img { transform: scale(1.08); }
-  .project-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,.92) 0%, rgba(0,0,0,.45) 45%, transparent 75%); display: flex; flex-direction: column; justify-content: flex-end; padding: 25px; }
-  /* La info es visible siempre: antes solo aparecía en :hover, así que en
-     móvil (la mayoría del tráfico) las tarjetas eran fotos mudas. */
-  .project-overlay p { color: rgba(255,255,255,.82); font-size: .9rem; line-height: 1.5; max-height: 0; opacity: 0; overflow: hidden; transition: max-height var(--dur-base) var(--ease-out), opacity var(--dur-base) var(--ease-out), margin var(--dur-base) var(--ease-out); margin-bottom: 0; }
-  @media (hover: hover) { .project-card:hover .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
-  @media (hover: none) { .project-overlay p { max-height: 6rem; opacity: 1; margin-bottom: 10px; } }
-  .project-tag { display: inline-block; background: var(--gold); color: var(--bg); padding: 4px 12px; border-radius: var(--r-lg); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; width: fit-content; margin-bottom: 10px; }
-  .project-overlay h3 { font-family: var(--font-serif); font-size: 1.3rem; color: var(--white); margin-bottom: 8px; }
-  .project-location { color: var(--gold); font-size: 0.85rem; display: inline-flex; align-items: center; gap: 6px; }
-  @media (max-width: 900px) { .projects-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 600px) { .projects-grid { grid-template-columns: 1fr; } }
+  .projects-hero { position: relative; padding: 185px 0 95px; background: var(--ink); color: var(--white); overflow: hidden; border-bottom: 1px solid rgba(201,169,97,0.2); }
+  .hero-backdrop { position: absolute; inset: 0; background: radial-gradient(circle at 75% 30%, rgba(201,169,97,0.12) 0%, transparent 60%), radial-gradient(circle at 25% 75%, rgba(201,169,97,0.06) 0%, transparent 50%); pointer-events: none; }
+  .projects-hero .container { position: relative; z-index: 1; }
+  .hero-inner { max-width: 760px; }
+  .hero-eyebrow { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  .hero-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 5vw, 4.2rem); font-weight: 500; color: var(--white); line-height: 1.08; margin-bottom: 18px; letter-spacing: var(--track-tight); }
+  .hero-lead { font-size: 1.12rem; line-height: 1.7; color: rgba(255,255,255,0.72); }
+
+  .projects-section { padding: 85px 0 100px; background: var(--bone); }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .projects-list { display: flex; flex-direction: column; gap: 40px; }
+  .project-card { display: grid; grid-template-columns: 380px 1fr; gap: 40px; padding: 32px; background: var(--white); border-radius: var(--r-md); border: 1px solid var(--sand); transition: box-shadow 0.35s var(--ease-out), transform 0.35s var(--ease-out), border-color 0.35s ease; }
+  .project-card:hover { box-shadow: var(--e-2); transform: translateY(-3px); border-color: rgba(201,169,97,0.4); }
+  .project-card-image-link { display: block; border-radius: var(--r-sm); overflow: hidden; }
+  .project-card-image { position: relative; border-radius: var(--r-sm); overflow: hidden; aspect-ratio: 4 / 5; background: var(--ink-soft); display: flex; align-items: center; justify-content: center; }
+  .project-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.45s var(--ease-out); }
+  .project-card:hover .project-card-image img { transform: scale(1.03); }
+  .project-card-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 5px 14px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink); background: var(--gold); border-radius: var(--r-sm); box-shadow: var(--e-1); }
+  .project-card-content { display: flex; flex-direction: column; justify-content: center; }
+  .project-card-meta { display: flex; align-items: center; gap: 20px; margin-bottom: 12px; flex-wrap: wrap; }
+  .project-card-location { display: inline-flex; align-items: center; gap: 6px; font-size: 0.88rem; font-weight: 500; color: var(--text-light); }
+  .project-card-duration { font-size: 0.82rem; font-weight: 600; color: var(--gold-ink); padding: 4px 12px; background: var(--bone); border: 1px solid var(--sand); border-radius: var(--r-sm); }
+  .project-card-title { font-family: var(--font-serif); font-size: 1.8rem; font-weight: 600; line-height: 1.25; margin-bottom: 14px; }
+  .project-card-title a { color: var(--text); text-decoration: none; transition: color 0.2s ease; }
+  .project-card-title a:hover { color: var(--gold-ink); }
+  .project-card-desc { font-size: 1.02rem; line-height: 1.7; color: var(--text-light); margin-bottom: 22px; }
+  .project-card-specs { list-style: none; margin: 0 0 28px; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .spec-tag { font-size: 0.8rem; font-weight: 600; color: var(--text-muted); background: var(--bone); border: 1px solid var(--sand); padding: 5px 14px; border-radius: var(--r-full); }
+  .project-card-footer { margin-top: auto; padding-top: 20px; border-top: 1px solid var(--sand); }
+  .project-card-cta { display: inline-flex; align-items: center; gap: 8px; font-size: 0.95rem; font-weight: 600; color: var(--gold-ink); text-decoration: none; transition: gap 0.3s ease, color 0.2s ease; }
+  .project-card:hover .project-card-cta { gap: 12px; color: var(--ink); }
+
+  .cta-section { padding: 100px 0; background: var(--ink); color: var(--white); }
+  .cta-inner { max-width: 760px; margin: 0 auto; text-align: center; }
+  .cta-kicker { display: inline-block; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3rem); font-weight: 500; color: var(--white); margin-bottom: 16px; letter-spacing: var(--track-tight); }
+  .cta-text { font-size: 1.08rem; line-height: 1.72; color: rgba(255,255,255,0.72); margin-bottom: 36px; }
+
+  @media (max-width: 900px) { .projects-hero { padding: 155px 0 80px; } .project-card { grid-template-columns: 1fr; gap: 24px; padding: 24px; } .project-card-image { aspect-ratio: 16 / 10; } .project-card-title { font-size: 1.5rem; } .projects-section { padding: 60px 0 80px; } }
+  @media (max-width: 600px) { .projects-hero { padding: 140px 0 65px; } .project-card-image { aspect-ratio: 4 / 3; } }
 </style>
-<script>
-  document.querySelectorAll('.filter-btn').forEach(btn => { btn.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); const filter = btn.dataset.filter; document.querySelectorAll('.project-card').forEach(card => { card.style.display = (filter === 'all' || card.dataset.category === filter) ? 'block' : 'none'; }); }); });
-</script>

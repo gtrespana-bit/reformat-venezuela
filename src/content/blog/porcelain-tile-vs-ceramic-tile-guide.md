@@ -212,7 +212,7 @@ In the Venezuelan market you'll find national and imported options. These are th
 
 ## Common Mistakes When Choosing Tile
 
-After 20 years installing floors and tile, we've seen every possible mistake. Avoid them:
+After more than 23 years installing floors and tile, we've seen every possible mistake. Avoid them:
 
 ### ❌ Mistake #1: Choosing Only by Price
 
@@ -418,7 +418,7 @@ This optimizes your budget without sacrificing durability where you really need 
 
 At ReformaT Venezuela we help you choose the perfect material for your project in **Caracas, Valencia, San Diego or Carabobo**. We offer:
 
-✅ **Free consultation** on materials and formats
+✅ **Technical consultation** on materials and formats
 
 ✅ **Detailed quote** with material + installation
 
