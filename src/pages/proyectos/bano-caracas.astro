@@ -131,8 +131,8 @@ const project = {
       alt: 'Baño principal en su estado original antes de la reforma integral',
       title: 'Baño Principal Original: Vista General',
       caption: 'Estado original del baño principal antes de la intervención. Cerámica antigua y distribución convencional que requería una demolición total hasta el soporte.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
+      category: 'antes',
+      categoryLabel: 'Estado Original',
       badge: 'Estado Original',
       orientation: 'portrait'
     },
@@ -141,8 +141,8 @@ const project = {
       alt: 'Estado original del área de ducha y sanitarios en el baño principal',
       title: 'Baño Principal Original: Zona de Ducha',
       caption: 'Perspectiva anterior del área de ducha y lavabo, con antiguas tuberías galvanizadas y alicatado para reemplazar por red multicapa PEX-Al-PEX.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
+      category: 'antes',
+      categoryLabel: 'Estado Original',
       badge: 'Estado Original',
       orientation: 'portrait'
     },
@@ -151,8 +151,8 @@ const project = {
       alt: 'Proceso de instalación de porcelanato 60x60 con cuñas autonivelantes y doble encolado',
       title: 'Instalación de Porcelanato 60x60 con Cuñas Autonivelantes',
       caption: 'Fase de revestimiento utilizando técnica de doble encolado y sistema de cuñas autonivelantes para garantizar planitud absoluta en porcelanato gris cemento (paredes) y efecto madera (suelo).',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
+      category: 'obra',
+      categoryLabel: 'Proceso de Obra',
       badge: 'Proceso de Obra',
       orientation: 'portrait'
     },
@@ -161,8 +161,8 @@ const project = {
       alt: 'Construcción de estructura en Drywall RH 13mm en antiguo armario empotrado para nuevo aseo',
       title: 'Estructura en Drywall RH: De Armario a Aseo',
       caption: 'Construcción de los cerramientos en Drywall con montantes y canales de 60 mm y placas hidrófugas (RH) de 13 mm sobre el espacio del antiguo armario empotrado del dormitorio.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
+      category: 'obra',
+      categoryLabel: 'Proceso de Obra',
       badge: 'Estructura Drywall RH',
       orientation: 'portrait'
     }
@@ -215,7 +215,7 @@ const heroImage = project.heroImage;
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
             <span class="stat-label">Plazo de Obra</span>
-            <span class="stat-value">3 Semanas</span>
+            <span class="stat-value">2 Semanas</span>
           </div>
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
@@ -518,9 +518,13 @@ const heroImage = project.heroImage;
             <span>Aseo Adaptado</span>
             <span class="filter-count">3</span>
           </button>
-          <button class="filter-btn" data-filter="proceso" role="tab" aria-selected="false">
-            <span>Antes y Proceso de Obra</span>
-            <span class="filter-count">4</span>
+          <button class="filter-btn" data-filter="antes" role="tab" aria-selected="false">
+            <span>Estado Original (Antes)</span>
+            <span class="filter-count">2</span>
+          </button>
+          <button class="filter-btn" data-filter="obra" role="tab" aria-selected="false">
+            <span>Proceso de Obra</span>
+            <span class="filter-count">2</span>
           </button>
         </div>
       </div>
@@ -529,7 +533,7 @@ const heroImage = project.heroImage;
       <div class="gallery-masonry" id="gallery-grid">
         {project.gallery.map((img, idx) => (
           <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}`}
+            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
             data-category={img.category}
             data-index={idx}
             data-src={img.src}
@@ -1313,6 +1317,12 @@ const heroImage = project.heroImage;
 
   .gallery-card.card-landscape {
     grid-column: span 2;
+  }
+
+  /* Cada bloque tematico arranca en una fila nueva:
+     evita que se mezclen fotos de "antes" y "despues" en la misma linea */
+  .gallery-card.group-start {
+    grid-column-start: 1;
   }
 
   .gallery-card:hover {
