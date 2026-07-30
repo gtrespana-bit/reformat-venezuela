@@ -70,7 +70,7 @@ const navItems = isEnglish
   : [
       { label: 'Inicio', href: '/', key: 'inicio' },
       { label: 'Servicios', href: '/servicios', key: 'servicios' },
-      { label: 'Método', href: '/metodo-reformat', key: 'metodo' },
+      { label: 'Método', href: '/metodo-remodelat', key: 'metodo' },
       { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
       { label: 'Nosotros', href: '/sobre-nosotros', key: 'nosotros' },
       { label: 'Blog', href: '/blog', key: 'blog' },
@@ -236,7 +236,7 @@ const navItems = isEnglish
             {[
               { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
               { es: 'Sobre Nosotros', en: 'About Us', href: isEnglish ? '/en/about-us' : '/sobre-nosotros' },
-              { es: 'Método RemodelaT', en: 'Our Method', href: isEnglish ? '/en/our-method' : '/metodo-reformat' },
+              { es: 'Método RemodelaT', en: 'Our Method', href: isEnglish ? '/en/our-method' : '/metodo-remodelat' },
               { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
               { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
               { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
@@ -279,8 +279,8 @@ const navItems = isEnglish
       '/en': '/',
       '/servicios': '/en/services',
       '/en/services': '/servicios',
-      '/metodo-reformat': '/en/our-method',
-      '/en/our-method': '/metodo-reformat',
+      '/metodo-remodelat': '/en/our-method',
+      '/en/our-method': '/metodo-remodelat',
       '/servicios/remodelacion-cocina': '/en/services/kitchens',
       '/en/services/kitchens': '/servicios/remodelacion-cocina',
       '/servicios/remodelacion-bano': '/en/services/bathrooms',
@@ -391,14 +391,14 @@ const navItems = isEnglish
         
         if (newPath) {
           const newLang = currentPath.startsWith('/en') ? 'es' : 'en';
-          localStorage.setItem('reformat-lang', newLang);
+          localStorage.setItem('remodelat-lang', newLang);
           window.location.href = newPath;
         } else {
           if (currentPath.startsWith('/en')) {
-            localStorage.setItem('reformat-lang', 'es');
+            localStorage.setItem('remodelat-lang', 'es');
             window.location.href = currentPath.replace(/^\/en/, '') || '/';
           } else {
-            localStorage.setItem('reformat-lang', 'en');
+            localStorage.setItem('remodelat-lang', 'en');
             window.location.href = '/en' + currentPath;
           }
         }
