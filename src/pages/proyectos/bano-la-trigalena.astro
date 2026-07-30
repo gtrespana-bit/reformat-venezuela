@@ -205,7 +205,7 @@ const heroImage = project.heroImage;
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
             <span class="stat-label">Plazo de Obra</span>
-            <span class="stat-value">2 Semanas</span>
+            <span class="stat-value">1 Semana</span>
           </div>
           <div class="stat-divider" aria-hidden="true"></div>
           <div class="stat-item">
@@ -527,7 +527,7 @@ const heroImage = project.heroImage;
       <div class="gallery-masonry" id="gallery-grid">
         {project.gallery.map((img, idx) => (
           <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}`}
+            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
             data-category={img.category}
             data-index={idx}
             data-src={img.src}
@@ -1324,6 +1324,12 @@ const heroImage = project.heroImage;
 
   .gallery-card.card-landscape {
     grid-column: span 2;
+  }
+
+  /* Cada bloque tematico arranca en una fila nueva:
+     evita que se mezclen fotos de "antes" y "despues" en la misma linea */
+  .gallery-card.group-start {
+    grid-column-start: 1;
   }
 
   .gallery-card:hover {
