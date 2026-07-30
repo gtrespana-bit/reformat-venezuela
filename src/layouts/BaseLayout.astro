@@ -118,9 +118,9 @@ const navItems = isEnglish
       <a href={isEnglish ? '/en' : '/'} class="logo">
         <img
           src="/images/logo-header.webp"
-          alt={isEnglish ? 'RemodelaT Venezuela - Home Remodeling' : 'RemodelaT Venezuela - Remodelación de Viviendas'}
-          width="200"
-          height="55"
+          alt="RemodelaT Venezuela"
+          width="714"
+          height="192"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -183,9 +183,9 @@ const navItems = isEnglish
           <div class="footer-logo">
             <img
               src="/images/logo-footer.webp"
-              alt={isEnglish ? 'RemodelaT Venezuela - Home Remodeling' : 'RemodelaT Venezuela - Remodelación de Viviendas'}
-              width="500"
-              height="137"
+              alt="RemodelaT Venezuela"
+              width="714"
+              height="192"
               loading="lazy"
               decoding="async"
             />
@@ -469,11 +469,11 @@ const navItems = isEnglish
 
   .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
   .nav.scrolled, .nav-solid { background: rgba(20,18,14,0.96); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); backdrop-filter: blur(10px); }
-  .nav-solid .logo img { height: 70px; }
+  .nav-solid .logo img { height: 63px; }
   .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
   .logo { display: flex; align-items: center; }
-  .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
-  .nav.scrolled .logo img { height: 70px; }
+  .logo img { height: 76px; width: auto; display: block; transition: height 0.3s; }
+  .nav.scrolled .logo img { height: 63px; }
   .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
   .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
@@ -515,7 +515,7 @@ const navItems = isEnglish
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 45px; text-align: left; }
   .footer-brand { text-align: center; }
   .footer-logo { margin-bottom: 20px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 525 / 142; }
+  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 714 / 192; }
   .footer-desc { max-width: 340px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
   .footer-heading { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
   .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -583,15 +583,15 @@ const navItems = isEnglish
     }
   }
   @media (max-width: 768px) {
-    .logo img { height: 60px; }
-    .nav.scrolled .logo img { height: 55px; }
+    .logo img { height: 54px; }
+    .nav.scrolled .logo img { height: 49px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     .footer-brand { grid-column: 1 / -1; }
     .footer-logo img { max-width: 300px; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
-    .logo img { height: 55px; }
+    .logo img { height: 49px; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
     .footer-brand { text-align: center; }
     .footer-links { display: inline-block; text-align: left; }
