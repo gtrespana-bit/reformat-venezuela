@@ -1,0 +1,252 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+
+const project = {
+  title: 'Remodelación Integral de Cocina en Quinta',
+  location: 'Caracas, Venezuela',
+  category: 'Cocinas de Alto Estándar',
+  duration: '1 semana',
+  heroImage: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+  excerpt: 'Reforma completa de cocina en quinta de Caracas: desmontaje total, demolición de cerámica existente, actualización eléctrica con cable ignífugo, revestimiento importado rectificado, mobiliario en MDF lacado alto brillo con polímero PVC termoformado, encimera de cuarzo oscuro, inducción y electrodomésticos TEKA.'
+};
+
+const technicalHighlights = [
+  'Desmontaje completo de muebles existentes y demolición controlada del revestimiento cerámico anterior',
+  'Actualización del sistema eléctrico con cable ignífugo de alta calidad para mayor seguridad y durabilidad',
+  'Instalación de revestimiento cerámico importado, moderno y rectificado para lograr juntas más limpias y acabado superior',
+  'Muebles de cocina con frentes en MDF de 19 mm lacado alto brillo y casco en aglomerado hidrófugo de 16 mm protegido a dos caras',
+  'Frentes con foliado de polímero PVC termoformado: acabado continuo, sin juntas visibles y resistente a la humedad en cantos',
+  'Encimera de cuarzo en tono oscuro para contraste con el mobiliario blanco y adaptación para fregadero en forma de L',
+  'Instalación de placa de inducción, lavavajillas empotrado, columna para microondas, horno y microondas TEKA con garantía de hasta 10 años',
+  'Mobiliario con garantía de hasta 25 años según condiciones de fabricante y uso adecuado'
+];
+
+const specs = [
+  { label: 'Ubicación', value: 'Quinta residencial en Caracas, Venezuela' },
+  { label: 'Duración de obra', value: '1 semana de ejecución' },
+  { label: 'Alcance', value: 'Desmontaje, demolición, electricidad, revestimiento, muebles, encimera y electrodomésticos' },
+  { label: 'Sistema eléctrico', value: 'Actualización con cable ignífugo de alta calidad' },
+  { label: 'Revestimiento', value: 'Cerámica importada moderna, tipo rectificado' },
+  { label: 'Puertas y frentes', value: 'MDF de 19 mm con acabado lacado alto brillo y polímero PVC termoformado' },
+  { label: 'Casco del mueble', value: 'Aglomerado hidrófugo de 16 mm protegido a dos caras' },
+  { label: 'Trasera del mueble', value: 'Tablero de 6 mm en color blanco por ambas caras' },
+  { label: 'Encimera', value: 'Cuarzo oscuro, adaptado para fregadero en forma de L' },
+  { label: 'Electrodomésticos', value: 'Placa de inducción, lavavajillas empotrado, horno y microondas TEKA' },
+  { label: 'Garantías', value: 'Hasta 25 años en muebles y hasta 10 años en equipos TEKA según fabricante' }
+];
+
+const gallery = [
+  { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp', alt: 'Cocina finalizada en quinta de Caracas con muebles blancos y encimera oscura', caption: 'Vista final de la cocina: mobiliario blanco alto brillo, encimera de cuarzo oscuro y composición moderna de alto contraste.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp', alt: 'Cocina finalizada con muebles altos y bajos lacados en blanco brillo', caption: 'Muebles de cocina terminados con frentes de MDF de 19 mm, acabado lacado alto brillo y foliado PVC termoformado.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp', alt: 'Detalle de cocina terminada con electrodomésticos empotrados', caption: 'Integración de electrodomésticos, columna para horno y microondas TEKA, y distribución funcional para uso diario.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/adaptacion-encimera-fregadero-l.webp', alt: 'Adaptación de encimera de cuarzo para fregadero en forma de L', caption: 'Adaptación técnica de encimera de cuarzo oscuro para la instalación de un fregadero en forma de L.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-1.webp', alt: 'Proceso de montaje de muebles de cocina en quinta de Caracas', caption: 'Montaje de estructura y módulos de cocina tras actualización de instalaciones y revestimiento.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp', alt: 'Instalación de módulos y frentes de cocina durante el proceso', caption: 'Proceso de instalación de módulos, ajustes y alineación de frentes para lograr una lectura limpia.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-3.webp', alt: 'Montaje de muebles altos y bajos en cocina de Caracas', caption: 'Instalación de muebles altos y bajos con control de plomos, niveles y encuentros.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-4.webp', alt: 'Proceso final de montaje de mobiliario de cocina', caption: 'Ajustes finales de mobiliario antes de instalar electrodomésticos, encimera y remates.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp', alt: 'Cocina antes de la remodelación completa en quinta de Caracas', caption: 'Estado inicial antes del desmontaje completo de muebles y demolición del revestimiento cerámico existente.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-2.webp', alt: 'Estado inicial de cocina antes de reforma en Caracas', caption: 'Condición previa de la cocina: mobiliario y cerámica existentes antes de la intervención integral.' },
+  { src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp', alt: 'Últimos retoques en cocina remodelada de quinta en Caracas', caption: 'Últimos retoques de obra, revisión de ajustes, limpieza visual y preparación para entrega.' }
+];
+
+const whatsappText = 'Hola, quiero una valoración técnica para una cocina similar a la quinta en Caracas.';
+---
+
+<BaseLayout
+  title={`${project.title} en Caracas | Caso de Estudio | ReformaT Venezuela`}
+  description={project.excerpt}
+  image={project.heroImage}
+  activePage="proyectos"
+>
+  <header class="case-hero">
+    <img src={project.heroImage} alt={project.title} class="case-hero-img" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="case-hero-overlay"></div>
+    <div class="container case-hero-content">
+      <a href="/proyectos" class="back-link">← Volver a Proyectos</a>
+      <span class="case-eyebrow">Caso real · {project.category}</span>
+      <h1>{project.title} en Caracas</h1>
+      <p>{project.excerpt}</p>
+      <div class="case-facts" aria-label="Datos del proyecto">
+        <span><strong>Ubicación</strong>{project.location}</span>
+        <span><strong>Duración</strong>{project.duration}</span>
+        <span><strong>Alcance</strong>Reforma completa de cocina</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="case-overview section">
+    <div class="container overview-grid">
+      <article>
+        <span class="tag">El reto</span>
+        <h2>Actualizar una cocina de quinta sin limitarse a un cambio estético</h2>
+        <p>La cocina existente requería una intervención completa: desmontaje de muebles, demolición del material cerámico anterior, actualización eléctrica, nuevo revestimiento y montaje de mobiliario moderno con mayor resistencia a humedad, golpes y uso diario.</p>
+      </article>
+      <article>
+        <span class="tag">La solución</span>
+        <h2>Una cocina blanca de alto brillo con contraste técnico en cuarzo oscuro</h2>
+        <p>Se renovó la base técnica de la cocina, se instaló cerámica importada rectificada y se montó mobiliario con frentes en MDF de 19 mm y polímero PVC termoformado. La encimera de cuarzo oscuro aporta contraste, resistencia y una lectura más elegante del conjunto.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-technical section bg-light">
+    <div class="container technical-grid">
+      <div class="technical-copy">
+        <span class="tag">Ejecución técnica</span>
+        <h2>Detalles que explican por qué esta cocina está pensada para durar</h2>
+        <p>El resultado final depende de lo visible y de lo oculto: electricidad segura, revestimiento bien instalado, muebles resistentes a humedad, cantos sellados, electrodomésticos integrados y una encimera adaptada con precisión.</p>
+      </div>
+      <div class="technical-list">
+        {technicalHighlights.map((item) => (
+          <div class="technical-item">{item}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="material-section section">
+    <div class="container material-grid">
+      <div>
+        <span class="tag">Mobiliario</span>
+        <h2>Polímero PVC termoformado: brillo, continuidad y resistencia</h2>
+        <p>El acabado exterior visible de los frentes es un foliado de polímero PVC termoformado. El PVC se moldea con calor directamente sobre el MDF, cubriendo frente y bordes en una sola pieza continua.</p>
+      </div>
+      <div class="benefit-card-grid">
+        <article><h3>Sin juntas visibles</h3><p>El polímero termosellado cubre frente y cantos, reduciendo puntos por donde podría penetrar humedad.</p></article>
+        <article><h3>Fácil limpieza</h3><p>Es un material impermeable, de baja absorción y muy práctico para el uso diario de cocina.</p></article>
+        <article><h3>Resistencia cotidiana</h3><p>Soporta mejor golpes y roces habituales frente a un lacado directo sobre madera.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="induction-section section bg-light">
+    <div class="container induction-grid">
+      <div class="induction-card">
+        <span class="tag">Equipamiento</span>
+        <h2>Placa de inducción, lavavajillas integrado y columna TEKA</h2>
+        <p>La placa de inducción mejora la eficiencia, calienta más rápido, reduce pérdidas de energía y aporta una superficie más segura y fácil de limpiar. Además, al generar calor directamente en el recipiente, permite mayor control de temperatura y una cocina más cómoda para el uso diario.</p>
+        <p>Se integró lavavajillas empotrado y una columna para horno y microondas TEKA, con garantía de hasta 10 años según fabricante.</p>
+      </div>
+      <div class="image-card">
+        <img src="/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp" alt="Columna de horno y microondas TEKA en cocina remodelada" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <section class="case-specs section">
+    <div class="container specs-grid">
+      <div>
+        <span class="tag">Especificaciones</span>
+        <h2>Materiales, sistemas y garantías del proyecto</h2>
+      </div>
+      <div class="spec-list">
+        {specs.map((spec) => (
+          <div class="spec-row">
+            <strong>{spec.label}</strong>
+            <span>{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-gallery section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Fotos reales</span>
+        <h2 class="section-title">Proceso, acabados y entrega final</h2>
+        <p class="section-desc">La galería muestra el antes, el montaje de mobiliario, la adaptación de encimera y el resultado final de la cocina.</p>
+      </div>
+      <div class="gallery-grid">
+        {gallery.map((image, index) => (
+          <figure class:list={["gallery-card", index === 0 && 'is-large']}>
+            <img src={image.src} alt={image.alt} loading={index < 2 ? 'eager' : 'lazy'} decoding="async" />
+            <figcaption>{image.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GuaranteeMatrix compact />
+
+  <section class="case-cta">
+    <div class="container case-cta-inner">
+      <span class="tag tag-on-dark">Valoración técnica</span>
+      <h2>¿Quieres una cocina ejecutada con este nivel de control?</h2>
+      <p>Cuéntanos ubicación, tipo de vivienda, alcance, nivel de acabado y fecha estimada. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica.</p>
+      <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+        <span class="btn-content">Solicitar valoración técnica</span>
+        <span class="btn-border"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .case-hero { position: relative; min-height: 86vh; display: flex; align-items: flex-end; color: var(--white); background: var(--ink); overflow: hidden; padding: 145px 0 85px; }
+  .case-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+  .case-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,14,.96), rgba(20,18,14,.72) 48%, rgba(20,18,14,.26)), linear-gradient(to top, rgba(20,18,14,.95), transparent 58%); }
+  .case-hero-content { position: relative; z-index: 2; max-width: 980px; }
+  .back-link { display: inline-block; color: var(--gold); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; margin-bottom: 24px; }
+  .case-eyebrow { display: inline-block; color: var(--gold-light); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; margin-bottom: 18px; }
+  .case-hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5.7rem); line-height: 1; letter-spacing: var(--track-tight); font-weight: 500; max-width: 900px; margin: 0 0 22px; }
+  .case-hero p { max-width: 800px; color: rgba(255,255,255,.84); font-size: clamp(1.06rem, 2vw, 1.25rem); line-height: 1.72; margin: 0 0 32px; }
+  .case-facts { display: flex; flex-wrap: wrap; border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg); overflow: hidden; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); max-width: 920px; }
+  .case-facts span { padding: 18px 24px; min-width: 210px; border-right: 1px solid rgba(201,169,97,.18); color: rgba(255,255,255,.9); }
+  .case-facts span:last-child { border-right: 0; }
+  .case-facts strong { display: block; color: var(--gold); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 6px; }
+
+  .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s-5); align-items: start; }
+  .overview-grid article, .induction-card { padding: 34px; border-radius: var(--r-lg); border: 1px solid var(--sand); background: var(--white); box-shadow: var(--e-1); }
+  .overview-grid h2, .technical-copy h2, .specs-grid h2, .material-grid h2, .induction-card h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 18px; }
+  .overview-grid p, .technical-copy p, .material-grid p, .induction-card p { color: var(--text-muted); line-height: 1.82; font-size: 1.05rem; margin-bottom: 16px; }
+
+  .technical-list { display: grid; gap: 12px; }
+  .technical-item { padding: 18px 22px 18px 52px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-md); color: var(--text-muted); position: relative; box-shadow: var(--e-1); line-height: 1.6; }
+  .technical-item::before { content: ""; position: absolute; left: 22px; top: 25px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 6px rgba(201,169,97,.13); }
+
+  .benefit-card-grid { display: grid; gap: 18px; }
+  .benefit-card-grid article { padding: 28px; border-radius: var(--r-lg); background: linear-gradient(180deg, var(--white), var(--bone)); border: 1px solid var(--sand); box-shadow: var(--e-1); }
+  .benefit-card-grid h3 { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 10px; color: var(--ink); }
+  .benefit-card-grid p { margin: 0; }
+  .image-card { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-3); background: var(--ink); }
+  .image-card img { width: 100%; height: 680px; object-fit: cover; display: block; }
+
+  .spec-list { border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-2); }
+  .spec-row { display: grid; grid-template-columns: .62fr 1fr; border-top: 1px solid var(--sand); background: var(--white); }
+  .spec-row:first-child { border-top: 0; }
+  .spec-row strong, .spec-row span { padding: 18px 22px; }
+  .spec-row strong { color: var(--ink); font-family: var(--font-serif); font-size: 1.16rem; border-right: 1px solid var(--sand); }
+  .spec-row span { color: var(--text-muted); line-height: 1.6; }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .gallery-card { margin: 0; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-1); }
+  .gallery-card.is-large { grid-column: span 2; grid-row: span 2; }
+  .gallery-card img { width: 100%; height: 360px; object-fit: cover; display: block; }
+  .gallery-card.is-large img { height: 742px; }
+  .gallery-card figcaption { padding: 16px 18px; color: var(--text-muted); line-height: 1.55; font-size: .92rem; }
+
+  .case-cta { padding: 105px 24px; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 45%), var(--ink); color: var(--white); text-align: center; }
+  .case-cta-inner { max-width: 900px; }
+  .case-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
+  .case-cta p { max-width: 760px; margin: 0 auto 34px; color: rgba(255,255,255,.76); line-height: 1.75; font-size: 1.12rem; }
+  .tag-on-dark { color: var(--gold); }
+
+  @media (max-width: 950px) {
+    .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-card.is-large { grid-column: span 2; }
+    .image-card img { height: 520px; }
+  }
+  @media (max-width: 640px) {
+    .case-facts { display: grid; }
+    .case-facts span { border-right: 0; border-bottom: 1px solid rgba(201,169,97,.18); }
+    .gallery-grid, .gallery-card.is-large { grid-template-columns: 1fr; grid-column: span 1; }
+    .gallery-card img, .gallery-card.is-large img { height: 430px; }
+    .spec-row { grid-template-columns: 1fr; }
+    .spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); }
+  }
+</style>

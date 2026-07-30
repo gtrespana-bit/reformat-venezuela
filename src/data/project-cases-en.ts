@@ -15,6 +15,51 @@ export type ProjectCaseEn = {
 };
 
 export const projectCasesEn: Record<string, ProjectCaseEn> = {
+  kitchenCaracas: {
+    slug: 'kitchen-remodel-caracas-quinta',
+    esPath: '/proyectos/cocina-caracas-quinta',
+    title: 'Full Kitchen Remodel in a Caracas Quinta',
+    category: 'High-Standard Kitchen',
+    location: 'Caracas, Venezuela',
+    duration: '1 week',
+    heroImage: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+    excerpt: 'A complete kitchen remodel in a Caracas quinta: full dismantling, ceramic demolition, electrical upgrade with fire-retardant cable, imported rectified wall tile, high-gloss MDF cabinetry with thermoformed PVC polymer, dark quartz countertop, induction cooktop and TEKA appliances.',
+    challenge: 'The existing kitchen required a complete technical and aesthetic update: old cabinetry, outdated ceramic surfaces, electrical upgrades and a new furniture system capable of resisting humidity, daily impact and intensive use.',
+    solution: 'We dismantled the previous kitchen, demolished the existing ceramic material, upgraded the electrical system with high-quality fire-retardant cable, installed imported rectified ceramic tile and mounted a high-gloss white kitchen with thermoformed PVC polymer fronts and a dark quartz countertop for contrast.',
+    technicalHighlights: [
+      'Complete dismantling of existing kitchen furniture and controlled demolition of old ceramic surfaces',
+      'Electrical system updated with high-quality fire-retardant cable',
+      'Imported modern rectified ceramic tile for cleaner joints and a more refined finish',
+      '19 mm MDF doors and fronts with high-gloss lacquered finish and thermoformed PVC polymer foil',
+      '16 mm moisture-resistant particleboard cabinet carcass protected on both sides',
+      'Dark quartz countertop adapted for an L-shaped sink',
+      'Induction cooktop, built-in dishwasher, microwave column and TEKA oven/microwave with up to 10-year manufacturer warranty',
+      'Cabinetry warranty of up to 25 years according to manufacturer terms and proper use'
+    ],
+    specs: [
+      { label: 'Location', value: 'Residential quinta in Caracas, Venezuela' },
+      { label: 'Duration', value: '1 week of execution' },
+      { label: 'Electrical system', value: 'High-quality fire-retardant cable upgrade' },
+      { label: 'Wall covering', value: 'Imported modern rectified ceramic tile' },
+      { label: 'Doors and fronts', value: '19 mm MDF with high-gloss lacquered finish and thermoformed PVC polymer' },
+      { label: 'Cabinet carcass', value: '16 mm moisture-resistant particleboard protected on both sides' },
+      { label: 'Back panel', value: '6 mm white board on both sides' },
+      { label: 'Countertop', value: 'Dark quartz adapted for an L-shaped sink' },
+      { label: 'Appliances', value: 'Induction cooktop, built-in dishwasher, TEKA oven and microwave' },
+      { label: 'Warranties', value: 'Up to 25 years on cabinetry and up to 10 years on TEKA appliances according to manufacturer terms' }
+    ],
+    gallery: [
+      { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp', alt: 'Finished kitchen in a Caracas quinta with white cabinetry and dark quartz countertop', caption: 'Final view: high-gloss white cabinetry, dark quartz countertop and a modern high-contrast composition.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp', alt: 'Finished kitchen with white high-gloss upper and lower cabinets', caption: 'Finished cabinets with 19 mm MDF fronts and thermoformed PVC polymer foil.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp', alt: 'Finished kitchen with built-in appliances and column cabinetry', caption: 'Integrated appliances, TEKA oven and microwave column, and functional daily-use layout.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/adaptacion-encimera-fregadero-l.webp', alt: 'Quartz countertop adaptation for L-shaped sink', caption: 'Dark quartz countertop adaptation for the L-shaped sink installation.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-1.webp', alt: 'Kitchen cabinet installation process in Caracas quinta', caption: 'Cabinet installation phase after utilities and wall covering work.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp', alt: 'Kitchen cabinet fronts being installed', caption: 'Module and front alignment for a clean final reading.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-3.webp', alt: 'Upper and lower kitchen cabinets being mounted', caption: 'Upper and lower cabinet installation with level and plumb control.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp', alt: 'Kitchen before full remodel in Caracas quinta', caption: 'Original kitchen before full furniture dismantling and ceramic demolition.' },
+      { src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp', alt: 'Final touch-ups in remodeled kitchen', caption: 'Final touch-ups, adjustment review, visual cleaning and handover preparation.' }
+    ]
+  },
   caracas: {
     slug: 'bathroom-remodel-caracas',
     esPath: '/proyectos/bano-caracas',
@@ -159,6 +204,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
 };
 
 export const projectCasesEnList = [
+  projectCasesEn.kitchenCaracas,
   projectCasesEn.caracas,
   projectCasesEn.trigalena,
   projectCasesEn.sanDiego,
