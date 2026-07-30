@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación de Baño Secundario en Apartamento',
@@ -162,7 +163,7 @@ const whatsappText = 'Hola, quiero una valoración técnica para remodelar un ba
     </div>
   </header>
 
-  <section class="finished-showcase-section section"><div class="container"><div class="section-header showcase-header"><span class="tag">Resultado final</span><h2 class="section-title">Un baño pequeño que ahora se siente mejor distribuido</h2><p class="section-desc">Mostramos primero el resultado final: mueble roble, porcelanato blanco mate, relieve 3D en ducha, plato ROCA, mampara templada y suelo imitación madera roble.</p></div><div class="finished-showcase-grid">{featuredFinished.map((image, index) => (<figure class:list={["finished-card", index === 0 && 'is-wide']}><img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /><figcaption><span>{image.badge}</span><strong>{image.title}</strong><p>{image.caption}</p></figcaption></figure>))}</div></div></section>
+  <section class="finished-showcase-section section"><div class="container"><div class="section-header showcase-header"><span class="tag">Resultado final</span><h2 class="section-title">Un baño pequeño que ahora se siente mejor distribuido</h2><p class="section-desc">Mostramos primero el resultado final: mueble roble, porcelanato blanco mate, relieve 3D en ducha, plato ROCA, mampara templada y suelo imitación madera roble.</p></div><div class="finished-showcase-grid">{featuredFinished.map((image, index) => (<figure class:list={["finished-card", index === 0 && 'is-wide']}><img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /><figcaption><span>{image.badge}</span><strong>{image.title}</strong><p>{image.caption}</p><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button></figcaption></figure>))}</div></div></section>
 
   <section class="case-overview section"><div class="container overview-grid"><article><span class="tag">El reto</span><h2>Ganar espacio en un baño secundario muy limitado</h2><p>El baño era muy pequeño y el tabique original estaba mal posicionado, reduciendo todavía más la circulación. Para resolverlo, se eliminó por completo el tabique que separaba el baño del pasillo y se reconstruyó en una nueva posición, corrigiendo también la ubicación de la puerta.</p></article><article><span class="tag">La solución</span><h2>Redistribución, plomería nueva y acabados claros con textura</h2><p>Se ejecutó un nuevo tabique de ladrillo, enfoscado con mortero especial para zonas húmedas. Después se rehizo toda la plomería, reposicionando elementos para aprovechar mejor el espacio, y se instalaron porcelanatos rectificados, plato ROCA, mueble roble, espejo LED y mampara templada.</p></article></div></section>
 
@@ -170,11 +171,12 @@ const whatsappText = 'Hola, quiero una valoración técnica para remodelar un ba
 
   <section class="case-specs section"><div class="container specs-grid"><div><span class="tag">Especificaciones</span><h2>Materiales, sistemas y equipamiento instalado</h2></div><div class="spec-list">{specs.map((spec) => (<div class="spec-row"><strong>{spec.label}</strong><span>{spec.value}</span></div>))}</div></div></section>
 
-  <section class="case-gallery section bg-light" id="galeria"><div class="container"><div class="section-header"><span class="tag">Archivo fotográfico completo</span><h2 class="section-title">Galería detallada por fases ({gallery.length} fotos reales)</h2><p class="section-desc">Filtra entre resultado final, detalles técnicos, redistribución de obra y estado previo para entender el cambio sin mezclar las fases.</p><div class="gallery-filters" role="tablist" aria-label="Filtros de galería de baño en Las Mercedes">{galleryFilters.map((filter, index) => (<button class:list={["filter-btn", index === 0 && 'active']} type="button" data-filter={filter.id} role="tab" aria-selected={index === 0 ? 'true' : 'false'}><span>{filter.label}</span><span class="filter-count">{filter.count}</span></button>))}</div></div><div class="gallery-grid" id="bathroom-gallery-grid">{gallery.map((image, index) => (<article class:list={["gallery-card", image.orientation === 'landscape' && 'is-landscape', index === 0 && 'is-large']} data-category={image.category}><div class="gallery-image-box"><span class="gallery-badge">{image.badge}</span><img src={image.src} alt={image.alt} loading={index < 4 ? 'eager' : 'lazy'} decoding="async" /></div><div class="gallery-caption-box"><span>{image.categoryLabel}</span><h3>{image.title}</h3><p>{image.caption}</p></div></article>))}</div></div></section>
+  <section class="case-gallery section bg-light" id="galeria"><div class="container"><div class="section-header"><span class="tag">Archivo fotográfico completo</span><h2 class="section-title">Galería detallada por fases ({gallery.length} fotos reales)</h2><p class="section-desc">Filtra entre resultado final, detalles técnicos, redistribución de obra y estado previo para entender el cambio sin mezclar las fases.</p><div class="gallery-filters" role="tablist" aria-label="Filtros de galería de baño en Las Mercedes">{galleryFilters.map((filter, index) => (<button class:list={["filter-btn", index === 0 && 'active']} type="button" data-filter={filter.id} role="tab" aria-selected={index === 0 ? 'true' : 'false'}><span>{filter.label}</span><span class="filter-count">{filter.count}</span></button>))}</div></div><div class="gallery-grid" id="bathroom-gallery-grid">{gallery.map((image, index) => (<article class:list={["gallery-card", image.orientation === 'landscape' && 'is-landscape', index === 0 && 'is-large']} data-category={image.category} data-lightbox-item data-src={image.src} data-alt={image.alt} data-title={image.title} data-caption={image.caption} data-badge={image.badge}><div class="gallery-image-box"><span class="gallery-badge">{image.badge}</span><img src={image.src} alt={image.alt} loading={index < 4 ? 'eager' : 'lazy'} decoding="async" /><div class="gallery-zoom-overlay"><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button></div></div><div class="gallery-caption-box"><span>{image.categoryLabel}</span><h3>{image.title}</h3><p>{image.caption}</p></div></article>))}</div></div></section>
 
   <GuaranteeMatrix compact />
 
   <section class="case-cta"><div class="container case-cta-inner"><span class="tag tag-on-dark">Valoración técnica</span><h2>¿Quieres aprovechar mejor un baño pequeño?</h2><p>Cuéntanos ubicación, dimensiones aproximadas, estado actual y nivel de acabado deseado. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica.</p><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración técnica</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
@@ -185,6 +187,47 @@ const whatsappText = 'Hola, quiero una valoración técnica para remodelar un ba
   .gallery-filters{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:30px}.filter-btn{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border-radius:var(--r-full);border:1px solid rgba(201,169,97,.34);background:var(--white);color:var(--text);font-family:var(--font-sans);font-size:.86rem;font-weight:800;letter-spacing:.03em;cursor:pointer;transition:background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out)}.filter-btn:hover{transform:translateY(-2px);border-color:var(--gold)}.filter-btn.active{background:var(--ink);color:var(--white);border-color:var(--gold)}.filter-count{display:inline-flex;align-items:center;justify-content:center;min-width:24px;height:24px;border-radius:var(--r-full);background:var(--bone);color:var(--gold-ink-strong);font-size:.75rem}.filter-btn.active .filter-count{background:var(--gold);color:var(--ink)}
   .gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.gallery-card{margin:0;background:var(--white);border:1px solid var(--sand);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--e-1);transition:opacity var(--dur-base) var(--ease-out),transform var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)}.gallery-card:hover{transform:translateY(-4px);box-shadow:var(--e-2)}.gallery-card.is-large{grid-column:span 2;grid-row:span 2}.gallery-card.hidden{display:none}.gallery-image-box{position:relative;background:var(--ink)}.gallery-image-box img{width:100%;height:360px;object-fit:cover;display:block}.gallery-card.is-large .gallery-image-box img{height:742px}.gallery-badge{position:absolute;top:14px;left:14px;z-index:2;padding:5px 12px;border-radius:var(--r-full);background:var(--gold);color:var(--ink);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}.gallery-caption-box{padding:18px 18px 20px}.gallery-caption-box span{display:inline-block;color:var(--gold-ink);font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;font-weight:800;margin-bottom:8px}.gallery-caption-box h3{font-family:var(--font-serif);font-size:1.3rem;line-height:1.15;color:var(--ink);margin-bottom:8px}.gallery-caption-box p{color:var(--text-muted);line-height:1.58;font-size:.92rem;margin:0}
   .case-cta{padding:105px 24px;background:radial-gradient(circle at 50% 0%,rgba(201,169,97,.18),transparent 45%),var(--ink);color:var(--white);text-align:center}.case-cta-inner{max-width:900px}.case-cta h2{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.08;letter-spacing:var(--track-tight);font-weight:500;margin:0 0 22px}.case-cta p{max-width:760px;margin:0 auto 34px;color:rgba(255,255,255,.76);line-height:1.75;font-size:1.12rem}.tag-on-dark{color:var(--gold)}
+
+  /* Zero-crop project images: preserve full photo, no square cropping */
+  .finished-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+  .finished-card img {
+    height: 560px !important;
+    object-fit: contain !important;
+    background: var(--ink-soft);
+    padding: 14px;
+  }
+  .finished-card figcaption {
+    position: static !important;
+    inset: auto !important;
+    background: var(--white) !important;
+    color: var(--text) !important;
+    padding: 22px 24px 24px !important;
+  }
+  .finished-card figcaption strong { color: var(--ink); }
+  .finished-card figcaption p { color: var(--text-muted) !important; margin-bottom: 16px !important; }
+  .gallery-card { cursor: zoom-in; }
+  .gallery-image-box {
+    padding: 16px;
+    min-height: 430px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .gallery-image-box img,
+  .gallery-card.is-large .gallery-image-box img,
+  .gallery-card.is-landscape:not(.is-large) .gallery-image-box img {
+    width: auto !important;
+    height: auto !important;
+    max-width: 100%;
+    max-height: 620px;
+    object-fit: contain !important;
+    border-radius: 2px;
+  }
+
   @media(max-width:1100px){.finished-showcase-grid{grid-template-columns:1fr 1fr}.finished-card{min-height:520px}.finished-card.is-wide{grid-column:span 2}.overview-grid,.technical-grid,.specs-grid{grid-template-columns:1fr}.gallery-grid{grid-template-columns:1fr 1fr}.gallery-card.is-large{grid-column:span 2}}
   @media(max-width:640px){.case-facts{display:grid}.case-facts span{border-right:0;border-bottom:1px solid rgba(201,169,97,.18)}.finished-showcase-grid,.gallery-grid,.gallery-card.is-large{grid-template-columns:1fr;grid-column:span 1}.finished-card,.finished-card.is-wide{min-height:460px}.gallery-card .gallery-image-box img,.gallery-card.is-large .gallery-image-box img{height:430px}.spec-row{grid-template-columns:1fr}.spec-row strong{border-right:0;border-bottom:1px solid var(--sand)}}
 </style>

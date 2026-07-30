@@ -1,0 +1,348 @@
+---
+interface Props {
+  lang?: 'es' | 'en';
+}
+
+const { lang = 'es' } = Astro.props;
+const labels = lang === 'en'
+  ? { close: 'Close viewer', prev: 'Previous image', next: 'Next image', enlarge: 'Enlarge photo' }
+  : { close: 'Cerrar visor', prev: 'Imagen anterior', next: 'Imagen siguiente', enlarge: 'Ampliar foto' };
+---
+
+<div class="project-lightbox" data-project-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label={lang === 'en' ? 'Project image viewer' : 'Visor de imágenes del proyecto'}>
+  <button class="project-lightbox-close" type="button" aria-label={labels.close} data-lightbox-close>&times;</button>
+  <button class="project-lightbox-nav project-lightbox-prev" type="button" aria-label={labels.prev} data-lightbox-prev>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
+  </button>
+  <button class="project-lightbox-nav project-lightbox-next" type="button" aria-label={labels.next} data-lightbox-next>
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"/></svg>
+  </button>
+
+  <div class="project-lightbox-content">
+    <div class="project-lightbox-image-wrap">
+      <img src="" alt="" data-lightbox-img />
+    </div>
+    <div class="project-lightbox-info">
+      <div class="project-lightbox-meta">
+        <span class="project-lightbox-badge" data-lightbox-badge></span>
+        <span class="project-lightbox-counter"><span data-lightbox-current>1</span> / <span data-lightbox-total>1</span></span>
+      </div>
+      <h3 data-lightbox-title></h3>
+      <p data-lightbox-caption></p>
+    </div>
+  </div>
+</div>
+
+<style is:global>
+  .project-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    background: rgba(10, 9, 7, .96);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base) var(--ease-out);
+  }
+  .project-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+  .project-lightbox-content {
+    width: min(1180px, 100%);
+    max-height: calc(100vh - 56px);
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 340px;
+    background: var(--ink);
+    border: 1px solid rgba(201,169,97,.28);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: 0 28px 90px rgba(0,0,0,.55);
+  }
+  .project-lightbox-image-wrap {
+    min-height: 72vh;
+    background: #070605;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+  }
+  .project-lightbox-image-wrap img {
+    max-width: 100%;
+    max-height: calc(100vh - 100px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+  .project-lightbox-info {
+    padding: 32px 28px;
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: radial-gradient(circle at top, rgba(201,169,97,.12), transparent 44%), var(--ink);
+  }
+  .project-lightbox-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+  .project-lightbox-badge {
+    display: inline-flex;
+    padding: 6px 12px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-lightbox-counter {
+    color: rgba(255,255,255,.64);
+    font-size: .86rem;
+    font-weight: 700;
+  }
+  .project-lightbox-info h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    line-height: 1.08;
+    letter-spacing: var(--track-tight);
+    color: var(--white);
+    margin: 0 0 14px;
+  }
+  .project-lightbox-info p {
+    color: rgba(255,255,255,.76);
+    line-height: 1.72;
+    margin: 0;
+  }
+  .project-lightbox-close,
+  .project-lightbox-nav {
+    position: fixed;
+    z-index: 10001;
+    border: 1px solid rgba(201,169,97,.38);
+    background: rgba(20,18,14,.82);
+    color: var(--white);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .project-lightbox-close {
+    top: 22px;
+    right: 22px;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 2rem;
+    line-height: 1;
+  }
+  .project-lightbox-nav {
+    top: 50%;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .project-lightbox-prev { left: 22px; }
+  .project-lightbox-next { right: 22px; }
+  .project-lightbox-close:hover,
+  .project-lightbox-nav:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: scale(1.04);
+  }
+  .expand-photo-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(201,169,97,.45);
+    background: rgba(20,18,14,.78);
+    color: var(--white);
+    border-radius: var(--r-full);
+    padding: 9px 14px;
+    font-family: var(--font-sans);
+    font-size: .78rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    backdrop-filter: blur(8px);
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+  }
+  .expand-photo-btn:hover {
+    background: var(--gold);
+    color: var(--ink);
+    transform: translateY(-2px);
+  }
+  .gallery-zoom-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(20,18,14,.22);
+    opacity: 0;
+    transition: opacity var(--dur-base) var(--ease-out);
+    pointer-events: none;
+  }
+  .gallery-image-box:hover .gallery-zoom-overlay,
+  .card-image-box:hover .gallery-zoom-overlay {
+    opacity: 1;
+  }
+  .gallery-zoom-overlay .expand-photo-btn {
+    pointer-events: auto;
+  }
+
+  @media (max-width: 920px) {
+    .project-lightbox { padding: 14px; }
+    .project-lightbox-content {
+      grid-template-columns: 1fr;
+      max-height: calc(100vh - 28px);
+      overflow-y: auto;
+    }
+    .project-lightbox-image-wrap {
+      min-height: 62vh;
+      padding: 12px;
+    }
+    .project-lightbox-image-wrap img {
+      max-height: 70vh;
+    }
+    .project-lightbox-info {
+      padding: 22px;
+    }
+    .project-lightbox-nav {
+      width: 44px;
+      height: 44px;
+    }
+    .project-lightbox-prev { left: 10px; }
+    .project-lightbox-next { right: 10px; }
+  }
+</style>
+
+<script>
+  function initProjectLightbox() {
+    const lightbox = document.querySelector('[data-project-lightbox]') as HTMLElement | null;
+    if (!lightbox || lightbox.dataset.initialized === 'true') return;
+    lightbox.dataset.initialized = 'true';
+
+    const imgEl = lightbox.querySelector('[data-lightbox-img]') as HTMLImageElement | null;
+    const titleEl = lightbox.querySelector('[data-lightbox-title]') as HTMLElement | null;
+    const captionEl = lightbox.querySelector('[data-lightbox-caption]') as HTMLElement | null;
+    const badgeEl = lightbox.querySelector('[data-lightbox-badge]') as HTMLElement | null;
+    const currentEl = lightbox.querySelector('[data-lightbox-current]') as HTMLElement | null;
+    const totalEl = lightbox.querySelector('[data-lightbox-total]') as HTMLElement | null;
+    const closeBtn = lightbox.querySelector('[data-lightbox-close]') as HTMLButtonElement | null;
+    const prevBtn = lightbox.querySelector('[data-lightbox-prev]') as HTMLButtonElement | null;
+    const nextBtn = lightbox.querySelector('[data-lightbox-next]') as HTMLButtonElement | null;
+
+    type Item = { src: string; alt: string; title: string; caption: string; badge: string };
+    let items: Item[] = [];
+    let currentIndex = 0;
+
+    const readItems = () => {
+      const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-lightbox-item]'));
+      items = nodes.map((node) => {
+        const img = node.querySelector('img');
+        return {
+          src: node.dataset.src || img?.getAttribute('src') || '',
+          alt: node.dataset.alt || img?.getAttribute('alt') || '',
+          title: node.dataset.title || '',
+          caption: node.dataset.caption || '',
+          badge: node.dataset.badge || ''
+        };
+      }).filter((item) => item.src);
+      if (totalEl) totalEl.textContent = String(items.length || 1);
+      return nodes;
+    };
+
+    const update = () => {
+      const item = items[currentIndex];
+      if (!item || !imgEl) return;
+      imgEl.src = item.src;
+      imgEl.alt = item.alt;
+      if (titleEl) titleEl.textContent = item.title;
+      if (captionEl) captionEl.textContent = item.caption;
+      if (badgeEl) badgeEl.textContent = item.badge;
+      if (currentEl) currentEl.textContent = String(currentIndex + 1);
+    };
+
+    const open = (index: number) => {
+      readItems();
+      currentIndex = Math.max(0, Math.min(index, items.length - 1));
+      update();
+      lightbox.classList.add('active');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const close = () => {
+      lightbox.classList.remove('active');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    };
+
+    const prev = () => {
+      if (!items.length) return;
+      currentIndex = (currentIndex - 1 + items.length) % items.length;
+      update();
+    };
+
+    const next = () => {
+      if (!items.length) return;
+      currentIndex = (currentIndex + 1) % items.length;
+      update();
+    };
+
+    const attachTriggers = () => {
+      const nodes = readItems();
+      nodes.forEach((node, index) => {
+        if (node.dataset.lightboxBound === 'true') return;
+        node.dataset.lightboxBound = 'true';
+        node.addEventListener('click', (event) => {
+          const target = event.target as HTMLElement;
+          if (target.closest('a')) return;
+          open(index);
+        });
+      });
+
+      document.querySelectorAll<HTMLElement>('[data-lightbox-open]').forEach((trigger) => {
+        if (trigger.dataset.lightboxBound === 'true') return;
+        trigger.dataset.lightboxBound = 'true';
+        trigger.addEventListener('click', (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          const src = trigger.dataset.src || '';
+          readItems();
+          const idx = Math.max(0, items.findIndex((item) => item.src === src));
+          open(idx);
+        });
+      });
+    };
+
+    closeBtn?.addEventListener('click', close);
+    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener('click', next);
+    lightbox.addEventListener('click', (event) => {
+      if (event.target === lightbox) close();
+    });
+    document.addEventListener('keydown', (event) => {
+      if (!lightbox.classList.contains('active')) return;
+      if (event.key === 'Escape') close();
+      if (event.key === 'ArrowLeft') prev();
+      if (event.key === 'ArrowRight') next();
+    });
+
+    attachTriggers();
+  }
+
+  initProjectLightbox();
+  document.addEventListener('astro:page-load', initProjectLightbox);
+</script>
