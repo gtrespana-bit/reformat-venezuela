@@ -60,6 +60,51 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
       { src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp', alt: 'Final touch-ups in remodeled kitchen', caption: 'Final touch-ups, adjustment review, visual cleaning and handover preparation.' }
     ]
   },
+  bathroomLasMercedesSmall: {
+    slug: 'small-bathroom-remodel-las-mercedes',
+    esPath: '/proyectos/bano-las-mercedes-pequeno',
+    title: 'Small Secondary Bathroom Remodel in Las Mercedes',
+    category: 'Compact Bathroom & Layout Correction',
+    location: 'Las Mercedes, Caracas',
+    duration: '2 weeks',
+    heroImage: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
+    excerpt: 'Complete remodel of a small secondary bathroom in a Las Mercedes apartment: removal of a poorly positioned partition, new brick wall, relocated plumbing, imported 30x90 rectified porcelain, ROCA marble-powder shower tray, oak-look floor tile, LED anti-fog mirror and tempered glass screen.',
+    challenge: 'The bathroom was very small and the original partition was poorly positioned, further limiting usable space and access. The project required a layout correction before the finish work could make sense.',
+    solution: 'We demolished the existing partition, rebuilt it in brick with a moisture-area cement render, repositioned the door, renewed all plumbing and installed imported rectified porcelain, a ROCA shower tray, oak-tone vanity, LED anti-fog mirror, tempered-glass screen and ROCA rain shower column.',
+    technicalHighlights: [
+      'Complete removal of the partition separating the bathroom from the corridor',
+      'New brick wall built in the correct position and rendered with cement mortar for wet areas',
+      'Full plumbing replacement with adjusted positions for better use of space',
+      'Imported 30x90 rectified porcelain: smooth matte white and matte white 3D relief in the shower L',
+      'Imported ROCA solid marble-powder shower tray',
+      'Rectified oak-look porcelain floor tile paired with oak-tone vanity',
+      'LED mirror with touch controls and anti-fog system',
+      'Tempered safety-glass screen and ROCA shower column with rain head and handheld shower'
+    ],
+    specs: [
+      { label: 'Location', value: 'Apartment in Las Mercedes, Caracas' },
+      { label: 'Bathroom type', value: 'Compact secondary bathroom' },
+      { label: 'Layout', value: 'Partition removed and rebuilt; door position corrected' },
+      { label: 'Wall system', value: 'Brick wall rendered with cement mortar for wet areas' },
+      { label: 'Plumbing', value: 'New plumbing installation with relocated fixtures' },
+      { label: 'Wall tile', value: 'Imported rectified 30x90 matte white porcelain and 3D relief porcelain' },
+      { label: 'Flooring', value: 'Rectified oak-look porcelain tile' },
+      { label: 'Shower tray', value: 'Imported ROCA solid marble-powder shower tray' },
+      { label: 'Fixtures', value: 'ROCA rain shower column with handheld shower' },
+      { label: 'Handover', value: 'Tempered glass screen, oak vanity and LED anti-fog mirror' }
+    ],
+    gallery: [
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp', alt: 'Finished compact secondary bathroom with oak vanity and LED mirror in Las Mercedes', caption: 'Final view with oak-tone vanity, LED anti-fog mirror, matte white porcelain and oak-look floor.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp', alt: 'Finished shower area with 3D porcelain, ROCA shower tray and tempered screen', caption: 'Shower L with matte white 3D relief porcelain, ROCA marble-powder tray and rain shower column.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-suelo.webp', alt: 'Finished oak-look porcelain floor in compact bathroom', caption: 'Rectified oak-look porcelain floor adds warmth and connects visually with the vanity.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-exterior.webp', alt: 'Finished exterior sliding door for compact bathroom', caption: 'Corrected door position and sliding solution improve access and usable space.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-1.webp', alt: 'ROCA shower tray installed before final screen', caption: 'Imported ROCA solid marble-powder shower tray during installation.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/ceramica-paredes-suelo-listos.webp', alt: 'Wall and floor porcelain completed before final fixtures', caption: 'Wall and floor tile completed before vanity, screen and accessories.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/tabique-ladrillo-realizado.webp', alt: 'New brick partition built for compact bathroom layout', caption: 'New brick partition built in the corrected position and prepared for wet-area rendering.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-1.webp', alt: 'Demolition of original misplaced partition', caption: 'Removal of the original partition that limited the compact bathroom layout.' },
+      { src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-1.webp', alt: 'Bathroom before remodel in Las Mercedes apartment', caption: 'Original secondary bathroom before demolition, plumbing replacement and layout correction.' }
+    ]
+  },
   caracas: {
     slug: 'bathroom-remodel-caracas',
     esPath: '/proyectos/bano-caracas',
@@ -205,6 +250,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
 
 export const projectCasesEnList = [
   projectCasesEn.kitchenCaracas,
+  projectCasesEn.bathroomLasMercedesSmall,
   projectCasesEn.caracas,
   projectCasesEn.trigalena,
   projectCasesEn.sanDiego,
