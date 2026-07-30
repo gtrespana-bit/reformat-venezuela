@@ -214,7 +214,7 @@ El mantenimiento de estas piscinas premium requiere personal especializado. En R
 
 ## Solicita tu Plan de Mantenimiento
 
-En ReformaT Venezuela diseñamos planes de mantenimiento a la medida de tu piscina. Visita técnica gratuita, presupuesto sin compromiso.
+En ReformaT Venezuela diseñamos planes de mantenimiento a la medida de tu piscina. Valoración técnica inicial, presupuesto sin compromiso.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

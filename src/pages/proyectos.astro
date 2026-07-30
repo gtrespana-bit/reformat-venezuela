@@ -3,6 +3,26 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
   { 
+    title: "Remodelación Integral de Cocina en Quinta", 
+    category: "Cocinas de Alto Estándar", 
+    location: "Caracas, Venezuela", 
+    image: "/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp", 
+    desc: "Reforma completa en una semana: desmontaje, demolición de cerámica existente, actualización eléctrica con cable ignífugo, revestimiento importado rectificado, muebles MDF lacado alto brillo con polímero PVC termoformado y encimera de cuarzo oscuro.",
+    slug: "cocina-caracas-quinta",
+    duration: "1 semana",
+    specs: ["MDF 19 mm Alto Brillo", "PVC Termoformado", "Cuarzo Oscuro & TEKA"]
+  },
+  { 
+    title: "Remodelación de Baño Secundario Compacto", 
+    category: "Baños Compactos & Redistribución", 
+    location: "Las Mercedes, Caracas", 
+    image: "/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp", 
+    desc: "Baño secundario pequeño con tabique mal posicionado: demolición, nuevo tabique de ladrillo, plomería reubicada, porcelanato importado 30x90 rectificado, plato de ducha ROCA y mampara templada.",
+    slug: "bano-las-mercedes-pequeno",
+    duration: "2 semanas",
+    specs: ["Porcelanato 30x90 Rectificado", "Plato ROCA Polvo de Mármol", "Espejo LED Antivaho"]
+  },
+  { 
     title: "Remodelación de Baño Principal y Aseo Adaptado", 
     category: "Baños & Accesibilidad", 
     location: "Caracas, Venezuela", 
@@ -83,7 +103,7 @@ const projects = [
                   </svg>
                   {p.location}
                 </span>
-                <span class="project-card-duration">⏱️ {p.duration}</span>
+                <span class="project-card-duration">Duración: {p.duration}</span>
               </div>
               <h2 class="project-card-title">
                 <a href={`/proyectos/${p.slug}`}>{p.title}</a>
@@ -118,9 +138,9 @@ const projects = [
       <div class="cta-inner">
         <span class="cta-kicker">INGENIERÍA Y DISEÑO PARA TU HOGAR</span>
         <h2 class="cta-title">¿Tienes un proyecto en mente?</h2>
-        <p class="cta-text">Cuéntanos tu visión y te presentaremos un plan de ejecución con presupuesto detallado y acabados garantizados por contrato.</p>
+        <p class="cta-text">Cuéntanos tu visión y revisaremos el alcance técnico, materiales, tiempos y nivel de acabado necesario para ejecutar una obra a la altura de tu vivienda.</p>
         <a href="/contacto" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Solicitar Presupuesto Técnico</span>
+          <span class="btn-content">Solicitar valoración técnica</span>
           <span class="btn-border"></span>
           <span class="btn-arrow">→</span>
         </a>

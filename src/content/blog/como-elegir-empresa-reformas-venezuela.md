@@ -146,7 +146,7 @@ Casi nunca. Si uno es mucho más bajo, probablemente omite partidas, usa materia
 Portafolio real, referencias verificables, presupuesto por escrito, contrato, garantía y disposición a visitar la obra antes de presupuestar.
 
 ### ¿Debo pagar la visita o el presupuesto?
-Muchas empresas serias ofrecen la primera visita y presupuesto sin compromiso. En ReformaT la [consulta inicial es gratuita](/contacto).
+Muchas empresas serias ofrecen la primera visita y presupuesto sin compromiso. En ReformaT la [valoración inicial permite definir el alcance](/contacto).
 
 ---
 

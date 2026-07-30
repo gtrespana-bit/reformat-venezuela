@@ -96,7 +96,7 @@ If you need to move water, gas or electricity points, the price goes up. Changin
 
 ## Real Breakdown: Where Does the Money Go?
 
-Let's break down a real budget for a **medium kitchen (10 m²) in Valencia or Caracas**, with mid-range materials.
+Let's break down a real budget for a **medium kitchen (10 m²) in Valencia or Caracas**, with functional specification materials.
 
 ### Example: 10 m² Kitchen, Mid-Range
 
@@ -113,7 +113,7 @@ Let's break down a real budget for a **medium kitchen (10 m²) in Valencia or Ca
 | **Kitchen cabinets**      | 8-10 lacquered MDF modules, quality hardware     | $1,200 - $1,800|
 | **Countertop**            | National granite, 4-5 linear meters              | $400 - $650    |
 | **Sink and faucet**       | Stainless steel, single-handle faucet            | $150 - $280    |
-| **Appliances**            | Hood, stove, oven (mid-range)                    | $600 - $1,000  |
+| **Appliances**            | Hood, stove, oven (functional specification)                    | $600 - $1,000  |
 | **Painting and finishes** | Ceiling, non-tiled areas                         | $80 - $150     |
 | **Final cleaning**        | Professional post-construction cleaning          | $60 - $100     |
 | **TOTAL**                 |                                                  | **$4,260 - $6,680** |
@@ -289,7 +289,7 @@ If your quote doesn't have all this, **it is not a professional quote**. It is a
 It's very difficult. With $2,000 you could only do a very basic aesthetic renovation (paint cabinets, change countertop to formica, basic tiles). If you need to change installations or complete cabinets, the budget will be higher.
 
 ### Is it worth investing in a high-end kitchen?
-It depends on your situation. If it's your primary residence and you plan to stay many years, yes. If it's for selling or renting, a well-executed mid-range offers better return on investment.
+It depends on your situation. If it's your primary residence and you plan to stay many years, yes. If it's for selling or renting, a well-executed functional specification offers better return on investment.
 
 ### Should I buy the materials myself or have the contractor do it?
 Both options have advantages:
@@ -321,7 +321,7 @@ A well-remodeled kitchen is not an expense. It is an investment in your quality 
 ### Ready to Start Your Remodel?
 
 At ReformaT Venezuela we offer you:
-✅ **Free technical visit** to your home in **Caracas, Valencia, San Diego or Carabobo**
+✅ **Initial technical assessment** to your home in **Caracas, Valencia, San Diego or Carabobo**
 
 ✅ **Detailed and closed budget**, no surprises or fine print
 
@@ -339,7 +339,7 @@ At ReformaT Venezuela we offer you:
 - **Caracas**: Chacao, Baruta, El Hatillo, Sucre, Libertador, all parishes
 - **Carabobo**: Valencia, San Diego, Naguanagua, Guacara, Los Guayos
 
-Tell us about your project and we will give you a real, transparent quote with no obligation. Because your kitchen deserves quality. And you deserve clarity.
+Tell us about your project and we will give you a real, transparent proposal after a technical assessment. Because your kitchen deserves quality. And you deserve clarity.
 
 ---
 
@@ -349,4 +349,4 @@ Tell us about your project and we will give you a real, transparent quote with n
 - **[Budget Remodel Mistakes: 7 Common Errors](/en/blog/budget-remodel-mistakes-avoid/)** — Avoid financial surprises in your project
 - **[Kitchen Trends 2025](/en/blog/kitchen-design-trends-2026/)** — Get inspired with the latest kitchen design trends
 
-Need a personalized quote for your kitchen remodel? **[Request your free quote →](/en/services/kitchens/)**
+Need a personalized quote for your kitchen remodel? **[Request your technical assessment →](/en/services/kitchens/)**

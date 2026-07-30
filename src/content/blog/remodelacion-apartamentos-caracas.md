@@ -144,7 +144,7 @@ Zonas premium con apartamentos de gran metraje (150-300 m²). Las remodelaciones
 
 En ReformaT Venezuela manejamos todo el proceso: permisos, diseño, obra y acabados. Trabajamos en **Chacao, Altamira, La Castellana, Las Mercedes, El Hatillo, La Lagunita, Campo Alegre, Country Club, Alto Hatillo, Los Naranjos y Prados del Este**.
 
-**Solicita tu consulta gratuita por WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
+**Solicita tu valoración técnica por WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 
 O explora nuestros servicios:
 - [Remodelación de Cocinas en Caracas](/remodelacion-cocina-altamira)

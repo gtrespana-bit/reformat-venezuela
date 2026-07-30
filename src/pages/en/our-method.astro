@@ -1,0 +1,111 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+
+const whatsappText = 'Hello, I would like a technical assessment and more information about the ReformaT Method for my remodeling project.';
+
+const methodSteps = [
+  ['01', 'Real technical diagnosis', 'We review measurements, existing utilities, moisture, substrates, slopes, access, logistics and the real conditions of the property before promising a solution.'],
+  ['02', 'Scope definition', 'Clear inclusions and exclusions prevent surprises. We define trades, priorities, affected areas, finish level and special site conditions.'],
+  ['03', 'Material specification', 'Every material is selected for its use. The same adhesive is not suitable for every ceramic, porcelain tile, format, substrate or absorption level.'],
+  ['04', 'Itemized proposal', 'The owner receives an organized proposal: demolition, utilities, waterproofing, masonry, coverings, carpentry, finishes and warranty conditions.'],
+  ['05', 'Site planning', 'Before starting we coordinate purchases, access, condominium permits, common-area protection, debris handling, working hours and schedule.'],
+  ['06', 'Property protection', 'A high-value property requires order: protection of floors, elevators, corridors, furniture and areas outside the scope. The site should not become chaos.'],
+  ['07', 'Supervised execution', 'Each trade follows a sequence. We supervise layouts, plumbs, levels, slopes, cuts, joints, anchors, sealants and critical progress points.'],
+  ['08', 'Testing before closing', 'Hidden work is checked before final finishes: plumbing, drains, waterproofing, electrical points, pressure, slopes and functionality.'],
+  ['09', 'Finish control', 'The final detail is not left to chance: joints, silicone, corners, baseboards, transitions, doors, drawers, fixtures, lighting and visual cleanliness.'],
+  ['10', 'Documented handover', 'Handover includes joint inspection, punch list when applicable, final cleaning, operating tests and written warranty by scope.']
+];
+
+const technicalChecks = [
+  { area: 'Bathrooms and wet areas', items: ['Waterproofing before tiling', 'Slopes toward drains', 'Flood testing', 'Seals and transitions reviewed'] },
+  { area: 'Kitchens', items: ['Electrical and water points coordinated', 'Leveling for cabinetry', 'Hardware and edges checked', 'Task and ambient lighting'] },
+  { area: 'Floors and wall coverings', items: ['Clean and stable substrate', 'Adhesive compatible with tile and surface', 'Joints, cuts and plumbs controlled', 'Large-format pieces installed with proper technique'] },
+  { area: 'Hidden utilities', items: ['Pipes tested before closing', 'Electrical circuits protected', 'Maintenance access considered', 'Photo record of critical phases'] }
+];
+
+const comparisonRows = [
+  ['Decisions improvised during construction', 'Execution plan defined before starting'],
+  ['Material selected only by price or availability', 'Material selected for compatibility, use and durability'],
+  ['Walls closed without prior testing', 'Testing and documentation before covering'],
+  ['Finishes checked only at the very end', 'Finish control throughout the process'],
+  ['Vague or verbal warranty', 'Written warranty tied to specific scopes of work']
+];
+---
+
+<BaseLayout
+  title="The ReformaT Method | Luxury Remodeling with Technical Precision"
+  description="Discover the ReformaT Method: technical diagnosis, specified materials, supervised execution, testing before closing, finish control and warranty by scope."
+  image="/images/integrales-proyecto-completo.webp"
+  activePage="metodo"
+>
+  <header class="method-hero">
+    <img src="/images/integrales-proyecto-completo.webp" alt="Luxury remodeling executed with the ReformaT Method" class="method-hero-img" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="method-hero-overlay"></div>
+    <div class="container method-hero-content">
+      <span class="method-eyebrow">The ReformaT Method</span>
+      <h1>Luxury remodeling without improvisation</h1>
+      <p>A work protocol for homeowners who value technical precision, proper materials, flawless finishes and documented warranties.</p>
+      <div class="method-hero-actions">
+        <a href="/en/contact" class="btn-premium btn-primary-premium"><span class="btn-content">Request technical assessment</span><span class="btn-border"></span><span class="btn-arrow">→</span></a>
+        <a href="/en/projects" class="btn-premium btn-outline-premium"><span class="btn-content">View real projects</span><span class="btn-border"></span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </header>
+
+  <section class="method-intro section"><div class="container intro-grid"><div><span class="tag">The standard</span><h2>It is not enough for a project to look good. It has to be built correctly.</h2></div><div class="intro-copy"><p>The final finish matters, but in high-end remodeling the true difference happens before that: diagnosis, substrate preparation, material specification, technical testing and supervision.</p><p>The ReformaT Method is designed to avoid common risks in poorly planned work: incompatible materials, utilities closed without testing, uneven surfaces, leaks, poor cuts or unclear warranties.</p></div></div></section>
+
+  <section class="method-steps-section section bg-light"><div class="container"><div class="section-header"><span class="tag">Work protocol</span><h2 class="section-title">10 stages to control a demanding remodel</h2><p class="section-desc">Each phase reduces risk, improves the final result and helps the owner understand what is being done and why.</p></div><div class="method-steps-grid">{methodSteps.map(([number, title, text]) => (<article class="method-step-card"><span>{number}</span><h3>{title}</h3><p>{text}</p></article>))}</div></div></section>
+
+  <section class="technical-checks-section section"><div class="container checks-grid"><div class="checks-heading"><span class="tag">Technical control</span><h2>What we check before the finish hides it</h2><p>A porcelain tile, shower screen or custom kitchen can look spectacular. But if behind it there is moisture, poor leveling, the wrong adhesive or an untested installation, the result is not luxury: it is risk.</p></div><div class="checks-list">{technicalChecks.map((check) => (<article class="check-card"><h3>{check.area}</h3><ul>{check.items.map((item) => <li>{item}</li>)}</ul></article>))}</div></div></section>
+
+  <section class="comparison-section section"><div class="container"><div class="section-header on-dark"><span class="tag">The difference</span><h2 class="section-title">Improvised work vs. work with a method</h2><p class="section-desc">This is not about criticizing others. It is about explaining what changes when a remodel is executed with technical criteria and documented responsibility.</p></div><div class="comparison-card"><div class="comparison-head"><span>Without a method</span><span>The ReformaT Method</span></div>{comparisonRows.map(([withoutMethod, withMethod]) => (<div class="comparison-row"><p>{withoutMethod}</p><p>{withMethod}</p></div>))}</div></div></section>
+
+  <GuaranteeMatrix lang="en" variant="light" />
+
+  <section class="method-cta"><div class="container method-cta-inner"><span class="tag tag-on-dark">Next step</span><h2>If you are looking for the lowest price, we may not be your fit. If you want it done correctly, let’s talk.</h2><p>Tell us your area, property type, scope, finish level and estimated start date. We will review whether the project fits our standard and guide you through a technical assessment.</p><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener"><span class="btn-content">Talk on WhatsApp</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
+</BaseLayout>
+
+<style>
+  .method-hero { position: relative; min-height: 88vh; display: flex; align-items: flex-end; overflow: hidden; color: var(--white); background: var(--ink); padding: 150px 0 95px; }
+  .method-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .72; }
+  .method-hero-overlay { position: absolute; inset: 0; background: radial-gradient(circle at 18% 24%, rgba(201,169,97,.18), transparent 32%), linear-gradient(90deg, rgba(20,18,14,.96) 0%, rgba(20,18,14,.78) 42%, rgba(20,18,14,.32) 100%), linear-gradient(to top, rgba(20,18,14,.95), transparent 55%); }
+  .method-hero-content { position: relative; z-index: 2; max-width: 980px; }
+  .method-eyebrow { display: inline-block; color: var(--gold); font-size: .78rem; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; margin-bottom: 18px; }
+  .method-hero h1 { font-family: var(--font-serif); font-size: clamp(3rem, 7vw, 6.2rem); line-height: .98; letter-spacing: var(--track-tight); font-weight: 500; max-width: 850px; margin: 0 0 24px; }
+  .method-hero p { max-width: 680px; color: rgba(255,255,255,.84); font-size: clamp(1.08rem, 2vw, 1.28rem); line-height: 1.7; margin: 0 0 36px; }
+  .method-hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+  .intro-grid, .checks-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: var(--s-5); align-items: start; }
+  .intro-grid h2, .checks-heading h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 4.6vw, 3.55rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0; }
+  .intro-copy p, .checks-heading p { color: var(--text-muted); font-size: 1.08rem; line-height: 1.85; margin-bottom: 18px; }
+  .method-steps-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 18px; }
+  .method-step-card { padding: 28px 22px; border-radius: var(--r-md); border: 1px solid var(--sand); background: var(--white); box-shadow: var(--e-1); }
+  .method-step-card span { display: inline-block; font-family: var(--font-serif); color: rgba(201,169,97,.62); font-size: 2.35rem; line-height: 1; margin-bottom: 18px; }
+  .method-step-card h3 { font-family: var(--font-serif); font-size: 1.25rem; line-height: 1.15; margin-bottom: 10px; color: var(--text); }
+  .method-step-card p { color: var(--text-muted); font-size: .9rem; line-height: 1.65; }
+  .checks-grid { grid-template-columns: .9fr 1.1fr; }
+  .checks-heading { position: sticky; top: 120px; }
+  .checks-list { display: grid; gap: 18px; }
+  .check-card { padding: 30px; border-radius: var(--r-lg); background: linear-gradient(180deg, var(--white), var(--bone)); border: 1px solid var(--sand); box-shadow: var(--e-1); }
+  .check-card h3 { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 16px; }
+  .check-card ul { list-style: none; display: grid; gap: 10px; }
+  .check-card li { position: relative; padding-left: 28px; color: var(--text-muted); line-height: 1.6; }
+  .check-card li::before { content: ""; position: absolute; left: 0; top: .65em; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 5px rgba(201,169,97,.14); }
+  .comparison-section { background: var(--ink); color: var(--white); }
+  .on-dark .section-title { color: var(--white); }
+  .on-dark .section-desc { color: rgba(255,255,255,.76); }
+  .comparison-card { max-width: 1000px; margin: 0 auto; overflow: hidden; border-radius: var(--r-lg); border: 1px solid rgba(201,169,97,.28); background: rgba(255,255,255,.045); box-shadow: var(--e-3); }
+  .comparison-head, .comparison-row { display: grid; grid-template-columns: 1fr 1fr; }
+  .comparison-head span { padding: 18px 24px; background: rgba(201,169,97,.16); color: var(--gold-light); font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .13em; }
+  .comparison-row { border-top: 1px solid rgba(242,237,228,.12); }
+  .comparison-row p { padding: 22px 24px; color: rgba(255,255,255,.72); line-height: 1.65; border-right: 1px solid rgba(242,237,228,.12); margin: 0; }
+  .comparison-row p:last-child { color: rgba(255,255,255,.92); border-right: 0; }
+  .method-cta { background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 42%), var(--ink); color: var(--white); padding: 110px 24px; text-align: center; }
+  .method-cta-inner { max-width: 920px; }
+  .method-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
+  .method-cta p { max-width: 760px; margin: 0 auto 36px; color: rgba(255,255,255,.78); font-size: 1.12rem; line-height: 1.75; }
+  .tag-on-dark { color: var(--gold); }
+  @media (max-width: 1100px) { .method-steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  @media (max-width: 900px) { .method-hero { min-height: 76vh; padding: 135px 0 70px; } .intro-grid, .checks-grid { grid-template-columns: 1fr; } .checks-heading { position: static; } }
+  @media (max-width: 680px) { .method-hero-actions { flex-direction: column; align-items: flex-start; } .method-steps-grid, .comparison-head, .comparison-row { grid-template-columns: 1fr; } .comparison-head { display: none; } .comparison-row p { border-right: 0; border-bottom: 1px solid rgba(242,237,228,.12); } .comparison-row p:last-child { border-bottom: 0; } }
+</style>

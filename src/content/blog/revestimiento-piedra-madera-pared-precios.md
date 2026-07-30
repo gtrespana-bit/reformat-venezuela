@@ -140,4 +140,4 @@ Piedra porosa: sellado cada 2-3 años. Madera: barniz o aceite periódico. Porce
 
 Un revestimiento bien elegido convierte una pared aburrida en el punto focal de tu hogar. La clave es combinar estética, durabilidad y presupuesto, e instalarlo sobre una superficie bien preparada.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres transformar tus paredes, [solicita una consulta gratuita](/contacto). Nuestro equipo de [revestimientos de pared](/servicios/revestimientos-pared) te asesora sobre el material ideal para tu espacio y presupuesto.
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres transformar tus paredes, [solicita una valoración técnica](/contacto). Nuestro equipo de [revestimientos de pared](/servicios/revestimientos-pared) te asesora sobre el material ideal para tu espacio y presupuesto.

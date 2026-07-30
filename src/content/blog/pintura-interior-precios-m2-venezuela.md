@@ -117,4 +117,4 @@ Pintura lavable satinada o semibrillante, resistente a humedad y grasa. Nunca ma
 
 El precio por m² es una referencia útil, pero el presupuesto real depende del estado de tus paredes y del acabado que elijas. Lo importante es no ahorrar en preparación ni en pintura: es lo que determina cuánto te dura el trabajo.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres un presupuesto exacto, [solicita una consulta gratuita](/contacto). También puedes ver nuestro servicio de [pintura y acabados](/servicios/pintura-acabados) o cómo lo integramos en una [reforma integral](/servicios/remodelacion-integral).
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres un presupuesto exacto, [solicita una valoración técnica](/contacto). También puedes ver nuestro servicio de [pintura y acabados](/servicios/pintura-acabados) o cómo lo integramos en una [reforma integral](/servicios/remodelacion-integral).

@@ -63,6 +63,6 @@ Before signing any contract, request the building's remodeling regulations in wr
 
 At ReformaT we include permit management in our service and we know the specific rules of most buildings in Caracas and Carabobo.
 
-If you are planning a remodel in a condominium, [contact us](/en/contact) for a free consultation. We help you do everything correctly from day one.
+If you are planning a remodel in a condominium, [contact us](/en/contact) for a technical assessment. We help you do everything correctly from day one.
 
 Related: [How to Choose a Remodeling Company](/en/blog/how-to-choose-remodeling-company-venezuela)

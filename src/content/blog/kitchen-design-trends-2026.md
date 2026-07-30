@@ -311,7 +311,7 @@ In Valencia and San Diego, Carabobo, these are the real ranges:
 
 ### Why Choose ReformaT Venezuela?
 
-- **20+ years** transforming kitchens in Valencia and San Diego
+- **23+ years** transforming kitchens in Valencia and San Diego
 - **Over 500 kitchens** remodeled with satisfied clients
 - **Real 2-year warranty** on all our work
 - **Closed budget** without surprises or hidden costs
@@ -328,7 +328,7 @@ Don't let your obsolete kitchen continue limiting your daily life. Imagine wakin
 
 **That's what we do at ReformaT Venezuela.**
 
-📞 **Call us at 0422-799-7043** or **write to contacto@reformat-venezuela.online** to schedule a **free consultation** at your home. No obligation, no pressure. Just good ideas to transform your kitchen.
+📞 **Call us at 0422-799-7043** or **write to contacto@reformat-venezuela.online** to schedule a **technical assessment** at your home. Technical assessment, no pressure. Just good ideas to transform your kitchen.
 
 
 ---

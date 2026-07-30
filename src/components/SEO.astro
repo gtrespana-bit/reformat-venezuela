@@ -68,6 +68,12 @@ const routeMap: Record<string, string> = {
   '/en/services/bathrooms': '/servicios/remodelacion-bano',
   '/servicios/remodelacion-integral': '/en/services/whole-home',
   '/en/services/whole-home': '/servicios/remodelacion-integral',
+  '/servicios/remodelacion-vivienda': '/en/services/home-remodeling',
+  '/en/services/home-remodeling': '/servicios/remodelacion-vivienda',
+  '/servicios/remodelacion-apartamentos': '/en/services/apartment-remodeling',
+  '/en/services/apartment-remodeling': '/servicios/remodelacion-apartamentos',
+  '/servicios/remodelacion-casas': '/en/services/house-remodeling',
+  '/en/services/house-remodeling': '/servicios/remodelacion-casas',
   '/servicios/instalacion-electrica': '/en/services/electrical',
   '/en/services/electrical': '/servicios/instalacion-electrica',
   '/servicios/fontaneria-plomeria': '/en/services/plumbing',
@@ -82,6 +88,28 @@ const routeMap: Record<string, string> = {
   '/en/services/pools': '/servicios/piscinas-mantenimiento',
   '/proyectos': '/en/projects',
   '/en/projects': '/proyectos',
+  '/proyectos/cocina-caracas-quinta': '/en/projects/kitchen-remodel-caracas-quinta',
+  '/en/projects/kitchen-remodel-caracas-quinta': '/proyectos/cocina-caracas-quinta',
+  '/proyectos/bano-las-mercedes-pequeno': '/en/projects/small-bathroom-remodel-las-mercedes',
+  '/en/projects/small-bathroom-remodel-las-mercedes': '/proyectos/bano-las-mercedes-pequeno',
+  '/proyectos/bano-caracas': '/en/projects/bathroom-remodel-caracas',
+  '/en/projects/bathroom-remodel-caracas': '/proyectos/bano-caracas',
+  '/proyectos/bano-la-trigalena': '/en/projects/bathroom-remodel-la-trigalena',
+  '/en/projects/bathroom-remodel-la-trigalena': '/proyectos/bano-la-trigalena',
+  '/proyectos/bano-san-diego': '/en/projects/bathroom-remodel-san-diego',
+  '/en/projects/bathroom-remodel-san-diego': '/proyectos/bano-san-diego',
+  '/proyectos/banos-quinta-la-lagunita': '/en/projects/luxury-bathrooms-quinta-guataparo',
+  '/en/projects/luxury-bathrooms-quinta-guataparo': '/proyectos/banos-quinta-la-lagunita',
+  '/metodo-reformat': '/en/our-method',
+  '/en/our-method': '/metodo-reformat',
+  '/caracas': '/en/caracas',
+  '/en/caracas': '/caracas',
+  '/valencia': '/en/valencia',
+  '/en/valencia': '/valencia',
+  '/san-diego': '/en/san-diego',
+  '/en/san-diego': '/san-diego',
+  '/la-guaira': '/en/la-guaira',
+  '/en/la-guaira': '/la-guaira',
   '/contacto': '/en/contact',
   '/en/contact': '/contacto',
   '/sobre-nosotros': '/en/about-us',
@@ -163,11 +191,7 @@ const enPathSlashed = ensureTrailingSlash(enPath || '/en/');
 // Validación de existencia real de traducción
 // Zone pages y ciudades y servicios tienen contraparte EN con mismo slug o mapeado
 // Solo los blog posts pueden no tener traducción
-const untranslatedEsPaths = new Set([
-  '/servicios/remodelacion-vivienda',
-  '/servicios/remodelacion-apartamentos',
-  '/servicios/remodelacion-casas'
-]);
+const untranslatedEsPaths = new Set([]);
 
 const isUntranslatedEsBlogPost = !isEnglish && currentPath.startsWith('/blog/') && !routeMap[currentPath];
 const isUntranslatedEnBlogPost = isEnglish && currentPath.startsWith('/en/blog/') && !routeMap[currentPath];
@@ -194,8 +218,13 @@ if (currentPath === '/blog' || currentPath === '/en/blog') {
 } else if (currentPath.startsWith('/servicios/') || currentPath.startsWith('/en/services/')) {
   breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services/' : '/servicios/' });
   breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
+} else if (currentPath === '/metodo-reformat' || currentPath === '/en/our-method') {
+  breadcrumbItems.push({ name: isEnglish ? 'Our Method' : 'Método ReformaT', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/proyectos' || currentPath === '/en/projects') {
   breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: ensureTrailingSlash(currentPath) });
+} else if (currentPath.startsWith('/proyectos/') || currentPath.startsWith('/en/projects/')) {
+  breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: isEnglish ? '/en/projects/' : '/proyectos/' });
+  breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/contacto' || currentPath === '/en/contact') {
   breadcrumbItems.push({ name: isEnglish ? 'Contact' : 'Contacto', url: ensureTrailingSlash(currentPath) });
 }

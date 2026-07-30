@@ -183,7 +183,7 @@ Para áreas de piscina, también ofrecemos [mantenimiento y remodelación de pis
 
 ---
 
-## Solicita tu Asesoría Gratuita
+## Solicita tu asesoría técnica
 
 No elijas piso solo por fotos. En ReformaT Venezuela te mostramos muestras físicas, calculamos el metraje exacto (con desperdicio incluido) y te damos el presupuesto instalado llave en mano.
 

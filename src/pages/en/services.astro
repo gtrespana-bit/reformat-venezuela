@@ -2,123 +2,54 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const services = [
-  { slug: "kitchens", title: "Kitchen Remodeling", desc: "We design functional, elegant kitchens.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Custom Design", "Premium Materials"] },
-  { slug: "bathrooms", title: "Bathroom Renovation", desc: "Wellness spaces with spa-quality finishes.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Waterproofing", "Spa Design"] },
-  { slug: "whole-home", title: "Whole-Home Remodeling", desc: "Complete transformation of your property.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Full Project Management", "Permit Handling"] },
-  { slug: "electrical", title: "Electrical Services", desc: "Safe, code-compliant installations.", image: "/images/electricidad-800.webp", srcset: "/images/electricidad-400.webp 400w, /images/electricidad-800.webp 800w", features: ["Certified", "Smart Home Ready"] },
-  { slug: "plumbing", title: "Plumbing Services", desc: "Professional plumbing solutions.", image: "/images/fontaneria-800.webp", srcset: "/images/fontaneria-400.webp 400w, /images/fontaneria-800.webp 800w", features: ["Leak Detection", "Premium Fixtures"] },
-  { slug: "painting", title: "Painting & Finishes", desc: "Flawless interior and exterior finishes.", image: "/images/pintura-800.webp", srcset: "/images/pintura-400.webp 400w, /images/pintura-800.webp 800w", features: ["Decorative Paint", "Microcement"] },
-  { slug: "wall-coverings", title: "Wall Coverings", desc: "Stylish wall treatments.", image: "/images/revestimientos-800.webp", srcset: "/images/revestimientos-400.webp 400w, /images/revestimientos-800.webp 800w", features: ["Large-Format Porcelain", "Wall Panels"] },
-  { slug: "flooring", title: "Flooring", desc: "Durable, beautiful floors.", image: "/images/suelo-porcelanato-800.webp", srcset: "/images/suelo-porcelanato-400.webp 400w, /images/suelo-porcelanato-800.webp 800w", features: ["Laminate", "Vinyl", "Hardwood"] },
-  { slug: "pools", title: "Swimming Pools", desc: "Construction and maintenance.", image: "/images/piscinas-800.webp", srcset: "/images/piscinas-400.webp 400w, /images/piscinas-800.webp 800w", features: ["Custom Build", "Filtration Systems"] }
+  { slug: 'whole-home', title: 'High-Standard Whole-Home Remodeling', desc: 'Complete transformation of houses and apartments with technical planning, utilities, finishes and supervision.', image: '/images/integrales-800.webp', features: ['Full project scope', 'Supervised execution', 'Written warranty'] },
+  { slug: 'kitchens', title: 'Designer Kitchens', desc: 'Custom kitchens with durable cabinetry, resistant countertops, technical lighting and precise installation.', image: '/images/cocina-800.webp', features: ['Custom layout', 'Hardware and countertops', 'Finish control'] },
+  { slug: 'bathrooms', title: 'Spa-Style Bathrooms', desc: 'Bathrooms with documented waterproofing, correct slopes, quality fixtures and porcelain finishes built to last.', image: '/images/bano-800.webp', features: ['Waterproofing', 'Flood testing', 'Spa-style design'] },
+  { slug: 'home-remodeling', title: 'Home Remodeling', desc: 'Houses, apartments, quintas and townhouses remodeled with the ReformaT Method.', image: '/images/integrales-proyecto-completo.webp', features: ['Houses and apartments', 'Technical method', 'Warranty by scope'] },
+  { slug: 'apartment-remodeling', title: 'Apartment Remodeling', desc: 'Apartment remodeling with condominium coordination, common-area protection and clean site logistics.', image: '/images/cocina-terminada-final.webp', features: ['Condominium rules', 'Area protection', 'Premium finishes'] },
+  { slug: 'house-remodeling', title: 'House Remodeling', desc: 'Family homes, quintas and townhouses with interiors, exteriors, utilities and high-end finishes.', image: '/images/arquitectura-600.webp', features: ['Façades and roofs', 'Extensions', 'Outdoor areas'] },
+  { slug: 'flooring', title: 'Flooring Installation', desc: 'Porcelain, wood, laminate and SPC installed with proper leveling, compatible adhesive and clean joints.', image: '/images/suelo-porcelanato-800.webp', features: ['Leveling', 'Large-format porcelain', 'Wood / SPC'] },
+  { slug: 'wall-coverings', title: 'Wall Coverings', desc: 'Porcelain, stone, wall panels and microcement with precise cuts, transitions and final detailing.', image: '/images/revestimientos-800.webp', features: ['Porcelain XL', 'Wall panels', 'Precise cuts'] },
+  { slug: 'electrical', title: 'Electrical Installation', desc: 'Panels, wiring, LED lighting, protections and smart-home preparation within remodeling projects.', image: '/images/electricidad-800.webp', features: ['Protections', 'Technical lighting', 'Smart-home ready'] },
+  { slug: 'plumbing', title: 'Plumbing Services', desc: 'Pipe renewal, water points, drains, pressure, testing and quality fixtures.', image: '/images/fontaneria-800.webp', features: ['Testing', 'Fixtures', 'Piping'] },
+  { slug: 'painting', title: 'Painting & Finishes', desc: 'Surface preparation, correction of imperfections, microcement and clean final finishes.', image: '/images/pintura-800.webp', features: ['Preparation', 'Microcement', 'Fine finish'] },
+  { slug: 'pools', title: 'Pools & Exterior Areas', desc: 'Pool finishes, filtration, maintenance, outdoor areas and finishes for high-value homes.', image: '/images/piscinas-800.webp', features: ['Coverings', 'Filtration', 'Exteriors'] }
 ];
 ---
 
-<BaseLayout title="Services | ReformaT Venezuela" description="Complete remodeling solutions from partial renovations to whole-home transformations." activePage="services">
+<BaseLayout title="Luxury Remodeling Services in Venezuela | ReformaT" description="High-standard residential remodeling services: whole-home remodeling, designer kitchens, spa-style bathrooms, flooring and wall coverings with technical method and written warranties." activePage="services">
   <header class="page-hero">
-    <img
-      src="/images/integrales-800.webp"
-      srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
-      sizes="100vw"
-      alt="Modern home interior after complete remodeling"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      width="800"
-      height="533"
-      class="hero-lcp-img"
-    />
+    <img src="/images/integrales-800.webp" srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w" sizes="100vw" alt="High-standard whole-home remodeling after completion" fetchpriority="high" loading="eager" decoding="async" width="800" height="533" class="hero-lcp-img" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <span class="hero-tag">What We Do</span>
-      <h1 class="page-title">Complete <span class="gold">Remodeling Solutions</span></h1>
-      <p class="page-subtitle">Over 23 years transforming spaces in Valencia and San Diego.</p>
+      <span class="hero-tag">High-standard services</span>
+      <h1 class="page-title">Remodeling <span class="gold">for demanding homeowners</span></h1>
+      <p class="page-subtitle">Over 23 years executing kitchens, bathrooms and whole-home remodels with technical precision, proper materials and luxury finishes.</p>
     </div>
   </header>
 
   <section class="services-page">
     <div class="container">
       <div class="section-header">
-        <span class="tag">Our Services</span>
-        <h2 class="section-title">We Transform Every Corner of Your Home</h2>
-        <p class="section-desc">Complete solutions from partial renovations to whole-home projects.</p>
+        <span class="tag">ReformaT specialties</span>
+        <h2 class="section-title">We control every trade required for a flawless remodel</h2>
+        <p class="section-desc">We are not a company that “does everything” without method. We coordinate the technical specialties a high-value home requires: design, utilities, finishes, flooring, coverings and documented handover.</p>
       </div>
       <div class="services-vertical-grid">
         {services.map((svc) => (
           <a href={`/en/services/${svc.slug}`} class="service-vertical-card">
-            <div class="card-img-wrap">
-              <img 
-                src={svc.image} 
-                srcset={svc.srcset}
-                sizes="(max-width: 768px) 100vw, 50vw"
-                alt={svc.title} 
-                loading="lazy"
-                decoding="async"
-                width="800"
-                height="533"
-              />
-              <div class="card-overlay"></div>
-              <span class="card-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-            </div>
-            <div class="card-body">
-              <h3>{svc.title}</h3>
-              <p>{svc.desc}</p>
-              <ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul>
-              <span class="card-link">View full details <span class="arrow">→</span></span>
-            </div>
+            <div class="card-img-wrap"><img src={svc.image} alt={svc.title} loading="lazy" decoding="async" width="800" height="533" /><div class="card-overlay"></div><span class="card-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span></div>
+            <div class="card-body"><h3>{svc.title}</h3><p>{svc.desc}</p><ul class="card-features">{svc.features.map(f => <li>{f}</li>)}</ul><span class="card-link">View details <span class="arrow">→</span></span></div>
           </a>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="cta-section">
-    <div class="cta-wrapper">
-      <h2 class="cta-title">Ready to Transform Your Space?</h2>
-      <p class="cta-text">Schedule a free consultation and receive a detailed quote.</p>
-      <a href="/en/contact" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Schedule Free Consultation</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span>
-      </a>
-    </div>
-  </section>
+  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">Does your home need a properly executed remodel?</h2><p class="cta-text">Request a technical assessment. We review scope, location, finish level and site conditions before preparing a detailed proposal.</p><a href="/en/contact" class="btn-premium btn-primary-premium"><span class="btn-content">Request technical assessment</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
 </BaseLayout>
 
 <style>
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 800px; }
-  .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
-  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin-bottom: 20px; }
-  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); }
-
-  .services-page { padding: 100px 0; background: var(--gray); }
-  .services-vertical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-  .service-vertical-card { background: var(--white); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-1); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-  .service-vertical-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-  .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
-  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
-  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
-  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
-  .service-vertical-card:hover .card-icon { transform: scale(1.08); }
-  .card-body { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
-  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
-  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
-  .card-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
-  .card-features li { color: var(--gray-text); font-size: 0.9rem; padding: 6px 0; padding-left: 20px; position: relative; }
-  .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  .card-link { color: var(--gold-ink); font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
-  .arrow { transition: transform 0.3s; }
-  .service-vertical-card:hover .card-link { gap: 14px; }
-  .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
-
-  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
-  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
-  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
-  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
-
-  @media (max-width: 768px) {
-    .services-vertical-grid { grid-template-columns: 1fr; }
-    .cta-section { padding: 90px 20px; }
-  }
+  .hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.5),rgba(0,0,0,.7));z-index:2}.hero-content{position:relative;z-index:3;max-width:850px}.hero-tag{display:block;color:var(--gold);font-size:.9rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:15px;font-weight:600}.page-title{font-family:var(--font-serif);font-size:clamp(2.5rem,6vw,4.5rem);font-weight:400;margin-bottom:20px}.page-subtitle{font-size:1.2rem;color:rgba(255,255,255,.9)}
+  .services-page{padding:100px 0;background:var(--gray)}.services-vertical-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:30px}.service-vertical-card{background:var(--white);border-radius:var(--r-md);overflow:hidden;box-shadow:var(--e-1);transition:.4s;text-decoration:none;color:inherit;display:flex;flex-direction:column}.service-vertical-card:hover{transform:translateY(-8px);box-shadow:0 15px 40px rgba(0,0,0,.12)}.card-img-wrap{position:relative;height:280px;overflow:hidden}.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:.6s}.service-vertical-card:hover .card-img-wrap img{transform:scale(1.08)}.card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.4) 0%,transparent 50%)}.card-icon{position:absolute;bottom:15px;right:15px;width:45px;height:45px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;color:var(--bg);transition:.4s}.service-vertical-card:hover .card-icon{transform:scale(1.08)}.card-body{padding:30px 25px;flex:1;display:flex;flex-direction:column}.card-body h3{font-family:var(--font-serif);font-size:1.5rem;margin-bottom:12px;font-weight:500}.card-body p{color:var(--gray-text);font-size:.95rem;line-height:1.7;margin-bottom:20px}.card-features{list-style:none;padding:0;margin:0 0 20px}.card-features li{color:var(--gray-text);font-size:.9rem;padding:6px 0 6px 20px;position:relative}.card-features li::before{content:"✓";position:absolute;left:0;color:var(--gold);font-weight:bold}.card-link{color:#8B6914;font-weight:600;font-size:.85rem;display:inline-flex;align-items:center;gap:8px;margin-top:auto}.arrow{transition:transform .3s}.service-vertical-card:hover .card-link{gap:14px}.service-vertical-card:hover .arrow{transform:translateX(5px)}.cta-section{background:var(--bg);color:var(--white);text-align:center;padding:110px 24px}.cta-wrapper{max-width:950px;margin:0 auto;display:flex;flex-direction:column;align-items:center}.cta-title{font-family:var(--font-serif);font-size:clamp(2.4rem,5vw,3.6rem);font-weight:400;margin-bottom:24px;line-height:1.15;color:var(--white)}.cta-text{color:rgba(255,255,255,.85);max-width:800px;margin:0 auto 45px;font-size:1.25rem;line-height:1.7}.cta-section .btn-premium{padding:20px 55px;font-size:.9rem}@media(max-width:768px){.services-vertical-grid{grid-template-columns:1fr}.cta-section{padding:90px 20px}}
 </style>

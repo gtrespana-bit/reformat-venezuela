@@ -153,7 +153,7 @@ La diferencia es logística y demanda, no calidad de materiales.
 
 ## Solicita tu Presupuesto Sin Compromiso
 
-En ReformaT Venezuela hacemos la visita técnica gratuita, medimos tu baño y te entregamos un presupuesto detallado en 48 horas. Sin sorpresas, sin costos ocultos.
+En ReformaT Venezuela hacemos la valoración técnica inicial, medimos tu baño y te entregamos un presupuesto detallado en 48 horas. Sin sorpresas, sin costos ocultos.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

@@ -115,4 +115,4 @@ Para fugas activas, lo prioritario es cerrar la llave de paso y contactarnos. Ev
 
 La fontanería es de esos trabajos donde lo barato sale literalmente mojado. Una instalación profesional te ahorra daños costosos y te da tranquilidad por décadas.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y necesitas un fontanero profesional, [solicita una consulta gratuita](/contacto). También puedes ver nuestro servicio de [fontanería y plomería](/servicios/fontaneria-plomeria) o cómo lo integramos en [reformas de baños](/servicios/remodelacion-bano).
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y necesitas un fontanero profesional, [solicita una valoración técnica](/contacto). También puedes ver nuestro servicio de [fontanería y plomería](/servicios/fontaneria-plomeria) o cómo lo integramos en [reformas de baños](/servicios/remodelacion-bano).

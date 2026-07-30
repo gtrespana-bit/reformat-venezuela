@@ -218,7 +218,7 @@ Para información específica de tu zona:
 
 ---
 
-## Solicita tu Consulta Gratuita
+## Solicita tu valoración técnica
 
 En ReformaT Venezuela conocemos las normas de cada edificio y urbanización premium. Te ayudamos con permisos, seguros, logística y obra. Todo en un solo contrato, con un solo responsable.
 

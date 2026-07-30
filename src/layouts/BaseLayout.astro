@@ -7,7 +7,7 @@ interface Props {
   title: string;
   description: string;
   image?: string;
-  activePage?: 'inicio' | 'servicios' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
+  activePage?: 'inicio' | 'servicios' | 'metodo' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
   articleType?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
@@ -42,8 +42,8 @@ const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 const needsSolidNav = lightHeaderRoutes.includes(normalizedPath);
 
 const whatsappText = isEnglish
-  ? 'Hello,%20I%20am%20interested%20in%20a%20consultation%20for%20my%20project'
-  : 'Hola,%20me%20interesa%20una%20consulta%20para%20mi%20proyecto';
+  ? 'Hello,%20I%20would%20like%20a%20technical%20assessment%20for%20my%20remodeling%20project'
+  : 'Hola,%20quiero%20solicitar%20una%20valoración%20técnica%20para%20mi%20proyecto%20de%20remodelación';
 
 const skipLinkText = isEnglish ? 'Skip to main content' : 'Saltar al contenido principal';
 const menuLabel = isEnglish ? 'Open navigation menu' : 'Abrir menú de navegación';
@@ -61,6 +61,7 @@ const navItems = isEnglish
   ? [
       { label: 'Home', href: '/en', key: 'home' },
       { label: 'Services', href: '/en/services', key: 'services' },
+      { label: 'Method', href: '/en/our-method', key: 'metodo' },
       { label: 'Projects', href: '/en/projects', key: 'projects' },
       { label: 'About Us', href: '/en/about-us', key: 'nosotros' },
       { label: 'Blog', href: '/en/blog', key: 'blog' },
@@ -69,6 +70,7 @@ const navItems = isEnglish
   : [
       { label: 'Inicio', href: '/', key: 'inicio' },
       { label: 'Servicios', href: '/servicios', key: 'servicios' },
+      { label: 'Método', href: '/metodo-reformat', key: 'metodo' },
       { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
       { label: 'Nosotros', href: '/sobre-nosotros', key: 'nosotros' },
       { label: 'Blog', href: '/blog', key: 'blog' },
@@ -211,17 +213,17 @@ const navItems = isEnglish
           <h3 class="footer-heading">{isEnglish ? 'Service Areas' : 'Zonas de Servicio'}</h3>
           <ul class="footer-links footer-links-2col">
             {[
-              { es: 'Caracas', en: 'Caracas', href: '/caracas' },
-              { es: 'Valencia', en: 'Valencia', href: '/valencia' },
-              { es: 'San Diego', en: 'San Diego', href: '/san-diego' },
-              { es: 'La Guaira', en: 'La Guaira', href: '/la-guaira' },
-              { es: 'Chacao', en: 'Chacao', href: '/remodelacion-integral-chacao' },
-              { es: 'Las Mercedes', en: 'Las Mercedes', href: '/remodelacion-integral-las-mercedes' },
-              { es: 'El Hatillo', en: 'El Hatillo', href: '/remodelacion-integral-el-hatillo' },
-              { es: 'La Lagunita', en: 'La Lagunita', href: '/remodelacion-integral-la-lagunita' },
-              { es: 'Altamira', en: 'Altamira', href: '/remodelacion-integral-altamira' },
-              { es: 'El Viñedo', en: 'El Viñedo', href: '/remodelacion-integral-el-vinedo' },
-              { es: 'Guataparo', en: 'Guataparo', href: '/remodelacion-integral-guataparo' },
+              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas' : '/caracas' },
+              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia' : '/valencia' },
+              { es: 'San Diego', en: 'San Diego', href: isEnglish ? '/en/san-diego' : '/san-diego' },
+              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira' : '/la-guaira' },
+              { es: 'Chacao', en: 'Chacao', href: isEnglish ? '/en/remodelacion-integral-chacao' : '/remodelacion-integral-chacao' },
+              { es: 'Las Mercedes', en: 'Las Mercedes', href: isEnglish ? '/en/remodelacion-integral-las-mercedes' : '/remodelacion-integral-las-mercedes' },
+              { es: 'El Hatillo', en: 'El Hatillo', href: isEnglish ? '/en/remodelacion-integral-el-hatillo' : '/remodelacion-integral-el-hatillo' },
+              { es: 'La Lagunita', en: 'La Lagunita', href: isEnglish ? '/en/remodelacion-integral-la-lagunita' : '/remodelacion-integral-la-lagunita' },
+              { es: 'Altamira', en: 'Altamira', href: isEnglish ? '/en/remodelacion-integral-altamira' : '/remodelacion-integral-altamira' },
+              { es: 'El Viñedo', en: 'El Viñedo', href: isEnglish ? '/en/remodelacion-integral-el-vinedo' : '/remodelacion-integral-el-vinedo' },
+              { es: 'Guataparo', en: 'Guataparo', href: isEnglish ? '/en/remodelacion-integral-guataparo' : '/remodelacion-integral-guataparo' },
             ].map((l) => (
               <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
             ))}
@@ -234,6 +236,7 @@ const navItems = isEnglish
             {[
               { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
               { es: 'Sobre Nosotros', en: 'About Us', href: isEnglish ? '/en/about-us' : '/sobre-nosotros' },
+              { es: 'Método ReformaT', en: 'Our Method', href: isEnglish ? '/en/our-method' : '/metodo-reformat' },
               { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
               { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
               { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
@@ -276,12 +279,20 @@ const navItems = isEnglish
       '/en': '/',
       '/servicios': '/en/services',
       '/en/services': '/servicios',
+      '/metodo-reformat': '/en/our-method',
+      '/en/our-method': '/metodo-reformat',
       '/servicios/remodelacion-cocina': '/en/services/kitchens',
       '/en/services/kitchens': '/servicios/remodelacion-cocina',
       '/servicios/remodelacion-bano': '/en/services/bathrooms',
       '/en/services/bathrooms': '/servicios/remodelacion-bano',
       '/servicios/remodelacion-integral': '/en/services/whole-home',
       '/en/services/whole-home': '/servicios/remodelacion-integral',
+      '/servicios/remodelacion-vivienda': '/en/services/home-remodeling',
+      '/en/services/home-remodeling': '/servicios/remodelacion-vivienda',
+      '/servicios/remodelacion-apartamentos': '/en/services/apartment-remodeling',
+      '/en/services/apartment-remodeling': '/servicios/remodelacion-apartamentos',
+      '/servicios/remodelacion-casas': '/en/services/house-remodeling',
+      '/en/services/house-remodeling': '/servicios/remodelacion-casas',
       '/servicios/instalacion-electrica': '/en/services/electrical',
       '/en/services/electrical': '/servicios/instalacion-electrica',
       '/servicios/fontaneria-plomeria': '/en/services/plumbing',
@@ -298,6 +309,26 @@ const navItems = isEnglish
       '/en/about-us': '/sobre-nosotros',
       '/proyectos': '/en/projects',
       '/en/projects': '/proyectos',
+      '/proyectos/cocina-caracas-quinta': '/en/projects/kitchen-remodel-caracas-quinta',
+      '/en/projects/kitchen-remodel-caracas-quinta': '/proyectos/cocina-caracas-quinta',
+      '/proyectos/bano-las-mercedes-pequeno': '/en/projects/small-bathroom-remodel-las-mercedes',
+      '/en/projects/small-bathroom-remodel-las-mercedes': '/proyectos/bano-las-mercedes-pequeno',
+      '/proyectos/bano-caracas': '/en/projects/bathroom-remodel-caracas',
+      '/en/projects/bathroom-remodel-caracas': '/proyectos/bano-caracas',
+      '/proyectos/bano-la-trigalena': '/en/projects/bathroom-remodel-la-trigalena',
+      '/en/projects/bathroom-remodel-la-trigalena': '/proyectos/bano-la-trigalena',
+      '/proyectos/bano-san-diego': '/en/projects/bathroom-remodel-san-diego',
+      '/en/projects/bathroom-remodel-san-diego': '/proyectos/bano-san-diego',
+      '/proyectos/banos-quinta-la-lagunita': '/en/projects/luxury-bathrooms-quinta-guataparo',
+      '/en/projects/luxury-bathrooms-quinta-guataparo': '/proyectos/banos-quinta-la-lagunita',
+      '/caracas': '/en/caracas',
+      '/en/caracas': '/caracas',
+      '/valencia': '/en/valencia',
+      '/en/valencia': '/valencia',
+      '/san-diego': '/en/san-diego',
+      '/en/san-diego': '/san-diego',
+      '/la-guaira': '/en/la-guaira',
+      '/en/la-guaira': '/la-guaira',
       '/contacto': '/en/contact',
       '/en/contact': '/contacto',
       '/blog': '/en/blog',
@@ -443,8 +474,8 @@ const navItems = isEnglish
   .logo { display: flex; align-items: center; }
   .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
   .nav.scrolled .logo img { height: 70px; }
-  .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: var(--r-sm); color: var(--gold) !important; font-weight: 500; }

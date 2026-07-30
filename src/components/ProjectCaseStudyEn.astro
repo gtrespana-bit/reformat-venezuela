@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuaranteeMatrix from './GuaranteeMatrix.astro';
+import ProjectLightbox from './ProjectLightbox.astro';
+import type { ProjectCaseEn } from '../data/project-cases-en';
+
+interface Props {
+  project: ProjectCaseEn;
+}
+
+const { project } = Astro.props;
+const whatsappText = `Hello, I would like a technical assessment for a project similar to: ${project.title}`;
+---
+
+<BaseLayout
+  title={`${project.title} | Case Study | ReformaT Venezuela`}
+  description={project.excerpt}
+  image={project.heroImage}
+  activePage="projects"
+>
+  <header class="case-hero">
+    <img src={project.heroImage} alt={project.title} class="case-hero-img" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="case-hero-overlay"></div>
+    <div class="container case-hero-content">
+      <a href="/en/projects" class="back-link">← Back to Projects</a>
+      <span class="case-eyebrow">Real case study · {project.category}</span>
+      <h1>{project.title}</h1>
+      <p>{project.excerpt}</p>
+      <div class="case-facts" aria-label="Project facts">
+        <span><strong>Location</strong>{project.location}</span>
+        <span><strong>Duration</strong>{project.duration}</span>
+        <span><strong>Scope</strong>{project.category}</span>
+      </div>
+    </div>
+  </header>
+
+  <section class="case-overview section">
+    <div class="container overview-grid">
+      <article>
+        <span class="tag">The challenge</span>
+        <h2>What had to be solved before the finish could look luxurious</h2>
+        <p>{project.challenge}</p>
+      </article>
+      <article>
+        <span class="tag">The solution</span>
+        <h2>Technical execution behind the final result</h2>
+        <p>{project.solution}</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="case-technical section bg-light">
+    <div class="container technical-grid">
+      <div class="technical-copy">
+        <span class="tag">Technical highlights</span>
+        <h2>Details that separate a high-end remodel from a cosmetic update</h2>
+        <p>Luxury is not only what appears in the final photo. It is the sum of compatible materials, controlled substrates, hidden utilities, clean joints, precise cuts and documented handover.</p>
+      </div>
+      <div class="technical-list">
+        {project.technicalHighlights.map((item) => (
+          <div class="technical-item">{item}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-specs section">
+    <div class="container specs-grid">
+      <div>
+        <span class="tag">Specifications</span>
+        <h2>Materials, systems and execution criteria</h2>
+      </div>
+      <div class="spec-list">
+        {project.specs.map((spec) => (
+          <div class="spec-row">
+            <strong>{spec.label}</strong>
+            <span>{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-gallery section bg-light">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Real photos</span>
+        <h2 class="section-title">Finished details and technical process</h2>
+        <p class="section-desc">A high-end remodeling portfolio must show more than beauty shots. These images document the real finish, installation phases and project decisions.</p>
+      </div>
+      <div class="gallery-grid">
+        {project.gallery.map((image, index) => (
+          <figure class:list={["gallery-card", index === 0 && 'is-large']} data-lightbox-item data-src={image.src} data-alt={image.alt} data-title={image.alt} data-caption={image.caption} data-badge={project.category}>
+            <div class="gallery-image-box">
+              <span class="gallery-badge">{project.category}</span>
+              <img src={image.src} alt={image.alt} loading={index < 2 ? 'eager' : 'lazy'} decoding="async" />
+              <div class="gallery-zoom-overlay"><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Enlarge photo</button></div>
+            </div>
+            <figcaption>{image.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GuaranteeMatrix lang="en" compact />
+
+  <section class="case-cta">
+    <div class="container case-cta-inner">
+      <span class="tag tag-on-dark">Technical assessment</span>
+      <h2>Want a project executed with this level of control?</h2>
+      <p>Send us your location, property type, scope and finish level. We will review whether the project fits our standard and guide you through a technical assessment.</p>
+      <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+        <span class="btn-content">Request technical assessment</span>
+        <span class="btn-border"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  <ProjectLightbox lang="en" />
+</BaseLayout>
+
+<style>
+  .case-hero { position: relative; min-height: 86vh; display: flex; align-items: flex-end; color: var(--white); background: var(--ink); overflow: hidden; padding: 145px 0 85px; }
+  .case-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+  .case-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,14,.96), rgba(20,18,14,.72) 48%, rgba(20,18,14,.26)), linear-gradient(to top, rgba(20,18,14,.95), transparent 58%); }
+  .case-hero-content { position: relative; z-index: 2; max-width: 980px; }
+  .back-link { display: inline-block; color: var(--gold); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; margin-bottom: 24px; }
+  .case-eyebrow { display: inline-block; color: var(--gold-light); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; margin-bottom: 18px; }
+  .case-hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5.7rem); line-height: 1; letter-spacing: var(--track-tight); font-weight: 500; max-width: 900px; margin: 0 0 22px; }
+  .case-hero p { max-width: 760px; color: rgba(255,255,255,.84); font-size: clamp(1.06rem, 2vw, 1.25rem); line-height: 1.72; margin: 0 0 32px; }
+  .case-facts { display: flex; flex-wrap: wrap; border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg); overflow: hidden; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); max-width: 920px; }
+  .case-facts span { padding: 18px 24px; min-width: 210px; border-right: 1px solid rgba(201,169,97,.18); color: rgba(255,255,255,.9); }
+  .case-facts span:last-child { border-right: 0; }
+  .case-facts strong { display: block; color: var(--gold); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 6px; }
+
+  .overview-grid, .technical-grid, .specs-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s-5); align-items: start; }
+  .overview-grid article { padding: 34px; border-radius: var(--r-lg); border: 1px solid var(--sand); background: var(--white); box-shadow: var(--e-1); }
+  .overview-grid h2, .technical-copy h2, .specs-grid h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 18px; }
+  .overview-grid p, .technical-copy p { color: var(--text-muted); line-height: 1.82; font-size: 1.05rem; }
+
+  .technical-list { display: grid; gap: 12px; }
+  .technical-item { padding: 18px 22px 18px 52px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-md); color: var(--text-muted); position: relative; box-shadow: var(--e-1); line-height: 1.6; }
+  .technical-item::before { content: ""; position: absolute; left: 22px; top: 25px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 6px rgba(201,169,97,.13); }
+
+  .spec-list { border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-2); }
+  .spec-row { display: grid; grid-template-columns: .62fr 1fr; border-top: 1px solid var(--sand); background: var(--white); }
+  .spec-row:first-child { border-top: 0; }
+  .spec-row strong, .spec-row span { padding: 18px 22px; }
+  .spec-row strong { color: var(--ink); font-family: var(--font-serif); font-size: 1.16rem; border-right: 1px solid var(--sand); }
+  .spec-row span { color: var(--text-muted); line-height: 1.6; }
+
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .gallery-card { margin: 0; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-1); cursor: zoom-in; }
+  .gallery-card.is-large { grid-column: span 2; grid-row: span 2; }
+  .gallery-image-box { position: relative; min-height: 430px; padding: 16px; background: var(--ink-soft); display: flex; align-items: center; justify-content: center; }
+  .gallery-card img, .gallery-card.is-large img { width: auto; height: auto; max-width: 100%; max-height: 640px; object-fit: contain; display: block; border-radius: 2px; }
+  .gallery-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 5px 12px; border-radius: var(--r-full); background: var(--gold); color: var(--ink); font-size: .72rem; font-weight: 800; text-transform: uppercase; letter-spacing: .08em; }
+  .gallery-card figcaption { padding: 16px 18px; color: var(--text-muted); line-height: 1.55; font-size: .92rem; }
+
+  .case-cta { padding: 105px 24px; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 45%), var(--ink); color: var(--white); text-align: center; }
+  .case-cta-inner { max-width: 900px; }
+  .case-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
+  .case-cta p { max-width: 760px; margin: 0 auto 34px; color: rgba(255,255,255,.76); line-height: 1.75; font-size: 1.12rem; }
+  .tag-on-dark { color: var(--gold); }
+
+  @media (max-width: 950px) {
+    .overview-grid, .technical-grid, .specs-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-card.is-large { grid-column: span 2; }
+  }
+  @media (max-width: 640px) {
+    .case-facts { display: grid; }
+    .case-facts span { border-right: 0; border-bottom: 1px solid rgba(201,169,97,.18); }
+    .gallery-grid, .gallery-card.is-large { grid-template-columns: 1fr; grid-column: span 1; }
+    .gallery-card img, .gallery-card.is-large img { height: auto; max-height: 520px; }
+    .spec-row { grid-template-columns: 1fr; }
+    .spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); }
+  }
+</style>

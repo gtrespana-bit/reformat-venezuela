@@ -328,7 +328,7 @@ No dejes que tu cocina obsoleta siga limitando tu vida diaria. Imagina despertar
 
 **Eso es lo que hacemos en ReformaT Venezuela.**
 
-📞 **Llámanos al 0422-799-7043** o **escríbenos a hola@reformatvenezuela.com** para agendar una **consulta gratuita** en tu hogar. Sin compromiso, sin presión. Solo buenas ideas para transformar tu cocina.
+📞 **Llámanos al 0422-799-7043** o **escríbenos a contacto@reformat-venezuela.online** para agendar una **valoración técnica** en tu hogar. Sin compromiso, sin presión. Solo buenas ideas para transformar tu cocina.
 
 
 ---
