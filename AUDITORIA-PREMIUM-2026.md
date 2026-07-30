@@ -298,7 +298,7 @@ Además el hero declara ratio 16:9 (1920×1080) cuando el archivo es 3:2 (1080×
 | **192 archivos CSS emitidos** | 211 páginas con su propio `<style>`, cada una redeclarando `.hero-overlay`, `.cta-section`, `.article-body`, `.container`… Es la causa raíz de la inconsistencia. |
 | **`tailwind.config.mjs`** | Define toda la paleta y las fuentes, pero **Tailwind no está en `package.json`**. Archivo muerto que confunde. |
 | **`WhatsAppButton.astro`** | Componente creado, 0 usos. |
-| **Basura en la raíz del repo** | `lighthouse-*.json` (1.7 MB), `reformat-venezuela.online_*.report.html` (531 KB), `diagnostico.ps1`, `get-dims.mjs`, `fix-*.cjs`, carpeta vacía `reformat-venezuela/`. |
+| **Basura en la raíz del repo** | `lighthouse-*.json` (1.7 MB), `remodelat.net_*.report.html` (531 KB), `diagnostico.ps1`, `get-dims.mjs`, `fix-*.cjs`, carpeta vacía `reformat-venezuela/`. |
 
 ### 3.8 Otros
 

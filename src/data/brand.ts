@@ -21,7 +21,7 @@ export const BRAND = {
   phone: '+584227997043',
   phoneDisplay: '0422 799 7043',
   phoneIntl: '+58 422 799 7043',
-  email: 'contacto@reformat-venezuela.online',
+  email: 'contacto@remodelat.net',
 
   areas: 'Valencia, San Diego, Carabobo y Caracas',
   areasEn: 'Valencia, San Diego, Carabobo and Caracas',
