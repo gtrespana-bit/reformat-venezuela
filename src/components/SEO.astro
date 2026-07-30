@@ -164,6 +164,7 @@ const enPathSlashed = ensureTrailingSlash(enPath || '/en/');
 // Zone pages y ciudades y servicios tienen contraparte EN con mismo slug o mapeado
 // Solo los blog posts pueden no tener traducción
 const untranslatedEsPaths = new Set([
+  '/metodo-reformat',
   '/servicios/remodelacion-vivienda',
   '/servicios/remodelacion-apartamentos',
   '/servicios/remodelacion-casas'
@@ -194,6 +195,8 @@ if (currentPath === '/blog' || currentPath === '/en/blog') {
 } else if (currentPath.startsWith('/servicios/') || currentPath.startsWith('/en/services/')) {
   breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services/' : '/servicios/' });
   breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
+} else if (currentPath === '/metodo-reformat') {
+  breadcrumbItems.push({ name: 'Método ReformaT', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/proyectos' || currentPath === '/en/projects') {
   breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/contacto' || currentPath === '/en/contact') {

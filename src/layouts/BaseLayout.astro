@@ -7,7 +7,7 @@ interface Props {
   title: string;
   description: string;
   image?: string;
-  activePage?: 'inicio' | 'servicios' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
+  activePage?: 'inicio' | 'servicios' | 'metodo' | 'proyectos' | 'blog' | 'contacto' | 'home' | 'services' | 'projects' | 'contact';
   articleType?: 'website' | 'article';
   publishedTime?: string;
   modifiedTime?: string;
@@ -69,6 +69,7 @@ const navItems = isEnglish
   : [
       { label: 'Inicio', href: '/', key: 'inicio' },
       { label: 'Servicios', href: '/servicios', key: 'servicios' },
+      { label: 'Método', href: '/metodo-reformat', key: 'metodo' },
       { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
       { label: 'Nosotros', href: '/sobre-nosotros', key: 'nosotros' },
       { label: 'Blog', href: '/blog', key: 'blog' },
@@ -234,6 +235,7 @@ const navItems = isEnglish
             {[
               { es: 'Inicio', en: 'Home', href: isEnglish ? '/en' : '/' },
               { es: 'Sobre Nosotros', en: 'About Us', href: isEnglish ? '/en/about-us' : '/sobre-nosotros' },
+              { es: 'Método ReformaT', en: 'Our Method', href: isEnglish ? '/en/about-us' : '/metodo-reformat' },
               { es: 'Proyectos', en: 'Projects', href: isEnglish ? '/en/projects' : '/proyectos' },
               { es: 'Blog', en: 'Blog', href: isEnglish ? '/en/blog' : '/blog' },
               { es: 'Contacto', en: 'Contact', href: isEnglish ? '/en/contact' : '/contacto' },
@@ -276,6 +278,7 @@ const navItems = isEnglish
       '/en': '/',
       '/servicios': '/en/services',
       '/en/services': '/servicios',
+      '/metodo-reformat': '/en/about-us',
       '/servicios/remodelacion-cocina': '/en/services/kitchens',
       '/en/services/kitchens': '/servicios/remodelacion-cocina',
       '/servicios/remodelacion-bano': '/en/services/bathrooms',
@@ -443,8 +446,8 @@ const navItems = isEnglish
   .logo { display: flex; align-items: center; }
   .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
   .nav.scrolled .logo img { height: 70px; }
-  .nav-links { display: flex; gap: 35px; list-style: none; align-items: center; }
-  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
+  .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
+  .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
   .nav-links a.active::after { content: ''; position: absolute; bottom: -5px; left: 0; width: 100%; height: 2px; background: var(--gold); }
   .btn-nav-premium { border: 1px solid var(--gold); padding: 8px 22px; border-radius: var(--r-sm); color: var(--gold) !important; font-weight: 500; }
