@@ -150,9 +150,9 @@ const SERVICES = {
   cocina: {
     key:'cocina', slugService:'kitchens', serviceType:'Kitchen Remodeling', serviceLabel:'Kitchen Remodeling',
     heroImage:'/images/cocina.webp', serviceLink:'/en/services/kitchens',
-    pageTitle:(z)=>`Kitchen Remodeling in ${z} | 2026 Prices | ReformaT`,
+    pageTitle:(z)=>`Kitchen Remodeling in ${z} | 2026 Prices | RemodelaT`,
     desc:(z,m,n)=>`Kitchen remodeling specialists in ${z}, ${m==='caracas'?'Caracas':'Valencia'}. We work in ${n.join(', ')} and the whole area. Free quotes. 15+ years of experience. Written warranty.`,
-    excerpt:(z,n)=>`Looking for a kitchen remodel in ${z}? At ReformaT Venezuela we design and build modern, functional, custom kitchens for homes in ${z} and ${n.join(', ')}. With more than 15 years of experience, we know the housing types of the area.`,
+    excerpt:(z,n)=>`Looking for a kitchen remodel in ${z}? At RemodelaT Venezuela we design and build modern, functional, custom kitchens for homes in ${z} and ${n.join(', ')}. With more than 15 years of experience, we know the housing types of the area.`,
     includesH2:(z)=>`What our kitchen remodel in ${z} includes`,
     includes:[
       ['Design & layout','kitchen plan, work triangle and space optimization'],
@@ -184,9 +184,9 @@ const SERVICES = {
   bano: {
     key:'bano', slugService:'bathrooms', serviceType:'Bathroom Remodeling', serviceLabel:'Bathroom Remodeling',
     heroImage:'/images/bano.webp', serviceLink:'/en/services/bathrooms',
-    pageTitle:(z)=>`Bathroom Remodeling in ${z} | 2026 Prices | ReformaT`,
+    pageTitle:(z)=>`Bathroom Remodeling in ${z} | 2026 Prices | RemodelaT`,
     desc:(z,m,n)=>`Bathroom remodeling specialists in ${z}, ${m==='caracas'?'Caracas':'Valencia'}. We work in ${n.join(', ')} and the whole area. Free quotes. 15+ years of experience. Written warranty.`,
-    excerpt:(z,n)=>`Looking for a bathroom remodel in ${z}? At ReformaT Venezuela we design and build modern, functional, custom bathrooms for homes in ${z} and ${n.join(', ')}. With more than 15 years of experience, we know the housing types of the area.`,
+    excerpt:(z,n)=>`Looking for a bathroom remodel in ${z}? At RemodelaT Venezuela we design and build modern, functional, custom bathrooms for homes in ${z} and ${n.join(', ')}. With more than 15 years of experience, we know the housing types of the area.`,
     includesH2:(z)=>`What our bathroom remodel in ${z} includes`,
     includes:[
       ['Demolition & removal','chipping of wall finishes, removal of fixtures and authorized debris disposal'],
@@ -218,11 +218,11 @@ const SERVICES = {
   integral: {
     key:'integral', slugService:'whole-home', serviceType:'Whole Home Remodeling', serviceLabel:'Full Home Remodeling',
     heroImage:'/images/integrales-proyecto-completo.webp', serviceLink:'/en/services/whole-home',
-    pageTitle:(z)=>`Full Home Remodeling in ${z} | 2026 Prices | ReformaT`,
+    pageTitle:(z)=>`Full Home Remodeling in ${z} | 2026 Prices | RemodelaT`,
     desc:(z,m,n)=>`Full home remodeling specialists in ${z}, ${m==='caracas'?'Caracas':'Valencia'}. Turnkey apartments, homes and offices. We work in ${n.join(', ')} and the whole area. Free quotes. Written warranty.`,
     excerpt:(z,n)=>`Full home remodeling in ${z}: turnkey apartments, homes and offices. Design, permits, construction and finishes with a single point of contact. Over 200 projects delivered in ${z} and ${n.join(', ')}.`,
     includesH2:(z)=>`What a full remodel in ${z} includes`,
-    includesIntro:`A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At ReformaT we manage the entire process with a single team, a single budget and a single project lead.`,
+    includesIntro:`A full remodel completely transforms your home: a new layout, renewed utilities, premium finishes and signature design. At RemodelaT we manage the entire process with a single team, a single budget and a single project lead.`,
     includes:[
       ['Design & project','as-built plans, photorealistic 3D design, specifications sheet and fixed quote'],
       ['Permit management','paperwork with the condominium, city hall and relevant authorities for the area'],
@@ -333,7 +333,7 @@ import ZoneCrossLinks from '../../components/ZoneCrossLinks.astro';
 >
 
 <header class="article-hero">
-  <img class="hero-bg" src=${JSON.stringify(s.heroImage)} alt=${JSON.stringify(`${s.serviceLabel} in ${Z} | ReformaT Venezuela`)} fetchpriority="high" loading="eager" decoding="async" />
+  <img class="hero-bg" src=${JSON.stringify(s.heroImage)} alt=${JSON.stringify(`${s.serviceLabel} in ${Z} | RemodelaT Venezuela`)} fetchpriority="high" loading="eager" decoding="async" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <a href="/en/services" class="back-link">← Back to Services</a>
@@ -375,7 +375,7 @@ ${rowsHtml}
 <h2>${s.procH2(Z)}</h2>
 ${procHtml}
 
-<h2>Why ReformaT in ${Z}</h2>
+<h2>Why RemodelaT in ${Z}</h2>
 <p>${z.porque}</p>
 
       <h2>Service throughout ${cityLabel(z.metro)}</h2>

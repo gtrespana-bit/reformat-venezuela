@@ -1,4 +1,4 @@
-# Auditoría SEO avanzada — ReformaT Venezuela
+# Auditoría SEO avanzada — RemodelaT Venezuela
 
 Fecha: 2026-07-28  
 Objetivo: acercar el sitio a posiciones #1 para búsquedas de remodelaciones en Venezuela.
@@ -64,7 +64,7 @@ Acciones:
 Impacto: alto en CTR.
 
 Estado actual:
-- Muchos artículos del blog tienen titles demasiado largos por el sufijo automático `| Blog ReformaT Venezuela`.
+- Muchos artículos del blog tienen titles demasiado largos por el sufijo automático `| Blog RemodelaT Venezuela`.
 - Muchas descriptions superan 160 caracteres, especialmente en blog y páginas locales.
 
 Acciones:

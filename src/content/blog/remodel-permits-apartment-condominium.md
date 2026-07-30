@@ -5,14 +5,14 @@ date: 2026-07-26
 category: "Guides"
 image: "/images/arquitectura-400.webp"
 readTime: "10 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Paperwork Nobody Explains to You
 
 Remodeling an apartment in a condominium in Venezuela is not just about knocking down walls. In most buildings, you need written authorization from the board, and ignoring this step is one of the most expensive mistakes you can make.
 
-At ReformaT Venezuela we have managed permits for hundreds of projects in **Caracas, Valencia, San Diego and Carabobo**. This is the practical 2026 guide so you don't get stopped mid-project.
+At RemodelaT Venezuela we have managed permits for hundreds of projects in **Caracas, Valencia, San Diego and Carabobo**. This is the practical 2026 guide so you don't get stopped mid-project.
 
 ---
 
@@ -61,7 +61,7 @@ Typical requirements (varies by building):
 
 Before signing any contract, request the building's remodeling regulations in writing.
 
-At ReformaT we include permit management in our service and we know the specific rules of most buildings in Caracas and Carabobo.
+At RemodelaT we include permit management in our service and we know the specific rules of most buildings in Caracas and Carabobo.
 
 If you are planning a remodel in a condominium, [contact us](/en/contact) for a technical assessment. We help you do everything correctly from day one.
 

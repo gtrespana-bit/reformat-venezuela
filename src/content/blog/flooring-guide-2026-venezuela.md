@@ -5,7 +5,7 @@ date: 2026-07-27
 category: "Materials"
 image: "/images/suelo-porcelanato-800.webp"
 readTime: "15 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Choosing Flooring Is Not Just Aesthetics: It’s a 20-Year Decision
@@ -37,7 +37,7 @@ This guide compares the three most requested materials in Venezuelan remodels: *
 
 ### Why it dominates
 
-Porcelain tile represents 70% of the floors we install at ReformaT Venezuela. The reasons:
+Porcelain tile represents 70% of the floors we install at RemodelaT Venezuela. The reasons:
 
 1. **Unbeatable price/durability ratio.** A $25/m² porcelain tile lasts as long as a $120/m² marble.
 2. **Total versatility.** There are porcelain tiles that realistically imitate wood, marble, cement, and stone.
@@ -185,7 +185,7 @@ For pool areas, we also offer [pool maintenance and remodeling](/en/services/poo
 
 ## Request technical advice
 
-Don’t choose flooring only from photos. At ReformaT Venezuela we show you physical samples, calculate the exact square footage (including waste), and give you a turnkey installed quote.
+Don’t choose flooring only from photos. At RemodelaT Venezuela we show you physical samples, calculate the exact square footage (including waste), and give you a turnkey installed quote.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

@@ -5,14 +5,14 @@ date: 2026-07-21
 category: "Materiales"
 image: "/images/revestimiento-piedra.webp"
 readTime: "12 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: La Pared Como Protagonista
 
 Durante décadas, la pared fue solo una superficie para pintar. Hoy es un elemento de diseño. Un revestimiento bien elegido transforma por completo un espacio: le da textura, calidez, carácter y valor percibido a la propiedad.
 
-En ReformaT Venezuela instalamos revestimientos decorativos en **Caracas, Valencia, San Diego y todo Carabobo**. Esta guía compara los principales tipos con **precios reales de 2026** para que elijas con criterio.
+En RemodelaT Venezuela instalamos revestimientos decorativos en **Caracas, Valencia, San Diego y todo Carabobo**. Esta guía compara los principales tipos con **precios reales de 2026** para que elijas con criterio.
 
 ![Revestimiento de piedra natural en pared](/images/revestimiento-piedra.webp)
 

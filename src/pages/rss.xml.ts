@@ -16,7 +16,7 @@ export async function GET(context: any) {
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
-    title: 'ReformaT Venezuela | Blog',
+    title: 'RemodelaT Venezuela | Blog',
     description: 'Consejos, tendencias y guías prácticas para tu proyecto de reforma en Venezuela.',
     site: context.site,
     customData: `<language>es-VE</language>`,

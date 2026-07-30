@@ -5,7 +5,7 @@ date: 2026-07-19
 category: "Guías"
 image: "/images/integrales-proyecto-completo.webp"
 readTime: "12 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: La Pregunta Que Todos Hacen
@@ -116,4 +116,4 @@ Un buen contrato incluye el plazo y, a veces, penalidades por retraso injustific
 
 Una reforma integral toma entre 2 y 5 meses según el tamaño. La clave para cumplir el plazo no es trabajar más rápido, sino planificar mejor: decisiones tomadas a tiempo, materiales disponibles y una empresa que sepa secuenciar las etapas.
 
-Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres un cronograma realista para tu proyecto, [solicita una valoración técnica](/contacto). En ReformaT Venezuela planificamos cada etapa por escrito para que sepas exactamente qué esperar. Conoce nuestro servicio de [reforma integral](/servicios/remodelacion-integral).
+Si estás en **Caracas, Valencia, San Diego o Carabobo** y quieres un cronograma realista para tu proyecto, [solicita una valoración técnica](/contacto). En RemodelaT Venezuela planificamos cada etapa por escrito para que sepas exactamente qué esperar. Conoce nuestro servicio de [reforma integral](/servicios/remodelacion-integral).

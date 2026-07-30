@@ -14,7 +14,7 @@ interface Props {
 }
 
 const siteUrl = 'https://remodelat.net';
-const siteName = 'ReformaT Venezuela';
+const siteName = 'RemodelaT Venezuela';
 
 // Helpers para trailingSlash unificado (vercel.json trailingSlash: true)
 const normalizePath = (path: string): string => {
@@ -42,7 +42,7 @@ const {
   type = 'website',
   publishedTime,
   modifiedTime,
-  author = 'ReformaT Venezuela',
+  author = 'RemodelaT Venezuela',
   articleSection,
   tags = [],
   activePage = '',
@@ -219,7 +219,7 @@ if (currentPath === '/blog' || currentPath === '/en/blog') {
   breadcrumbItems.push({ name: isEnglish ? 'Services' : 'Servicios', url: isEnglish ? '/en/services/' : '/servicios/' });
   breadcrumbItems.push({ name: title.split('|')[0].trim(), url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/metodo-reformat' || currentPath === '/en/our-method') {
-  breadcrumbItems.push({ name: isEnglish ? 'Our Method' : 'Método ReformaT', url: ensureTrailingSlash(currentPath) });
+  breadcrumbItems.push({ name: isEnglish ? 'Our Method' : 'Método RemodelaT', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath === '/proyectos' || currentPath === '/en/projects') {
   breadcrumbItems.push({ name: isEnglish ? 'Projects' : 'Proyectos', url: ensureTrailingSlash(currentPath) });
 } else if (currentPath.startsWith('/proyectos/') || currentPath.startsWith('/en/projects/')) {
@@ -288,7 +288,7 @@ const localBusinessSchema = {
     "opens": "08:00",
     "closes": "18:00"
   },
-  "sameAs": [siteUrl, 'https://www.google.com/search?kgmid=/g/11nthq0r0m&q=ReformaT+-+Remodelaciones&hl=es-419']
+  "sameAs": [siteUrl, 'https://www.google.com/search?kgmid=/g/11nthq0r0m&q=RemodelaT+-+Remodelaciones&hl=es-419']
 };
 
 const breadcrumbSchema = {

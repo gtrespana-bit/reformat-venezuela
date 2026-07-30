@@ -51,7 +51,7 @@ for (const file of files) {
   }
   const url = bgMatch[1];
   const zoneName = zoneNames[zone] || zone;
-  const alt = `${serviceAlt[service]} en ${zoneName} | ReformaT Venezuela`;
+  const alt = `${serviceAlt[service]} en ${zoneName} | RemodelaT Venezuela`;
 
   const imgTag = `<img class="hero-bg" src="${url}" alt="${alt}" fetchpriority="high" loading="eager" decoding="async" />`;
   src = src.replace(bgRe, imgTag);

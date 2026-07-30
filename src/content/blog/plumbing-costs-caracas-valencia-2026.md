@@ -5,14 +5,14 @@ date: 2026-07-25
 category: "Budgets"
 image: "/images/fontaneria-800.webp"
 readTime: "11 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Cheap Plumber Costs You Dearly
 
 Plumbing shares one trait with electricity: mistakes are not visible until it’s too late. A poorly soldered pipe inside the wall can drip for months before a moisture stain appears. By then, the damage already includes drywall, paint, flooring, and sometimes the apartment below.
 
-That’s why hiring the cheapest plumber is one of the riskiest decisions in a remodel. At ReformaT Venezuela we have over 23 years executing sanitary installations in **Caracas, Valencia, San Diego, and all of Carabobo**. Here are the **real 2026 prices** so you know what is reasonable to pay.
+That’s why hiring the cheapest plumber is one of the riskiest decisions in a remodel. At RemodelaT Venezuela we have over 23 years executing sanitary installations in **Caracas, Valencia, San Diego, and all of Carabobo**. Here are the **real 2026 prices** so you know what is reasonable to pay.
 
 ![Professional plumbing installation](/images/fontaneria.webp)
 
@@ -104,7 +104,7 @@ An accessible leak is resolved in a few hours. An embedded one can take 1-2 days
 It depends on the job. For complete reinstallations, use is temporarily blocked; we plan by zones to minimize inconvenience.
 
 ### What warranty does professional plumbing work have?
-At ReformaT we guarantee the labor. A well-done installation with proper materials lasts 20-30 years.
+At RemodelaT we guarantee the labor. A well-done installation with proper materials lasts 20-30 years.
 
 ### Do you handle emergencies?
 For active leaks, the priority is to close the main valve and contact us. We assess and coordinate the repair as soon as possible.

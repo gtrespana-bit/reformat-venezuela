@@ -5,7 +5,7 @@ date: 2026-06-04
 category: "Budgets"
 image: "/images/cocina-800.webp"
 readTime: "15 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Real Price of a New Kitchen
@@ -14,7 +14,7 @@ Remodeling your kitchen is one of the most important decisions you'll make as a 
 
 But before you start, you need to know **how much a kitchen remodel actually costs** in **Caracas, Valencia, San Diego or anywhere in Carabobo** in 2026. And here's the problem: online you'll find absurd ranges from $2,000 to $25,000, with no context or breakdown.
 
-At ReformaT Venezuela, we've been executing kitchen remodels in **Caracas, Valencia and San Diego** for over 23 years. We've worked with budgets of $2,500 and $12,000. The difference isn't about "charging more or less," but about **what each project includes**.
+At RemodelaT Venezuela, we've been executing kitchen remodels in **Caracas, Valencia and San Diego** for over 23 years. We've worked with budgets of $2,500 and $12,000. The difference isn't about "charging more or less," but about **what each project includes**.
 
 In this article, we'll give you **real, detailed, updated prices** for 2026. No fluff, no inflated numbers, no fine print. Just the truth about what it costs to remodel a kitchen in Venezuela today.
 
@@ -253,7 +253,7 @@ Time is money, and also comfort. These are the realistic timelines for a kitchen
 - Municipal licenses (if needed)
 - **Traffic in Caracas** (can add 3-5 days)
 
-At ReformaT Venezuela we commit to **written timelines** and penalties if we don't meet them. Because we know being without a kitchen is a huge inconvenience.
+At RemodelaT Venezuela we commit to **written timelines** and penalties if we don't meet them. Because we know being without a kitchen is a huge inconvenience.
 
 ---
 
@@ -296,7 +296,7 @@ Both options have advantages:
 - **You buy**: Total control of quality and price, but more management
 - **Contractor buys**: More comfortable, usually gets discounts from suppliers, but you must verify qualities
 
-At ReformaT we work with both modalities. You decide.
+At RemodelaT we work with both modalities. You decide.
 
 ### How much does a new kitchen increase my property value?
 A well-remodeled kitchen can increase your property value by 10-15%. It is one of the remodels with the best return on investment.
@@ -320,7 +320,7 @@ A well-remodeled kitchen is not an expense. It is an investment in your quality 
 
 ### Ready to Start Your Remodel?
 
-At ReformaT Venezuela we offer you:
+At RemodelaT Venezuela we offer you:
 ✅ **Initial technical assessment** to your home in **Caracas, Valencia, San Diego or Carabobo**
 
 ✅ **Detailed and closed budget**, no surprises or fine print

@@ -1,4 +1,4 @@
-# ✅ PENDIENTES Y PRIORIDADES — ReformaT Venezuela
+# ✅ PENDIENTES Y PRIORIDADES — RemodelaT Venezuela
 > Última actualización: 2026-07-28 — TODO DONE (100% completado)
 > Branch: arena/019fa653-reformat-venezuela
 > Build final: 245 páginas, 0 errores
@@ -53,10 +53,10 @@
 ### 6. Títulos >60 caracteres (truncamiento SERP)
 - **Antes:** Home 72, Cocina 71, Baño 69, Integral 69, Pisos 64, Pintura 66, Fontanería 69, Eléctrica 69, Piscinas 62, EN index 79, flooring 74, painting 76, wall-coverings 72
 - **Después (todos ≤53):**
-  - ES Home 72→51 `Reformas en Valencia, Carabobo y Caracas | ReformaT`
+  - ES Home 72→51 `Reformas en Valencia, Carabobo y Caracas | RemodelaT`
   - Cocina 71→53, Baño 69→51, Integral 69→51, Pisos 64→50, Pintura 66→48, Fontanería 69→51, Eléctrica 69→51, Revestimientos 59→43, Piscinas 62→44
-  - Caracas 61→42 `Remodelaciones en Caracas | ReformaT Venezuela`
-  - EN Index 79→50 `Home Remodeling in Valencia and Caracas | ReformaT`, flooring 74→51, painting 76→49, wall-coverings 72→44, whole-home 61→42
+  - Caracas 61→42 `Remodelaciones en Caracas | RemodelaT Venezuela`
+  - EN Index 79→50 `Home Remodeling in Valencia and Caracas | RemodelaT`, flooring 74→51, painting 76→49, wall-coverings 72→44, whole-home 61→42
 - **Verificación:** `dist/index.html` title 51 chars
 - **Estado:** ✅ DONE
 

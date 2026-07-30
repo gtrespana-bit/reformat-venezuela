@@ -1,4 +1,4 @@
-# 🎯 Plan SEO — ReformaT Venezuela
+# 🎯 Plan SEO — RemodelaT Venezuela
 
 > Última actualización: 2026-07-27
 > Objetivo: Posicionar #1 en Google para remodelaciones en Venezuela

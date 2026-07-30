@@ -5,7 +5,7 @@ date: 2026-07-27
 category: "Presupuestos"
 image: "/images/electricidad-800.webp"
 readTime: "12 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: La Electricidad No Es Un Lugar Para Ahorrar
@@ -14,7 +14,7 @@ De todos los rubros de una reforma, la instalación eléctrica es el único dond
 
 Y sin embargo, es también el rubro donde más se intenta ahorrar contratando a cualquiera que "sabe de electricidad". El problema es que una instalación mal hecha no falla el primer día: falla a los dos años, cuando ya está tapada por drywall y pintura.
 
-En ReformaT Venezuela llevamos más de 23 años ejecutando instalaciones eléctricas residenciales en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos **precios reales y desglosados para 2026**, sin letra pequeña.
+En RemodelaT Venezuela llevamos más de 23 años ejecutando instalaciones eléctricas residenciales en **Caracas, Valencia, San Diego y todo Carabobo**. En esta guía te damos **precios reales y desglosados para 2026**, sin letra pequeña.
 
 ![Tablero eléctrico moderno con protecciones](/images/electricidad-cuadro-detalle.webp)
 
@@ -108,7 +108,7 @@ Un apartamento de 2-3 habitaciones toma entre 5 y 10 días hábiles, dependiendo
 En la mayoría de los casos sí, trabajando por zonas. Habrá días sin electricidad en áreas específicas, pero se planifica para minimizar la molestia.
 
 ### ¿Qué garantía tiene una instalación profesional?
-En ReformaT garantizamos la mano de obra. Los materiales tienen la garantía del fabricante. Una instalación bien hecha dura 25-30 años sin intervención mayor.
+En RemodelaT garantizamos la mano de obra. Los materiales tienen la garantía del fabricante. Una instalación bien hecha dura 25-30 años sin intervención mayor.
 
 ### ¿Necesito permiso del condominio?
 Para cambios internos de tu apartamento generalmente no, pero si tocas el tablero general o medidor, sí. Consulta con la junta de condominio antes de empezar.

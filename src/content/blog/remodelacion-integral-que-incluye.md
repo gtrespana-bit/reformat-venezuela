@@ -5,7 +5,7 @@ date: 2026-07-27
 category: "Presupuestos"
 image: "/images/integrales-proyecto-completo.webp"
 readTime: "16 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Remodelación Integral: La Decisión Más Importante para tu Hogar
@@ -14,7 +14,7 @@ Una remodelación integral no es "pintar y cambiar pisos". Es repensar tu espaci
 
 En Venezuela, la remodelación integral se disparó entre 2024 y 2026. ¿La razón? Miles de apartamentos y casas construidos entre 1990 y 2010 llegaron al final de su vida útil en instalaciones eléctricas, hidráulicas y acabados. Los propietarios descubrieron que remodelar por partes sale 30-40% más caro que hacerlo todo de una vez.
 
-En ReformaT Venezuela hemos ejecutado más de 200 remodelaciones integrales en **Caracas, Valencia, San Diego, La Guaira y zonas premium como La Lagunita, Altamira, Guataparo y El Viñedo**. Esta guía te dice exactamente qué incluye, cuánto cuesta y cómo planificarla.
+En RemodelaT Venezuela hemos ejecutado más de 200 remodelaciones integrales en **Caracas, Valencia, San Diego, La Guaira y zonas premium como La Lagunita, Altamira, Guataparo y El Viñedo**. Esta guía te dice exactamente qué incluye, cuánto cuesta y cómo planificarla.
 
 ![Proyecto de remodelación integral completado](/images/integrales-proyecto-completo.webp)
 
@@ -219,7 +219,7 @@ Para proyectos en estas zonas, revisa:
 
 ## Solicita tu valoración técnica
 
-En ReformaT Venezuela hacemos la visita técnica, medimos, escuchamos lo que necesitas y te entregamos un presupuesto desglosado en 72 horas. Sin compromiso.
+En RemodelaT Venezuela hacemos la visita técnica, medimos, escuchamos lo que necesitas y te entregamos un presupuesto desglosado en 72 horas. Sin compromiso.
 
 **WhatsApp:** [+58 422-7997043](https://wa.me/584227997043)
 

@@ -49,7 +49,7 @@ function buildServiceSchema(svc) {
     "url": DOMAIN + svc.url,
     "provider": {
       "@type": "HomeAndConstructionBusiness",
-      "name": "ReformaT Venezuela",
+      "name": "RemodelaT Venezuela",
       "url": DOMAIN
     },
     "areaServed": [

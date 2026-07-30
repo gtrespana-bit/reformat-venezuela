@@ -5,7 +5,7 @@ date: 2026-07-26
 category: "Materials"
 image: "/images/pintura-microcemento-bano.webp"
 readTime: "11 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: Two Worlds, Two Budgets
@@ -14,7 +14,7 @@ When it comes to wall finishes in a remodel, the most common dilemma is: **paint
 
 Both are valid, but they belong to completely different categories. Paint is the economical and fast option. Microcement is the premium, continuous and highly durable finish.
 
-At ReformaT Venezuela we have applied both in hundreds of projects in **Caracas, Valencia, San Diego and Carabobo**. Here is a clear, honest comparison with real 2026 prices so you can decide with your eyes open.
+At RemodelaT Venezuela we have applied both in hundreds of projects in **Caracas, Valencia, San Diego and Carabobo**. Here is a clear, honest comparison with real 2026 prices so you can decide with your eyes open.
 
 ![Microcement and paint finishes comparison in bathroom](/images/pintura-microcemento-bano.webp)
 

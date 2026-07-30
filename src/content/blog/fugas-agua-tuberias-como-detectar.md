@@ -5,14 +5,14 @@ date: 2026-07-24
 category: "Guías"
 image: "/images/fontaneria.webp"
 readTime: "10 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: El Enemigo Silencioso de Tu Hogar
 
 Una fuga de agua oculta es de los problemas más traicioneros que puede tener una vivienda. No la ves, pero está ahí, degradando paredes, pudriendo estructuras y criando moho. Cuando finalmente aparece la mancha, el daño real suele ser mucho mayor de lo que parece.
 
-La buena noticia: la mayoría de las fugas dan señales detectables si sabes qué buscar. En ReformaT Venezuela hemos resuelto cientos de fugas en **Caracas, Valencia y San Diego**, y esta es la metodología que usamos para localizarlas.
+La buena noticia: la mayoría de las fugas dan señales detectables si sabes qué buscar. En RemodelaT Venezuela hemos resuelto cientos de fugas en **Caracas, Valencia y San Diego**, y esta es la metodología que usamos para localizarlas.
 
 ![Detección de fugas de agua en el hogar](/images/fontaneria-800.webp)
 
@@ -110,7 +110,7 @@ Si es accesible y tienes experiencia, sí. Si está dentro de la pared, lo recom
 Depende de tu póliza. Muchas cubren el daño resultante pero no la reparación de la tubería. Documenta todo con fotos.
 
 ### ¿Cuánto cuesta detectar una fuga oculta?
-Una inspección con equipos es mucho más barata que picar paredes al azar. En ReformaT ofrecemos [consulta](/contacto) para evaluar tu caso.
+Una inspección con equipos es mucho más barata que picar paredes al azar. En RemodelaT ofrecemos [consulta](/contacto) para evaluar tu caso.
 
 ---
 

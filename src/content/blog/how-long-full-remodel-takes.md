@@ -5,7 +5,7 @@ date: 2026-07-19
 category: "Guides"
 image: "/images/integrales-400.webp"
 readTime: "12 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Question Everyone Asks
@@ -116,4 +116,4 @@ A good contract includes the timeline and sometimes penalties for unjustified de
 
 A full remodel takes between 2 and 5 months depending on size. The key to meeting the deadline is not working faster, but planning better: decisions made on time, materials available, and a company that knows how to sequence the stages.
 
-If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a realistic schedule for your project, [request a technical assessment](/en/contact). At ReformaT Venezuela we plan every stage in writing so you know exactly what to expect. Learn about our [full remodel service](/en/services/whole-home).
+If you’re in **Caracas, Valencia, San Diego, or Carabobo** and want a realistic schedule for your project, [request a technical assessment](/en/contact). At RemodelaT Venezuela we plan every stage in writing so you know exactly what to expect. Learn about our [full remodel service](/en/services/whole-home).

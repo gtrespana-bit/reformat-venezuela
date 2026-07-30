@@ -8,7 +8,7 @@ const seoPath = path.join(__dirname, '..', 'src', 'components', 'SEO.astro');
 // Clean, stable canonical URL for the NEW Google Business Profile
 // kgmid is the permanent Knowledge Graph entity id -> stable & public
 const cleanGbp =
-  'https://www.google.com/search?kgmid=/g/11nthq0r0m&q=ReformaT+-+Remodelaciones&hl=es-419';
+  'https://www.google.com/search?kgmid=/g/11nthq0r0m&q=RemodelaT+-+Remodelaciones&hl=es-419';
 
 let src = fs.readFileSync(seoPath, 'utf8');
 

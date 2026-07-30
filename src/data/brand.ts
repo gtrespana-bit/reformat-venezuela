@@ -9,8 +9,8 @@
 export const FOUNDED_YEAR = 2003;
 
 export const BRAND = {
-  name: 'ReformaT Venezuela',
-  shortName: 'ReformaT',
+  name: 'RemodelaT Venezuela',
+  shortName: 'RemodelaT',
 
   /** 23 años en construcción y remodelación de viviendas (desde 2003). */
   yearsExperience: 23,

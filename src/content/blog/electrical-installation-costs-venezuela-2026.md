@@ -5,7 +5,7 @@ date: 2026-07-27
 category: "Budgets"
 image: "/images/electricidad-800.webp"
 readTime: "12 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: Electricity Is Not a Place to Save Money
@@ -14,7 +14,7 @@ Of all the items in a remodel, electrical installation is the only one where a m
 
 And yet, it is also the item where people most try to save by hiring anyone who "knows about electricity." The problem is that a poorly done installation doesn't fail on the first day — it fails two years later, when it's already covered by drywall and paint.
 
-At ReformaT Venezuela we have over 23 years executing residential electrical installations in **Caracas, Valencia, San Diego and all of Carabobo**. In this guide we give you **real and detailed prices for 2026**, with no fine print.
+At RemodelaT Venezuela we have over 23 years executing residential electrical installations in **Caracas, Valencia, San Diego and all of Carabobo**. In this guide we give you **real and detailed prices for 2026**, with no fine print.
 
 ![Modern electrical panel with protections](/images/electricidad-cuadro-detalle.webp)
 
@@ -108,7 +108,7 @@ A 2-3 bedroom apartment takes between 5 and 10 business days, depending on wheth
 In most cases yes, working by zones. There will be days without electricity in specific areas, but it is planned to minimize inconvenience.
 
 ### What warranty does professional electrical work have?
-At ReformaT we guarantee the labor. Materials have the manufacturer's warranty. A well-done installation lasts 25-30 years without major intervention.
+At RemodelaT we guarantee the labor. Materials have the manufacturer's warranty. A well-done installation lasts 25-30 years without major intervention.
 
 ### Do I need condominium permission?
 For internal changes to your apartment generally no, but if you touch the main panel or meter, yes. Consult with the condominium board before starting.

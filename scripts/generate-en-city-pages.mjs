@@ -20,7 +20,7 @@ const CITIES = {
     badge:'Capital District · 15+ years of experience',
     heroSub:'We transform apartments, homes and offices with signature design, premium materials and flawless execution across the entire metropolitan area.',
     introH2:'Remodeling experts in the Capital District',
-    introP1:'At ReformaT Venezuela we transform your apartment, home or office in the capital with the highest quality and professionalism.',
+    introP1:'At RemodelaT Venezuela we transform your apartment, home or office in the capital with the highest quality and professionalism.',
     introP2:'With more than 15 years of experience in the <strong>Capital District</strong>, we know the particularities of Caracas buildings, condominium regulations and the best materials for the city\'s climate.',
     introChecks:['Certified in-house crew, no subcontractors','Fixed quote and guaranteed schedule','Condominium permit management','Written warranty on all work'],
     zones:[
@@ -56,7 +56,7 @@ const CITIES = {
     badge:'Carabobo · 15+ years of experience',
     heroSub:'We transform apartments, homes and offices with signature design, premium materials and flawless execution across the central region.',
     introH2:'Remodeling experts in Carabobo',
-    introP1:'At ReformaT Venezuela we transform your apartment, home or office in Valencia with the highest quality and professionalism.',
+    introP1:'At RemodelaT Venezuela we transform your apartment, home or office in Valencia with the highest quality and professionalism.',
     introP2:'With more than 15 years of experience in <strong>Carabobo</strong>, we know the particularities of Valencia\'s buildings and neighborhoods, condominium regulations and the best materials for the region\'s climate.',
     introChecks:['Certified in-house crew, no subcontractors','Fixed quote and guaranteed schedule','Condominium permit management','Written warranty on all work'],
     zones:[
@@ -92,7 +92,7 @@ const CITIES = {
     badge:'State of Vargas · 15+ years of experience',
     heroSub:'We transform apartments, homes and offices with materials engineered for the coastal climate and flawless execution across the state of Vargas.',
     introH2:'Remodeling experts on the Vargas coast',
-    introP1:'At ReformaT Venezuela we transform your apartment, home or office in La Guaira with the highest quality and professionalism.',
+    introP1:'At RemodelaT Venezuela we transform your apartment, home or office in La Guaira with the highest quality and professionalism.',
     introP2:'With more than 15 years of experience in <strong>Vargas</strong>, we know the particularities of coastal buildings and the best salt- and moisture-resistant materials for the marine climate.',
     introChecks:['Certified in-house crew, no subcontractors','Fixed quote and guaranteed schedule','Salt- and moisture-resistant materials','Written warranty on all work'],
     zones:[
@@ -128,7 +128,7 @@ const CITIES = {
     badge:'San Diego, Carabobo · 15+ years of experience',
     heroSub:'We transform apartments, homes and offices with signature design, premium materials and flawless execution across the San Diego municipality.',
     introH2:'Remodeling experts in San Diego, Carabobo',
-    introP1:'At ReformaT Venezuela we transform your apartment, home or office in San Diego with the highest quality and professionalism.',
+    introP1:'At RemodelaT Venezuela we transform your apartment, home or office in San Diego with the highest quality and professionalism.',
     introP2:'With more than 15 years of experience in <strong>San Diego</strong>, we know the particularities of its gated communities and the best materials for family homes in the municipality.',
     introChecks:['Certified in-house crew, no subcontractors','Fixed quote and guaranteed schedule','Gated-community permit management','Written warranty on all work'],
     zones:[
@@ -283,7 +283,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 <BaseLayout title=${esc(c.title)} description=${esc(c.description)} image=${esc(c.heroImage)}>
 
   <section class="hero">
-    <img class="hero-bg" src=${esc(c.heroImage)} alt=${esc(`Remodeling in ${c.name} | ReformaT`)} fetchpriority="high" loading="eager" decoding="async" />
+    <img class="hero-bg" src=${esc(c.heroImage)} alt=${esc(`Remodeling in ${c.name} | RemodelaT`)} fetchpriority="high" loading="eager" decoding="async" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
       <span class="hero-badge">${c.badge}</span>
@@ -312,7 +312,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
         <img src=${esc(c.introImage)} alt=${esc(`Remodeling project in ${c.name}`)} loading="lazy" />
       </div>
       <div class="intro-body">
-        <span class="section-tag">Why ReformaT</span>
+        <span class="section-tag">Why RemodelaT</span>
         <h2>${c.introH2}</h2>
         <p>${c.introP1}</p>
         <p>${c.introP2}</p>
@@ -371,7 +371,7 @@ ${zones}
   <section class="section">
     <div class="container">
       <div class="section-header">
-        <span class="section-tag">Why ReformaT</span>
+        <span class="section-tag">Why RemodelaT</span>
         <h2>${c.whyH2}</h2>
         <p>${c.whyP}</p>
       </div>
@@ -429,7 +429,7 @@ ${testimonials}
   </section>
 
   <section class="cta" id="contacto">
-    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt=${esc(`Finished modern kitchen ready for handover in ${c.name} | ReformaT`)} loading="lazy" decoding="async" />
+    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt=${esc(`Finished modern kitchen ready for handover in ${c.name} | RemodelaT`)} loading="lazy" decoding="async" />
     <div class="cta-overlay"></div>
     <div class="cta-content">
       <span class="section-tag section-tag-light">Take the first step</span>
@@ -448,7 +448,7 @@ ${testimonials}
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": \`ReformaT Venezuela - ${c.name}\`,
+    "name": \`RemodelaT Venezuela - ${c.name}\`,
     "description": ${esc(c.description)},
     "areaServed": { "@type": "City", "name": ${esc(c.name)} },
     "address": { "@type": "PostalAddress", "addressLocality": ${esc(c.name)}, "addressRegion": ${esc(c.state)}, "addressCountry": "VE" },

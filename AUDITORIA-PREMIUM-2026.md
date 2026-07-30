@@ -1,4 +1,4 @@
-# Auditoría "Premium" — ReformaT Venezuela
+# Auditoría "Premium" — RemodelaT Venezuela
 
 **Fecha:** 2026-07-28 · **Rama:** `arena/019fa93c-reformat-venezuela`
 **Alcance:** Home, Servicios (índice + 12 detalle), Proyectos, Contacto, Blog, Sobre Nosotros, páginas ciudad (4) y páginas de zona (81 ES + 81 EN).

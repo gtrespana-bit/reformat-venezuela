@@ -5,14 +5,14 @@ date: 2026-07-24
 category: "Guides"
 image: "/images/fontaneria-400.webp"
 readTime: "10 min"
-author: "ReformaT Team"
+author: "RemodelaT Team"
 ---
 
 ## Introduction: The Silent Enemy of Your Home
 
 A hidden water leak is one of the most treacherous problems a home can have. You can’t see it, but it’s there — degrading walls, rotting structures, and breeding mold. When the stain finally appears, the real damage is usually much greater than it looks.
 
-The good news: most leaks give detectable signs if you know what to look for. At ReformaT Venezuela we have resolved hundreds of leaks in **Caracas, Valencia, and San Diego**, and this is the methodology we use to locate them.
+The good news: most leaks give detectable signs if you know what to look for. At RemodelaT Venezuela we have resolved hundreds of leaks in **Caracas, Valencia, and San Diego**, and this is the methodology we use to locate them.
 
 ![Water leak detection in the home](/images/fontaneria-800.webp)
 
@@ -110,7 +110,7 @@ If it’s accessible and you have experience, yes. If it’s inside the wall, it
 It depends on your policy. Many cover the resulting damage but not the pipe repair itself. Document everything with photos.
 
 ### How much does it cost to detect a hidden leak?
-An inspection with equipment is much cheaper than chiseling walls at random. At ReformaT we offer [consultation](/en/contact) to evaluate your case.
+An inspection with equipment is much cheaper than chiseling walls at random. At RemodelaT we offer [consultation](/en/contact) to evaluate your case.
 
 ---
 

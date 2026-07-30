@@ -5,14 +5,14 @@ date: 2026-07-25
 category: "Presupuestos"
 image: "/images/fontaneria-800.webp"
 readTime: "11 min"
-author: "Equipo ReformaT"
+author: "Equipo RemodelaT"
 ---
 
 ## Introducción: El Fontanero Barato Te Sale Carísimo
 
 La fontanería comparte un rasgo con la electricidad: los errores no se ven hasta que es tarde. Una tubería mal soldada dentro de la pared puede estar goteando durante meses antes de que aparezca la mancha de humedad. Para entonces, el daño ya incluye drywall, pintura, piso y a veces el apartamento de abajo.
 
-Por eso, contratar al más barato en fontanería es una de las decisiones más riesgosas de una reforma. En ReformaT Venezuela llevamos más de 23 años ejecutando instalaciones sanitarias en **Caracas, Valencia, San Diego y todo Carabobo**. Aquí te damos los **precios reales de 2026** para que sepas qué es razonable pagar.
+Por eso, contratar al más barato en fontanería es una de las decisiones más riesgosas de una reforma. En RemodelaT Venezuela llevamos más de 23 años ejecutando instalaciones sanitarias en **Caracas, Valencia, San Diego y todo Carabobo**. Aquí te damos los **precios reales de 2026** para que sepas qué es razonable pagar.
 
 ![Instalación de fontanería profesional](/images/fontaneria.webp)
 
@@ -104,7 +104,7 @@ Una fuga accesible se resuelve en pocas horas. Una empotrada puede tomar 1-2 dí
 Depende del trabajo. Para reinstalaciones completas se bloquea el uso temporalmente; se planifica por zonas para minimizar la molestia.
 
 ### ¿Qué garantía tiene un trabajo de fontanería profesional?
-En ReformaT garantizamos la mano de obra. Una instalación bien hecha con materiales adecuados dura 20-30 años.
+En RemodelaT garantizamos la mano de obra. Una instalación bien hecha con materiales adecuados dura 20-30 años.
 
 ### ¿Atienden emergencias?
 Para fugas activas, lo prioritario es cerrar la llave de paso y contactarnos. Evaluamos y coordinamos la reparación lo antes posible.
