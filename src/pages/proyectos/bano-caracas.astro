@@ -183,14 +183,6 @@ const heroImage = project.heroImage;
     <div class="hero-backdrop" aria-hidden="true"></div>
     <div class="container">
       <div class="hero-content">
-        <nav class="breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Inicio</a>
-          <span class="separator">/</span>
-          <a href="/proyectos">Proyectos</a>
-          <span class="separator">/</span>
-          <span class="current">Baño Principal y Aseo Adaptado</span>
-        </nav>
-
         <div class="hero-kicker">
           <span class="kicker-badge">CASO DE ESTUDIO</span>
           <span class="kicker-line"></span>
@@ -239,6 +231,19 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </header>
+
+  <!-- BREADCRUMBS TRAS EL HERO -->
+  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <a href="/">Inicio</a>
+        <span class="separator">/</span>
+        <a href="/proyectos">Proyectos</a>
+        <span class="separator">/</span>
+        <span class="current">Baño Principal y Aseo Adaptado</span>
+      </div>
+    </div>
+  </nav>
 
   <!-- 2. DUAL-SHOWCASE: LOS DOS ESPACIOS DEL PROYECTO (ZERO CROPPING) -->
   <section class="dual-showcase-section">
@@ -623,7 +628,7 @@ const heroImage = project.heroImage;
      ========================================================== */
   .project-hero {
     position: relative;
-    padding: 100px 0 70px;
+    padding: 185px 0 85px;
     background: var(--ink);
     color: var(--white);
     overflow: hidden;
@@ -645,34 +650,42 @@ const heroImage = project.heroImage;
     max-width: 1050px;
   }
 
-  .breadcrumb {
+  /* Breadcrumbs Tras el Hero */
+  .breadcrumb-after-hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 18px 0;
+  }
+
+  .breadcrumb-inner {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 8px;
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    margin-bottom: 24px;
+    font-size: 0.84rem;
     font-family: var(--font-sans);
   }
 
-  .breadcrumb a {
-    color: rgba(255,255,255,0.6);
+  .breadcrumb-inner a {
+    color: var(--text-muted);
     text-decoration: none;
     transition: color 0.2s ease;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--gold);
-  }
-
-  .breadcrumb .separator {
-    opacity: 0.35;
-  }
-
-  .breadcrumb .current {
-    color: var(--gold);
     font-weight: 500;
+  }
+
+  .breadcrumb-inner a:hover {
+    color: var(--gold-ink);
+  }
+
+  .breadcrumb-inner .separator {
+    color: var(--sand);
+    font-weight: 300;
+    margin: 0 4px;
+  }
+
+  .breadcrumb-inner .current {
+    color: var(--text);
+    font-weight: 600;
   }
 
   .hero-kicker {
@@ -1688,7 +1701,7 @@ const heroImage = project.heroImage;
 
   @media (max-width: 768px) {
     .project-hero {
-      padding: 70px 0 50px;
+      padding: 145px 0 65px;
     }
 
     .hero-stats-ribbon {
