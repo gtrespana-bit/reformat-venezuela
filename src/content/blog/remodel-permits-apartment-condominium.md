@@ -3,7 +3,7 @@ title: "Permits to Remodel an Apartment in a Condominium: Complete Guide 2026"
 excerpt: "Everything you need to know about permits, authorizations and regulations to remodel in condominiums in Caracas, Valencia and Carabobo without problems."
 date: 2026-07-26
 category: "Guides"
-image: "/images/arquitectura-400.webp"
+image: "/images/arquitectura-600.webp"
 readTime: "10 min"
 author: "RemodelaT Team"
 ---

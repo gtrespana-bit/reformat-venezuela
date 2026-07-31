@@ -3,7 +3,7 @@ title: "7 Signs Your House Needs an Urgent Electrical Rewire"
 excerpt: "Tripping breakers, hot outlets, flickering lights: learn to detect in time when your electrical installation is a danger and what to do."
 date: 2026-07-26
 category: "Guides"
-image: "/images/electricidad-400.webp"
+image: "/images/electricidad-800.webp"
 readTime: "10 min"
 author: "RemodelaT Team"
 ---

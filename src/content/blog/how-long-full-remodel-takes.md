@@ -3,7 +3,7 @@ title: "How Long Does a Full Remodel Take: Real Timelines by Stage in 2026"
 excerpt: "Real timelines for a full remodel in Venezuela: how long each stage takes, what factors extend the project, and how to avoid delays in Caracas, Valencia, and Carabobo."
 date: 2026-07-19
 category: "Guides"
-image: "/images/integrales-400.webp"
+image: "/images/integrales-800.webp"
 readTime: "12 min"
 author: "RemodelaT Team"
 ---

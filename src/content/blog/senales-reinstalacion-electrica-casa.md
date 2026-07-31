@@ -3,7 +3,7 @@ title: "7 Señales de Que Tu Casa Necesita una Reinstalación Eléctrica Urgente
 excerpt: "Breakers que se disparan, tomacorrientes calientes, luces que parpadean: aprende a detectar a tiempo cuándo tu instalación eléctrica es un peligro y qué hacer."
 date: 2026-07-26
 category: "Guías"
-image: "/images/electricidad-seguridad.webp"
+image: "/images/electricidad-800.webp"
 readTime: "10 min"
 author: "Equipo RemodelaT"
 ---

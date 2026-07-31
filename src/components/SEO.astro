@@ -1,4 +1,7 @@
 ---
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
 interface Props {
   title: string;
   description: string;
@@ -15,6 +18,31 @@ interface Props {
 
 const siteUrl = 'https://remodelat.net';
 const siteName = 'RemodelaT Venezuela';
+
+// Lee las dimensiones reales de un WebP en /public (para og:image:width/height correctos)
+function getWebpSize(publicPath: string): { width: number; height: number } | null {
+  try {
+    const buf = readFileSync(join(process.cwd(), 'public', publicPath));
+    if (buf.length < 30 || buf.toString('ascii', 0, 4) !== 'RIFF' || buf.toString('ascii', 8, 12) !== 'WEBP') return null;
+    const fmt = buf.toString('ascii', 12, 16);
+    if (fmt === 'VP8X') {
+      return { width: 1 + buf.readUIntLE(24, 3), height: 1 + buf.readUIntLE(27, 3) };
+    }
+    if (fmt === 'VP8 ') {
+      return { width: buf.readUInt16LE(26) & 0x3fff, height: buf.readUInt16LE(28) & 0x3fff };
+    }
+    if (fmt === 'VP8L') {
+      const b0 = buf[21], b1 = buf[22], b2 = buf[23], b3 = buf[24];
+      return {
+        width: 1 + (((b1 & 0x3f) << 8) | b0),
+        height: 1 + (((b3 & 0x0f) << 10) | (b2 << 2) | ((b1 & 0xc0) >> 6))
+      };
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
 
 // Helpers para trailingSlash unificado (vercel.json trailingSlash: true)
 const normalizePath = (path: string): string => {
@@ -52,6 +80,14 @@ const {
 const ogImage = image && image.startsWith('http')
   ? image
   : `${siteUrl}${image || '/images/og-default.webp'}`;
+
+// Dimensiones reales de la imagen OG (solo si es local en /public)
+const ogImageLocalPath = ogImage.startsWith(siteUrl) ? ogImage.slice(siteUrl.length) : null;
+const ogImageSize = ogImageLocalPath ? getWebpSize(ogImageLocalPath) : null;
+const ogImageType = ogImage.endsWith('.webp') ? 'image/webp'
+  : ogImage.endsWith('.png') ? 'image/png'
+  : ogImage.endsWith('.gif') ? 'image/gif'
+  : 'image/jpeg';
 
 // Canonical SIEMPRE con trailing slash para coherencia con sitemap y vercel.json
 const canonicalUrl = `${siteUrl}${ensureTrailingSlash(rawPath)}`;
@@ -364,9 +400,18 @@ const articleSchema = {
 <meta property="og:description" content={description} />
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:secure_url" content={ogImage} />
-<meta property="og:image:type" content="image/webp" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
+<meta property="og:image:type" content={ogImageType} />
+{ogImageSize ? (
+  <>
+    <meta property="og:image:width" content={String(ogImageSize.width)} />
+    <meta property="og:image:height" content={String(ogImageSize.height)} />
+  </>
+) : (
+  <>
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+  </>
+)}
 <meta property="og:image:alt" content={title} />
 
 {type === 'article' && publishedTime && (
