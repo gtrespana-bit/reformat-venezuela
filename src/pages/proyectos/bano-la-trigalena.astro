@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
@@ -166,6 +167,33 @@ const galleryPhases = [
   { id: 'final', label: 'Resultado final', description: 'Las fotos finales resumen la nueva amplitud espacial y el acabado rectificado del proyecto.' },
   { id: 'teka', label: 'Sanitarios y muebles', description: 'Aquí se concentran las piezas TEKA, el mobiliario y los detalles que elevan la calidad percibida.' },
   { id: 'proceso', label: 'Antes y proceso', description: 'La secuencia previa permite entender la demolición, el replanteo y la instalación del nuevo sistema.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Antes',
+    title: 'La planta original no aprovechaba todo el potencial del baño',
+    body: 'Aunque la superficie existía, la sensación espacial era mucho peor por culpa de los tabiques divisorios y de una lectura visual fragmentada. Por eso la obra empezó liberando la planta.',
+    image: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
+    alt: 'Baño original con tabiques divisorios antes de la reforma en La Trigaleña',
+    caption: 'Los muretes reducían continuidad, amplitud visual y confort de uso.'
+  },
+  {
+    tag: '02 · Ejecución',
+    title: 'La instalación del porcelanato y la nueva base técnica sostienen el resultado premium',
+    body: 'El cambio no depende solo del gran formato visible. También intervienen la nueva fontanería multicapa, el replanteo y la colocación con control de juntas y planeidad.',
+    image: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando.webp',
+    alt: 'Proceso de instalación de porcelanato en baño reformado de La Trigaleña',
+    caption: 'La fase de ejecución determina que el acabado final se perciba verdaderamente limpio y elegante.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El baño gana continuidad, calma visual y un nivel mucho más arquitectónico',
+    body: 'Con la nueva planta abierta, el porcelanato rectificado 60x120 y el equipamiento TEKA, el Townhouse pasa a tener un baño más amplio, más actual y mejor resuelto en cada encuentro.',
+    image: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
+    alt: 'Baño finalizado con plato de ducha en polvo de mármol y sanitarios TEKA en La Trigaleña',
+    caption: 'La nueva escena combina amplitud, materialidad y una presencia claramente superior.'
+  }
 ];
 
 const heroImage = project.heroImage;
@@ -454,58 +482,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
 
   <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa de amplitud y lectura visual" text="Aquí se entiende muy bien el impacto de eliminar tabiques divisorios y construir una escena más abierta y más limpia." beforeSrc="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" beforeAlt="Baño original con tabiques divisorios antes de la reforma en La Trigaleña" afterSrc="/images/proyectos/bano-la-trigalena/bano-final-1.webp" afterAlt="Baño finalizado sin tabiques divisorios con porcelanato 60x120 en La Trigaleña" beforeLabel="Antes" afterLabel="Después" beforeCaption="Los muretes fragmentaban el baño y le quitaban continuidad visual." afterCaption="La nueva planta abierta hace que el espacio se sienta mucho más amplio, sereno y sofisticado." showLightboxButtons={false} />
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN ARQUITECTÓNICA</span>
-        <h2 class="editorial-title">Comparativa Visual: Antes y Después</h2>
-        <p class="editorial-subtitle">
-          Observe cómo la eliminación de los tabiques divisorios y el reemplazo por porcelanato rectificado 60x120 duplicó la sensación de amplitud en este Townhouse.
-        </p>
-      </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="La intervención contada por etapas clave" intro="Este bloque resume el cambio de manera más directa: estado original, ejecución y resultado final, con apoyo fotográfico inmediato." items={storyMoments} galleryGroup="trigalena-story" />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Redistribución y Tabiques -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" data-alt="Baño en estado original en La Trigaleña con tabiques divisorios" data-title="Estado Original: Tabiques Divisorios y Encierro">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Tabiques Divisorios</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" alt="Baño original con muretes divisorios en Townhouse" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Estado original del baño donde los muretes reducían drásticamente la continuidad visual.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" data-alt="Baño renovado sin tabiques con porcelanato rectificado 60x120 efecto mármol" data-title="Baño Renovado: Planta Abierta 60x120">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Planta Abierta</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" alt="Baño remodelado sin tabiques con porcelanato importado 60x120" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Espacio liberado con porcelanato importado 60x120 efecto mármol y pavimento madera.</p>
-          </div>
-        </div>
-
-        <!-- Comparison 2: Zona Ducha y Sanitarios -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-antes-2.webp" data-alt="Zona original de ducha con sanitarios y mampara anterior" data-title="Estado Original: Ducha y Alicatado Antiguo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Zona de Ducha</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-antes-2.webp" alt="Área de ducha antigua con mampara y alicatado para demoler" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Área de ducha con instalaciones y plomería para reemplazar con tubería multicapa.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" data-alt="Zona de ducha renovada con plato de polvo de mármol y sanitarios TEKA Manacor" data-title="Ducha Renovada: Plato Polvo de Mármol y TEKA">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Sanitarios TEKA</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" alt="Ducha terminada con plato en polvo de mármol antideslizante y grifería TEKA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Plato sólido de polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA Manacor.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GALERÍA ORDENADA POR FASES -->
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Las imágenes se agrupan por bloques para que el cambio espacial, los sanitarios y el proceso de obra se entiendan con mucha más claridad." items={project.gallery} phases={galleryPhases} id="galeria" />
 
   <!-- 6. LUXURY CALL TO ACTION -->

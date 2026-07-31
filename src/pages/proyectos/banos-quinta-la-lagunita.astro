@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
@@ -333,6 +334,33 @@ const galleryPhases = [
   { id: 'demolicion', label: 'Original y demolición', description: 'El bloque inicial permite comprender el alcance real de la transformación arquitectónica.' }
 ];
 
+const storyMoments = [
+  {
+    tag: '01 · Transformación',
+    title: 'La obra empieza por una decisión radical: abrir la fachada y rehacer la arquitectura interior',
+    body: 'El baño original no tenía la luz ni la presencia que pedía la vivienda. Por eso el proyecto arrancó con una intervención estructural que cambió por completo la relación entre interior, fachada y recorrido.' ,
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp',
+    alt: 'Demolición estructural del muro exterior para abrir un gran ventanal en Guataparo',
+    caption: 'La entrada de luz natural fue uno de los grandes gestos que redefinieron el proyecto.'
+  },
+  {
+    tag: '02 · Construcción',
+    title: 'El lujo aquí no es solo material: también es constructivo',
+    body: 'Las encimeras de hormigón, la ducha ejecutada in situ y el trabajo posterior en microcemento exigieron una base técnica muy medida para que el resultado se viera realmente sólido y sereno.',
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-encimera-hormigon.webp',
+    alt: 'Construcción de encimera de hormigón para baño de lujo en Guataparo',
+    caption: 'La obra construyó piezas casi escultóricas antes de llegar al acabado final.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El conjunto terminado se siente mucho más arquitectónico, luminoso y exclusivo',
+    body: 'Microcemento blanco, piedra volcánica, ventanal, porcelanato metro verde y sanitarios premium construyen una atmósfera de gran presencia pero muy bien equilibrada.',
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp',
+    alt: 'Zona de lavabo terminada con encimera flotante y porcelanato metro verde en Guataparo',
+    caption: 'La fase final convierte la intervención técnica en una experiencia visual de alto nivel.'
+  }
+];
+
 const heroImage = project.heroImage;
 const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño de lujo en quinta de Guataparo.';
 ---
@@ -619,58 +647,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
 
   <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa entre intervención estructural y resultado" text="Aquí se resume uno de los cambios más potentes del proyecto: abrir la fachada, introducir luz natural y elevar la experiencia espacial del baño." beforeSrc="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" beforeAlt="Demolición del muro exterior para abrir un ventanal en la quinta de Guataparo" afterSrc="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" afterAlt="Ventanal panorámico y pavimento continuo de microcemento en baño de lujo en Guataparo" beforeLabel="Obra" afterLabel="Resultado" beforeCaption="El baño todavía estaba en fase de apertura estructural para permitir el nuevo ventanal." afterCaption="Con luz natural, microcemento continuo y nueva arquitectura interior, la percepción cambia por completo." showLightboxButtons={false} />
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN E INGENIERÍA EN GUATAPARO</span>
-        <h2 class="editorial-title">Comparativa: Demolición de Fachada y Salas Independientes</h2>
-        <p class="editorial-subtitle">
-          Observe el impacto del gran ventanal panorámico en el antiguo muro ciego y la reconfiguración del espacio en dos ambientes privados con muro de 15 cm.
-        </p>
-      </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="Una obra de gran escala explicada en tres momentos" intro="La secuencia permite entender cómo una decisión estructural, una ejecución de alto nivel y un acabado muy cuidado construyen el resultado final." items={storyMoments} galleryGroup="guataparo-story" />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Muro Exterior Ciego vs Ventanal Panorámico -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" data-alt="Demolición estructural de muro exterior en quinta de Guataparo para ventanal" data-title="Demolición Exterior: Apertura de Vano Panorámico">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Obra · Demolición Exterior</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" alt="Demolición de pared exterior ciega en Guataparo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Apertura del muro de fachada ciego que antes mantenía el baño de la quinta en penumbra.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" data-alt="Ventanal panorámico y baño de lujo terminado en Guataparo" data-title="Ventanal y Lujo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Ventanal y Lujo</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" alt="Ventanal panorámico en baño finalizado de Guataparo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">El nuevo ventanal panorámico ya montado, junto al pavimento continuo de microcemento y la encimera flotante.</p>
-          </div>
-        </div>
-
-        <!-- Comparison 2: Muro Separador de Hormigón vs Sala Sanitaria 2 -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" data-alt="Construcción de tabique separador en bloque de hormigón 15 cm en Guataparo" data-title="Obra: Zona de Ducha en Bruto y Tabique Separador">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Obra · Ducha en Bruto</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" alt="Zona de ducha en bruto junto al tabique separador de hormigón en quinta de Valencia" loading="lazy" />
-            </div>
-            <p class="comparison-caption">La zona de ducha aún sin ejecutar, con parte del tabique central de 15 cm ya levantado.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" data-alt="Sala sanitaria independiente en Guataparo con inodoro ROCA e Italia" data-title="Sala Sanitaria Independiente: Inodoro ROCA">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Sala Privada ROCA</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" alt="Sala sanitaria Zona 2 terminada en Guataparo con inodoro ROCA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Ambiente independiente y aislado con inodoro ROCA, lavabo italiano y metro verde.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GALERÍA ORDENADA POR FASES -->
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La obra se presenta por fases claras: baños terminados, ventanal, proceso constructivo y demolición, para que el recorrido visual tenga más orden y más presencia editorial." items={project.gallery} phases={galleryPhases} id="galeria" />
 
   <!-- 6. LUXURY CALL TO ACTION -->

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
@@ -177,6 +178,33 @@ const galleryPhases = [
   { id: 'aseo', label: 'Aseo adaptado', description: 'La segunda estancia documenta la adaptación del antiguo armario a un nuevo baño de apoyo.' },
   { id: 'antes', label: 'Estado previo', description: 'Las imágenes iniciales permiten entender el punto de partida antes de la transformación.' },
   { id: 'obra', label: 'Proceso de obra', description: 'Fotos de ejecución donde se aprecia la estructura, las instalaciones y la colocación de materiales.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Estado previo',
+    title: 'El punto de partida pedía una mejora funcional y visual mucho más profunda',
+    body: 'El baño original y el antiguo armario no resolvían bien ni la accesibilidad ni la calidad del conjunto. La intervención arrancó desde la demolición para poder replantear el espacio con más lógica.',
+    image: '/images/proyectos/bano-caracas/bano-principal-antes-1.webp',
+    alt: 'Baño principal original antes de la reforma en Caracas',
+    caption: 'El proyecto partía de una base que necesitaba una transformación completa, no solo un cambio superficial.'
+  },
+  {
+    tag: '02 · Adaptación',
+    title: 'La reconversión del armario fue clave para mejorar el uso diario de la vivienda',
+    body: 'Convertir el armario empotrado en un aseo adaptado permitió acercar el servicio al dormitorio y responder mejor a una necesidad real de movilidad reducida sin romper la estética general.',
+    image: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp',
+    alt: 'Antiguo armario reconvertido en nuevo aseo adaptado durante la obra en Caracas',
+    caption: 'La intervención técnica sobre el antiguo armario permitió ganar proximidad, autonomía y continuidad espacial.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'Los dos espacios comparten ahora un lenguaje limpio, luminoso y mucho más sólido',
+    body: 'La combinación de porcelanato gris cemento, suelo efecto madera, iluminación LED y mejor organización de elementos deja un conjunto coherente, sereno y claramente más premium.',
+    image: '/images/proyectos/bano-caracas/bano-principal-finalizado-3.webp',
+    alt: 'Baño principal renovado con iluminación LED y porcelanato gris cemento en Caracas',
+    caption: 'La nueva lectura del proyecto une funcionalidad, accesibilidad y acabado de alta especificación.'
+  }
 ];
 
 const heroImage = project.heroImage;
@@ -457,58 +485,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
 
   <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa del cambio espacial" text="Compara el estado original con el resultado final para entender de inmediato cómo cambian la percepción del baño, la luz y la calidad del conjunto." beforeSrc="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" beforeAlt="Baño principal original antes de la reforma en Caracas" afterSrc="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" afterAlt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" beforeLabel="Antes" afterLabel="Después" beforeCaption="Estado previo con cerámica envejecida y una lectura visual mucho más pesada." afterCaption="Nuevo lenguaje de materiales, mejor iluminación y una ejecución claramente más limpia y elegante." showLightboxButtons={false} />
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN ARQUITECTÓNICA</span>
-        <h2 class="editorial-title">Comparativa Visual: Antes y Después</h2>
-        <p class="editorial-subtitle">
-          Observe la evolución desde el estado original de la cerámica anterior y la estructura en Drywall RH del antiguo armario hasta los acabados finales de lujo.
-        </p>
-      </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="La transformación explicada en una secuencia clara" intro="Este tramo acompaña el relato técnico con imágenes reales para que el usuario entienda el cambio espacial sin perderse entre bloques largos de texto." items={storyMoments} galleryGroup="caracas-story" />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Baño Principal -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" data-alt="Baño principal en su estado original antes de la reforma integral" data-title="Baño Principal Original: Estado Previo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Obra Original</span>
-              <img src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" alt="Baño principal antes de la remodelación en Caracas" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Estado inicial con cerámica desgastada e instalaciones que requerían sustitución de fontanería.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" data-alt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" data-title="Baño Principal Renovado: Acabados Premium">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Resultado Final</span>
-              <img src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" alt="Baño principal finalizado con porcelanato gris cemento 60x60" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Porcelanato gris cemento 60x60, mueble ROCA, inodoro doble descarga y mampara templada.</p>
-          </div>
-        </div>
-
-        <!-- Comparison 2: Aseo Adaptado -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" data-alt="Construcción en Drywall RH 13mm del nuevo aseo en antiguo armario empotrado" data-title="Estructura Drywall RH: Antiguo Armario">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Proceso · Drywall RH 13mm</span>
-              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" alt="Estructura en Drywall hidrófugo RH para nuevo aseo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Montaje de cerramientos con perfiles galvanizados de 60 mm en el hueco del antiguo armario.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" data-alt="Aseo adaptado terminado con puerta corredera flotante para accesibilidad" data-title="Aseo Adaptado: Puerta Corredera Flotante">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Aseo Accesible</span>
-              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" alt="Aseo adaptado terminado con puerta corredera flotante en dormitorio" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Puerta corredera flotante de acceso optimizado para persona con movilidad reducida.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GALERÍA ORDENADA POR FASES -->
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Toda la documentación visual queda agrupada por ambientes y fases para que el usuario pueda seguir el proyecto sin saltos ni desorden visual." items={project.gallery} phases={galleryPhases} id="galeria" />
 
   <!-- 6. LUXURY CALL TO ACTION -->

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
@@ -124,6 +125,33 @@ const project = {
 const galleryPhases = [
   { id: 'final', label: 'Baño terminado', description: 'Las imágenes finales recogen la limpieza visual del gran formato beige y la poceta suspendida.' },
   { id: 'teka', label: 'Sistema TEKA y obra', description: 'Se documentan el bastidor, la instalación y la ejecución técnica que sostienen el resultado.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Sistema',
+    title: 'El corazón técnico del proyecto estaba en el bastidor TEKA suspendido',
+    body: 'Antes de percibir el acabado final, aquí lo importante era resolver bien la estructura del inodoro suspendido, el replanteo y la nueva base hidráulica del baño.',
+    image: '/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp',
+    alt: 'Kit técnico TEKA Manacor para inodoro suspendido en baño de San Diego',
+    caption: 'El sistema empotrado define buena parte de la limpieza visual y funcional del resultado.'
+  },
+  {
+    tag: '02 · Obra',
+    title: 'La instalación del gran formato beige construye una escena mucho más serena',
+    body: 'Durante la ejecución se trabajó el revestimiento rectificado y la coordinación con la plomería para conseguir una lectura limpia, continua y fácil de mantener.',
+    image: '/images/proyectos/bano-san-diego/bano-en-proceso-2.webp',
+    alt: 'Proceso de instalación de porcelanato beige de gran formato en baño de San Diego',
+    caption: 'El orden técnico previo es lo que permite que el baño terminado se vea tan limpio.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El baño terminado transmite limpieza, ligereza y mucha más calidad percibida',
+    body: 'Con la poceta suspendida, el gran formato y el tono beige continuo, el espacio se siente más sofisticado, más cómodo de limpiar y mucho más actual en su lectura.',
+    image: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
+    alt: 'Baño finalizado con porcelanato beige y poceta suspendida en San Diego',
+    caption: 'La composición final une sistema técnico oculto y acabado visual muy depurado.'
+  }
 ];
 
 const heroImage = project.heroImage;
@@ -413,58 +441,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
 
   <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa entre obra técnica y resultado final" text="El valor premium aparece cuando todo el sistema queda oculto y solo se percibe una ejecución limpia, sólida y bien resuelta." beforeSrc="/images/proyectos/bano-san-diego/bano-en-proceso.webp" beforeAlt="Baño en proceso con instalación de porcelanato y plomería en San Diego" afterSrc="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" afterAlt="Baño finalizado con poceta flotante TEKA en San Diego" beforeLabel="Proceso" afterLabel="Resultado" beforeCaption="Fase técnica con bastidor, revestimiento y replanteo todavía visibles." afterCaption="Resultado final con poceta suspendida, gran formato beige y una lectura mucho más depurada." showLightboxButtons={false} />
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN E INGENIERÍA</span>
-        <h2 class="editorial-title">Comparativa: Estructura Técnica vs. Obra Terminada</h2>
-        <p class="editorial-subtitle">
-          Observe la evolución desde el bastidor empotrable TEKA Manacor y el proceso de instalación de revestimientos hasta la elegancia terminada en porcelanato beige de gran formato.
-        </p>
-      </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="Del sistema oculto al resultado final" intro="La secuencia visual resume lo más importante de este proyecto: bastidor técnico, obra bien ejecutada y acabado final limpio y ligero." items={storyMoments} galleryGroup="sandiego-story" />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Sistema TEKA Empotrado vs Baño Terminado -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" data-alt="Kit de bastidor empotrado y poceta flotante TEKA Manacor" data-title="Sistema TEKA Manacor: Cisterna Oculta y Poceta">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Especificación · Kit TEKA Manacor</span>
-              <img src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" alt="Kit TEKA Manacor con pulsador y cisterna empotrada en pared" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Sistema técnico TEKA Manacor con bastidor autoportante y cisterna empotrada para poceta flotante.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" data-alt="Baño terminado con poceta flotante TEKA y revestimiento beige de gran formato 120x60" data-title="Baño Terminado: Poceta Flotante Instalada">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Poceta Instalada</span>
-              <img src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" alt="Baño finalizado en San Diego con poceta flotante TEKA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Resultado final con inodoro suspendido que facilita la limpieza sobre pavimento beige 60x60 y paredes en gran formato 120x60.</p>
-          </div>
-        </div>
-
-        <!-- Comparison 2: Obra y Revestimiento vs Ducha Terminada -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-en-proceso.webp" data-alt="Instalación de porcelanato de gran formato 120x60 beige y plomería multicapa en San Diego" data-title="Instalación de Porcelanato 120x60 y Plomería">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Proceso · Porcelanato 120x60</span>
-              <img src="/images/proyectos/bano-san-diego/bano-en-proceso.webp" alt="Instalación de porcelanato rectificado de gran formato 120x60 y multicapa" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Instalación de cerámica de gran formato 120x60 beige en paredes y canalización hidráulica multicapa PEX-Al-PEX.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-finalizado-2.webp" data-alt="Zona de ducha terminada con mampara fija 80 cm y columna lluvia cromada" data-title="Ducha Walk-In: Mampara 80 cm y Columna Lluvia">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Ducha Walk-In</span>
-              <img src="/images/proyectos/bano-san-diego/bano-finalizado-2.webp" alt="Ducha walk-in finalizada con mampara 80cm en San Diego" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Ducha con mampara fija 80 cm de perfil cromado, cristal templado y columna efecto lluvia.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. GALERÍA ORDENADA POR FASES -->
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La documentación del sistema TEKA y del resultado final se presenta ahora por bloques para una lectura más limpia y premium." items={project.gallery} phases={galleryPhases} id="galeria" />
 
   <!-- 6. LUXURY CALL TO ACTION -->
