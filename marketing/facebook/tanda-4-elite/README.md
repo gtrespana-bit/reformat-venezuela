@@ -1,5 +1,7 @@
 # Colección de Élite (Tanda 4) — RemodelaT Venezuela
 
+> **Perfil Oficial en Facebook:** [RemodelaT Venezuela (ID: 61592513974053)](https://www.facebook.com/profile.php?id=61592513974053)
+
 Esta colección representa el siguiente nivel en la dirección de arte para campañas de captación y reconocimiento de **RemodelaT Venezuela**. Rompe radicalmente con el estilo uniforme azul marino y dorado de las colecciones iniciales para desplegar **4 universos visuales de élite**, diseñados bajo estándares de *Architecture Digest*, diseño editorial suizo, neuro-marketing interactivo y prueba social verificada de alto impacto.
 
 Cada pieza ha sido concebida no solo para encantar visualmente, sino para **provocar clics inmediatos**, curiosidad cualificada y conversaciones de alto valor por WhatsApp.

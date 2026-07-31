@@ -1,6 +1,7 @@
 # Kit de flyers para Facebook — RemodelaT Venezuela
 
 Paquete completo preparado para publicaciones orgánicas y campañas de captación de alto rendimiento por WhatsApp.
+> **Página Oficial en Facebook:** [RemodelaT Venezuela](https://www.facebook.com/profile.php?id=61592513974053)
 
 ## 🔥 Colección de Élite (Tanda 4) — Siguiente Nivel de Captación
 
