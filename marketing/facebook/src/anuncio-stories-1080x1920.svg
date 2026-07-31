@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1080" height="1920" viewBox="0 0 1080 1920">
+  <defs>
+    <linearGradient id="shade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#07101e" stop-opacity="0.72"/><stop offset="0.30" stop-color="#07101e" stop-opacity="0.15"/><stop offset="0.58" stop-color="#07101e" stop-opacity="0.48"/><stop offset="1" stop-color="#07101e" stop-opacity="0.98"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#bd9140"/><stop offset="0.5" stop-color="#efd58e"/><stop offset="1" stop-color="#c29746"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.34"/></filter>
+  </defs>
+  <rect width="1080" height="1920" fill="#07101e"/>
+  <image x="0" y="0" width="1080" height="1920" preserveAspectRatio="xMidYMid slice" href="../../../public/images/hero-lcp.webp" xlink:href="../../../public/images/hero-lcp.webp"/>
+  <rect width="1080" height="1920" fill="url(#shade)"/>
+  <image x="70" y="105" width="360" height="97" preserveAspectRatio="xMinYMid meet" href="../../../public/images/logo-header.webp" xlink:href="../../../public/images/logo-header.webp"/>
+  <g transform="translate(738 121)"><rect width="270" height="50" rx="25" fill="#07101e" fill-opacity="0.68" stroke="#d9ba68"/><text x="135" y="33" text-anchor="middle" fill="#ffffff" font-family="DejaVu Sans, sans-serif" font-size="17" font-weight="700" letter-spacing="1.8">23+ AÑOS</text></g>
+
+  <text x="68" y="970" fill="#d9ba68" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="700" letter-spacing="4">TU PROYECTO, SIN IMPROVISACIONES</text>
+  <rect x="68" y="997" width="75" height="5" fill="url(#gold)"/>
+  <text x="64" y="1110" fill="#ffffff" font-family="DejaVu Serif, serif" font-size="78" font-weight="700">¿Listo para</text>
+  <text x="64" y="1202" fill="#ffffff" font-family="DejaVu Serif, serif" font-size="78" font-weight="700">transformar</text>
+  <text x="64" y="1294" fill="#e5c878" font-family="DejaVu Serif, serif" font-size="78" font-weight="700">tu hogar?</text>
+  <text x="69" y="1372" fill="#f0f2f3" font-family="DejaVu Sans, sans-serif" font-size="26">
+    <tspan x="69">De la valoración técnica a la entrega,</tspan>
+    <tspan x="69" dy="39">con un solo equipo y garantía por escrito.</tspan>
+  </text>
+
+  <g transform="translate(68 1492)" filter="url(#shadow)">
+    <rect width="720" height="108" rx="14" fill="#148447"/>
+    <circle cx="57" cy="54" r="30" fill="#ffffff" fill-opacity="0.16"/>
+    <path d="M47 40 C43 45 44 56 52 65 C60 73 71 74 76 70 L69 60 L62 64 C57 61 52 56 51 51 L55 45 Z" fill="#ffffff"/>
+    <text x="105" y="46" fill="#ffffff" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" letter-spacing="1.5">SOLICITA TU VALORACIÓN</text>
+    <text x="105" y="81" fill="#ffffff" font-family="DejaVu Sans, sans-serif" font-size="28" font-weight="700">WhatsApp 0422 799 7043</text>
+    <path d="M650 54 h28 M666 38 l16 16 -16 16" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(69 1668)" font-family="DejaVu Sans, sans-serif" font-size="21" font-weight="600" fill="#ffffff">
+    <text x="0" y="0">✓ Presupuesto por partidas</text>
+    <text x="0" y="52">✓ Supervisión técnica</text>
+    <text x="0" y="104">✓ Acabados de alto estándar</text>
+  </g>
+  <text x="69" y="1845" fill="#d9ba68" font-family="DejaVu Sans, sans-serif" font-size="18" font-weight="700" letter-spacing="1.6">CARACAS · VALENCIA · SAN DIEGO · CARABOBO</text>
+</svg>
