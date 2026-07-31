@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación Integral de Baño en Townhouse',
@@ -159,7 +164,41 @@ const project = {
   ]
 };
 
+const galleryPhases = [
+  { id: 'final', label: 'Resultado final', description: 'Las fotos finales resumen la nueva amplitud espacial y el acabado rectificado del proyecto.' },
+  { id: 'teka', label: 'Sanitarios y muebles', description: 'Aquí se concentran las piezas TEKA, el mobiliario y los detalles que elevan la calidad percibida.' },
+  { id: 'proceso', label: 'Antes y proceso', description: 'La secuencia previa permite entender la demolición, el replanteo y la instalación del nuevo sistema.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Antes',
+    title: 'La planta original no aprovechaba todo el potencial del baño',
+    body: 'Aunque la superficie existía, la sensación espacial era mucho peor por culpa de los tabiques divisorios y de una lectura visual fragmentada. Por eso la obra empezó liberando la planta.',
+    image: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
+    alt: 'Baño original con tabiques divisorios antes de la reforma en La Trigaleña',
+    caption: 'Los muretes reducían continuidad, amplitud visual y confort de uso.'
+  },
+  {
+    tag: '02 · Ejecución',
+    title: 'La instalación del porcelanato y la nueva base técnica sostienen el resultado premium',
+    body: 'El cambio no depende solo del gran formato visible. También intervienen la nueva fontanería multicapa, el replanteo y la colocación con control de juntas y planeidad.',
+    image: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando.webp',
+    alt: 'Proceso de instalación de porcelanato en baño reformado de La Trigaleña',
+    caption: 'La fase de ejecución determina que el acabado final se perciba verdaderamente limpio y elegante.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El baño gana continuidad, calma visual y un nivel mucho más arquitectónico',
+    body: 'Con la nueva planta abierta, el porcelanato rectificado 60x120 y el equipamiento TEKA, el Townhouse pasa a tener un baño más amplio, más actual y mejor resuelto en cada encuentro.',
+    image: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
+    alt: 'Baño finalizado con plato de ducha en polvo de mármol y sanitarios TEKA en La Trigaleña',
+    caption: 'La nueva escena combina amplitud, materialidad y una presencia claramente superior.'
+  }
+];
+
 const heroImage = project.heroImage;
+const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño en townhouse de La Trigaleña.';
 ---
 
 <BaseLayout 
@@ -218,6 +257,7 @@ const heroImage = project.heroImage;
             <span class="stat-value">TEKA Manacor + Polvo de Mármol</span>
           </div>
         </div>
+        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · comparativa directa · detalles ampliables</p>
       </div>
     </div>
   </header>
@@ -236,7 +276,7 @@ const heroImage = project.heroImage;
   </nav>
 
   <!-- 2. DUAL-SHOWCASE: EL TRIUNFO ESPACIAL (ZERO CROPPING) -->
-  <section class="dual-showcase-section">
+  <section class="dual-showcase-section" id="espacios">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow-text">VISTA DESTACADA DEL PROYECTO</span>
@@ -248,7 +288,7 @@ const heroImage = project.heroImage;
 
       <div class="showcase-grid">
         <!-- Card 1: Amplitud 60x120 -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" data-alt="Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo efecto madera" data-title="Amplitud sin Barreras Arquitectónicas" data-caption="La demolición de los muretes divisorios transformó por completo la estancia y permitió un baño con mucha más continuidad visual y presencia arquitectónica." data-badge="Planta Abierta · Mármol 60x120 cm">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Planta Abierta · Mármol 60x120 cm</span>
             <img 
@@ -272,7 +312,7 @@ const heroImage = project.heroImage;
         </article>
 
         <!-- Card 2: Zona Ducha TEKA -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" data-alt="Plato de ducha en polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA modelo Manacor" data-title="Sanitarios TEKA y Ducha Antideslizante" data-caption="La zona de ducha se equipó con plato sólido en polvo de mármol, grifería TEKA efecto lluvia e inodoro europeo TEKA Manacor para un conjunto más técnico y elegante." data-badge="Ducha Polvo Mármol · Sanitarios TEKA">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Ducha Polvo Mármol · Sanitarios TEKA</span>
             <img 
@@ -299,7 +339,7 @@ const heroImage = project.heroImage;
   </section>
 
   <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section">
+  <section class="technical-narrative-section" id="memoria">
     <div class="container">
       <div class="narrative-layout">
         <!-- Main Editorial Narrative -->
@@ -441,130 +481,13 @@ const heroImage = project.heroImage;
     </div>
   </section>
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN ARQUITECTÓNICA</span>
-        <h2 class="editorial-title">Comparativa Visual: Antes y Después</h2>
-        <p class="editorial-subtitle">
-          Observe cómo la eliminación de los tabiques divisorios y el reemplazo por porcelanato rectificado 60x120 duplicó la sensación de amplitud en este Townhouse.
-        </p>
-      </div>
+  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa de amplitud y lectura visual" text="Aquí se entiende muy bien el impacto de eliminar tabiques divisorios y construir una escena más abierta y más limpia." beforeSrc="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" beforeAlt="Baño original con tabiques divisorios antes de la reforma en La Trigaleña" afterSrc="/images/proyectos/bano-la-trigalena/bano-final-1.webp" afterAlt="Baño finalizado sin tabiques divisorios con porcelanato 60x120 en La Trigaleña" beforeLabel="Antes" afterLabel="Después" beforeCaption="Los muretes fragmentaban el baño y le quitaban continuidad visual." afterCaption="La nueva planta abierta hace que el espacio se sienta mucho más amplio, sereno y sofisticado." showLightboxButtons={false} />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Redistribución y Tabiques -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" data-alt="Baño en estado original en La Trigaleña con tabiques divisorios" data-title="Estado Original: Tabiques Divisorios y Encierro">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Tabiques Divisorios</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" alt="Baño original con muretes divisorios en Townhouse" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Estado original del baño donde los muretes reducían drásticamente la continuidad visual.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" data-alt="Baño renovado sin tabiques con porcelanato rectificado 60x120 efecto mármol" data-title="Baño Renovado: Planta Abierta 60x120">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Planta Abierta</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" alt="Baño remodelado sin tabiques con porcelanato importado 60x120" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Espacio liberado con porcelanato importado 60x120 efecto mármol y pavimento madera.</p>
-          </div>
-        </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="La intervención contada por etapas clave" intro="Este bloque resume el cambio de manera más directa: estado original, ejecución y resultado final, con apoyo fotográfico inmediato." items={storyMoments} galleryGroup="trigalena-story" />
 
-        <!-- Comparison 2: Zona Ducha y Sanitarios -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-antes-2.webp" data-alt="Zona original de ducha con sanitarios y mampara anterior" data-title="Estado Original: Ducha y Alicatado Antiguo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Zona de Ducha</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-antes-2.webp" alt="Área de ducha antigua con mampara y alicatado para demoler" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Área de ducha con instalaciones y plomería para reemplazar con tubería multicapa.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" data-alt="Zona de ducha renovada con plato de polvo de mármol y sanitarios TEKA Manacor" data-title="Ducha Renovada: Plato Polvo de Mármol y TEKA">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Sanitarios TEKA</span>
-              <img src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" alt="Ducha terminada con plato en polvo de mármol antideslizante y grifería TEKA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Plato sólido de polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA Manacor.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Las imágenes se agrupan por bloques para que el cambio espacial, los sanitarios y el proceso de obra se entiendan con mucha más claridad." items={project.gallery} phases={galleryPhases} id="galeria" />
 
-  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT) -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
-        <h2 class="editorial-title">Galería Detallada del Proyecto (12 Fotos Reales)</h2>
-        <p class="editorial-subtitle">
-          Exhibición fotográfica sin recortes: las proporciones reales permiten apreciar el alineamiento rectificado 90°, el proceso de colocación y la calidad del equipamiento TEKA.
-        </p>
-
-        <!-- Interactive Filter Tabs -->
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>Todas las Fotos</span>
-            <span class="filter-count">12</span>
-          </button>
-          <button class="filter-btn" data-filter="final" role="tab" aria-selected="false">
-            <span>Resultado Final</span>
-            <span class="filter-count">3</span>
-          </button>
-          <button class="filter-btn" data-filter="teka" role="tab" aria-selected="false">
-            <span>Sanitarios TEKA y Muebles</span>
-            <span class="filter-count">2</span>
-          </button>
-          <button class="filter-btn" data-filter="proceso" role="tab" aria-selected="false">
-            <span>Antes y Proceso de Obra</span>
-            <span class="filter-count">7</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid with Zero-Crop Images -->
-      <div class="gallery-masonry" id="gallery-grid">
-        {project.gallery.map((img, idx) => (
-          <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
-            data-category={img.category}
-            data-index={idx}
-            data-src={img.src}
-            data-alt={img.alt}
-            data-title={img.title}
-            data-caption={img.caption}
-          >
-            <div class="card-image-box">
-              <span class="card-badge">{img.badge}</span>
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                loading="lazy" 
-                decoding="async" 
-              />
-              <div class="card-hover-overlay">
-                <span class="hover-zoom-btn">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    <line x1="11" y1="8" x2="11" y2="14"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                  </svg>
-                  Ampliar imagen
-                </span>
-              </div>
-            </div>
-            <div class="card-caption-box">
-              <span class="card-category-tag">{img.categoryLabel}</span>
-              <h3 class="card-title">{img.title}</h3>
-              <p class="card-desc">{img.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
@@ -589,35 +512,7 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </section>
-
-  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
-    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
-    <button class="lightbox-prev" aria-label="Imagen anterior">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-    </button>
-    <button class="lightbox-next" aria-label="Imagen siguiente">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </button>
-
-    <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-info">
-        <div class="lightbox-meta">
-          <span id="lightbox-badge" class="lightbox-badge"></span>
-          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">12</span></span>
-        </div>
-        <h3 id="lightbox-title" class="lightbox-title"></h3>
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
@@ -751,6 +646,26 @@ const heroImage = project.heroImage;
     backdrop-filter: blur(8px);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn-premium {
+    min-height: 52px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .stat-item {
     display: flex;
     flex-direction: column;
@@ -778,6 +693,21 @@ const heroImage = project.heroImage;
     width: 1px;
     height: 32px;
     background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-proof {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   /* ==========================================================
@@ -844,11 +774,11 @@ const heroImage = project.heroImage;
   .showcase-image-frame {
     position: relative;
     background: var(--ink-soft);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .showcase-badge {
@@ -1192,11 +1122,11 @@ const heroImage = project.heroImage;
     position: relative;
     background: var(--ink-soft);
     border-radius: var(--r-sm);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 360px;
     overflow: hidden;
   }
 
@@ -1345,16 +1275,16 @@ const heroImage = project.heroImage;
   .card-image-box {
     position: relative;
     background: var(--ink-soft);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 320px;
     overflow: hidden;
   }
 
   .card-landscape .card-image-box {
-    min-height: 420px;
+    min-height: 340px;
   }
 
   .card-badge {
@@ -1782,172 +1712,3 @@ const heroImage = project.heroImage;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================================
-       1. GALLERY FILTER TABS
-       ========================================================== */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetFilter = btn.getAttribute('data-filter');
-
-        // Toggle active button state
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetFilter === 'all' || category === targetFilter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================
-       2. INTERACTIVE LIGHTBOX SYSTEM
-       ========================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxBadge = document.getElementById('lightbox-badge');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    // Build items list from gallery and comparison pairs
-    interface LightboxItem {
-      src: string;
-      alt: string;
-      title: string;
-      caption: string;
-      badge: string;
-    }
-
-    let items: LightboxItem[] = [];
-    let currentIndex = 0;
-
-    // Populate items from gallery cards
-    const cardElements = document.querySelectorAll('.gallery-card');
-    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
-      const img = el.querySelector('img');
-      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
-      return {
-        src: el.getAttribute('data-src') || img?.src || '',
-        alt: el.getAttribute('data-alt') || img?.alt || '',
-        title: el.getAttribute('data-title') || 'Remodelación de Baño',
-        caption: el.getAttribute('data-caption') || '',
-        badge: badge
-      };
-    });
-
-    function openLightbox(newItems: LightboxItem[], index: number) {
-      if (!lightbox || !lightboxImg) return;
-      items = newItems;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      if (!lightboxImg || !items[currentIndex]) return;
-      const current = items[currentIndex];
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      if (lightboxTitle) lightboxTitle.textContent = current.title;
-      if (lightboxCaption) lightboxCaption.textContent = current.caption;
-      if (lightboxBadge) lightboxBadge.textContent = current.badge;
-      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
-    }
-
-    function prevImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox || !lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-
-    // Attach click events to gallery cards
-    cardElements.forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        openLightbox(galleryItems, idx);
-      });
-    });
-
-    // Attach click events to Before/After comparison items
-    document.querySelectorAll('.comparison-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
-        const item: LightboxItem = {
-          src: el.getAttribute('data-src') || img?.src || '',
-          alt: el.getAttribute('data-alt') || img?.alt || '',
-          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
-          caption: el.querySelector('.comparison-caption')?.textContent || '',
-          badge: label
-        };
-        openLightbox([item], 0);
-      });
-    });
-
-    // Attach click events to showcase cards
-    document.querySelectorAll('.showcase-card').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
-        if (!img) return;
-        const item: LightboxItem = {
-          src: img.src,
-          alt: img.alt,
-          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
-          caption: el.querySelector('.showcase-desc')?.textContent || '',
-          badge: badge
-        };
-        openLightbox([item], 0);
-      });
-    });
-  });
-</script>

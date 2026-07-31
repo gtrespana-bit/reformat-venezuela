@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación de Baño con Poceta Flotante TEKA',
@@ -118,7 +123,40 @@ const project = {
   ]
 };
 
+const galleryPhases = [
+  { id: 'final', label: 'Baño terminado', description: 'Las imágenes finales recogen la limpieza visual del gran formato beige y la poceta suspendida.' },
+  { id: 'teka', label: 'Sistema TEKA y obra', description: 'Se documentan el bastidor, la instalación y la ejecución técnica que sostienen el resultado.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Sistema',
+    title: 'El corazón técnico del proyecto estaba en el bastidor TEKA suspendido',
+    body: 'Antes de percibir el acabado final, aquí lo importante era resolver bien la estructura del inodoro suspendido, el replanteo y la nueva base hidráulica del baño.',
+    image: '/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp',
+    alt: 'Kit técnico TEKA Manacor para inodoro suspendido en baño de San Diego',
+    caption: 'El sistema empotrado define buena parte de la limpieza visual y funcional del resultado.'
+  },
+  {
+    tag: '02 · Obra',
+    title: 'La instalación del gran formato beige construye una escena mucho más serena',
+    body: 'Durante la ejecución se trabajó el revestimiento rectificado y la coordinación con la plomería para conseguir una lectura limpia, continua y fácil de mantener.',
+    image: '/images/proyectos/bano-san-diego/bano-en-proceso-2.webp',
+    alt: 'Proceso de instalación de porcelanato beige de gran formato en baño de San Diego',
+    caption: 'El orden técnico previo es lo que permite que el baño terminado se vea tan limpio.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El baño terminado transmite limpieza, ligereza y mucha más calidad percibida',
+    body: 'Con la poceta suspendida, el gran formato y el tono beige continuo, el espacio se siente más sofisticado, más cómodo de limpiar y mucho más actual en su lectura.',
+    image: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
+    alt: 'Baño finalizado con porcelanato beige y poceta suspendida en San Diego',
+    caption: 'La composición final une sistema técnico oculto y acabado visual muy depurado.'
+  }
+];
+
 const heroImage = project.heroImage;
+const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño con poceta flotante de San Diego.';
 ---
 
 <BaseLayout 
@@ -177,6 +215,7 @@ const heroImage = project.heroImage;
             <span class="stat-value">Mampara Fija 80 cm + Lluvia</span>
           </div>
         </div>
+        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · sistema técnico documentado · ampliación en lightbox</p>
       </div>
     </div>
   </header>
@@ -195,7 +234,7 @@ const heroImage = project.heroImage;
   </nav>
 
   <!-- 2. DUAL-SHOWCASE: INNOVACIÓN SANITARIA (ZERO CROPPING) -->
-  <section class="dual-showcase-section">
+  <section class="dual-showcase-section" id="espacios">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow-text">VISTA DESTACADA DEL PROYECTO</span>
@@ -207,7 +246,7 @@ const heroImage = project.heroImage;
 
       <div class="showcase-grid">
         <!-- Card 1: Sistema TEKA Manacor -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="sandiego-showcase" data-src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" data-alt="Kit marca TEKA modelo Manacor de inodoro suspendido con cisterna empotrada y pulsador" data-title="Ingeniería de Inodoro Flotante TEKA" data-caption="El cliente eligió el sistema oficial TEKA Manacor con bastidor metálico empotrado y cisterna oculta, base clave para la limpieza visual del resultado." data-badge="Sistema Suspendido · TEKA Manacor">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Sistema Suspendido · TEKA Manacor</span>
             <img 
@@ -231,7 +270,7 @@ const heroImage = project.heroImage;
         </article>
 
         <!-- Card 2: Baño Terminado Beige -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="sandiego-showcase" data-src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" data-alt="Baño finalizado en San Diego con poceta flotante TEKA y porcelanato beige rectificado" data-title="Integración Monolítica en Beige" data-caption="El revestimiento rectificado en gran formato y la poceta elevada construyen un baño mucho más limpio, luminoso y fácil de mantener." data-badge="Baño Terminado · Gran Formato 120x60">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Baño Terminado · Gran Formato 120x60</span>
             <img 
@@ -258,7 +297,7 @@ const heroImage = project.heroImage;
   </section>
 
   <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section">
+  <section class="technical-narrative-section" id="memoria">
     <div class="container">
       <div class="narrative-layout">
         <!-- Main Editorial Narrative -->
@@ -401,126 +440,13 @@ const heroImage = project.heroImage;
     </div>
   </section>
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN E INGENIERÍA</span>
-        <h2 class="editorial-title">Comparativa: Estructura Técnica vs. Obra Terminada</h2>
-        <p class="editorial-subtitle">
-          Observe la evolución desde el bastidor empotrable TEKA Manacor y el proceso de instalación de revestimientos hasta la elegancia terminada en porcelanato beige de gran formato.
-        </p>
-      </div>
+  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa entre obra técnica y resultado final" text="El valor premium aparece cuando todo el sistema queda oculto y solo se percibe una ejecución limpia, sólida y bien resuelta." beforeSrc="/images/proyectos/bano-san-diego/bano-en-proceso.webp" beforeAlt="Baño en proceso con instalación de porcelanato y plomería en San Diego" afterSrc="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" afterAlt="Baño finalizado con poceta flotante TEKA en San Diego" beforeLabel="Proceso" afterLabel="Resultado" beforeCaption="Fase técnica con bastidor, revestimiento y replanteo todavía visibles." afterCaption="Resultado final con poceta suspendida, gran formato beige y una lectura mucho más depurada." showLightboxButtons={false} />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Sistema TEKA Empotrado vs Baño Terminado -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" data-alt="Kit de bastidor empotrado y poceta flotante TEKA Manacor" data-title="Sistema TEKA Manacor: Cisterna Oculta y Poceta">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Especificación · Kit TEKA Manacor</span>
-              <img src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" alt="Kit TEKA Manacor con pulsador y cisterna empotrada en pared" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Sistema técnico TEKA Manacor con bastidor autoportante y cisterna empotrada para poceta flotante.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" data-alt="Baño terminado con poceta flotante TEKA y revestimiento beige de gran formato 120x60" data-title="Baño Terminado: Poceta Flotante Instalada">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Poceta Instalada</span>
-              <img src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" alt="Baño finalizado en San Diego con poceta flotante TEKA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Resultado final con inodoro suspendido que facilita la limpieza sobre pavimento beige 60x60 y paredes en gran formato 120x60.</p>
-          </div>
-        </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="Del sistema oculto al resultado final" intro="La secuencia visual resume lo más importante de este proyecto: bastidor técnico, obra bien ejecutada y acabado final limpio y ligero." items={storyMoments} galleryGroup="sandiego-story" />
 
-        <!-- Comparison 2: Obra y Revestimiento vs Ducha Terminada -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-en-proceso.webp" data-alt="Instalación de porcelanato de gran formato 120x60 beige y plomería multicapa en San Diego" data-title="Instalación de Porcelanato 120x60 y Plomería">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Proceso · Porcelanato 120x60</span>
-              <img src="/images/proyectos/bano-san-diego/bano-en-proceso.webp" alt="Instalación de porcelanato rectificado de gran formato 120x60 y multicapa" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Instalación de cerámica de gran formato 120x60 beige en paredes y canalización hidráulica multicapa PEX-Al-PEX.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-san-diego/bano-finalizado-2.webp" data-alt="Zona de ducha terminada con mampara fija 80 cm y columna lluvia cromada" data-title="Ducha Walk-In: Mampara 80 cm y Columna Lluvia">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Ducha Walk-In</span>
-              <img src="/images/proyectos/bano-san-diego/bano-finalizado-2.webp" alt="Ducha walk-in finalizada con mampara 80cm en San Diego" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Ducha con mampara fija 80 cm de perfil cromado, cristal templado y columna efecto lluvia.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La documentación del sistema TEKA y del resultado final se presenta ahora por bloques para una lectura más limpia y premium." items={project.gallery} phases={galleryPhases} id="galeria" />
 
-  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT) -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
-        <h2 class="editorial-title">Galería Detallada del Proyecto (8 Fotos Reales)</h2>
-        <p class="editorial-subtitle">
-          Recorra las fotografías reales sin cortes de encuadre: observe en detalle el kit técnico TEKA Manacor, el proceso de instalación de porcelanato y los acabados finales.
-        </p>
-
-        <!-- Interactive Filter Tabs -->
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>Todas las Fotos</span>
-            <span class="filter-count">8</span>
-          </button>
-          <button class="filter-btn" data-filter="final" role="tab" aria-selected="false">
-            <span>Baño Terminado</span>
-            <span class="filter-count">4</span>
-          </button>
-          <button class="filter-btn" data-filter="teka" role="tab" aria-selected="false">
-            <span>Sistema TEKA y Albañilería</span>
-            <span class="filter-count">4</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid with Zero-Crop Images -->
-      <div class="gallery-masonry" id="gallery-grid">
-        {project.gallery.map((img, idx) => (
-          <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
-            data-category={img.category}
-            data-index={idx}
-            data-src={img.src}
-            data-alt={img.alt}
-            data-title={img.title}
-            data-caption={img.caption}
-          >
-            <div class="card-image-box">
-              <span class="card-badge">{img.badge}</span>
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                loading="lazy" 
-                decoding="async" 
-              />
-              <div class="card-hover-overlay">
-                <span class="hover-zoom-btn">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    <line x1="11" y1="8" x2="11" y2="14"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                  </svg>
-                  Ampliar imagen
-                </span>
-              </div>
-            </div>
-            <div class="card-caption-box">
-              <span class="card-category-tag">{img.categoryLabel}</span>
-              <h3 class="card-title">{img.title}</h3>
-              <p class="card-desc">{img.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
@@ -545,35 +471,7 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </section>
-
-  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
-    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
-    <button class="lightbox-prev" aria-label="Imagen anterior">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-    </button>
-    <button class="lightbox-next" aria-label="Imagen siguiente">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </button>
-
-    <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-info">
-        <div class="lightbox-meta">
-          <span id="lightbox-badge" class="lightbox-badge"></span>
-          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">8</span></span>
-        </div>
-        <h3 id="lightbox-title" class="lightbox-title"></h3>
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
@@ -707,6 +605,26 @@ const heroImage = project.heroImage;
     backdrop-filter: blur(8px);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn-premium {
+    min-height: 52px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .stat-item {
     display: flex;
     flex-direction: column;
@@ -734,6 +652,21 @@ const heroImage = project.heroImage;
     width: 1px;
     height: 32px;
     background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-proof {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   /* ==========================================================
@@ -800,11 +733,11 @@ const heroImage = project.heroImage;
   .showcase-image-frame {
     position: relative;
     background: var(--ink-soft);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .showcase-badge {
@@ -1148,11 +1081,11 @@ const heroImage = project.heroImage;
     position: relative;
     background: var(--ink-soft);
     border-radius: var(--r-sm);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 360px;
     overflow: hidden;
   }
 
@@ -1301,16 +1234,16 @@ const heroImage = project.heroImage;
   .card-image-box {
     position: relative;
     background: var(--ink-soft);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 320px;
     overflow: hidden;
   }
 
   .card-landscape .card-image-box {
-    min-height: 420px;
+    min-height: 340px;
   }
 
   .card-badge {
@@ -1738,172 +1671,3 @@ const heroImage = project.heroImage;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================================
-       1. GALLERY FILTER TABS
-       ========================================================== */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetFilter = btn.getAttribute('data-filter');
-
-        // Toggle active button state
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetFilter === 'all' || category === targetFilter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================
-       2. INTERACTIVE LIGHTBOX SYSTEM
-       ========================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxBadge = document.getElementById('lightbox-badge');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    // Build items list from gallery and comparison pairs
-    interface LightboxItem {
-      src: string;
-      alt: string;
-      title: string;
-      caption: string;
-      badge: string;
-    }
-
-    let items: LightboxItem[] = [];
-    let currentIndex = 0;
-
-    // Populate items from gallery cards
-    const cardElements = document.querySelectorAll('.gallery-card');
-    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
-      const img = el.querySelector('img');
-      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
-      return {
-        src: el.getAttribute('data-src') || img?.src || '',
-        alt: el.getAttribute('data-alt') || img?.alt || '',
-        title: el.getAttribute('data-title') || 'Remodelación de Baño',
-        caption: el.getAttribute('data-caption') || '',
-        badge: badge
-      };
-    });
-
-    function openLightbox(newItems: LightboxItem[], index: number) {
-      if (!lightbox || !lightboxImg) return;
-      items = newItems;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      if (!lightboxImg || !items[currentIndex]) return;
-      const current = items[currentIndex];
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      if (lightboxTitle) lightboxTitle.textContent = current.title;
-      if (lightboxCaption) lightboxCaption.textContent = current.caption;
-      if (lightboxBadge) lightboxBadge.textContent = current.badge;
-      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
-    }
-
-    function prevImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox || !lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-
-    // Attach click events to gallery cards
-    cardElements.forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        openLightbox(galleryItems, idx);
-      });
-    });
-
-    // Attach click events to Before/After comparison items
-    document.querySelectorAll('.comparison-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
-        const item: LightboxItem = {
-          src: el.getAttribute('data-src') || img?.src || '',
-          alt: el.getAttribute('data-alt') || img?.alt || '',
-          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
-          caption: el.querySelector('.comparison-caption')?.textContent || '',
-          badge: label
-        };
-        openLightbox([item], 0);
-      });
-    });
-
-    // Attach click events to showcase cards
-    document.querySelectorAll('.showcase-card').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
-        if (!img) return;
-        const item: LightboxItem = {
-          src: img.src,
-          alt: img.alt,
-          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
-          caption: el.querySelector('.showcase-desc')?.textContent || '',
-          badge: badge
-        };
-        openLightbox([item], 0);
-      });
-    });
-  });
-</script>

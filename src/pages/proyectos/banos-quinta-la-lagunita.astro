@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación Integral de Baño de Lujo en Quinta de Guataparo',
@@ -323,7 +328,42 @@ const project = {
   ]
 };
 
+const galleryPhases = [
+  { id: 'final', label: 'Baños terminados', description: 'La fase final reúne las salas completas con microcemento, piedra volcánica, porcelanato y sanitarios premium.' },
+  { id: 'ventanal', label: 'Ventanal y luz natural', description: 'Se documenta la apertura de fachada y la nueva entrada de luz como parte esencial del proyecto.' },
+  { id: 'obra', label: 'Hormigón y microcemento', description: 'Estas fotos muestran la construcción de encimeras, ducha y otras soluciones ejecutadas in situ.' },
+  { id: 'demolicion', label: 'Original y demolición', description: 'El bloque inicial permite comprender el alcance real de la transformación arquitectónica.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Transformación',
+    title: 'La obra empieza por una decisión radical: abrir la fachada y rehacer la arquitectura interior',
+    body: 'El baño original no tenía la luz ni la presencia que pedía la vivienda. Por eso el proyecto arrancó con una intervención estructural que cambió por completo la relación entre interior, fachada y recorrido.' ,
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp',
+    alt: 'Demolición estructural del muro exterior para abrir un gran ventanal en Guataparo',
+    caption: 'La entrada de luz natural fue uno de los grandes gestos que redefinieron el proyecto.'
+  },
+  {
+    tag: '02 · Construcción',
+    title: 'El lujo aquí no es solo material: también es constructivo',
+    body: 'Las encimeras de hormigón, la ducha ejecutada in situ y el trabajo posterior en microcemento exigieron una base técnica muy medida para que el resultado se viera realmente sólido y sereno.',
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-encimera-hormigon.webp',
+    alt: 'Construcción de encimera de hormigón para baño de lujo en Guataparo',
+    caption: 'La obra construyó piezas casi escultóricas antes de llegar al acabado final.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'El conjunto terminado se siente mucho más arquitectónico, luminoso y exclusivo',
+    body: 'Microcemento blanco, piedra volcánica, ventanal, porcelanato metro verde y sanitarios premium construyen una atmósfera de gran presencia pero muy bien equilibrada.',
+    image: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp',
+    alt: 'Zona de lavabo terminada con encimera flotante y porcelanato metro verde en Guataparo',
+    caption: 'La fase final convierte la intervención técnica en una experiencia visual de alto nivel.'
+  }
+];
+
 const heroImage = project.heroImage;
+const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño de lujo en quinta de Guataparo.';
 ---
 
 <BaseLayout 
@@ -382,6 +422,7 @@ const heroImage = project.heroImage;
             <span class="stat-value">Piedra Volcánica + Italia & ROCA</span>
           </div>
         </div>
+        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · transformación arquitectónica documentada · detalle ampliable</p>
       </div>
     </div>
   </header>
@@ -400,7 +441,7 @@ const heroImage = project.heroImage;
   </nav>
 
   <!-- 2. DUAL-SHOWCASE: DOS AMBIENTES INDEPENDIENTES (ZERO CROPPING) -->
-  <section class="dual-showcase-section">
+  <section class="dual-showcase-section" id="espacios">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow-text">VISTA MAESTRA DEL PROYECTO</span>
@@ -412,7 +453,7 @@ const heroImage = project.heroImage;
 
       <div class="showcase-grid">
         <!-- Card 1: Zona 1 Ducha y Piedra Volcánica -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="guataparo-showcase" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado-2.webp" data-alt="Zona de ducha del baño en quinta de Guataparo revestida en microcemento blanco" data-title="Santuario Principal y Piedra Volcánica" data-caption="La Zona 1 alberga la ducha escultórica en hormigón y una encimera en microcemento blanco resuelta en voladizo puro, acompañada por piedra volcánica importada y gran ventanal panorámico." data-badge="Zona 1 · Ducha en Microcemento">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Zona 1 · Ducha en Microcemento</span>
             <img 
@@ -437,7 +478,7 @@ const heroImage = project.heroImage;
         </article>
 
         <!-- Card 2: Zona 2 Sala Sanitaria Privada -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="guataparo-showcase" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" data-alt="Sala sanitaria independiente en Guataparo con inodoro importado ROCA y porcelanato metro verde" data-title="Sala Sanitaria Privada e Inodoro ROCA" data-caption="La segunda sala independiente combina aislamiento, encimera en microcemento blanco, lavabo italiano e inodoro ROCA dentro de un ambiente mucho más exclusivo y privado." data-badge="Zona 2 · Sala Sanitaria Privada ROCA">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Zona 2 · Sala Sanitaria Privada ROCA</span>
             <img 
@@ -464,7 +505,7 @@ const heroImage = project.heroImage;
   </section>
 
   <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section">
+  <section class="technical-narrative-section" id="memoria">
     <div class="container">
       <div class="narrative-layout">
         <!-- Main Editorial Narrative -->
@@ -605,134 +646,13 @@ const heroImage = project.heroImage;
     </div>
   </section>
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN E INGENIERÍA EN GUATAPARO</span>
-        <h2 class="editorial-title">Comparativa: Demolición de Fachada y Salas Independientes</h2>
-        <p class="editorial-subtitle">
-          Observe el impacto del gran ventanal panorámico en el antiguo muro ciego y la reconfiguración del espacio en dos ambientes privados con muro de 15 cm.
-        </p>
-      </div>
+  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa entre intervención estructural y resultado" text="Aquí se resume uno de los cambios más potentes del proyecto: abrir la fachada, introducir luz natural y elevar la experiencia espacial del baño." beforeSrc="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" beforeAlt="Demolición del muro exterior para abrir un ventanal en la quinta de Guataparo" afterSrc="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" afterAlt="Ventanal panorámico y pavimento continuo de microcemento en baño de lujo en Guataparo" beforeLabel="Obra" afterLabel="Resultado" beforeCaption="El baño todavía estaba en fase de apertura estructural para permitir el nuevo ventanal." afterCaption="Con luz natural, microcemento continuo y nueva arquitectura interior, la percepción cambia por completo." showLightboxButtons={false} />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Muro Exterior Ciego vs Ventanal Panorámico -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" data-alt="Demolición estructural de muro exterior en quinta de Guataparo para ventanal" data-title="Demolición Exterior: Apertura de Vano Panorámico">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Obra · Demolición Exterior</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-demolicion-y-apertura-ventanal.webp" alt="Demolición de pared exterior ciega en Guataparo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Apertura del muro de fachada ciego que antes mantenía el baño de la quinta en penumbra.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" data-alt="Ventanal panorámico y baño de lujo terminado en Guataparo" data-title="Ventanal y Lujo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Ventanal y Lujo</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-piso-microcemento-mas-lavabo-sobrepuesto.webp" alt="Ventanal panorámico en baño finalizado de Guataparo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">El nuevo ventanal panorámico ya montado, junto al pavimento continuo de microcemento y la encimera flotante.</p>
-          </div>
-        </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="Una obra de gran escala explicada en tres momentos" intro="La secuencia permite entender cómo una decisión estructural, una ejecución de alto nivel y un acabado muy cuidado construyen el resultado final." items={storyMoments} galleryGroup="guataparo-story" />
 
-        <!-- Comparison 2: Muro Separador de Hormigón vs Sala Sanitaria 2 -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" data-alt="Construcción de tabique separador en bloque de hormigón 15 cm en Guataparo" data-title="Obra: Zona de Ducha en Bruto y Tabique Separador">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Obra · Ducha en Bruto</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-nuevo-muro-separador-de-bloque-3.webp" alt="Zona de ducha en bruto junto al tabique separador de hormigón en quinta de Valencia" loading="lazy" />
-            </div>
-            <p class="comparison-caption">La zona de ducha aún sin ejecutar, con parte del tabique central de 15 cm ya levantado.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" data-alt="Sala sanitaria independiente en Guataparo con inodoro ROCA e Italia" data-title="Sala Sanitaria Independiente: Inodoro ROCA">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Sala Privada ROCA</span>
-              <img src="/images/proyectos/banos-quinta-la-lagunita/bano-zona-2-completado.webp" alt="Sala sanitaria Zona 2 terminada en Guataparo con inodoro ROCA" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Ambiente independiente y aislado con inodoro ROCA, lavabo italiano y metro verde.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La obra se presenta por fases claras: baños terminados, ventanal, proceso constructivo y demolición, para que el recorrido visual tenga más orden y más presencia editorial." items={project.gallery} phases={galleryPhases} id="galeria" />
 
-  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT - 28 FOTOS) -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
-        <h2 class="editorial-title">Galería Detallada del Proyecto (28 Fotos Reales)</h2>
-        <p class="editorial-subtitle">
-          Explore cada una de las 28 fotografías documentales del proyecto en Guataparo sin recortes: la demolición exterior, las encimeras de hormigón, los ventanales con rotura térmica y los acabados en microcemento e Italia.
-        </p>
-
-        <!-- Interactive Filter Tabs -->
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>Todas las Fotos</span>
-            <span class="filter-count">28</span>
-          </button>
-          <button class="filter-btn" data-filter="final" role="tab" aria-selected="false">
-            <span>Baños Terminados y Lujo</span>
-            <span class="filter-count">6</span>
-          </button>
-          <button class="filter-btn" data-filter="ventanal" role="tab" aria-selected="false">
-            <span>Ventanal y Luz Natural</span>
-            <span class="filter-count">5</span>
-          </button>
-          <button class="filter-btn" data-filter="obra" role="tab" aria-selected="false">
-            <span>Hormigón y Microcemento</span>
-            <span class="filter-count">9</span>
-          </button>
-          <button class="filter-btn" data-filter="demolicion" role="tab" aria-selected="false">
-            <span>Original y Demolición</span>
-            <span class="filter-count">8</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid with Zero-Crop Images -->
-      <div class="gallery-masonry" id="gallery-grid">
-        {project.gallery.map((img, idx) => (
-          <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
-            data-category={img.category}
-            data-index={idx}
-            data-src={img.src}
-            data-alt={img.alt}
-            data-title={img.title}
-            data-caption={img.caption}
-          >
-            <div class="card-image-box">
-              <span class="card-badge">{img.badge}</span>
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                loading="lazy" 
-                decoding="async" 
-              />
-              <div class="card-hover-overlay">
-                <span class="hover-zoom-btn">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    <line x1="11" y1="8" x2="11" y2="14"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                  </svg>
-                  Ampliar imagen
-                </span>
-              </div>
-            </div>
-            <div class="card-caption-box">
-              <span class="card-category-tag">{img.categoryLabel}</span>
-              <h3 class="card-title">{img.title}</h3>
-              <p class="card-desc">{img.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
@@ -757,35 +677,7 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </section>
-
-  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
-    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
-    <button class="lightbox-prev" aria-label="Imagen anterior">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-    </button>
-    <button class="lightbox-next" aria-label="Imagen siguiente">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </button>
-
-    <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-info">
-        <div class="lightbox-meta">
-          <span id="lightbox-badge" class="lightbox-badge"></span>
-          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">28</span></span>
-        </div>
-        <h3 id="lightbox-title" class="lightbox-title"></h3>
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
@@ -919,6 +811,26 @@ const heroImage = project.heroImage;
     backdrop-filter: blur(8px);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn-premium {
+    min-height: 52px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .stat-item {
     display: flex;
     flex-direction: column;
@@ -946,6 +858,21 @@ const heroImage = project.heroImage;
     width: 1px;
     height: 32px;
     background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-proof {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   /* ==========================================================
@@ -1012,11 +939,11 @@ const heroImage = project.heroImage;
   .showcase-image-frame {
     position: relative;
     background: var(--ink-soft);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .showcase-badge {
@@ -1360,11 +1287,11 @@ const heroImage = project.heroImage;
     position: relative;
     background: var(--ink-soft);
     border-radius: var(--r-sm);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 360px;
     overflow: hidden;
   }
 
@@ -1513,16 +1440,16 @@ const heroImage = project.heroImage;
   .card-image-box {
     position: relative;
     background: var(--ink-soft);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 320px;
     overflow: hidden;
   }
 
   .card-landscape .card-image-box {
-    min-height: 420px;
+    min-height: 340px;
   }
 
   .card-badge {
@@ -1950,172 +1877,3 @@ const heroImage = project.heroImage;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================================
-       1. GALLERY FILTER TABS
-       ========================================================== */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetFilter = btn.getAttribute('data-filter');
-
-        // Toggle active button state
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetFilter === 'all' || category === targetFilter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================
-       2. INTERACTIVE LIGHTBOX SYSTEM
-       ========================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxBadge = document.getElementById('lightbox-badge');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    // Build items list from gallery and comparison pairs
-    interface LightboxItem {
-      src: string;
-      alt: string;
-      title: string;
-      caption: string;
-      badge: string;
-    }
-
-    let items: LightboxItem[] = [];
-    let currentIndex = 0;
-
-    // Populate items from gallery cards
-    const cardElements = document.querySelectorAll('.gallery-card');
-    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
-      const img = el.querySelector('img');
-      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
-      return {
-        src: el.getAttribute('data-src') || img?.src || '',
-        alt: el.getAttribute('data-alt') || img?.alt || '',
-        title: el.getAttribute('data-title') || 'Remodelación de Baño',
-        caption: el.getAttribute('data-caption') || '',
-        badge: badge
-      };
-    });
-
-    function openLightbox(newItems: LightboxItem[], index: number) {
-      if (!lightbox || !lightboxImg) return;
-      items = newItems;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      if (!lightboxImg || !items[currentIndex]) return;
-      const current = items[currentIndex];
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      if (lightboxTitle) lightboxTitle.textContent = current.title;
-      if (lightboxCaption) lightboxCaption.textContent = current.caption;
-      if (lightboxBadge) lightboxBadge.textContent = current.badge;
-      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
-    }
-
-    function prevImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox || !lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-
-    // Attach click events to gallery cards
-    cardElements.forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        openLightbox(galleryItems, idx);
-      });
-    });
-
-    // Attach click events to Before/After comparison items
-    document.querySelectorAll('.comparison-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
-        const item: LightboxItem = {
-          src: el.getAttribute('data-src') || img?.src || '',
-          alt: el.getAttribute('data-alt') || img?.alt || '',
-          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
-          caption: el.querySelector('.comparison-caption')?.textContent || '',
-          badge: label
-        };
-        openLightbox([item], 0);
-      });
-    });
-
-    // Attach click events to showcase cards
-    document.querySelectorAll('.showcase-card').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
-        if (!img) return;
-        const item: LightboxItem = {
-          src: img.src,
-          alt: img.alt,
-          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
-          caption: el.querySelector('.showcase-desc')?.textContent || '',
-          badge: badge
-        };
-        openLightbox([item], 0);
-      });
-    });
-  });
-</script>

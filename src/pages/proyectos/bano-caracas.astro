@@ -1,5 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación de Baño Principal y Aseo Adaptado',
@@ -169,7 +174,42 @@ const project = {
   ]
 };
 
+const galleryPhases = [
+  { id: 'principal', label: 'Baño principal', description: 'El espacio principal terminado muestra la nueva lectura de materiales, iluminación y plomería resuelta.' },
+  { id: 'aseo', label: 'Aseo adaptado', description: 'La segunda estancia documenta la adaptación del antiguo armario a un nuevo baño de apoyo.' },
+  { id: 'antes', label: 'Estado previo', description: 'Las imágenes iniciales permiten entender el punto de partida antes de la transformación.' },
+  { id: 'obra', label: 'Proceso de obra', description: 'Fotos de ejecución donde se aprecia la estructura, las instalaciones y la colocación de materiales.' }
+];
+
+const storyMoments = [
+  {
+    tag: '01 · Estado previo',
+    title: 'El punto de partida pedía una mejora funcional y visual mucho más profunda',
+    body: 'El baño original y el antiguo armario no resolvían bien ni la accesibilidad ni la calidad del conjunto. La intervención arrancó desde la demolición para poder replantear el espacio con más lógica.',
+    image: '/images/proyectos/bano-caracas/bano-principal-antes-1.webp',
+    alt: 'Baño principal original antes de la reforma en Caracas',
+    caption: 'El proyecto partía de una base que necesitaba una transformación completa, no solo un cambio superficial.'
+  },
+  {
+    tag: '02 · Adaptación',
+    title: 'La reconversión del armario fue clave para mejorar el uso diario de la vivienda',
+    body: 'Convertir el armario empotrado en un aseo adaptado permitió acercar el servicio al dormitorio y responder mejor a una necesidad real de movilidad reducida sin romper la estética general.',
+    image: '/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp',
+    alt: 'Antiguo armario reconvertido en nuevo aseo adaptado durante la obra en Caracas',
+    caption: 'La intervención técnica sobre el antiguo armario permitió ganar proximidad, autonomía y continuidad espacial.'
+  },
+  {
+    tag: '03 · Resultado final',
+    title: 'Los dos espacios comparten ahora un lenguaje limpio, luminoso y mucho más sólido',
+    body: 'La combinación de porcelanato gris cemento, suelo efecto madera, iluminación LED y mejor organización de elementos deja un conjunto coherente, sereno y claramente más premium.',
+    image: '/images/proyectos/bano-caracas/bano-principal-finalizado-3.webp',
+    alt: 'Baño principal renovado con iluminación LED y porcelanato gris cemento en Caracas',
+    caption: 'La nueva lectura del proyecto une funcionalidad, accesibilidad y acabado de alta especificación.'
+  }
+];
+
 const heroImage = project.heroImage;
+const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño principal y aseo adaptado de Caracas.';
 ---
 
 <BaseLayout 
@@ -228,6 +268,7 @@ const heroImage = project.heroImage;
             <span class="stat-value">Puerta Corredera Flotante</span>
           </div>
         </div>
+        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · memoria técnica documentada · imágenes ampliables</p>
       </div>
     </div>
   </header>
@@ -246,7 +287,7 @@ const heroImage = project.heroImage;
   </nav>
 
   <!-- 2. DUAL-SHOWCASE: LOS DOS ESPACIOS DEL PROYECTO (ZERO CROPPING) -->
-  <section class="dual-showcase-section">
+  <section class="dual-showcase-section" id="espacios">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow-text">VISTA DOBLE DEL PROYECTO</span>
@@ -258,7 +299,7 @@ const heroImage = project.heroImage;
 
       <div class="showcase-grid">
         <!-- Card 1: Baño Principal -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="caracas-showcase" data-src="/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp" data-alt="Baño principal finalizado con porcelanato español gris cemento 60x60 y suelo efecto madera" data-title="Baño Principal Renovado" data-caption="Reforma integral de suelo a techo con porcelanato español en tono gris cemento, suelo efecto madera cálido, mueble de 100 cm con grifería ROCA e iluminación LED 6500K." data-badge="Baño Principal · Reforma Integral">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Baño Principal · Reforma Integral</span>
             <img 
@@ -282,7 +323,7 @@ const heroImage = project.heroImage;
         </article>
 
         <!-- Card 2: Aseo Adaptado -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="caracas-showcase" data-src="/images/proyectos/bano-caracas/bano-2-finalizado-1.webp" data-alt="Nuevo aseo adaptado en antiguo armario empotrado con lavabo de 45 cm y puerta corredera flotante" data-title="Aseo Adaptado en Antiguo Armario" data-caption="Creación desde cero de un aseo compacto en el espacio que ocupaba un armario empotrado, diseñado para ofrecer la máxima cercanía en el dormitorio a una persona mayor." data-badge="Aseo Adaptado · Ex-Armario Empotrado">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Aseo Adaptado · Ex-Armario Empotrado</span>
             <img 
@@ -309,7 +350,7 @@ const heroImage = project.heroImage;
   </section>
 
   <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section">
+  <section class="technical-narrative-section" id="memoria">
     <div class="container">
       <div class="narrative-layout">
         <!-- Main Editorial Narrative -->
@@ -443,134 +484,13 @@ const heroImage = project.heroImage;
     </div>
   </section>
 
-  <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
-  <section class="before-after-section">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">TRANSFORMACIÓN ARQUITECTÓNICA</span>
-        <h2 class="editorial-title">Comparativa Visual: Antes y Después</h2>
-        <p class="editorial-subtitle">
-          Observe la evolución desde el estado original de la cerámica anterior y la estructura en Drywall RH del antiguo armario hasta los acabados finales de lujo.
-        </p>
-      </div>
+  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa del cambio espacial" text="Compara el estado original con el resultado final para entender de inmediato cómo cambian la percepción del baño, la luz y la calidad del conjunto." beforeSrc="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" beforeAlt="Baño principal original antes de la reforma en Caracas" afterSrc="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" afterAlt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" beforeLabel="Antes" afterLabel="Después" beforeCaption="Estado previo con cerámica envejecida y una lectura visual mucho más pesada." afterCaption="Nuevo lenguaje de materiales, mejor iluminación y una ejecución claramente más limpia y elegante." showLightboxButtons={false} />
 
-      <div class="comparison-grid">
-        <!-- Comparison 1: Baño Principal -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" data-alt="Baño principal en su estado original antes de la reforma integral" data-title="Baño Principal Original: Estado Previo">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Antes · Obra Original</span>
-              <img src="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" alt="Baño principal antes de la remodelación en Caracas" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Estado inicial con cerámica desgastada e instalaciones que requerían sustitución de fontanería.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" data-alt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" data-title="Baño Principal Renovado: Acabados Premium">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Resultado Final</span>
-              <img src="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" alt="Baño principal finalizado con porcelanato gris cemento 60x60" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Porcelanato gris cemento 60x60, mueble ROCA, inodoro doble descarga y mampara templada.</p>
-          </div>
-        </div>
+  <ProjectReadingGallery eyebrow="Recorrido visual" title="La transformación explicada en una secuencia clara" intro="Este tramo acompaña el relato técnico con imágenes reales para que el usuario entienda el cambio espacial sin perderse entre bloques largos de texto." items={storyMoments} galleryGroup="caracas-story" />
 
-        <!-- Comparison 2: Aseo Adaptado -->
-        <div class="comparison-pair">
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" data-alt="Construcción en Drywall RH 13mm del nuevo aseo en antiguo armario empotrado" data-title="Estructura Drywall RH: Antiguo Armario">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label before-label">Proceso · Drywall RH 13mm</span>
-              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano.webp" alt="Estructura en Drywall hidrófugo RH para nuevo aseo" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Montaje de cerramientos con perfiles galvanizados de 60 mm en el hueco del antiguo armario.</p>
-          </div>
-          <div class="comparison-item" data-src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" data-alt="Aseo adaptado terminado con puerta corredera flotante para accesibilidad" data-title="Aseo Adaptado: Puerta Corredera Flotante">
-            <div class="comparison-image-wrapper">
-              <span class="comparison-label after-label">Después · Aseo Accesible</span>
-              <img src="/images/proyectos/bano-caracas/bano-2-armario-convertido-a-bano-con-puerta.webp" alt="Aseo adaptado terminado con puerta corredera flotante en dormitorio" loading="lazy" />
-            </div>
-            <p class="comparison-caption">Puerta corredera flotante de acceso optimizado para persona con movilidad reducida.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Toda la documentación visual queda agrupada por ambientes y fases para que el usuario pueda seguir el proyecto sin saltos ni desorden visual." items={project.gallery} phases={galleryPhases} id="galeria" />
 
-  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT) -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
-        <h2 class="editorial-title">Galería Detallada del Proyecto (13 Fotos Reales)</h2>
-        <p class="editorial-subtitle">
-          Explore cada fase del proyecto sin recortes artificiales: las fotografías preservan su proporción real para poder apreciar con precisión la fontanería, las pendientes y los acabados de revestimiento.
-        </p>
-
-        <!-- Interactive Filter Tabs -->
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>Todos los Espacios</span>
-            <span class="filter-count">13</span>
-          </button>
-          <button class="filter-btn" data-filter="principal" role="tab" aria-selected="false">
-            <span>Baño Principal</span>
-            <span class="filter-count">6</span>
-          </button>
-          <button class="filter-btn" data-filter="aseo" role="tab" aria-selected="false">
-            <span>Aseo Adaptado</span>
-            <span class="filter-count">3</span>
-          </button>
-          <button class="filter-btn" data-filter="antes" role="tab" aria-selected="false">
-            <span>Estado Original (Antes)</span>
-            <span class="filter-count">2</span>
-          </button>
-          <button class="filter-btn" data-filter="obra" role="tab" aria-selected="false">
-            <span>Proceso de Obra</span>
-            <span class="filter-count">2</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid with Zero-Crop Images -->
-      <div class="gallery-masonry" id="gallery-grid">
-        {project.gallery.map((img, idx) => (
-          <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
-            data-category={img.category}
-            data-index={idx}
-            data-src={img.src}
-            data-alt={img.alt}
-            data-title={img.title}
-            data-caption={img.caption}
-          >
-            <div class="card-image-box">
-              <span class="card-badge">{img.badge}</span>
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                loading="lazy" 
-                decoding="async" 
-              />
-              <div class="card-hover-overlay">
-                <span class="hover-zoom-btn">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    <line x1="11" y1="8" x2="11" y2="14"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                  </svg>
-                  Ampliar imagen
-                </span>
-              </div>
-            </div>
-            <div class="card-caption-box">
-              <span class="card-category-tag">{img.categoryLabel}</span>
-              <h3 class="card-title">{img.title}</h3>
-              <p class="card-desc">{img.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
@@ -595,35 +515,7 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </section>
-
-  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
-    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
-    <button class="lightbox-prev" aria-label="Imagen anterior">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-    </button>
-    <button class="lightbox-next" aria-label="Imagen siguiente">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </button>
-
-    <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-info">
-        <div class="lightbox-meta">
-          <span id="lightbox-badge" class="lightbox-badge"></span>
-          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">13</span></span>
-        </div>
-        <h3 id="lightbox-title" class="lightbox-title"></h3>
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
@@ -757,6 +649,26 @@ const heroImage = project.heroImage;
     backdrop-filter: blur(8px);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn-premium {
+    min-height: 52px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .stat-item {
     display: flex;
     flex-direction: column;
@@ -784,6 +696,21 @@ const heroImage = project.heroImage;
     width: 1px;
     height: 32px;
     background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-proof {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   /* ==========================================================
@@ -850,11 +777,11 @@ const heroImage = project.heroImage;
   .showcase-image-frame {
     position: relative;
     background: var(--ink-soft);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .showcase-badge {
@@ -1185,11 +1112,11 @@ const heroImage = project.heroImage;
     position: relative;
     background: var(--ink-soft);
     border-radius: var(--r-sm);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 360px;
     overflow: hidden;
   }
 
@@ -1338,16 +1265,16 @@ const heroImage = project.heroImage;
   .card-image-box {
     position: relative;
     background: var(--ink-soft);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 320px;
     overflow: hidden;
   }
 
   .card-landscape .card-image-box {
-    min-height: 420px;
+    min-height: 340px;
   }
 
   .card-badge {
@@ -1775,172 +1702,3 @@ const heroImage = project.heroImage;
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================================
-       1. GALLERY FILTER TABS
-       ========================================================== */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetFilter = btn.getAttribute('data-filter');
-
-        // Toggle active button state
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetFilter === 'all' || category === targetFilter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================
-       2. INTERACTIVE LIGHTBOX SYSTEM
-       ========================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxBadge = document.getElementById('lightbox-badge');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    // Build items list from gallery and comparison pairs
-    interface LightboxItem {
-      src: string;
-      alt: string;
-      title: string;
-      caption: string;
-      badge: string;
-    }
-
-    let items: LightboxItem[] = [];
-    let currentIndex = 0;
-
-    // Populate items from gallery cards
-    const cardElements = document.querySelectorAll('.gallery-card');
-    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
-      const img = el.querySelector('img');
-      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
-      return {
-        src: el.getAttribute('data-src') || img?.src || '',
-        alt: el.getAttribute('data-alt') || img?.alt || '',
-        title: el.getAttribute('data-title') || 'Remodelación de Baño',
-        caption: el.getAttribute('data-caption') || '',
-        badge: badge
-      };
-    });
-
-    function openLightbox(newItems: LightboxItem[], index: number) {
-      if (!lightbox || !lightboxImg) return;
-      items = newItems;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      if (!lightboxImg || !items[currentIndex]) return;
-      const current = items[currentIndex];
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      if (lightboxTitle) lightboxTitle.textContent = current.title;
-      if (lightboxCaption) lightboxCaption.textContent = current.caption;
-      if (lightboxBadge) lightboxBadge.textContent = current.badge;
-      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
-    }
-
-    function prevImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox || !lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-
-    // Attach click events to gallery cards
-    cardElements.forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        openLightbox(galleryItems, idx);
-      });
-    });
-
-    // Attach click events to Before/After comparison items
-    document.querySelectorAll('.comparison-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
-        const item: LightboxItem = {
-          src: el.getAttribute('data-src') || img?.src || '',
-          alt: el.getAttribute('data-alt') || img?.alt || '',
-          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
-          caption: el.querySelector('.comparison-caption')?.textContent || '',
-          badge: label
-        };
-        openLightbox([item], 0);
-      });
-    });
-
-    // Attach click events to showcase cards
-    document.querySelectorAll('.showcase-card').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
-        if (!img) return;
-        const item: LightboxItem = {
-          src: img.src,
-          alt: img.alt,
-          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
-          caption: el.querySelector('.showcase-desc')?.textContent || '',
-          badge: badge
-        };
-        openLightbox([item], 0);
-      });
-    });
-  });
-</script>

@@ -491,6 +491,45 @@ const navItems = isEnglish
       });
     }
 
+    /* Lightboxes heredados de las páginas de proyectos.
+       Algunos casos de estudio montaron su propio visor antes del componente
+       compartido. Esta mejora progresiva les añade navegación táctil sin
+       reescribir toda la página: deslizar a izquierda/derecha avanza o retrocede. */
+    const initLegacyProjectLightboxSwipe = () => {
+      document.querySelectorAll('.lightbox:not([data-project-lightbox])').forEach((lightbox) => {
+        const root = lightbox as HTMLElement;
+        if (root.dataset.swipeBound === 'true') return;
+        root.dataset.swipeBound = 'true';
+
+        const swipeZone = (root.querySelector('.lightbox-content') || root.querySelector('.lightbox-img-wrapper') || root) as HTMLElement | null;
+        const prevBtn = root.querySelector('.lightbox-prev') as HTMLButtonElement | null;
+        const nextBtn = root.querySelector('.lightbox-next') as HTMLButtonElement | null;
+        if (!swipeZone || !prevBtn || !nextBtn) return;
+
+        let startX = 0;
+        let startY = 0;
+
+        swipeZone.addEventListener('touchstart', (event) => {
+          const touch = event.changedTouches[0];
+          startX = touch.clientX;
+          startY = touch.clientY;
+        }, { passive: true });
+
+        swipeZone.addEventListener('touchend', (event) => {
+          if (!root.classList.contains('active')) return;
+          const touch = event.changedTouches[0];
+          const deltaX = touch.clientX - startX;
+          const deltaY = touch.clientY - startY;
+          if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+          if (deltaX < 0) nextBtn.click();
+          if (deltaX > 0) prevBtn.click();
+        }, { passive: true });
+      });
+    };
+
+    initLegacyProjectLightboxSwipe();
+    document.addEventListener('astro:page-load', initLegacyProjectLightboxSwipe);
+
     window.shareArticle = (platform) => {
       const url = window.location.href;
       const title = document.title;

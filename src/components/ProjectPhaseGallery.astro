@@ -1,0 +1,465 @@
+---
+interface GalleryItem {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  badge: string;
+  category: string;
+  categoryLabel: string;
+  orientation?: 'portrait' | 'landscape';
+}
+
+interface PhaseInfo {
+  id: string;
+  label: string;
+  description?: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  items: GalleryItem[];
+  phases: PhaseInfo[];
+  id?: string;
+  buttonLabel?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  intro,
+  items,
+  phases,
+  id = 'galeria',
+  buttonLabel = 'Ampliar foto'
+} = Astro.props;
+
+const groupedPhases = phases
+  .map((phase) => {
+    const phaseItems = items.filter((item) => item.category === phase.id);
+    return {
+      ...phase,
+      items: phaseItems,
+      featured: phaseItems[0],
+      rest: phaseItems.slice(1)
+    };
+  })
+  .filter((phase) => phase.items.length > 0);
+---
+
+<section class="project-phase-gallery section bg-light" id={id}>
+  <div class="container">
+    <div class="section-header project-phase-gallery-header">
+      <span class="tag">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-desc">{intro}</p>
+
+      <div class="project-phase-nav" aria-label="Fases del proyecto">
+        {groupedPhases.map((phase) => (
+          <a href={`#${id}-${phase.id}`} class="project-phase-pill">
+            <span>{phase.label}</span>
+            <span class="project-phase-pill-count">{phase.items.length}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="project-phase-sections">
+      {groupedPhases.map((phase) => (
+        <section class="project-phase-block" id={`${id}-${phase.id}`}>
+          <div class="project-phase-block-head">
+            <div>
+              <span class="project-phase-kicker">{phase.label}</span>
+              {phase.description && <p class="project-phase-description">{phase.description}</p>}
+            </div>
+            <span class="project-phase-counter">{phase.items.length} fotos</span>
+          </div>
+
+          {phase.featured && (
+            <article
+              class="project-phase-featured"
+              data-lightbox-item
+              data-lightbox-group={`phase-${phase.id}`}
+              data-src={phase.featured.src}
+              data-alt={phase.featured.alt}
+              data-title={phase.featured.title}
+              data-caption={phase.featured.caption}
+              data-badge={phase.featured.badge}
+            >
+              <div class="project-phase-featured-media">
+                <span class="project-phase-index">01</span>
+                <span class="project-phase-badge">{phase.featured.badge}</span>
+                <span class="project-phase-expand-hint">Ampliar</span>
+                <img src={phase.featured.src} alt={phase.featured.alt} loading="lazy" decoding="async" />
+                <div class="gallery-zoom-overlay">
+                  <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={phase.featured.src}>{buttonLabel}</button>
+                </div>
+              </div>
+              <div class="project-phase-featured-copy">
+                <span class="project-phase-copy-tag">{phase.featured.categoryLabel}</span>
+                <h3>{phase.featured.title}</h3>
+                <p>{phase.featured.caption}</p>
+              </div>
+            </article>
+          )}
+
+          {phase.rest.length > 0 && (
+            <div class="project-phase-grid">
+              {phase.rest.map((image, index) => (
+                <article
+                  class:list={[
+                    'project-phase-card',
+                    image.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'
+                  ]}
+                  data-lightbox-item
+                  data-lightbox-group={`phase-${phase.id}`}
+                  data-src={image.src}
+                  data-alt={image.alt}
+                  data-title={image.title}
+                  data-caption={image.caption}
+                  data-badge={image.badge}
+                >
+                  <div class="project-phase-media">
+                    <span class="project-phase-index">{String(index + 2).padStart(2, '0')}</span>
+                    <span class="project-phase-badge">{image.badge}</span>
+                    <span class="project-phase-expand-hint">Ampliar</span>
+                    <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                    <div class="gallery-zoom-overlay">
+                      <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={image.src}>{buttonLabel}</button>
+                    </div>
+                  </div>
+                  <div class="project-phase-copy">
+                    <span class="project-phase-copy-tag">{image.categoryLabel}</span>
+                    <h3>{image.title}</h3>
+                    <p>{image.caption}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-phase-gallery {
+    scroll-margin-top: 118px;
+  }
+  .project-phase-gallery-header {
+    max-width: 860px;
+  }
+  .project-phase-gallery-header .section-desc {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .project-phase-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .project-phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: var(--r-full);
+    background: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.25);
+    color: var(--text);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .project-phase-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(201,169,97,.5);
+    box-shadow: 0 12px 22px rgba(20,18,14,.05);
+  }
+  .project-phase-pill-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+    border-radius: var(--r-full);
+    background: rgba(201,169,97,.14);
+    color: var(--gold-ink-strong);
+    font-size: .74rem;
+  }
+  .project-phase-sections {
+    display: grid;
+    gap: 32px;
+  }
+  .project-phase-block {
+    position: relative;
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(201,169,97,.14);
+    box-shadow: 0 22px 45px rgba(20,18,14,.05);
+    overflow: hidden;
+  }
+  .project-phase-block::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 28px;
+    right: 28px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,97,.5), transparent);
+  }
+  .project-phase-block-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(201,169,97,.14);
+  }
+  .project-phase-kicker {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .project-phase-description {
+    color: var(--text-muted);
+    line-height: 1.72;
+    margin: 0;
+    max-width: 760px;
+  }
+  .project-phase-counter {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: var(--r-full);
+    background: var(--bone);
+    border: 1px solid rgba(201,169,97,.2);
+    color: var(--gold-ink-strong);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+
+  .project-phase-featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1.06fr) minmax(300px, .94fr);
+    gap: 20px;
+    align-items: stretch;
+    margin-bottom: 22px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.14);
+    box-shadow: var(--e-1);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .project-phase-featured:hover,
+  .project-phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,.34);
+  }
+  .project-phase-featured-media,
+  .project-phase-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 38%),
+      var(--ink-soft);
+  }
+  .project-phase-featured-media {
+    min-height: 400px;
+  }
+  .project-phase-featured-media img,
+  .project-phase-media img {
+    max-width: 100%;
+    max-height: 520px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 16px 34px rgba(0,0,0,.28);
+  }
+  .project-phase-featured-copy,
+  .project-phase-copy {
+    padding: 20px 22px 24px;
+  }
+  .project-phase-featured-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .project-phase-copy-tag {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .project-phase-featured-copy h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    line-height: 1.08;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .project-phase-featured-copy p,
+  .project-phase-copy p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: .96rem;
+  }
+
+  .project-phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: start;
+  }
+  .project-phase-card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.14);
+    box-shadow: var(--e-1);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+    min-width: 0;
+  }
+  .project-phase-card.is-landscape {
+    grid-column: span 2;
+  }
+  .project-phase-card.is-portrait .project-phase-media {
+    min-height: 320px;
+  }
+  .project-phase-card.is-landscape .project-phase-media {
+    min-height: 280px;
+  }
+  .project-phase-index,
+  .project-phase-badge,
+  .project-phase-expand-hint {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: var(--r-full);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-phase-index {
+    top: 14px;
+    left: 14px;
+    background: rgba(20,18,14,.84);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .project-phase-badge {
+    top: 14px;
+    right: 14px;
+    background: var(--gold);
+    color: var(--ink);
+  }
+  .project-phase-expand-hint {
+    right: 14px;
+    bottom: 14px;
+    background: rgba(20,18,14,.82);
+    color: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.26);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+  .project-phase-copy h3 {
+    font-family: var(--font-serif);
+    font-size: 1.28rem;
+    line-height: 1.14;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+
+  @media (max-width: 980px) {
+    .project-phase-featured {
+      grid-template-columns: 1fr;
+    }
+    .project-phase-featured-copy {
+      border-left: 0;
+      border-top: 1px solid rgba(201,169,97,.1);
+    }
+    .project-phase-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .project-phase-card.is-landscape {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .project-phase-block {
+      padding: 22px;
+      border-radius: 22px;
+    }
+    .project-phase-block-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-phase-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-phase-card.is-landscape {
+      grid-column: span 1;
+    }
+    .project-phase-featured-media,
+    .project-phase-card.is-portrait .project-phase-media,
+    .project-phase-card.is-landscape .project-phase-media {
+      min-height: 280px;
+      padding: 14px;
+    }
+    .project-phase-featured-media img,
+    .project-phase-media img {
+      max-height: 420px;
+    }
+    .project-phase-featured-copy,
+    .project-phase-copy {
+      padding: 18px 18px 20px;
+    }
+    .project-phase-pill {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

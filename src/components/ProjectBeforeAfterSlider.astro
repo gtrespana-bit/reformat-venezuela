@@ -1,0 +1,302 @@
+---
+interface Props {
+  id: string;
+  eyebrow?: string;
+  title: string;
+  text: string;
+  beforeSrc: string;
+  beforeAlt: string;
+  afterSrc: string;
+  afterAlt: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+  beforeCaption?: string;
+  afterCaption?: string;
+  group?: string;
+  showLightboxButtons?: boolean;
+}
+
+const {
+  id,
+  eyebrow = 'Antes y después',
+  title,
+  text,
+  beforeSrc,
+  beforeAlt,
+  afterSrc,
+  afterAlt,
+  beforeLabel = 'Antes',
+  afterLabel = 'Después',
+  beforeCaption = beforeAlt,
+  afterCaption = afterAlt,
+  group = `${id}-compare`,
+  showLightboxButtons = true
+} = Astro.props;
+---
+
+<section class="project-compare section bg-light" id={id}>
+  <div class="container">
+    <div class="project-compare-header">
+      <span class="tag">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-desc">{text}</p>
+    </div>
+
+    <div class="project-compare-stage">
+      <figure
+        class="project-compare-card is-before"
+        data-lightbox-item
+        data-lightbox-group={group}
+        data-src={beforeSrc}
+        data-alt={beforeAlt}
+        data-title={beforeLabel}
+        data-caption={beforeAlt}
+        data-badge={beforeLabel}
+      >
+        <div class="project-compare-media">
+          <span class="project-compare-chip project-compare-chip-before">{beforeLabel}</span>
+          <span class="project-compare-expand-hint">Ampliar</span>
+          <img src={beforeSrc} alt={beforeAlt} loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <strong>{beforeLabel}</strong>
+          <p>{beforeCaption}</p>
+          {showLightboxButtons && (
+            <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={beforeSrc}>Ampliar {beforeLabel.toLowerCase()}</button>
+          )}
+        </figcaption>
+      </figure>
+
+      <div class="project-compare-bridge" aria-hidden="true">
+        <span class="project-compare-bridge-line"></span>
+        <span class="project-compare-bridge-badge">Cambio real</span>
+        <span class="project-compare-bridge-arrow">→</span>
+        <span class="project-compare-bridge-line"></span>
+      </div>
+
+      <figure
+        class="project-compare-card is-after"
+        data-lightbox-item
+        data-lightbox-group={group}
+        data-src={afterSrc}
+        data-alt={afterAlt}
+        data-title={afterLabel}
+        data-caption={afterAlt}
+        data-badge={afterLabel}
+      >
+        <div class="project-compare-media">
+          <span class="project-compare-chip project-compare-chip-after">{afterLabel}</span>
+          <span class="project-compare-expand-hint">Ampliar</span>
+          <img src={afterSrc} alt={afterAlt} loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <strong>{afterLabel}</strong>
+          <p>{afterCaption}</p>
+          {showLightboxButtons && (
+            <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={afterSrc}>Ampliar {afterLabel.toLowerCase()}</button>
+          )}
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-compare {
+    scroll-margin-top: 118px;
+  }
+  .project-compare-header {
+    max-width: 860px;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+  .project-compare-header .section-desc {
+    max-width: 760px;
+    margin: 0 auto;
+  }
+  .project-compare-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 20px;
+    align-items: stretch;
+  }
+  .project-compare-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 28px;
+    overflow: hidden;
+    background: rgba(255,255,255,.94);
+    border: 1px solid rgba(201,169,97,.16);
+    box-shadow: 0 22px 44px rgba(20,18,14,.06);
+    min-width: 0;
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .project-compare-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,.34);
+  }
+  .project-compare-media {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 36%),
+      var(--ink-soft);
+  }
+  .project-compare-media img {
+    max-width: 100%;
+    max-height: 460px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.32);
+  }
+  .project-compare-chip,
+  .project-compare-expand-hint {
+    position: absolute;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
+    border-radius: var(--r-full);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-compare-chip-before {
+    top: 16px;
+    left: 16px;
+    background: rgba(20,18,14,.84);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .project-compare-chip-after {
+    top: 16px;
+    left: 16px;
+    background: var(--gold);
+    color: var(--ink);
+    border: 1px solid rgba(201,169,97,.3);
+  }
+  .project-compare-expand-hint {
+    right: 16px;
+    bottom: 16px;
+    background: rgba(20,18,14,.82);
+    color: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.28);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+  .project-compare-card figcaption {
+    padding: 22px 22px 24px;
+    border-top: 1px solid rgba(201,169,97,.12);
+  }
+  .project-compare-card strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .project-compare-card p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+  }
+  .project-compare-card .expand-photo-btn {
+    margin-top: 16px;
+  }
+  .project-compare-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 120px;
+  }
+  .project-compare-bridge-line {
+    width: 1px;
+    height: 72px;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,97,.55), transparent);
+  }
+  .project-compare-bridge-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: var(--r-full);
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.24);
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .project-compare-bridge-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--gold);
+    font-size: 1.3rem;
+    box-shadow: 0 14px 28px rgba(20,18,14,.16);
+  }
+
+  @media (max-width: 980px) {
+    .project-compare-stage {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .project-compare-bridge {
+      flex-direction: row;
+      min-width: 0;
+    }
+    .project-compare-bridge-line {
+      width: 100%;
+      max-width: 84px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.55), transparent);
+    }
+    .project-compare-bridge-arrow {
+      transform: rotate(90deg);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-compare-card {
+      border-radius: 22px;
+    }
+    .project-compare-media {
+      min-height: 280px;
+      padding: 14px;
+    }
+    .project-compare-media img {
+      max-height: 380px;
+    }
+    .project-compare-card figcaption {
+      padding: 18px 18px 20px;
+    }
+    .project-compare-card strong {
+      font-size: 1.38rem;
+    }
+    .project-compare-card .expand-photo-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
