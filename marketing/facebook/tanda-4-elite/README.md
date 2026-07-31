@@ -24,7 +24,7 @@ Cada pieza ha sido concebida no solo para encantar visualmente, sino para **prov
 | `01-swiss-lookbook-2026-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Swiss White | `👉 DESCARGAR LOOKBOOK 2026 Y COTIZAR TU PROYECTO` |
 | `02-swiss-cocina-isla-cuarzo-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Swiss White | `👉 VER PROYECTOS EJECUTADOS Y SOLICITAR PROPUESTA` |
 | `03-swiss-bano-suite-1080x1080.jpg` | Feed Cuadrado | 1080 × 1080 | Swiss White | `👉 SOLICITAR COTIZACIÓN POR PARTIDAS EN TU PROPIEDAD` |
-| `04-obsidian-vip-concierge-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Obsidian & Bronze | `👉 SOLICITAR VISITA TÉCNICA VIP EN TU PROPIEDAD` |
+| `04-obsidian-servicio-integral-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Obsidian & Bronze | `👉 SOLICITAR VISITA TÉCNICA VIP EN TU PROPIEDAD` |
 | `05-obsidian-calculadora-interactiva-1080x1080.jpg` | Feed Cuadrado | 1080 × 1080 | Obsidian & Bronze | `👉 CALCULAR MI PRESUPUESTO EN 1 CLIC` |
 | `06-obsidian-story-quizz-1080x1920.jpg` | Story / Reel | 1080 × 1920 | Obsidian & Bronze | `👆 TOCA AQUÍ PARA ELEGIR TU OPCIÓN Y COTIZAR` |
 | `07-mediterranean-villa-integral-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Mediterranean | `👉 EXPLORA LA COLECCIÓN ORGÁNICA Y COTIZA TU HOGAR` |

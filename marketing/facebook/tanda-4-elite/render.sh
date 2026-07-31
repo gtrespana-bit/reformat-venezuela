@@ -167,7 +167,7 @@ finish "$TMP/03-final.miff" "03-swiss-bano-suite-1080x1080.jpg"
 # ===========================================================================
 
 # ---------------------------------------------------------------------------
-# 04 · Obsidian VIP Concierge — Invitación Cupos de Obra (1080x1350)
+# 04 · Obsidian Servicio Integral VIP — Invitación Cupos de Obra (1080x1350)
 # ---------------------------------------------------------------------------
 convert -size 1080x1350 "xc:$OBS_BG" "$TMP/04-base.miff"
 rounded_cover "$ROOT/public/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp" 960 560 20 "$TMP/04-hero.png" center
@@ -178,7 +178,7 @@ convert "$TMP/04-b.miff" \
   -stroke none -fill "$OBS_GOLD" -draw 'roundrectangle 670,180 990,224 18,18' \
   -fill "$OBS_BG" -font "$BODY_BOLD" -pointsize 12 -kerning 1.2 -gravity northwest -annotate +695+194 '★ OBRA VERIFICADA · LA LAGUNITA' \
   -fill "$OBS_GOLD" -font "$BODY_BOLD" -pointsize 13 -kerning 2.5 -annotate +580+64 'CUPOS DE OBRA — CUARTO TRIMESTRE' \
-  -fill "$OBS_CHAMP" -font "$HEAD_BOLD" -pointsize 54 -annotate +60+790 'Servicio Concierge de' \
+  -fill "$OBS_CHAMP" -font "$HEAD_BOLD" -pointsize 54 -annotate +60+790 'Servicio Integral de' \
   -annotate +60+850 'Remodelación Residencial.' \
   -fill '#B4B8C0' -font "$BODY_MED" -pointsize 17 -annotate +60+915 'Coordinación completa de principio a fin: diseño arquitectónico, demolición,' \
   -annotate +60+945 'instalaciones técnicas, carpintería a medida y acabados de estándar superior.' \
@@ -190,7 +190,7 @@ convert "$TMP/04-b.miff" \
   -pointsize 26 -kerning 0 -annotate +100+1208 'WhatsApp 0422 799 7043' \
   -font "$BODY_BOLD" -pointsize 14 -kerning 1 -annotate +780+1188 'CARACAS & VALENCIA' \
   "$TMP/04-final.miff"
-finish "$TMP/04-final.miff" "04-obsidian-vip-concierge-1080x1350.jpg"
+finish "$TMP/04-final.miff" "04-obsidian-servicio-integral-1080x1350.jpg"
 
 # ---------------------------------------------------------------------------
 # 05 · Obsidian Calculadora Interactiva de Reforma (1080x1080)
