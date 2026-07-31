@@ -2,9 +2,13 @@
 
 Paquete preparado para publicaciones orgánicas y campañas de captación por WhatsApp. La línea gráfica usa el azul marino y dorado de la marca, el teléfono oficial y los mensajes de confianza ya presentes en el sitio: experiencia, supervisión técnica, presupuesto por partidas y garantía por escrito.
 
-## Nueva segunda tanda premium
+## Colección profesional con dirección de arte de agencia
 
-La carpeta [`tanda-2-premium/`](./tanda-2-premium/) contiene **8 diseños adicionales** con una dirección más editorial y elegante, tipografías oficiales de marca y nuevos hooks de captación. Incluye publicaciones verticales, anuncios cuadrados, Stories/Reels y una adaptación horizontal. La vista general está en `tanda-2-premium/preview-contact-sheet.jpg`.
+La carpeta [`tanda-3-agencia/`](./tanda-3-agencia/) contiene la colección principal recomendada: **6 flyers multicapa** con portfolio visual, catálogo de servicios, proyecto real, anuncio cuadrado, Story/Reel y adaptación horizontal. Todos comunican claramente los servicios de RemodelaT y están pensados para una marca de remodelación residencial de lujo. La vista general está en `tanda-3-agencia/preview-contact-sheet.jpg`.
+
+## Segunda tanda premium
+
+La carpeta [`tanda-2-premium/`](./tanda-2-premium/) contiene **8 diseños adicionales** con una dirección editorial, tipografías oficiales de marca y hooks de captación. Incluye publicaciones verticales, anuncios cuadrados, Stories/Reels y una adaptación horizontal.
 
 ## Archivos listos para publicar
 
