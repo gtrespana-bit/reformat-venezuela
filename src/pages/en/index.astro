@@ -390,11 +390,13 @@ const stats = [
   @media (max-width: 900px) {
     .stats-grid{grid-template-columns:repeat(2,1fr);}
     .service-card-slider { flex: 0 0 calc(50% - 15px); min-width: 250px; }
-    .about-grid,.contact-grid{grid-template-columns:1fr;}
+    .method-strip-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
   }
   @media (max-width: 600px) {
-    .service-card-slider { flex: 0 0 100%; min-width: 280px; }
+    .service-card-slider { flex: 0 0 100%; min-width: min(280px, 100%); }
     .slider-btn { display: none; }
+    .form-row { grid-template-columns: 1fr; gap: 0; }
+    .contact-form { padding: 26px 20px; }
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-video{display:none!important;}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#14120e">
+  <title>Sin conexión | RemodelaT Venezuela</title>
+  <style>
+    * { box-sizing: border-box; }
+    html, body { min-height: 100%; margin: 0; }
+    body {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: grid;
+      place-items: center;
+      padding: max(28px, env(safe-area-inset-top)) max(22px, env(safe-area-inset-right)) max(28px, env(safe-area-inset-bottom)) max(22px, env(safe-area-inset-left));
+      background: radial-gradient(circle at 50% 10%, #30291d, #14120e 56%);
+      color: #fff;
+      font-family: Manrope, system-ui, -apple-system, sans-serif;
+      text-align: center;
+    }
+    main { width: min(100%, 560px); }
+    img { width: min(100%, 320px); height: auto; margin: 0 auto 38px; }
+    h1 { margin: 0 0 16px; color: #e6d3a7; font: 600 clamp(2.1rem, 9vw, 3.4rem)/1.05 Georgia, serif; }
+    p { margin: 0 auto 28px; max-width: 500px; color: rgba(255,255,255,.78); font-size: 1.02rem; line-height: 1.7; }
+    button {
+      min-height: 48px;
+      padding: 14px 24px;
+      border: 1px solid #c9a961;
+      border-radius: 6px;
+      background: #c9a961;
+      color: #14120e;
+      font: 700 .9rem/1.2 Manrope, system-ui, sans-serif;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+    button:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+    small { display: block; margin-top: 24px; color: rgba(255,255,255,.5); line-height: 1.5; }
+  </style>
+</head>
+<body>
+  <main>
+    <img src="/images/logo-header.webp" alt="RemodelaT Venezuela" width="714" height="192">
+    <h1>Ahora mismo no tienes conexión</h1>
+    <p>Las páginas que ya visitaste pueden seguir disponibles. Recupera la conexión e inténtalo de nuevo para consultar el contenido más reciente.</p>
+    <button type="button" onclick="location.reload()">Reintentar</button>
+    <small>Offline · RemodelaT Venezuela</small>
+  </main>
+</body>
+</html>

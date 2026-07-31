@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
+import MethodComparison from '../components/MethodComparison.astro';
 
 const whatsappText = 'Hola, quiero solicitar una valoración técnica y conocer el Método RemodelaT para mi remodelación.';
 
@@ -172,18 +173,12 @@ const comparisonRows = [
         <h2 class="section-title">Obra improvisada vs. obra con método</h2>
         <p class="section-desc">No se trata de criticar a nadie. Se trata de explicar qué cambia cuando una remodelación se ejecuta con criterio técnico y responsabilidad documental.</p>
       </div>
-      <div class="comparison-card">
-        <div class="comparison-head">
-          <span>Sin método</span>
-          <span>Método RemodelaT</span>
-        </div>
-        {comparisonRows.map(([withoutMethod, withMethod]) => (
-          <div class="comparison-row">
-            <p>{withoutMethod}</p>
-            <p>{withMethod}</p>
-          </div>
-        ))}
-      </div>
+      <MethodComparison
+        rows={comparisonRows}
+        leftLabel="Sin método"
+        rightLabel="Método RemodelaT"
+        ariaLabel="Comparativa entre una obra sin método y el Método RemodelaT"
+      />
     </div>
   </section>
 
@@ -363,36 +358,6 @@ const comparisonRows = [
   }
   .on-dark .section-title { color: var(--white); }
   .on-dark .section-desc { color: rgba(255,255,255,.76); }
-  .comparison-card {
-    max-width: 1000px;
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: var(--r-lg);
-    border: 1px solid rgba(201,169,97,.28);
-    background: rgba(255,255,255,.045);
-    box-shadow: var(--e-3);
-  }
-  .comparison-head,
-  .comparison-row { display: grid; grid-template-columns: 1fr 1fr; }
-  .comparison-head span {
-    padding: 18px 24px;
-    background: rgba(201,169,97,.16);
-    color: var(--gold-light);
-    font-size: .82rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: .13em;
-  }
-  .comparison-row { border-top: 1px solid rgba(242,237,228,.12); }
-  .comparison-row p {
-    padding: 22px 24px;
-    color: rgba(255,255,255,.72);
-    line-height: 1.65;
-    border-right: 1px solid rgba(242,237,228,.12);
-    margin: 0;
-  }
-  .comparison-row p:last-child { color: rgba(255,255,255,.92); border-right: 0; }
-
   .method-cta {
     background:
       radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 42%),
@@ -423,18 +388,14 @@ const comparisonRows = [
     .method-steps-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
   @media (max-width: 900px) {
-    .method-hero { min-height: 76vh; padding: 135px 0 70px; }
+    .method-hero { min-height: 76vh; min-height: 76svh; padding: 135px 0 70px; }
     .intro-grid,
     .checks-grid { grid-template-columns: 1fr; }
     .checks-heading { position: static; }
   }
   @media (max-width: 680px) {
-    .method-hero-actions { flex-direction: column; align-items: flex-start; }
-    .method-steps-grid,
-    .comparison-head,
-    .comparison-row { grid-template-columns: 1fr; }
-    .comparison-head { display: none; }
-    .comparison-row p { border-right: 0; border-bottom: 1px solid rgba(242,237,228,.12); }
-    .comparison-row p:last-child { border-bottom: 0; }
+    .method-hero-actions { flex-direction: column; align-items: stretch; }
+    .method-steps-grid { grid-template-columns: 1fr; }
+    .method-hero-actions .btn-premium { width: 100%; justify-content: center; }
   }
 </style>

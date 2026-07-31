@@ -6,8 +6,9 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/check-images.mjs && astro build",
+    "build": "node scripts/check-images.mjs && astro build && node scripts/check-mobile-pwa.mjs",
     "check:images": "node scripts/check-images.mjs",
+    "check:mobile-pwa": "node scripts/check-mobile-pwa.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },

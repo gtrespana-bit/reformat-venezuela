@@ -82,15 +82,12 @@ const navItems = isEnglish
 <html lang={lang}>
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Preload fuentes críticas (woff2 self-hosted) -->
-  <!-- Solo se precargan los pesos realmente usados sobre el pliegue:
-       Manrope 400 (cuerpo) y Cormorant 600 (titulares). Precargar 5 fuentes
-       provocaba avisos de "preloaded but not used" y competía por ancho de
-       banda con el LCP. El resto carga por @font-face con font-display:swap. -->
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin />
-<!-- Canonical + hreflang: emitidos por SEO.astro (fuente unica) -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <!-- Las fuentes no se precargan globalmente: cada plantilla usa pesos
+       distintos y un preload incondicional generaba avisos de recursos no
+       utilizados. @font-face + font-display:swap solicita solo los pesos que
+       cada página realmente necesita. -->
+  <!-- Canonical + hreflang: emitidos por SEO.astro (fuente única) -->
 
   
   <SEO 
@@ -118,9 +115,9 @@ const navItems = isEnglish
       <a href={isEnglish ? '/en' : '/'} class="logo">
         <img
           src="/images/logo-header.webp"
-          alt={isEnglish ? 'RemodelaT Venezuela - Home Remodeling' : 'RemodelaT Venezuela - Remodelación de Viviendas'}
-          width="200"
-          height="55"
+          alt="RemodelaT Venezuela"
+          width="714"
+          height="192"
           loading="eager"
           fetchpriority="high"
           decoding="async"
@@ -183,9 +180,9 @@ const navItems = isEnglish
           <div class="footer-logo">
             <img
               src="/images/logo-footer.webp"
-              alt={isEnglish ? 'RemodelaT Venezuela - Home Remodeling' : 'RemodelaT Venezuela - Remodelación de Viviendas'}
-              width="500"
-              height="137"
+              alt="RemodelaT Venezuela"
+              width="714"
+              height="192"
               loading="lazy"
               decoding="async"
             />
@@ -422,25 +419,76 @@ const navItems = isEnglish
     const navLinks = document.querySelector('.nav-links');
     const navOverlay = document.querySelector('.nav-overlay');
     if (menuBtn && navLinks) {
-      const closeMenu = () => {
+      const navAnchors = Array.from(navLinks.querySelectorAll('a'));
+      const menuFocusables = [...navAnchors, langSwitchBtn, menuBtn]
+        .filter((item): item is HTMLElement => item instanceof HTMLElement);
+
+      const closeMenu = (restoreFocus = false) => {
         document.body.classList.remove('nav-open');
         menuBtn.setAttribute('aria-expanded', 'false');
+        if (restoreFocus) menuBtn.focus({ preventScroll: true });
       };
       const toggleMenu = () => {
         const open = document.body.classList.toggle('nav-open');
         menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
         if (open) {
-          const first = navLinks.querySelector('a');
-          if (first) first.focus({ preventScroll: true });
+          /* El panel conserva su scroll entre aperturas; devolverlo al inicio
+             garantiza que siempre se vea el menú completo. */
+          navLinks.scrollTop = 0;
+          navAnchors[0]?.focus({ preventScroll: true });
         }
       };
 
       menuBtn.addEventListener('click', toggleMenu);
       /* Cerrar al navegar. No se previene el evento: el enlace debe seguir su curso. */
-      navLinks.querySelectorAll('a').forEach((a) => a.addEventListener('click', closeMenu));
-      if (navOverlay) navOverlay.addEventListener('click', closeMenu);
-      document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeMenu(); });
+      navAnchors.forEach((anchor) => anchor.addEventListener('click', () => closeMenu()));
+      if (navOverlay) navOverlay.addEventListener('click', () => closeMenu(true));
+      document.addEventListener('keydown', (event) => {
+        if (!document.body.classList.contains('nav-open')) return;
+        if (event.key === 'Escape') {
+          event.preventDefault();
+          closeMenu(true);
+          return;
+        }
+        if (event.key !== 'Tab' || !menuFocusables.length) return;
+
+        const first = menuFocusables[0];
+        const last = menuFocusables[menuFocusables.length - 1];
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+      });
       window.addEventListener('resize', () => { if (window.innerWidth > 900) closeMenu(); });
+    }
+
+    /* Las tablas editoriales conservan sus encabezados en escritorio y se
+       convierten progresivamente en tarjetas etiquetadas en móvil. */
+    document.querySelectorAll('.article-body table').forEach((table) => {
+      const headers = Array.from(table.querySelectorAll('thead th'))
+        .map((header) => header.textContent?.trim() || '');
+      if (!headers.length) return;
+
+      table.querySelectorAll('tbody tr').forEach((row) => {
+        Array.from(row.children).forEach((cell, index) => {
+          if (headers[index]) cell.setAttribute('data-label', headers[index]);
+        });
+      });
+      table.classList.add('responsive-table');
+      table.setAttribute('data-mobile-table', 'true');
+    });
+
+    /* PWA: solo se registra en la compilación de producción para no dejar
+       cachés persistentes durante el desarrollo local. */
+    if (import.meta.env.PROD && 'serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js', { scope: '/' }).catch(() => {
+          /* La web sigue siendo totalmente funcional si el registro falla. */
+        });
+      });
     }
 
     window.shareArticle = (platform) => {
@@ -467,13 +515,26 @@ const navItems = isEnglish
   *:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
   button:focus-visible, a:focus-visible { outline: 2px solid #C9A961; outline-offset: 2px; }
 
-  .nav { position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000; padding: 20px 0; transition: background 0.4s, padding 0.4s; }
-  .nav.scrolled, .nav-solid { background: rgba(20,18,14,0.96); padding: 15px 0; border-bottom: 1px solid rgba(201,169,97,0.2); backdrop-filter: blur(10px); }
-  .nav-solid .logo img { height: 70px; }
-  .nav-container { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  .nav {
+    position: fixed; top: 0; left: 0; width: 100%; background: transparent; z-index: 1000;
+    padding: calc(20px + env(safe-area-inset-top)) 0 20px;
+    transition: background 0.4s, padding 0.4s;
+  }
+  .nav.scrolled, .nav-solid {
+    background: rgba(20,18,14,0.96);
+    padding: calc(15px + env(safe-area-inset-top)) 0 15px;
+    border-bottom: 1px solid rgba(201,169,97,0.2);
+    backdrop-filter: blur(10px);
+  }
+  .nav-solid .logo img { height: 63px; }
+  .nav-container {
+    display: flex; justify-content: space-between; align-items: center;
+    max-width: 1200px; margin: 0 auto;
+    padding: 0 max(20px, env(safe-area-inset-right)) 0 max(20px, env(safe-area-inset-left));
+  }
   .logo { display: flex; align-items: center; }
-  .logo img { height: 85px; width: auto; display: block; transition: height 0.3s; }
-  .nav.scrolled .logo img { height: 70px; }
+  .logo img { height: 76px; width: auto; display: block; transition: height 0.3s; }
+  .nav.scrolled .logo img { height: 63px; }
   .nav-links { display: flex; gap: 26px; list-style: none; align-items: center; }
   .nav-links a { color: rgba(255,255,255,0.9); font-size: 0.86rem; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; position: relative; font-weight: 400; }
   .nav-links a:hover, .nav-links a.active { color: var(--gold); }
@@ -495,13 +556,15 @@ const navItems = isEnglish
     background: transparent;
     cursor: pointer;
     font-family: inherit;
+    min-width: 44px;
+    min-height: 44px;
   }
   .lang-switch-visible:hover {
     border-color: var(--gold) !important;
     color: var(--gold) !important;
   }
   
-  .menu-btn { display: none; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
+  .menu-btn { display: none; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; background: none; border: none; color: var(--white); cursor: pointer; padding: 5px; margin-left: 8px; }
   .nav-overlay { display: none; }
   .menu-btn svg { width: 28px; height: 28px; display: block; }
   .menu-btn .icon-close { display: none; }
@@ -515,7 +578,7 @@ const navItems = isEnglish
   .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 45px; text-align: left; }
   .footer-brand { text-align: center; }
   .footer-logo { margin-bottom: 20px; display: flex; justify-content: center; }
-  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 525 / 142; }
+  .footer-logo img { max-width: 320px; width: 100%; height: auto; display: block; aspect-ratio: 714 / 192; }
   .footer-desc { max-width: 340px; margin: 0 auto; font-size: 0.95rem; line-height: 1.6; }
   .footer-heading { color: #fff; font-size: 1rem; font-weight: 700; margin-bottom: 16px; text-transform: uppercase; letter-spacing: 0.05em; }
   .footer-links { list-style: none; padding: 0; margin: 0; }
@@ -532,16 +595,29 @@ const navItems = isEnglish
 
   @media (max-width: 900px) {
     /* Panel deslizante desde la derecha */
+    /* En móvil se elimina el backdrop-filter del nav: aplicado al ancestro
+       convierte a sus descendientes position:fixed en relativos a la barra.
+       Al abrir el menú después de hacer scroll, el panel quedaba limitado a
+       la altura del navbar y solo mostraba sus últimos enlaces. */
+    .nav.scrolled,
+    .nav-solid { backdrop-filter: none; }
+
     .nav-links {
       display: flex;
       position: fixed;
-      inset: 0 0 0 auto;
+      inset: 0 0 auto auto;
       width: min(320px, 82vw);
+      height: 100vh;
+      height: 100dvh;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       gap: 28px;
-      padding: 96px 32px 40px;
+      padding:
+        calc(96px + env(safe-area-inset-top))
+        max(32px, env(safe-area-inset-right))
+        calc(40px + env(safe-area-inset-bottom))
+        32px;
       background: rgba(20,18,14,.98);
       backdrop-filter: blur(16px);
       border-left: 1px solid rgba(201,169,97,.22);
@@ -550,6 +626,7 @@ const navItems = isEnglish
       transition: transform var(--dur-base) var(--ease-out);
       z-index: 2;
       overflow-y: auto;
+      overscroll-behavior: contain;
     }
     body.nav-open .nav-links { transform: translateX(0); }
     .nav-links a { font-size: 1.05rem; letter-spacing: .08em; }
@@ -583,15 +660,21 @@ const navItems = isEnglish
     }
   }
   @media (max-width: 768px) {
-    .logo img { height: 60px; }
-    .nav.scrolled .logo img { height: 55px; }
+    .logo img { height: 54px; }
+    .nav.scrolled .logo img,
+    .nav-solid .logo img { height: 49px; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
     .footer-brand { grid-column: 1 / -1; }
     .footer-logo img { max-width: 300px; }
     .whatsapp-float { width: 55px; height: 55px; bottom: 20px; right: 20px; }
   }
   @media (max-width: 480px) {
-    .logo img { height: 55px; }
+    .nav-container {
+      padding-right: max(14px, env(safe-area-inset-right));
+      padding-left: max(14px, env(safe-area-inset-left));
+    }
+    .logo img { height: 49px; }
+    .menu-btn, .lang-switch-visible { margin-left: 4px; }
     .footer-grid { grid-template-columns: 1fr; gap: 28px; text-align: center; }
     .footer-brand { text-align: center; }
     .footer-links { display: inline-block; text-align: left; }
@@ -607,7 +690,12 @@ const navItems = isEnglish
 .mobile-cta-bar {
   display: flex; position: fixed; bottom: 0; left: 0; width: 100%; z-index: 100;
   background: rgba(10,10,10,0.97); border-top: 1px solid rgba(201,169,97,0.3);
-  padding: 8px 12px; gap: 10px; backdrop-filter: blur(10px);
+  padding:
+    8px
+    max(12px, env(safe-area-inset-right))
+    calc(8px + env(safe-area-inset-bottom))
+    max(12px, env(safe-area-inset-left));
+  gap: 10px; backdrop-filter: blur(10px);
 }
 .mobile-cta-btn {
   flex: 1; display: flex; align-items: center; justify-content: center; gap: 8px;
@@ -624,7 +712,7 @@ const navItems = isEnglish
 .mobile-cta-wa:active { background: #1ebe5a; }
 .mobile-cta-btn svg { flex-shrink: 0; }
 .whatsapp-float { display: none !important; }
-body { padding-bottom: 65px; }
+body { padding-bottom: calc(65px + env(safe-area-inset-bottom)); }
 }
 .skip-link {
 position: absolute;

@@ -1,14 +1,19 @@
 {
+  "id": "/",
   "name": "RemodelaT Venezuela",
   "short_name": "RemodelaT",
-  "description": "Reformas integrales, cocinas y baños con estándares europeos en Valencia, San Diego, Carabobo y Caracas.",
+  "description": "Remodelaciones integrales, cocinas y baños con método técnico en Valencia, San Diego, Carabobo y Caracas.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "orientation": "portrait",
+  "display_override": ["standalone", "minimal-ui"],
+  "orientation": "any",
   "background_color": "#14120e",
   "theme_color": "#14120e",
-  "lang": "es",
+  "lang": "es-VE",
+  "dir": "ltr",
+  "categories": ["business", "lifestyle", "productivity"],
+  "prefer_related_applications": false,
   "icons": [
     {
       "src": "/icons/icon-192.png",
@@ -23,10 +28,26 @@
       "purpose": "any"
     },
     {
-      "src": "/icons/icon-512.png",
+      "src": "/icons/icon-maskable-512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Solicitar valoración",
+      "short_name": "Valoración",
+      "description": "Contactar con RemodelaT para solicitar una valoración técnica.",
+      "url": "/contacto/",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Ver servicios",
+      "short_name": "Servicios",
+      "description": "Consultar los servicios de remodelación disponibles.",
+      "url": "/servicios/",
+      "icons": [{ "src": "/icons/icon-192.png", "sizes": "192x192" }]
     }
   ]
 }
