@@ -28,10 +28,10 @@ El precio de una reforma de baño en **Caracas, Valencia, San Diego** o cualquie
 
 | Tamaño del baño | Rango de precio estimado |
 |-----------------|-------------------------|
-| Baño pequeño (3-4 m²) | $1,200 - $2,500 |
-| Baño mediano (5-7 m²) | $2,500 - $4,500 |
-| Baño grande (8-10 m²) | $4,500 - $7,000 |
-| Baño principal suite (10+ m²) | $7,000+ |
+| Baño pequeño (3-4 m²) | $1,800 - $3,500 |
+| Baño mediano (5-7 m²) | $2,800 - $6,000 |
+| Baño grande (8-10 m²) | $4,000 - $8,000 |
+| Baño principal suite (10+ m²) | $6,000 - $9,000 |
 
 **Nota:** Estos precios son orientativos. El costo final depende de los materiales que elijas y el alcance de la reforma.
 

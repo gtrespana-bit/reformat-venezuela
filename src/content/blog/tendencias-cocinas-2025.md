@@ -302,10 +302,10 @@ En Valencia y San Diego, Carabobo, estos son los rangos reales:
 
 | Tipo de Reforma | Metros Cuadrados | Inversión | Tiempo |
 |----------------|------------------|-----------|--------|
-| Básica | 8-10 m² | $5,000 - $8,000 | 2-3 semanas |
-| Media | 10-15 m² | $8,000 - $15,000 | 3-5 semanas |
-| Premium | 15-25 m² | $15,000 - $30,000 | 5-8 semanas |
-| Lujo | 25+ m² | $30,000+ | 8-12 semanas |
+| Básica | 8-10 m² | $2,500 - $4,500 | 2-3 semanas |
+| Media | 10-15 m² | $4,000 - $7,500 | 3-4 semanas |
+| Premium | 15-25 m² | $6,500 - $12,000 | 4-6 semanas |
+| Lujo | 25+ m² | $10,000 - $18,000 | 5-8 semanas |
 
 **Importante:** Estos precios incluyen mano de obra profesional, materiales de calidad media-alta, y garantía de 2 años.
 

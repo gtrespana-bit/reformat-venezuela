@@ -12,7 +12,7 @@ author: "Equipo RemodelaT"
 
 Reformar la cocina es una de las decisiones más importantes que tomarás como propietario. No solo hablamos de estética: una cocina bien diseñada mejora tu calidad de vida diaria, aumenta el valor de tu propiedad y se convierte en el corazón de tu hogar.
 
-Pero antes de empezar, necesitas saber **cuánto cuesta realmente** una reforma de cocina en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** en 2026. Y aquí está el problema: en internet encontrarás rangos absurdos que van desde $2,000 hasta $25,000, sin contexto ni desglose.
+Pero antes de empezar, necesitas saber **cuánto cuesta realmente** una reforma de cocina en **Caracas, Valencia, San Diego o cualquier zona de Carabobo** en 2026. Y aquí está el problema: en internet encontrarás rangos absurdos que van desde $2,000 hasta $15,000, sin contexto ni desglose.
 
 En RemodelaT Venezuela llevamos más de 23 años ejecutando reformas de cocinas en **Caracas, Valencia y San Diego**. Hemos trabajado con presupuestos de $2,500 y de $12,000. La diferencia no está en "cobrar más o menos", sino en **qué incluye cada proyecto**.
 
@@ -32,10 +32,10 @@ El factor más obvio. A mayor superficie, más materiales, más mano de obra, m�
 
 | Tamaño | Rango de precio estimado |
 |--------|-------------------------|
-| Pequeña (6-8 m²) | $2,500 - $4,500 |
-| Mediana (9-12 m²) | $4,500 - $7,500 |
-| Grande (13-18 m²) | $7,500 - $12,000 |
-| Extra grande (+18 m²) | $12,000+ |
+| Pequeña (6-8 m²) | $2,000 - $4,000 |
+| Mediana (9-12 m²) | $3,500 - $6,500 |
+| Grande (13-18 m²) | $5,500 - $9,000 |
+| Extra grande (+18 m²) | $8,000 - $12,000 |
 
 **Nota:** Estos rangos son orientativos. El precio final depende de los materiales y acabados que elijas.
 
@@ -104,19 +104,19 @@ Vamos a desglosar un presupuesto real de una **cocina mediana (10 m²) en Valenc
 
 | Partida | Descripción | Precio estimado |
 |---------|-------------|-----------------|
-| **Demolición y retirada** | Desmontar muebles antiguos, azulejos, suelo. Retirada de escombros | $250 - $400 |
-| **Instalación eléctrica** | Renovación completa, puntos de luz, enchufes, cuadro eléctrico | $350 - $500 |
-| **Fontanería** | Tuberías nuevas, llaves de paso, desagües, punto de gas | $300 - $450 |
-| **Impermeabilización** | Suelo y paredes (zona de fregadero y cocinas) | $120 - $200 |
-| **Revestimiento de paredes** | Porcelanato nacional, 25 m² aproximadamente | $500 - $750 |
-| **Suelo** | Porcelanato o cerámica de calidad, 10 m² | $250 - $400 |
-| **Muebles de cocina** | 8-10 módulos de MDF lacado, herrajes de calidad | $1,200 - $1,800 |
-| **Encimera** | Granito nacional, 4-5 metros lineales | $400 - $650 |
-| **Fregadero y grifería** | Acero inoxidable, grifería monomando | $150 - $280 |
-| **Electrodomésticos** | Campana, cocina, horno (gama media) | $600 - $1,000 |
-| **Pintura y acabados** | Techo, zonas no revestidas | $80 - $150 |
-| **Limpieza final** | Limpieza profesional post-obra | $60 - $100 |
-| **TOTAL** | | **$4,260 - $6,680** |
+| **Demolición y retirada** | Desmontar muebles antiguos, azulejos, suelo. Retirada de escombros | $200 - $350 |
+| **Instalación eléctrica** | Renovación completa, puntos de luz, enchufes, cuadro eléctrico | $250 - $400 |
+| **Fontanería** | Tuberías nuevas, llaves de paso, desagües, punto de gas | $250 - $400 |
+| **Impermeabilización** | Suelo y paredes (zona de fregadero y cocinas) | $100 - $180 |
+| **Revestimiento de paredes** | Porcelanato nacional, 25 m² aproximadamente | $400 - $600 |
+| **Suelo** | Porcelanato o cerámica de calidad, 10 m² | $200 - $350 |
+| **Muebles de cocina** | 8-10 módulos de MDF lacado, herrajes de calidad | $900 - $1,400 |
+| **Encimera** | Granito nacional, 4-5 metros lineales | $350 - $550 |
+| **Fregadero y grifería** | Acero inoxidable, grifería monomando | $120 - $250 |
+| **Electrodomésticos** | Campana, cocina, horno (gama media) | $500 - $800 |
+| **Pintura y acabados** | Techo, zonas no revestidas | $80 - $120 |
+| **Limpieza final** | Limpieza profesional post-obra | $50 - $100 |
+| **TOTAL** | | **$3,500 - $5,500** |
 
 **Observaciones importantes:**
 - Este presupuesto **no incluye** licencias municipales (aprox. $100-$200)

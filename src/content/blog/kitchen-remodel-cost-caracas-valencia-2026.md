@@ -12,7 +12,7 @@ author: "RemodelaT Team"
 
 Remodeling your kitchen is one of the most important decisions you'll make as a homeowner. We're not just talking about aesthetics: a well-designed kitchen improves your daily quality of life, increases your property value, and becomes the heart of your home.
 
-But before you start, you need to know **how much a kitchen remodel actually costs** in **Caracas, Valencia, San Diego or anywhere in Carabobo** in 2026. And here's the problem: online you'll find absurd ranges from $2,000 to $25,000, with no context or breakdown.
+But before you start, you need to know **how much a kitchen remodel actually costs** in **Caracas, Valencia, San Diego or anywhere in Carabobo** in 2026. And here's the problem: online you'll find absurd ranges from $2,000 to $15,000, with no context or breakdown.
 
 At RemodelaT Venezuela, we've been executing kitchen remodels in **Caracas, Valencia and San Diego** for over 23 years. We've worked with budgets of $2,500 and $12,000. The difference isn't about "charging more or less," but about **what each project includes**.
 
@@ -32,10 +32,10 @@ The most obvious factor. The larger the surface, the more materials, more labor,
 
 | Size              | Estimated Price Range |
 |-------------------|-----------------------|
-| Small (6-8 m²)    | $2,500 - $4,500       |
-| Medium (9-12 m²)  | $4,500 - $7,500       |
-| Large (13-18 m²)  | $7,500 - $12,000      |
-| Extra large (+18 m²) | $12,000+           |
+| Small (6-8 m²)    | $2,000 - $4,000       |
+| Medium (9-12 m²)  | $3,500 - $6,500       |
+| Large (13-18 m²)  | $5,500 - $9,000       |
+| Extra large (+18 m²) | $8,000 - $12,000   |
 
 **Note:** These ranges are orientative. The final price depends on the materials and finishes you choose.
 
@@ -104,19 +104,19 @@ Let's break down a real budget for a **medium kitchen (10 m²) in Valencia or Ca
 
 | Item                      | Description                                      | Estimated Price |
 |---------------------------|--------------------------------------------------|-----------------|
-| **Demolition and removal**| Remove old cabinets, tiles, flooring. Debris haul | $250 - $400    |
-| **Electrical installation**| Full renovation, light points, outlets, breaker box | $350 - $500   |
-| **Plumbing**              | New pipes, shutoff valves, drains, gas point     | $300 - $450    |
-| **Waterproofing**         | Floor and walls (sink and cooking area)          | $120 - $200    |
-| **Wall covering**         | National porcelain, approx. 25 m²                | $500 - $750    |
-| **Flooring**              | Quality porcelain or ceramic, 10 m²              | $250 - $400    |
-| **Kitchen cabinets**      | 8-10 lacquered MDF modules, quality hardware     | $1,200 - $1,800|
-| **Countertop**            | National granite, 4-5 linear meters              | $400 - $650    |
-| **Sink and faucet**       | Stainless steel, single-handle faucet            | $150 - $280    |
-| **Appliances**            | Hood, stove, oven (functional specification)                    | $600 - $1,000  |
-| **Painting and finishes** | Ceiling, non-tiled areas                         | $80 - $150     |
-| **Final cleaning**        | Professional post-construction cleaning          | $60 - $100     |
-| **TOTAL**                 |                                                  | **$4,260 - $6,680** |
+| **Demolition and removal**| Remove old cabinets, tiles, flooring. Debris haul | $200 - $350    |
+| **Electrical installation**| Full renovation, light points, outlets, breaker box | $250 - $400   |
+| **Plumbing**              | New pipes, shutoff valves, drains, gas point     | $250 - $400    |
+| **Waterproofing**         | Floor and walls (sink and cooking area)          | $100 - $180    |
+| **Wall covering**         | National porcelain, approx. 25 m²                | $400 - $600    |
+| **Flooring**              | Quality porcelain or ceramic, 10 m²              | $200 - $350    |
+| **Kitchen cabinets**      | 8-10 lacquered MDF modules, quality hardware     | $900 - $1,400  |
+| **Countertop**            | National granite, 4-5 linear meters              | $350 - $550    |
+| **Sink and faucet**       | Stainless steel, single-handle faucet            | $120 - $250    |
+| **Appliances**            | Hood, stove, oven (functional specification)     | $500 - $800    |
+| **Painting and finishes** | Ceiling, non-tiled areas                         | $80 - $120     |
+| **Final cleaning**        | Professional post-construction cleaning          | $50 - $100     |
+| **TOTAL**                 |                                                  | **$3,500 - $5,500** |
 
 **Important observations:**
 - This budget **does not include** municipal licenses (approx. $100-$200)

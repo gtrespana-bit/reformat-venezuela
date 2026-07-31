@@ -22,10 +22,10 @@ Pero antes de emocionarte con Pinterest, necesitas números reales. ¿Cuánto cu
 
 | Tipo de baño | Rango de precio | Tiempo |
 |-------------|----------------|--------|
-| Baño pequeño (3-4 m²) | $1,800 - $3,500 | 2-3 semanas |
-| Baño estándar (5-7 m²) | $3,500 - $6,500 | 3-4 semanas |
-| Baño principal (8-12 m²) | $6,500 - $12,000 | 4-6 semanas |
-| Baño de lujo (+12 m²) | $12,000 - $25,000+ | 6-8 semanas |
+| Baño pequeño (3-4 m²) | $1,800 - $3,500 | 1 semana |
+| Baño estándar (5-7 m²) | $2,800 - $6,000 | 1 semana |
+| Baño principal (8-12 m²) | $4,000 - $8,000 | 1 semana y media |
+| Baño de lujo (+12 m²) | $6,000 - $9,000 | 2 semanas |
 
 **Nota:** Estos precios incluyen demolición, materiales, mano de obra e instalación. No incluyen cambios estructurales mayores ni reubicación de puntos de agua.
 
@@ -33,19 +33,19 @@ Pero antes de emocionarte con Pinterest, necesitas números reales. ¿Cuánto cu
 
 ## Desglose: ¿En Qué Se Va el Dinero?
 
-Para un baño estándar de 6 m² en Caracas con gama media ($5,000):
+Para un baño estándar de 6 m² en Caracas con gama media ($4,200):
 
 | Concepto | Costo | % del total |
 |----------|-------|-------------|
-| Demolición y retiro de escombros | $300 - $500 | 8% |
-| Plomería (tuberías, conexiones) | $400 - $700 | 12% |
-| Electricidad (iluminación, tomacorrientes) | $200 - $400 | 6% |
-| Pisos y revestimientos | $800 - $1,500 | 22% |
-| Sanitarios (inodoro, lavabo) | $400 - $900 | 14% |
-| Ducha/bañera + grifería | $500 - $1,200 | 18% |
-| Mueble de baño + espejo | $300 - $700 | 10% |
-| Mano de obra especializada | $800 - $1,200 | 20% |
-| **Total** | **$3,700 - $7,100** | **100%** |
+| Demolición y retiro de escombros | $200 - $400 | 7% |
+| Plomería (tuberías, conexiones) | $350 - $600 | 12% |
+| Electricidad (iluminación, tomacorrientes) | $150 - $300 | 5% |
+| Pisos y revestimientos | $600 - $1,100 | 22% |
+| Sanitarios (inodoro, lavabo) | $300 - $700 | 13% |
+| Ducha/bañera + grifería | $400 - $900 | 17% |
+| Mueble de baño + espejo | $250 - $550 | 10% |
+| Mano de obra especializada | $600 - $900 | 14% |
+| **Total** | **$2,850 - $5,450** | **100%** |
 
 ---
 
@@ -128,7 +128,7 @@ En zonas como **Altamira, La Castellana, Campo Alegre y La Lagunita**, los baño
 - Piso radiante (sí, en Caracas también se usa en baños de lujo)
 - Iluminación LED indirecta en nichos
 
-Un baño de lujo en estas zonas parte de $12,000 y puede superar $25,000 con materiales importados.
+Un baño de lujo en estas zonas parte de $6,000 y puede llegar hasta $9,000 con materiales importados y acabados de alta gama.
 
 Para proyectos en estas zonas, revisa nuestras páginas específicas:
 - [Remodelación de Baños en Altamira](/remodelacion-bano-altamira)
@@ -143,9 +143,9 @@ Si estás en Valencia, San Diego, Naguanagua o El Viñedo, los precios son 10-15
 
 | Zona | Baño estándar (6 m²) |
 |------|---------------------|
-| Caracas | $4,500 - $6,500 |
-| Valencia / San Diego | $3,800 - $5,500 |
-| Naguanagua / El Viñedo | $3,500 - $5,200 |
+| Caracas | $3,500 - $5,500 |
+| Valencia / San Diego | $2,800 - $4,500 |
+| Naguanagua / El Viñedo | $2,500 - $4,000 |
 
 La diferencia es logística y demanda, no calidad de materiales.
 
