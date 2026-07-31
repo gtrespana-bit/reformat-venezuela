@@ -120,6 +120,7 @@ const project = {
 };
 
 const heroImage = project.heroImage;
+const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño con poceta flotante de San Diego.';
 ---
 
 <BaseLayout 
@@ -178,6 +179,7 @@ const heroImage = project.heroImage;
             <span class="stat-value">Mampara Fija 80 cm + Lluvia</span>
           </div>
         </div>
+        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · sistema técnico documentado · ampliación en lightbox</p>
       </div>
     </div>
   </header>
@@ -710,6 +712,26 @@ const heroImage = project.heroImage;
     backdrop-filter: blur(8px);
   }
 
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 22px;
+  }
+
+  .hero-actions .btn-premium {
+    min-height: 52px;
+  }
+
+  .hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,0.72);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
   .stat-item {
     display: flex;
     flex-direction: column;
@@ -737,6 +759,21 @@ const heroImage = project.heroImage;
     width: 1px;
     height: 32px;
     background: rgba(255,255,255,0.12);
+  }
+
+  @media (max-width: 768px) {
+    .hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .hero-proof {
+      font-size: 0.74rem;
+      letter-spacing: 0.06em;
+    }
   }
 
   /* ==========================================================
@@ -803,11 +840,11 @@ const heroImage = project.heroImage;
   .showcase-image-frame {
     position: relative;
     background: var(--ink-soft);
-    padding: 20px;
+    padding: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 480px;
+    min-height: 400px;
   }
 
   .showcase-badge {
@@ -1151,11 +1188,11 @@ const heroImage = project.heroImage;
     position: relative;
     background: var(--ink-soft);
     border-radius: var(--r-sm);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 420px;
+    min-height: 360px;
     overflow: hidden;
   }
 
@@ -1304,16 +1341,16 @@ const heroImage = project.heroImage;
   .card-image-box {
     position: relative;
     background: var(--ink-soft);
-    padding: 16px;
+    padding: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 380px;
+    min-height: 320px;
     overflow: hidden;
   }
 
   .card-landscape .card-image-box {
-    min-height: 420px;
+    min-height: 340px;
   }
 
   .card-badge {
