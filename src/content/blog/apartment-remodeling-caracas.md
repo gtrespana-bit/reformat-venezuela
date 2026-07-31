@@ -20,10 +20,10 @@ At RemodelaT Venezuela we have completed hundreds of apartment remodels in **Cha
 
 | Size              | Budget Level     | Price Range       |
 |-------------------|------------------|-------------------|
-| 60-80 m²          | Mid-range        | $18,000 - $28,000 |
-| 80-120 m²         | Mid-range        | $25,000 - $40,000 |
-| 120-180 m²        | Premium          | $40,000 - $70,000 |
-| Premium apartments| Luxury           | $70,000+          |
+| 60-80 m²          | Mid-range        | $12,000 - $22,000 |
+| 80-120 m²         | Mid-range        | $18,000 - $32,000 |
+| 120-180 m²        | Premium          | $30,000 - $50,000 |
+| Premium apartments| Luxury           | $45,000 - $65,000 |
 
 Prices in Caracas are usually 10-20% higher than Valencia/San Diego due to logistics and higher labor demand.
 

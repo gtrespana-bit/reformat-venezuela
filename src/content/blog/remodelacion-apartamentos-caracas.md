@@ -26,10 +26,10 @@ Los precios varían según el alcance, pero estos son rangos reales para 2026:
 
 | Tipo de remodelación | Rango de precio | Tiempo estimado |
 |---------------------|----------------|-----------------|
-| Parcial (pintura + pisos) | $2,000 - $5,000 | 2-3 semanas |
-| Cocina completa | $3,500 - $9,000 | 4-6 semanas |
-| Baño completo | $2,500 - $6,000 | 3-5 semanas |
-| Integral (todo el apartamento) | $15,000 - $45,000+ | 2-4 meses |
+| Parcial (pintura + pisos) | $2,000 - $4,500 | 2-3 semanas |
+| Cocina completa | $2,500 - $7,000 | 3-5 semanas |
+| Baño completo | $1,800 - $5,000 | 1-2 semanas |
+| Integral (todo el apartamento) | $12,000 - $35,000 | 2-3 meses |
 
 **Factor Caracas:** Los costos en la capital suelen ser 10-15% más altos que en Valencia por logística, tráfico y permisos municipales. En zonas como **Altamira** o **La Castellana**, algunos edificios exigen seguros de responsabilidad civil adicionales que suman $200-$500 al presupuesto.
 
@@ -122,7 +122,7 @@ Edificios más recientes (post-2005) con mejor infraestructura. Menos sorpresas 
 Apartamentos en conjuntos residenciales tipo townhouse. Menos restricciones de edificio pero más normas de urbanización. Ideal para [remodelaciones integrales](/servicios/remodelacion-integral) con más libertad de diseño.
 
 ### Alto Hatillo y Los Naranjos
-Zonas premium con apartamentos de gran metraje (150-300 m²). Las remodelaciones aquí suelen ser integrales y con acabados de lujo. Presupuesta desde $25,000.
+Zonas premium con apartamentos de gran metraje (150-300 m²). Las remodelaciones aquí suelen ser integrales y con acabados de lujo. Presupuesta desde $20,000.
 
 ---
 

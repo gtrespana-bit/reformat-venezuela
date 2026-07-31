@@ -22,10 +22,10 @@ But before getting excited with Pinterest images, you need real numbers. How muc
 
 | Bathroom Type              | Price Range     | Timeline     |
 |---------------------------|-----------------|--------------|
-| Small bathroom (3-4 m²)   | $1,800 - $3,500 | 2-3 weeks    |
-| Standard bathroom (5-7 m²)| $3,500 - $6,500 | 3-4 weeks    |
-| Master bathroom (8-12 m²) | $6,500 - $12,000| 4-6 weeks    |
-| Luxury bathroom (+12 m²)  | $12,000 - $25,000+| 6-8 weeks  |
+| Small bathroom (3-4 m²)   | $1,800 - $3,500 | 1 week       |
+| Standard bathroom (5-7 m²)| $2,800 - $6,000 | 1 week       |
+| Master bathroom (8-12 m²) | $4,000 - $8,000 | 1.5 weeks    |
+| Luxury bathroom (+12 m²)  | $6,000 - $9,000 | 2 weeks      |
 
 **Note:** These prices include demolition, materials, labor, and installation. They do not include major structural changes or relocating water points.
 
@@ -33,19 +33,19 @@ But before getting excited with Pinterest images, you need real numbers. How muc
 
 ## Breakdown: Where the Money Goes
 
-For a standard 6 m² bathroom in Caracas with functional specification ($5,000):
+For a standard 6 m² bathroom in Caracas with functional specification ($4,200):
 
 | Item                          | Cost          | % of Total |
 |-------------------------------|---------------|------------|
-| Demolition and debris removal | $300 - $500   | 8%         |
-| Plumbing (pipes, connections) | $400 - $700   | 12%        |
-| Electrical (lighting, outlets)| $200 - $400   | 6%         |
-| Flooring and wall coverings   | $800 - $1,500 | 22%        |
-| Sanitary fixtures (toilet, sink)| $400 - $900 | 14%        |
-| Shower/bathtub + faucet       | $500 - $1,200 | 18%        |
-| Vanity + mirror               | $300 - $700   | 10%        |
-| Specialized labor             | $800 - $1,200 | 20%        |
-| **Total**                     | **$3,700 - $7,100** | **100%** |
+| Demolition and debris removal | $200 - $400   | 7%         |
+| Plumbing (pipes, connections) | $350 - $600   | 12%        |
+| Electrical (lighting, outlets)| $150 - $300   | 5%         |
+| Flooring and wall coverings   | $600 - $1,100 | 22%        |
+| Sanitary fixtures (toilet, sink)| $300 - $700 | 13%        |
+| Shower/bathtub + faucet       | $400 - $900   | 17%        |
+| Vanity + mirror               | $250 - $550   | 10%        |
+| Specialized labor             | $600 - $900   | 14%        |
+| **Total**                     | **$2,850 - $5,450** | **100%** |
 
 ---
 
@@ -128,7 +128,7 @@ In areas like **Altamira, La Castellana, Campo Alegre, and La Lagunita**, bathro
 - Underfloor heating (yes, also used in luxury bathrooms in Caracas)
 - Indirect LED lighting in niches
 
-A luxury bathroom in these zones has a reference investment from $12,000 and can exceed $25,000 with imported materials.
+A luxury bathroom in these zones has a reference investment from $6,000 and can reach up to $9,000 with imported materials and high-end finishes.
 
 For projects in these zones, see our specific pages:
 - [Bathroom Remodeling in Altamira](/en/remodelacion-bano-altamira)
@@ -143,9 +143,9 @@ If you are in Valencia, San Diego, Naguanagua, or El Viñedo, prices are 10-15% 
 
 | Zone                  | Standard Bathroom (6 m²) |
 |-----------------------|--------------------------|
-| Caracas               | $4,500 - $6,500          |
-| Valencia / San Diego  | $3,800 - $5,500          |
-| Naguanagua / El Viñedo| $3,500 - $5,200          |
+| Caracas               | $3,500 - $5,500          |
+| Valencia / San Diego  | $2,800 - $4,500          |
+| Naguanagua / El Viñedo| $2,500 - $4,000          |
 
 The difference is logistics and demand, not material quality.
 

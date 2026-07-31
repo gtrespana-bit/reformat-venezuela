@@ -302,10 +302,10 @@ In Valencia and San Diego, Carabobo, these are the real ranges:
 
 | Remodel Type | Square Feet | Investment | Time |
 |--------------|-------------|------------|------|
-| Basic | 86-108 sq ft | $5,000 - $8,000 | 2-3 weeks |
-| Mid-range | 108-161 sq ft | $8,000 - $15,000 | 3-5 weeks |
-| Premium | 161-269 sq ft | $15,000 - $30,000 | 5-8 weeks |
-| Luxury | 269+ sq ft | $30,000+ | 8-12 weeks |
+| Basic | 86-108 sq ft | $2,500 - $4,500 | 2-3 weeks |
+| Mid-range | 108-161 sq ft | $4,000 - $7,500 | 3-4 weeks |
+| Premium | 161-269 sq ft | $6,500 - $12,000 | 4-6 weeks |
+| Luxury | 269+ sq ft | $10,000 - $18,000 | 5-8 weeks |
 
 **Important:** These prices include professional labor, medium-high quality materials, and 2-year warranty.
 

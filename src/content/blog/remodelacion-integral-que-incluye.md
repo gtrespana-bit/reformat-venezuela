@@ -90,9 +90,9 @@ Una remodelación integral abarca **todos o la mayoría** de estos trabajos:
 | Nivel de acabado | Precio/m² | Ejemplo apartamento 100 m² |
 |-----------------|-----------|---------------------------|
 | Económico (materiales nacionales) | $120 - $180 | $12,000 - $18,000 |
-| Medio (mezcla nacional/importado) | $180 - $300 | $18,000 - $30,000 |
-| Premium (importados, diseño) | $300 - $500 | $30,000 - $50,000 |
-| Lujo (materiales europeos, domótica) | $500 - $800+ | $50,000 - $80,000+ |
+| Medio (mezcla nacional/importado) | $180 - $280 | $18,000 - $28,000 |
+| Premium (importados, diseño) | $280 - $400 | $28,000 - $40,000 |
+| Lujo (materiales europeos, domótica) | $400 - $600 | $40,000 - $60,000 |
 
 **Factor ubicación:**
 - Valencia / San Diego: precio base
@@ -132,11 +132,11 @@ Muchos propietarios preguntan: "¿No es mejor remodelar la cocina este año y el
 
 | Concepto | Integral (una vez) | Por partes (3 etapas) |
 |----------|-------------------|----------------------|
-| Demolición | $1,200 | $2,400 (se repite) |
-| Instalaciones | $3,500 | $5,500 (accesos repetidos) |
-| Pisos | $4,000 | $6,000 (protección de áreas) |
-| Mano de obra | $8,000 | $12,000 (movilización x3) |
-| **Total** | **$25,000** | **$35,000+** |
+| Demolición | $800 | $1,600 (se repite) |
+| Instalaciones | $2,500 | $4,000 (accesos repetidos) |
+| Pisos | $3,000 | $4,500 (protección de áreas) |
+| Mano de obra | $5,500 | $8,500 (movilización x3) |
+| **Total** | **$18,000** | **$28,000+** |
 
 **Ahorro con integral: 30-40%.** Además del tiempo: 3 meses vs. 12+ meses con interrupciones constantes.
 
@@ -194,7 +194,7 @@ Casas y townhouses con más libertad constructiva:
 - Menos restricciones de condominio
 - Posibilidad de ampliación
 - Costos 10-15% menores que Caracas
-- Presupuestos desde $25,000
+- Presupuestos desde $18,000
 
 Para proyectos en estas zonas, revisa:
 - [Remodelación Integral en La Lagunita](/remodelacion-integral-la-lagunita)

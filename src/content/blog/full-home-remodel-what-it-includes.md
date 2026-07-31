@@ -90,9 +90,9 @@ A full remodel covers **all or most** of these works:
 | Finish Level                  | Price/m²     | Example 100 m² apartment |
 |-------------------------------|--------------|--------------------------|
 | Budget (national materials)   | $120 - $180  | $12,000 - $18,000        |
-| Mid-range (mix national/imported) | $180 - $300 | $18,000 - $30,000     |
-| Premium (imported, design)    | $300 - $500  | $30,000 - $50,000        |
-| Luxury (European materials, home automation) | $500 - $800+ | $50,000 - $80,000+ |
+| Mid-range (mix national/imported) | $180 - $280 | $18,000 - $28,000     |
+| Premium (imported, design)    | $280 - $400  | $28,000 - $40,000        |
+| Luxury (European materials, home automation) | $400 - $600 | $40,000 - $60,000 |
 
 **Location factor:**
 - Valencia / San Diego: base price
@@ -132,11 +132,11 @@ Many owners ask: "Isn't it better to remodel the kitchen this year and the bathr
 
 | Concept            | Full (once)     | By parts (3 stages)     |
 |--------------------|-----------------|-------------------------|
-| Demolition         | $1,200          | $2,400 (repeated)       |
-| Installations      | $3,500          | $5,500 (repeated access)|
-| Flooring           | $4,000          | $6,000 (area protection)|
-| Labor              | $8,000          | $12,000 (mobilization x3)|
-| **Total**          | **$25,000**     | **$35,000+**            |
+| Demolition         | $800            | $1,600 (repeated)       |
+| Installations      | $2,500          | $4,000 (repeated access)|
+| Flooring           | $3,000          | $4,500 (area protection)|
+| Labor              | $5,500          | $8,500 (mobilization x3)|
+| **Total**          | **$18,000**     | **$28,000+**            |
 
 **Savings with full remodel: 30-40%.** Plus time: 3 months vs. 12+ months with constant interruptions.
 
@@ -189,7 +189,7 @@ Houses and townhouses with more construction freedom:
 - Fewer condominium restrictions
 - Possibility of expansion
 - Costs 10-15% lower than Caracas
-- Budgets starting at $25,000
+- Budgets starting at $18,000
 
 ---
 
