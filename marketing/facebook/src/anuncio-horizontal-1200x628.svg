@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="1200" height="628" viewBox="0 0 1200 628">
+  <defs>
+    <clipPath id="photo"><path d="M0 0 H701 L625 628 H0 Z"/></clipPath>
+    <linearGradient id="photoShade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#081220" stop-opacity="0.10"/><stop offset="0.72" stop-color="#081220" stop-opacity="0.10"/><stop offset="1" stop-color="#081220" stop-opacity="0.72"/></linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#bd9140"/><stop offset="0.5" stop-color="#efd58e"/><stop offset="1" stop-color="#c29746"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#000" flood-opacity="0.30"/></filter>
+  </defs>
+  <rect width="1200" height="628" fill="#081220"/>
+  <image x="0" y="0" width="710" height="628" preserveAspectRatio="xMidYMid slice" clip-path="url(#photo)" href="../../../public/images/hero-lcp.webp" xlink:href="../../../public/images/hero-lcp.webp"/>
+  <path d="M0 0 H701 L625 628 H0 Z" fill="url(#photoShade)"/>
+  <path d="M697 0 L621 628" stroke="#d9ba68" stroke-width="3" opacity="0.65"/>
+  <g transform="translate(686 0)">
+    <image x="51" y="38" width="300" height="81" preserveAspectRatio="xMinYMid meet" href="../../../public/images/logo-header.webp" xlink:href="../../../public/images/logo-header.webp"/>
+    <text x="51" y="170" fill="#d9ba68" font-family="DejaVu Sans, sans-serif" font-size="16" font-weight="700" letter-spacing="2.6">REMODELACIONES DE ALTO ESTÁNDAR</text>
+    <text x="49" y="236" fill="#ffffff" font-family="DejaVu Serif, serif" font-size="45" font-weight="700">Remodela con método.</text>
+    <text x="49" y="290" fill="#e5c878" font-family="DejaVu Serif, serif" font-size="45" font-weight="700">Disfruta el resultado.</text>
+    <text x="52" y="339" fill="#e7eaed" font-family="DejaVu Sans, sans-serif" font-size="18">
+      <tspan x="52">Cocinas, baños y reformas integrales con</tspan>
+      <tspan x="52" dy="27">supervisión técnica y garantía por escrito.</tspan>
+    </text>
+    <g transform="translate(51 411)" filter="url(#shadow)">
+      <rect width="398" height="76" rx="10" fill="url(#gold)"/>
+      <text x="24" y="31" fill="#081220" font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="700" letter-spacing="1.2">SOLICITA TU VALORACIÓN</text>
+      <text x="24" y="58" fill="#081220" font-family="DejaVu Sans, sans-serif" font-size="22" font-weight="700">0422 799 7043</text>
+      <path d="M352 38 h18 M360 27 l11 11 -11 11" fill="none" stroke="#081220" stroke-width="3.4" stroke-linecap="round"/>
+    </g>
+    <text x="52" y="541" fill="#ffffff" font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="600" letter-spacing="0.8">CARACAS · VALENCIA · SAN DIEGO · CARABOBO</text>
+    <text x="52" y="574" fill="#d9ba68" font-family="DejaVu Sans, sans-serif" font-size="14" font-weight="700" letter-spacing="1.7">REMODELAT.NET</text>
+  </g>
+</svg>
