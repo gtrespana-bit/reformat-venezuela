@@ -1,6 +1,20 @@
 # Kit de flyers para Facebook — RemodelaT Venezuela
 
-Paquete preparado para publicaciones orgánicas y campañas de captación por WhatsApp. La línea gráfica usa el azul marino y dorado de la marca, el teléfono oficial y los mensajes de confianza ya presentes en el sitio: experiencia, supervisión técnica, presupuesto por partidas y garantía por escrito.
+Paquete completo preparado para publicaciones orgánicas y campañas de captación de alto rendimiento por WhatsApp.
+> **Página Oficial en Facebook:** [RemodelaT Venezuela](https://www.facebook.com/profile.php?id=61592513974053)
+
+## 🔥 Colección de Élite (Tanda 4) — Siguiente Nivel de Captación
+
+La carpeta [`tanda-4-elite/`](./tanda-4-elite/) contiene la nueva **Colección de Élite**, compuesta por **12 flyers exclusivos** que rompen el estilo monocromático de las colecciones anteriores. Se dividen en 4 universos visuales de estándar internacional:
+1. **Swiss Architectural White**: Minimalismo editorial blanco, travertino y tipografía suiza estilo *Lookbook 2026*.
+2. **Obsidian & Bronze Futurist**: Lujo tecnológico, tarjetas VIP de membresía y **selectores interactivos simulados** ("¿Cuánto cuesta tu reforma?").
+3. **Mediterranean Terracotta & Olive**: Lujo orgánico residencial con texturas naturales (piedra, microcemento, maderas nobles).
+4. **Cinema Case Study**: Contraste cinematográfico Antes/Después de proyectos verificados en Venezuela (Caracas, La Lagunita, San Diego).
+
+- Vista general consolidada: [`tanda-4-elite/preview-contact-sheet.jpg`](./tanda-4-elite/preview-contact-sheet.jpg)
+- Galería web interactiva: [`tanda-4-elite/preview-galeria-elite.html`](./tanda-4-elite/preview-galeria-elite.html)
+- **Reels animados + Locución AI en español**: [`tanda-4-elite/reel-reproductor.html`](./tanda-4-elite/reel-reproductor.html) (incluye audios MP3 y GIFs 1080×1920)
+- Guía de Copywriting & Psicología del Clic: [`tanda-4-elite/README.md`](./tanda-4-elite/README.md)
 
 ## Colección profesional con dirección de arte de agencia
 

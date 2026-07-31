@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Colección de Élite (Tanda 4) — RemodelaT Venezuela</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --surface: #161821;
+      --surface-card: #1f222e;
+      --gold: #d99b66;
+      --gold-light: #f4ebd9;
+      --text: #ffffff;
+      --muted: #a0a6b2;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Manrope", -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      padding: 2rem 1rem;
+    }
+    header {
+      max-width: 1200px;
+      margin: 0 auto 3rem;
+      text-align: center;
+      border-bottom: 1px solid rgba(217, 155, 102, 0.2);
+      padding-bottom: 2rem;
+    }
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 1.1rem;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(217, 155, 102, 0.15);
+      color: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--gold);
+    }
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .collection-header {
+      margin: 3.5rem 0 1.5rem;
+      padding-left: 1rem;
+      border-left: 4px solid var(--gold);
+    }
+    .collection-header h2 {
+      font-family: var(--font-serif);
+      font-size: 2.2rem;
+      color: var(--gold-light);
+    }
+    .collection-header p {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+      gap: 2rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, border-color 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: var(--gold);
+    }
+    .card-img-wrap {
+      background: #000;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 400px;
+      max-height: 520px;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease;
+    }
+    .card:hover .card-img-wrap img {
+      transform: scale(1.03);
+    }
+    .card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.8rem;
+      color: var(--gold);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      margin-bottom: 0.5rem;
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.6rem;
+      color: #fff;
+      margin-bottom: 0.75rem;
+    }
+    .card-hook {
+      background: var(--surface-card);
+      border-left: 3px solid var(--gold);
+      padding: 0.75rem 1rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      color: var(--gold-light);
+      margin-bottom: 1.25rem;
+    }
+    .card-footer {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 1rem;
+    }
+    .btn {
+      background: var(--gold);
+      color: #0b0c10;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+    .btn:hover {
+      background: var(--gold-light);
+    }
+    .filesize {
+      color: var(--muted);
+      font-size: 0.8rem;
+    }
+    footer {
+      max-width: 1200px;
+      margin: 4rem auto 1rem;
+      text-align: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      padding-top: 2rem;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">NIVEL ÉLITE · COLECCIÓN TANDA 4</div>
+    <h1>Flyers de Remodelación de Élite</h1>
+    <p>12 piezas maestras divididas en 4 colecciones visuales de estándar internacional para campañas en Facebook e Instagram. Diseños elaborados, interactivos y con llamados a la acción de alta conversión.</p>
+  </header>
+
+  <div class="container">
+
+    <!-- Colección 1 -->
+    <div class="collection-header">
+      <h2>1. Swiss Architectural White</h2>
+      <p>Minimalismo arquitectónico de lujo, tipografía editorial suiza y mirada de galería de arte.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/01-swiss-lookbook-2026-1080x1350.jpg" alt="01 Swiss Lookbook 2026" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">01 · Lookbook Residencial 2026</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 DESCARGAR LOOKBOOK 2026 Y COTIZAR TU PROYECTO"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/01-swiss-lookbook-2026-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/02-swiss-cocina-isla-cuarzo-1080x1350.jpg" alt="02 Swiss Cocina de Autor" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">02 · Especialidad Cocinas de Autor</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 VER PROYECTOS EJECUTADOS Y SOLICITAR PROPUESTA"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/02-swiss-cocina-isla-cuarzo-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/03-swiss-bano-suite-1080x1080.jpg" alt="03 Swiss Baño Suite" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED CUADRADO</span><span>1080 × 1080</span></div>
+          <h3 class="card-title">03 · Baños Suite Tipo Spa</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 SOLICITAR COTIZACIÓN POR PARTIDAS EN TU PROPIEDAD"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/03-swiss-bano-suite-1080x1080.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colección 2 -->
+    <div class="collection-header">
+      <h2>2. Obsidian & Bronze Futurist</h2>
+      <p>Lujo tecnológico, tarjetas VIP de membresía residencial y selectores interactivos que invitan al clic.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/04-obsidian-servicio-integral-1080x1350.jpg" alt="04 Servicio Integral VIP" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">04 · Servicio Integral de Remodelación</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 SOLICITAR VISITA TÉCNICA VIP EN TU PROPIEDAD"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/04-obsidian-servicio-integral-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/05-obsidian-calculadora-interactiva-1080x1080.jpg" alt="05 Calculadora Interactiva" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED CUADRADO</span><span>1080 × 1080</span></div>
+          <h3 class="card-title">05 · Calculadora de Presupuesto 2026</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "¿Cuánto cuesta remodelar tu hogar? 👉 CALCULAR MI PRESUPUESTO EN 1 CLIC"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/05-obsidian-calculadora-interactiva-1080x1080.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/06-obsidian-story-quizz-1080x1920.jpg" alt="06 Story Quizz" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>STORY / REEL</span><span>1080 × 1920</span></div>
+          <h3 class="card-title">06 · Story Selector de Espacio</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👆 TOCA AQUÍ PARA ELEGIR TU OPCIÓN Y COTIZAR AL INSTANTE"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/06-obsidian-story-quizz-1080x1920.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colección 3 -->
+    <div class="collection-header">
+      <h2>3. Mediterranean Terracotta & Olive</h2>
+      <p>Lujo orgánico residencial, texturas naturales (piedra, microcemento, madera) y calidez mediterránea.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/07-mediterranean-villa-integral-1080x1350.jpg" alt="07 Mediterranean Villa Integral" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">07 · Reforma Integral Orgánica</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 EXPLORA LA COLECCIÓN ORGÁNICA Y COTIZA TU HOGAR"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/07-mediterranean-villa-integral-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/08-mediterranean-bano-spa-organico-1080x1350.jpg" alt="08 Baño Spa Travertino" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">08 · Santuario Privado Residencial</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 CONSULTAR CON NUESTRO EQUIPO DE ARQUITECTURA"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/08-mediterranean-bano-spa-organico-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/09-mediterranean-carousel-mosaico-1200x628.jpg" alt="09 Horizontal Mosaico" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>HORIZONTAL</span><span>1200 × 628</span></div>
+          <h3 class="card-title">09 · Banner Multiposición Arquitectónico</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 SOLICITAR PROPUESTA TÉCNICA · COORDINA TU OBRA HOY"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/09-mediterranean-carousel-mosaico-1200x628.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colección 4 -->
+    <div class="collection-header">
+      <h2>4. Cinema Case Study (Prueba Social Verificada)</h2>
+      <p>Alto impacto visual, contraste Antes y Después de proyectos reales en Venezuela y prueba técnica infalible.</p>
+    </div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/10-cinema-before-after-lagunita-1080x1350.jpg" alt="10 Before After Lagunita" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED VERTICAL</span><span>1080 × 1350</span></div>
+          <h3 class="card-title">10 · Case Study Verificado: La Lagunita</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 HAZ CLIC PARA VER EL RECORRIDO Y COTIZAR TU OBRA"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/10-cinema-before-after-lagunita-1080x1350.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/11-cinema-before-after-caracas-1080x1080.jpg" alt="11 Before After Caracas" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>FEED CUADRADO</span><span>1080 × 1080</span></div>
+          <h3 class="card-title">11 · Transformación Real en Caracas</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 VER PRESUPUESTO DE ESTE PROYECTO Y COTIZAR TU HOGAR"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/11-cinema-before-after-caracas-1080x1080.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-img-wrap">
+          <img src="export/12-cinema-story-recorrido-vip-1080x1920.jpg" alt="12 Story Recorrido VIP" />
+        </div>
+        <div class="card-body">
+          <div class="card-meta"><span>STORY / REEL</span><span>1080 × 1920</span></div>
+          <h3 class="card-title">12 · Recorrido VIP: San Diego, Carabobo</h3>
+          <div class="card-hook">
+            <strong>Hook / CTA:</strong> "👉 TOCA AQUÍ PARA AGENDAR VISITA TÉCNICA EN TU HOGAR"
+          </div>
+          <div class="card-footer">
+            <span class="filesize">Optimizada sRGB</span>
+            <a href="export/12-cinema-story-recorrido-vip-1080x1920.jpg" target="_blank" class="btn">Abrir JPG</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <p><strong>RemodelaT Venezuela</strong> · Kit Oficial de Marketing en Facebook & Instagram</p>
+    <p>Facebook Oficial: <a href="https://www.facebook.com/profile.php?id=61592513974053" target="_blank" style="color: #d99b66;">Perfil de RemodelaT Venezuela</a> · WhatsApp: <strong>0422 799 7043</strong></p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reels Interactivos con Voz AI — RemodelaT Venezuela</title>
+  <style>
+    :root {
+      --bg: #0b0c10;
+      --surface: #161821;
+      --gold: #d99b66;
+      --gold-light: #f4ebd9;
+      --text: #ffffff;
+      --muted: #a0a6b2;
+      --font-serif: "Cormorant Garamond", serif;
+      --font-sans: "Manrope", -apple-system, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      min-height: 100vh;
+    }
+    header {
+      text-align: center;
+      max-width: 800px;
+      margin-bottom: 2rem;
+    }
+    header h1 {
+      font-family: var(--font-serif);
+      font-size: 2.6rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+    header p {
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .badge {
+      display: inline-block;
+      background: rgba(217, 155, 102, 0.15);
+      color: var(--gold);
+      padding: 0.35rem 1rem;
+      border-radius: 99px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      border: 1px solid var(--gold);
+    }
+    .tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .tab-btn {
+      background: var(--surface);
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 0.8rem 1.6rem;
+      border-radius: 99px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    .tab-btn.active {
+      background: var(--gold);
+      color: #0b0c10;
+      border-color: var(--gold);
+      box-shadow: 0 0 15px rgba(217,155,102,0.4);
+    }
+    .phone-container {
+      position: relative;
+      width: 360px;
+      height: 640px;
+      background: #000;
+      border-radius: 40px;
+      border: 10px solid #222533;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.8), 0 0 40px rgba(217,155,102,0.15);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .phone-notch {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 110px;
+      height: 24px;
+      background: #222533;
+      border-radius: 99px;
+      z-index: 20;
+    }
+    .reel-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    .reel-slide {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px 20px 25px;
+      background-size: cover;
+      background-position: center;
+    }
+    .reel-slide.active {
+      opacity: 1;
+      z-index: 5;
+    }
+    .reel-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(0deg, rgba(11,12,16,0.95) 0%, rgba(11,12,16,0.5) 45%, rgba(11,12,16,0.75) 100%);
+      z-index: 1;
+    }
+    .reel-content {
+      position: relative;
+      z-index: 10;
+    }
+    .reel-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .reel-logo {
+      height: 28px;
+    }
+    .reel-step-pill {
+      background: rgba(217, 155, 102, 0.2);
+      border: 1px solid var(--gold);
+      color: var(--gold-light);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .reel-center {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      margin: auto 0;
+    }
+    .reel-photo {
+      width: 100%;
+      height: 220px;
+      border-radius: 16px;
+      object-fit: cover;
+      border: 2px solid var(--gold);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+      margin-bottom: 1rem;
+      transition: transform 3s ease;
+    }
+    .reel-slide.active .reel-photo {
+      transform: scale(1.05);
+    }
+    .reel-headline {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .reel-sub {
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 0 10px;
+    }
+    .reel-subtitle-box {
+      background: rgba(22, 24, 33, 0.9);
+      border-left: 3px solid var(--gold);
+      padding: 10px 14px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--gold-light);
+      text-align: left;
+    }
+    .reel-bottom {
+      position: relative;
+      z-index: 10;
+    }
+    .reel-cta-btn {
+      display: block;
+      width: 100%;
+      background: var(--gold);
+      color: #0b0c10;
+      text-align: center;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 12px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 5px 20px rgba(217,155,102,0.4);
+    }
+    .reel-progress {
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 4px;
+      background: rgba(255,255,255,0.15);
+      z-index: 20;
+    }
+    .reel-progress-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--gold);
+      transition: width 0.3s linear;
+    }
+    .play-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(11,12,16,0.7);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      cursor: pointer;
+    }
+    .play-btn {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 30px rgba(217,155,102,0.6);
+      margin-bottom: 1rem;
+      transition: transform 0.2s;
+    }
+    .play-btn:hover {
+      transform: scale(1.08);
+    }
+    .play-btn svg {
+      width: 32px;
+      height: 32px;
+      fill: #0b0c10;
+      margin-left: 4px;
+    }
+    .downloads-box {
+      margin-top: 3rem;
+      max-width: 900px;
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      padding: 2rem;
+    }
+    .downloads-box h2 {
+      font-family: var(--font-serif);
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin-bottom: 1rem;
+    }
+    .download-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+    }
+    .dl-card {
+      background: rgba(0,0,0,0.3);
+      border: 1px solid rgba(217,155,102,0.25);
+      border-radius: 12px;
+      padding: 1.25rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .dl-card h4 {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    .dl-card p {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+    }
+    .dl-btn {
+      background: rgba(217,155,102,0.15);
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.85rem;
+      text-align: center;
+      transition: all 0.2s;
+    }
+    .dl-btn:hover {
+      background: var(--gold);
+      color: #0b0c10;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="badge">REELS ANIMADOS · AUDIO AI & STORYBOARD</div>
+    <h1>Reels Publicitarios con Voz AI en Español</h1>
+    <p>Hemos sintetizado locuciones publicitarias en español y creado animaciones verticales en formato Reel/Story (1080×1920) para Instagram, Facebook, TikTok y WhatsApp. <a href="https://www.facebook.com/profile.php?id=61592513974053" target="_blank" style="color:var(--gold);">Ver Página Oficial en Facebook</a></p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" onclick="switchReel('bano')">🛁 REEL 1: Baños Suite (Voz Masculina)</button>
+    <button class="tab-btn" onclick="switchReel('cocina')">🍳 REEL 2: Cocinas de Autor (Voz Femenina)</button>
+  </div>
+
+  <div class="phone-container">
+    <div class="phone-notch"></div>
+
+    <!-- REEL STAGE -->
+    <div class="reel-stage" id="stage">
+      <!-- Los slides se inyectan dinámicamente con JS -->
+    </div>
+
+    <div class="play-overlay" id="playOverlay" onclick="startReel()">
+      <div class="play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <p style="font-weight:700; color:#fff;">▶ Toca para reproducir con Voz AI</p>
+    </div>
+
+    <div class="reel-progress">
+      <div class="reel-progress-fill" id="progFill"></div>
+    </div>
+  </div>
+
+  <audio id="audioPlayer"></audio>
+
+  <div class="downloads-box">
+    <h2>📥 Descargar Archivos para Campañas y Redes Sociales</h2>
+    <p style="color:var(--muted); margin-bottom:1.5rem;">Puedes publicar directamente los archivos GIF/WebP animados en tus redes o combinar los audios MP3 en CapCut/Premiere con tus videos de obra.</p>
+    <div class="download-grid">
+      <div class="dl-card">
+        <div>
+          <h4>🎬 Reel 1: Baños Suite (GIF Animado)</h4>
+          <p>Animación vertical 1080×1920 con 4 escenas (Antes, Obra, Suite, Garantía).</p>
+        </div>
+        <a href="export/13-reel-animado-bano-1080x1920.gif" target="_blank" class="dl-btn">Descargar GIF (1080×1920)</a>
+      </div>
+      <div class="dl-card">
+        <div>
+          <h4>🎙️ Audio Reel 1 (Voz Masculina MP3)</h4>
+          <p>Locución publicitaria sintetizada en español, optimizada para anuncios residenciales.</p>
+        </div>
+        <a href="reel-narration.mp3" target="_blank" class="dl-btn">Descargar MP3 de Voz</a>
+      </div>
+      <div class="dl-card">
+        <div>
+          <h4>🎬 Reel 2: Cocinas de Autor (GIF Animado)</h4>
+          <p>Animación vertical 1080×1920 con 4 escenas (Precio 2026, Herrajes, Cuarzo, CTA).</p>
+        </div>
+        <a href="export/14-reel-animado-cocina-1080x1920.gif" target="_blank" class="dl-btn">Descargar GIF (1080×1920)</a>
+      </div>
+      <div class="dl-card">
+        <div>
+          <h4>🎙️ Audio Reel 2 (Voz Femenina MP3)</h4>
+          <p>Locución publicitaria femenina sobre presupuestos claros y cocinas de autor en 2026.</p>
+        </div>
+        <a href="reel-narration-cocina.mp3" target="_blank" class="dl-btn">Descargar MP3 de Voz</a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const reelsData = {
+      bano: {
+        audio: "reel-narration.mp3",
+        duration: 18,
+        slides: [
+          {
+            step: "01 · ESTADO ORIGINAL",
+            title: "¿Tu baño sigue en el pasado?",
+            sub: "Filtraciones, sanitarios de época y distribución poco funcional.",
+            photo: "../../public/images/proyectos/banos-quinta-la-lagunita/bano-antes-1.webp",
+            quote: "«En RemodelaT transformamos espacios de época en suites de lujo...»",
+            time: 0
+          },
+          {
+            step: "02 · TÉCNICA EN OBRA",
+            title: "Demolición e instalaciones verificadas",
+            sub: "Reemplazo hidráulico, aislamiento e impermeabilización 100%.",
+            photo: "../../public/images/proyectos/bano-san-diego/bano-en-proceso.webp",
+            quote: "«Un solo equipo coordina diseño, demolición e instalaciones...»",
+            time: 4.5
+          },
+          {
+            step: "03 · ACABADO DE ÉLITE",
+            title: "Tu baño convertido en una suite spa",
+            sub: "Microcemento, piedra natural, sanitarios suspendidos e iluminación LED.",
+            photo: "../../public/images/proyectos/bano-san-diego/bano-finalizado-2.webp",
+            quote: "«...acabados nobles en piedra o microcemento con estándar superior.»",
+            time: 9
+          },
+          {
+            step: "04 · GARANTÍA ESCRITA",
+            title: "Presupuesto detallado por partidas",
+            sub: "Sin sorpresas ni costos ocultos. Supervisión arquitectónica en sitio.",
+            photo: "../../public/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp",
+            quote: "«Con presupuesto por partidas y garantía 100% por escrito. ¡Cotiza hoy!»",
+            time: 13.5
+          }
+        ]
+      },
+      cocina: {
+        audio: "reel-narration-cocina.mp3",
+        duration: 18,
+        slides: [
+          {
+            step: "01 · PRESUPUESTOS 2026",
+            title: "¿Cuánto cuesta tu nueva cocina?",
+            sub: "La incertidumbre en precios retrasa el 80% de los proyectos.",
+            photo: "../../public/images/cocina-encimera-cuarzo.webp",
+            quote: "«¿Cuánto cuesta remodelar tu cocina en 2026? La incertidumbre retrasa proyectos...»",
+            time: 0
+          },
+          {
+            step: "02 · HERRAJES BLUM",
+            title: "Mobiliario a medida y ergonomía",
+            sub: "Cada milímetro aprovechado con sistemas de cierre suave de alta gama.",
+            photo: "../../public/images/cocina-almacenamiento-inteligente.webp",
+            quote: "«En RemodelaT diseñamos cocinas de autor con encimeras de cuarzo y herrajes Blum...»",
+            time: 4.5
+          },
+          {
+            step: "03 · ACABADO SUPERIOR",
+            title: "Encimeras de cuarzo e iluminación LED",
+            sub: "Una cocina pensada para ser el centro de reunión en tu hogar.",
+            photo: "../../public/images/cocina-terminada-final.webp",
+            quote: "«...con supervisión arquitectónica en sitio y materiales eternos.»",
+            time: 9
+          },
+          {
+            step: "04 · SIN COSTOS OCULTOS",
+            title: "Garantía formal por escrito al 100%",
+            sub: "Atendemos residencias en Caracas, Valencia, San Diego y Carabobo.",
+            photo: "../../public/images/cocina-isla-central.webp",
+            quote: "«Cero costos ocultos y garantía formal por escrito. Cotiza tu propiedad hoy.»",
+            time: 13.5
+          }
+        ]
+      }
+    };
+
+    let currentReel = "bano";
+    let timer = null;
+    let startTime = 0;
+    const stage = document.getElementById("stage");
+    const progFill = document.getElementById("progFill");
+    const audio = document.getElementById("audioPlayer");
+    const overlay = document.getElementById("playOverlay");
+
+    function renderSlides(reelKey) {
+      const data = reelsData[reelKey];
+      stage.innerHTML = "";
+      data.slides.forEach((slide, index) => {
+        const div = document.createElement("div");
+        div.className = "reel-slide" + (index === 0 ? " active" : "");
+        div.id = `slide-${index}`;
+        div.innerHTML = `
+          <div class="reel-overlay"></div>
+          <div class="reel-content reel-top">
+            <img src="../../public/images/logo-header.webp" class="reel-logo" alt="RemodelaT" />
+            <span class="reel-step-pill">${slide.step}</span>
+          </div>
+          <div class="reel-content reel-center">
+            <img src="${slide.photo}" class="reel-photo" alt="${slide.title}" />
+            <h3 class="reel-headline">${slide.title}</h3>
+            <p class="reel-sub">${slide.sub}</p>
+          </div>
+          <div class="reel-content reel-bottom">
+            <div class="reel-subtitle-box">🎙️ ${slide.quote}</div>
+            <a href="https://wa.me/584227997043?text=Hola%2C%20vi%20su%20Reel%20en%20Instagram%20y%20quiero%20cotizar%20mi%20remodelaci%C3%B3n" target="_blank" class="reel-cta-btn">
+              👉 AGENDAR VISITA TÉCNICA · 0422 799 7043
+            </a>
+          </div>
+        `;
+        stage.appendChild(div);
+      });
+    }
+
+    function switchReel(key) {
+      stopReel();
+      currentReel = key;
+      document.querySelectorAll(".tab-btn").forEach((btn, idx) => {
+        btn.classList.toggle("active", (key === "bano" && idx === 0) || (key === "cocina" && idx === 1));
+      });
+      renderSlides(key);
+      overlay.style.display = "flex";
+      progFill.style.width = "0%";
+    }
+
+    function startReel() {
+      overlay.style.display = "none";
+      const data = reelsData[currentReel];
+      audio.src = data.audio;
+      audio.currentTime = 0;
+      audio.play();
+
+      startTime = Date.now();
+      if (timer) clearInterval(timer);
+
+      timer = setInterval(() => {
+        const elapsed = (Date.now() - startTime) / 1000;
+        const progress = Math.min(100, (elapsed / data.duration) * 100);
+        progFill.style.width = progress + "%";
+
+        let activeIdx = 0;
+        data.slides.forEach((s, idx) => {
+          if (elapsed >= s.time) activeIdx = idx;
+        });
+
+        document.querySelectorAll(".reel-slide").forEach((el, idx) => {
+          el.classList.toggle("active", idx === activeIdx);
+        });
+
+        if (elapsed >= data.duration) {
+          stopReel();
+          overlay.style.display = "flex";
+        }
+      }, 100);
+    }
+
+    function stopReel() {
+      if (timer) clearInterval(timer);
+      audio.pause();
+      audio.currentTime = 0;
+    }
+
+    // Inicializar por defecto
+    renderSlides("bano");
+  </script>
+
+</body>
+</html>
