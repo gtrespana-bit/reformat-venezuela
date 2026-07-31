@@ -2,6 +2,10 @@
 
 Paquete preparado para publicaciones orgánicas y campañas de captación por WhatsApp. La línea gráfica usa el azul marino y dorado de la marca, el teléfono oficial y los mensajes de confianza ya presentes en el sitio: experiencia, supervisión técnica, presupuesto por partidas y garantía por escrito.
 
+## Nueva segunda tanda premium
+
+La carpeta [`tanda-2-premium/`](./tanda-2-premium/) contiene **8 diseños adicionales** con una dirección más editorial y elegante, tipografías oficiales de marca y nuevos hooks de captación. Incluye publicaciones verticales, anuncios cuadrados, Stories/Reels y una adaptación horizontal. La vista general está en `tanda-2-premium/preview-contact-sheet.jpg`.
+
 ## Archivos listos para publicar
 
 | Archivo | Medida | Uso recomendado |
