@@ -83,14 +83,11 @@ const navItems = isEnglish
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <!-- Preload fuentes críticas (woff2 self-hosted) -->
-  <!-- Solo se precargan los pesos realmente usados sobre el pliegue:
-       Manrope 400 (cuerpo) y Cormorant 600 (titulares). Precargar 5 fuentes
-       provocaba avisos de "preloaded but not used" y competía por ancho de
-       banda con el LCP. El resto carga por @font-face con font-display:swap. -->
-  <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin />
-<!-- Canonical + hreflang: emitidos por SEO.astro (fuente unica) -->
+  <!-- Las fuentes no se precargan globalmente: cada plantilla usa pesos
+       distintos y un preload incondicional generaba avisos de recursos no
+       utilizados. @font-face + font-display:swap solicita solo los pesos que
+       cada página realmente necesita. -->
+  <!-- Canonical + hreflang: emitidos por SEO.astro (fuente única) -->
 
   
   <SEO 
