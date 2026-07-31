@@ -4,6 +4,8 @@ import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
 import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 
 const project = {
   title: 'Remodelación Integral de Cocina en Quinta',
@@ -152,14 +154,6 @@ const gallery = [
   }
 ];
 
-const galleryFilters = [
-  { id: 'all', label: 'Todas las fotos', count: gallery.length },
-  { id: 'resultado', label: 'Resultado final', count: gallery.filter((img) => img.category === 'resultado').length },
-  { id: 'detalles', label: 'Detalles técnicos', count: gallery.filter((img) => img.category === 'detalles').length },
-  { id: 'montaje', label: 'Montaje de muebles', count: gallery.filter((img) => img.category === 'montaje').length },
-  { id: 'antes', label: 'Antes de obra', count: gallery.filter((img) => img.category === 'antes').length }
-];
-
 const featuredFinished = gallery.filter((img) => img.category === 'resultado');
 
 const storyMoments = [
@@ -191,10 +185,18 @@ const storyMoments = [
 
 const quickNavItems = [
   { href: '#resultado', label: 'Resultado' },
+  { href: '#comparativa', label: 'Antes / después' },
   { href: '#recorrido', label: 'Recorrido visual' },
   { href: '#tecnica', label: 'Ejecución' },
   { href: '#ficha', label: 'Ficha técnica' },
   { href: '#galeria', label: 'Galería' }
+];
+
+const galleryPhases = [
+  { id: 'resultado', label: 'Resultado final', description: 'Las vistas ya terminadas muestran la composición completa, la integración de equipos y el contraste entre frentes blancos y cuarzo oscuro.' },
+  { id: 'detalles', label: 'Detalles técnicos', description: 'Aquí se aprecian los remates, la adaptación de la encimera y las decisiones que elevan el acabado.' },
+  { id: 'montaje', label: 'Montaje de muebles', description: 'Fase intermedia donde se ve la alineación de módulos, ajustes y control de encuentros.' },
+  { id: 'antes', label: 'Estado previo', description: 'Punto de partida real de la cocina antes del desmontaje y la reforma integral.' }
 ];
 
 const whatsappText = 'Hola, quiero una valoración técnica para una cocina similar a la quinta en Caracas.';
@@ -279,10 +281,23 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
     </div>
   </section>
 
+  <ProjectBeforeAfterSlider
+    id="comparativa"
+    eyebrow="Comparativa principal"
+    title="Desliza para ver el salto entre la cocina original y el resultado final"
+    text="La mejora no se limita al color o al mobiliario nuevo. El cambio real está en la limpieza visual, la integración técnica y la calidad percibida de toda la composición."
+    beforeSrc="/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp"
+    beforeAlt="Cocina original antes de la reforma integral en la quinta de Caracas"
+    afterSrc="/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp"
+    afterAlt="Cocina finalizada con mobiliario blanco de alto brillo y cuarzo oscuro en Caracas"
+    beforeLabel="Antes"
+    afterLabel="Después"
+  />
+
   <ProjectReadingGallery
-    eyebrow="Lectura visual del proyecto"
-    title="Así se entiende mejor la obra: texto y fotos juntos"
-    intro="En lugar de obligar al usuario a leer primero y buscar luego las imágenes, esta franja cuenta la intervención con apoyo visual inmediato. Es una forma mucho más premium y clara de explicar el trabajo realizado."
+    eyebrow="Recorrido visual"
+    title="La obra explicada por fases clave"
+    intro="Este tramo combina relato e imagen para que el visitante entienda qué se transformó, cómo se ejecutó y por qué el resultado se percibe mucho más sólido y elegante."
     items={storyMoments}
     galleryGroup="kitchen-story"
   />
@@ -348,39 +363,14 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
     </div>
   </section>
 
-  <section class="case-gallery section bg-light" id="galeria">
-    <div class="container">
-      <div class="section-header">
-        <span class="tag">Archivo fotográfico completo</span>
-        <h2 class="section-title">Galería detallada por fases ({gallery.length} fotos reales)</h2>
-        <p class="section-desc">Puedes filtrar entre resultado final, detalles técnicos, montaje de muebles y estado previo para revisar el proyecto sin mezclar las fases.</p>
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de galería de cocina">
-          {galleryFilters.map((filter, index) => (
-            <button class:list={["filter-btn", index === 0 && 'active']} type="button" data-filter={filter.id} role="tab" aria-selected={index === 0 ? 'true' : 'false'}>
-              <span>{filter.label}</span>
-              <span class="filter-count">{filter.count}</span>
-            </button>
-          ))}
-        </div>
-      </div>
-      <div class="gallery-grid" id="kitchen-gallery-grid">
-        {gallery.map((image, index) => (
-          <article class:list={["gallery-card", image.orientation === 'landscape' && 'is-landscape', index === 0 && 'is-large']} data-category={image.category} data-lightbox-item data-src={image.src} data-alt={image.alt} data-title={image.title} data-caption={image.caption} data-badge={image.badge}>
-            <div class="gallery-image-box">
-              <span class="gallery-badge">{image.badge}</span>
-              <img src={image.src} alt={image.alt} loading={index < 3 ? 'eager' : 'lazy'} decoding="async" />
-              <div class="gallery-zoom-overlay"><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button></div>
-            </div>
-            <div class="gallery-caption-box">
-              <span>{image.categoryLabel}</span>
-              <h3>{image.title}</h3>
-              <p>{image.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <ProjectPhaseGallery
+    eyebrow="Archivo fotográfico completo"
+    title={`Galería ordenada por fases (${gallery.length} fotos reales)`}
+    intro="La galería ya no mezcla todo en una sola rejilla: cada fase se presenta como un bloque propio para que el proyecto se lea mejor y las fotos respiren más."
+    items={gallery}
+    phases={galleryPhases}
+    id="galeria"
+  />
 
   <GuaranteeMatrix compact />
 
@@ -506,103 +496,12 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
   .spec-row strong { color: var(--ink); font-family: var(--font-serif); font-size: 1.16rem; border-right: 1px solid var(--sand); }
   .spec-row span { color: var(--text-muted); line-height: 1.6; }
 
-  .gallery-filters {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-top: 30px;
-  }
-  .filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 11px 18px;
-    border-radius: var(--r-full);
-    border: 1px solid rgba(201,169,97,.34);
-    background: var(--white);
-    color: var(--text);
-    font-family: var(--font-sans);
-    font-size: .86rem;
-    font-weight: 800;
-    letter-spacing: .03em;
-    cursor: pointer;
-    transition: background var(--dur-base) var(--ease-out), color var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out);
-  }
-  .filter-btn:hover { transform: translateY(-2px); border-color: var(--gold); }
-  .filter-btn.active { background: var(--ink); color: var(--white); border-color: var(--gold); }
-  .filter-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 24px;
-    height: 24px;
-    border-radius: var(--r-full);
-    background: var(--bone);
-    color: var(--gold-ink-strong);
-    font-size: .75rem;
-  }
-  .filter-btn.active .filter-count { background: var(--gold); color: var(--ink); }
-
-  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
-  .gallery-card {
-    margin: 0;
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-lg);
-    overflow: hidden;
-    box-shadow: var(--e-1);
-    transition: opacity var(--dur-base) var(--ease-out), transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
-  }
-  .gallery-card:hover { transform: translateY(-4px); box-shadow: var(--e-2); }
-  .gallery-card.is-large { grid-column: span 2; grid-row: span 2; }
-  .gallery-card.hidden { display: none; }
-  .gallery-image-box { position: relative; background: var(--ink); }
-  .gallery-image-box img { width: 100%; height: 360px; object-fit: cover; display: block; }
-  .gallery-card.is-large .gallery-image-box img { height: 742px; }
-  .gallery-card.is-landscape:not(.is-large) { grid-column: span 2; }
-  .gallery-card.is-landscape:not(.is-large) .gallery-image-box img { height: 360px; }
-  .gallery-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 5px 12px;
-    border-radius: var(--r-full);
-    background: var(--gold);
-    color: var(--ink);
-    font-size: .72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .08em;
-  }
-  .gallery-caption-box { padding: 18px 18px 20px; }
-  .gallery-caption-box span {
-    display: inline-block;
-    color: var(--gold-ink);
-    font-size: .72rem;
-    text-transform: uppercase;
-    letter-spacing: .12em;
-    font-weight: 800;
-    margin-bottom: 8px;
-  }
-  .gallery-caption-box h3 {
-    font-family: var(--font-serif);
-    font-size: 1.3rem;
-    line-height: 1.15;
-    color: var(--ink);
-    margin-bottom: 8px;
-  }
-  .gallery-caption-box p { color: var(--text-muted); line-height: 1.58; font-size: .92rem; margin: 0; }
-
   .case-cta { padding: 105px 24px; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 45%), var(--ink); color: var(--white); text-align: center; }
   .case-cta-inner { max-width: 900px; }
   .case-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
   .case-cta p { max-width: 760px; margin: 0 auto 34px; color: rgba(255,255,255,.76); line-height: 1.75; font-size: 1.12rem; }
   .tag-on-dark { color: var(--gold); }
 
-
-  /* Zero-crop project images: preserve full photo, no square cropping */
   .finished-card {
     display: flex;
     flex-direction: column;
@@ -623,31 +522,11 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
   }
   .finished-card figcaption strong { color: var(--ink); }
   .finished-card figcaption p { color: var(--text-muted) !important; margin-bottom: 16px !important; }
-  .gallery-card { cursor: zoom-in; }
-  .gallery-image-box {
-    padding: 16px;
-    min-height: 430px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .gallery-image-box img,
-  .gallery-card.is-large .gallery-image-box img,
-  .gallery-card.is-landscape:not(.is-large) .gallery-image-box img {
-    width: auto !important;
-    height: auto !important;
-    max-width: 100%;
-    max-height: 620px;
-    object-fit: contain !important;
-    border-radius: 2px;
-  }
 
   @media (max-width: 950px) {
     .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { grid-template-columns: 1fr; }
     .finished-showcase-grid { grid-template-columns: 1fr; }
     .finished-card, .finished-card.is-wide { min-height: 560px; }
-    .gallery-grid { grid-template-columns: 1fr 1fr; }
-    .gallery-card.is-large, .gallery-card.is-landscape:not(.is-large) { grid-column: span 2; }
     .image-card img { height: 520px; }
   }
   @media (max-width: 640px) {
@@ -661,39 +540,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
       width: 100%;
       justify-content: center;
     }
-    .gallery-grid, .gallery-card.is-large, .gallery-card.is-landscape:not(.is-large) { grid-template-columns: 1fr; grid-column: span 1; }
-    .gallery-card .gallery-image-box img, .gallery-card.is-large .gallery-image-box img, .gallery-card.is-landscape:not(.is-large) .gallery-image-box img { height: 430px; }
     .finished-card, .finished-card.is-wide { min-height: 460px; }
     .spec-row { grid-template-columns: 1fr; }
     .spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); }
   }
 </style>
-
-<script>
-  function initKitchenGalleryFilters() {
-    const filterButtons = document.querySelectorAll<HTMLButtonElement>('.filter-btn[data-filter]');
-    const galleryCards = document.querySelectorAll<HTMLElement>('.gallery-card[data-category]');
-
-    if (!filterButtons.length || !galleryCards.length) return;
-
-    filterButtons.forEach((button) => {
-      button.addEventListener('click', () => {
-        const filter = button.dataset.filter || 'all';
-
-        filterButtons.forEach((btn) => {
-          const isActive = btn === button;
-          btn.classList.toggle('active', isActive);
-          btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
-        });
-
-        galleryCards.forEach((card) => {
-          const shouldShow = filter === 'all' || card.dataset.category === filter;
-          card.classList.toggle('hidden', !shouldShow);
-        });
-      });
-    });
-  }
-
-  initKitchenGalleryFilters();
-  document.addEventListener('astro:page-load', initKitchenGalleryFilters);
-</script>

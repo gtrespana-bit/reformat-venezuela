@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 
 const project = {
   title: 'Remodelación de Baño Principal y Aseo Adaptado',
@@ -169,6 +171,13 @@ const project = {
   ]
 };
 
+const quickNavItems = [
+  { href: '#espacios', label: 'Espacios' },
+  { href: '#memoria', label: 'Memoria técnica' },
+  { href: '#comparativa', label: 'Antes / después' },
+  { href: '#galeria', label: 'Galería' }
+];
+
 const heroImage = project.heroImage;
 ---
 
@@ -245,8 +254,10 @@ const heroImage = project.heroImage;
     </div>
   </nav>
 
+  <ProjectQuickNav items={quickNavItems} summary="Navega entre espacios, memoria técnica, comparativas y galería real del proyecto." ctaHref="#galeria" ctaLabel="Ir a galería" />
+
   <!-- 2. DUAL-SHOWCASE: LOS DOS ESPACIOS DEL PROYECTO (ZERO CROPPING) -->
-  <section class="dual-showcase-section">
+  <section class="dual-showcase-section" id="espacios">
     <div class="container">
       <div class="section-heading">
         <span class="eyebrow-text">VISTA DOBLE DEL PROYECTO</span>
@@ -309,7 +320,7 @@ const heroImage = project.heroImage;
   </section>
 
   <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section">
+  <section class="technical-narrative-section" id="memoria">
     <div class="container">
       <div class="narrative-layout">
         <!-- Main Editorial Narrative -->
@@ -442,6 +453,8 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </section>
+
+  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Una lectura inmediata del cambio espacial" text="Desliza para ver cómo el baño pasó de una condición convencional y envejecida a un conjunto mucho más limpio, luminoso y técnicamente resuelto." beforeSrc="/images/proyectos/bano-caracas/bano-principal-antes-1.webp" beforeAlt="Baño principal original antes de la reforma en Caracas" afterSrc="/images/proyectos/bano-caracas/bano-principal-finalizado-2.webp" afterAlt="Baño principal renovado con porcelanato gris cemento y mueble ROCA" beforeLabel="Antes" afterLabel="Después" showLightboxButtons={false} />
 
   <!-- 4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED) -->
   <section class="before-after-section">

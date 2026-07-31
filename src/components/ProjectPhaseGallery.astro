@@ -1,0 +1,286 @@
+---
+interface GalleryItem {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  badge: string;
+  category: string;
+  categoryLabel: string;
+}
+
+interface PhaseInfo {
+  id: string;
+  label: string;
+  description?: string;
+}
+
+interface Props {
+  eyebrow: string;
+  title: string;
+  intro: string;
+  items: GalleryItem[];
+  phases: PhaseInfo[];
+  id?: string;
+  buttonLabel?: string;
+}
+
+const {
+  eyebrow,
+  title,
+  intro,
+  items,
+  phases,
+  id = 'galeria',
+  buttonLabel = 'Ampliar foto'
+} = Astro.props;
+
+const groupedPhases = phases
+  .map((phase) => ({
+    ...phase,
+    items: items.filter((item) => item.category === phase.id)
+  }))
+  .filter((phase) => phase.items.length > 0);
+---
+
+<section class="project-phase-gallery section bg-light" id={id}>
+  <div class="container">
+    <div class="section-header project-phase-gallery-header">
+      <span class="tag">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-desc">{intro}</p>
+
+      <div class="project-phase-nav" aria-label="Fases del proyecto">
+        {groupedPhases.map((phase) => (
+          <a href={`#${id}-${phase.id}`} class="project-phase-pill">
+            <span>{phase.label}</span>
+            <span class="project-phase-pill-count">{phase.items.length}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <div class="project-phase-sections">
+      {groupedPhases.map((phase) => (
+        <section class="project-phase-block" id={`${id}-${phase.id}`}>
+          <div class="project-phase-block-head">
+            <div>
+              <span class="project-phase-kicker">{phase.label}</span>
+              {phase.description && <p class="project-phase-description">{phase.description}</p>}
+            </div>
+            <span class="project-phase-counter">{phase.items.length} fotos</span>
+          </div>
+
+          <div class="project-phase-masonry">
+            {phase.items.map((image) => (
+              <article
+                class="project-phase-card"
+                data-lightbox-item
+                data-lightbox-group={`phase-${phase.id}`}
+                data-src={image.src}
+                data-alt={image.alt}
+                data-title={image.title}
+                data-caption={image.caption}
+                data-badge={image.badge}
+              >
+                <div class="project-phase-media">
+                  <span class="project-phase-badge">{image.badge}</span>
+                  <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                  <div class="gallery-zoom-overlay">
+                    <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={image.src}>{buttonLabel}</button>
+                  </div>
+                </div>
+                <div class="project-phase-copy">
+                  <h3>{image.title}</h3>
+                  <p>{image.caption}</p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .project-phase-gallery-header {
+    max-width: 860px;
+  }
+  .project-phase-nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+  }
+  .project-phase-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 10px 16px;
+    border-radius: var(--r-full);
+    background: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.25);
+    color: var(--text);
+    font-size: .82rem;
+    font-weight: 800;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
+  }
+  .project-phase-pill:hover {
+    transform: translateY(-2px);
+    border-color: rgba(201,169,97,.5);
+    box-shadow: 0 12px 22px rgba(20,18,14,.05);
+  }
+  .project-phase-pill-count {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 24px;
+    height: 24px;
+    padding: 0 7px;
+    border-radius: var(--r-full);
+    background: rgba(201,169,97,.14);
+    color: var(--gold-ink-strong);
+    font-size: .74rem;
+  }
+  .project-phase-sections {
+    display: grid;
+    gap: 34px;
+  }
+  .project-phase-block {
+    padding: 28px;
+    border-radius: 28px;
+    background: rgba(255,255,255,.88);
+    border: 1px solid rgba(201,169,97,.16);
+    box-shadow: 0 22px 45px rgba(20,18,14,.05);
+  }
+  .project-phase-block-head {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid rgba(201,169,97,.14);
+  }
+  .project-phase-kicker {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .project-phase-description {
+    color: var(--text-muted);
+    line-height: 1.72;
+    margin: 0;
+    max-width: 760px;
+  }
+  .project-phase-counter {
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 42px;
+    padding: 0 16px;
+    border-radius: var(--r-full);
+    background: var(--bone);
+    border: 1px solid rgba(201,169,97,.2);
+    color: var(--gold-ink-strong);
+    font-size: .8rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-phase-masonry {
+    columns: 3 280px;
+    column-gap: 22px;
+  }
+  .project-phase-card {
+    break-inside: avoid;
+    margin: 0 0 22px;
+    border-radius: 22px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.14);
+    box-shadow: var(--e-1);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .project-phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,.35);
+  }
+  .project-phase-media {
+    position: relative;
+    background: var(--ink-soft);
+  }
+  .project-phase-media img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .project-phase-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 12px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-phase-copy {
+    padding: 18px 18px 20px;
+  }
+  .project-phase-copy h3 {
+    font-family: var(--font-serif);
+    font-size: 1.34rem;
+    line-height: 1.14;
+    color: var(--ink);
+    margin: 0 0 8px;
+  }
+  .project-phase-copy p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.64;
+    font-size: .93rem;
+  }
+
+  @media (max-width: 860px) {
+    .project-phase-block {
+      padding: 22px;
+      border-radius: 22px;
+    }
+    .project-phase-block-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .project-phase-masonry {
+      columns: 2 240px;
+    }
+  }
+
+  @media (max-width: 560px) {
+    .project-phase-masonry {
+      columns: 1;
+    }
+    .project-phase-pill {
+      width: 100%;
+      justify-content: space-between;
+    }
+  }
+</style>

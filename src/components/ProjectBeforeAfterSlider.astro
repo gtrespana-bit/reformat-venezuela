@@ -1,0 +1,244 @@
+---
+interface Props {
+  id: string;
+  eyebrow?: string;
+  title: string;
+  text: string;
+  beforeSrc: string;
+  beforeAlt: string;
+  afterSrc: string;
+  afterAlt: string;
+  beforeLabel?: string;
+  afterLabel?: string;
+  group?: string;
+  showLightboxButtons?: boolean;
+}
+
+const {
+  id,
+  eyebrow = 'Antes y después',
+  title,
+  text,
+  beforeSrc,
+  beforeAlt,
+  afterSrc,
+  afterAlt,
+  beforeLabel = 'Antes',
+  afterLabel = 'Después',
+  group = `${id}-compare`,
+  showLightboxButtons = true
+} = Astro.props;
+---
+
+<section class="project-before-after-slider section bg-light" id={id}>
+  <div class="container project-before-after-slider-grid">
+    <div class="project-before-after-copy">
+      <span class="tag">{eyebrow}</span>
+      <h2 class="section-title">{title}</h2>
+      <p class="section-desc">{text}</p>
+      {showLightboxButtons && (
+        <div class="project-before-after-actions">
+          <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={beforeSrc}>Ver {beforeLabel.toLowerCase()}</button>
+          <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={afterSrc}>Ver {afterLabel.toLowerCase()}</button>
+        </div>
+      )}
+    </div>
+
+    <div class="project-before-after-stage">
+      <div class="project-before-after-frame" data-before-after-frame style="--position: 52%">
+        <img src={beforeSrc} alt={beforeAlt} class="project-before-after-base" loading="lazy" decoding="async" />
+        <div class="project-before-after-overlay">
+          <img src={afterSrc} alt={afterAlt} class="project-before-after-top" loading="lazy" decoding="async" />
+        </div>
+        <div class="project-before-after-divider" aria-hidden="true">
+          <span class="project-before-after-handle"></span>
+        </div>
+        <span class="project-before-after-chip project-before-after-chip-before">{beforeLabel}</span>
+        <span class="project-before-after-chip project-before-after-chip-after">{afterLabel}</span>
+      </div>
+
+      <label class="project-before-after-range-wrap">
+        <span class="sr-only">Control de comparación antes y después</span>
+        <input type="range" min="0" max="100" value="52" class="project-before-after-range" data-before-after-range />
+      </label>
+    </div>
+  </div>
+
+  <div hidden>
+    <div data-lightbox-item data-lightbox-group={group} data-src={beforeSrc} data-alt={beforeAlt} data-title={beforeLabel} data-caption={beforeAlt} data-badge={beforeLabel}></div>
+    <div data-lightbox-item data-lightbox-group={group} data-src={afterSrc} data-alt={afterAlt} data-title={afterLabel} data-caption={afterAlt} data-badge={afterLabel}></div>
+  </div>
+</section>
+
+<style>
+  .project-before-after-slider-grid {
+    display: grid;
+    grid-template-columns: .86fr 1.14fr;
+    gap: 34px;
+    align-items: center;
+  }
+  .project-before-after-copy {
+    max-width: 520px;
+  }
+  .project-before-after-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 24px;
+  }
+  .project-before-after-stage {
+    min-width: 0;
+  }
+  .project-before-after-frame {
+    --position: 52%;
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--e-3);
+    background: var(--ink-soft);
+    border: 1px solid rgba(201,169,97,.18);
+  }
+  .project-before-after-base,
+  .project-before-after-top {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .project-before-after-overlay {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: var(--position);
+    overflow: hidden;
+  }
+  .project-before-after-top {
+    height: 100%;
+    width: auto;
+    min-width: 100%;
+    object-fit: cover;
+  }
+  .project-before-after-divider {
+    position: absolute;
+    inset: 0 auto 0 calc(var(--position) - 1px);
+    width: 2px;
+    background: rgba(255,255,255,.88);
+    box-shadow: 0 0 0 1px rgba(20,18,14,.08);
+  }
+  .project-before-after-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 54px;
+    height: 54px;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background: rgba(20,18,14,.9);
+    border: 1px solid rgba(201,169,97,.4);
+    box-shadow: 0 14px 28px rgba(0,0,0,.18);
+  }
+  .project-before-after-handle::before,
+  .project-before-after-handle::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 11px;
+    height: 11px;
+    border-top: 2px solid var(--gold);
+    border-right: 2px solid var(--gold);
+    transform: translateY(-50%) rotate(45deg);
+  }
+  .project-before-after-handle::before {
+    left: 13px;
+    transform: translateY(-50%) rotate(-135deg);
+  }
+  .project-before-after-handle::after {
+    right: 13px;
+  }
+  .project-before-after-chip {
+    position: absolute;
+    top: 16px;
+    z-index: 2;
+    padding: 7px 14px;
+    border-radius: var(--r-full);
+    backdrop-filter: blur(10px);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+  }
+  .project-before-after-chip-before {
+    left: 16px;
+    background: rgba(20,18,14,.76);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,.14);
+  }
+  .project-before-after-chip-after {
+    right: 16px;
+    background: rgba(201,169,97,.9);
+    color: var(--ink);
+    border: 1px solid rgba(201,169,97,.3);
+  }
+  .project-before-after-range-wrap {
+    display: block;
+    margin-top: 18px;
+  }
+  .project-before-after-range {
+    width: 100%;
+    accent-color: var(--gold);
+  }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 940px) {
+    .project-before-after-slider-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-before-after-copy {
+      max-width: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .project-before-after-frame {
+      border-radius: 20px;
+    }
+    .project-before-after-handle {
+      width: 48px;
+      height: 48px;
+    }
+    .project-before-after-actions .expand-photo-btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
+
+<script>
+  function initBeforeAfterSliders() {
+    document.querySelectorAll<HTMLElement>('[data-before-after-frame]').forEach((frame) => {
+      if (frame.dataset.sliderBound === 'true') return;
+      frame.dataset.sliderBound = 'true';
+
+      const range = frame.parentElement?.querySelector<HTMLInputElement>('[data-before-after-range]');
+      if (!range) return;
+
+      const update = () => {
+        frame.style.setProperty('--position', `${range.value}%`);
+      };
+
+      range.addEventListener('input', update);
+      update();
+    });
+  }
+
+  initBeforeAfterSliders();
+  document.addEventListener('astro:page-load', initBeforeAfterSliders);
+</script>
