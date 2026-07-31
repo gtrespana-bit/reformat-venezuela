@@ -10,6 +10,8 @@ interface Props {
   afterAlt: string;
   beforeLabel?: string;
   afterLabel?: string;
+  beforeCaption?: string;
+  afterCaption?: string;
   group?: string;
   showLightboxButtons?: boolean;
 }
@@ -25,6 +27,8 @@ const {
   afterAlt,
   beforeLabel = 'Antes',
   afterLabel = 'Después',
+  beforeCaption = beforeAlt,
+  afterCaption = afterAlt,
   group = `${id}-compare`,
   showLightboxButtons = true
 } = Astro.props;
@@ -55,7 +59,7 @@ const {
         </div>
         <figcaption>
           <strong>{beforeLabel}</strong>
-          <p>{beforeAlt}</p>
+          <p>{beforeCaption}</p>
           {showLightboxButtons && (
             <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={beforeSrc}>Ampliar {beforeLabel.toLowerCase()}</button>
           )}
@@ -85,7 +89,7 @@ const {
         </div>
         <figcaption>
           <strong>{afterLabel}</strong>
-          <p>{afterAlt}</p>
+          <p>{afterCaption}</p>
           {showLightboxButtons && (
             <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={afterSrc}>Ampliar {afterLabel.toLowerCase()}</button>
           )}

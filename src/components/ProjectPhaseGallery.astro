@@ -37,10 +37,15 @@ const {
 } = Astro.props;
 
 const groupedPhases = phases
-  .map((phase) => ({
-    ...phase,
-    items: items.filter((item) => item.category === phase.id)
-  }))
+  .map((phase) => {
+    const phaseItems = items.filter((item) => item.category === phase.id);
+    return {
+      ...phase,
+      items: phaseItems,
+      featured: phaseItems[0],
+      rest: phaseItems.slice(1)
+    };
+  })
   .filter((phase) => phase.items.length > 0);
 ---
 
@@ -72,37 +77,66 @@ const groupedPhases = phases
             <span class="project-phase-counter">{phase.items.length} fotos</span>
           </div>
 
-          <div class="project-phase-grid">
-            {phase.items.map((image, index) => (
-              <article
-                class:list={[
-                  'project-phase-card',
-                  image.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'
-                ]}
-                data-lightbox-item
-                data-lightbox-group={`phase-${phase.id}`}
-                data-src={image.src}
-                data-alt={image.alt}
-                data-title={image.title}
-                data-caption={image.caption}
-                data-badge={image.badge}
-              >
-                <div class="project-phase-media">
-                  <span class="project-phase-index">{String(index + 1).padStart(2, '0')}</span>
-                  <span class="project-phase-badge">{image.badge}</span>
-                  <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
-                  <div class="gallery-zoom-overlay">
-                    <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={image.src}>{buttonLabel}</button>
+          {phase.featured && (
+            <article
+              class="project-phase-featured"
+              data-lightbox-item
+              data-lightbox-group={`phase-${phase.id}`}
+              data-src={phase.featured.src}
+              data-alt={phase.featured.alt}
+              data-title={phase.featured.title}
+              data-caption={phase.featured.caption}
+              data-badge={phase.featured.badge}
+            >
+              <div class="project-phase-featured-media">
+                <span class="project-phase-index">01</span>
+                <span class="project-phase-badge">{phase.featured.badge}</span>
+                <img src={phase.featured.src} alt={phase.featured.alt} loading="lazy" decoding="async" />
+                <div class="gallery-zoom-overlay">
+                  <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={phase.featured.src}>{buttonLabel}</button>
+                </div>
+              </div>
+              <div class="project-phase-featured-copy">
+                <span class="project-phase-copy-tag">{phase.featured.categoryLabel}</span>
+                <h3>{phase.featured.title}</h3>
+                <p>{phase.featured.caption}</p>
+              </div>
+            </article>
+          )}
+
+          {phase.rest.length > 0 && (
+            <div class="project-phase-grid">
+              {phase.rest.map((image, index) => (
+                <article
+                  class:list={[
+                    'project-phase-card',
+                    image.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'
+                  ]}
+                  data-lightbox-item
+                  data-lightbox-group={`phase-${phase.id}`}
+                  data-src={image.src}
+                  data-alt={image.alt}
+                  data-title={image.title}
+                  data-caption={image.caption}
+                  data-badge={image.badge}
+                >
+                  <div class="project-phase-media">
+                    <span class="project-phase-index">{String(index + 2).padStart(2, '0')}</span>
+                    <span class="project-phase-badge">{image.badge}</span>
+                    <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
+                    <div class="gallery-zoom-overlay">
+                      <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={image.src}>{buttonLabel}</button>
+                    </div>
                   </div>
-                </div>
-                <div class="project-phase-copy">
-                  <span class="project-phase-copy-tag">{image.categoryLabel}</span>
-                  <h3>{image.title}</h3>
-                  <p>{image.caption}</p>
-                </div>
-              </article>
-            ))}
-          </div>
+                  <div class="project-phase-copy">
+                    <span class="project-phase-copy-tag">{image.categoryLabel}</span>
+                    <h3>{image.title}</h3>
+                    <p>{image.caption}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          )}
         </section>
       ))}
     </div>
@@ -204,6 +238,85 @@ const groupedPhases = phases
     letter-spacing: .08em;
     text-transform: uppercase;
   }
+
+  .project-phase-featured {
+    display: grid;
+    grid-template-columns: minmax(0, 1.14fr) minmax(300px, .86fr);
+    gap: 22px;
+    align-items: stretch;
+    margin-bottom: 22px;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.14);
+    box-shadow: var(--e-1);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .project-phase-featured:hover,
+  .project-phase-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,.34);
+  }
+  .project-phase-featured-media,
+  .project-phase-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 38%),
+      var(--ink-soft);
+  }
+  .project-phase-featured-media {
+    min-height: 520px;
+  }
+  .project-phase-featured-media img,
+  .project-phase-media img {
+    max-width: 100%;
+    max-height: 700px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 6px;
+    box-shadow: 0 16px 34px rgba(0,0,0,.28);
+  }
+  .project-phase-featured-copy,
+  .project-phase-copy {
+    padding: 20px 22px 24px;
+  }
+  .project-phase-featured-copy {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .project-phase-copy-tag {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .project-phase-featured-copy h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    line-height: 1.08;
+    color: var(--ink);
+    margin: 0 0 12px;
+  }
+  .project-phase-featured-copy p,
+  .project-phase-copy p {
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: .96rem;
+  }
+
   .project-phase-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -222,39 +335,14 @@ const groupedPhases = phases
     transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
     min-width: 0;
   }
-  .project-phase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--e-2);
-    border-color: rgba(201,169,97,.34);
-  }
   .project-phase-card.is-landscape {
     grid-column: span 2;
-  }
-  .project-phase-media {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 16px;
-    background:
-      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 38%),
-      var(--ink-soft);
   }
   .project-phase-card.is-portrait .project-phase-media {
     min-height: 420px;
   }
   .project-phase-card.is-landscape .project-phase-media {
-    min-height: 360px;
-  }
-  .project-phase-media img {
-    max-width: 100%;
-    max-height: 620px;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    border-radius: 6px;
-    box-shadow: 0 16px 34px rgba(0,0,0,.28);
+    min-height: 340px;
   }
   .project-phase-index,
   .project-phase-badge {
@@ -282,18 +370,6 @@ const groupedPhases = phases
     background: var(--gold);
     color: var(--ink);
   }
-  .project-phase-copy {
-    padding: 18px 18px 20px;
-  }
-  .project-phase-copy-tag {
-    display: inline-block;
-    color: var(--gold-ink-strong);
-    font-size: .72rem;
-    font-weight: 800;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
   .project-phase-copy h3 {
     font-family: var(--font-serif);
     font-size: 1.28rem;
@@ -301,14 +377,11 @@ const groupedPhases = phases
     color: var(--ink);
     margin: 0 0 8px;
   }
-  .project-phase-copy p {
-    margin: 0;
-    color: var(--text-muted);
-    line-height: 1.64;
-    font-size: .93rem;
-  }
 
   @media (max-width: 980px) {
+    .project-phase-featured {
+      grid-template-columns: 1fr;
+    }
     .project-phase-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
     }
@@ -335,9 +408,15 @@ const groupedPhases = phases
     .project-phase-card.is-landscape {
       grid-column: span 1;
     }
+    .project-phase-featured-media,
     .project-phase-card.is-portrait .project-phase-media,
     .project-phase-card.is-landscape .project-phase-media {
       min-height: 320px;
+      padding: 14px;
+    }
+    .project-phase-featured-copy,
+    .project-phase-copy {
+      padding: 18px 18px 20px;
     }
     .project-phase-pill {
       width: 100%;
