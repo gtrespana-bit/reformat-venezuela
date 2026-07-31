@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
@@ -650,6 +651,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
   <ProjectReadingGallery eyebrow="Recorrido visual" title="Una obra de gran escala explicada en tres momentos" intro="La secuencia permite entender cómo una decisión estructural, una ejecución de alto nivel y un acabado muy cuidado construyen el resultado final." items={storyMoments} galleryGroup="guataparo-story" />
 
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La obra se presenta por fases claras: baños terminados, ventanal, proceso constructivo y demolición, para que el recorrido visual tenga más orden y más presencia editorial." items={project.gallery} phases={galleryPhases} id="galeria" />
+
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">

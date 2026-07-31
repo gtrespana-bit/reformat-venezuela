@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
@@ -444,6 +445,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
   <ProjectReadingGallery eyebrow="Recorrido visual" title="Del sistema oculto al resultado final" intro="La secuencia visual resume lo más importante de este proyecto: bastidor técnico, obra bien ejecutada y acabado final limpio y ligero." items={storyMoments} galleryGroup="sandiego-story" />
 
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La documentación del sistema TEKA y del resultado final se presenta ahora por bloques para una lectura más limpia y premium." items={project.gallery} phases={galleryPhases} id="galeria" />
+
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">

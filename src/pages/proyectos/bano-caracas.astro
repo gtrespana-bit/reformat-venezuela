@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
@@ -488,6 +489,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
   <ProjectReadingGallery eyebrow="Recorrido visual" title="La transformación explicada en una secuencia clara" intro="Este tramo acompaña el relato técnico con imágenes reales para que el usuario entienda el cambio espacial sin perderse entre bloques largos de texto." items={storyMoments} galleryGroup="caracas-story" />
 
   <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Toda la documentación visual queda agrupada por ambientes y fases para que el usuario pueda seguir el proyecto sin saltos ni desorden visual." items={project.gallery} phases={galleryPhases} id="galeria" />
+
+  <GuaranteeMatrix compact />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
