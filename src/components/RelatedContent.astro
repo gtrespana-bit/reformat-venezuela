@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { esBlogSlugs, enBlogSlugs } from '../data/blog-slugs';
 
 interface Props {
   currentSlug: string;
@@ -10,31 +11,13 @@ interface Props {
 const { currentSlug, lang = 'es', category = '' } = Astro.props;
 const isEn = lang === 'en';
 
-const esSlugs = [
-  'cuanto-cuesta-reforma-cocina-valencia',
-  'porcelanato-vs-ceramica',
-  'presupuesto-reforma-errores',
-  'reformas-banos-carabobo',
-  'tendencias-cocinas-2025',
-  'remodelacion-apartamentos-caracas',
-  'cuanto-cuesta-remodelar-bano-caracas',
-  'guia-pisos-porcelanato-marmol-madera',
-  'mantenimiento-piscinas-venezuela',
-  'remodelacion-integral-que-incluye',
-  'errores-remodelar-zonas-premium-caracas',
-];
-const enSlugs = [
-  'kitchen-remodel-cost-caracas-valencia-2026',
-  'porcelain-tile-vs-ceramic-tile-guide',
-  'budget-remodel-mistakes-avoid',
-  'bathroom-remodels-caracas-carabobo-2026',
-  'kitchen-design-trends-2026',
-];
+// Pool dinámico: TODOS los posts publicados del idioma (fuente única: blog-slugs.ts)
+const langSlugs = isEn ? enBlogSlugs : esBlogSlugs;
 
 const allPosts = await getCollection('blog');
-const pool = allPosts.filter(
-  (p) => (isEn ? enSlugs : esSlugs).includes(p.id) && p.id !== currentSlug
-);
+const pool = allPosts
+  .filter((p) => langSlugs.includes(p.id) && p.id !== currentSlug)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 const sameCat = pool.filter((p) => p.data.category === category);
 const others = pool.filter((p) => p.data.category !== category);
 const related = [...sameCat, ...others].slice(0, 3);
@@ -54,7 +37,11 @@ const services = isEn
     ];
 
 const zones = isEn
-  ? []
+  ? [
+      { name: 'Remodeling in Valencia', url: '/en/valencia/' },
+      { name: 'Remodeling in Caracas', url: '/en/caracas/' },
+      { name: 'Remodeling in San Diego', url: '/en/san-diego/' },
+    ]
   : [
       { name: 'Remodelaciones en Valencia', url: '/valencia/' },
       { name: 'Remodelaciones en Caracas', url: '/caracas/' },

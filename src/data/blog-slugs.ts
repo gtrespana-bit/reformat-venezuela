@@ -1,0 +1,53 @@
+// Fuente única de verdad: slugs de posts publicados por idioma.
+// Usado por src/pages/blog/[slug].astro, src/pages/en/blog/[slug].astro
+// y src/components/RelatedContent.astro — añadir aquí nuevos posts.
+
+export const esBlogSlugs = [
+  'cuanto-cuesta-reforma-cocina-valencia',
+  'porcelanato-vs-ceramica',
+  'presupuesto-reforma-errores',
+  'reformas-banos-carabobo',
+  'tendencias-cocinas-2025',
+  'remodelacion-apartamentos-caracas',
+  'cuanto-cuesta-remodelar-bano-caracas',
+  'guia-pisos-porcelanato-marmol-madera',
+  'mantenimiento-piscinas-venezuela',
+  'remodelacion-integral-que-incluye',
+  'errores-remodelar-zonas-premium-caracas',
+  'instalacion-electrica-precios-venezuela',
+  'senales-reinstalacion-electrica-casa',
+  'fontaneria-plomeria-precios-caracas',
+  'fugas-agua-tuberias-como-detectar',
+  'pintura-interior-precios-m2-venezuela',
+  'microcemento-vs-pintura-acabados',
+  'revestimiento-piedra-madera-pared-precios',
+  'como-elegir-empresa-reformas-venezuela',
+  'cuanto-tarda-reforma-integral-plazos',
+  'permisos-reforma-apartamento-condominio',
+  'antes-despues-reforma-cocina-caso-real',
+];
+
+export const enBlogSlugs = [
+  'kitchen-remodel-cost-caracas-valencia-2026',
+  'porcelain-tile-vs-ceramic-tile-guide',
+  'budget-remodel-mistakes-avoid',
+  'bathroom-remodels-caracas-carabobo-2026',
+  'kitchen-design-trends-2026',
+  'kitchen-remodel-before-after-case-study',
+  'how-to-choose-remodeling-company-venezuela',
+  'bathroom-remodel-cost-caracas',
+  'how-long-full-remodel-takes',
+  'remodeling-mistakes-premium-areas-caracas',
+  'plumbing-prices-caracas',
+  'how-to-detect-water-leaks',
+  'flooring-guide-porcelain-marble-wood',
+  'electrical-installation-prices-venezuela',
+  'pool-maintenance-venezuela',
+  'microcement-vs-paint-finishes',
+  'remodel-permits-apartment-condominium',
+  'interior-painting-prices-m2-venezuela',
+  'apartment-remodeling-caracas',
+  'full-home-remodel-what-it-includes',
+  'stone-wood-wall-cladding-prices',
+  'signs-electrical-rewiring-needed',
+];
