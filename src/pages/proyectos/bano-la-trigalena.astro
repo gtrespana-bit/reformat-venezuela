@@ -287,7 +287,7 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
 
       <div class="showcase-grid">
         <!-- Card 1: Amplitud 60x120 -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" data-alt="Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo efecto madera" data-title="Amplitud sin Barreras Arquitectónicas" data-caption="La demolición de los muretes divisorios transformó por completo la estancia y permitió un baño con mucha más continuidad visual y presencia arquitectónica." data-badge="Planta Abierta · Mármol 60x120 cm">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Planta Abierta · Mármol 60x120 cm</span>
             <img 
@@ -311,7 +311,7 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
         </article>
 
         <!-- Card 2: Zona Ducha TEKA -->
-        <article class="showcase-card">
+        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" data-alt="Plato de ducha en polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA modelo Manacor" data-title="Sanitarios TEKA y Ducha Antideslizante" data-caption="La zona de ducha se equipó con plato sólido en polvo de mármol, grifería TEKA efecto lluvia e inodoro europeo TEKA Manacor para un conjunto más técnico y elegante." data-badge="Ducha Polvo Mármol · Sanitarios TEKA">
           <div class="showcase-image-frame">
             <span class="showcase-badge">Ducha Polvo Mármol · Sanitarios TEKA</span>
             <img 
@@ -509,35 +509,6 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
       </div>
     </div>
   </section>
-
-  <!-- 7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING) -->
-  <div id="lightbox" class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Visor de imágenes del proyecto">
-    <button class="lightbox-close" aria-label="Cerrar visor">&times;</button>
-    <button class="lightbox-prev" aria-label="Imagen anterior">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="15 18 9 12 15 6"/>
-      </svg>
-    </button>
-    <button class="lightbox-next" aria-label="Imagen siguiente">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <polyline points="9 18 15 12 9 6"/>
-      </svg>
-    </button>
-
-    <div class="lightbox-content">
-      <div class="lightbox-img-wrapper">
-        <img id="lightbox-img" src="" alt="" />
-      </div>
-      <div class="lightbox-info">
-        <div class="lightbox-meta">
-          <span id="lightbox-badge" class="lightbox-badge"></span>
-          <span class="lightbox-counter"><span id="lightbox-current">1</span> / <span id="lightbox-total">12</span></span>
-        </div>
-        <h3 id="lightbox-title" class="lightbox-title"></h3>
-        <p id="lightbox-caption" class="lightbox-caption"></p>
-      </div>
-    </div>
-  </div>
   <ProjectLightbox />
 </BaseLayout>
 
@@ -1738,172 +1709,3 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
   }
 </style>
 
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    /* ==========================================================
-       1. GALLERY FILTER TABS
-       ========================================================== */
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    filterButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const targetFilter = btn.getAttribute('data-filter');
-
-        // Toggle active button state
-        filterButtons.forEach(b => {
-          b.classList.remove('active');
-          b.setAttribute('aria-selected', 'false');
-        });
-        btn.classList.add('active');
-        btn.setAttribute('aria-selected', 'true');
-
-        // Filter cards
-        galleryCards.forEach(card => {
-          const category = card.getAttribute('data-category');
-          if (targetFilter === 'all' || category === targetFilter) {
-            card.classList.remove('hidden');
-          } else {
-            card.classList.add('hidden');
-          }
-        });
-      });
-    });
-
-    /* ==========================================================
-       2. INTERACTIVE LIGHTBOX SYSTEM
-       ========================================================== */
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement | null;
-    const lightboxTitle = document.getElementById('lightbox-title');
-    const lightboxCaption = document.getElementById('lightbox-caption');
-    const lightboxBadge = document.getElementById('lightbox-badge');
-    const lightboxCurrent = document.getElementById('lightbox-current');
-    const closeBtn = document.querySelector('.lightbox-close');
-    const prevBtn = document.querySelector('.lightbox-prev');
-    const nextBtn = document.querySelector('.lightbox-next');
-
-    // Build items list from gallery and comparison pairs
-    interface LightboxItem {
-      src: string;
-      alt: string;
-      title: string;
-      caption: string;
-      badge: string;
-    }
-
-    let items: LightboxItem[] = [];
-    let currentIndex = 0;
-
-    // Populate items from gallery cards
-    const cardElements = document.querySelectorAll('.gallery-card');
-    const galleryItems: LightboxItem[] = Array.from(cardElements).map(el => {
-      const img = el.querySelector('img');
-      const badge = el.querySelector('.card-badge')?.textContent || 'Proyecto';
-      return {
-        src: el.getAttribute('data-src') || img?.src || '',
-        alt: el.getAttribute('data-alt') || img?.alt || '',
-        title: el.getAttribute('data-title') || 'Remodelación de Baño',
-        caption: el.getAttribute('data-caption') || '',
-        badge: badge
-      };
-    });
-
-    function openLightbox(newItems: LightboxItem[], index: number) {
-      if (!lightbox || !lightboxImg) return;
-      items = newItems;
-      currentIndex = index;
-      updateLightbox();
-      lightbox.classList.add('active');
-      lightbox.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeLightbox() {
-      if (!lightbox) return;
-      lightbox.classList.remove('active');
-      lightbox.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    function updateLightbox() {
-      if (!lightboxImg || !items[currentIndex]) return;
-      const current = items[currentIndex];
-      lightboxImg.src = current.src;
-      lightboxImg.alt = current.alt;
-      if (lightboxTitle) lightboxTitle.textContent = current.title;
-      if (lightboxCaption) lightboxCaption.textContent = current.caption;
-      if (lightboxBadge) lightboxBadge.textContent = current.badge;
-      if (lightboxCurrent) lightboxCurrent.textContent = String(currentIndex + 1);
-    }
-
-    function prevImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex - 1 + items.length) % items.length;
-      updateLightbox();
-    }
-
-    function nextImage() {
-      if (!items.length) return;
-      currentIndex = (currentIndex + 1) % items.length;
-      updateLightbox();
-    }
-
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (prevBtn) prevBtn.addEventListener('click', prevImage);
-    if (nextBtn) nextBtn.addEventListener('click', nextImage);
-
-    if (lightbox) {
-      lightbox.addEventListener('click', (e) => {
-        if (e.target === lightbox) closeLightbox();
-      });
-    }
-
-    document.addEventListener('keydown', (e) => {
-      if (!lightbox || !lightbox.classList.contains('active')) return;
-      if (e.key === 'Escape') closeLightbox();
-      if (e.key === 'ArrowLeft') prevImage();
-      if (e.key === 'ArrowRight') nextImage();
-    });
-
-    // Attach click events to gallery cards
-    cardElements.forEach((el, idx) => {
-      el.addEventListener('click', () => {
-        openLightbox(galleryItems, idx);
-      });
-    });
-
-    // Attach click events to Before/After comparison items
-    document.querySelectorAll('.comparison-item').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const label = el.querySelector('.comparison-label')?.textContent || 'Comparativa';
-        const item: LightboxItem = {
-          src: el.getAttribute('data-src') || img?.src || '',
-          alt: el.getAttribute('data-alt') || img?.alt || '',
-          title: el.getAttribute('data-title') || 'Comparativa Antes vs Después',
-          caption: el.querySelector('.comparison-caption')?.textContent || '',
-          badge: label
-        };
-        openLightbox([item], 0);
-      });
-    });
-
-    // Attach click events to showcase cards
-    document.querySelectorAll('.showcase-card').forEach(el => {
-      el.addEventListener('click', () => {
-        const img = el.querySelector('img');
-        const badge = el.querySelector('.showcase-badge')?.textContent || 'Espacio';
-        if (!img) return;
-        const item: LightboxItem = {
-          src: img.src,
-          alt: img.alt,
-          title: el.querySelector('.showcase-title')?.textContent || 'Espacio del Proyecto',
-          caption: el.querySelector('.showcase-desc')?.textContent || '',
-          badge: badge
-        };
-        openLightbox([item], 0);
-      });
-    });
-  });
-</script>
