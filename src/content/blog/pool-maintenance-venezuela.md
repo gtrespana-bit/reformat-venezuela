@@ -3,7 +3,7 @@ title: "Pool Maintenance in Venezuela: Complete Guide 2026"
 excerpt: "How to properly maintain your pool in Caracas, Valencia and Carabobo. Real costs, weekly routines, common problems and professional solutions."
 date: 2026-07-25
 category: "Guides"
-image: "/images/piscinas-400.webp"
+image: "/images/piscinas-800.webp"
 readTime: "11 min"
 author: "RemodelaT Team"
 ---
@@ -14,7 +14,7 @@ In Venezuela's climate, a pool is a luxury that requires consistent care. Many o
 
 At RemodelaT Venezuela we have maintained and remodeled hundreds of pools in **Caracas, Valencia, San Diego and Carabobo**. In this guide we give you the real 2026 maintenance routine, costs, and when it's better to call professionals.
 
-![Well-maintained residential pool in Venezuela](/images/piscinas-400.webp)
+![Well-maintained residential pool in Venezuela](/images/piscinas-800.webp)
 
 ---
 

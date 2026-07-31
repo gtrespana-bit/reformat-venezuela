@@ -3,7 +3,7 @@ title: "Plumbing Prices in Caracas 2026: Real Costs"
 excerpt: "Real prices for plumbing and pipe work in Caracas, Valencia, and San Diego. How much it costs to repair leaks, replace pipes, and install fixtures in 2026."
 date: 2026-07-25
 category: "Budgeting"
-image: "/images/fontaneria-400.webp"
+image: "/images/fontaneria-800.webp"
 readTime: "11 min"
 author: "RemodelaT Team"
 ---

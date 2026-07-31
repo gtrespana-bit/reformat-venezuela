@@ -3,7 +3,7 @@ title: "Apartment Remodeling in Caracas: Complete Guide 2026"
 excerpt: "Everything you need to know about full apartment remodels in Caracas: prices, timelines, common challenges in buildings, and how to do it right."
 date: 2026-07-27
 category: "Guides"
-image: "/images/arquitectura-400.webp"
+image: "/images/arquitectura-600.webp"
 readTime: "14 min"
 author: "RemodelaT Team"
 ---

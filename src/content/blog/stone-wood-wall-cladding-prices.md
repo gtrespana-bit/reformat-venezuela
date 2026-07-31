@@ -3,7 +3,7 @@ title: "Decorative Wall Cladding 2026: Stone, Wood and Panels with Prices"
 excerpt: "Guide to decorative wall coverings in Venezuela: stone, wood, panels and microcement. Real prices, uses and recommendations for Caracas and Carabobo."
 date: 2026-07-27
 category: "Materials"
-image: "/images/revestimientos-400.webp"
+image: "/images/revestimientos-800.webp"
 readTime: "11 min"
 author: "RemodelaT Team"
 ---

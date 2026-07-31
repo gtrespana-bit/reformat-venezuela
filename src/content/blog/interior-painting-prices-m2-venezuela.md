@@ -3,7 +3,7 @@ title: "Interior Paint Price per m² in Venezuela 2026: Complete Guide"
 excerpt: "Real prices for painting per square meter in Caracas, Valencia and Carabobo. What is included, types of paint, how to calculate and how to avoid surprises."
 date: 2026-07-26
 category: "Budgeting"
-image: "/images/pintura-400.webp"
+image: "/images/pintura-800.webp"
 readTime: "10 min"
 author: "RemodelaT Team"
 ---

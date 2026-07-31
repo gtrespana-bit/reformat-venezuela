@@ -3,7 +3,7 @@ title: "Full Home Remodel: What It Includes and How Much It Costs in Venezuela 2
 excerpt: "Definitive guide to full home remodels in Venezuela: what work is included, real prices per m², timelines, and how to plan a complete remodel without surprises."
 date: 2026-07-27
 category: "Budgeting"
-image: "/images/integrales-400.webp"
+image: "/images/integrales-800.webp"
 readTime: "16 min"
 author: "RemodelaT Team"
 ---

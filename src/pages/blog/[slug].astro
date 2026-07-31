@@ -2,36 +2,12 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection, render } from 'astro:content';
 import RelatedContent from '../../components/RelatedContent.astro';
+import { esBlogSlugs } from '../../data/blog-slugs';
 
 export async function getStaticPaths() {
-  const spanishSlugs = [
-    'cuanto-cuesta-reforma-cocina-valencia',
-    'porcelanato-vs-ceramica',
-    'presupuesto-reforma-errores',
-    'reformas-banos-carabobo',
-    'tendencias-cocinas-2025',
-    'remodelacion-apartamentos-caracas',
-    'cuanto-cuesta-remodelar-bano-caracas',
-    'guia-pisos-porcelanato-marmol-madera',
-    'mantenimiento-piscinas-venezuela',
-    'remodelacion-integral-que-incluye',
-    'errores-remodelar-zonas-premium-caracas',
-    'instalacion-electrica-precios-venezuela',
-    'senales-reinstalacion-electrica-casa',
-    'fontaneria-plomeria-precios-caracas',
-    'fugas-agua-tuberias-como-detectar',
-    'pintura-interior-precios-m2-venezuela',
-    'microcemento-vs-pintura-acabados',
-    'revestimiento-piedra-madera-pared-precios',
-    'como-elegir-empresa-reformas-venezuela',
-    'cuanto-tarda-reforma-integral-plazos',
-    'permisos-reforma-apartamento-condominio',
-    'antes-despues-reforma-cocina-caso-real'
-  ];
-  
   const posts = await getCollection('blog');
-  const spanishPosts = posts.filter(post => spanishSlugs.includes(post.id));
-  
+  const spanishPosts = posts.filter(post => esBlogSlugs.includes(post.id));
+
   return spanishPosts.map((post) => ({
     params: { slug: post.id },
     props: { post },
@@ -43,7 +19,7 @@ const { Content } = await render(post);
 ---
 
 <BaseLayout 
-  title={`${post.data.title} | Blog RemodelaT Venezuela`} 
+  title={`${post.data.title} | RemodelaT`} 
   description={post.data.excerpt} 
   image={post.data.image}
   activePage="blog"
