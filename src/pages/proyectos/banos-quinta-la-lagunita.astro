@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 
 const project = {
@@ -325,13 +324,6 @@ const project = {
   ]
 };
 
-const quickNavItems = [
-  { href: '#espacios', label: 'Ambientes' },
-  { href: '#memoria', label: 'Memoria técnica' },
-  { href: '#comparativa', label: 'Antes / después' },
-  { href: '#galeria', label: 'Galería' }
-];
-
 const heroImage = project.heroImage;
 ---
 
@@ -407,8 +399,6 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </nav>
-
-  <ProjectQuickNav items={quickNavItems} summary="Acceso directo a ambientes, memoria técnica, comparativa visual y galería completa de la obra." ctaHref="#galeria" ctaLabel="Ir a galería" />
 
   <!-- 2. DUAL-SHOWCASE: DOS AMBIENTES INDEPENDIENTES (ZERO CROPPING) -->
   <section class="dual-showcase-section" id="espacios">

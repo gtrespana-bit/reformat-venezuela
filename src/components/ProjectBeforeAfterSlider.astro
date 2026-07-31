@@ -30,215 +30,244 @@ const {
 } = Astro.props;
 ---
 
-<section class="project-before-after-slider section bg-light" id={id}>
-  <div class="container project-before-after-slider-grid">
-    <div class="project-before-after-copy">
+<section class="project-compare section bg-light" id={id}>
+  <div class="container">
+    <div class="project-compare-header">
       <span class="tag">{eyebrow}</span>
       <h2 class="section-title">{title}</h2>
       <p class="section-desc">{text}</p>
-      {showLightboxButtons && (
-        <div class="project-before-after-actions">
-          <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={beforeSrc}>Ver {beforeLabel.toLowerCase()}</button>
-          <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={afterSrc}>Ver {afterLabel.toLowerCase()}</button>
-        </div>
-      )}
     </div>
 
-    <div class="project-before-after-stage">
-      <div class="project-before-after-frame" data-before-after-frame style="--position: 52%">
-        <img src={beforeSrc} alt={beforeAlt} class="project-before-after-base" loading="lazy" decoding="async" />
-        <div class="project-before-after-overlay">
-          <img src={afterSrc} alt={afterAlt} class="project-before-after-top" loading="lazy" decoding="async" />
+    <div class="project-compare-stage">
+      <figure
+        class="project-compare-card is-before"
+        data-lightbox-item
+        data-lightbox-group={group}
+        data-src={beforeSrc}
+        data-alt={beforeAlt}
+        data-title={beforeLabel}
+        data-caption={beforeAlt}
+        data-badge={beforeLabel}
+      >
+        <div class="project-compare-media">
+          <span class="project-compare-chip project-compare-chip-before">{beforeLabel}</span>
+          <img src={beforeSrc} alt={beforeAlt} loading="lazy" decoding="async" />
         </div>
-        <div class="project-before-after-divider" aria-hidden="true">
-          <span class="project-before-after-handle"></span>
-        </div>
-        <span class="project-before-after-chip project-before-after-chip-before">{beforeLabel}</span>
-        <span class="project-before-after-chip project-before-after-chip-after">{afterLabel}</span>
+        <figcaption>
+          <strong>{beforeLabel}</strong>
+          <p>{beforeAlt}</p>
+          {showLightboxButtons && (
+            <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={beforeSrc}>Ampliar {beforeLabel.toLowerCase()}</button>
+          )}
+        </figcaption>
+      </figure>
+
+      <div class="project-compare-bridge" aria-hidden="true">
+        <span class="project-compare-bridge-line"></span>
+        <span class="project-compare-bridge-badge">Cambio real</span>
+        <span class="project-compare-bridge-arrow">→</span>
+        <span class="project-compare-bridge-line"></span>
       </div>
 
-      <label class="project-before-after-range-wrap">
-        <span class="sr-only">Control de comparación antes y después</span>
-        <input type="range" min="0" max="100" value="52" class="project-before-after-range" data-before-after-range />
-      </label>
+      <figure
+        class="project-compare-card is-after"
+        data-lightbox-item
+        data-lightbox-group={group}
+        data-src={afterSrc}
+        data-alt={afterAlt}
+        data-title={afterLabel}
+        data-caption={afterAlt}
+        data-badge={afterLabel}
+      >
+        <div class="project-compare-media">
+          <span class="project-compare-chip project-compare-chip-after">{afterLabel}</span>
+          <img src={afterSrc} alt={afterAlt} loading="lazy" decoding="async" />
+        </div>
+        <figcaption>
+          <strong>{afterLabel}</strong>
+          <p>{afterAlt}</p>
+          {showLightboxButtons && (
+            <button class="expand-photo-btn" type="button" data-lightbox-open data-group={group} data-src={afterSrc}>Ampliar {afterLabel.toLowerCase()}</button>
+          )}
+        </figcaption>
+      </figure>
     </div>
-  </div>
-
-  <div hidden>
-    <div data-lightbox-item data-lightbox-group={group} data-src={beforeSrc} data-alt={beforeAlt} data-title={beforeLabel} data-caption={beforeAlt} data-badge={beforeLabel}></div>
-    <div data-lightbox-item data-lightbox-group={group} data-src={afterSrc} data-alt={afterAlt} data-title={afterLabel} data-caption={afterAlt} data-badge={afterLabel}></div>
   </div>
 </section>
 
 <style>
-  .project-before-after-slider-grid {
+  .project-compare-header {
+    max-width: 860px;
+    margin: 0 auto 34px;
+    text-align: center;
+  }
+  .project-compare-stage {
     display: grid;
-    grid-template-columns: .86fr 1.14fr;
-    gap: 34px;
-    align-items: center;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 22px;
+    align-items: stretch;
   }
-  .project-before-after-copy {
-    max-width: 520px;
-  }
-  .project-before-after-actions {
+  .project-compare-card {
+    margin: 0;
     display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 24px;
-  }
-  .project-before-after-stage {
-    min-width: 0;
-  }
-  .project-before-after-frame {
-    --position: 52%;
-    position: relative;
+    flex-direction: column;
     border-radius: 28px;
     overflow: hidden;
-    box-shadow: var(--e-3);
-    background: var(--ink-soft);
-    border: 1px solid rgba(201,169,97,.18);
+    background: rgba(255,255,255,.94);
+    border: 1px solid rgba(201,169,97,.16);
+    box-shadow: 0 22px 44px rgba(20,18,14,.06);
+    min-width: 0;
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
   }
-  .project-before-after-base,
-  .project-before-after-top {
-    width: 100%;
-    height: auto;
-    display: block;
+  .project-compare-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201,169,97,.34);
   }
-  .project-before-after-overlay {
-    position: absolute;
-    inset: 0 auto 0 0;
-    width: var(--position);
-    overflow: hidden;
+  .project-compare-media {
+    position: relative;
+    min-height: 460px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 36%),
+      var(--ink-soft);
   }
-  .project-before-after-top {
-    height: 100%;
+  .project-compare-media img {
+    max-width: 100%;
+    max-height: 600px;
     width: auto;
-    min-width: 100%;
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0,0,0,.32);
   }
-  .project-before-after-divider {
-    position: absolute;
-    inset: 0 auto 0 calc(var(--position) - 1px);
-    width: 2px;
-    background: rgba(255,255,255,.88);
-    box-shadow: 0 0 0 1px rgba(20,18,14,.08);
-  }
-  .project-before-after-handle {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 54px;
-    height: 54px;
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    background: rgba(20,18,14,.9);
-    border: 1px solid rgba(201,169,97,.4);
-    box-shadow: 0 14px 28px rgba(0,0,0,.18);
-  }
-  .project-before-after-handle::before,
-  .project-before-after-handle::after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    width: 11px;
-    height: 11px;
-    border-top: 2px solid var(--gold);
-    border-right: 2px solid var(--gold);
-    transform: translateY(-50%) rotate(45deg);
-  }
-  .project-before-after-handle::before {
-    left: 13px;
-    transform: translateY(-50%) rotate(-135deg);
-  }
-  .project-before-after-handle::after {
-    right: 13px;
-  }
-  .project-before-after-chip {
+  .project-compare-chip {
     position: absolute;
     top: 16px;
+    left: 16px;
     z-index: 2;
-    padding: 7px 14px;
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+    padding: 0 14px;
     border-radius: var(--r-full);
-    backdrop-filter: blur(10px);
     font-size: .76rem;
     font-weight: 800;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .project-before-after-chip-before {
-    left: 16px;
-    background: rgba(20,18,14,.76);
+  .project-compare-chip-before {
+    background: rgba(20,18,14,.84);
     color: var(--white);
-    border: 1px solid rgba(255,255,255,.14);
+    border: 1px solid rgba(255,255,255,.12);
   }
-  .project-before-after-chip-after {
-    right: 16px;
-    background: rgba(201,169,97,.9);
+  .project-compare-chip-after {
+    background: var(--gold);
     color: var(--ink);
     border: 1px solid rgba(201,169,97,.3);
   }
-  .project-before-after-range-wrap {
+  .project-compare-card figcaption {
+    padding: 22px 22px 24px;
+  }
+  .project-compare-card strong {
     display: block;
-    margin-top: 18px;
+    font-family: var(--font-serif);
+    font-size: 1.6rem;
+    color: var(--ink);
+    margin-bottom: 8px;
   }
-  .project-before-after-range {
-    width: 100%;
-    accent-color: var(--gold);
+  .project-compare-card p {
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
   }
-  .sr-only {
-    position: absolute;
+  .project-compare-card .expand-photo-btn {
+    margin-top: 16px;
+  }
+  .project-compare-bridge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    min-width: 120px;
+  }
+  .project-compare-bridge-line {
     width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
+    height: 72px;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,97,.55), transparent);
+  }
+  .project-compare-bridge-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 14px;
+    border-radius: var(--r-full);
+    background: var(--white);
+    border: 1px solid rgba(201,169,97,.24);
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
     white-space: nowrap;
-    border: 0;
+  }
+  .project-compare-bridge-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 54px;
+    height: 54px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--gold);
+    font-size: 1.3rem;
+    box-shadow: 0 14px 28px rgba(20,18,14,.16);
   }
 
-  @media (max-width: 940px) {
-    .project-before-after-slider-grid {
+  @media (max-width: 980px) {
+    .project-compare-stage {
       grid-template-columns: 1fr;
+      gap: 18px;
     }
-    .project-before-after-copy {
-      max-width: none;
+    .project-compare-bridge {
+      flex-direction: row;
+      min-width: 0;
+    }
+    .project-compare-bridge-line {
+      width: 100%;
+      max-width: 84px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.55), transparent);
+    }
+    .project-compare-bridge-arrow {
+      transform: rotate(90deg);
     }
   }
 
   @media (max-width: 640px) {
-    .project-before-after-frame {
-      border-radius: 20px;
+    .project-compare-card {
+      border-radius: 22px;
     }
-    .project-before-after-handle {
-      width: 48px;
-      height: 48px;
+    .project-compare-media {
+      min-height: 340px;
+      padding: 14px;
     }
-    .project-before-after-actions .expand-photo-btn {
+    .project-compare-card figcaption {
+      padding: 18px 18px 20px;
+    }
+    .project-compare-card strong {
+      font-size: 1.38rem;
+    }
+    .project-compare-card .expand-photo-btn {
       width: 100%;
       justify-content: center;
     }
   }
 </style>
-
-<script>
-  function initBeforeAfterSliders() {
-    document.querySelectorAll<HTMLElement>('[data-before-after-frame]').forEach((frame) => {
-      if (frame.dataset.sliderBound === 'true') return;
-      frame.dataset.sliderBound = 'true';
-
-      const range = frame.parentElement?.querySelector<HTMLInputElement>('[data-before-after-range]');
-      if (!range) return;
-
-      const update = () => {
-        frame.style.setProperty('--position', `${range.value}%`);
-      };
-
-      range.addEventListener('input', update);
-      update();
-    });
-  }
-
-  initBeforeAfterSliders();
-  document.addEventListener('astro:page-load', initBeforeAfterSliders);
-</script>

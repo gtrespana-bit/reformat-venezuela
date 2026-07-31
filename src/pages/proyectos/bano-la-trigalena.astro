@@ -1,6 +1,5 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
 
 const project = {
@@ -161,13 +160,6 @@ const project = {
   ]
 };
 
-const quickNavItems = [
-  { href: '#espacios', label: 'Espacio final' },
-  { href: '#memoria', label: 'Memoria técnica' },
-  { href: '#comparativa', label: 'Antes / después' },
-  { href: '#galeria', label: 'Galería' }
-];
-
 const heroImage = project.heroImage;
 ---
 
@@ -243,8 +235,6 @@ const heroImage = project.heroImage;
       </div>
     </div>
   </nav>
-
-  <ProjectQuickNav items={quickNavItems} summary="Accede rápido al espacio final, la memoria técnica, la comparativa y la galería del baño." ctaHref="#galeria" ctaLabel="Ir a galería" />
 
   <!-- 2. DUAL-SHOWCASE: EL TRIUNFO ESPACIAL (ZERO CROPPING) -->
   <section class="dual-showcase-section" id="espacios">

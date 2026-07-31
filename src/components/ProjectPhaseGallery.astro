@@ -7,6 +7,7 @@ interface GalleryItem {
   badge: string;
   category: string;
   categoryLabel: string;
+  orientation?: 'portrait' | 'landscape';
 }
 
 interface PhaseInfo {
@@ -71,10 +72,13 @@ const groupedPhases = phases
             <span class="project-phase-counter">{phase.items.length} fotos</span>
           </div>
 
-          <div class="project-phase-masonry">
-            {phase.items.map((image) => (
+          <div class="project-phase-grid">
+            {phase.items.map((image, index) => (
               <article
-                class="project-phase-card"
+                class:list={[
+                  'project-phase-card',
+                  image.orientation === 'landscape' ? 'is-landscape' : 'is-portrait'
+                ]}
                 data-lightbox-item
                 data-lightbox-group={`phase-${phase.id}`}
                 data-src={image.src}
@@ -84,6 +88,7 @@ const groupedPhases = phases
                 data-badge={image.badge}
               >
                 <div class="project-phase-media">
+                  <span class="project-phase-index">{String(index + 1).padStart(2, '0')}</span>
                   <span class="project-phase-badge">{image.badge}</span>
                   <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
                   <div class="gallery-zoom-overlay">
@@ -91,6 +96,7 @@ const groupedPhases = phases
                   </div>
                 </div>
                 <div class="project-phase-copy">
+                  <span class="project-phase-copy-tag">{image.categoryLabel}</span>
                   <h3>{image.title}</h3>
                   <p>{image.caption}</p>
                 </div>
@@ -149,13 +155,13 @@ const groupedPhases = phases
   }
   .project-phase-sections {
     display: grid;
-    gap: 34px;
+    gap: 32px;
   }
   .project-phase-block {
     padding: 28px;
     border-radius: 28px;
-    background: rgba(255,255,255,.88);
-    border: 1px solid rgba(201,169,97,.16);
+    background: rgba(255,255,255,.9);
+    border: 1px solid rgba(201,169,97,.14);
     box-shadow: 0 22px 45px rgba(20,18,14,.05);
   }
   .project-phase-block-head {
@@ -198,13 +204,15 @@ const groupedPhases = phases
     letter-spacing: .08em;
     text-transform: uppercase;
   }
-  .project-phase-masonry {
-    columns: 3 280px;
-    column-gap: 22px;
+  .project-phase-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: start;
   }
   .project-phase-card {
-    break-inside: avoid;
-    margin: 0 0 22px;
+    display: flex;
+    flex-direction: column;
     border-radius: 22px;
     overflow: hidden;
     background: var(--white);
@@ -212,43 +220,83 @@ const groupedPhases = phases
     box-shadow: var(--e-1);
     cursor: zoom-in;
     transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+    min-width: 0;
   }
   .project-phase-card:hover {
     transform: translateY(-4px);
     box-shadow: var(--e-2);
-    border-color: rgba(201,169,97,.35);
+    border-color: rgba(201,169,97,.34);
+  }
+  .project-phase-card.is-landscape {
+    grid-column: span 2;
   }
   .project-phase-media {
     position: relative;
-    background: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.12), transparent 38%),
+      var(--ink-soft);
+  }
+  .project-phase-card.is-portrait .project-phase-media {
+    min-height: 420px;
+  }
+  .project-phase-card.is-landscape .project-phase-media {
+    min-height: 360px;
   }
   .project-phase-media img {
-    width: 100%;
+    max-width: 100%;
+    max-height: 620px;
+    width: auto;
     height: auto;
+    object-fit: contain;
     display: block;
+    border-radius: 6px;
+    box-shadow: 0 16px 34px rgba(0,0,0,.28);
   }
+  .project-phase-index,
   .project-phase-badge {
     position: absolute;
     top: 14px;
-    left: 14px;
     z-index: 2;
     display: inline-flex;
     align-items: center;
-    padding: 5px 12px;
+    min-height: 32px;
+    padding: 0 12px;
     border-radius: var(--r-full);
-    background: var(--gold);
-    color: var(--ink);
     font-size: .72rem;
     font-weight: 800;
     letter-spacing: .08em;
     text-transform: uppercase;
   }
+  .project-phase-index {
+    left: 14px;
+    background: rgba(20,18,14,.84);
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,.12);
+  }
+  .project-phase-badge {
+    right: 14px;
+    background: var(--gold);
+    color: var(--ink);
+  }
   .project-phase-copy {
     padding: 18px 18px 20px;
   }
+  .project-phase-copy-tag {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
   .project-phase-copy h3 {
     font-family: var(--font-serif);
-    font-size: 1.34rem;
+    font-size: 1.28rem;
     line-height: 1.14;
     color: var(--ink);
     margin: 0 0 8px;
@@ -260,7 +308,16 @@ const groupedPhases = phases
     font-size: .93rem;
   }
 
-  @media (max-width: 860px) {
+  @media (max-width: 980px) {
+    .project-phase-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .project-phase-card.is-landscape {
+      grid-column: span 2;
+    }
+  }
+
+  @media (max-width: 760px) {
     .project-phase-block {
       padding: 22px;
       border-radius: 22px;
@@ -269,14 +326,18 @@ const groupedPhases = phases
       flex-direction: column;
       align-items: flex-start;
     }
-    .project-phase-masonry {
-      columns: 2 240px;
-    }
   }
 
-  @media (max-width: 560px) {
-    .project-phase-masonry {
-      columns: 1;
+  @media (max-width: 640px) {
+    .project-phase-grid {
+      grid-template-columns: 1fr;
+    }
+    .project-phase-card.is-landscape {
+      grid-column: span 1;
+    }
+    .project-phase-card.is-portrait .project-phase-media,
+    .project-phase-card.is-landscape .project-phase-media {
+      min-height: 320px;
     }
     .project-phase-pill {
       width: 100%;

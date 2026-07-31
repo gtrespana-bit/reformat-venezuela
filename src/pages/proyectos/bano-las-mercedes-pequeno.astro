@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
-import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
@@ -171,15 +170,6 @@ const storyMoments = [
   }
 ];
 
-const quickNavItems = [
-  { href: '#resultado', label: 'Resultado' },
-  { href: '#comparativa', label: 'Antes / después' },
-  { href: '#recorrido', label: 'Recorrido visual' },
-  { href: '#tecnica', label: 'Ejecución' },
-  { href: '#ficha', label: 'Ficha técnica' },
-  { href: '#galeria', label: 'Galería' }
-];
-
 const galleryPhases = [
   { id: 'resultado', label: 'Resultado final', description: 'Las imágenes finales muestran cómo cambia la percepción del espacio cuando la distribución, la luz y los materiales trabajan juntos.' },
   { id: 'detalles', label: 'Detalles técnicos', description: 'Plato de ducha, encuentros de revestimiento, acceso y piezas clave ejecutadas con más precisión.' },
@@ -203,8 +193,6 @@ const whatsappText = 'Hola, quiero una valoración técnica para remodelar un ba
       <div class="case-hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div>
     </div>
   </header>
-
-  <ProjectQuickNav items={quickNavItems} summary={`${gallery.length} fotos reales, ampliación táctil y lectura por fases para entender el cambio con claridad.`} ctaHref="#galeria" ctaLabel="Abrir galería" />
 
   <section class="finished-showcase-section section" id="resultado"><div class="container"><div class="section-header showcase-header"><span class="tag">Resultado final</span><h2 class="section-title">Un baño pequeño que ahora se siente mejor distribuido</h2><p class="section-desc">Mostramos primero el resultado final: mueble roble, porcelanato blanco mate, relieve 3D en ducha, plato ROCA, mampara templada y suelo imitación madera roble.</p></div><div class="finished-showcase-grid">{featuredFinished.map((image, index) => (<figure class:list={["finished-card", index === 0 && 'is-wide']}><img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /><figcaption><span>{image.badge}</span><strong>{image.title}</strong><p>{image.caption}</p><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button></figcaption></figure>))}</div></div></section>
 

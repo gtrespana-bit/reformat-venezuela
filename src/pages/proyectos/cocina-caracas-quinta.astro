@@ -2,7 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
-import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
 import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
@@ -183,15 +182,6 @@ const storyMoments = [
   }
 ];
 
-const quickNavItems = [
-  { href: '#resultado', label: 'Resultado' },
-  { href: '#comparativa', label: 'Antes / después' },
-  { href: '#recorrido', label: 'Recorrido visual' },
-  { href: '#tecnica', label: 'Ejecución' },
-  { href: '#ficha', label: 'Ficha técnica' },
-  { href: '#galeria', label: 'Galería' }
-];
-
 const galleryPhases = [
   { id: 'resultado', label: 'Resultado final', description: 'Las vistas ya terminadas muestran la composición completa, la integración de equipos y el contraste entre frentes blancos y cuarzo oscuro.' },
   { id: 'detalles', label: 'Detalles técnicos', description: 'Aquí se aprecian los remates, la adaptación de la encimera y las decisiones que elevan el acabado.' },
@@ -235,13 +225,6 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
       </div>
     </div>
   </header>
-
-  <ProjectQuickNav
-    items={quickNavItems}
-    summary={`${gallery.length} fotos reales, filtro por fases y ampliación táctil para revisar la cocina con calma.`}
-    ctaHref="#galeria"
-    ctaLabel="Abrir galería"
-  />
 
   <section class="finished-showcase-section section" id="resultado">
     <div class="container">
