@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
 
 const project = {
   title: 'Remodelación de Baño Principal y Aseo Adaptado',
@@ -169,6 +171,13 @@ const project = {
     }
   ]
 };
+
+const galleryPhases = [
+  { id: 'principal', label: 'Baño principal', description: 'El espacio principal terminado muestra la nueva lectura de materiales, iluminación y plomería resuelta.' },
+  { id: 'aseo', label: 'Aseo adaptado', description: 'La segunda estancia documenta la adaptación del antiguo armario a un nuevo baño de apoyo.' },
+  { id: 'antes', label: 'Estado previo', description: 'Las imágenes iniciales permiten entender el punto de partida antes de la transformación.' },
+  { id: 'obra', label: 'Proceso de obra', description: 'Fotos de ejecución donde se aprecia la estructura, las instalaciones y la colocación de materiales.' }
+];
 
 const heroImage = project.heroImage;
 const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño principal y aseo adaptado de Caracas.';
@@ -499,83 +508,8 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
     </div>
   </section>
 
-  <!-- 5. INTERACTIVE THEMATIC GALLERY (ZERO-CROP MASONRY LAYOUT) -->
-  <section class="gallery-section" id="galeria">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">ARCHIVO FOTOGRÁFICO COMPLETO</span>
-        <h2 class="editorial-title">Galería Detallada del Proyecto (13 Fotos Reales)</h2>
-        <p class="editorial-subtitle">
-          Explore cada fase del proyecto sin recortes artificiales: las fotografías preservan su proporción real para poder apreciar con precisión la fontanería, las pendientes y los acabados de revestimiento.
-        </p>
-
-        <!-- Interactive Filter Tabs -->
-        <div class="gallery-filters" role="tablist" aria-label="Filtros de la galería">
-          <button class="filter-btn active" data-filter="all" role="tab" aria-selected="true">
-            <span>Todos los Espacios</span>
-            <span class="filter-count">13</span>
-          </button>
-          <button class="filter-btn" data-filter="principal" role="tab" aria-selected="false">
-            <span>Baño Principal</span>
-            <span class="filter-count">6</span>
-          </button>
-          <button class="filter-btn" data-filter="aseo" role="tab" aria-selected="false">
-            <span>Aseo Adaptado</span>
-            <span class="filter-count">3</span>
-          </button>
-          <button class="filter-btn" data-filter="antes" role="tab" aria-selected="false">
-            <span>Estado Original (Antes)</span>
-            <span class="filter-count">2</span>
-          </button>
-          <button class="filter-btn" data-filter="obra" role="tab" aria-selected="false">
-            <span>Proceso de Obra</span>
-            <span class="filter-count">2</span>
-          </button>
-        </div>
-      </div>
-
-      <!-- Masonry Grid with Zero-Crop Images -->
-      <div class="gallery-masonry" id="gallery-grid">
-        {project.gallery.map((img, idx) => (
-          <article 
-            class={`gallery-card ${img.orientation === 'landscape' ? 'card-landscape' : 'card-portrait'}${idx === 0 || img.category !== project.gallery[idx - 1].category ? ' group-start' : ''}`}
-            data-category={img.category}
-            data-index={idx}
-            data-src={img.src}
-            data-alt={img.alt}
-            data-title={img.title}
-            data-caption={img.caption}
-          >
-            <div class="card-image-box">
-              <span class="card-badge">{img.badge}</span>
-              <img 
-                src={img.src} 
-                alt={img.alt} 
-                loading="lazy" 
-                decoding="async" 
-              />
-              <div class="card-hover-overlay">
-                <span class="hover-zoom-btn">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="11" cy="11" r="8"/>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                    <line x1="11" y1="8" x2="11" y2="14"/>
-                    <line x1="8" y1="11" x2="14" y2="11"/>
-                  </svg>
-                  Ampliar imagen
-                </span>
-              </div>
-            </div>
-            <div class="card-caption-box">
-              <span class="card-category-tag">{img.categoryLabel}</span>
-              <h3 class="card-title">{img.title}</h3>
-              <p class="card-desc">{img.caption}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
+  <!-- 5. GALERÍA ORDENADA POR FASES -->
+  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Toda la documentación visual queda agrupada por ambientes y fases para que el usuario pueda seguir el proyecto sin saltos ni desorden visual." items={project.gallery} phases={galleryPhases} id="galeria" />
 
   <!-- 6. LUXURY CALL TO ACTION -->
   <section class="project-cta-luxury">
@@ -629,6 +563,7 @@ const whatsappText = 'Hola, quiero una valoración técnica para un proyecto sim
       </div>
     </div>
   </div>
+  <ProjectLightbox />
 </BaseLayout>
 
 <style>
