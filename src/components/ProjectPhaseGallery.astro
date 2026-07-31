@@ -91,6 +91,7 @@ const groupedPhases = phases
               <div class="project-phase-featured-media">
                 <span class="project-phase-index">01</span>
                 <span class="project-phase-badge">{phase.featured.badge}</span>
+                <span class="project-phase-expand-hint">Ampliar</span>
                 <img src={phase.featured.src} alt={phase.featured.alt} loading="lazy" decoding="async" />
                 <div class="gallery-zoom-overlay">
                   <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={phase.featured.src}>{buttonLabel}</button>
@@ -123,6 +124,7 @@ const groupedPhases = phases
                   <div class="project-phase-media">
                     <span class="project-phase-index">{String(index + 2).padStart(2, '0')}</span>
                     <span class="project-phase-badge">{image.badge}</span>
+                    <span class="project-phase-expand-hint">Ampliar</span>
                     <img src={image.src} alt={image.alt} loading="lazy" decoding="async" />
                     <div class="gallery-zoom-overlay">
                       <button class="expand-photo-btn" type="button" data-lightbox-open data-group={`phase-${phase.id}`} data-src={image.src}>{buttonLabel}</button>
@@ -241,8 +243,8 @@ const groupedPhases = phases
 
   .project-phase-featured {
     display: grid;
-    grid-template-columns: minmax(0, 1.14fr) minmax(300px, .86fr);
-    gap: 22px;
+    grid-template-columns: minmax(0, 1.06fr) minmax(300px, .94fr);
+    gap: 20px;
     align-items: stretch;
     margin-bottom: 22px;
     border-radius: 24px;
@@ -271,12 +273,12 @@ const groupedPhases = phases
       var(--ink-soft);
   }
   .project-phase-featured-media {
-    min-height: 520px;
+    min-height: 400px;
   }
   .project-phase-featured-media img,
   .project-phase-media img {
     max-width: 100%;
-    max-height: 700px;
+    max-height: 520px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -320,7 +322,7 @@ const groupedPhases = phases
   .project-phase-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 22px;
+    gap: 20px;
     align-items: start;
   }
   .project-phase-card {
@@ -339,15 +341,15 @@ const groupedPhases = phases
     grid-column: span 2;
   }
   .project-phase-card.is-portrait .project-phase-media {
-    min-height: 420px;
+    min-height: 320px;
   }
   .project-phase-card.is-landscape .project-phase-media {
-    min-height: 340px;
+    min-height: 280px;
   }
   .project-phase-index,
-  .project-phase-badge {
+  .project-phase-badge,
+  .project-phase-expand-hint {
     position: absolute;
-    top: 14px;
     z-index: 2;
     display: inline-flex;
     align-items: center;
@@ -360,15 +362,26 @@ const groupedPhases = phases
     text-transform: uppercase;
   }
   .project-phase-index {
+    top: 14px;
     left: 14px;
     background: rgba(20,18,14,.84);
     color: var(--white);
     border: 1px solid rgba(255,255,255,.12);
   }
   .project-phase-badge {
+    top: 14px;
     right: 14px;
     background: var(--gold);
     color: var(--ink);
+  }
+  .project-phase-expand-hint {
+    right: 14px;
+    bottom: 14px;
+    background: rgba(20,18,14,.82);
+    color: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.26);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
   }
   .project-phase-copy h3 {
     font-family: var(--font-serif);
@@ -411,8 +424,12 @@ const groupedPhases = phases
     .project-phase-featured-media,
     .project-phase-card.is-portrait .project-phase-media,
     .project-phase-card.is-landscape .project-phase-media {
-      min-height: 320px;
+      min-height: 280px;
       padding: 14px;
+    }
+    .project-phase-featured-media img,
+    .project-phase-media img {
+      max-height: 420px;
     }
     .project-phase-featured-copy,
     .project-phase-copy {

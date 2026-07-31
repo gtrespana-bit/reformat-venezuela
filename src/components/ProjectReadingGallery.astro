@@ -56,6 +56,7 @@ const {
             data-badge={item.tag}
           >
             <div class="project-reading-figure-box">
+              <span class="project-reading-expand-hint">Ampliar</span>
               <img src={item.image} alt={item.alt} loading="lazy" decoding="async" />
               <div class="gallery-zoom-overlay">
                 <button class="expand-photo-btn" type="button" data-lightbox-open data-group={galleryGroup} data-src={item.image}>{buttonLabel}</button>
@@ -75,24 +76,24 @@ const {
     border-bottom: 1px solid var(--sand);
   }
   .project-reading-gallery-header {
-    max-width: 840px;
-    margin: 0 auto 52px;
+    max-width: 820px;
+    margin: 0 auto 48px;
     text-align: center;
   }
   .project-reading-gallery-list {
     display: grid;
-    gap: 30px;
+    gap: 28px;
   }
   .project-reading-card {
     display: grid;
-    grid-template-columns: .88fr 1.12fr;
-    gap: 30px;
+    grid-template-columns: .92fr 1.08fr;
+    gap: 28px;
     align-items: stretch;
-    padding: 32px;
+    padding: 28px;
     background: rgba(255,255,255,.82);
     border: 1px solid rgba(201,169,97,.18);
-    border-radius: 30px;
-    box-shadow: 0 22px 44px rgba(20,18,14,.05);
+    border-radius: 28px;
+    box-shadow: 0 20px 40px rgba(20,18,14,.05);
   }
   .project-reading-card.is-reversed {
     grid-template-columns: 1.12fr .88fr;
@@ -126,15 +127,15 @@ const {
   }
   .project-reading-copy h3 {
     font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 3.3vw, 2.55rem);
-    line-height: 1.04;
+    font-size: clamp(1.8rem, 3vw, 2.35rem);
+    line-height: 1.05;
     color: var(--ink);
-    margin: 0 0 16px;
+    margin: 0 0 14px;
   }
   .project-reading-copy p {
     color: var(--text-muted);
-    font-size: 1.02rem;
-    line-height: 1.82;
+    font-size: 1rem;
+    line-height: 1.78;
     margin: 0;
   }
   .project-reading-caption {
@@ -149,12 +150,12 @@ const {
   }
   .project-reading-figure-box {
     position: relative;
-    min-height: 470px;
+    min-height: 390px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
-    border-radius: 26px;
+    padding: 18px;
+    border-radius: 24px;
     background:
       radial-gradient(circle at top, rgba(201,169,97,.14), transparent 40%),
       var(--ink-soft);
@@ -163,12 +164,33 @@ const {
   }
   .project-reading-figure-box img {
     max-width: 100%;
-    max-height: 680px;
+    max-height: 520px;
     width: auto;
     height: auto;
     object-fit: contain;
     border-radius: 8px;
-    box-shadow: 0 22px 46px rgba(0,0,0,.3);
+    box-shadow: 0 18px 38px rgba(0,0,0,.28);
+  }
+  .project-reading-expand-hint {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 34px;
+    padding: 0 12px;
+    border-radius: var(--r-full);
+    background: rgba(20,18,14,.82);
+    border: 1px solid rgba(201,169,97,.28);
+    color: rgba(255,255,255,.92);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
   }
 
   @media (max-width: 960px) {
@@ -189,9 +211,12 @@ const {
       gap: 20px;
     }
     .project-reading-figure-box {
-      min-height: 330px;
+      min-height: 300px;
       padding: 14px;
       border-radius: 18px;
+    }
+    .project-reading-figure-box img {
+      max-height: 420px;
     }
     .project-reading-copy h3 {
       font-size: clamp(1.55rem, 7vw, 2rem);

@@ -55,6 +55,7 @@ const {
       >
         <div class="project-compare-media">
           <span class="project-compare-chip project-compare-chip-before">{beforeLabel}</span>
+          <span class="project-compare-expand-hint">Ampliar</span>
           <img src={beforeSrc} alt={beforeAlt} loading="lazy" decoding="async" />
         </div>
         <figcaption>
@@ -85,6 +86,7 @@ const {
       >
         <div class="project-compare-media">
           <span class="project-compare-chip project-compare-chip-after">{afterLabel}</span>
+          <span class="project-compare-expand-hint">Ampliar</span>
           <img src={afterSrc} alt={afterAlt} loading="lazy" decoding="async" />
         </div>
         <figcaption>
@@ -108,7 +110,7 @@ const {
   .project-compare-stage {
     display: grid;
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-    gap: 22px;
+    gap: 20px;
     align-items: stretch;
   }
   .project-compare-card {
@@ -131,18 +133,18 @@ const {
   }
   .project-compare-media {
     position: relative;
-    min-height: 460px;
+    min-height: 340px;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    padding: 18px;
     background:
       radial-gradient(circle at top, rgba(201,169,97,.12), transparent 36%),
       var(--ink-soft);
   }
   .project-compare-media img {
     max-width: 100%;
-    max-height: 600px;
+    max-height: 460px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -150,10 +152,9 @@ const {
     border-radius: 8px;
     box-shadow: 0 18px 40px rgba(0,0,0,.32);
   }
-  .project-compare-chip {
+  .project-compare-chip,
+  .project-compare-expand-hint {
     position: absolute;
-    top: 16px;
-    left: 16px;
     z-index: 2;
     display: inline-flex;
     align-items: center;
@@ -166,14 +167,27 @@ const {
     text-transform: uppercase;
   }
   .project-compare-chip-before {
+    top: 16px;
+    left: 16px;
     background: rgba(20,18,14,.84);
     color: var(--white);
     border: 1px solid rgba(255,255,255,.12);
   }
   .project-compare-chip-after {
+    top: 16px;
+    left: 16px;
     background: var(--gold);
     color: var(--ink);
     border: 1px solid rgba(201,169,97,.3);
+  }
+  .project-compare-expand-hint {
+    right: 16px;
+    bottom: 16px;
+    background: rgba(20,18,14,.82);
+    color: rgba(255,255,255,.92);
+    border: 1px solid rgba(201,169,97,.28);
+    backdrop-filter: blur(10px);
+    pointer-events: none;
   }
   .project-compare-card figcaption {
     padding: 22px 22px 24px;
@@ -260,8 +274,11 @@ const {
       border-radius: 22px;
     }
     .project-compare-media {
-      min-height: 340px;
+      min-height: 280px;
       padding: 14px;
+    }
+    .project-compare-media img {
+      max-height: 380px;
     }
     .project-compare-card figcaption {
       padding: 18px 18px 20px;
