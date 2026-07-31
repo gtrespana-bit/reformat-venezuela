@@ -12,6 +12,7 @@ La carpeta [`tanda-4-elite/`](./tanda-4-elite/) contiene la nueva **Colección d
 
 - Vista general consolidada: [`tanda-4-elite/preview-contact-sheet.jpg`](./tanda-4-elite/preview-contact-sheet.jpg)
 - Galería web interactiva: [`tanda-4-elite/preview-galeria-elite.html`](./tanda-4-elite/preview-galeria-elite.html)
+- **Reels animados + Locución AI en español**: [`tanda-4-elite/reel-reproductor.html`](./tanda-4-elite/reel-reproductor.html) (incluye audios MP3 y GIFs 1080×1920)
 - Guía de Copywriting & Psicología del Clic: [`tanda-4-elite/README.md`](./tanda-4-elite/README.md)
 
 ## Colección profesional con dirección de arte de agencia

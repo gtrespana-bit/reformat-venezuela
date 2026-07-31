@@ -33,8 +33,28 @@ Cada pieza ha sido concebida no solo para encantar visualmente, sino para **prov
 | `10-cinema-before-after-lagunita-1080x1350.jpg` | Feed Vertical | 1080 × 1350 | Cinema Case Study | `👉 HAZ CLIC PARA VER EL RECORRIDO Y COTIZAR TU OBRA` |
 | `11-cinema-before-after-caracas-1080x1080.jpg` | Feed Cuadrado | 1080 × 1080 | Cinema Case Study | `👉 VER PRESUPUESTO DE ESTE PROYECTO Y COTIZAR TU HOGAR` |
 | `12-cinema-story-recorrido-vip-1080x1920.jpg` | Story / Reel | 1080 × 1920 | Cinema Case Study | `👉 TOCA AQUÍ PARA AGENDAR VISITA TÉCNICA EN TU HOGAR` |
+| `13-reel-animado-bano-1080x1920.gif` (`.webp`) | Reel / Story Animado | 1080 × 1920 | Animated Reel + AI Audio | `👉 TOCA O DESLIZA PARA ENTRAR A LA OBRA` |
+| `14-reel-animado-cocina-1080x1920.gif` (`.webp`) | Reel / Story Animado | 1080 × 1920 | Animated Reel + AI Audio | `👉 CALCULAR PRECIO EN 1 CLIC` |
 
 > La vista de contacto consolidada de toda la colección se encuentra en **`preview-contact-sheet.jpg`**.
+> Puedes reproducir los **Reels con Locución AI en Español** en **`reel-reproductor.html`**.
+
+---
+
+## 🎬 Reels Publicitarios Animados & Locución AI en Español
+
+Además de las piezas estáticas, hemos generado **2 Reels Publicitarios Animados (1080×1920)** con narración publicitaria en español producida mediante inteligencia artificial (`generate_speech`).
+
+### Archivos de Audio Sintetizados (MP3)
+- `reel-narration.mp3`: Locución masculina en español para anuncios residenciales y transformación de baños suite.
+- `reel-narration-cocina.mp3`: Locución femenina en español centrada en transparencia de presupuestos 2026 y cocinas de autor.
+
+### Archivos Animados para Redes (GIF / WebP)
+- `export/13-reel-animado-bano-1080x1920.gif` (y `.webp`): Storyboard animado en 4 transiciones para Baños Suite (La Lagunita / Caracas).
+- `export/14-reel-animado-cocina-1080x1920.gif` (y `.webp`): Storyboard animado en 4 transiciones para Cocinas de Autor (Cuarzo & Blum).
+
+### Reproductor Interactivo con Audio Sincronizado
+Abre en tu navegador **`reel-reproductor.html`** para vivir la experiencia completa en formato vertical 9:16 con la locución sincronizada, subtítulos dinámicos de alto enganche y botón directo de cotización por WhatsApp.
 
 ---
 
