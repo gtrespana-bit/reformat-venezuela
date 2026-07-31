@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import MethodComparison from '../components/MethodComparison.astro';
 
 const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
@@ -224,18 +225,13 @@ const fitItems = [
         <h2 class="section-title">Lo que no se ve también debe estar perfecto</h2>
         <p class="section-desc">El lujo real está en las decisiones técnicas: usar el material correcto, preparar bien el soporte, probar antes de cerrar y revisar cada remate antes de entregar.</p>
       </div>
-      <div class="comparison-card" data-reveal>
-        <div class="comparison-head">
-          <span>Obra sin especificación</span>
-          <span>Método RemodelaT</span>
-        </div>
-        {comparisonRows.map(([common, remodelat]) => (
-          <div class="comparison-row">
-            <p>{common}</p>
-            <p>{remodelat}</p>
-          </div>
-        ))}
-      </div>
+      <MethodComparison
+        rows={comparisonRows}
+        leftLabel="Obra sin especificación"
+        rightLabel="Método RemodelaT"
+        ariaLabel="Comparativa entre una obra sin especificación y el Método RemodelaT"
+        reveal
+      />
     </div>
   </section>
 
@@ -624,23 +620,6 @@ const fitItems = [
   .technical-standard-section { background: var(--ink); color: var(--white); }
   .technical-standard-section .section-title { color: var(--white); }
   .technical-standard-section .section-desc { color: rgba(255,255,255,.78); }
-  .comparison-card {
-    max-width: 1000px; margin: 0 auto; overflow: hidden;
-    border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg);
-    background: rgba(255,255,255,.045); box-shadow: var(--e-3);
-  }
-  .comparison-head, .comparison-row { display: grid; grid-template-columns: 1fr 1fr; }
-  .comparison-head span {
-    padding: 18px 24px; background: rgba(201,169,97,.16); color: var(--gold-light);
-    font-size: .82rem; font-weight: 700; text-transform: uppercase; letter-spacing: .12em;
-  }
-  .comparison-row { border-top: 1px solid rgba(242,237,228,.12); }
-  .comparison-row p {
-    padding: 20px 24px; margin: 0; color: rgba(255,255,255,.74); line-height: 1.65;
-    border-right: 1px solid rgba(242,237,228,.12);
-  }
-  .comparison-row p:last-child { border-right: 0; color: rgba(255,255,255,.9); }
-
   .fit-grid { display: grid; grid-template-columns: .95fr 1.05fr; gap: var(--s-5); align-items: center; }
   .fit-list { list-style: none; display: grid; gap: 14px; }
   .fit-list li {
@@ -825,13 +804,14 @@ const fitItems = [
     .img-box.small { height: 190px; bottom: 28px; }
   }
   @media (max-width: 700px) {
-    .home-services-grid, .process-grid, .testimonials-grid-home, .comparison-head, .comparison-row { grid-template-columns: 1fr; }
+    .home-services-grid, .process-grid, .testimonials-grid-home, .form-row { grid-template-columns: 1fr; }
+    .form-row { gap: 0; }
     .home-service-img { height: 220px; }
-    .comparison-row p { border-right: 0; border-bottom: 1px solid rgba(242,237,228,.12); }
-    .cta-actions-home { flex-direction: column; align-items: center; }
+    .cta-actions-home { width: 100%; flex-direction: column; align-items: center; }
   }
   @media (max-width: 560px) {
     .hero-title { font-size: clamp(1.9rem, 9vw, 2.85rem); }
+    .contact-form { padding: 26px 20px; }
     .hero-sub { font-size: .98rem; }
     .hero-proof { max-width: 300px; line-height: 1.8; }
     .hero-proof i:nth-of-type(2) { display: none; }

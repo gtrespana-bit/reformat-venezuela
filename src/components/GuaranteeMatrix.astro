@@ -116,7 +116,7 @@ const labels = isEnglish
       <p>{description}</p>
     </div>
 
-    <div class="guarantee-table" role="table" aria-label="Garantías por partidas RemodelaT">
+    <div class="guarantee-table" role="table" aria-label={isEnglish ? 'RemodelaT warranty by scope' : 'Garantías por partidas RemodelaT'}>
       <div class="guarantee-row guarantee-head" role="row">
         <span role="columnheader">{labels.part}</span>
         <span role="columnheader">{labels.coverage}</span>
@@ -124,9 +124,18 @@ const labels = isEnglish
       </div>
       {guaranteeRows.map((row) => (
         <div class="guarantee-row" role="row">
-          <strong role="cell">{row.part}</strong>
-          <span role="cell">{row.coverage}</span>
-          <p role="cell">{row.evidence}</p>
+          <strong role="cell">
+            <span class="guarantee-mobile-label">{labels.part}</span>
+            {row.part}
+          </strong>
+          <span role="cell">
+            <span class="guarantee-mobile-label">{labels.coverage}</span>
+            {row.coverage}
+          </span>
+          <p role="cell">
+            <span class="guarantee-mobile-label">{labels.evidence}</span>
+            {row.evidence}
+          </p>
         </div>
       ))}
     </div>
@@ -242,6 +251,7 @@ const labels = isEnglish
     line-height: 1.65;
   }
   .guarantee-dark .guarantee-note { color: rgba(255,255,255,.62); }
+  .guarantee-mobile-label { display: none; }
 
   @media (max-width: 820px) {
     .guarantee-row,
@@ -258,5 +268,20 @@ const labels = isEnglish
       border-left: 0;
     }
     .guarantee-row strong { font-size: 1.3rem; }
+    .guarantee-mobile-label,
+    .guarantee-row .guarantee-mobile-label {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      font-weight: 800;
+      letter-spacing: .1em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .guarantee-dark .guarantee-row .guarantee-mobile-label {
+      color: rgba(255,255,255,.56);
+    }
   }
 </style>

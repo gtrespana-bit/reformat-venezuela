@@ -1,0 +1,140 @@
+---
+interface Props {
+  rows: string[][];
+  leftLabel: string;
+  rightLabel: string;
+  ariaLabel?: string;
+  reveal?: boolean;
+}
+
+const {
+  rows,
+  leftLabel,
+  rightLabel,
+  ariaLabel = `${leftLabel} vs. ${rightLabel}`,
+  reveal = false
+} = Astro.props;
+---
+
+<div
+  class="method-comparison"
+  role="table"
+  aria-label={ariaLabel}
+  data-reveal={reveal ? '' : undefined}
+>
+  <div class="method-comparison-head" role="row">
+    <span role="columnheader">{leftLabel}</span>
+    <span role="columnheader">{rightLabel}</span>
+  </div>
+
+  <div class="method-comparison-body" role="rowgroup">
+    {rows.map(([left, right]) => (
+      <div class="method-comparison-row" role="row">
+        <div class="method-comparison-cell is-without" role="cell">
+          <span class="method-comparison-mobile-label">{leftLabel}</span>
+          <p>{left}</p>
+        </div>
+        <div class="method-comparison-cell is-remodelat" role="cell">
+          <span class="method-comparison-mobile-label">{rightLabel}</span>
+          <p>{right}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<style>
+  .method-comparison {
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid rgba(201,169,97,.28);
+    border-radius: var(--r-lg);
+    background: rgba(255,255,255,.045);
+    box-shadow: var(--e-3);
+  }
+  .method-comparison-head,
+  .method-comparison-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .method-comparison-head span {
+    padding: 18px 24px;
+    background: rgba(201,169,97,.16);
+    color: var(--gold-light);
+    font-size: .82rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+  .method-comparison-row {
+    border-top: 1px solid rgba(242,237,228,.12);
+  }
+  .method-comparison-cell {
+    min-width: 0;
+    padding: 20px 24px;
+    color: rgba(255,255,255,.74);
+    line-height: 1.65;
+    border-right: 1px solid rgba(242,237,228,.12);
+  }
+  .method-comparison-cell:last-child {
+    border-right: 0;
+  }
+  .method-comparison-cell.is-remodelat {
+    color: rgba(255,255,255,.94);
+  }
+  .method-comparison-cell p {
+    margin: 0;
+  }
+  .method-comparison-mobile-label {
+    display: none;
+  }
+
+  @media (max-width: 700px) {
+    .method-comparison {
+      overflow: visible;
+      border: 0;
+      border-radius: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+    .method-comparison-head {
+      display: none;
+    }
+    .method-comparison-body {
+      display: grid;
+      gap: 16px;
+    }
+    .method-comparison-row {
+      display: block;
+      overflow: hidden;
+      border: 1px solid rgba(201,169,97,.3);
+      border-radius: var(--r-md);
+      background: rgba(255,255,255,.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,.18);
+    }
+    .method-comparison-cell {
+      padding: 18px 20px;
+      border: 0;
+    }
+    .method-comparison-cell.is-without {
+      border-bottom: 1px solid rgba(242,237,228,.14);
+    }
+    .method-comparison-cell.is-remodelat {
+      background: linear-gradient(135deg, rgba(201,169,97,.16), rgba(201,169,97,.07));
+    }
+    .method-comparison-mobile-label {
+      display: block;
+      margin-bottom: 8px;
+      color: rgba(255,255,255,.62);
+      font-size: .72rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+    .is-remodelat .method-comparison-mobile-label {
+      color: var(--gold-light);
+    }
+  }
+</style>
