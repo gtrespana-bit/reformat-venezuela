@@ -434,7 +434,12 @@ const navItems = isEnglish
       const toggleMenu = () => {
         const open = document.body.classList.toggle('nav-open');
         menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
-        if (open) navAnchors[0]?.focus({ preventScroll: true });
+        if (open) {
+          /* El panel conserva su scroll entre aperturas; devolverlo al inicio
+             garantiza que siempre se vea el menú completo. */
+          navLinks.scrollTop = 0;
+          navAnchors[0]?.focus({ preventScroll: true });
+        }
       };
 
       menuBtn.addEventListener('click', toggleMenu);
@@ -593,13 +598,22 @@ const navItems = isEnglish
 
   @media (max-width: 900px) {
     /* Panel deslizante desde la derecha */
+    /* En móvil se elimina el backdrop-filter del nav: aplicado al ancestro
+       convierte a sus descendientes position:fixed en relativos a la barra.
+       Al abrir el menú después de hacer scroll, el panel quedaba limitado a
+       la altura del navbar y solo mostraba sus últimos enlaces. */
+    .nav.scrolled,
+    .nav-solid { backdrop-filter: none; }
+
     .nav-links {
       display: flex;
       position: fixed;
-      inset: 0 0 0 auto;
+      inset: 0 0 auto auto;
       width: min(320px, 82vw);
+      height: 100vh;
+      height: 100dvh;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
       gap: 28px;
       padding:
@@ -615,6 +629,7 @@ const navItems = isEnglish
       transition: transform var(--dur-base) var(--ease-out);
       z-index: 2;
       overflow-y: auto;
+      overscroll-behavior: contain;
     }
     body.nav-open .nav-links { transform: translateX(0); }
     .nav-links a { font-size: 1.05rem; letter-spacing: .08em; }
