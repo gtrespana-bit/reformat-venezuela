@@ -2,6 +2,8 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 import ProjectLightbox from '../../components/ProjectLightbox.astro';
+import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
 
 const project = {
   title: 'Remodelación Integral de Cocina en Quinta',
@@ -160,6 +162,41 @@ const galleryFilters = [
 
 const featuredFinished = gallery.filter((img) => img.category === 'resultado');
 
+const storyMoments = [
+  {
+    tag: '01 · Estado previo',
+    title: 'La base técnica pedía una intervención completa, no un maquillaje visual',
+    body: 'El punto de partida era una cocina con acabados y mobiliario que ya no respondían al estándar de uso, limpieza y lectura visual que pedía la vivienda. Por eso la intervención arrancó con desmontaje total y demolición controlada.',
+    image: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
+    alt: 'Cocina original antes de la reforma completa en una quinta de Caracas',
+    caption: 'Mostramos el estado real previo para que el cambio se entienda desde la base y no solo desde la foto final.'
+  },
+  {
+    tag: '02 · Precisión en obra',
+    title: 'Revestimiento rectificado y montaje medido para que todo encaje limpio',
+    body: 'La mejora premium no depende solo del mueble: empieza en la electricidad, sigue en el replanteo y termina en la alineación visual de piezas, juntas y encuentros. Aquí es donde se construye la sensación de cocina “seria” y bien ejecutada.',
+    image: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp',
+    alt: 'Proceso de montaje y alineación de módulos de cocina durante la obra',
+    caption: 'El montaje y la alineación de los frentes determinan la limpieza visual del conjunto.'
+  },
+  {
+    tag: '03 · Entrega final',
+    title: 'El contraste entre blanco brillo y cuarzo oscuro le da una lectura mucho más arquitectónica',
+    body: 'El resultado final combina frentes blancos continuos, electrodomésticos integrados y una encimera oscura que ordena la composición. La cocina gana presencia, claridad y una percepción claramente más premium desde cualquier ángulo.',
+    image: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+    alt: 'Cocina finalizada con muebles blancos de alto brillo y encimera de cuarzo oscuro',
+    caption: 'La composición final equilibra brillo, contraste y funcionalidad sin sobrecargar el espacio.'
+  }
+];
+
+const quickNavItems = [
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#recorrido', label: 'Recorrido visual' },
+  { href: '#tecnica', label: 'Ejecución' },
+  { href: '#ficha', label: 'Ficha técnica' },
+  { href: '#galeria', label: 'Galería' }
+];
+
 const whatsappText = 'Hola, quiero una valoración técnica para una cocina similar a la quinta en Caracas.';
 ---
 
@@ -181,11 +218,30 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
         <span><strong>Ubicación</strong>{project.location}</span>
         <span><strong>Duración</strong>{project.duration}</span>
         <span><strong>Alcance</strong>Reforma completa de cocina</span>
+        <span><strong>Fotos reales</strong>{gallery.length} imágenes del caso</span>
+      </div>
+      <div class="case-hero-actions">
+        <a href="#galeria" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Ver galería completa</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
+          <span class="btn-content">Solicitar valoración</span>
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
     </div>
   </header>
 
-  <section class="finished-showcase-section section">
+  <ProjectQuickNav
+    items={quickNavItems}
+    summary={`${gallery.length} fotos reales, filtro por fases y ampliación táctil para revisar la cocina con calma.`}
+    ctaHref="#galeria"
+    ctaLabel="Abrir galería"
+  />
+
+  <section class="finished-showcase-section section" id="resultado">
     <div class="container">
       <div class="section-header showcase-header">
         <span class="tag">Resultado final</span>
@@ -223,7 +279,15 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
     </div>
   </section>
 
-  <section class="case-technical section bg-light">
+  <ProjectReadingGallery
+    eyebrow="Lectura visual del proyecto"
+    title="Así se entiende mejor la obra: texto y fotos juntos"
+    intro="En lugar de obligar al usuario a leer primero y buscar luego las imágenes, esta franja cuenta la intervención con apoyo visual inmediato. Es una forma mucho más premium y clara de explicar el trabajo realizado."
+    items={storyMoments}
+    galleryGroup="kitchen-story"
+  />
+
+  <section class="case-technical section bg-light" id="tecnica">
     <div class="container technical-grid">
       <div class="technical-copy">
         <span class="tag">Ejecución técnica</span>
@@ -267,7 +331,7 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
     </div>
   </section>
 
-  <section class="case-specs section">
+  <section class="case-specs section" id="ficha">
     <div class="container specs-grid">
       <div>
         <span class="tag">Especificaciones</span>
@@ -348,6 +412,15 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
   .case-facts span { padding: 18px 24px; min-width: 210px; border-right: 1px solid rgba(201,169,97,.18); color: rgba(255,255,255,.9); }
   .case-facts span:last-child { border-right: 0; }
   .case-facts strong { display: block; color: var(--gold); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 6px; }
+  .case-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+  }
+  .case-hero-actions .btn-premium {
+    min-height: 54px;
+  }
 
   .finished-showcase-section { background: var(--white); padding-bottom: var(--s-5); }
   .showcase-header { max-width: 820px; }
@@ -580,6 +653,14 @@ const whatsappText = 'Hola, quiero una valoración técnica para una cocina simi
   @media (max-width: 640px) {
     .case-facts { display: grid; }
     .case-facts span { border-right: 0; border-bottom: 1px solid rgba(201,169,97,.18); }
+    .case-hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .case-hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
     .gallery-grid, .gallery-card.is-large, .gallery-card.is-landscape:not(.is-large) { grid-template-columns: 1fr; grid-column: span 1; }
     .gallery-card .gallery-image-box img, .gallery-card.is-large .gallery-image-box img, .gallery-card.is-landscape:not(.is-large) .gallery-image-box img { height: 430px; }
     .finished-card, .finished-card.is-wide { min-height: 460px; }

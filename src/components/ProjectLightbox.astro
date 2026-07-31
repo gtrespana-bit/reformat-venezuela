@@ -5,11 +5,32 @@ interface Props {
 
 const { lang = 'es' } = Astro.props;
 const labels = lang === 'en'
-  ? { close: 'Close viewer', prev: 'Previous image', next: 'Next image', enlarge: 'Enlarge photo' }
-  : { close: 'Cerrar visor', prev: 'Imagen anterior', next: 'Imagen siguiente', enlarge: 'Ampliar foto' };
+  ? {
+      close: 'Close viewer',
+      prev: 'Previous image',
+      next: 'Next image',
+      enlarge: 'Enlarge photo',
+      hint: 'Swipe or use the arrows to move through the gallery',
+      thumbnails: 'Project gallery thumbnails'
+    }
+  : {
+      close: 'Cerrar visor',
+      prev: 'Imagen anterior',
+      next: 'Imagen siguiente',
+      enlarge: 'Ampliar foto',
+      hint: 'Desliza o usa las flechas para recorrer la galería',
+      thumbnails: 'Miniaturas de la galería del proyecto'
+    };
 ---
 
-<div class="project-lightbox" data-project-lightbox aria-hidden="true" role="dialog" aria-modal="true" aria-label={lang === 'en' ? 'Project image viewer' : 'Visor de imágenes del proyecto'}>
+<div
+  class="project-lightbox"
+  data-project-lightbox
+  aria-hidden="true"
+  role="dialog"
+  aria-modal="true"
+  aria-label={lang === 'en' ? 'Project image viewer' : 'Visor de imágenes del proyecto'}
+>
   <button class="project-lightbox-close" type="button" aria-label={labels.close} data-lightbox-close>&times;</button>
   <button class="project-lightbox-nav project-lightbox-prev" type="button" aria-label={labels.prev} data-lightbox-prev>
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="15 18 9 12 15 6"/></svg>
@@ -19,16 +40,26 @@ const labels = lang === 'en'
   </button>
 
   <div class="project-lightbox-content">
-    <div class="project-lightbox-image-wrap">
-      <img src="" alt="" data-lightbox-img />
+    <div class="project-lightbox-image-wrap" data-lightbox-stage>
+      <div class="project-lightbox-image-frame">
+        <img src="" alt="" data-lightbox-img />
+      </div>
+      <div class="project-lightbox-stage-hint" data-lightbox-hint>{labels.hint}</div>
     </div>
+
     <div class="project-lightbox-info">
       <div class="project-lightbox-meta">
         <span class="project-lightbox-badge" data-lightbox-badge></span>
         <span class="project-lightbox-counter"><span data-lightbox-current>1</span> / <span data-lightbox-total>1</span></span>
       </div>
+
       <h3 data-lightbox-title></h3>
       <p data-lightbox-caption></p>
+
+      <div class="project-lightbox-thumb-area">
+        <div class="project-lightbox-thumb-label">{labels.thumbnails}</div>
+        <div class="project-lightbox-thumbs" data-lightbox-thumbs role="listbox" aria-label={labels.thumbnails}></div>
+      </div>
     </div>
   </div>
 </div>
@@ -42,7 +73,9 @@ const labels = lang === 'en'
     align-items: center;
     justify-content: center;
     padding: 28px;
-    background: rgba(10, 9, 7, .96);
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.14), transparent 26%),
+      rgba(10, 9, 7, .97);
     opacity: 0;
     visibility: hidden;
     transition: opacity var(--dur-base) var(--ease-out), visibility var(--dur-base) var(--ease-out);
@@ -52,50 +85,90 @@ const labels = lang === 'en'
     visibility: visible;
   }
   .project-lightbox-content {
-    width: min(1180px, 100%);
+    width: min(1240px, 100%);
     max-height: calc(100vh - 56px);
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 340px;
-    background: var(--ink);
-    border: 1px solid rgba(201,169,97,.28);
-    border-radius: var(--r-lg);
+    grid-template-columns: minmax(0, 1fr) 360px;
+    background: linear-gradient(180deg, rgba(33,29,23,.98), rgba(18,16,12,.98));
+    border: 1px solid rgba(201,169,97,.26);
+    border-radius: 28px;
     overflow: hidden;
-    box-shadow: 0 28px 90px rgba(0,0,0,.55);
+    box-shadow: 0 32px 110px rgba(0,0,0,.58);
   }
   .project-lightbox-image-wrap {
-    min-height: 72vh;
-    background: #070605;
+    position: relative;
+    min-height: 74vh;
+    background:
+      radial-gradient(circle at center, rgba(201,169,97,.08), transparent 44%),
+      #090806;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 18px;
+    padding: 22px;
+    overflow: hidden;
+  }
+  .project-lightbox-image-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   .project-lightbox-image-wrap img {
     max-width: 100%;
-    max-height: calc(100vh - 100px);
+    max-height: calc(100vh - 130px);
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
+    border-radius: 10px;
+    box-shadow: 0 18px 50px rgba(0,0,0,.4);
+  }
+  .project-lightbox-stage-hint {
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 16px;
+    border-radius: var(--r-full);
+    background: rgba(20,18,14,.66);
+    border: 1px solid rgba(201,169,97,.18);
+    color: rgba(255,255,255,.72);
+    font-size: .76rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    transition: opacity var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    pointer-events: none;
+  }
+  .project-lightbox.active .project-lightbox-stage-hint {
+    opacity: 1;
+    transform: none;
   }
   .project-lightbox-info {
-    padding: 32px 28px;
+    padding: 34px 28px 28px;
     color: var(--white);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    background: radial-gradient(circle at top, rgba(201,169,97,.12), transparent 44%), var(--ink);
+    gap: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.13), transparent 42%),
+      linear-gradient(180deg, rgba(24,22,17,.98), rgba(16,14,11,.98));
+    overflow: auto;
   }
   .project-lightbox-meta {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 14px;
-    margin-bottom: 20px;
   }
   .project-lightbox-badge {
     display: inline-flex;
-    padding: 6px 12px;
+    padding: 7px 13px;
     border-radius: var(--r-full);
     background: var(--gold);
     color: var(--ink);
@@ -111,16 +184,59 @@ const labels = lang === 'en'
   }
   .project-lightbox-info h3 {
     font-family: var(--font-serif);
-    font-size: clamp(1.7rem, 3vw, 2.35rem);
-    line-height: 1.08;
+    font-size: clamp(1.8rem, 3vw, 2.45rem);
+    line-height: 1.04;
     letter-spacing: var(--track-tight);
     color: var(--white);
-    margin: 0 0 14px;
+    margin: 0;
   }
   .project-lightbox-info p {
     color: rgba(255,255,255,.76);
-    line-height: 1.72;
+    line-height: 1.76;
     margin: 0;
+  }
+  .project-lightbox-thumb-area {
+    margin-top: auto;
+    padding-top: 18px;
+    border-top: 1px solid rgba(201,169,97,.14);
+  }
+  .project-lightbox-thumb-label {
+    color: rgba(255,255,255,.6);
+    font-size: .74rem;
+    font-weight: 800;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .project-lightbox-thumbs {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .project-lightbox-thumb {
+    appearance: none;
+    border: 1px solid rgba(255,255,255,.08);
+    background: rgba(255,255,255,.04);
+    border-radius: 14px;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out), opacity var(--dur-fast) var(--ease-out);
+    aspect-ratio: 1;
+    opacity: .72;
+  }
+  .project-lightbox-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .project-lightbox-thumb:hover,
+  .project-lightbox-thumb.is-active {
+    opacity: 1;
+    transform: translateY(-2px);
+    border-color: rgba(201,169,97,.48);
+    box-shadow: 0 10px 26px rgba(0,0,0,.25);
   }
   .project-lightbox-close,
   .project-lightbox-nav {
@@ -131,7 +247,7 @@ const labels = lang === 'en'
     color: var(--white);
     backdrop-filter: blur(10px);
     cursor: pointer;
-    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out);
+    transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), transform var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
   }
   .project-lightbox-close {
     top: 22px;
@@ -156,6 +272,7 @@ const labels = lang === 'en'
   .project-lightbox-close:hover,
   .project-lightbox-nav:hover {
     background: var(--gold);
+    border-color: var(--gold);
     color: var(--ink);
     transform: scale(1.04);
   }
@@ -194,11 +311,22 @@ const labels = lang === 'en'
     pointer-events: none;
   }
   .gallery-image-box:hover .gallery-zoom-overlay,
-  .card-image-box:hover .gallery-zoom-overlay {
+  .card-image-box:hover .gallery-zoom-overlay,
+  .showcase-image-frame:hover .gallery-zoom-overlay,
+  .comparison-image-wrapper:hover .gallery-zoom-overlay {
     opacity: 1;
   }
   .gallery-zoom-overlay .expand-photo-btn {
     pointer-events: auto;
+  }
+
+  @media (max-width: 1080px) {
+    .project-lightbox-content {
+      grid-template-columns: minmax(0, 1fr) 320px;
+    }
+    .project-lightbox-thumbs {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
   }
 
   @media (max-width: 920px) {
@@ -209,14 +337,18 @@ const labels = lang === 'en'
       overflow-y: auto;
     }
     .project-lightbox-image-wrap {
-      min-height: 62vh;
-      padding: 12px;
+      min-height: 58vh;
+      padding: 16px 12px 64px;
     }
     .project-lightbox-image-wrap img {
-      max-height: 70vh;
+      max-height: 68vh;
     }
     .project-lightbox-info {
       padding: 22px;
+      gap: 14px;
+    }
+    .project-lightbox-thumbs {
+      grid-template-columns: repeat(5, minmax(0, 1fr));
     }
     .project-lightbox-nav {
       width: 44px;
@@ -224,6 +356,24 @@ const labels = lang === 'en'
     }
     .project-lightbox-prev { left: 10px; }
     .project-lightbox-next { right: 10px; }
+  }
+
+  @media (max-width: 640px) {
+    .project-lightbox-stage-hint {
+      left: 12px;
+      right: 12px;
+      bottom: 12px;
+      font-size: .68rem;
+      letter-spacing: .04em;
+      padding: 8px 12px;
+    }
+    .project-lightbox-info h3 {
+      font-size: clamp(1.55rem, 7vw, 2rem);
+    }
+    .project-lightbox-thumbs {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
   }
 </style>
 
@@ -242,25 +392,96 @@ const labels = lang === 'en'
     const closeBtn = lightbox.querySelector('[data-lightbox-close]') as HTMLButtonElement | null;
     const prevBtn = lightbox.querySelector('[data-lightbox-prev]') as HTMLButtonElement | null;
     const nextBtn = lightbox.querySelector('[data-lightbox-next]') as HTMLButtonElement | null;
+    const thumbsEl = lightbox.querySelector('[data-lightbox-thumbs]') as HTMLElement | null;
+    const stageEl = lightbox.querySelector('[data-lightbox-stage]') as HTMLElement | null;
 
-    type Item = { src: string; alt: string; title: string; caption: string; badge: string };
+    type Item = {
+      src: string;
+      alt: string;
+      title: string;
+      caption: string;
+      badge: string;
+      group: string;
+      thumbSrc: string;
+    };
+
     let items: Item[] = [];
     let currentIndex = 0;
+    let currentGroup = 'default';
+    let lastFocusedElement: HTMLElement | null = null;
+    let touchStartX = 0;
+    let touchStartY = 0;
 
-    const readItems = () => {
-      const nodes = Array.from(document.querySelectorAll<HTMLElement>('[data-lightbox-item]'));
+    const getAllNodes = () => Array.from(document.querySelectorAll<HTMLElement>('[data-lightbox-item]'));
+
+    const buildItems = (group = 'default') => {
+      const nodes = getAllNodes().filter((node) => (node.dataset.lightboxGroup || 'default') === group);
       items = nodes.map((node) => {
         const img = node.querySelector('img');
+        const src = node.dataset.src || img?.getAttribute('src') || '';
         return {
-          src: node.dataset.src || img?.getAttribute('src') || '',
+          src,
           alt: node.dataset.alt || img?.getAttribute('alt') || '',
-          title: node.dataset.title || '',
+          title: node.dataset.title || img?.getAttribute('alt') || '',
           caption: node.dataset.caption || '',
-          badge: node.dataset.badge || ''
+          badge: node.dataset.badge || '',
+          group: node.dataset.lightboxGroup || 'default',
+          thumbSrc: node.dataset.thumb || src
         };
       }).filter((item) => item.src);
       if (totalEl) totalEl.textContent = String(items.length || 1);
       return nodes;
+    };
+
+    const renderThumbs = () => {
+      if (!thumbsEl) return;
+      thumbsEl.innerHTML = '';
+      items.forEach((item, index) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = `project-lightbox-thumb${index === currentIndex ? ' is-active' : ''}`;
+        btn.setAttribute('role', 'option');
+        btn.setAttribute('aria-selected', index === currentIndex ? 'true' : 'false');
+        btn.setAttribute('aria-label', item.title || item.alt || `Imagen ${index + 1}`);
+        btn.dataset.index = String(index);
+
+        const thumbImg = document.createElement('img');
+        thumbImg.src = item.thumbSrc;
+        thumbImg.alt = item.alt;
+        thumbImg.loading = 'lazy';
+        thumbImg.decoding = 'async';
+
+        btn.appendChild(thumbImg);
+        btn.addEventListener('click', () => {
+          currentIndex = index;
+          update();
+        });
+        thumbsEl.appendChild(btn);
+      });
+    };
+
+    const syncThumbs = () => {
+      if (!thumbsEl) return;
+      thumbsEl.querySelectorAll<HTMLElement>('.project-lightbox-thumb').forEach((thumb, index) => {
+        const active = index === currentIndex;
+        thumb.classList.toggle('is-active', active);
+        thumb.setAttribute('aria-selected', active ? 'true' : 'false');
+        if (active) thumb.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+      });
+    };
+
+    const preloadNeighbors = () => {
+      if (!items.length) return;
+      const neighborIndexes = [
+        (currentIndex - 1 + items.length) % items.length,
+        (currentIndex + 1) % items.length
+      ];
+      neighborIndexes.forEach((index) => {
+        const src = items[index]?.src;
+        if (!src) return;
+        const image = new Image();
+        image.src = src;
+      });
     };
 
     const update = () => {
@@ -272,21 +493,28 @@ const labels = lang === 'en'
       if (captionEl) captionEl.textContent = item.caption;
       if (badgeEl) badgeEl.textContent = item.badge;
       if (currentEl) currentEl.textContent = String(currentIndex + 1);
+      syncThumbs();
+      preloadNeighbors();
     };
 
-    const open = (index: number) => {
-      readItems();
+    const openWithGroup = (group: string, index: number) => {
+      currentGroup = group || 'default';
+      buildItems(currentGroup);
       currentIndex = Math.max(0, Math.min(index, items.length - 1));
+      renderThumbs();
       update();
+      lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
       lightbox.classList.add('active');
       lightbox.setAttribute('aria-hidden', 'false');
       document.body.style.overflow = 'hidden';
+      closeBtn?.focus({ preventScroll: true });
     };
 
     const close = () => {
       lightbox.classList.remove('active');
       lightbox.setAttribute('aria-hidden', 'true');
       document.body.style.overflow = '';
+      lastFocusedElement?.focus({ preventScroll: true });
     };
 
     const prev = () => {
@@ -302,14 +530,16 @@ const labels = lang === 'en'
     };
 
     const attachTriggers = () => {
-      const nodes = readItems();
-      nodes.forEach((node, index) => {
+      getAllNodes().forEach((node) => {
         if (node.dataset.lightboxBound === 'true') return;
         node.dataset.lightboxBound = 'true';
         node.addEventListener('click', (event) => {
           const target = event.target as HTMLElement;
-          if (target.closest('a')) return;
-          open(index);
+          if (target.closest('a, button')) return;
+          const group = node.dataset.lightboxGroup || 'default';
+          const nodes = buildItems(group);
+          const index = Math.max(0, nodes.indexOf(node));
+          openWithGroup(group, index);
         });
       });
 
@@ -319,12 +549,29 @@ const labels = lang === 'en'
         trigger.addEventListener('click', (event) => {
           event.preventDefault();
           event.stopPropagation();
+          const group = trigger.dataset.group || trigger.closest<HTMLElement>('[data-lightbox-item]')?.dataset.lightboxGroup || 'default';
           const src = trigger.dataset.src || '';
-          readItems();
-          const idx = Math.max(0, items.findIndex((item) => item.src === src));
-          open(idx);
+          const nodes = buildItems(group);
+          const index = Math.max(0, nodes.findIndex((node) => (node.dataset.src || node.querySelector('img')?.getAttribute('src') || '') === src));
+          openWithGroup(group, index);
         });
       });
+    };
+
+    const trapFocus = (event: KeyboardEvent) => {
+      if (!lightbox.classList.contains('active') || event.key !== 'Tab') return;
+      const focusable = Array.from(lightbox.querySelectorAll<HTMLElement>('button, [href], [tabindex]:not([tabindex="-1"])'))
+        .filter((element) => !element.hasAttribute('disabled'));
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
     };
 
     closeBtn?.addEventListener('click', close);
@@ -333,11 +580,28 @@ const labels = lang === 'en'
     lightbox.addEventListener('click', (event) => {
       if (event.target === lightbox) close();
     });
+
+    stageEl?.addEventListener('touchstart', (event) => {
+      const touch = event.changedTouches[0];
+      touchStartX = touch.clientX;
+      touchStartY = touch.clientY;
+    }, { passive: true });
+
+    stageEl?.addEventListener('touchend', (event) => {
+      const touch = event.changedTouches[0];
+      const deltaX = touch.clientX - touchStartX;
+      const deltaY = touch.clientY - touchStartY;
+      if (Math.abs(deltaX) < 48 || Math.abs(deltaX) < Math.abs(deltaY)) return;
+      if (deltaX < 0) next();
+      if (deltaX > 0) prev();
+    }, { passive: true });
+
     document.addEventListener('keydown', (event) => {
       if (!lightbox.classList.contains('active')) return;
       if (event.key === 'Escape') close();
       if (event.key === 'ArrowLeft') prev();
       if (event.key === 'ArrowRight') next();
+      trapFocus(event);
     });
 
     attachTriggers();
