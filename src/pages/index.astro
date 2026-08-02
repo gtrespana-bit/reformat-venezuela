@@ -89,25 +89,12 @@ const fitItems = [
 
   <header class="hero">
     <!-- IMAGEN LCP EXPLÍCITA: Forzar que PageSpeed mida esto como LCP válido -->
-    <img 
-      src="/images/hero-lcp-1280.webp"
-      srcset={heroImageSrcSet}
-      sizes="100vw"
-      alt="Interior moderno reformado con diseño de lujo" 
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      width="2385"
-      height="1600"
-      class="hero-lcp-img"
-    />
-
     <script is:inline>
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = '/images/hero-lcp.webp';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 1;';
         document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + 'opacity:1;"></video>');
       })();
     </script>
