@@ -4,6 +4,9 @@ import sitemap from '@astrojs/sitemap';
 export default defineConfig({
   site: 'https://remodelat.net',
   viewTransitions: false,
+  build: {
+    inlineStylesheets: 'always',
+  },
   integrations: [
     sitemap({
       i18n: {
