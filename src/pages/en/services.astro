@@ -2,18 +2,22 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
 const services = [
+  /* Deliberate order, mirrors /servicios: specific trades first, then the
+     three generic "Home / Apartment / House Remodeling" services at the end,
+     since they overlap with each other and with Whole-Home Remodeling.
+     New services go above those three. */
   { slug: 'whole-home', title: 'High-Standard Whole-Home Remodeling', desc: 'Complete transformation of houses and apartments with technical planning, utilities, finishes and supervision.', image: '/images/integrales-800.webp', features: ['Full project scope', 'Supervised execution', 'Written warranty'] },
   { slug: 'kitchens', title: 'Designer Kitchens', desc: 'Custom kitchens with durable cabinetry, resistant countertops, technical lighting and precise installation.', image: '/images/cocina-800.webp', features: ['Custom layout', 'Hardware and countertops', 'Finish control'] },
   { slug: 'bathrooms', title: 'Spa-Style Bathrooms', desc: 'Bathrooms with documented waterproofing, correct slopes, quality fixtures and porcelain finishes built to last.', image: '/images/bano-800.webp', features: ['Waterproofing', 'Flood testing', 'Spa-style design'] },
-  { slug: 'home-remodeling', title: 'Home Remodeling', desc: 'Houses, apartments, quintas and townhouses remodeled with the RemodelaT Method.', image: '/images/integrales-proyecto-completo.webp', features: ['Houses and apartments', 'Technical method', 'Warranty by scope'] },
-  { slug: 'apartment-remodeling', title: 'Apartment Remodeling', desc: 'Apartment remodeling with condominium coordination, common-area protection and clean site logistics.', image: '/images/cocina-terminada-final.webp', features: ['Condominium rules', 'Area protection', 'Premium finishes'] },
-  { slug: 'house-remodeling', title: 'House Remodeling', desc: 'Family homes, quintas and townhouses with interiors, exteriors, utilities and high-end finishes.', image: '/images/arquitectura-600.webp', features: ['Façades and roofs', 'Extensions', 'Outdoor areas'] },
   { slug: 'flooring', title: 'Flooring Installation', desc: 'Porcelain, wood, laminate and SPC installed with proper leveling, compatible adhesive and clean joints.', image: '/images/suelo-porcelanato-800.webp', features: ['Leveling', 'Large-format porcelain', 'Wood / SPC'] },
   { slug: 'wall-coverings', title: 'Wall Coverings', desc: 'Porcelain, stone, wall panels and microcement with precise cuts, transitions and final detailing.', image: '/images/revestimientos-800.webp', features: ['Porcelain XL', 'Wall panels', 'Precise cuts'] },
   { slug: 'electrical', title: 'Electrical Installation', desc: 'Panels, wiring, LED lighting, protections and smart-home preparation within remodeling projects.', image: '/images/electricidad-800.webp', features: ['Protections', 'Technical lighting', 'Smart-home ready'] },
   { slug: 'plumbing', title: 'Plumbing Services', desc: 'Pipe renewal, water points, drains, pressure, testing and quality fixtures.', image: '/images/fontaneria-800.webp', features: ['Testing', 'Fixtures', 'Piping'] },
   { slug: 'painting', title: 'Painting & Finishes', desc: 'Surface preparation, correction of imperfections, microcement and clean final finishes.', image: '/images/pintura-800.webp', features: ['Preparation', 'Microcement', 'Fine finish'] },
-  { slug: 'pools', title: 'Pools & Exterior Areas', desc: 'Pool finishes, filtration, maintenance, outdoor areas and finishes for high-value homes.', image: '/images/piscinas-800.webp', features: ['Coverings', 'Filtration', 'Exteriors'] }
+  { slug: 'pools', title: 'Pools & Exterior Areas', desc: 'Pool finishes, filtration, maintenance, outdoor areas and finishes for high-value homes.', image: '/images/piscinas-800.webp', features: ['Coverings', 'Filtration', 'Exteriors'] },
+  { slug: 'home-remodeling', title: 'Home Remodeling', desc: 'Houses, apartments, quintas and townhouses remodeled with the RemodelaT Method.', image: '/images/integrales-proyecto-completo.webp', features: ['Houses and apartments', 'Technical method', 'Warranty by scope'] },
+  { slug: 'apartment-remodeling', title: 'Apartment Remodeling', desc: 'Apartment remodeling with condominium coordination, common-area protection and clean site logistics.', image: '/images/cocina-terminada-final.webp', features: ['Condominium rules', 'Area protection', 'Premium finishes'] },
+  { slug: 'house-remodeling', title: 'House Remodeling', desc: 'Family homes, quintas and townhouses with interiors, exteriors, utilities and high-end finishes.', image: '/images/arquitectura-600.webp', features: ['Façades and roofs', 'Extensions', 'Outdoor areas'] }
 ];
 ---
 

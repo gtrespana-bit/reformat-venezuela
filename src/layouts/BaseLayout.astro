@@ -94,9 +94,16 @@ const navItems = isEnglish
       <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
       <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
       <link rel="preload" href="/fonts/manrope-v15-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
-      {/* Preload critical hero background video for desktop/mobile instantly */}
-      <link rel="preload" href="/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width: 1024px)" fetchpriority="high" />
-      <link rel="preload" href="/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width: 1023.98px)" fetchpriority="high" />
+      {/* Póster del hero = fotograma 0 del vídeo. Es el LCP real, así que se
+          adelanta con la prioridad más alta.
+          OJO: aquí NO se precarga el vídeo. `as="video"` no está implementado
+          en ningún navegador (Chrome avisa «<link rel=preload> uses an
+          unsupported `as` value» y descarta la línea), y `as="fetch"` lo
+          descargaría dos veces porque la caché de fetch no se comparte con la
+          del elemento <video>. El vídeo se adelanta con preload="auto" en el
+          propio elemento. */}
+      <link rel="preload" href="/images/hero-poster-mobile.webp" as="image" type="image/webp" media="(max-width: 1023.98px)" fetchpriority="high" />
+      <link rel="preload" href="/images/hero-poster-desktop.webp" as="image" type="image/webp" media="(min-width: 1023.99px)" fetchpriority="high" />
     </>
   )}
   <!-- Canonical + hreflang: emitidos por SEO.astro (fuente única) -->
