@@ -106,14 +106,13 @@ const fitItems = [
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-        var posterSrc = '/images/hero-lcp.webp';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.3s ease-in-out;';
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
       })();
     </script>
     
     <noscript>
-      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/hero-lcp.webp" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
     </noscript>
 
     <div class="hero-overlay"></div>
@@ -466,7 +465,7 @@ const fitItems = [
     position: relative; width: 100%;
     min-height: 100vh; min-height: 100svh;
     overflow: hidden;
-    background: var(--ink) url('/images/hero-lcp-1280.webp') center/cover no-repeat;
+    background: var(--ink);
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: var(--white);
   }

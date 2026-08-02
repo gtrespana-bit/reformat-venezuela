@@ -94,6 +94,9 @@ const navItems = isEnglish
       <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
       <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
       <link rel="preload" href="/fonts/manrope-v15-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+      {/* Preload critical hero background video for desktop/mobile instantly */}
+      <link rel="preload" href="/videos/hero-desktop.mp4" as="video" type="video/mp4" media="(min-width: 1024px)" fetchpriority="high" />
+      <link rel="preload" href="/videos/hero-mobile.mp4" as="video" type="video/mp4" media="(max-width: 1023.98px)" fetchpriority="high" />
     </>
   )}
   <!-- Canonical + hreflang: emitidos por SEO.astro (fuente única) -->
