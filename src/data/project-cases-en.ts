@@ -15,6 +15,49 @@ export type ProjectCaseEn = {
 };
 
 export const projectCasesEn: Record<string, ProjectCaseEn> = {
+  kitchenGuataparo: {
+    slug: 'luxury-kitchen-guataparo',
+    esPath: '/proyectos/cocina-lujo-guataparo',
+    title: 'Luxury Kitchen in Guataparo',
+    category: 'High-Standard Kitchen',
+    location: 'Guataparo, Valencia, Carabobo',
+    duration: '2.5 weeks',
+    heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    excerpt: 'A complete kitchen relocation inside a luxury quinta in Guataparo: the old closed kitchen was dismantled, its double doorway sealed with 20 cm blockwork, electrics and plumbing fully rerouted, the electric water heater replaced by solar thermal panels, a seamless white epoxy floor poured across the day zone, and a linear base-cabinet composition installed with a backlit floating shelf and Siemens appliances.',
+    challenge: 'The original kitchen was a closed, fully separated compartment accessed through a large double doorway. Relocating it meant much more than installing new cabinets: the old doorway had to be sealed, electrics and plumbing reinvented, the electric water heater removed and a floor built to unify the entire day zone.',
+    solution: 'We sealed the doorway with 20 cm blockwork and a fine cement render, chased new wall and floor channels for utilities protected by flexible corrugated conduit, replaced the water heater with solar thermal panels and poured a seamless white epoxy floor. Over that canvas we mounted a linear base-cabinet kitchen with a backlit floating shelf and Siemens appliances, including an imported 90 cm refrigerator.',
+    technicalHighlights: [
+      'Complete dismantling of the old closed kitchen, countertop and equipment',
+      'Old double doorway sealed with 20 cm blockwork and fine cement render',
+      'New electrical and plumbing routes chased into walls and floors with flexible corrugated conduit',
+      'Electric water heater decommissioned; hot water now produced by solar thermal panels',
+      'Self-leveling compound, primer and continuous white epoxy floor finish without joints',
+      'Base cabinets only for a clean minimalist reading, no wall units',
+      'Full-length floating shelf with concealed LED strips above and below',
+      'Siemens oven and dishwasher plus an imported 90 cm Siemens refrigerator'
+    ],
+    specs: [
+      { label: 'Location', value: 'Residential quinta in Guataparo, Valencia, Carabobo' },
+      { label: 'Scope', value: 'Full kitchen relocation into the day zone' },
+      { label: 'Initial state', value: 'Closed independent kitchen with double doorway access' },
+      { label: 'Blockwork', value: 'Doorway sealed with 20 cm block and fine-finish render' },
+      { label: 'Electrical', value: 'New wall and floor chases, flexible corrugated conduit' },
+      { label: 'Plumbing', value: 'Fully rerouted to the new kitchen location' },
+      { label: 'Hot water', value: 'Electric heater retired; solar thermal panels' },
+      { label: 'Floor', value: 'Self-leveling + primer + continuous white epoxy' },
+      { label: 'Cabinetry', value: 'Linear base-cabinet composition, minimalist style' },
+      { label: 'Shelving', value: 'Full-length floating shelf, concealed LED above and below' },
+      { label: 'Appliances', value: 'Siemens oven and dishwasher; imported 90 cm refrigerator' }
+    ],
+    gallery: [
+      { src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp', alt: 'Finished linear white kitchen with floating shelf and Siemens refrigerator in Guataparo', caption: 'Final view: linear base cabinets in white, backlit floating shelf and the 90 cm Siemens refrigerator.' },
+      { src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp', alt: 'Open day zone with continuous white epoxy floor in Guataparo quinta', caption: 'The white epoxy floor ties kitchen, dining and living areas into a single continuous reading.' },
+      { src: '/images/proyectos/cocina-lujo-guataparo/montaje-cocina-vista-sala.webp', alt: 'Kitchen under assembly seen from the living area', caption: 'The new location already engaging with the rest of the floor during assembly.' },
+      { src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp', alt: 'Freshly poured self-leveling floor compound', caption: 'The freshly poured self-leveling layer: the perfectly flat base for the epoxy finish.' },
+      { src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp', alt: 'Blockwork sealing the old doorway and new electrical chases', caption: 'The original doorway already sealed with 20 cm blockwork and new electrical chases in the walls.' },
+      { src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-2.webp', alt: 'Original closed kitchen seen through its double doorway', caption: 'The large double doorway that separated the kitchen from the life of the house.' }
+    ]
+  },
   kitchenCaracas: {
     slug: 'kitchen-remodel-caracas-quinta',
     esPath: '/proyectos/cocina-caracas-quinta',
@@ -249,6 +292,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
 };
 
 export const projectCasesEnList = [
+  projectCasesEn.kitchenGuataparo,
   projectCasesEn.kitchenCaracas,
   projectCasesEn.bathroomLasMercedesSmall,
   projectCasesEn.caracas,
