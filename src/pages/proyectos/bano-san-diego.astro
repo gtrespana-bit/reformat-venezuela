@@ -1,1673 +1,345 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
-import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
-import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
-import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
-import ProjectLightbox from '../../components/ProjectLightbox.astro';
+import ProjectCaseStudy from '../../components/ProjectCaseStudy.astro';
 
-const project = {
-  title: 'Remodelación de Baño con Poceta Flotante TEKA',
-  location: 'San Diego, Carabobo',
-  category: 'Baños & Sanitarios Suspendidos',
-  year: '2024',
-  duration: '1 semana',
-  description: 'Demolición total, anclaje estructural para poceta flotante TEKA Manacor, plomería multicapa PEX-Al-PEX y revestimiento monolítico en porcelanato rectificado de gran formato 120x60 en paredes y 60x60 en suelo beige.',
-  heroImage: '/images/proyectos/bano-san-diego/bano-finalizado-1.webp',
-  scope: [
-    'Demolición completa de cerámica en suelo y paredes hasta la estructura',
-    'Sustitución de red hidráulica por tubería multicapa PEX-Al-PEX',
-    'Anclaje estructural y montaje de bastidor para poceta flotante TEKA',
-    'Revestimiento de paredes en porcelanato rectificado de gran formato 120x60 cm con cuñas autonivelantes',
-    'Suelo y paredes en tono beige continuo: gran formato 120x60 y pavimento 60x60',
-    'Pavimento porcelánico 60x60 en acabado beige claramente antideslizante',
-    'Instalación de mueble blanco de 80 cm con grifería TEKA cromada',
-    'Mampara fija de 80 cm cromada, columna efecto lluvia y espejo LED'
-  ],
-  specs: [
-    { label: 'Revestimiento Paredes', value: 'Porcelanato rectificado de gran formato 120x60 cm (Tono Beige Monolítico)' },
-    { label: 'Revestimiento Suelo', value: 'Porcelanato rectificado 60x60 cm beige con textura antideslizante' },
-    { label: 'Técnica y Juntas', value: 'Cantos cortados a 90° con microjuntas milimétricas' },
-    { label: 'Red de Fontanería', value: 'Tubería multicapa PEX-Al-PEX para agua fría y caliente' },
-    { label: 'Inodoro Suspendido', value: 'Kit TEKA Manacor con bastidor metálico y cisterna oculta' },
-    { label: 'Estructura y Bastidor', value: 'Bastidor autoportante anclado a muro portante y maestreado' },
-    { label: 'Mueble de Lavabo', value: 'Mueble suspendido color blanco en tamaño 80 cm' },
-    { label: 'Grifería de Lavabo', value: 'Monomando marca TEKA en acabado cromado de alto brillo' },
-    { label: 'Columna de Ducha', value: 'Cabezal efecto lluvia + teléfono de ducha en cromo pulido' },
-    { label: 'Mampara de Ducha', value: 'Hoja fija de 80 cm, perfil cromado y cristal templado seguridad' },
-    { label: 'Iluminación', value: 'Espejo sobre lavabo con iluminación LED perimetral integrada' }
-  ],
-  gallery: [
-    // 1. RESULTADO FINAL
+const whatsappText =
+  'Hola, quiero una valoración técnica para un proyecto similar al baño con poceta flotante de San Diego.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+
+const quickNavItems = [
+  { href: '#resumen', label: 'Resumen' },
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#paso-a-paso', label: 'Paso a paso' },
+  { href: '#comparativa', label: 'Antes y después' },
+  { href: '#especificaciones', label: 'Especificaciones' },
+  { href: '#galeria', label: 'Galería' },
+];
+---
+
+<ProjectCaseStudy
+  seoTitle="Remodelación de Baño con Poceta Flotante TEKA | RemodelaT"
+  seoDescription="Demolición total, anclaje estructural para poceta flotante TEKA Manacor, plomería multicapa PEX-Al-PEX y revestimiento monolítico en porcelanato rectificado de gran formato 120x60 en paredes y 60x60 en suelo beige."
+  heroImage="/images/proyectos/bano-san-diego/bano-finalizado-1.webp"
+  heroImageAlt="Baño finalizado en San Diego con poceta flotante TEKA Manacor y porcelanato de gran formato 120x60 en paredes"
+  kicker="Caso real · Baños y sanitarios suspendidos · Diario de obra"
+  heroTitle="Remodelación de Baño con Poceta Flotante TEKA"
+  lead="Demolición total de cerámica original, anclaje estructural para inodoro suspendido TEKA Manacor y revestimiento en porcelanato rectificado de gran formato 120x60 en paredes y 60x60 en suelo, en tono beige."
+  heroFacts={[
+    { label: 'Ubicación', value: 'San Diego · Carabobo' },
+    { label: 'Duración', value: '1 semana' },
+    { label: 'Intervención', value: 'Poceta flotante TEKA' },
+    { label: 'Paredes', value: 'Porcelanato 120x60 beige' },
+    { label: 'Suelo', value: '60x60 antideslizante' },
+    { label: 'Ducha', value: 'Walk-in · mampara 80 cm' },
+  ]}
+  quickNavItems={quickNavItems}
+  whatsappHref={whatsappHref}
+  breadcrumbCurrent="Baño Poceta Flotante San Diego"
+  summaryTag="En síntesis"
+  summaryTitle="Cuando el sistema desaparece, solo queda la lectura limpia"
+  summaryDesc="El valor premium de este proyecto aparece cuando todo el sistema queda oculto: bastidor empotrado, plomería nueva y gran formato beige, y solo se percibe una ejecución limpia, sólida y bien resuelta."
+  summaryCards={[
+    {
+      index: 'El reto',
+      title: 'Resolver la estructura antes de pensar en el acabado',
+      body: 'El corazón técnico del proyecto estaba en el bastidor del inodoro suspendido: replanteo, anclaje estructural a muro portante y una nueva base hidráulica. Solo con esa base bien resuelta el acabado final podía leerse limpio.',
+      dropcap: true,
+    },
+    {
+      index: 'La solución',
+      title: 'Bastidor TEKA empotrado y gran formato beige monolítico',
+      body: 'Se demolió por completo la cerámica original, se sustituyó la red hidráulica por multicapa PEX-Al-PEX y se ancló el bastidor autoportante TEKA Manacor. Sobre esa base, porcelanato rectificado 120x60 en paredes y 60x60 antideslizante en suelo, en un mismo tono beige continuo.',
+    },
+  ]}
+  stats={[
+    { value: '06', label: 'Fases documentadas' },
+    { value: '08', label: 'Fotografías reales' },
+    { value: '01', label: 'Semana de ejecución' },
+    { value: '120x60', label: 'Gran formato en paredes' },
+    { value: '80', label: 'cm de mampara fija' },
+  ]}
+  resultadoTag="Resultado final"
+  resultadoTitle="Primero, el destino; después, el camino"
+  resultadoDesc="Antes de explicar cada fase, mostramos el resultado: la poceta suspendida TEKA, el gran formato beige y una escena mucho más serena."
+  resultadoShowcase={[
+    {
+      src: '/images/proyectos/bano-san-diego/bano-finalizado-1.webp',
+      alt: 'Baño finalizado en San Diego con poceta flotante TEKA Manacor y porcelanato de gran formato 120x60 en paredes',
+      badge: 'Poceta flotante',
+      title: 'TEKA Manacor suspendido: ligereza visual total',
+      caption:
+        'La poceta suspendida TEKA Manacor aporta ligereza visual, integrada en paredes de porcelanato rectificado de gran formato 120x60 y suelo porcelánico 60x60 cm.',
+    },
+    {
+      src: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
+      alt: 'Perspectiva completa del baño residencial en San Diego en porcelanato beige rectificado',
+      badge: 'Monolitismo beige',
+      title: 'Una sola lectura: beige continuo de suelo a techo',
+      caption:
+        'El uso de porcelanato rectificado en suelo y paredes elimina las juntas anchas y genera amplitud, luminosidad y facilidad de limpieza en toda la estancia.',
+    },
+  ]}
+  quote={{
+    text: 'El lujo se percibe cuando el sistema desaparece y solo queda la lectura limpia.',
+    cite: 'Diario de obra · Baño con poceta flotante en San Diego',
+  }}
+  timelineTag="La obra, en orden"
+  timelineTitle="El proyecto paso a paso: seis fases, cero improvisación"
+  timelineDesc="Cada fase está numerada y documentada con sus trabajos ejecutados y <strong>todas</strong> sus fotografías reales, para que el recorrido se lea tan claro como se ejecutó."
+  phases={[
+    {
+      number: '01',
+      kicker: 'Fase 01 · El sistema',
+      title: 'El corazón técnico: bastidor autoportante TEKA Manacor',
+      body: 'Antes de percibir el acabado final, lo importante era resolver bien la estructura del inodoro suspendido: el kit TEKA Manacor con bastidor autoportante empotrable, cisterna oculta de doble descarga e inodoro suspendido, anclado a muro portante y maestreado.',
+      checks: [
+        'Selección del kit TEKA Manacor con cisterna oculta',
+        'Replanteo del bastidor y del punto de descarga',
+        'Anclaje estructural del bastidor a muro portante',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp',
+          alt: 'Kit oficial TEKA Manacor de inodoro suspendido con cisterna empotrada y pulsador',
+          caption: 'Producto oficial instalado en el proyecto: kit marca TEKA modelo Manacor que incluye bastidor autoportante empotrable, cisterna oculta de doble descarga e inodoro suspendido.',
+          badge: 'Kit TEKA Manacor',
+          orientation: 'landscape',
+        },
+      ],
+    },
+    {
+      number: '02',
+      kicker: 'Fase 02 · Instalaciones',
+      title: 'Plomería multicapa y soporte listo para el gran formato',
+      body: 'Se sustituyó la red hidráulica por tubería multicapa PEX-Al-PEX para agua fría y caliente, y se preparó el soporte sobre la nueva estructura del bastidor para recibir el revestimiento de gran formato.',
+      checks: [
+        'Sustitución de la red hidráulica por multicapa PEX-Al-PEX',
+        'Maestreado del soporte sobre la estructura del bastidor',
+        'Preparación de planos y niveles para el revestimiento',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/bano-en-proceso.webp',
+          alt: 'Instalación de porcelanato rectificado de gran formato 120x60 sobre soporte y plomería multicapa PEX-Al-PEX',
+          caption: 'Fase técnica donde se ejecutaron las nuevas instalaciones hidráulicas en multicapa PEX-Al-PEX y se inició el revestimiento de paredes con porcelanato rectificado de gran formato 120x60 cm tono beige.',
+          badge: 'Gran Formato 120x60',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '03',
+      kicker: 'Fase 03 · Revestimiento',
+      title: 'Paredes 120x60 con doble encolado y cuñas autonivelantes',
+      body: 'Se revistieron las paredes con porcelanato rectificado de gran formato 120x60 cm en tono beige monolítico, utilizando técnica de doble encolado y cuñas autonivelantes para asegurar planitud absoluta sobre la nueva estructura del bastidor.',
+      checks: [
+        'Revestimiento 120x60 con cantos cortados a 90°',
+        'Doble encolado y cuñas autonivelantes pieza a pieza',
+        'Microjuntas milimétricas en todo el paño',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/bano-en-proceso-2.webp',
+          alt: 'Proceso de instalación de porcelanato rectificado beige de gran formato 120x60 en paredes del baño',
+          caption: 'Fase de revestimiento en paredes utilizando técnica de doble encolado y cuñas autonivelantes para asegurar planitud absoluta sobre la nueva estructura del bastidor.',
+          badge: 'Gran Formato 120x60',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '04',
+      kicker: 'Fase 04 · Pavimento',
+      title: 'Suelo 60x60 beige con textura antideslizante',
+      body: 'El pavimento se ejecutó en porcelanato rectificado 60x60 cm con textura antideslizante, garantizando seguridad en zonas húmedas y coherencia visual con las paredes de gran formato.',
+      checks: [
+        'Pavimento 60x60 rectificado en tono beige',
+        'Textura antideslizante para zonas húmedas',
+        'Continuidad visual con el revestimiento de paredes',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/bano-en-proceso-3.webp',
+          alt: 'Pavimento de porcelanato beige 60x60 con grado antideslizante en ejecución',
+          caption: 'Colocación del pavimento rectificado en formato 60x60 cm con textura antideslizante, garantizando seguridad en zonas húmedas y coherencia visual en todo el baño.',
+          badge: 'Suelo Antideslizante',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '05',
+      kicker: 'Fase 05 · Montaje',
+      title: 'Mueble de 80 cm, grifería cromada y ducha walk-in',
+      body: 'Se instaló el mueble suspendido blanco de 80 cm con grifería TEKA cromada, la columna de ducha con cabezal efecto lluvia y teléfono de mano, y la mampara fija de 80 cm en cristal templado con perfil cromado.',
+      checks: [
+        'Mueble suspendido blanco de 80 cm con grifería TEKA cromada',
+        'Columna efecto lluvia con teléfono en cromo pulido',
+        'Mampara fija de 80 cm con cristal templado de seguridad',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/bano-finalizado-3.webp',
+          alt: 'Mueble de lavabo blanco de 80 cm con grifería TEKA cromada y espejo LED integrado',
+          caption: 'Zona del lavabo con mueble suspendido en tamaño 80 cm acabado en blanco pulido, grifería monomando TEKA cromada y espejo con iluminación LED integrada en el perímetro.',
+          badge: 'Mueble 80 cm Blanco',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-san-diego/bano-finalizado-2.webp',
+          alt: 'Zona de ducha walk-in con mampara fija de 80 cm, perfil cromado y columna efecto lluvia',
+          caption: 'Espacio de ducha con mampara fija de 80 cm en cristal templado de seguridad y perfilería cromada, equipada con columna de ducha de rociador efecto lluvia y teléfono de mano.',
+          badge: 'Mampara Fija 80 cm',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '06',
+      kicker: 'Fase 06 · Resultado',
+      title: 'El baño terminado: limpieza, ligereza y calidad percibida',
+      body: 'Con la poceta suspendida, el gran formato y el tono beige continuo, el espacio se siente más sofisticado, más cómodo de limpiar y mucho más actual en su lectura. El sistema técnico quedó oculto: solo se percibe la ejecución depurada.',
+      checks: [
+        'Poceta suspendida en funcionamiento con descarga correcta',
+        'Juntas, encuentros y perfilería revisados',
+        'Espejo LED, grifería y ducha probados en entrega',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-san-diego/bano-finalizado-1.webp',
+          alt: 'Baño finalizado en San Diego con poceta flotante TEKA Manacor y porcelanato de gran formato 120x60 en paredes',
+          caption: 'Vista principal de la remodelación concluida: poceta suspendida TEKA Manacor, paredes de porcelanato rectificado de gran formato 120x60 y suelo porcelánico 60x60 cm.',
+          badge: 'Poceta Flotante TEKA',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
+          alt: 'Perspectiva completa del baño residencial en San Diego en porcelanato beige rectificado',
+          caption: 'Vista general del espacio renovado: el porcelanato rectificado en suelo y paredes elimina las juntas anchas y genera amplitud, luminosidad y fácil limpieza.',
+          badge: 'Monolitismo Beige',
+          orientation: 'portrait',
+        },
+      ],
+    },
+  ]}
+  compareTag="La misma zona, otra vida"
+  compareTitle="Desliza y compruébalo con tus propios ojos"
+  compareDesc="El valor premium aparece cuando todo el sistema queda oculto y solo se percibe una ejecución limpia, sólida y bien resuelta."
+  compare={{
+    beforeSrc: '/images/proyectos/bano-san-diego/bano-en-proceso.webp',
+    beforeAlt: 'Baño en proceso con instalación de porcelanato y plomería en San Diego',
+    afterSrc: '/images/proyectos/bano-san-diego/bano-finalizado-1.webp',
+    afterAlt: 'Baño finalizado con poceta flotante TEKA en San Diego',
+    beforeCaption: 'Fase técnica con bastidor, revestimiento y replanteo todavía visibles.',
+    afterCaption: 'Resultado final con poceta suspendida, gran formato beige y una lectura mucho más depurada.',
+  }}
+  specsTag="Detalle técnico"
+  specsTitle="Especificaciones de la intervención"
+  specsDesc="Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida."
+  highlights={[
+    {
+      icon: 'shield',
+      title: 'Poceta flotante TEKA Manacor',
+      text: 'Kit oficial con bastidor autoportante empotrable anclado a muro portante, cisterna oculta de doble descarga e inodoro suspendido de líneas minimalistas.',
+    },
+    {
+      icon: 'ruler',
+      title: 'Gran formato 120x60 rectificado',
+      text: 'Cantos cortados a 90° con microjuntas milimétricas, doble encolado y cuñas autonivelantes: planitud absoluta y una lectura monolítica en tono beige.',
+    },
+    {
+      icon: 'droplet',
+      title: 'Plomería multicapa PEX-Al-PEX',
+      text: 'Red hidráulica nueva para agua fría y caliente sobre la base del bastidor: estanqueidad, durabilidad y presión constante en todo el circuito.',
+    },
+    {
+      icon: 'sparkle',
+      title: 'Monolitismo beige antideslizante',
+      text: 'Paredes 120x60 y suelo 60x60 en un mismo tono beige con textura antideslizante: seguridad en zona húmeda y continuidad visual total.',
+    },
+  ]}
+  specs={[
+    { label: 'Ubicación', value: 'Residencia en San Diego, Carabobo' },
+    { label: 'Duración de obra', value: '1 semana de ejecución' },
+    { label: 'Revestimiento paredes', value: 'Porcelanato rectificado de gran formato 120x60 cm (tono beige monolítico)' },
+    { label: 'Revestimiento suelo', value: 'Porcelanato rectificado 60x60 cm beige con textura antideslizante' },
+    { label: 'Técnica y juntas', value: 'Cantos cortados a 90° con microjuntas milimétricas' },
+    { label: 'Red de fontanería', value: 'Tubería multicapa PEX-Al-PEX para agua fría y caliente' },
+    { label: 'Inodoro suspendido', value: 'Kit TEKA Manacor con bastidor metálico y cisterna oculta' },
+    { label: 'Estructura y bastidor', value: 'Bastidor autoportante anclado a muro portante y maestreado' },
+    { label: 'Mueble de lavabo', value: 'Mueble suspendido color blanco en tamaño 80 cm' },
+    { label: 'Grifería de lavabo', value: 'Monomando marca TEKA en acabado cromado de alto brillo' },
+    { label: 'Columna de ducha', value: 'Cabezal efecto lluvia + teléfono de ducha en cromo pulido' },
+    { label: 'Mampara de ducha', value: 'Hoja fija de 80 cm, perfil cromado y cristal templado seguridad' },
+    { label: 'Iluminación', value: 'Espejo sobre lavabo con iluminación LED perimetral integrada' },
+  ]}
+  galleryTitle={`Galería ordenada del proyecto (8 fotos reales)`}
+  galleryIntro="La documentación se agrupa en dos bloques: el baño terminado y el sistema TEKA con la obra que lo sostiene."
+  gallery={[
     {
       src: '/images/proyectos/bano-san-diego/bano-finalizado-1.webp',
       alt: 'Baño finalizado en San Diego con poceta flotante TEKA Manacor y porcelanato de gran formato 120x60 en paredes',
       title: 'Baño Terminado: Poceta Flotante TEKA Manacor',
       caption: 'Vista principal de la remodelación concluida. La poceta suspendida TEKA Manacor aporta ligereza visual, integrada en paredes de porcelanato rectificado de gran formato 120x60 y suelo porcelánico 60x60 cm.',
-      category: 'final',
-      categoryLabel: 'Baño Terminado',
-      badge: 'Poceta Flotante TEKA',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Baño Terminado', badge: 'Poceta Flotante TEKA', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-finalizado-2.webp',
       alt: 'Zona de ducha walk-in con mampara fija de 80 cm, perfil cromado y columna efecto lluvia',
       title: 'Ducha Walk-In: Mampara Fija 80 cm y Columna Lluvia',
       caption: 'Espacio de ducha con mampara fija de 80 cm en cristal templado de seguridad y perfilería cromada, equipada con columna de ducha de rociador efecto lluvia y teléfono de mano.',
-      category: 'final',
-      categoryLabel: 'Baño Terminado',
-      badge: 'Mampara Fija 80 cm',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Baño Terminado', badge: 'Mampara Fija 80 cm', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-finalizado-3.webp',
       alt: 'Mueble de lavabo blanco de 80 cm con grifería TEKA cromada y espejo LED integrado',
       title: 'Mueble Blanco de 80 cm y Grifería TEKA Cromada',
       caption: 'Zona del lavabo con mueble suspendido en tamaño 80 cm acabado en blanco pulido, grifería monomando TEKA cromada y espejo con iluminación LED integrada en el perímetro.',
-      category: 'final',
-      categoryLabel: 'Baño Terminado',
-      badge: 'Mueble 80 cm Blanco',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Baño Terminado', badge: 'Mueble 80 cm Blanco', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
       alt: 'Perspectiva completa del baño residencial en San Diego en porcelanato beige rectificado',
       title: 'Perspectiva Integral: Armonía Monolítica Beige',
       caption: 'Vista general del espacio renovado. El uso de porcelanato rectificado en suelo y paredes elimina las juntas anchas y genera amplitud, luminosidad y fácil limpieza.',
-      category: 'final',
-      categoryLabel: 'Baño Terminado',
-      badge: 'Monolitismo Beige',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Baño Terminado', badge: 'Monolitismo Beige', orientation: 'portrait',
     },
-    // 2. SISTEMA TEKA Y ALBAÑILERÍA EN PROCESO
     {
       src: '/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp',
       alt: 'Kit oficial TEKA Manacor de inodoro suspendido con cisterna empotrada y pulsador',
       title: 'Kit Técnico TEKA Manacor: Bastidor y Poceta Flotante',
-      caption: 'Producto oficial instalado en el proyecto: Kit marca TEKA modelo Manacor que incluye bastidor autoportante empotrable, cisterna oculta de doble descarga e inodoro suspendido.',
-      category: 'teka',
-      categoryLabel: 'Sistema TEKA y Obra',
-      badge: 'Kit TEKA Manacor',
-      orientation: 'landscape'
+      caption: 'Producto oficial instalado en el proyecto: kit marca TEKA modelo Manacor que incluye bastidor autoportante empotrable, cisterna oculta de doble descarga e inodoro suspendido.',
+      category: 'teka', categoryLabel: 'Sistema TEKA y Obra', badge: 'Kit TEKA Manacor', orientation: 'landscape',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-en-proceso.webp',
       alt: 'Instalación de porcelanato rectificado de gran formato 120x60 sobre soporte y plomería multicapa PEX-Al-PEX',
       title: 'Instalación de Porcelanato 120x60 y Plomería Multicapa',
       caption: 'Fase técnica donde se ejecutaron las nuevas instalaciones hidráulicas en multicapa PEX-Al-PEX y se inició el revestimiento de paredes con porcelanato rectificado de gran formato 120x60 cm tono beige.',
-      category: 'teka',
-      categoryLabel: 'Sistema TEKA y Obra',
-      badge: 'Gran Formato 120x60',
-      orientation: 'portrait'
+      category: 'teka', categoryLabel: 'Sistema TEKA y Obra', badge: 'Gran Formato 120x60', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-en-proceso-2.webp',
       alt: 'Proceso de instalación de porcelanato rectificado beige de gran formato 120x60 en paredes del baño',
       title: 'Colocación de Porcelanato Rectificado 120x60 Beige',
       caption: 'Fase de revestimiento en paredes utilizando técnica de doble encolado y cuñas autonivelantes para asegurar planitud absoluta sobre la nueva estructura del bastidor.',
-      category: 'teka',
-      categoryLabel: 'Sistema TEKA y Obra',
-      badge: 'Gran Formato 120x60',
-      orientation: 'portrait'
+      category: 'teka', categoryLabel: 'Sistema TEKA y Obra', badge: 'Gran Formato 120x60', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-san-diego/bano-en-proceso-3.webp',
       alt: 'Pavimento de porcelanato beige 60x60 con grado antideslizante en ejecución',
       title: 'Pavimento Porcelánico Beige Antideslizante',
       caption: 'Colocación del pavimento rectificado en formato 60x60 cm con textura antideslizante, garantizando seguridad en zonas húmedas y coherencia visual en todo el baño.',
-      category: 'teka',
-      categoryLabel: 'Sistema TEKA y Obra',
-      badge: 'Suelo Antideslizante',
-      orientation: 'portrait'
-    }
-  ]
-};
-
-const galleryPhases = [
-  { id: 'final', label: 'Baño terminado', description: 'Las imágenes finales recogen la limpieza visual del gran formato beige y la poceta suspendida.' },
-  { id: 'teka', label: 'Sistema TEKA y obra', description: 'Se documentan el bastidor, la instalación y la ejecución técnica que sostienen el resultado.' }
-];
-
-const storyMoments = [
-  {
-    tag: '01 · Sistema',
-    title: 'El corazón técnico del proyecto estaba en el bastidor TEKA suspendido',
-    body: 'Antes de percibir el acabado final, aquí lo importante era resolver bien la estructura del inodoro suspendido, el replanteo y la nueva base hidráulica del baño.',
-    image: '/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp',
-    alt: 'Kit técnico TEKA Manacor para inodoro suspendido en baño de San Diego',
-    caption: 'El sistema empotrado define buena parte de la limpieza visual y funcional del resultado.'
-  },
-  {
-    tag: '02 · Obra',
-    title: 'La instalación del gran formato beige construye una escena mucho más serena',
-    body: 'Durante la ejecución se trabajó el revestimiento rectificado y la coordinación con la plomería para conseguir una lectura limpia, continua y fácil de mantener.',
-    image: '/images/proyectos/bano-san-diego/bano-en-proceso-2.webp',
-    alt: 'Proceso de instalación de porcelanato beige de gran formato en baño de San Diego',
-    caption: 'El orden técnico previo es lo que permite que el baño terminado se vea tan limpio.'
-  },
-  {
-    tag: '03 · Resultado final',
-    title: 'El baño terminado transmite limpieza, ligereza y mucha más calidad percibida',
-    body: 'Con la poceta suspendida, el gran formato y el tono beige continuo, el espacio se siente más sofisticado, más cómodo de limpiar y mucho más actual en su lectura.',
-    image: '/images/proyectos/bano-san-diego/bano-finalizado-4.webp',
-    alt: 'Baño finalizado con porcelanato beige y poceta suspendida en San Diego',
-    caption: 'La composición final une sistema técnico oculto y acabado visual muy depurado.'
-  }
-];
-
-const heroImage = project.heroImage;
-const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño con poceta flotante de San Diego.';
----
-
-<BaseLayout 
-  title={`${project.title} | RemodelaT`} 
-  description={project.description}
-  image={heroImage}
-  activePage="proyectos"
->
-  <!-- 1. EDITORIAL LUXURY HERO -->
-  <header class="project-hero">
-    <div class="hero-backdrop" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-kicker">
-          <span class="kicker-badge">CASO DE ESTUDIO</span>
-          <span class="kicker-line"></span>
-          <span class="kicker-sub">ARQUITECTURA E INTERIORISMO · SAN DIEGO, CARABOBO</span>
-        </div>
-
-        <h1 class="hero-title">Remodelación de Baño con Poceta Flotante TEKA</h1>
-        
-        <p class="hero-subtitle">
-          Demolición total de cerámica original, anclaje estructural para inodoro suspendido TEKA Manacor y revestimiento en porcelanato rectificado de gran formato 120x60 en paredes y 60x60 en suelo, en tono beige.
-        </p>
-
-        <!-- Quick Executive Ribbon -->
-        <div class="hero-stats-ribbon">
-          <div class="stat-item">
-            <span class="stat-label">Ubicación</span>
-            <span class="stat-value">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              San Diego, Carabobo
-            </span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Especialidad</span>
-            <span class="stat-value">Poceta Flotante TEKA Manacor</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Plazo de Obra</span>
-            <span class="stat-value">1 Semana</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Revestimiento</span>
-            <span class="stat-value">Pared 120x60 · Suelo 60x60</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Ducha Walk-In</span>
-            <span class="stat-value">Mampara Fija 80 cm + Lluvia</span>
-          </div>
-        </div>
-        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · sistema técnico documentado · ampliación en lightbox</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- BREADCRUMBS TRAS EL HERO -->
-  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb-inner">
-        <a href="/">Inicio</a>
-        <span class="separator">/</span>
-        <a href="/proyectos">Proyectos</a>
-        <span class="separator">/</span>
-        <span class="current">Baño Poceta Flotante San Diego</span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 2. DUAL-SHOWCASE: INNOVACIÓN SANITARIA (ZERO CROPPING) -->
-  <section class="dual-showcase-section" id="espacios">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">VISTA DESTACADA DEL PROYECTO</span>
-        <h2 class="editorial-title">Poceta Flotante TEKA y Monolitismo Beige</h2>
-        <p class="editorial-subtitle">
-          El proyecto en San Diego representó un salto arquitectónico: de un baño convencional a una sala sanitaria suspendida donde el pavimento libre y el porcelanato rectificado de gran formato 120x60 en paredes multiplican el confort y la amplitud.
-        </p>
-      </div>
-
-      <div class="showcase-grid">
-        <!-- Card 1: Sistema TEKA Manacor -->
-        <article class="showcase-card" data-lightbox-item data-lightbox-group="sandiego-showcase" data-src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" data-alt="Kit marca TEKA modelo Manacor de inodoro suspendido con cisterna empotrada y pulsador" data-title="Ingeniería de Inodoro Flotante TEKA" data-caption="El cliente eligió el sistema oficial TEKA Manacor con bastidor metálico empotrado y cisterna oculta, base clave para la limpieza visual del resultado." data-badge="Sistema Suspendido · TEKA Manacor">
-          <div class="showcase-image-frame">
-            <span class="showcase-badge">Sistema Suspendido · TEKA Manacor</span>
-            <img 
-              src="/images/proyectos/bano-san-diego/teka-manacor-flotante-kit.webp" 
-              alt="Kit marca TEKA modelo Manacor de inodoro suspendido con cisterna empotrada y pulsador" 
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <div class="showcase-content">
-            <h3 class="showcase-title">Ingeniería de Inodoro Flotante TEKA</h3>
-            <p class="showcase-desc">
-              El cliente eligió el sistema oficial marca TEKA modelo Manacor. La cisterna y el bastidor metálico se empotran ocultos tras un muro de albañilería especializada, dejando el inodoro suspendido sin contacto con el suelo.
-            </p>
-            <ul class="showcase-highlights">
-              <li>• Bastidor de alta carga con cisterna empotrada de doble descarga</li>
-              <li>• Adaptación estructural y anclaje de bastidor metálico autoportante</li>
-              <li>• Mantenimiento y acceso frontal sencillo a través del pulsador</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Card 2: Baño Terminado Beige -->
-        <article class="showcase-card" data-lightbox-item data-lightbox-group="sandiego-showcase" data-src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" data-alt="Baño finalizado en San Diego con poceta flotante TEKA y porcelanato beige rectificado" data-title="Integración Monolítica en Beige" data-caption="El revestimiento rectificado en gran formato y la poceta elevada construyen un baño mucho más limpio, luminoso y fácil de mantener." data-badge="Baño Terminado · Gran Formato 120x60">
-          <div class="showcase-image-frame">
-            <span class="showcase-badge">Baño Terminado · Gran Formato 120x60</span>
-            <img 
-              src="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" 
-              alt="Baño finalizado en San Diego con poceta flotante TEKA y porcelanato beige rectificado" 
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <div class="showcase-content">
-            <h3 class="showcase-title">Integración Monolítica en Beige</h3>
-            <p class="showcase-desc">
-              El revestimiento en porcelanato rectificado de gran formato 120x60 cm en paredes y 60x60 cm en el suelo, en tono beige, confiere una serenidad atemporal. Al estar la poceta elevada, la limpieza del suelo se realiza en segundos sin rincones inaccesibles.
-            </p>
-            <ul class="showcase-highlights">
-              <li>• Pavimento porcelánico tono beige claramente antideslizante</li>
-              <li>• Mueble blanco suspendido de 80 cm con grifería TEKA cromada</li>
-              <li>• Red de agua potable sustituida por multicapa PEX-Al-PEX</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section" id="memoria">
-    <div class="container">
-      <div class="narrative-layout">
-        <!-- Main Editorial Narrative -->
-        <div class="narrative-main">
-          <span class="eyebrow-text">MEMORIA TÉCNICA DEL PROYECTO</span>
-          <h2 class="editorial-title">Albañilería de Cisterna, Porcelanato Rectificado y Acabados TEKA</h2>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">01. El Reto del Inodoro Suspendido y Demolición Total</h3>
-            <p class="chapter-text">
-              En esta residencia de San Diego (Carabobo), el baño original contaba con cerámicas anticuadas y sanitarios apoyados en el suelo que sobrecargaban visualmente el área. El cliente buscaba una estética minimalista europea en la que la zona de inodoro pareciera flotar en el aire.
-            </p>
-            <p class="chapter-text">
-              Como es protocolo de ingeniería en <strong>RemodelaT Venezuela</strong>, se ejecutó una demolición total del pavimento, revestimiento de paredes y sanitarios anteriores hasta llegar a la estructura. Se eliminó por completo la antigua plomería galvanizada/obsoleta para dar paso a un nuevo circuito hidráulico y de drenaje adaptado a las coordenadas milimétricas del bastidor suspendido.
-            </p>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">02. Estructura y Albañilería: Anclaje de Bastidor TEKA</h3>
-            <p class="chapter-text">
-              La instalación de un inodoro flotante requiere un trabajo conjunto entre fontanería y albañilería estructural:
-            </p>
-            <ul class="editorial-list">
-              <li>
-                <strong>Anclaje del bastidor TEKA Manacor:</strong> Se fijó a la pared portante el bastidor de acero del kit <em>TEKA Manacor</em>, ajustando el desagüe y las líneas de agua multicapa <strong>PEX-Al-PEX</strong> que alimentan la cisterna oculta.
-              </li>
-              <li>
-                <strong>Cerramiento y maestreado estructural:</strong> Una vez probada la estanqueidad y presión de la plomería PEX-Al-PEX, se ejecutó el cerramiento técnico del bastidor portante, maestreado con mortero impermeable y regularizado con cuñas autonivelantes para recibir las piezas cerámicas de gran formato 120x60.
-              </li>
-              <li>
-                <strong>Pulsador y acceso técnico:</strong> La única parte visible de la cisterna es el elegante pulsador cromado, desde el cual se opera la doble descarga de ahorro hídrico y se accede con total comodidad al mecanismo interior.
-              </li>
-            </ul>
-          </div>
-
-          <!-- PEDAGOGICAL CALLOUT: PORCELANATO RECTIFICADO BEIGE -->
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">03. Porcelanato Rectificado Beige: Gran Formato 120x60 y Suelo 60x60</h3>
-            <p class="chapter-text">
-              Las paredes se revistieron con un elegante <strong>porcelanato rectificado de gran formato 120x60 cm en tono beige</strong> y el suelo con <strong>porcelanato rectificado 60x60 cm</strong> del mismo tono, seleccionando para el pavimento una versión con tratamiento antideslizante certificado.
-            </p>
-            
-            <div class="highlight-callout">
-              <span class="callout-badge">¿QUÉ ES EL ACABADO RECTIFICADO Y POR QUÉ USARLO EN PARTE Y SUELO?</span>
-              <p>
-                El porcelanato rectificado se diferencia de la cerámica tradicional por su proceso posterior de corte computarizado con diamante, logrando cantos rectos a <strong>90° perfectos</strong> y dimensiones milimétricamente exactas sin desviaciones.
-              </p>
-              <ul class="callout-list">
-                <li>
-                  <strong>Microjuntas casi invisibles (1 mm):</strong> En lugar de lechadas anchas de 3 a 5 mm que ensucian y fragmentan la pared, el formato rectificado permite una junta mínima que unifica las placas.
-                </li>
-                <li>
-                  <strong>Efecto de caja monolítica beige:</strong> Al mantener el mismo tono beige sereno en paredes y suelo, con piezas de gran formato 120x60 que reducen al mínimo el número de juntas, el baño adquiere la continuidad visual de un spa residencial, transmitiendo paz y una gran amplitud luminosa.
-                </li>
-                <li>
-                  <strong>Máxima facilidad de limpieza:</strong> La lechada es el punto donde el sarro, jabón y moho se adhieren con mayor facilidad. Al minimizar su superficie, el baño se mantiene pulcro con un mantenimiento cotidiano simple.
-                </li>
-              </ul>
-            </div>
-
-            <p class="chapter-text">
-              En la zona de paso y ducha, el pavimento antideslizante ofrece tracción segura para toda la familia en presencia de agua y jabón, sin perder el tacto sedoso y el tono beige del conjunto.
-            </p>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">04. Mueble Blanco de 80 cm, Grifería TEKA Cromada y Espejo LED</h3>
-            <p class="chapter-text">
-              En la zona de lavabo se instaló un mueble contemporáneo suspendido de <strong>80 cm de ancho en color blanco pulido</strong> con lavabo integrado, coronado por una <strong>grifería monomando TEKA en acabado cromado</strong> de alto brillo. Este mueble blanco genera un contraste nítido y refrescante sobre el fondo beige rectificado.
-            </p>
-            <p class="chapter-text">
-              Sobre la encimera se montó un <strong>espejo con iluminación LED integrada</strong> en su perímetro, el cual proporciona luz frontal clara y difusa, ideal para el aseo personal diario eliminando sombras en el rostro.
-            </p>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">05. Ducha Walk-In: Mampara Fija 80 cm y Columna Lluvia</h3>
-            <p class="chapter-text">
-              El área de ducha se delimitó de manera minimalista mediante un panel de <strong>mampara fija de 80 cm de ancho</strong>, construido con perfilería en cromo pulido y <strong>cristal templado de seguridad</strong> de alta resistencia a impactos.
-            </p>
-            <p class="chapter-text">
-              Como protagonista del confort, se instaló una <strong>columna de ducha en acabado cromado</strong> con rociador superior de <strong>efecto lluvia</strong> y teléfono de ducha de mano mural regulable en altura, completando una experiencia de baño residencial de clase superior.
-            </p>
-          </div>
-        </div>
-
-        <!-- Sticky Sidebar: Technical Specifications & Scope Checklist -->
-        <aside class="narrative-sidebar">
-          <!-- Card 1: Ficha Técnica -->
-          <div class="spec-card">
-            <div class="spec-header">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-              <h3 class="spec-title">Ficha Técnica del Proyecto</h3>
-            </div>
-            <dl class="spec-list">
-              {project.specs.map(item => (
-                <div class="spec-row">
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <!-- Card 2: Checklist Alcance del Trabajo -->
-          <div class="spec-card">
-            <div class="spec-header">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="9 11 12 14 22 4"/>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-              </svg>
-              <h3 class="spec-title">Alcance Contratado</h3>
-            </div>
-            <ul class="scope-list">
-              {project.scope.map(item => (
-                <li class="scope-item">
-                  <span class="check-icon">✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <!-- Card 3: Sello de Garantía -->
-          <div class="guarantee-card">
-            <span class="guarantee-eyebrow">ESTÁNDAR REMODELAT VENEZUELA</span>
-            <h4 class="guarantee-title">Sanitarios Flotantes con Garantía Estructural</h4>
-            <p class="guarantee-text">
-              Nuestra ingeniería hidráulica en multicapa y los anclajes de bastidores TEKA están respaldados con garantía por contrato en Carabobo y Caracas.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa entre obra técnica y resultado final" text="El valor premium aparece cuando todo el sistema queda oculto y solo se percibe una ejecución limpia, sólida y bien resuelta." beforeSrc="/images/proyectos/bano-san-diego/bano-en-proceso.webp" beforeAlt="Baño en proceso con instalación de porcelanato y plomería en San Diego" afterSrc="/images/proyectos/bano-san-diego/bano-finalizado-1.webp" afterAlt="Baño finalizado con poceta flotante TEKA en San Diego" beforeLabel="Proceso" afterLabel="Resultado" beforeCaption="Fase técnica con bastidor, revestimiento y replanteo todavía visibles." afterCaption="Resultado final con poceta suspendida, gran formato beige y una lectura mucho más depurada." showLightboxButtons={false} />
-
-  <ProjectReadingGallery eyebrow="Recorrido visual" title="Del sistema oculto al resultado final" intro="La secuencia visual resume lo más importante de este proyecto: bastidor técnico, obra bien ejecutada y acabado final limpio y ligero." items={storyMoments} galleryGroup="sandiego-story" />
-
-  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="La documentación del sistema TEKA y del resultado final se presenta ahora por bloques para una lectura más limpia y premium." items={project.gallery} phases={galleryPhases} id="galeria" />
-
-  <GuaranteeMatrix compact />
-
-  <!-- 6. LUXURY CALL TO ACTION -->
-  <section class="project-cta-luxury">
-    <div class="cta-backdrop" aria-hidden="true"></div>
-    <div class="container">
-      <div class="cta-inner">
-        <span class="cta-kicker">¿QUIERES UNA POCETA FLOTANTE EN TU HOGAR?</span>
-        <h2 class="cta-title">Sanitarios Suspendidos, Albañilería e Ingeniería</h2>
-        <p class="cta-text">
-          Instalamos bastidores empotrados TEKA y revestimientos rectificados bajo contrato formal en residencias de Valencia, San Diego, Carabobo y Caracas.
-        </p>
-        <div class="cta-actions">
-          <a href="/contacto" class="btn-premium btn-primary-premium">
-            <span class="btn-content">Solicitar Presupuesto Técnico en San Diego</span>
-            <span class="btn-border"></span>
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="/servicios/remodelacion-bano" class="btn-secondary-luxury">
-            <span>Ver Servicio de Reformas de Baños</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <ProjectLightbox />
-</BaseLayout>
-
-<style>
-  /* ==========================================================
-     1. EDITORIAL LUXURY HERO
-     ========================================================== */
-  .project-hero {
-    position: relative;
-    padding: 185px 0 85px;
-    background: var(--ink);
-    color: var(--white);
-    overflow: hidden;
-    border-bottom: 1px solid rgba(201,169,97,0.2);
-  }
-
-  .hero-backdrop {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 80% 20%, rgba(201,169,97,0.12) 0%, transparent 55%),
-      radial-gradient(circle at 20% 80%, rgba(201,169,97,0.07) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1050px;
-  }
-
-  /* Breadcrumbs Tras el Hero */
-  .breadcrumb-after-hero {
-    background: var(--white);
-    border-bottom: 1px solid var(--sand);
-    padding: 18px 0;
-  }
-
-  .breadcrumb-inner {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.84rem;
-    font-family: var(--font-sans);
-  }
-
-  .breadcrumb-inner a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-weight: 500;
-  }
-
-  .breadcrumb-inner a:hover {
-    color: var(--gold-ink);
-  }
-
-  .breadcrumb-inner .separator {
-    color: var(--sand);
-    font-weight: 300;
-    margin: 0 4px;
-  }
-
-  .breadcrumb-inner .current {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .kicker-badge {
-    padding: 5px 14px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--gold);
-    border-radius: var(--r-sm);
-  }
-
-  .kicker-line {
-    width: 28px;
-    height: 1px;
-    background: rgba(201,169,97,0.5);
-  }
-
-  .kicker-sub {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-  }
-
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.3rem, 5vw, 3.8rem);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.12;
-    letter-spacing: var(--track-tight);
-    margin-bottom: 20px;
-    max-width: 980px;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.05rem, 2vw, 1.22rem);
-    line-height: 1.65;
-    color: rgba(255,255,255,0.78);
-    max-width: 860px;
-    margin-bottom: 38px;
-    font-family: var(--font-sans);
-  }
-
-  /* Executive Stats Ribbon */
-  .hero-stats-ribbon {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 22px 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--r-md);
-    backdrop-filter: blur(8px);
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 22px;
-  }
-
-  .hero-actions .btn-premium {
-    min-height: 52px;
-  }
-
-  .hero-proof {
-    margin-top: 16px;
-    color: rgba(255,255,255,0.72);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-  }
-
-  .stat-value {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 32px;
-    background: rgba(255,255,255,0.12);
-  }
-
-  @media (max-width: 768px) {
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .hero-actions .btn-premium {
-      width: 100%;
-      justify-content: center;
-    }
-    .hero-proof {
-      font-size: 0.74rem;
-      letter-spacing: 0.06em;
-    }
-  }
-
-  /* ==========================================================
-     2. DUAL-SHOWCASE: INNOVACIÓN SANITARIA
-     ========================================================== */
-  .dual-showcase-section {
-    padding: 80px 0;
-    background: var(--bone);
-  }
-
-  .section-heading {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 50px;
-  }
-
-  .eyebrow-text {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-ink);
-    margin-bottom: 12px;
-  }
-
-  .editorial-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .editorial-subtitle {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-  }
-
-  .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
-  }
-
-  .showcase-card {
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    box-shadow: var(--e-1);
-    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .showcase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--e-2);
-  }
-
-  .showcase-image-frame {
-    position: relative;
-    background: var(--ink-soft);
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-  }
-
-  .showcase-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 2;
-    padding: 6px 14px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  /* CRITICAL: NO CROPPING ON SHOWCASE IMAGES */
-  .showcase-image-frame img {
-    width: 100%;
-    height: auto;
-    max-height: 580px;
-    object-fit: contain;
-    border-radius: var(--r-sm);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
-
-  .showcase-content {
-    padding: 30px 28px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .showcase-title {
-    font-family: var(--font-serif);
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-
-  .showcase-desc {
-    font-size: 0.98rem;
-    line-height: 1.68;
-    color: var(--text-light);
-    margin-bottom: 20px;
-  }
-
-  .showcase-highlights {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    border-top: 1px solid var(--sand);
-    padding-top: 18px;
-  }
-
-  .showcase-highlights li {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* ==========================================================
-     3. TECHNICAL NARRATIVE & SIDEBAR (2-COLUMN EDITORIAL GRID)
-     ========================================================== */
-  .technical-narrative-section {
-    padding: 90px 0;
-    background: var(--white);
-    border-top: 1px solid var(--sand);
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .narrative-layout {
-    display: grid;
-    grid-template-columns: 1fr 390px;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .narrative-main {
-    min-width: 0;
-  }
-
-  .editorial-chapter {
-    margin-top: 48px;
-    padding-bottom: 38px;
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .editorial-chapter:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .chapter-title {
-    font-family: var(--font-serif);
-    font-size: 1.55rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
-  .chapter-text {
-    font-size: 1.05rem;
-    line-height: 1.78;
-    color: var(--text-light);
-    margin-bottom: 18px;
-  }
-
-  .editorial-list {
-    margin: 20px 0 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .editorial-list li {
-    font-size: 1.02rem;
-    line-height: 1.7;
-    color: var(--text-light);
-  }
-
-  .editorial-list strong {
-    color: var(--text);
-  }
-
-  .highlight-callout {
-    margin: 28px 0;
-    padding: 28px 32px;
-    background: var(--bone);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-  }
-
-  .callout-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold-ink);
-    margin-bottom: 10px;
-  }
-
-  .highlight-callout p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--text);
-    margin: 0 0 16px;
-  }
-
-  .callout-list {
-    margin: 0 0 0 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .callout-list li {
-    font-size: 0.96rem;
-    line-height: 1.68;
-    color: var(--text-light);
-  }
-
-  /* Sidebar */
-  .narrative-sidebar {
-    position: sticky;
-    top: 110px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .spec-card,
-  .guarantee-card {
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    padding: 28px;
-  }
-
-  .spec-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .spec-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .spec-list {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .spec-row {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .spec-row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .spec-row dt {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  .spec-row dd {
-    font-size: 0.94rem;
-    font-weight: 500;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.45;
-  }
-
-  .scope-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .scope-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--text-light);
-  }
-
-  .check-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    background: var(--gold);
-    color: var(--ink);
-    font-size: 0.75rem;
-    font-weight: 700;
-    border-radius: 50%;
-    margin-top: 2px;
-  }
-
-  .guarantee-card {
-    background: var(--ink);
-    color: var(--white);
-    border: 1px solid rgba(201,169,97,0.3);
-  }
-
-  .guarantee-eyebrow {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .guarantee-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .guarantee-text {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.7);
-    margin: 0;
-  }
-
-  /* ==========================================================
-     4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED)
-     ========================================================== */
-  .before-after-section {
-    padding: 85px 0;
-    background: var(--bone);
-  }
-
-  .comparison-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .comparison-pair {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    padding: 24px;
-    box-shadow: var(--e-1);
-  }
-
-  .comparison-item {
-    display: flex;
-    flex-direction: column;
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-  }
-
-  .comparison-item:hover {
-    transform: translateY(-3px);
-  }
-
-  .comparison-image-wrapper {
-    position: relative;
-    background: var(--ink-soft);
-    border-radius: var(--r-sm);
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 360px;
-    overflow: hidden;
-  }
-
-  .comparison-label {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 5px 14px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  .before-label {
-    background: #e63946;
-    color: #ffffff;
-  }
-
-  .after-label {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  /* ZERO CROPPING IN COMPARISON IMAGES */
-  .comparison-image-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: contain;
-    border-radius: 2px;
-  }
-
-  .comparison-caption {
-    margin-top: 14px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--text-muted);
-    text-align: center;
-    padding: 0 12px;
-  }
-
-  /* ==========================================================
-     5. GALLERY WITH FILTER TABS AND ZERO-CROP LAYOUT
-     ========================================================== */
-  .gallery-section {
-    padding: 95px 0 100px;
-    background: var(--white);
-  }
-
-  .gallery-filters {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 36px;
-  }
-
-  .filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-full);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .filter-btn:hover {
-    background: var(--sand);
-    color: var(--text);
-  }
-
-  .filter-btn.active {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-  }
-
-  .filter-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    background: rgba(201,169,97,0.2);
-    color: var(--gold-ink);
-    border-radius: 12px;
-  }
-
-  .filter-btn.active .filter-count {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  /* Zero-Crop Grid Cards */
-  .gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    align-items: start;
-  }
-
-  .gallery-card {
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    cursor: zoom-in;
-  }
-
-  .gallery-card.card-landscape {
-    grid-column: span 2;
-  }
-
-  /* Cada bloque tematico arranca en una fila nueva:
-     evita que se mezclen fotos de "antes" y "despues" en la misma linea */
-  .gallery-card.group-start {
-    grid-column-start: 1;
-  }
-
-  .gallery-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--e-2);
-    border-color: rgba(201,169,97,0.4);
-  }
-
-  .gallery-card.hidden {
-    display: none !important;
-  }
-
-  .card-image-box {
-    position: relative;
-    background: var(--ink-soft);
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 320px;
-    overflow: hidden;
-  }
-
-  .card-landscape .card-image-box {
-    min-height: 340px;
-  }
-
-  .card-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 5px 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  /* CRITICAL: NATURAL ASPECT RATIO - ZERO CROPPING */
-  .card-image-box img {
-    width: 100%;
-    height: auto;
-    max-height: 520px;
-    object-fit: contain;
-    border-radius: 2px;
-    transition: transform 0.4s var(--ease-out);
-  }
-
-  .gallery-card:hover .card-image-box img {
-    transform: scale(1.02);
-  }
-
-  .card-hover-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(20,18,14,0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-card:hover .card-hover-overlay {
-    opacity: 1;
-  }
-
-  .hover-zoom-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--white);
-    color: var(--ink);
-    font-size: 0.88rem;
-    font-weight: 600;
-    border-radius: var(--r-full);
-    box-shadow: var(--e-2);
-    transform: translateY(8px);
-    transition: transform 0.3s ease;
-  }
-
-  .gallery-card:hover .hover-zoom-btn {
-    transform: translateY(0);
-  }
-
-  .card-caption-box {
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-category-tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-ink);
-    margin-bottom: 8px;
-  }
-
-  .card-title {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-
-  .card-desc {
-    font-size: 0.92rem;
-    line-height: 1.62;
-    color: var(--text-muted);
-  }
-
-  /* ==========================================================
-     6. LUXURY CTA SECTION
-     ========================================================== */
-  .project-cta-luxury {
-    position: relative;
-    padding: 100px 0;
-    background: var(--ink);
-    color: var(--white);
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .cta-backdrop {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse at 50% 10%, rgba(201,169,97,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 90%, rgba(201,169,97,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .cta-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .cta-kicker {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-
-  .cta-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 18px;
-  }
-
-  .cta-text {
-    font-size: 1.08rem;
-    line-height: 1.72;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 36px;
-  }
-
-  .cta-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-
-  .btn-secondary-luxury {
-    display: inline-flex;
-    align-items: center;
-    padding: 15px 28px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: var(--r-full);
-    transition: all 0.25s ease;
-  }
-
-  .btn-secondary-luxury:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  /* ==========================================================
-     7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING)
-     ========================================================== */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: rgba(14,12,10,0.96);
-    backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 40px;
-  }
-
-  .lightbox.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .lightbox-content {
-    max-width: 1100px;
-    max-height: 90vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0.96);
-    transition: transform 0.3s var(--ease-out);
-  }
-
-  .lightbox.active .lightbox-content {
-    transform: scale(1);
-  }
-
-  .lightbox-img-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 72vh;
-    margin-bottom: 24px;
-  }
-
-  /* CRITICAL: LIGHTBOX IMAGE COMPLETELY UNCROPPED */
-  .lightbox-img-wrapper img {
-    max-width: 100%;
-    max-height: 72vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  }
-
-  .lightbox-info {
-    text-align: center;
-    max-width: 780px;
-    color: var(--white);
-  }
-
-  .lightbox-meta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .lightbox-badge {
-    padding: 4px 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-  }
-
-  .lightbox-counter {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 600;
-  }
-
-  .lightbox-title {
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-
-  .lightbox-caption {
-    font-size: 0.96rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.75);
-    margin: 0;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    width: 48px;
-    height: 48px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    font-size: 1.8rem;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease, transform 0.2s ease;
-    z-index: 10;
-  }
-
-  .lightbox-close:hover {
-    background: rgba(255,255,255,0.2);
-    transform: scale(1.05);
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease, transform 0.2s ease;
-    z-index: 10;
-  }
-
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255,255,255,0.22);
-  }
-
-  .lightbox-prev { left: 28px; }
-  .lightbox-next { right: 28px; }
-
-  /* ==========================================================
-     8. RESPONSIVE BREAKPOINTS
-     ========================================================== */
-  @media (max-width: 1024px) {
-    .narrative-layout {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .narrative-sidebar {
-      position: static;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .guarantee-card {
-      grid-column: span 2;
-    }
-
-    .gallery-masonry {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .gallery-card.card-landscape {
-      grid-column: span 2;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .project-hero {
-      padding: 145px 0 65px;
-    }
-
-    .hero-stats-ribbon {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-    }
-
-    .stat-divider {
-      width: 100%;
-      height: 1px;
-    }
-
-    .showcase-grid,
-    .comparison-pair {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .showcase-image-frame,
-    .comparison-image-wrapper {
-      min-height: 340px;
-    }
-
-    .narrative-sidebar {
-      grid-template-columns: 1fr;
-    }
-
-    .guarantee-card {
-      grid-column: span 1;
-    }
-
-    .gallery-masonry {
-      grid-template-columns: 1fr;
-    }
-
-    .gallery-card.card-landscape {
-      grid-column: span 1;
-    }
-
-    .lightbox {
-      padding: 20px 14px;
-    }
-
-    .lightbox-prev,
-    .lightbox-next {
-      width: 44px;
-      height: 44px;
-    }
-
-    .lightbox-prev { left: 12px; }
-    .lightbox-next { right: 12px; }
-
-    .lightbox-close {
-      top: 16px;
-      right: 16px;
-      width: 42px;
-      height: 42px;
-    }
-  }
-</style>
-
+      category: 'teka', categoryLabel: 'Sistema TEKA y Obra', badge: 'Suelo Antideslizante', orientation: 'portrait',
+    },
+  ]}
+  galleryPhases={[
+    { id: 'final', label: 'Baño terminado', description: 'Las imágenes finales recogen la limpieza visual del gran formato beige y la poceta suspendida.' },
+    { id: 'teka', label: 'Sistema TEKA y obra', description: 'Se documentan el bastidor, la instalación y la ejecución técnica que sostienen el resultado.' },
+  ]}
+  ctaTag="Valoración técnica"
+  ctaTitle="Sanitarios suspendidos, albañilería e ingeniería"
+  ctaText="Instalamos bastidores empotrados TEKA y revestimientos rectificados bajo contrato formal en residencias de Valencia, San Diego, Carabobo y Caracas."
+  ctaPrimaryLabel="Solicitar valoración técnica"
+  ctaSecondaryHref="/servicios/remodelacion-bano"
+  ctaSecondaryLabel="Ver servicio de reformas de baños →"
+/>

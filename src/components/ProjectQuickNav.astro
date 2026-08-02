@@ -8,137 +8,156 @@ interface Props {
   items: Item[];
   ctaHref?: string;
   ctaLabel?: string;
-  summary?: string;
 }
 
-const { items, ctaHref = '', ctaLabel = '', summary = '' } = Astro.props;
+const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
 ---
 
 <nav class="project-quicknav" aria-label="Navegación rápida del caso de estudio">
-  <div class="container project-quicknav-inner">
+  <div class="project-quicknav-pill">
     <div class="project-quicknav-links">
       {items.map((item) => (
         <a href={item.href} class="project-quicknav-link">{item.label}</a>
       ))}
     </div>
 
-    {(summary || (ctaHref && ctaLabel)) && (
-      <div class="project-quicknav-side">
-        {summary && <p class="project-quicknav-summary">{summary}</p>}
-        {ctaHref && ctaLabel && <a href={ctaHref} class="project-quicknav-cta">{ctaLabel}</a>}
-      </div>
+    {ctaHref && ctaLabel && (
+      <a href={ctaHref} class="project-quicknav-cta" target="_blank" rel="noopener">
+        <span>{ctaLabel}</span>
+        <span class="project-quicknav-arrow" aria-hidden="true">→</span>
+      </a>
     )}
   </div>
 </nav>
 
+<script>
+  /* Oculta la barra al bajar y la vuelve a mostrar al subir:
+     así no tapa permanentemente el contenido de la página. */
+  (function () {
+    const nav = document.querySelector('.project-quicknav');
+    if (!nav) return;
+
+    const showThreshold = 140;
+    let lastY = window.scrollY;
+
+    const onScroll = () => {
+      const y = window.scrollY;
+      const delta = y - lastY;
+
+      if (y <= showThreshold) {
+        nav.classList.remove('is-hidden');
+      } else if (delta > 8) {
+        nav.classList.add('is-hidden');
+      } else if (delta < -8) {
+        nav.classList.remove('is-hidden');
+      }
+
+      lastY = y;
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
 <style>
+  /* Barra compacta flotante: ocupa solo el ancho de su contenido
+     y deja visible el resto de la página a su alrededor. */
   .project-quicknav {
     position: sticky;
-    top: 94px;
+    top: 100px;
     z-index: 40;
-    background: rgba(250,248,244,.84);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid rgba(201,169,97,.16);
-    box-shadow: 0 14px 30px rgba(20,18,14,.05);
+    padding: 0 12px 10px;
+    pointer-events: none;
+    transition: transform 0.35s var(--ease-out), opacity 0.35s var(--ease-out);
   }
-  .project-quicknav-inner {
+  .project-quicknav.is-hidden {
+    transform: translateY(-170%);
+    opacity: 0;
+    pointer-events: none;
+  }
+  .project-quicknav-pill {
+    pointer-events: auto;
+    width: fit-content;
+    max-width: 100%;
+    margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-    padding-top: 16px;
-    padding-bottom: 16px;
+    gap: 4px;
+    padding: 6px;
+    border-radius: var(--r-full);
+    background: rgba(250, 248, 244, 0.92);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    box-shadow: 0 12px 32px rgba(20, 18, 14, 0.14);
   }
   .project-quicknav-links {
     display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 3px;
+    min-width: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
   }
+  .project-quicknav-links::-webkit-scrollbar { display: none; }
+
   .project-quicknav-link,
   .project-quicknav-cta {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    min-height: 44px;
-    padding: 10px 16px;
+    white-space: nowrap;
+    min-height: 34px;
+    padding: 5px 14px;
     border-radius: var(--r-full);
-    font-size: .82rem;
+    font-size: 0.72rem;
     font-weight: 800;
-    letter-spacing: .06em;
+    letter-spacing: 0.05em;
     text-transform: uppercase;
     transition: transform var(--dur-fast) var(--ease-out), background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), box-shadow var(--dur-fast) var(--ease-out);
   }
   .project-quicknav-link {
     background: var(--white);
-    border: 1px solid rgba(201,169,97,.24);
+    border: 1px solid rgba(201, 169, 97, 0.24);
     color: var(--text);
   }
   .project-quicknav-link:hover {
-    transform: translateY(-2px);
-    border-color: rgba(201,169,97,.5);
+    transform: translateY(-1px);
+    border-color: rgba(201, 169, 97, 0.5);
     color: var(--gold-ink-strong);
-    box-shadow: 0 10px 18px rgba(20,18,14,.06);
-  }
-  .project-quicknav-side {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    margin-left: auto;
-  }
-  .project-quicknav-summary {
-    color: var(--text-muted);
-    font-size: .92rem;
-    line-height: 1.6;
-    max-width: 360px;
-    margin: 0;
+    box-shadow: 0 8px 16px rgba(20, 18, 14, 0.08);
   }
   .project-quicknav-cta {
+    gap: 7px;
+    margin-left: 3px;
+    flex-shrink: 0;
     background: var(--ink);
     border: 1px solid var(--ink);
     color: var(--white);
-    white-space: nowrap;
   }
   .project-quicknav-cta:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
     background: var(--gold);
     border-color: var(--gold);
     color: var(--ink);
     box-shadow: var(--e-gold);
   }
-
-  @media (max-width: 1080px) {
-    .project-quicknav {
-      top: 82px;
-    }
-    .project-quicknav-inner {
-      flex-direction: column;
-      align-items: flex-start;
-    }
-    .project-quicknav-side {
-      width: 100%;
-      justify-content: space-between;
-      margin-left: 0;
-    }
-    .project-quicknav-summary {
-      max-width: none;
-    }
+  .project-quicknav-arrow {
+    font-size: 0.95rem;
+    line-height: 1;
   }
 
-  @media (max-width: 680px) {
-    .project-quicknav {
-      top: 72px;
-    }
-    .project-quicknav-inner {
-      gap: 14px;
-      padding-top: 12px;
-      padding-bottom: 12px;
-    }
-    .project-quicknav-side {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .project-quicknav-cta {
-      width: 100%;
-    }
+  @media (max-width: 768px) {
+    .project-quicknav { top: 86px; padding: 0 8px 8px; }
+    .project-quicknav-pill { gap: 3px; padding: 5px; }
+    .project-quicknav-link,
+    .project-quicknav-cta { min-height: 32px; padding: 4px 11px; font-size: 0.68rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .project-quicknav { transition: none; }
   }
 </style>

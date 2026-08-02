@@ -1,518 +1,206 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
-import ProjectLightbox from '../../components/ProjectLightbox.astro';
-import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
-import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GuaranteeMatrix from './GuaranteeMatrix.astro';
+import ProjectLightbox from './ProjectLightbox.astro';
+import ProjectPhaseGallery from './ProjectPhaseGallery.astro';
+import ProjectQuickNav from './ProjectQuickNav.astro';
 
-const project = {
-  title: 'Cocina de Lujo en Guataparo',
-  kicker: 'Caso real · Cocinas de alto estándar',
-  location: 'Quinta residencial · Guataparo, Valencia, Carabobo',
-  excerpt:
-    'Reubicación integral de una cocina que vivía cerrada e independiente: la trasladamos a la zona día, condenamos su antiguo acceso, renovamos electricidad y fontanería, sustituimos el termo eléctrico por placas solares térmicas, vertimos un suelo epóxico blanco continuo y montamos una composición lineal de muebles bajos con estantería flotante iluminada y equipos Siemens.',
-  heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-};
+interface Fact {
+  label: string;
+  value: string;
+}
 
-const heroFacts = [
-  { label: 'Ubicación', value: 'Guataparo · Valencia' },
-  { label: 'Duración', value: '2 semanas y media' },
-  { label: 'Intervención', value: 'Reubicación integral' },
-  { label: 'Suelo', value: 'Epoxi blanco continuo' },
-  { label: 'Equipos', value: 'Siemens · Nevera 90 cm' },
-  { label: 'Archivo', value: '16 fotos reales' },
-];
+interface QuickNavItem {
+  href: string;
+  label: string;
+}
 
-const quickNavItems = [
-  { href: '#resumen', label: 'Resumen' },
-  { href: '#resultado', label: 'Resultado' },
-  { href: '#paso-a-paso', label: 'Paso a paso' },
-  { href: '#comparativa', label: 'Antes y después' },
-  { href: '#especificaciones', label: 'Especificaciones' },
-  { href: '#galeria', label: 'Galería' },
-];
+interface Stat {
+  value: string;
+  label: string;
+}
 
-const whatsappText =
-  'Hola, quiero una valoración técnica para una cocina como la de la quinta en Guataparo.';
-const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+interface ShowcaseItem {
+  src: string;
+  alt: string;
+  badge: string;
+  title: string;
+  caption: string;
+}
 
-const stats = [
-  { value: '06', label: 'Fases documentadas' },
-  { value: '16', label: 'Fotografías reales' },
-  { value: '2,5', label: 'Semanas de ejecución' },
-  { value: '0', label: 'Juntas visibles en el suelo' },
-  { value: '90', label: 'cm de nevera importada' },
-];
+interface PhaseImage {
+  src: string;
+  alt: string;
+  caption: string;
+  badge: string;
+  orientation?: 'portrait' | 'landscape';
+}
 
-const resultadoShowcase = [
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-    alt: 'Cocina lineal terminada con muebles bajos blancos, estantería flotante y nevera Siemens en quinta de Guataparo',
-    badge: 'Cocina lineal',
-    title: 'Una sola línea de mobiliario bajo, coronada por luz oculta',
-    caption:
-      'Solo muebles bajos —sin módulos altos— para una lectura limpia y minimalista, con la estantería flotante iluminada recorriendo toda la cocina y la nevera Siemens de 90 cm cerrando la composición.',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
-    alt: 'Zona día unificada con suelo epóxico blanco continuo, comedor y cocina abierta en quinta de Guataparo',
-    badge: 'Zona día unificada',
-    title: 'Cocina, comedor y sala leídos como un solo espacio',
-    caption:
-      'El suelo epóxico blanco sin juntas une visualmente toda la planta: la antigua cocina cerrada se convierte en el corazón abierto de la zona día, bañado de luz natural.',
-  },
-];
+interface Phase {
+  number: string;
+  kicker: string;
+  title: string;
+  body: string;
+  checks: string[];
+  images: PhaseImage[];
+}
 
-const phaseNav = [
-  { number: '01', label: 'Diagnóstico' },
-  { number: '02', label: 'Demolición' },
-  { number: '03', label: 'Instalaciones' },
-  { number: '04', label: 'El suelo' },
-  { number: '05', label: 'Montaje' },
-  { number: '06', label: 'Entrega' },
-];
+interface Highlight {
+  icon: string;
+  title: string;
+  text: string;
+}
 
-const phases = [
-  {
-    number: '01',
-    kicker: 'Fase 01 · Diagnóstico',
-    title: 'El punto de partida: una cocina aislada que cortaba la casa',
-    body:
-      'Durante años, la cocina de esta quinta vivió aparte: un compartimento cerrado al que se entraba por una gran puerta doble, con cerámica y mobiliario que ya contaban demasiado tiempo. No conversaba con el comedor ni con la sala; simplemente interrumpía la planta. El diagnóstico fue claro desde la primera visita: no había nada que retocar. Había que mover la cocina entera —y con ella, la forma de vivir la casa—.',
-    checks: [
-      'Diagnóstico del estado de mobiliario, cerámica e instalaciones',
-      'Replanteo completo de la distribución de la zona día',
-      'Nueva ubicación definida, integrada con sala y comedor',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
-        alt: 'Zona día original de la quinta con el acceso doble a la cocina cerrada al fondo',
-        caption: 'La zona día antes de la obra: el comedor terminaba en la puerta doble que llevaba a la cocina cerrada.',
-        badge: 'Antes',
-        orientation: 'landscape',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-2.webp',
-        alt: 'Cocina original cerrada vista desde su acceso doble',
-        caption: 'El acceso doble: así se entraba a la cocina original, un mundo aparte dentro de la casa.',
-        badge: 'Antes',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-4.webp',
-        alt: 'Interior de la cocina original con ventana y mobiliario antiguo',
-        caption: 'Cerámica, cenefa y mobiliario envejecido: el interior de la cocina tal como se encontró.',
-        badge: 'Antes',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-3.webp',
-        alt: 'Detalle de la encimera y los módulos antiguos de la cocina original',
-        caption: 'Encimera y módulos antiguos, ya fuera de servicio, poco antes del desmontaje.',
-        badge: 'Antes',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-1.webp',
-        alt: 'La cocina original vista desde su propia entrada',
-        caption: 'Un espacio compartimentado e incomunicado, visto desde su propia entrada.',
-        badge: 'Antes',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/antes-nueva-ubicacion-comedor.webp',
-        alt: 'Comedor original que se convertiría en la nueva ubicación de la cocina',
-        caption: 'El comedor original: la habitación elegida para recibir la nueva cocina abierta.',
-        badge: 'Antes',
-        orientation: 'portrait',
-      },
-    ],
-  },
-  {
-    number: '02',
-    kicker: 'Fase 02 · Demolición controlada',
-    title: 'Vaciar para empezar: desmontaje total y adiós al termo',
-    body:
-      'El primer gesto fue vaciar. Se desmontó la cocina completa —muebles, encimera y equipos— y la antigua habitación quedó en su esqueleto, lista para empezar de cero. En ese punto salió también de escena el termo eléctrico que abastecía a la vieja cocina: se desmontó y quedó condenado. Desde esta obra, el agua caliente de la quinta se produce con placas solares térmicas: menos consumo eléctrico permanente, más eficiencia cada día.',
-    checks: [
-      'Desmontaje completo de mobiliario, encimera y equipos',
-      'Retirada y condena del termo eléctrico existente',
-      'Agua caliente preparada para placas solares térmicas',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
-        alt: 'Cocina antigua completamente desmontada con el termo eléctrico a la vista',
-        caption: 'La cocina original vaciada por completo. El termo eléctrico fue retirado y condenado: el agua caliente pasaría a producirse con placas solares térmicas.',
-        badge: 'Demolición',
-        orientation: 'portrait',
-      },
-    ],
-  },
-  {
-    number: '03',
-    kicker: 'Fase 03 · Obra civil e instalaciones',
-    title: 'Condenar el pasado y cablear la nueva ubicación',
-    body:
-      'Aquí la casa cambió de forma. El antiguo acceso a la cocina se condenó con un tabique de bloque de 20 cm, enfrascado con mortero y acabado fino hasta borrar cualquier rastro de la vieja puerta doble. En paralelo, se abrieron las nuevas ranuras en paredes y suelos para llevar la electricidad y la fontanería hasta la nueva ubicación, con todo el cableado protegido en tubería corrugada flexible. Lo que no se ve —circuitos, tomas, llaves— quedó construido para durar.',
-    checks: [
-      'Tabique de bloque de 20 cm con enfrascado y acabado fino',
-      'Ranuras en paredes y suelos para los nuevos recorridos',
-      'Cableado protegido con tubería corrugada flexible',
-      'Fontanería reubicada íntegramente a la nueva ubicación',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
-        alt: 'Tabique de bloque condenando el acceso antiguo y ranuras eléctricas en las paredes',
-        caption: 'El acceso original condenado con bloque de 20 cm; alrededor, las nuevas ranuras eléctricas recorren paredes y techo.',
-        badge: 'Obra civil',
-        orientation: 'landscape',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/obra-acceso-condenado-fratasado.webp',
-        alt: 'Antiguo acceso ya enfrascado y la futura ubicación de la cocina en proceso',
-        caption: 'Con el enfrascado de acabado fino, el antiguo hueco de la puerta doble desaparece de la pared para siempre.',
-        badge: 'Enfrascado',
-        orientation: 'landscape',
-      },
-    ],
-  },
-  {
-    number: '04',
-    kicker: 'Fase 04 · El suelo',
-    title: 'Autonivelante, imprimación y un epoxi blanco sin juntas',
-    body:
-      'El encargo pedía algo más que un buen suelo: pedía un diseño. La respuesta fue un pavimento continuo que uniera cocina, comedor y sala sin una sola junta. Primero se vertió el autonivelante hasta lograr un plano milimetrado; después, la imprimación de anclaje; y por último, el acabado epóxico en blanco puro. El resultado es una superficie única que multiplica la luz natural y da a toda la planta esa sensación —difícil de falsificar— de continuidad perfecta.',
-    checks: [
-      'Plano nivelado al milímetro con mortero autonivelante',
-      'Imprimación de anclaje en toda la superficie',
-      'Acabado epóxico blanco de continuidad total, sin juntas',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
-        alt: 'Suelo autonivelante recién aplicado en la nueva ubicación de la cocina',
-        caption: 'Primera capa: el autonivelante recién vertido deja un plano perfecto como base de todo el pavimento.',
-        badge: 'Base',
-        orientation: 'landscape',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/suelo-imprimacion-blanca.webp',
-        alt: 'Suelo con imprimación blanca aplicada antes del acabado epóxico',
-        caption: 'La imprimación de anclaje en blanco: la superficie queda preparada para recibir el acabado epóxico final.',
-        badge: 'Imprimación',
-        orientation: 'landscape',
-      },
-    ],
-  },
-  {
-    number: '05',
-    kicker: 'Fase 05 · Montaje',
-    title: 'Solo muebles bajos y una estantería flotante con luz oculta',
-    body:
-      'Con la obra gruesa terminada llegó la parte que más se disfruta: el montaje. Se optó por una composición estrictamente de muebles bajos —sin módulos altos— para que la línea de la cocina quedara baja, limpia y minimalista. Por encima, una estantería flotante recorre toda la longitud con dos tiras LED, superior e inferior, invisibles a la vista: la luz baña pared y encimera sin que se adivine de dónde sale.',
-    checks: [
-      'Módulos bajos montados con control de plomos, niveles y encuentros',
-      'Estantería flotante corrida a toda la longitud de la cocina',
-      'Iluminación LED integrada, invisible desde cualquier ángulo',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/montaje-cocina-vista-sala.webp',
-        alt: 'Cocina en proceso de montaje vista desde la sala con el suelo epóxico terminado',
-        caption: 'El montaje visto desde la sala: con el suelo ya continuo, la nueva cocina empieza a conversar con el resto de la planta.',
-        badge: 'Proceso',
-        orientation: 'landscape',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
-        alt: 'Detalle del montaje de la cocina lineal con la estantería flotante en ajuste',
-        caption: 'La estantería flotante corrida durante su ajuste, con la iluminación LED ya integrada en el canto.',
-        badge: 'Estantería',
-        orientation: 'portrait',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lateral.webp',
-        alt: 'Vista lateral de la cocina lineal en montaje frente al ventanal',
-        caption: 'Sin muebles altos: toda la composición queda bajo la línea de vista y deja respirar al ventanal.',
-        badge: 'Proceso',
-        orientation: 'portrait',
-      },
-    ],
-  },
-  {
-    number: '06',
-    kicker: 'Fase 06 · Entrega',
-    title: 'Puesta en marcha: equipos Siemens y revisión final',
-    body:
-      'El cierre: horno y lavavajillas Siemens integrados, y una nevera importada de 90 cm de la misma casa. Se revisó cada luz, cada junta y cada canto, y la quinta recibió algo que nunca había tenido: una zona día de una sola pieza, donde la cocina por fin vive con la casa —y no detrás de una puerta—.',
-    checks: [
-      'Horno y lavavajillas Siemens integrados en la composición',
-      'Nevera importada de 90 cm incorporada a la línea',
-      'Revisión final de acabados, iluminación y funcionamiento',
-    ],
-    images: [
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-        alt: 'Cocina de lujo terminada en Guataparo con muebles bajos, estantería iluminada y equipos Siemens',
-        caption: 'La cocina entregada: línea de muebles bajos en blanco, estantería iluminada y nevera Siemens de 90 cm.',
-        badge: 'Entrega',
-        orientation: 'landscape',
-      },
-      {
-        src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
-        alt: 'Comedor y cocina abiertos con suelo epóxico blanco continuo',
-        caption: 'La zona día unificada: el epoxi blanco continuo conecta cocina, comedor y sala en una sola lectura.',
-        badge: 'Entrega',
-        orientation: 'landscape',
-      },
-    ],
-  },
-];
+interface Spec {
+  label: string;
+  value: string;
+}
 
-const highlights = [
-  {
-    icon: 'layers',
-    title: 'Suelo epóxico blanco continuo',
-    text: 'Autonivelante, imprimación y acabado epóxico en blanco puro: una sola superficie sin juntas que unifica cocina, comedor y sala.',
-  },
-  {
-    icon: 'light',
-    title: 'Estantería flotante con luz oculta',
-    text: 'Recorre toda la longitud de la cocina y esconde dos tiras LED —superior e inferior— que bañan pared y encimera sin verse.',
-  },
-  {
-    icon: 'sun',
-    title: 'Agua caliente solar',
-    text: 'El termo eléctrico quedó condenado: el agua caliente se produce ahora con placas solares térmicas, más eficientes y sostenibles.',
-  },
-  {
-    icon: 'appliance',
-    title: 'Equipamiento Siemens',
-    text: 'Horno y lavavajillas integrados, más una nevera importada de 90 cm: equipos de especificación alemana para uso diario intensivo.',
-  },
-];
+interface GalleryItem {
+  src: string;
+  alt: string;
+  title: string;
+  caption: string;
+  badge: string;
+  category: string;
+  categoryLabel: string;
+  orientation?: 'portrait' | 'landscape';
+}
 
-const icons = {
+interface GalleryPhase {
+  id: string;
+  label: string;
+  description?: string;
+}
+
+interface SummaryCard {
+  index: string;
+  title: string;
+  body: string;
+  dropcap?: boolean;
+}
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  heroImage: string;
+  heroImageAlt: string;
+  kicker: string;
+  heroTitle: string;
+  lead: string;
+  heroFacts: Fact[];
+  quickNavItems: QuickNavItem[];
+  whatsappHref: string;
+  ctaLabel?: string;
+  breadcrumbCurrent: string;
+  summaryTag: string;
+  summaryTitle: string;
+  summaryDesc: string;
+  summaryCards: SummaryCard[];
+  stats: Stat[];
+  resultadoTag: string;
+  resultadoTitle: string;
+  resultadoDesc: string;
+  resultadoShowcase: ShowcaseItem[];
+  quote: { text: string; cite: string };
+  timelineTag: string;
+  timelineTitle: string;
+  timelineDesc: string;
+  phases: Phase[];
+  compareTag: string;
+  compareTitle: string;
+  compareDesc: string;
+  compare: {
+    beforeSrc: string;
+    beforeAlt: string;
+    afterSrc: string;
+    afterAlt: string;
+    beforeCaption: string;
+    afterCaption: string;
+  };
+  specsTag: string;
+  specsTitle: string;
+  specsDesc: string;
+  highlights: Highlight[];
+  specs: Spec[];
+  galleryEyebrow?: string;
+  galleryTitle: string;
+  galleryIntro: string;
+  gallery: GalleryItem[];
+  galleryPhases: GalleryPhase[];
+  ctaTag: string;
+  ctaTitle: string;
+  ctaText: string;
+  ctaPrimaryLabel?: string;
+  ctaSecondaryHref?: string;
+  ctaSecondaryLabel?: string;
+}
+
+const {
+  seoTitle,
+  seoDescription,
+  heroImage,
+  heroImageAlt,
+  kicker,
+  heroTitle,
+  lead,
+  heroFacts,
+  quickNavItems,
+  whatsappHref,
+  ctaLabel = 'Solicitar valoración',
+  breadcrumbCurrent,
+  summaryTag,
+  summaryTitle,
+  summaryDesc,
+  summaryCards,
+  stats,
+  resultadoTag,
+  resultadoTitle,
+  resultadoDesc,
+  resultadoShowcase,
+  quote,
+  timelineTag,
+  timelineTitle,
+  timelineDesc,
+  phases,
+  compareTag,
+  compareTitle,
+  compareDesc,
+  compare,
+  specsTag,
+  specsTitle,
+  specsDesc,
+  highlights,
+  specs,
+  galleryEyebrow = 'Archivo fotográfico completo',
+  galleryTitle,
+  galleryIntro,
+  gallery,
+  galleryPhases,
+  ctaTag,
+  ctaTitle,
+  ctaText,
+  ctaPrimaryLabel = 'Solicitar valoración técnica',
+  ctaSecondaryHref = '/proyectos',
+  ctaSecondaryLabel = 'Ver más proyectos →',
+} = Astro.props;
+
+const icons: Record<string, string> = {
   layers: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>',
   light: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-4 12.7c.6.5 1 1.3 1 2.1V17h6v-.2c0-.8.4-1.6 1-2.1A7 7 0 0 0 12 2z"/></svg>',
   sun: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>',
   appliance: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="2" width="18" height="20" rx="2"/><circle cx="12" cy="13" r="5"/><circle cx="12" cy="13" r="1.6"/><path d="M6 5.5h.01M9 5.5h6"/></svg>',
+  droplet: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.7S6.5 8.9 6.5 13.4a5.5 5.5 0 0 0 11 0C17.5 8.9 12 2.7 12 2.7z"/></svg>',
+  ruler: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 17l14-14 4 4L7 21z"/><path d="M7 13l2 2M11 9l2 2M15 5l2 2"/></svg>',
+  shield: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-3.5 8-10V5l-8-3-8 3v7c0 6.5 8 10 8 10z"/></svg>',
+  sparkle: '<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/></svg>',
 };
-
-const specs = [
-  { label: 'Ubicación', value: 'Quinta residencial en Guataparo, Valencia, Carabobo' },
-  { label: 'Duración de obra', value: '2 semanas y media de ejecución' },
-  { label: 'Intervención', value: 'Reubicación integral de la cocina a la zona día' },
-  { label: 'Estado inicial', value: 'Cocina cerrada e independiente, con acceso por puerta doble' },
-  { label: 'Obra civil', value: 'Condena del acceso con bloque de 20 cm y acabado fino' },
-  { label: 'Instalación eléctrica', value: 'Nuevas ranuras en paredes y suelos, tubo corrugado flexible' },
-  { label: 'Fontanería', value: 'Reubicada íntegramente a la nueva ubicación' },
-  { label: 'Agua caliente', value: 'Termo eléctrico condenado; placas solares térmicas' },
-  { label: 'Suelo', value: 'Autonivelante + imprimación + epoxi blanco continuo' },
-  { label: 'Mobiliario', value: 'Composición lineal de muebles bajos, estilo minimalista' },
-  { label: 'Estantería', value: 'Flotante a toda la longitud, LED superior e inferior oculto' },
-  { label: 'Equipos', value: 'Horno y lavavajillas Siemens; nevera importada de 90 cm' },
-];
-
-const galleryPhases = [
-  {
-    id: 'resultado',
-    label: 'Resultado final',
-    description: 'La cocina entregada: línea continua de muebles bajos, estantería flotante iluminada y el suelo epóxico blanco uniendo toda la zona día.',
-  },
-  {
-    id: 'montaje',
-    label: 'Montaje',
-    description: 'Alineación de módulos bajos, encuentros y la estantería flotante con su iluminación integrada durante el proceso.',
-  },
-  {
-    id: 'suelo',
-    label: 'El suelo',
-    description: 'Autonivelante, imprimación y acabado epóxico: las tres capas que construyen la continuidad perfecta del pavimento.',
-  },
-  {
-    id: 'obra',
-    label: 'Obra civil e instalaciones',
-    description: 'Desmontaje, condena del acceso con bloque de 20 cm y las nuevas instalaciones eléctricas y de fontanería.',
-  },
-  {
-    id: 'antes',
-    label: 'Estado previo',
-    description: 'El punto de partida real: la cocina cerrada, su acceso doble y el comedor donde hoy se lee el nuevo espacio.',
-  },
-];
-
-const gallery = [
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-    alt: 'Cocina lineal terminada en blanco con estantería flotante iluminada y nevera Siemens en Guataparo',
-    title: 'Composición lineal terminada',
-    caption: 'Muebles bajos en blanco, estantería flotante con luz oculta y la nevera Siemens de 90 cm cerrando la línea.',
-    category: 'resultado',
-    categoryLabel: 'Resultado Final',
-    badge: 'Finalizado',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
-    alt: 'Comedor y cocina abiertos con suelo epóxico blanco continuo en quinta de Guataparo',
-    title: 'La zona día unificada',
-    caption: 'El epoxi blanco continuo conecta cocina, comedor y sala en una única lectura llena de luz.',
-    category: 'resultado',
-    categoryLabel: 'Resultado Final',
-    badge: 'Zona día',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/montaje-cocina-vista-sala.webp',
-    alt: 'Cocina en proceso de montaje vista desde la sala con el suelo epóxico blanco terminado',
-    title: 'El montaje visto desde la sala',
-    caption: 'La nueva ubicación ya dialoga con el resto de la planta: suelo continuo y composición baja en instalación.',
-    category: 'montaje',
-    categoryLabel: 'Montaje',
-    badge: 'Proceso',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
-    alt: 'Detalle del montaje de la cocina lineal con estantería flotante en proceso de ajuste',
-    title: 'Estantería flotante en ajuste',
-    caption: 'La estantería flotante corrida, con la iluminación LED ya integrada en su canto superior e inferior.',
-    category: 'montaje',
-    categoryLabel: 'Montaje',
-    badge: 'Estantería',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lateral.webp',
-    alt: 'Vista lateral de la cocina lineal en montaje con el ventanal al fondo en Guataparo',
-    title: 'La línea baja frente al ventanal',
-    caption: 'Sin muebles altos: toda la composición queda por debajo de la línea de vista y deja respirar al ventanal.',
-    category: 'montaje',
-    categoryLabel: 'Montaje',
-    badge: 'Proceso',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
-    alt: 'Aplicación del suelo autonivelante en la nueva ubicación de la cocina',
-    title: 'Autonivelante recién vertido',
-    caption: 'La primera capa: un plano perfectamente nivelado como base de todo el pavimento continuo.',
-    category: 'suelo',
-    categoryLabel: 'El Suelo',
-    badge: 'Base',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/suelo-imprimacion-blanca.webp',
-    alt: 'Suelo con imprimación blanca aplicada antes del acabado epóxico final',
-    title: 'Imprimación de anclaje',
-    caption: 'La imprimación prepara la superficie para el acabado epóxico definitivo en blanco puro.',
-    category: 'suelo',
-    categoryLabel: 'El Suelo',
-    badge: 'Imprimación',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
-    alt: 'Tabique de bloque de 20 cm condenando el acceso antiguo y ranuras eléctricas en pared',
-    title: 'Condena del acceso y nuevas ranuras',
-    caption: 'El acceso original sellado con bloque de 20 cm, mientras las nuevas ranuras preparan los circuitos.',
-    category: 'obra',
-    categoryLabel: 'Obra Civil e Instalaciones',
-    badge: 'Obra civil',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/obra-acceso-condenado-fratasado.webp',
-    alt: 'Antiguo acceso ya enfrascado y la futura ubicación de la cocina en pleno proceso',
-    title: 'El acceso desaparece en la pared',
-    caption: 'Con el enfrascado de acabado fino, el antiguo hueco de la puerta doble deja de existir visualmente.',
-    category: 'obra',
-    categoryLabel: 'Obra Civil e Instalaciones',
-    badge: 'Enfrascado',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
-    alt: 'Cocina antigua desmontada con termo eléctrico visible antes de su condena',
-    title: 'Desmontaje y retirada del termo',
-    caption: 'La cocina original vaciada; el termo eléctrico fue condenado y sustituido por placas solares térmicas.',
-    category: 'obra',
-    categoryLabel: 'Obra Civil e Instalaciones',
-    badge: 'Demolición',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-2.webp',
-    alt: 'Cocina original cerrada vista desde su acceso doble antes de la reforma',
-    title: 'El acceso doble original',
-    caption: 'La puerta doble de gran tamaño que separaba la cocina de la vida de la casa.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-4.webp',
-    alt: 'Interior de la cocina original con ventana y mobiliario antiguo',
-    title: 'La cocina tal como se encontraba',
-    caption: 'Cerámica, cenefa y mobiliario envejecidos: un espacio que pedía una intervención de raíz.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-3.webp',
-    alt: 'Detalle de la cocina original con encimera y módulos antiguos',
-    title: 'Mobiliario y encimera envejecidos',
-    caption: 'El conjunto original, ya fuera de servicio, fue desmontado por completo.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-1.webp',
-    alt: 'Vista interior de la cocina cerrada original desde la puerta doble',
-    title: 'Un espacio cerrado y compartimentado',
-    caption: 'La planta original impedía cualquier continuidad entre cocina, comedor y sala.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'portrait',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
-    alt: 'Sala y comedor originales con el acceso doble a la cocina al fondo',
-    title: 'La zona día antes de la intervención',
-    caption: 'Comedor y sala con la cocina al fondo, separada por el acceso doble que después fue condenado.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'landscape',
-  },
-  {
-    src: '/images/proyectos/cocina-lujo-guataparo/antes-nueva-ubicacion-comedor.webp',
-    alt: 'Comedor original que se convertiría en la nueva ubicación de la cocina',
-    title: 'La futura ubicación de la cocina',
-    caption: 'El comedor original: el espacio elegido para recibir la nueva cocina abierta.',
-    category: 'antes',
-    categoryLabel: 'Estado Previo',
-    badge: 'Antes',
-    orientation: 'portrait',
-  },
-];
 ---
 
 <BaseLayout
-  title="Cocina de Lujo en Guataparo, Valencia | Caso Real Paso a Paso | RemodelaT"
-  description={project.excerpt}
-  image={project.heroImage}
+  title={seoTitle}
+  description={seoDescription}
+  image={heroImage}
   activePage="proyectos"
 >
   <!-- Barra de progreso de lectura -->
@@ -521,8 +209,8 @@ const gallery = [
   <!-- ============ HERO CINEMATOGRÁFICO ============ -->
   <header class="gu-hero">
     <img
-      src={project.heroImage}
-      alt="Cocina de lujo terminada en quinta de Guataparo, Valencia: línea de muebles bajos blancos, estantería flotante iluminada y suelo epóxico continuo"
+      src={heroImage}
+      alt={heroImageAlt}
       class="gu-hero-img"
       fetchpriority="high"
       loading="eager"
@@ -531,9 +219,9 @@ const gallery = [
     <div class="gu-hero-overlay" aria-hidden="true"></div>
     <div class="container gu-hero-content">
       <a href="/proyectos" class="gu-back" data-hero="0">← Volver a proyectos</a>
-      <span class="gu-eyebrow" data-hero="1">Caso real · Cocinas de alto estándar · Diario de obra</span>
-      <h1 data-hero="2">{project.title}</h1>
-      <p class="gu-lead" data-hero="3">{project.excerpt}</p>
+      <span class="gu-eyebrow" data-hero="1">{kicker}</span>
+      <h1 data-hero="2">{heroTitle}</h1>
+      <p class="gu-lead" data-hero="3">{lead}</p>
 
       <dl class="gu-facts" aria-label="Ficha del proyecto" data-hero="4">
         {heroFacts.map((fact) => (
@@ -551,7 +239,7 @@ const gallery = [
           <span class="btn-arrow">→</span>
         </a>
         <a href={whatsappHref} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
-          <span class="btn-content">Solicitar valoración</span>
+          <span class="btn-content">{ctaLabel}</span>
           <span class="btn-arrow">→</span>
         </a>
       </div>
@@ -566,7 +254,7 @@ const gallery = [
   <ProjectQuickNav
     items={quickNavItems}
     ctaHref={whatsappHref}
-    ctaLabel="Solicitar valoración"
+    ctaLabel={ctaLabel}
   />
 
   <!-- ============ MIGAS DE PAN ============ -->
@@ -576,7 +264,7 @@ const gallery = [
       <span class="gu-sep">/</span>
       <a href="/proyectos">Proyectos</a>
       <span class="gu-sep">/</span>
-      <span class="gu-current">Cocina de Lujo en Guataparo</span>
+      <span class="gu-current">{breadcrumbCurrent}</span>
     </div>
   </nav>
 
@@ -584,35 +272,19 @@ const gallery = [
   <section class="section gu-summary" id="resumen">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">En síntesis</span>
-        <h2 class="section-title">De cocina cerrada a corazón abierto de la quinta</h2>
-        <p class="section-desc">
-          Una intervención que no se limitó a cambiar acabados: la cocina cambió de habitación,
-          de concepto y de relación con el resto de la vivienda.
-        </p>
+        <span class="tag">{summaryTag}</span>
+        <h2 class="section-title">{summaryTitle}</h2>
+        <p class="section-desc">{summaryDesc}</p>
       </div>
 
       <div class="gu-summary-grid">
-        <article class="gu-summary-card" data-reveal>
-          <span class="gu-summary-index">El reto</span>
-          <h3>Mover una cocina entera sin dejar rastro de la antigua</h3>
-          <p class="gu-dropcap">
-            La cocina original era un compartimento cerrado, al que se entraba por una gran puerta
-            doble. Trasladarla implicaba mucho más que montar muebles nuevos: había que condenar
-            su acceso, reinventar la electricidad y la fontanería, retirar el termo eléctrico y
-            crear un pavimento que unificara toda la zona día.
-          </p>
-        </article>
-        <article class="gu-summary-card" data-reveal>
-          <span class="gu-summary-index">La solución</span>
-          <h3>Obra civil, instalaciones nuevas y un diseño blanco continuo</h3>
-          <p>
-            Condenamos el acceso con bloque de 20 cm y acabado fino, trazamos las nuevas
-            instalaciones por paredes y suelos, sustituimos el termo por placas solares térmicas
-            y vertimos un suelo epóxico blanco sin juntas. Sobre ese lienzo, una composición
-            lineal de muebles bajos con estantería flotante iluminada y equipos Siemens.
-          </p>
-        </article>
+        {summaryCards.map((card) => (
+          <article class="gu-summary-card" data-reveal>
+            <span class="gu-summary-index">{card.index}</span>
+            <h3>{card.title}</h3>
+            <p class:list={['', card.dropcap && 'gu-dropcap']}>{card.body}</p>
+          </article>
+        ))}
       </div>
 
       <!-- Banda de cifras -->
@@ -631,12 +303,9 @@ const gallery = [
   <section class="section gu-showcase" id="resultado">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">Resultado final</span>
-        <h2 class="section-title">Primero, el destino; después, el camino</h2>
-        <p class="section-desc">
-          Antes de explicar cada fase, mostramos el resultado: así cada paso del proceso
-          se entiende sabiendo a dónde conducía.
-        </p>
+        <span class="tag">{resultadoTag}</span>
+        <h2 class="section-title">{resultadoTitle}</h2>
+        <p class="section-desc">{resultadoDesc}</p>
       </div>
 
       <div class="gu-showcase-grid">
@@ -645,7 +314,7 @@ const gallery = [
             class="gu-showcase-card"
             data-reveal
             data-lightbox-item
-            data-lightbox-group="guataparo-resultado"
+            data-lightbox-group="caso-resultado"
             data-src={item.src}
             data-alt={item.alt}
             data-title={item.title}
@@ -664,7 +333,7 @@ const gallery = [
                 class="expand-photo-btn"
                 type="button"
                 data-lightbox-open
-                data-group="guataparo-resultado"
+                data-group="caso-resultado"
                 data-src={item.src}
               >Ver en grande</button>
             </figcaption>
@@ -678,11 +347,8 @@ const gallery = [
   <section class="gu-quote" aria-label="Cita del proyecto">
     <div class="container gu-quote-inner" data-reveal>
       <span class="gu-quote-mark" aria-hidden="true">“</span>
-      <blockquote>
-        Donde antes terminaba el comedor y empezaba una puerta doble,
-        hoy hay una sola estancia llena de luz.
-      </blockquote>
-      <cite>Diario de obra · Quinta en Guataparo</cite>
+      <blockquote>{quote.text}</blockquote>
+      <cite>{quote.cite}</cite>
     </div>
   </section>
 
@@ -690,18 +356,15 @@ const gallery = [
   <section class="section gu-timeline-section" id="paso-a-paso">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">La obra, en orden</span>
-        <h2 class="section-title">El proyecto paso a paso: seis fases, cero improvisación</h2>
-        <p class="section-desc">
-          Cada fase está numerada y documentada con sus trabajos ejecutados y <strong>todas</strong> sus
-          fotografías reales, para que el recorrido se lea tan claro como se ejecutó.
-        </p>
+        <span class="tag">{timelineTag}</span>
+        <h2 class="section-title">{timelineTitle}</h2>
+        <p class="section-desc" set:html={timelineDesc}></p>
         <div class="gu-timeline-meta" aria-hidden="true">
-          <span>06 fases</span>
+          <span>{String(phases.length).padStart(2, '0')} fases</span>
           <span class="gu-timeline-meta-dot"></span>
-          <span>16 fotografías</span>
+          <span>{gallery.length} fotografías</span>
           <span class="gu-timeline-meta-dot"></span>
-          <span>2 semanas y media</span>
+          <span>{heroFacts.find((f) => f.label === 'Duración')?.value ?? 'Obra documentada'}</span>
         </div>
       </div>
 
@@ -710,11 +373,11 @@ const gallery = [
         <aside class="gu-flow-nav" aria-label="Índice de fases">
           <span class="gu-flow-nav-title">Fases</span>
           <ol>
-            {phaseNav.map((item) => (
+            {phases.map((item) => (
               <li>
                 <a href={`#fase-${item.number}`} data-fase-link={item.number}>
                   <span class="gu-flow-nav-num">{item.number}</span>
-                  <span class="gu-flow-nav-label">{item.label}</span>
+                  <span class="gu-flow-nav-label">{item.kicker.replace(/^Fase \d+ · /, '')}</span>
                 </a>
               </li>
             ))}
@@ -775,20 +438,17 @@ const gallery = [
   <section class="gu-compare-section section" id="comparativa">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">La misma zona, otra vida</span>
-        <h2 class="section-title">Desliza y compruébalo con tus propios ojos</h2>
-        <p class="section-desc">
-          La comparación se toma sobre la zona día de la quinta: donde antes terminaba el comedor
-          y empezaba el pasillo hacia la cocina cerrada, hoy se lee un único espacio continuo.
-        </p>
+        <span class="tag">{compareTag}</span>
+        <h2 class="section-title">{compareTitle}</h2>
+        <p class="section-desc">{compareDesc}</p>
       </div>
 
       <div class="gu-ba" data-ba data-reveal>
         <div class="gu-ba-stage" data-ba-stage role="slider" tabindex="0" aria-label="Comparador antes y después: arrastra para comparar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50">
           <img
             class="gu-ba-img gu-ba-img--after"
-            src="/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp"
-            alt="Después: la misma zona día convertida en cocina abierta con suelo epóxico blanco continuo"
+            src={compare.afterSrc}
+            alt={compare.afterAlt}
             loading="lazy"
             decoding="async"
             draggable="false"
@@ -796,8 +456,8 @@ const gallery = [
           <div class="gu-ba-before" data-ba-before>
             <img
               class="gu-ba-img"
-              src="/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp"
-              alt="Antes: zona día original con el acceso doble a la cocina cerrada al fondo"
+              src={compare.beforeSrc}
+              alt={compare.beforeAlt}
               loading="lazy"
               decoding="async"
               draggable="false"
@@ -816,11 +476,11 @@ const gallery = [
         <div class="gu-ba-captions">
           <div>
             <strong>Antes</strong>
-            <p>El comedor original, con la cocina encerrada detrás del acceso doble y un suelo cerámico que cortaba la lectura del espacio.</p>
+            <p>{compare.beforeCaption}</p>
           </div>
           <div>
             <strong>Después</strong>
-            <p>La misma zona, unificada: cocina abierta de línea baja, estantería iluminada y pavimento epóxico blanco continuo.</p>
+            <p>{compare.afterCaption}</p>
           </div>
         </div>
       </div>
@@ -831,11 +491,9 @@ const gallery = [
   <section class="section gu-specs" id="especificaciones">
     <div class="container">
       <div class="section-header" data-reveal>
-        <span class="tag">Detalle técnico</span>
-        <h2 class="section-title">Especificaciones de la intervención</h2>
-        <p class="section-desc">
-          Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida.
-        </p>
+        <span class="tag">{specsTag}</span>
+        <h2 class="section-title">{specsTitle}</h2>
+        <p class="section-desc">{specsDesc}</p>
       </div>
 
       <div class="gu-highlights">
@@ -864,9 +522,9 @@ const gallery = [
 
   <!-- ============ 06 · GALERÍA COMPLETA ============ -->
   <ProjectPhaseGallery
-    eyebrow="Archivo fotográfico completo"
-    title={`Galería completa por fases (${gallery.length} fotos reales)`}
-    intro="Todas las imágenes del proyecto, organizadas en el mismo orden en que se ejecutó la obra: del resultado al origen, sin mezclas ni rellenos."
+    eyebrow={galleryEyebrow}
+    title={galleryTitle}
+    intro={galleryIntro}
     items={gallery}
     phases={galleryPhases}
     id="galeria"
@@ -878,20 +536,16 @@ const gallery = [
   <!-- ============ CTA FINAL ============ -->
   <section class="gu-cta">
     <div class="container gu-cta-inner" data-reveal>
-      <span class="tag tag-on-dark">Valoración técnica</span>
-      <h2>¿Imaginas una transformación así en tu cocina?</h2>
-      <p>
-        Reubicaciones, obra civil, instalaciones, pavimentos continuos y mobiliario de alta
-        especificación. Cuéntanos tu caso: valoramos el alcance técnico y te orientamos
-        sobre tiempos, materiales y nivel de acabado.
-      </p>
+      <span class="tag tag-on-dark">{ctaTag}</span>
+      <h2>{ctaTitle}</h2>
+      <p>{ctaText}</p>
       <div class="gu-cta-actions">
         <a href={whatsappHref} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
-          <span class="btn-content">Solicitar valoración técnica</span>
+          <span class="btn-content">{ctaPrimaryLabel}</span>
           <span class="btn-border"></span>
           <span class="btn-arrow">→</span>
         </a>
-        <a href="/proyectos" class="gu-cta-secondary">Ver más proyectos →</a>
+        <a href={ctaSecondaryHref} class="gu-cta-secondary">{ctaSecondaryLabel}</a>
       </div>
     </div>
   </section>
@@ -961,7 +615,7 @@ const gallery = [
         { rootMargin: '-38% 0px -52% 0px', threshold: 0 }
       );
       faseSections.forEach((section) => phaseObserver.observe(section));
-      setActive('01');
+      if (faseSections[0]) setActive(faseSections[0].getAttribute('data-fase'));
     }
 
     /* ---------- Comparador antes / después ---------- */
@@ -1787,6 +1441,13 @@ const gallery = [
   .gu-fg--3 .gu-fg-item--featured { grid-column: 1 / -1; }
   .gu-fg--3 .gu-fg-item--featured .gu-fg-media { min-height: 380px; }
   .gu-fg--3 .gu-fg-item--featured .gu-fg-media img { max-height: 460px; }
+  /* 4 fotos: cuadrícula 2x2 */
+  .gu-fg--4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  /* 5 fotos: protagonista + cuadrícula 2x2 */
+  .gu-fg--5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .gu-fg--5 .gu-fg-item--featured { grid-column: 1 / -1; }
+  .gu-fg--5 .gu-fg-item--featured .gu-fg-media { min-height: 380px; }
+  .gu-fg--5 .gu-fg-item--featured .gu-fg-media img { max-height: 460px; }
   /* 6 fotos: ensayo fotográfico 1 + 3 + 2 */
   .gu-fg--6 { grid-template-columns: repeat(6, minmax(0, 1fr)); }
   .gu-fg--6 .gu-fg-item { grid-column: span 2; }
@@ -2103,7 +1764,9 @@ const gallery = [
     .gu-hero-actions .btn-premium { width: 100%; justify-content: center; }
     .gu-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gu-fg--2,
-    .gu-fg--3 { grid-template-columns: 1fr; }
+    .gu-fg--3,
+    .gu-fg--4,
+    .gu-fg--5,
     .gu-fg--6 { grid-template-columns: 1fr; }
     .gu-fg--6 .gu-fg-item { grid-column: 1 / -1 !important; }
     .gu-fg--1 .gu-fg-media { min-height: 320px; }

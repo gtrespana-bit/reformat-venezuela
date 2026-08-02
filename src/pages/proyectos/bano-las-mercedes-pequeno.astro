@@ -1,251 +1,428 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
-import ProjectLightbox from '../../components/ProjectLightbox.astro';
-import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
-import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
-import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectCaseStudy from '../../components/ProjectCaseStudy.astro';
 
-const project = {
-  title: 'Remodelación de Baño Secundario en Apartamento',
-  location: 'Las Mercedes, Caracas',
-  category: 'Baños Compactos de Alto Estándar',
-  duration: '2 semanas',
-  heroImage: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
-  excerpt: 'Remodelación completa de baño secundario pequeño en apartamento de Las Mercedes: eliminación de tabique mal posicionado, nueva distribución, plomería renovada, porcelanato importado 30x90 rectificado, plato de ducha ROCA de polvo de mármol, suelo imitación madera roble, mueble roble, espejo LED antivaho y mampara templada.'
-};
+const whatsappText =
+  'Hola, quiero una valoración técnica para remodelar un baño pequeño como el proyecto de Las Mercedes.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
 
-const technicalHighlights = [
-  'Eliminación completa del tabique que separaba el baño del pasillo para corregir la posición de la puerta y ganar amplitud útil',
-  'Nuevo tabique realizado con ladrillo y enfoscado con mortero de cemento especial para zonas húmedas',
-  'Retiro completo de la instalación de plomería existente y nueva instalación ajustando la posición de todos los elementos',
-  'Porcelanato importado 30x90 rectificado en paredes: blanco mate liso y blanco mate con relieve 3D en la L de ducha',
-  'Plato de ducha importado ROCA, sólido de polvo de mármol, instalado para optimizar seguridad, limpieza y durabilidad',
-  'Suelo en porcelanato rectificado imitación madera roble, combinado con mueble en tono roble',
-  'Espejo con LED incorporado, botones táctiles de encendido y sistema antivaho',
-  'Mampara de cristal de seguridad templado y columna de ducha ROCA con cabezal tipo lluvia y teléfono extraíble'
+const quickNavItems = [
+  { href: '#resumen', label: 'Resumen' },
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#paso-a-paso', label: 'Paso a paso' },
+  { href: '#comparativa', label: 'Antes y después' },
+  { href: '#especificaciones', label: 'Especificaciones' },
+  { href: '#galeria', label: 'Galería' },
 ];
-
-const specs = [
-  { label: 'Ubicación', value: 'Apartamento en Las Mercedes, Caracas' },
-  { label: 'Tipo de baño', value: 'Baño secundario compacto' },
-  { label: 'Alcance', value: 'Demolición, redistribución, tabique nuevo, plomería, revestimientos, plato de ducha, mampara, mueble y accesorios' },
-  { label: 'Tabiquería', value: 'Tabique de ladrillo enfoscado con mortero de cemento especial para zonas húmedas' },
-  { label: 'Plomería', value: 'Instalación nueva con reubicación y ajuste de puntos para aprovechar el espacio' },
-  { label: 'Paredes', value: 'Porcelanato importado rectificado 30x90 blanco mate liso y blanco mate relieve 3D' },
-  { label: 'Suelo', value: 'Porcelanato rectificado imitación madera roble' },
-  { label: 'Plato de ducha', value: 'ROCA importado, sólido de polvo de mármol' },
-  { label: 'Ducha', value: 'Columna ROCA con cabezal tipo lluvia y teléfono extraíble' },
-  { label: 'Mampara', value: 'Cristal de seguridad templado' },
-  { label: 'Mueble y espejo', value: 'Mueble tono roble, espejo LED táctil con antivaho' }
-];
-
-const gallery = [
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
-    alt: 'Baño secundario finalizado con mueble roble, poceta y espejo LED en Las Mercedes',
-    title: 'Baño Finalizado: Mueble Roble, Poceta y Espejo LED',
-    caption: 'Vista final del baño secundario: mueble en tono roble, espejo LED táctil con antivaho, porcelanato blanco y suelo imitación madera roble.',
-    category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Finalizado', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp',
-    alt: 'Zona de ducha finalizada con porcelanato 3D, plato ROCA y mampara templada',
-    title: 'Zona de Ducha: Porcelanato 3D y Plato ROCA',
-    caption: 'L de ducha con porcelanato blanco mate relieve 3D, plato de ducha ROCA de polvo de mármol y columna ROCA tipo lluvia.',
-    category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Ducha ROCA', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-suelo.webp',
-    alt: 'Suelo finalizado en porcelanato imitación madera roble en baño pequeño',
-    title: 'Suelo Imitación Madera Roble',
-    caption: 'Porcelanato rectificado imitación madera roble, elegido para aportar calidez visual y continuidad con el mueble.',
-    category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Suelo Roble', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-exterior.webp',
-    alt: 'Puerta corredera exterior finalizada en baño de apartamento en Las Mercedes',
-    title: 'Puerta Corredera Exterior',
-    caption: 'La nueva posición de puerta y la solución corredera mejoran el acceso y ayudan a aprovechar mejor el espacio disponible.',
-    category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Acceso', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-interior.webp',
-    alt: 'Puerta corredera vista desde el interior del baño remodelado',
-    title: 'Vista Interior de la Puerta Corredera',
-    caption: 'Vista desde el interior del baño hacia la nueva posición de acceso, ya con revestimientos y acabados terminados.',
-    category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Acceso', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-1.webp',
-    alt: 'Plato de ducha ROCA instalado antes de finalizar mampara y columna',
-    title: 'Plato de Ducha ROCA Instalado',
-    caption: 'Plato sólido de polvo de mármol marca ROCA, instalado para optimizar seguridad, limpieza y resistencia en zona húmeda.',
-    category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'ROCA', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-2.webp',
-    alt: 'Detalle de plato de ducha instalado en baño pequeño de Las Mercedes',
-    title: 'Detalle de Plato de Ducha y Revestimiento',
-    caption: 'Detalle del encuentro entre plato de ducha, porcelanato rectificado y revestimiento blanco mate.',
-    category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Ducha', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/ceramica-paredes-suelo-listos.webp',
-    alt: 'Porcelanato de paredes y suelo listo antes de montaje final',
-    title: 'Porcelanato de Paredes y Suelo Listo',
-    caption: 'Fase de revestimiento terminada antes del montaje de mueble, mampara y accesorios.',
-    category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Porcelanato', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/tabique-ladrillo-realizado.webp',
-    alt: 'Nuevo tabique de ladrillo realizado para ampliar baño pequeño',
-    title: 'Nuevo Tabique de Ladrillo',
-    caption: 'Tabique reconstruido en la posición correcta, posteriormente enfoscado con mortero especial para zonas húmedas.',
-    category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Tabique', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-1.webp',
-    alt: 'Demolición del tabique mal posicionado en baño pequeño',
-    title: 'Demolición del Tabique Original',
-    caption: 'Eliminación del tabique que limitaba el baño y reducía todavía más la superficie útil.',
-    category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Demolición', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-2.webp',
-    alt: 'Proceso de demolición de tabique para nueva distribución de baño',
-    title: 'Apertura para Nueva Distribución',
-    caption: 'Proceso de demolición y apertura para reposicionar el cerramiento y mejorar la distribución del baño.',
-    category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Demolición', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-3.webp',
-    alt: 'Demolición y preparación de baño secundario antes de nueva plomería',
-    title: 'Demolición y Preparación General',
-    caption: 'Preparación del espacio antes de rehacer plomería, revestimientos y nueva posición de los elementos.',
-    category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Proceso', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-1.webp',
-    alt: 'Baño secundario antes de remodelación en apartamento de Las Mercedes',
-    title: 'Baño Antes de la Remodelación',
-    caption: 'Estado inicial del baño secundario antes de desmontaje, demolición y redistribución.',
-    category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp',
-    alt: 'Estado inicial de baño pequeño antes de cambiar tabique y puerta',
-    title: 'Distribución Original Limitada',
-    caption: 'La distribución original y el tabique mal posicionado reducían el espacio útil y la sensación de amplitud.',
-    category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait'
-  }
-];
-
-const featuredFinished = gallery.filter((img) => img.category === 'resultado').slice(0, 4);
-
-const storyMoments = [
-  {
-    tag: '01 · Antes',
-    title: 'El baño partía de una distribución que restaba amplitud útil',
-    body: 'El espacio original era pequeño y estaba penalizado por un tabique mal posicionado y una puerta que no ayudaba a la circulación. Antes de pensar en acabados, el proyecto exigía resolver la geometría del baño.',
-    image: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp',
-    alt: 'Baño original con distribución limitada antes de la remodelación en Las Mercedes',
-    caption: 'La mejora principal no fue solo estética: fue devolver espacio real y sensación de orden.'
-  },
-  {
-    tag: '02 · Redistribución',
-    title: 'Mover el tabique y rehacer la plomería fue la clave para ganar centímetros valiosos',
-    body: 'La intervención central consistió en demoler el cerramiento anterior, replantear el acceso y ejecutar una nueva base de plomería que permitiese colocar cada elemento en una posición mucho más lógica y aprovechable.',
-    image: '/images/proyectos/bano-las-mercedes-pequeno/tabique-ladrillo-realizado.webp',
-    alt: 'Nuevo tabique de ladrillo construido durante la redistribución del baño pequeño',
-    caption: 'Cuando la base espacial se corrige, el resultado final deja de sentirse “apretado”.'
-  },
-  {
-    tag: '03 · Resultado final',
-    title: 'Acabados claros, textura 3D y madera visual para que el baño se sienta más amplio y cálido',
-    body: 'El porcelanato blanco, el relieve de ducha, el plato ROCA, la mampara templada y el mueble roble construyen una lectura mucho más luminosa. El espacio sigue siendo compacto, pero ya no se percibe limitado.',
-    image: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp',
-    alt: 'Zona de ducha finalizada con porcelanato 3D y plato ROCA en baño pequeño de Las Mercedes',
-    caption: 'La combinación de blanco, textura y madera visual amplifica el baño sin recargarlo.'
-  }
-];
-
-const galleryPhases = [
-  { id: 'resultado', label: 'Resultado final', description: 'Las imágenes finales muestran cómo cambia la percepción del espacio cuando la distribución, la luz y los materiales trabajan juntos.' },
-  { id: 'detalles', label: 'Detalles técnicos', description: 'Plato de ducha, encuentros de revestimiento, acceso y piezas clave ejecutadas con más precisión.' },
-  { id: 'obra', label: 'Redistribución y obra', description: 'La fase estructural explica dónde se ganó el espacio y por qué el baño dejó de sentirse limitado.' },
-  { id: 'antes', label: 'Estado previo', description: 'Las fotos iniciales dejan claro el problema de partida y el valor real de la intervención.' }
-];
-
-const whatsappText = 'Hola, quiero una valoración técnica para remodelar un baño pequeño como el proyecto de Las Mercedes.';
 ---
 
-<BaseLayout title={`${project.title} en Las Mercedes | RemodelaT`} description={project.excerpt} image={project.heroImage} activePage="proyectos">
-  <header class="case-hero">
-    <img src={project.heroImage} alt={project.title} class="case-hero-img" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="case-hero-overlay"></div>
-    <div class="container case-hero-content">
-      <a href="/proyectos" class="back-link">← Volver a Proyectos</a>
-      <span class="case-eyebrow">Caso real · {project.category}</span>
-      <h1>{project.title} en Las Mercedes</h1>
-      <p>{project.excerpt}</p>
-      <div class="case-facts" aria-label="Datos del proyecto"><span><strong>Ubicación</strong>{project.location}</span><span><strong>Tipo</strong>Baño secundario compacto</span><span><strong>Alcance</strong>Redistribución completa</span><span><strong>Fotos reales</strong>{gallery.length} imágenes del caso</span></div>
-      <div class="case-hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div>
-      <p class="case-hero-proof">{gallery.length} fotos reales · comparativa directa · detalles ampliables en lightbox</p>
-    </div>
-  </header>
-
-  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb"><div class="container"><div class="breadcrumb-inner"><a href="/">Inicio</a><span class="separator">/</span><a href="/proyectos">Proyectos</a><span class="separator">/</span><span class="current">Baño Pequeño Las Mercedes</span></div></div></nav>
-
-  <section class="finished-showcase-section section" id="resultado"><div class="container"><div class="section-header showcase-header"><span class="tag">Resultado final</span><h2 class="section-title">Un baño pequeño que ahora se siente mejor distribuido</h2><p class="section-desc">Mostramos primero el resultado final: mueble roble, porcelanato blanco mate, relieve 3D en ducha, plato ROCA, mampara templada y suelo imitación madera roble.</p></div><div class="finished-showcase-grid">{featuredFinished.map((image, index) => (<figure class:list={["finished-card", index === 0 && 'is-wide']}><img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" /><figcaption><span>{image.badge}</span><strong>{image.title}</strong><p>{image.caption}</p><button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button></figcaption></figure>))}</div></div></section>
-
-  <section class="case-overview section"><div class="container overview-grid"><article><span class="tag">El reto</span><h2>Ganar espacio en un baño secundario muy limitado</h2><p>El baño era muy pequeño y el tabique original estaba mal posicionado, reduciendo todavía más la circulación. Para resolverlo, se eliminó por completo el tabique que separaba el baño del pasillo y se reconstruyó en una nueva posición, corrigiendo también la ubicación de la puerta.</p></article><article><span class="tag">La solución</span><h2>Redistribución, plomería nueva y acabados claros con textura</h2><p>Se ejecutó un nuevo tabique de ladrillo, enfoscado con mortero especial para zonas húmedas. Después se rehizo toda la plomería, reposicionando elementos para aprovechar mejor el espacio, y se instalaron porcelanatos rectificados, plato ROCA, mueble roble, espejo LED y mampara templada.</p></article></div></section>
-
-  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa del antes y el después" text="El valor de este proyecto no está solo en el acabado final. El verdadero salto se produce cuando se corrige el tabique, se replantea el acceso y se libera visualmente el espacio." beforeSrc="/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp" beforeAlt="Baño pequeño antes de la remodelación con distribución limitada en Las Mercedes" afterSrc="/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp" afterAlt="Baño remodelado con mueble roble y espejo LED en Las Mercedes" beforeLabel="Antes" afterLabel="Después" beforeCaption="La distribución original hacía que el baño se sintiera más estrecho y torpe de usar." afterCaption="Tras la redistribución y los acabados claros, el espacio gana orden, amplitud visual y confort." showLightboxButtons={false} />
-
-  <ProjectReadingGallery eyebrow="Recorrido visual" title="La intervención explicada paso a paso" intro="Este bloque cuenta la obra con apoyo visual inmediato: problema de partida, fase de redistribución y resultado final, en una lectura mucho más clara y elegante." items={storyMoments} galleryGroup="bathroom-story" />
-
-  <section class="case-technical section bg-light" id="tecnica"><div class="container technical-grid"><div class="technical-copy"><span class="tag">Ejecución técnica</span><h2>La distribución fue tan importante como el acabado</h2><p>En baños pequeños, cada centímetro importa. La nueva ubicación del tabique y de la puerta permitió ordenar mejor la plomería, liberar visualmente el espacio y crear una ducha más funcional.</p></div><div class="technical-list">{technicalHighlights.map((item) => <div class="technical-item">{item}</div>)}</div></div></section>
-
-  <section class="case-specs section" id="ficha"><div class="container specs-grid"><div><span class="tag">Especificaciones</span><h2>Materiales, sistemas y equipamiento instalado</h2></div><div class="spec-list">{specs.map((spec) => (<div class="spec-row"><strong>{spec.label}</strong><span>{spec.value}</span></div>))}</div></div></section>
-
-  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada por fases (${gallery.length} fotos reales)`} intro="La documentación final queda separada por bloques para que el visitante pueda revisar el resultado, los detalles y la obra previa sin saltos visuales ni composiciones raras." items={gallery} phases={galleryPhases} id="galeria" />
-
-  <GuaranteeMatrix compact />
-
-  <section class="case-cta"><div class="container case-cta-inner"><span class="tag tag-on-dark">Valoración técnica</span><h2>¿Quieres aprovechar mejor un baño pequeño?</h2><p>Cuéntanos ubicación, dimensiones aproximadas, estado actual y nivel de acabado deseado. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica.</p><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración técnica</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
-  <ProjectLightbox />
-</BaseLayout>
-
-<style>
-  .case-hero{position:relative;min-height:80vh;display:flex;align-items:flex-end;color:var(--white);background:var(--ink);overflow:hidden;padding:145px 0 85px}.case-hero-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.78}.case-hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,18,14,.96),rgba(20,18,14,.72) 48%,rgba(20,18,14,.26)),linear-gradient(to top,rgba(20,18,14,.95),transparent 58%)}.case-hero-content{position:relative;z-index:2;max-width:980px}.back-link{display:inline-block;color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.82rem;margin-bottom:24px}.case-eyebrow{display:inline-block;color:var(--gold-light);font-size:.78rem;text-transform:uppercase;letter-spacing:.16em;font-weight:800;margin-bottom:18px}.case-hero h1{font-family:var(--font-serif);font-size:clamp(2.75rem,6vw,5.7rem);line-height:1;letter-spacing:var(--track-tight);font-weight:500;max-width:900px;margin:0 0 22px}.case-hero p{max-width:800px;color:rgba(255,255,255,.84);font-size:clamp(1.06rem,2vw,1.25rem);line-height:1.72;margin:0 0 32px}.case-facts{display:flex;flex-wrap:wrap;border:1px solid rgba(201,169,97,.28);border-radius:var(--r-lg);overflow:hidden;background:rgba(255,255,255,.06);backdrop-filter:blur(12px);max-width:920px}.case-facts span{padding:18px 24px;min-width:210px;border-right:1px solid rgba(201,169,97,.18);color:rgba(255,255,255,.9)}.case-facts span:last-child{border-right:0}.case-facts strong{display:block;color:var(--gold);font-size:.72rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:6px}.case-hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px}.case-hero-actions .btn-premium{min-height:54px}.case-hero-proof{margin-top:16px;color:rgba(255,255,255,.72);font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:800}
-  .breadcrumb-after-hero{background:var(--white);border-bottom:1px solid var(--sand);padding:18px 0}.breadcrumb-inner{display:flex;align-items:center;flex-wrap:wrap;gap:8px;font-size:.84rem}.breadcrumb-inner a{color:var(--text-muted);text-decoration:none;font-weight:500}.breadcrumb-inner a:hover{color:var(--gold-ink)}.breadcrumb-inner .separator{color:var(--sand);margin:0 4px}.breadcrumb-inner .current{color:var(--text);font-weight:600}
-  .finished-showcase-section{background:var(--white);padding-bottom:var(--s-5)}.showcase-header{max-width:820px}.finished-showcase-grid{display:grid;grid-template-columns:1.2fr .9fr .9fr .9fr;gap:22px;align-items:stretch}.finished-card{margin:0;position:relative;overflow:hidden;border-radius:var(--r-lg);background:var(--ink);min-height:520px;box-shadow:var(--e-3);border:1px solid rgba(201,169,97,.22)}.finished-card.is-wide{min-height:520px}.finished-card img{width:100%;height:100%;object-fit:cover;display:block;opacity:.94;transition:transform var(--dur-slow) var(--ease-out)}.finished-card:hover img{transform:scale(1.035)}.finished-card figcaption{position:absolute;inset:auto 0 0;padding:26px;color:var(--white);background:linear-gradient(to top,rgba(20,18,14,.92),rgba(20,18,14,.56) 62%,transparent)}.finished-card figcaption span{display:inline-block;background:var(--gold);color:var(--ink);border-radius:var(--r-full);padding:5px 12px;font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;margin-bottom:12px}.finished-card figcaption strong{display:block;font-family:var(--font-serif);font-size:clamp(1.35rem,2.1vw,1.85rem);line-height:1.08;margin-bottom:8px}.finished-card figcaption p{color:rgba(255,255,255,.78);line-height:1.62;font-size:.92rem;margin:0}
-  .overview-grid,.technical-grid,.specs-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:var(--s-5);align-items:start}.overview-grid article{padding:34px;border-radius:var(--r-lg);border:1px solid var(--sand);background:var(--white);box-shadow:var(--e-1)}.overview-grid h2,.technical-copy h2,.specs-grid h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3.1rem);line-height:1.08;letter-spacing:var(--track-tight);font-weight:500;margin:0 0 18px}.overview-grid p,.technical-copy p{color:var(--text-muted);line-height:1.82;font-size:1.05rem;margin-bottom:16px}.technical-list{display:grid;gap:12px}.technical-item{padding:18px 22px 18px 52px;background:var(--white);border:1px solid var(--sand);border-radius:var(--r-md);color:var(--text-muted);position:relative;box-shadow:var(--e-1);line-height:1.6}.technical-item::before{content:"";position:absolute;left:22px;top:25px;width:10px;height:10px;border-radius:50%;background:var(--gold-ink);box-shadow:0 0 0 6px rgba(201,169,97,.13)}
-  .spec-list{border:1px solid var(--sand);border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--e-2)}.spec-row{display:grid;grid-template-columns:.62fr 1fr;border-top:1px solid var(--sand);background:var(--white)}.spec-row:first-child{border-top:0}.spec-row strong,.spec-row span{padding:18px 22px}.spec-row strong{color:var(--ink);font-family:var(--font-serif);font-size:1.16rem;border-right:1px solid var(--sand)}.spec-row span{color:var(--text-muted);line-height:1.6}
-  .case-cta{padding:105px 24px;background:radial-gradient(circle at 50% 0%,rgba(201,169,97,.18),transparent 45%),var(--ink);color:var(--white);text-align:center}.case-cta-inner{max-width:900px}.case-cta h2{font-family:var(--font-serif);font-size:clamp(2.2rem,5vw,3.8rem);line-height:1.08;letter-spacing:var(--track-tight);font-weight:500;margin:0 0 22px}.case-cta p{max-width:760px;margin:0 auto 34px;color:rgba(255,255,255,.76);line-height:1.75;font-size:1.12rem}.tag-on-dark{color:var(--gold)}
-
-  .finished-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-  }
-  .finished-card img {
-    height: 420px !important;
-    object-fit: contain !important;
-    background: var(--ink-soft);
-    padding: 14px;
-  }
-  .finished-card figcaption {
-    position: static !important;
-    inset: auto !important;
-    background: var(--white) !important;
-    color: var(--text) !important;
-    padding: 22px 24px 24px !important;
-  }
-  .finished-card figcaption strong { color: var(--ink); }
-  .finished-card figcaption p { color: var(--text-muted) !important; margin-bottom: 16px !important; }
-
-  @media(max-width:1100px){.finished-showcase-grid{grid-template-columns:1fr 1fr}.finished-card{min-height:480px}.finished-card.is-wide{grid-column:span 2}.overview-grid,.technical-grid,.specs-grid{grid-template-columns:1fr}}
-  @media(max-width:640px){.case-facts{display:grid}.case-facts span{border-right:0;border-bottom:1px solid rgba(201,169,97,.18)}.case-hero-actions{flex-direction:column;align-items:stretch}.case-hero-actions .btn-premium{width:100%;justify-content:center}.finished-showcase-grid{grid-template-columns:1fr}.finished-card,.finished-card.is-wide{min-height:420px}.spec-row{grid-template-columns:1fr}.spec-row strong{border-right:0;border-bottom:1px solid var(--sand)}}
-</style>
+<ProjectCaseStudy
+  seoTitle="Remodelación de Baño Secundario en Apartamento en Las Mercedes | RemodelaT"
+  seoDescription="Remodelación completa de baño secundario pequeño en apartamento de Las Mercedes: eliminación de tabique mal posicionado, nueva distribución, plomería renovada, porcelanato importado 30x90 rectificado, plato de ducha ROCA, suelo imitación madera roble, mueble roble, espejo LED antivaho y mampara templada."
+  heroImage="/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp"
+  heroImageAlt="Baño secundario finalizado con mueble roble, porcelanato blanco y espejo LED en Las Mercedes"
+  kicker="Caso real · Baños compactos de alto estándar · Diario de obra"
+  heroTitle="Remodelación de Baño Secundario en Apartamento"
+  lead="Remodelación completa de un baño secundario pequeño en apartamento de Las Mercedes: eliminación de un tabique mal posicionado, nueva distribución, plomería renovada, porcelanato importado 30x90 rectificado, plato de ducha ROCA de polvo de mármol, suelo imitación madera roble, mueble roble, espejo LED antivaho y mampara templada."
+  heroFacts={[
+    { label: 'Ubicación', value: 'Las Mercedes · Caracas' },
+    { label: 'Duración', value: '2 semanas' },
+    { label: 'Intervención', value: 'Redistribución integral' },
+    { label: 'Paredes', value: 'Porcelanato 30x90 blanco mate' },
+    { label: 'Ducha', value: 'Plato ROCA · relieve 3D' },
+    { label: 'Archivo', value: '14 fotos reales' },
+  ]}
+  quickNavItems={quickNavItems}
+  whatsappHref={whatsappHref}
+  breadcrumbCurrent="Baño Pequeño Las Mercedes"
+  summaryTag="En síntesis"
+  summaryTitle="De baño limitado a espacio ordenado, luminoso y funcional"
+  summaryDesc="El proyecto no se limitó a cambiar acabados: corrigió la geometría del baño para devolverle centímetros útiles y una lectura visual mucho más amplia."
+  summaryCards={[
+    {
+      index: 'El reto',
+      title: 'Ganar espacio en un baño secundario muy limitado',
+      body: 'El baño era muy pequeño y el tabique original estaba mal posicionado, reduciendo todavía más la circulación. Para resolverlo, se eliminó por completo el tabique que separaba el baño del pasillo y se reconstruyó en una nueva posición, corrigiendo también la ubicación de la puerta.',
+      dropcap: true,
+    },
+    {
+      index: 'La solución',
+      title: 'Redistribución, plomería nueva y acabados claros con textura',
+      body: 'Se ejecutó un nuevo tabique de ladrillo, enfoscado con mortero especial para zonas húmedas. Después se rehizo toda la plomería, reposicionando elementos para aprovechar mejor el espacio, y se instalaron porcelanatos rectificados, plato ROCA, mueble roble, espejo LED y mampara templada.',
+    },
+  ]}
+  stats={[
+    { value: '06', label: 'Fases documentadas' },
+    { value: '14', label: 'Fotografías reales' },
+    { value: '02', label: 'Semanas de ejecución' },
+    { value: '30x90', label: 'Porcelanato rectificado' },
+    { value: '3D', label: 'Relieve en la ducha' },
+  ]}
+  resultadoTag="Resultado final"
+  resultadoTitle="Un baño pequeño que ahora se siente mejor distribuido"
+  resultadoDesc="Mostramos primero el resultado final: mueble roble, porcelanato blanco mate, relieve 3D en la ducha, plato ROCA, mampara templada y suelo imitación madera roble."
+  resultadoShowcase={[
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
+      alt: 'Baño secundario finalizado con mueble roble, poceta y espejo LED en Las Mercedes',
+      badge: 'Frente de lavabo',
+      title: 'Mueble roble, poceta y espejo LED antivaho',
+      caption:
+        'El conjunto resuelto: mueble en tono roble, espejo con LED táctil y antivaho, porcelanato blanco rectificado y suelo imitación madera que aporta calidez visual.',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp',
+      alt: 'Zona de ducha finalizada con porcelanato 3D, plato ROCA y mampara templada',
+      badge: 'Zona de ducha',
+      title: 'L de ducha con relieve 3D y plato ROCA',
+      caption:
+        'El porcelanato blanco mate con relieve 3D, el plato ROCA de polvo de mármol y la columna tipo lluvia construyen una ducha segura, limpia y con textura.',
+    },
+  ]}
+  quote={{
+    text: 'Cuando la base espacial se corrige, el acabado deja de ser cosmética: el baño vuelve a respirar.',
+    cite: 'Diario de obra · Baño secundario en Las Mercedes',
+  }}
+  timelineTag="La obra, en orden"
+  timelineTitle="El proyecto paso a paso: seis fases, cero improvisación"
+  timelineDesc="Cada fase está numerada y documentada con sus trabajos ejecutados y <strong>todas</strong> sus fotografías reales, para que el recorrido se lea tan claro como se ejecutó."
+  phases={[
+    {
+      number: '01',
+      kicker: 'Fase 01 · Diagnóstico',
+      title: 'El punto de partida: un tabique que restaba amplitud útil',
+      body: 'El espacio original era pequeño y estaba penalizado por un tabique mal posicionado y una puerta que no ayudaba a la circulación. Antes de pensar en acabados, el proyecto exigía resolver la geometría del baño: cada centímetro contaba.',
+      checks: [
+        'Diagnóstico de la distribución y del tabique mal posicionado',
+        'Replanteo del nuevo cerramiento y de la posición de la puerta',
+        'Definición de la nueva base de plomería para aprovechar el espacio',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp',
+          alt: 'Estado inicial de baño pequeño antes de cambiar tabique y puerta',
+          caption: 'La distribución original y el tabique mal posicionado reducían el espacio útil y la sensación de amplitud.',
+          badge: 'Antes',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-1.webp',
+          alt: 'Baño secundario antes de remodelación en apartamento de Las Mercedes',
+          caption: 'El estado inicial del baño secundario antes de desmontaje, demolición y redistribución.',
+          badge: 'Antes',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '02',
+      kicker: 'Fase 02 · Demolición',
+      title: 'Vaciar el baño para poder reconstruirlo con otra lógica',
+      body: 'Se eliminó por completo el tabique que separaba el baño del pasillo y se retiró la instalación de plomería existente. El baño quedó en su esqueleto, listo para recibir la nueva distribución.',
+      checks: [
+        'Demolición completa del tabique original mal posicionado',
+        'Retiro de la plomería existente en su totalidad',
+        'Preparación del soporte para la nueva base hidráulica',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-1.webp',
+          alt: 'Demolición del tabique mal posicionado en baño pequeño',
+          caption: 'Eliminación del tabique que limitaba el baño y reducía todavía más la superficie útil.',
+          badge: 'Demolición',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-2.webp',
+          alt: 'Proceso de demolición de tabique para nueva distribución de baño',
+          caption: 'Proceso de demolición y apertura para reposicionar el cerramiento y mejorar la distribución.',
+          badge: 'Demolición',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-3.webp',
+          alt: 'Demolición y preparación de baño secundario antes de nueva plomería',
+          caption: 'Preparación del espacio antes de rehacer plomería, revestimientos y nueva posición de los elementos.',
+          badge: 'Proceso',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '03',
+      kicker: 'Fase 03 · Estructura',
+      title: 'Un tabique nuevo, en la posición correcta y para zona húmeda',
+      body: 'Se reconstruyó el cerramiento en la posición replanteada, ejecutado con ladrillo y enfoscado con mortero de cemento especial para zonas húmedas. La puerta pasó a una ubicación que libera la circulación.',
+      checks: [
+        'Nuevo tabique de ladrillo en la posición replanteada',
+        'Enfoscado con mortero especial para zonas húmedas',
+        'Corrección de la ubicación de la puerta de acceso',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/tabique-ladrillo-realizado.webp',
+          alt: 'Nuevo tabique de ladrillo realizado para ampliar baño pequeño',
+          caption: 'Tabique reconstruido en la posición correcta, posteriormente enfoscado con mortero especial para zonas húmedas.',
+          badge: 'Tabique',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '04',
+      kicker: 'Fase 04 · Revestimientos',
+      title: 'Porcelanato rectificado: blanco mate y relieve 3D en la ducha',
+      body: 'Las paredes se revistieron con porcelanato importado 30x90 rectificado en blanco mate liso y blanco mate con relieve 3D en la L de ducha; el suelo, con porcelanato rectificado imitación madera roble.',
+      checks: [
+        'Porcelanato importado 30x90 rectificado en paredes',
+        'Relieve 3D en la L de ducha para textura y agarre visual',
+        'Suelo rectificado imitación madera roble',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/ceramica-paredes-suelo-listos.webp',
+          alt: 'Porcelanato de paredes y suelo listo antes de montaje final',
+          caption: 'Fase de revestimiento terminada antes del montaje de mueble, mampara y accesorios.',
+          badge: 'Porcelanato',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '05',
+      kicker: 'Fase 05 · Montaje',
+      title: 'Plato ROCA, mampara templada, mueble y espejo LED',
+      body: 'Con los revestimientos terminados llegó el montaje: plato de ducha ROCA sólido de polvo de mármol, columna con cabezal tipo lluvia y teléfono extraíble, mampara de cristal templado, mueble roble y espejo LED con antivaho.',
+      checks: [
+        'Plato de ducha ROCA de polvo de mármol instalado',
+        'Mampara de cristal de seguridad templado',
+        'Mueble roble y espejo LED táctil con antivaho',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-1.webp',
+          alt: 'Plato de ducha ROCA instalado antes de finalizar mampara y columna',
+          caption: 'Plato sólido de polvo de mármol marca ROCA, instalado para optimizar seguridad, limpieza y resistencia en zona húmeda.',
+          badge: 'ROCA',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-2.webp',
+          alt: 'Detalle de plato de ducha instalado en baño pequeño de Las Mercedes',
+          caption: 'Detalle del encuentro entre plato de ducha, porcelanato rectificado y revestimiento blanco mate.',
+          badge: 'Ducha',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-interior.webp',
+          alt: 'Puerta corredera vista desde el interior del baño remodelado',
+          caption: 'Vista desde el interior del baño hacia la nueva posición de acceso, ya con revestimientos y acabados terminados.',
+          badge: 'Acceso',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '06',
+      kicker: 'Fase 06 · Entrega',
+      title: 'El baño terminado: compacto, luminoso y sin sensación de límite',
+      body: 'El resultado final combina el porcelanato blanco, el relieve de la ducha, el plato ROCA, la mampara templada y el mueble roble. El espacio sigue siendo compacto, pero ya no se percibe limitado: cada elemento está donde debe estar.',
+      checks: [
+        'Revisión final de encuentros, juntas y funcionamiento',
+        'Prueba de plomería, desagüe y ventilación',
+        'Entrega con accesorios, iluminación y acabados en orden',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
+          alt: 'Baño secundario finalizado con mueble roble, poceta y espejo LED en Las Mercedes',
+          caption: 'Vista final del baño secundario: mueble en tono roble, espejo LED táctil con antivaho, porcelanato blanco y suelo imitación madera roble.',
+          badge: 'Finalizado',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp',
+          alt: 'Zona de ducha finalizada con porcelanato 3D, plato ROCA y mampara templada',
+          caption: 'L de ducha con porcelanato blanco mate relieve 3D, plato ROCA de polvo de mármol y columna tipo lluvia.',
+          badge: 'Ducha ROCA',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-suelo.webp',
+          alt: 'Suelo finalizado en porcelanato imitación madera roble en baño pequeño',
+          caption: 'Porcelanato rectificado imitación madera roble, elegido para aportar calidez visual y continuidad con el mueble.',
+          badge: 'Suelo Roble',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-exterior.webp',
+          alt: 'Puerta corredera exterior finalizada en baño de apartamento en Las Mercedes',
+          caption: 'La nueva posición de puerta y la solución corredera mejoran el acceso y ayudan a aprovechar mejor el espacio disponible.',
+          badge: 'Acceso',
+          orientation: 'portrait',
+        },
+      ],
+    },
+  ]}
+  compareTag="La misma zona, otra vida"
+  compareTitle="Desliza y compruébalo con tus propios ojos"
+  compareDesc="El valor de este proyecto no está solo en el acabado final. El verdadero salto se produce cuando se corrige el tabique, se replantea el acceso y se libera visualmente el espacio."
+  compare={{
+    beforeSrc: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp',
+    beforeAlt: 'Baño pequeño antes de la remodelación con distribución limitada en Las Mercedes',
+    afterSrc: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
+    afterAlt: 'Baño remodelado con mueble roble y espejo LED en Las Mercedes',
+    beforeCaption: 'La distribución original hacía que el baño se sintiera más estrecho y torpe de usar.',
+    afterCaption: 'Tras la redistribución y los acabados claros, el espacio gana orden, amplitud visual y confort.',
+  }}
+  specsTag="Detalle técnico"
+  specsTitle="Especificaciones de la intervención"
+  specsDesc="Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida."
+  highlights={[
+    {
+      icon: 'ruler',
+      title: 'Redistribución milimétrica',
+      text: 'Demolición del tabique mal posicionado, nueva posición del cerramiento y corrección del acceso: cada centímetro recuperado cuenta en un baño compacto.',
+    },
+    {
+      icon: 'droplet',
+      title: 'Plomería nueva',
+      text: 'Retiro completo de la instalación existente y nueva base hidráulica, reposicionando cada punto para aprovechar el espacio y ordenar el uso diario.',
+    },
+    {
+      icon: 'sparkle',
+      title: 'Acabados claros con textura',
+      text: 'Porcelanato importado 30x90 rectificado en blanco mate, relieve 3D en la ducha y suelo imitación madera roble que amplía visualmente el baño.',
+    },
+    {
+      icon: 'shield',
+      title: 'Ducha y accesorios ROCA',
+      text: 'Plato de ducha sólido de polvo de mármol, columna tipo lluvia con teléfono extraíble, mampara templada y espejo LED con antivaho.',
+    },
+  ]}
+  specs={[
+    { label: 'Ubicación', value: 'Apartamento en Las Mercedes, Caracas' },
+    { label: 'Tipo de baño', value: 'Baño secundario compacto' },
+    { label: 'Duración de obra', value: '2 semanas de ejecución' },
+    { label: 'Alcance', value: 'Demolición, redistribución, tabique nuevo, plomería, revestimientos, plato de ducha, mampara, mueble y accesorios' },
+    { label: 'Tabiquería', value: 'Tabique de ladrillo enfoscado con mortero de cemento especial para zonas húmedas' },
+    { label: 'Plomería', value: 'Instalación nueva con reubicación y ajuste de puntos para aprovechar el espacio' },
+    { label: 'Paredes', value: 'Porcelanato importado rectificado 30x90 blanco mate liso y blanco mate relieve 3D' },
+    { label: 'Suelo', value: 'Porcelanato rectificado imitación madera roble' },
+    { label: 'Plato de ducha', value: 'ROCA importado, sólido de polvo de mármol' },
+    { label: 'Ducha', value: 'Columna ROCA con cabezal tipo lluvia y teléfono extraíble' },
+    { label: 'Mampara', value: 'Cristal de seguridad templado' },
+    { label: 'Mueble y espejo', value: 'Mueble tono roble, espejo LED táctil con antivaho' },
+  ]}
+  galleryTitle={`Galería ordenada por fases (14 fotos reales)`}
+  galleryIntro="La documentación final queda separada por bloques para que el visitante pueda revisar el resultado, los detalles y la obra previa sin saltos visuales ni composiciones raras."
+  gallery={[
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
+      alt: 'Baño secundario finalizado con mueble roble, poceta y espejo LED en Las Mercedes',
+      title: 'Baño Finalizado: Mueble Roble, Poceta y Espejo LED',
+      caption: 'Vista final del baño secundario: mueble en tono roble, espejo LED táctil con antivaho, porcelanato blanco y suelo imitación madera roble.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Finalizado', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-zona-ducha.webp',
+      alt: 'Zona de ducha finalizada con porcelanato 3D, plato ROCA y mampara templada',
+      title: 'Zona de Ducha: Porcelanato 3D y Plato ROCA',
+      caption: 'L de ducha con porcelanato blanco mate relieve 3D, plato de ducha ROCA de polvo de mármol y columna ROCA tipo lluvia.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Ducha ROCA', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-suelo.webp',
+      alt: 'Suelo finalizado en porcelanato imitación madera roble en baño pequeño',
+      title: 'Suelo Imitación Madera Roble',
+      caption: 'Porcelanato rectificado imitación madera roble, elegido para aportar calidez visual y continuidad con el mueble.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Suelo Roble', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-exterior.webp',
+      alt: 'Puerta corredera exterior finalizada en baño de apartamento en Las Mercedes',
+      title: 'Puerta Corredera Exterior',
+      caption: 'La nueva posición de puerta y la solución corredera mejoran el acceso y ayudan a aprovechar mejor el espacio disponible.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Acceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/puerta-corredera-interior.webp',
+      alt: 'Puerta corredera vista desde el interior del baño remodelado',
+      title: 'Vista Interior de la Puerta Corredera',
+      caption: 'Vista desde el interior del baño hacia la nueva posición de acceso, ya con revestimientos y acabados terminados.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Acceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-1.webp',
+      alt: 'Plato de ducha ROCA instalado antes de finalizar mampara y columna',
+      title: 'Plato de Ducha ROCA Instalado',
+      caption: 'Plato sólido de polvo de mármol marca ROCA, instalado para optimizar seguridad, limpieza y resistencia en zona húmeda.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'ROCA', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/plato-ducha-instalado-2.webp',
+      alt: 'Detalle de plato de ducha instalado en baño pequeño de Las Mercedes',
+      title: 'Detalle de Plato de Ducha y Revestimiento',
+      caption: 'Detalle del encuentro entre plato de ducha, porcelanato rectificado y revestimiento blanco mate.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Ducha', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/ceramica-paredes-suelo-listos.webp',
+      alt: 'Porcelanato de paredes y suelo listo antes de montaje final',
+      title: 'Porcelanato de Paredes y Suelo Listo',
+      caption: 'Fase de revestimiento terminada antes del montaje de mueble, mampara y accesorios.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Porcelanato', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/tabique-ladrillo-realizado.webp',
+      alt: 'Nuevo tabique de ladrillo realizado para ampliar baño pequeño',
+      title: 'Nuevo Tabique de Ladrillo',
+      caption: 'Tabique reconstruido en la posición correcta, posteriormente enfoscado con mortero especial para zonas húmedas.',
+      category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Tabique', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-1.webp',
+      alt: 'Demolición del tabique mal posicionado en baño pequeño',
+      title: 'Demolición del Tabique Original',
+      caption: 'Eliminación del tabique que limitaba el baño y reducía todavía más la superficie útil.',
+      category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Demolición', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-tabique-2.webp',
+      alt: 'Proceso de demolición de tabique para nueva distribución de baño',
+      title: 'Apertura para Nueva Distribución',
+      caption: 'Proceso de demolición y apertura para reposicionar el cerramiento y mejorar la distribución del baño.',
+      category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Demolición', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/demolicion-3.webp',
+      alt: 'Demolición y preparación de baño secundario antes de nueva plomería',
+      title: 'Demolición y Preparación General',
+      caption: 'Preparación del espacio antes de rehacer plomería, revestimientos y nueva posición de los elementos.',
+      category: 'obra', categoryLabel: 'Redistribución y Obra', badge: 'Proceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-1.webp',
+      alt: 'Baño secundario antes de remodelación en apartamento de Las Mercedes',
+      title: 'Baño Antes de la Remodelación',
+      caption: 'Estado inicial del baño secundario antes de desmontaje, demolición y redistribución.',
+      category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/bano-las-mercedes-pequeno/bano-antes-2.webp',
+      alt: 'Estado inicial de baño pequeño antes de cambiar tabique y puerta',
+      title: 'Distribución Original Limitada',
+      caption: 'La distribución original y el tabique mal posicionado reducían el espacio útil y la sensación de amplitud.',
+      category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait',
+    },
+  ]}
+  galleryPhases={[
+    { id: 'resultado', label: 'Resultado final', description: 'Las imágenes finales muestran cómo cambia la percepción del espacio cuando la distribución, la luz y los materiales trabajan juntos.' },
+    { id: 'detalles', label: 'Detalles técnicos', description: 'Plato de ducha, encuentros de revestimiento, acceso y piezas clave ejecutadas con más precisión.' },
+    { id: 'obra', label: 'Redistribución y obra', description: 'La fase estructural explica dónde se ganó el espacio y por qué el baño dejó de sentirse limitado.' },
+    { id: 'antes', label: 'Estado previo', description: 'Las fotos iniciales dejan claro el problema de partida y el valor real de la intervención.' },
+  ]}
+  ctaTag="Valoración técnica"
+  ctaTitle="¿Quieres aprovechar mejor un baño pequeño?"
+  ctaText="Cuéntanos ubicación, dimensiones aproximadas, estado actual y nivel de acabado deseado. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica."
+  ctaPrimaryLabel="Solicitar valoración técnica"
+/>
