@@ -38,13 +38,27 @@ function walk(dir, filter) {
 const sourceFiles = walk(SRC, (f) => /\.(astro|md|mdx|ts|js|json)$/.test(f));
 const refs = new Map(); // ruta url -> Set(archivos que la referencian)
 
+const addRef = (url, file) => {
+  if (!refs.has(url)) refs.set(url, new Set());
+  refs.get(url).add(relative(ROOT, file));
+};
+
 for (const file of sourceFiles) {
   const text = readFileSync(file, 'utf8');
   const re = /\/images\/[^"'`)\s,]+?\.(?:webp|jpe?g|png|avif|gif|svg)/gi;
   for (const m of text.matchAll(re)) {
-    const url = m[0];
-    if (!refs.has(url)) refs.set(url, new Set());
-    refs.get(url).add(relative(ROOT, file));
+    addRef(m[0], file);
+  }
+
+  // Detectar llamadas dinámicas getSrcSet('base', [400, 800, 1600], 'ext')
+  const srcSetRe = /getSrcSet\(\s*['"]([^'"]+)['"]\s*,\s*\[([\d\s,]+)\](?:\s*,\s*['"]([^'"]+)['"])?\s*\)/g;
+  for (const m of text.matchAll(srcSetRe)) {
+    const base = m[1];
+    const widths = m[2].split(',').map(s => s.trim()).filter(Boolean);
+    const ext = m[3] || 'webp';
+    for (const w of widths) {
+      addRef(`/images/${base}-${w}.${ext}`, file);
+    }
   }
 }
 
