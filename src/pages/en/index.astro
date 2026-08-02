@@ -55,12 +55,43 @@ const stats = [
       class="hero-lcp-img"
     />
 
+    <noscript>
+      <style>
+        .hero-lcp-img { opacity: 1 !important; }
+      </style>
+    </noscript>
+
     <script is:inline>
       (function() {
         var isMobile = window.innerWidth < 1024;
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.3s ease-in-out;';
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
+        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 0.4s ease-in-out;';
+        
+        // Write the video element dynamically without poster to avoid internal flashing
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" style="' + style + '"></video>');
+        
+        var video = document.getElementById('hero-video');
+        var img = document.querySelector('.hero-lcp-img');
+        
+        if (video) {
+          video.onplaying = function() {
+            video.style.opacity = 1;
+            if (img) img.style.opacity = 0; // Ensure static image remains hidden
+          };
+          
+          video.play().catch(function() {
+            if (img) img.style.opacity = 1; // If autoplay fails, show fallback image
+          });
+          
+          // Timeout backup: if in 1.5s video has not started (very slow network), show fallback
+          setTimeout(function() {
+            if (video.paused || video.currentTime === 0) {
+              if (img) img.style.opacity = 1;
+            }
+          }, 1500);
+        } else {
+          if (img) img.style.opacity = 1;
+        }
       })();
     </script>
 
@@ -290,7 +321,7 @@ const stats = [
 
 <style>
   .hero { position: relative; width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
-  .hero-lcp-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
+  .hero-lcp-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; opacity: 0; transition: opacity 0.8s ease-in-out; }
   .hero-video { z-index: 1; }
   .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 2; }
   .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 100px 20px 0; }
