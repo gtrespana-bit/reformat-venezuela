@@ -40,6 +40,7 @@ const lang = isEnglish ? 'en' : 'es';
 const lightHeaderRoutes = ['/privacidad', '/terminos', '/en/privacy', '/en/terms', '/404', '/en/404'];
 const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 const needsSolidNav = lightHeaderRoutes.includes(normalizedPath);
+const isHomePage = normalizedPath === '/' || normalizedPath === '/en';
 
 const whatsappText = isEnglish
   ? 'Hello,%20I%20would%20like%20a%20technical%20assessment%20for%20my%20remodeling%20project'
@@ -85,8 +86,16 @@ const navItems = isEnglish
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <!-- Las fuentes no se precargan globalmente: cada plantilla usa pesos
        distintos y un preload incondicional generaba avisos de recursos no
-       utilizados. @font-face + font-display:swap solicita solo los pesos que
-       cada página realmente necesita. -->
+       utilizados. En la home sí adelantamos los 4 pesos realmente críticos
+       para reducir la cadena CSS -> fuentes sobre el hero. -->
+  {isHomePage && (
+    <>
+      <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+      <link rel="preload" href="/fonts/cormorant-garamond-v21-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+      <link rel="preload" href="/fonts/manrope-v15-latin-400.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+      <link rel="preload" href="/fonts/manrope-v15-latin-600.v2.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    </>
+  )}
   <!-- Canonical + hreflang: emitidos por SEO.astro (fuente única) -->
 
   
