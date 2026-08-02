@@ -1,0 +1,619 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
+import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+
+const project = {
+  title: 'Remodelación de Cocina de Lujo con Cambio de Ubicación',
+  location: 'Guataparo, Valencia, Carabobo',
+  category: 'Cocinas de Alto Estándar',
+  duration: '2 semanas',
+  heroImage: '/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-2.webp',
+  excerpt: 'Reforma integral de cocina en quinta de lujo en Guataparo con cambio total de ubicación: desmontaje, condenado del antiguo acceso con bloque de 20 cm, renovación eléctrica y de plomería, sustitución del termo eléctrico por placas solares térmicas, suelo autonivelante con epoxi blanco, estantería flotante con tira LED y muebles bajos minimalistas con nevera importada de 90 cm Siemens.'
+};
+
+const technicalHighlights = [
+  'Cambio de ubicación de la cocina a una nueva habitación y desmontaje completo del mobiliario original',
+  'Renovación integral de la parte eléctrica y de la fontanería / plomería para adaptarse a la nueva distribución',
+  'Desmontaje y condenado del termo eléctrico anterior, sustituido por placas solares térmicas para el calentamiento de agua',
+  'Condenado del antiguo acceso a la cocina con bloque de 20 cm y enfoscado de mortero de cemento con acabado fino',
+  'Nuevas ranuras en paredes y suelos con tubería corrugada flexible para la instalación de los cables',
+  'Suelo nivelado con autonivelante, imprimación y acabado en epoxi totalmente blanco para una sensación de continuidad perfecta',
+  'Estantería flotante a todo lo largo de la cocina con tira LED inferior y superior invisible a la vista',
+  'Composición minimalista con solo muebles bajos, lavavajillas, horno y nevera importada de 90 cm de la marca Siemens'
+];
+
+const specs = [
+  { label: 'Ubicación', value: 'Quinta de lujo en Guataparo, Valencia, Carabobo' },
+  { label: 'Duración de obra', value: '2 semanas de ejecución' },
+  { label: 'Alcance', value: 'Cambio de ubicación, desmontaje, electricidad, plomería, suelo y montaje de cocina' },
+  { label: 'Agua caliente', value: 'Placas solares térmicas (termo eléctrico desmontado y condenado)' },
+  { label: 'Antiguo acceso', value: 'Condenado con bloque de 20 cm y enfoscado de cemento con acabado fino' },
+  { label: 'Instalaciones', value: 'Nuevas ranuras en paredes y suelos con tubería corrugada flexible para cables' },
+  { label: 'Suelo', value: 'Autonivelante + imprimación + epoxi blanco para continuidad perfecta' },
+  { label: 'Mobiliario', value: 'Solo muebles bajos, estética minimalista' },
+  { label: 'Estantería', value: 'Flotante a todo lo largo con tira LED inferior y superior invisible' },
+  { label: 'Electrodomésticos', value: 'Lavavajillas, horno y nevera importada de 90 cm de la marca Siemens' }
+];
+
+const gallery = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-2.webp',
+    alt: 'Cocina de lujo finalizada en quinta de Guataparo con estantería flotante y muebles bajos blancos',
+    title: 'Vista Final: Estantería Flotante y Minimalismo',
+    caption: 'Vista final de la cocina en su nueva ubicación: estantería flotante a todo lo largo, muebles bajos y epoxi blanco para una lectura continua y elegante.',
+    category: 'resultado',
+    categoryLabel: 'Resultado Final',
+    badge: 'Finalizado',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-1.webp',
+    alt: 'Cocina finalizada con nevera importada de 90 cm y electrodomésticos Siemens',
+    title: 'Equipamiento Siemens Integrado',
+    caption: 'Nevera importada de 90 cm, lavavajillas y horno Siemens integrados en la nueva cocina.',
+    category: 'resultado',
+    categoryLabel: 'Resultado Final',
+    badge: 'Siemens',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-estante-flotante-2.webp',
+    alt: 'Montaje de estantería flotante con tira LED en proceso',
+    title: 'Estantería Flotante con Tira LED',
+    caption: 'Instalación de la estantería flotante a todo lo largo con tira LED inferior y superior invisible a la vista.',
+    category: 'montaje',
+    categoryLabel: 'Montaje de Cocina',
+    badge: 'Estantería',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-estante-flotante-1.webp',
+    alt: 'Detalle del montaje de estante flotante en proceso',
+    title: 'Detalle del Montaje del Estante Flotante',
+    caption: 'Detalle del montaje del estante flotante: alineación, nivelación y preparación de la iluminación oculta.',
+    category: 'montaje',
+    categoryLabel: 'Montaje de Cocina',
+    badge: 'Proceso',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-montaje-suelo.webp',
+    alt: 'Montaje de cocina y suelo en proceso',
+    title: 'Montaje de Muebles Bajos y Suelo',
+    caption: 'Fase de montaje: muebles bajos en instalación y suelo en proceso para la nueva cocina.',
+    category: 'montaje',
+    categoryLabel: 'Montaje de Cocina',
+    badge: 'Proceso',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-autonivelante-suelo.webp',
+    alt: 'Suelo autonivelante aplicado en la cocina',
+    title: 'Nivelación con Autonivelante',
+    caption: 'Aplicación de autonivelante para nivelar todo el suelo a la perfección antes del acabado final.',
+    category: 'proceso',
+    categoryLabel: 'Proceso de Instalaciones',
+    badge: 'Suelo',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-imprimacion-suelo.webp',
+    alt: 'Imprimación del suelo antes del acabado epoxi',
+    title: 'Imprimación antes del Epoxi',
+    caption: 'Aplicación de imprimación sobre el autonivelante previo al acabado en epoxi totalmente blanco.',
+    category: 'proceso',
+    categoryLabel: 'Proceso de Instalaciones',
+    badge: 'Suelo',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-ranuras-electricas.webp',
+    alt: 'Ranuras para instalaciones eléctricas en pared',
+    title: 'Ranuras y Tubería Corrugada',
+    caption: 'Nuevas ranuras en paredes y suelos con tubería corrugada flexible para la instalación de los cables.',
+    category: 'proceso',
+    categoryLabel: 'Proceso de Instalaciones',
+    badge: 'Instalaciones',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-desmontada.webp',
+    alt: 'Cocina desmontada durante el proceso de reforma',
+    title: 'Desmontaje Total de la Cocina',
+    caption: 'Desmontaje completo de la cocina original para ejecutar el cambio de ubicación y las nuevas instalaciones.',
+    category: 'proceso',
+    categoryLabel: 'Proceso de Instalaciones',
+    badge: 'Proceso',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/proceso-entrada-cerrada-tabique.webp',
+    alt: 'Antiguo acceso condenado con bloque y tabique',
+    title: 'Antiguo Acceso Condenado',
+    caption: 'Condenado del antiguo acceso a la cocina con bloque de 20 cm y enfoscado de mortero de cemento con acabado fino.',
+    category: 'proceso',
+    categoryLabel: 'Proceso de Instalaciones',
+    badge: 'Albañilería',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-entrada.webp',
+    alt: 'Entrada original de la cocina antes de la reforma',
+    title: 'Acceso Original por Puerta Doble',
+    caption: 'La antigua cocina era independiente, separada de la sala y el comedor, con acceso mediante puerta doble de gran tamaño.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-nueva-ubicacion.webp',
+    alt: 'Nueva ubicación prevista para la cocina',
+    title: 'La Nueva Ubicación de la Cocina',
+    caption: 'Espacio que albergaría la nueva cocina, requiriendo una renovación eléctrica y de plomería completa.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'landscape'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-1.webp',
+    alt: 'Ubicación anterior de la cocina antes de la reforma',
+    title: 'Cocina Original en su Antigua Ubicación',
+    caption: 'Estado previo de la cocina original, totalmente independiente y separada de la sala de estar y el comedor.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-2.webp',
+    alt: 'Otra vista de la ubicación anterior de la cocina',
+    title: 'Vista de la Cocina Original',
+    caption: 'Otra vista de la cocina original separada del resto de la vivienda antes de la intervención integral.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-3.webp',
+    alt: 'Vista de la antigua cocina antes de la reforma',
+    title: 'Lectura Visual del Espacio Original',
+    caption: 'Lectura visual del espacio original antes del desmontaje y el cambio de ubicación.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait'
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-4.webp',
+    alt: 'Detalle de la antigua cocina antes de la reforma',
+    title: 'Detalle del Estado Previo',
+    caption: 'Detalle del estado previo de la cocina antes del cambio de ubicación y la reforma integral.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'landscape'
+  }
+];
+
+const featuredFinished = gallery.filter((img) => img.category === 'resultado');
+
+const storyMoments = [
+  {
+    tag: '01 · Estado previo',
+    title: 'La cocina estaba separada y aislada; el cambio exigía intervenir en toda la vivienda',
+    body: 'El punto de partida era una cocina totalmente independiente, separada de la sala de estar y el comedor y conectada por una puerta doble de gran tamaño. Para ganar una lectura integrada y abierta, la cocina se trasladó a una nueva ubicación, lo que obligó a rehacer instalaciones y obra por completo.',
+    image: '/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-1.webp',
+    alt: 'Cocina original en su antigua ubicación, separada del resto de la vivienda',
+    caption: 'Mostramos el estado real previo para que el cambio se entienda desde la base y no solo desde la foto final.'
+  },
+  {
+    tag: '02 · Obra e instalaciones',
+    title: 'Electricidad, plomería y suelo se rehicieron por completo para la nueva ubicación',
+    body: 'Se condenó el antiguo acceso con bloque de 20 cm, se renovaron las instalaciones eléctricas y de fontanería con nuevas ranuras y tubería corrugada, se sustituyó el termo eléctrico por placas solares térmicas y se niveló el suelo con autonivelante, imprimación y epoxi blanco para una continuidad perfecta.',
+    image: '/images/proyectos/cocina-lujo-guataparo/proceso-autonivelante-suelo.webp',
+    alt: 'Aplicación de autonivelante para nivelar el suelo de la nueva cocina',
+    caption: 'El suelo, los acabados y las instalaciones ocultas son la base del resultado final.'
+  },
+  {
+    tag: '03 · Montaje y resultado',
+    title: 'Una sola estantería flotante ordena toda la cocina con una lectura minimalista',
+    body: 'El resultado combina una estantería flotante a todo lo largo con tira LED inferior y superior invisible, solo muebles bajos y electrodomésticos Siemens integrados. La composición final es limpia, luminosa y totalmente integrada con el resto de la vivienda.',
+    image: '/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-2.webp',
+    alt: 'Cocina finalizada en su nueva ubicación con estantería flotante y muebles bajos',
+    caption: 'La composición final equilibra iluminación, continuidad y funcionalidad sin sobrecargar el espacio.'
+  }
+];
+
+const galleryPhases = [
+  { id: 'resultado', label: 'Resultado final', description: 'Las vistas ya terminadas muestran la composición minimalista, la estantería flotante y la integración de los equipos Siemens.' },
+  { id: 'montaje', label: 'Montaje de cocina', description: 'Fase intermedia donde se ve la instalación de la estantería flotante, los muebles bajos y su iluminación oculta.' },
+  { id: 'proceso', label: 'Proceso de instalaciones', description: 'Desmontaje, condenado del antiguo acceso, ranuras, tubería corrugada y la preparación del suelo autonivelante.' },
+  { id: 'antes', label: 'Estado previo', description: 'Punto de partida real de la cocina original, separada y aislada del resto de la vivienda.' }
+];
+
+const whatsappText = 'Hola, quiero una valoración técnica para una cocina similar a la de la quinta en Guataparo.';
+---
+
+<BaseLayout
+  title={`${project.title} en Guataparo | RemodelaT`}
+  description={project.excerpt}
+  image={project.heroImage}
+  activePage="proyectos"
+>
+  <header class="case-hero">
+    <img src={project.heroImage} alt={project.title} class="case-hero-img" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="case-hero-overlay"></div>
+    <div class="container case-hero-content">
+      <a href="/proyectos" class="back-link">← Volver a Proyectos</a>
+      <span class="case-eyebrow">Caso real · {project.category}</span>
+      <h1>{project.title} en Guataparo</h1>
+      <p>{project.excerpt}</p>
+      <div class="case-facts" aria-label="Datos del proyecto">
+        <span><strong>Ubicación</strong>{project.location}</span>
+        <span><strong>Duración</strong>{project.duration}</span>
+        <span><strong>Alcance</strong>Cambio de ubicación y reforma completa</span>
+        <span><strong>Fotos reales</strong>{gallery.length} imágenes del caso</span>
+      </div>
+      <div class="case-hero-actions">
+        <a href="#galeria" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Ver galería completa</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
+          <span class="btn-content">Solicitar valoración</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+      <p class="case-hero-proof">{gallery.length} fotos reales · recorrido por fases · ampliación detallada en cada imagen</p>
+    </div>
+  </header>
+
+  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
+    <div class="container">
+      <div class="breadcrumb-inner">
+        <a href="/">Inicio</a>
+        <span class="separator">/</span>
+        <a href="/proyectos">Proyectos</a>
+        <span class="separator">/</span>
+        <span class="current">Cocina de Lujo Guataparo</span>
+      </div>
+    </div>
+  </nav>
+
+  <section class="finished-showcase-section section" id="resultado">
+    <div class="container">
+      <div class="section-header showcase-header">
+        <span class="tag">Resultado final</span>
+        <h2 class="section-title">La cocina terminada, visible desde el inicio</h2>
+        <p class="section-desc">Antes de entrar en el detalle técnico, mostramos el resultado final: estantería flotante a todo lo largo, muebles bajos, epoxi blanco y equipamiento Siemens en la nueva ubicación.</p>
+      </div>
+      <div class="finished-showcase-grid">
+        {featuredFinished.map((image, index) => (
+          <figure class:list={["finished-card", index === 0 && 'is-wide']}>
+            <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+            <figcaption>
+              <span>{image.badge}</span>
+              <strong>{image.title}</strong>
+              <p>{image.caption}</p>
+              <button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="case-overview section">
+    <div class="container overview-grid">
+      <article>
+        <span class="tag">El reto</span>
+        <h2>Trasladar una cocina separada y aislada a una ubicación integrada</h2>
+        <p>La cocina original era independiente y estaba separada de la sala de estar y el comedor por una puerta doble de gran tamaño. El reto no era solo renovar acabados: había que mover la cocina en su totalidad, rehacer la electricidad y la plomería, condenar el antiguo acceso y ganar una lectura abierta e integrada de toda la vivienda.</p>
+      </article>
+      <article>
+        <span class="tag">La solución</span>
+        <h2>Una cocina minimalista con estantería flotante y epoxi blanco continuo</h2>
+        <p>Se desmontó la cocina completa, se condenó el antiguo acceso con bloque de 20 cm, se renovaron las instalaciones y se sustituyó el termo eléctrico por placas solares térmicas. El suelo se niveló con autonivelante e imprimación y se terminó en epoxi blanco, mientras la estantería flotante con tira LED ordena todo el espacio con una lectura limpia y premium.</p>
+      </article>
+    </div>
+  </section>
+
+  <ProjectBeforeAfterSlider
+    id="comparativa"
+    eyebrow="Comparativa principal"
+    title="De una cocina separada y aislada a un espacio integrado y continuo"
+    text="La mejora no se limita al mobiliario nuevo. El cambio real está en la reubicación, la integración técnica, la continuidad del suelo y la lectura arquitectónica de toda la vivienda."
+    beforeSrc="/images/proyectos/cocina-lujo-guataparo/antes-ubicacion-1.webp"
+    beforeAlt="Cocina original separada y aislada antes de la reforma en Guataparo"
+    afterSrc="/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-2.webp"
+    afterAlt="Cocina finalizada en su nueva ubicación con estantería flotante y muebles bajos"
+    beforeLabel="Antes"
+    afterLabel="Después"
+    beforeCaption="Estado previo: cocina independiente, separada de la sala de estar y el comedor por una puerta doble."
+    afterCaption="La nueva cocina, integrada en la vivienda, gana continuidad, iluminación y una lectura mucho más premium."
+    showLightboxButtons={false}
+  />
+
+  <ProjectReadingGallery
+    eyebrow="Recorrido visual"
+    title="La obra explicada por fases clave"
+    intro="Este tramo combina relato e imagen para que el visitante entienda qué se transformó, cómo se ejecutó y por qué el resultado se percibe mucho más sólido y elegante."
+    items={storyMoments}
+    galleryGroup="cocina-guataparo-story"
+  />
+
+  <section class="case-technical section bg-light" id="tecnica">
+    <div class="container technical-grid">
+      <div class="technical-copy">
+        <span class="tag">Ejecución técnica</span>
+        <h2>Detalles que explican por qué este cambio de cocina transforma la vivienda</h2>
+        <p>El resultado final depende de lo visible y de lo oculto: instalaciones renovadas, antiguo acceso condenado, agua caliente con placas solares, suelo epoxi continuo y una estantería flotante con iluminación invisible.</p>
+      </div>
+      <div class="technical-list">
+        {technicalHighlights.map((item) => (
+          <div class="technical-item">{item}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="material-section section">
+    <div class="container material-grid">
+      <div>
+        <span class="tag">Mobiliario</span>
+        <h2>Estantería flotante: una sola línea que ordena toda la cocina</h2>
+        <p>En lugar de muebles altos, la cocina apuesta por una estantería flotante a todo lo largo con tira LED inferior y superior invisible a la vista. Combinada con solo muebles bajos, genera una lectura minimalista, luminosa y continua sin interrumpir el espacio.</p>
+      </div>
+      <div class="benefit-card-grid">
+        <article><h3>Iluminación invisible</h3><p>Tira LED inferior y superior oculta que aporta luz ambiental sin elementos visibles que rompan la línea.</p></article>
+        <article><h3>Lectura minimalista</h3><p>Solo muebles bajos y una estantería continua: menos piezas, más amplitud y orden visual.</p></article>
+        <article><h3>Continuidad del espacio</h3><p>Al eliminar los muebles altos, la cocina se integra de forma natural con la sala y el comedor.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section class="induction-section section bg-light">
+    <div class="container induction-grid">
+      <div class="induction-card">
+        <span class="tag">Suelo y equipamiento</span>
+        <h2>Suelo autonivelante con epoxi blanco y electrodomésticos Siemens</h2>
+        <p>Para una sensación de continuidad perfecta, el suelo se niveló con autonivelante, se aplicó imprimación y se terminó en epoxi totalmente blanco. El resultado es una superficie continua, limpia y fácil de mantener que une visualmente todos los espacios.</p>
+        <p>La instalación se completó con lavavajillas, horno y una nevera importada de 90 cm, todo de la marca Siemens, integrados en la composición minimalista de muebles bajos.</p>
+      </div>
+      <div class="image-card">
+        <img src="/images/proyectos/cocina-lujo-guataparo/cocina-finalizada-1.webp" alt="Nevera importada de 90 cm y electrodomésticos Siemens integrados en la cocina" loading="lazy" decoding="async" />
+      </div>
+    </div>
+  </section>
+
+  <section class="case-specs section" id="ficha">
+    <div class="container specs-grid">
+      <div>
+        <span class="tag">Especificaciones</span>
+        <h2>Materiales, sistemas y garantías del proyecto</h2>
+      </div>
+      <div class="spec-list">
+        {specs.map((spec) => (
+          <div class="spec-row">
+            <strong>{spec.label}</strong>
+            <span>{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ProjectPhaseGallery
+    eyebrow="Archivo fotográfico completo"
+    title={`Galería ordenada por fases (${gallery.length} fotos reales)`}
+    intro="La galería ya no mezcla todo en una sola rejilla: cada fase se presenta como un bloque propio para que el proyecto se lea mejor y las fotos respiren más."
+    items={gallery}
+    phases={galleryPhases}
+    id="galeria"
+  />
+
+  <GuaranteeMatrix compact />
+
+  <section class="case-cta">
+    <div class="container case-cta-inner">
+      <span class="tag tag-on-dark">Valoración técnica</span>
+      <h2>¿Quieres una cocina ejecutada con este nivel de control?</h2>
+      <p>Cuéntanos ubicación, tipo de vivienda, alcance, nivel de acabado y fecha estimada. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica.</p>
+      <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+        <span class="btn-content">Solicitar valoración técnica</span>
+        <span class="btn-border"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  <ProjectLightbox />
+</BaseLayout>
+
+<style>
+  .case-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; color: var(--white); background: var(--ink); overflow: hidden; padding: 145px 0 85px; }
+  .case-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
+  .case-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,14,.96), rgba(20,18,14,.72) 48%, rgba(20,18,14,.26)), linear-gradient(to top, rgba(20,18,14,.95), transparent 58%); }
+  .case-hero-content { position: relative; z-index: 2; max-width: 980px; }
+  .back-link { display: inline-block; color: var(--gold); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; margin-bottom: 24px; }
+  .case-eyebrow { display: inline-block; color: var(--gold-light); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; margin-bottom: 18px; }
+  .case-hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5.7rem); line-height: 1; letter-spacing: var(--track-tight); font-weight: 500; max-width: 900px; margin: 0 0 22px; }
+  .case-hero p { max-width: 800px; color: rgba(255,255,255,.84); font-size: clamp(1.06rem, 2vw, 1.25rem); line-height: 1.72; margin: 0 0 32px; }
+  .case-facts { display: flex; flex-wrap: wrap; border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg); overflow: hidden; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); max-width: 920px; }
+  .case-facts span { padding: 18px 24px; min-width: 210px; border-right: 1px solid rgba(201,169,97,.18); color: rgba(255,255,255,.9); }
+  .case-facts span:last-child { border-right: 0; }
+  .case-facts strong { display: block; color: var(--gold); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 6px; }
+  .case-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 26px;
+  }
+  .case-hero-actions .btn-premium {
+    min-height: 54px;
+  }
+  .case-hero-proof {
+    margin-top: 16px;
+    color: rgba(255,255,255,.72);
+    font-size: .82rem;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+  .breadcrumb-after-hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 18px 0;
+  }
+  .breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: .84rem;
+  }
+  .breadcrumb-inner a { color: var(--text-muted); text-decoration: none; font-weight: 500; }
+  .breadcrumb-inner a:hover { color: var(--gold-ink); }
+  .breadcrumb-inner .separator { color: var(--sand); margin: 0 4px; }
+  .breadcrumb-inner .current { color: var(--text); font-weight: 600; }
+
+  .finished-showcase-section { background: var(--white); padding-bottom: var(--s-5); }
+  .showcase-header { max-width: 820px; }
+  .finished-showcase-grid {
+    display: grid;
+    grid-template-columns: 1.35fr .82fr .82fr;
+    gap: 22px;
+    align-items: stretch;
+  }
+  .finished-card {
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: var(--r-lg);
+    background: var(--ink);
+    min-height: 520px;
+    box-shadow: var(--e-3);
+    border: 1px solid rgba(201,169,97,.22);
+  }
+  .finished-card.is-wide { min-height: 520px; }
+  .finished-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: .94;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .finished-card:hover img { transform: scale(1.035); }
+  .finished-card figcaption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 28px;
+    color: var(--white);
+    background: linear-gradient(to top, rgba(20,18,14,.92), rgba(20,18,14,.56) 62%, transparent);
+  }
+  .finished-card figcaption span {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--ink);
+    border-radius: var(--r-full);
+    padding: 5px 12px;
+    font-size: .72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 12px;
+  }
+  .finished-card figcaption strong {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: clamp(1.45rem, 2.3vw, 2rem);
+    line-height: 1.08;
+    margin-bottom: 8px;
+  }
+  .finished-card figcaption p {
+    color: rgba(255,255,255,.78);
+    line-height: 1.62;
+    font-size: .94rem;
+    margin: 0;
+  }
+
+  .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s-5); align-items: start; }
+  .overview-grid article, .induction-card { padding: 34px; border-radius: var(--r-lg); border: 1px solid var(--sand); background: var(--white); box-shadow: var(--e-1); }
+  .overview-grid h2, .technical-copy h2, .specs-grid h2, .material-grid h2, .induction-card h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 18px; }
+  .overview-grid p, .technical-copy p, .material-grid p, .induction-card p { color: var(--text-muted); line-height: 1.82; font-size: 1.05rem; margin-bottom: 16px; }
+
+  .technical-list { display: grid; gap: 12px; }
+  .technical-item { padding: 18px 22px 18px 52px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-md); color: var(--text-muted); position: relative; box-shadow: var(--e-1); line-height: 1.6; }
+  .technical-item::before { content: ""; position: absolute; left: 22px; top: 25px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 6px rgba(201,169,97,.13); }
+
+  .benefit-card-grid { display: grid; gap: 18px; }
+  .benefit-card-grid article { padding: 28px; border-radius: var(--r-lg); background: linear-gradient(180deg, var(--white), var(--bone)); border: 1px solid var(--sand); box-shadow: var(--e-1); }
+  .benefit-card-grid h3 { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 10px; color: var(--ink); }
+  .benefit-card-grid p { margin: 0; }
+  .image-card { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-3); background: var(--ink); }
+  .image-card img { width: 100%; height: 520px; object-fit: cover; display: block; }
+
+  .spec-list { border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-2); }
+  .spec-row { display: grid; grid-template-columns: .62fr 1fr; border-top: 1px solid var(--sand); background: var(--white); }
+  .spec-row:first-child { border-top: 0; }
+  .spec-row strong, .spec-row span { padding: 18px 22px; }
+  .spec-row strong { color: var(--ink); font-family: var(--font-serif); font-size: 1.16rem; border-right: 1px solid var(--sand); }
+  .spec-row span { color: var(--text-muted); line-height: 1.6; }
+
+  .case-cta { padding: 105px 24px; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 45%), var(--ink); color: var(--white); text-align: center; }
+  .case-cta-inner { max-width: 900px; }
+  .case-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
+  .case-cta p { max-width: 760px; margin: 0 auto 34px; color: rgba(255,255,255,.76); line-height: 1.75; font-size: 1.12rem; }
+  .tag-on-dark { color: var(--gold); }
+
+  .finished-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+  }
+  .finished-card img {
+    height: 420px !important;
+    object-fit: contain !important;
+    background: var(--ink-soft);
+    padding: 14px;
+  }
+  .finished-card figcaption {
+    position: static !important;
+    inset: auto !important;
+    background: var(--white) !important;
+    color: var(--text) !important;
+    padding: 22px 24px 24px !important;
+  }
+  .finished-card figcaption strong { color: var(--ink); }
+  .finished-card figcaption p { color: var(--text-muted) !important; margin-bottom: 16px !important; }
+
+  @media (max-width: 950px) {
+    .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { grid-template-columns: 1fr; }
+    .finished-showcase-grid { grid-template-columns: 1fr; }
+    .finished-card, .finished-card.is-wide { min-height: 480px; }
+    .image-card img { height: 520px; }
+  }
+  @media (max-width: 640px) {
+    .case-facts { display: grid; }
+    .case-facts span { border-right: 0; border-bottom: 1px solid rgba(201,169,97,.18); }
+    .case-hero-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+    .case-hero-actions .btn-premium {
+      width: 100%;
+      justify-content: center;
+    }
+    .finished-card, .finished-card.is-wide { min-height: 420px; }
+    .spec-row { grid-template-columns: 1fr; }
+    .spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); }
+  }
+</style>
