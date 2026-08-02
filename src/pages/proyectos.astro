@@ -2,6 +2,17 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 
 const projects = [
+  {
+    title: "Cocina de Lujo en Guataparo",
+    category: "Cocinas de Alto Estándar",
+    location: "Guataparo, Valencia, Carabobo",
+    image: "/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp",
+    desc: "Reubicación integral paso a paso: cocina cerrada trasladada a la zona día, acceso condenado con bloque de 20 cm, suelo epóxico blanco continuo, estantería flotante con luz oculta y equipos Siemens.",
+    slug: "cocina-lujo-guataparo",
+    duration: "Reubicación integral",
+    durationLabel: "Alcance",
+    specs: ["Suelo Epoxi Blanco", "Estantería Flotante LED", "Siemens & Solar Térmica"]
+  },
   { 
     title: "Remodelación Integral de Cocina en Quinta", 
     category: "Cocinas de Alto Estándar", 
@@ -103,7 +114,7 @@ const projects = [
                   </svg>
                   {p.location}
                 </span>
-                <span class="project-card-duration">Duración: {p.duration}</span>
+                <span class="project-card-duration">{p.durationLabel ?? 'Duración'}: {p.duration}</span>
               </div>
               <h2 class="project-card-title">
                 <a href={`/proyectos/${p.slug}`}>{p.title}</a>

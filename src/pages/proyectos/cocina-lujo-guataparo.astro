@@ -1,0 +1,1344 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
+import ProjectLightbox from '../../components/ProjectLightbox.astro';
+import ProjectQuickNav from '../../components/ProjectQuickNav.astro';
+import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
+import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
+
+const project = {
+  title: 'Cocina de Lujo en Guataparo',
+  kicker: 'Caso real · Cocinas de alto estándar',
+  location: 'Quinta residencial · Guataparo, Valencia, Carabobo',
+  excerpt:
+    'Reubicación integral de una cocina que vivía cerrada e independiente: la trasladamos a la zona día, condenamos su antiguo acceso, renovamos electricidad y fontanería, sustituimos el termo eléctrico por placas solares térmicas, vertimos un suelo epóxico blanco continuo y montamos una composición lineal de muebles bajos con estantería flotante iluminada y equipos Siemens.',
+  heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+};
+
+const heroFacts = [
+  { label: 'Ubicación', value: 'Guataparo · Valencia' },
+  { label: 'Intervención', value: 'Reubicación integral' },
+  { label: 'Suelo', value: 'Epoxi blanco continuo' },
+  { label: 'Equipos', value: 'Siemens · Nevera 90 cm' },
+  { label: 'Fotos reales', value: '16 imágenes' },
+];
+
+const quickNavItems = [
+  { href: '#resumen', label: 'Resumen' },
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#paso-a-paso', label: 'Paso a paso' },
+  { href: '#comparativa', label: 'Antes y después' },
+  { href: '#especificaciones', label: 'Especificaciones' },
+  { href: '#galeria', label: 'Galería' },
+];
+
+const whatsappText =
+  'Hola, quiero una valoración técnica para una cocina como la de la quinta en Guataparo.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+
+const resultadoShowcase = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Cocina lineal terminada con muebles bajos blancos, estantería flotante y nevera Siemens en quinta de Guataparo',
+    badge: 'Cocina lineal',
+    title: 'Una sola línea de mobiliario bajo, coronada por luz oculta',
+    caption:
+      'Solo muebles bajos —sin módulos altos— para una lectura limpia y minimalista, con la estantería flotante iluminada recorriendo toda la cocina y la nevera Siemens de 90 cm cerrando la composición.',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
+    alt: 'Zona día unificada con suelo epóxico blanco continuo, comedor y cocina abierta en quinta de Guataparo',
+    badge: 'Zona día unificada',
+    title: 'Cocina, comedor y sala leídos como un solo espacio',
+    caption:
+      'El suelo epóxico blanco sin juntas une visualmente toda la planta: la antigua cocina cerrada se convierte en el corazón abierto de la zona día, bañado de luz natural.',
+  },
+];
+
+const phases = [
+  {
+    number: '01',
+    kicker: 'Fase 01 · Diagnóstico',
+    title: 'El punto de partida: una cocina aislada que cortaba la casa',
+    body:
+      'La cocina original era totalmente independiente y estaba separada de la sala de estar y el comedor. Se accedía a través de una puerta doble de gran tamaño: un espacio cerrado, con cerámica y mobiliario envejecidos, que fragmentaba la zona día de la quinta. La decisión no fue renovarla en el mismo punto, sino trasladarla por completo a una nueva ubicación.',
+    checks: [
+      'Diagnóstico del estado de mobiliario, cerámica e instalaciones',
+      'Replanteo de la distribución completa de la zona día',
+      'Definición de la nueva ubicación, integrada con sala y comedor',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
+      alt: 'Acceso doble original a la cocina cerrada visto desde la sala, antes de la reforma en Guataparo',
+      badge: 'Antes',
+      caption:
+        'El acceso doble original, visto desde la sala. Este hueco sería condenado y la cocina, trasladada.',
+    },
+  },
+  {
+    number: '02',
+    kicker: 'Fase 02 · Demolición controlada',
+    title: 'Desmontaje total y retirada del termo eléctrico',
+    body:
+      'Se desmontó la cocina en su totalidad: muebles, encimera y equipos. El termo eléctrico que servía a la antigua cocina también se desmontó y quedó condenado: desde esta intervención, el agua caliente de la vivienda se produce con placas solares térmicas, eliminando un consumo eléctrico permanente y ganando eficiencia.',
+    checks: [
+      'Desmontaje completo de mobiliario, encimera y equipos',
+      'Retirada y condena del termo eléctrico existente',
+      'Preparación del sistema de agua caliente con placas solares térmicas',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
+      alt: 'Cocina antigua ya desmontada con el termo eléctrico a la vista antes de su retirada',
+      badge: 'Demolición',
+      caption:
+        'La cocina antigua vaciada por completo. El termo eléctrico fue desmontado y condenado para dar paso al sistema solar térmico.',
+    },
+  },
+  {
+    number: '03',
+    kicker: 'Fase 03 · Obra civil e instalaciones',
+    title: 'Condenar el acceso antiguo y cablear la nueva ubicación',
+    body:
+      'El antiguo acceso a la cocina se condenó con un tabique de bloque de 20 cm, enfrascado con mortero de cemento y acabado fino hasta desaparecer en la pared. A continuación se abrieron las nuevas ranuras en paredes y suelos para llevar la electricidad y la fontanería hasta la nueva ubicación, con tubería corrugada flexible protegiendo todo el cableado.',
+    checks: [
+      'Tabique de bloque de 20 cm con enfrascado y acabado fino',
+      'Ranuras en paredes y suelos para los nuevos recorridos',
+      'Cableado protegido con tubería corrugada flexible',
+      'Fontanería reubicada íntegramente a la nueva ubicación',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
+      alt: 'Tabique de bloque que condena el antiguo acceso y ranuras eléctricas abiertas en las paredes',
+      badge: 'Instalaciones',
+      caption:
+        'El acceso original ya condenado con bloque de 20 cm y las nuevas ranuras eléctricas trazadas en las paredes.',
+    },
+  },
+  {
+    number: '04',
+    kicker: 'Fase 04 · El suelo',
+    title: 'Autonivelante, imprimación y un epoxi blanco sin juntas',
+    body:
+      'El proyecto pedía un diseño exclusivo: un suelo continuo que unificara cocina, comedor y sala. Primero se aplicó autonivelante para dejar el plano perfectamente nivelado; después, la imprimación de anclaje; y por último, el acabado epóxico totalmente blanco. El resultado es una superficie sin juntas que multiplica la luz y produce una sensación de continuidad perfecta.',
+    checks: [
+      'Nivelación del plano con mortero autonivelante',
+      'Imprimación de anclaje en toda la superficie',
+      'Acabado epóxico blanco de continuidad total, sin juntas',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
+      alt: 'Suelo autonivelante recién aplicado en la zona donde se reubicó la cocina de la quinta',
+      badge: 'Suelo',
+      caption:
+        'El autonivelante recién vertido: la base perfectamente plana sobre la que se aplicó la imprimación y el epoxi final.',
+    },
+  },
+  {
+    number: '05',
+    kicker: 'Fase 05 · Montaje',
+    title: 'Solo muebles bajos y una estantería flotante con luz oculta',
+    body:
+      'Con las instalaciones y el suelo terminados, llegó el montaje: una composición lineal exclusivamente de muebles bajos —sin módulos altos— para un acabado limpio y minimalista. La recorre una estantería flotante a todo lo largo de la cocina, con tiras LED superior e inferior completamente invisibles a la vista.',
+    checks: [
+      'Montaje de módulos bajos con control de plomos, niveles y encuentros',
+      'Estantería flotante corrida a toda la longitud de la cocina',
+      'Iluminación LED integrada, invisible desde cualquier ángulo',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
+      alt: 'Montaje de la cocina lineal de muebles bajos blancos con la estantería flotante en proceso',
+      badge: 'Montaje',
+      caption:
+        'La composición lineal tomando forma: módulos bajos alineados y la estantería flotante con su iluminación integrada.',
+    },
+  },
+  {
+    number: '06',
+    kicker: 'Fase 06 · Entrega',
+    title: 'Puesta en marcha: equipos Siemens y revisión final',
+    body:
+      'La instalación se completó con horno y lavavajillas Siemens y una nevera importada de 90 cm de la misma marca. La antigua cocina cerrada es hoy un espacio abierto que se lee de una pieza: suelo blanco continuo, línea de mobiliario baja y una luz que recorre toda la zona día de la quinta.',
+    checks: [
+      'Integración de horno y lavavajillas Siemens',
+      'Nevera importada de 90 cm incorporada a la composición',
+      'Revisión final de acabados, iluminación y funcionamiento',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+      alt: 'Cocina de lujo terminada en Guataparo con muebles bajos, estantería iluminada y equipos Siemens',
+      badge: 'Entrega',
+      caption:
+        'La cocina entregada: composición lineal en blanco, estantería iluminada y equipos Siemens integrados.',
+    },
+  },
+];
+
+const highlights = [
+  {
+    title: 'Suelo epóxico blanco continuo',
+    text: 'Autonivelante, imprimación y acabado epóxico en blanco puro: una sola superficie sin juntas que unifica cocina, comedor y sala.',
+  },
+  {
+    title: 'Estantería flotante con luz oculta',
+    text: 'Recorre toda la longitud de la cocina y esconde dos tiras LED —superior e inferior— que bañan pared y encimera sin verse.',
+  },
+  {
+    title: 'Agua caliente solar',
+    text: 'El termo eléctrico quedó condenado: el agua caliente se produce ahora con placas solares térmicas, más eficientes y sostenibles.',
+  },
+  {
+    title: 'Equipamiento Siemens',
+    text: 'Horno y lavavajillas integrados, más una nevera importada de 90 cm: equipos de especificación alemana para uso diario intensivo.',
+  },
+];
+
+const specs = [
+  { label: 'Ubicación', value: 'Quinta residencial en Guataparo, Valencia, Carabobo' },
+  { label: 'Intervención', value: 'Reubicación integral de la cocina a la zona día' },
+  { label: 'Estado inicial', value: 'Cocina cerrada e independiente, con acceso por puerta doble' },
+  { label: 'Obra civil', value: 'Condena del acceso con bloque de 20 cm y acabado fino' },
+  { label: 'Instalación eléctrica', value: 'Nuevas ranuras en paredes y suelos, tubo corrugado flexible' },
+  { label: 'Fontanería', value: 'Reubicada íntegramente a la nueva ubicación' },
+  { label: 'Agua caliente', value: 'Termo eléctrico condenado; placas solares térmicas' },
+  { label: 'Suelo', value: 'Autonivelante + imprimación + epoxi blanco continuo' },
+  { label: 'Mobiliario', value: 'Composición lineal de muebles bajos, estilo minimalista' },
+  { label: 'Estantería', value: 'Flotante a toda la longitud, LED superior e inferior oculto' },
+  { label: 'Equipos', value: 'Horno y lavavajillas Siemens; nevera importada de 90 cm' },
+];
+
+const galleryPhases = [
+  {
+    id: 'resultado',
+    label: 'Resultado final',
+    description: 'La cocina entregada: línea continua de muebles bajos, estantería flotante iluminada y el suelo epóxico blanco uniendo toda la zona día.',
+  },
+  {
+    id: 'montaje',
+    label: 'Montaje',
+    description: 'Alineación de módulos bajos, encuentros y la estantería flotante con su iluminación integrada durante el proceso.',
+  },
+  {
+    id: 'suelo',
+    label: 'El suelo',
+    description: 'Autonivelante, imprimación y acabado epóxico: las tres capas que construyen la continuidad perfecta del pavimento.',
+  },
+  {
+    id: 'obra',
+    label: 'Obra civil e instalaciones',
+    description: 'Desmontaje, condena del acceso con bloque de 20 cm y las nuevas instalaciones eléctricas y de fontanería.',
+  },
+  {
+    id: 'antes',
+    label: 'Estado previo',
+    description: 'El punto de partida real: la cocina cerrada, su acceso doble y el comedor donde hoy se lee el nuevo espacio.',
+  },
+];
+
+const gallery = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Cocina lineal terminada en blanco con estantería flotante iluminada y nevera Siemens en Guataparo',
+    title: 'Composición lineal terminada',
+    caption: 'Muebles bajos en blanco, estantería flotante con luz oculta y la nevera Siemens de 90 cm cerrando la línea.',
+    category: 'resultado',
+    categoryLabel: 'Resultado Final',
+    badge: 'Finalizado',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
+    alt: 'Comedor y cocina abiertos con suelo epóxico blanco continuo en quinta de Guataparo',
+    title: 'La zona día unificada',
+    caption: 'El epoxi blanco continuo conecta cocina, comedor y sala en una única lectura llena de luz.',
+    category: 'resultado',
+    categoryLabel: 'Resultado Final',
+    badge: 'Zona día',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-cocina-vista-sala.webp',
+    alt: 'Cocina en proceso de montaje vista desde la sala con el suelo epóxico blanco terminado',
+    title: 'El montaje visto desde la sala',
+    caption: 'La nueva ubicación ya dialoga con el resto de la planta: suelo continuo y composición baja en instalación.',
+    category: 'montaje',
+    categoryLabel: 'Montaje',
+    badge: 'Proceso',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
+    alt: 'Detalle del montaje de la cocina lineal con estantería flotante en proceso de ajuste',
+    title: 'Estantería flotante en ajuste',
+    caption: 'La estantería flotante corrida, con la iluminación LED ya integrada en su canto superior e inferior.',
+    category: 'montaje',
+    categoryLabel: 'Montaje',
+    badge: 'Estantería',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lateral.webp',
+    alt: 'Vista lateral de la cocina lineal en montaje con el ventanal al fondo en Guataparo',
+    title: 'La línea baja frente al ventanal',
+    caption: 'Sin muebles altos: toda la composición queda por debajo de la línea de vista y deja respirar al ventanal.',
+    category: 'montaje',
+    categoryLabel: 'Montaje',
+    badge: 'Proceso',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
+    alt: 'Aplicación del suelo autonivelante en la nueva ubicación de la cocina',
+    title: 'Autonivelante recién vertido',
+    caption: 'La primera capa: un plano perfectamente nivelado como base de todo el pavimento continuo.',
+    category: 'suelo',
+    categoryLabel: 'El Suelo',
+    badge: 'Base',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/suelo-imprimacion-blanca.webp',
+    alt: 'Suelo con imprimación blanca aplicada antes del acabado epóxico final',
+    title: 'Imprimación de anclaje',
+    caption: 'La imprimación prepara la superficie para el acabado epóxico definitivo en blanco puro.',
+    category: 'suelo',
+    categoryLabel: 'El Suelo',
+    badge: 'Imprimación',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
+    alt: 'Tabique de bloque de 20 cm condenando el acceso antiguo y ranuras eléctricas en pared',
+    title: 'Condena del acceso y nuevas ranuras',
+    caption: 'El acceso original sellado con bloque de 20 cm, mientras las nuevas ranuras preparan los circuitos.',
+    category: 'obra',
+    categoryLabel: 'Obra Civil e Instalaciones',
+    badge: 'Obra civil',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-acceso-condenado-fratasado.webp',
+    alt: 'Antiguo acceso ya enfrascado y la futura ubicación de la cocina en pleno proceso',
+    title: 'El acceso desaparece en la pared',
+    caption: 'Con el enfrascado de acabado fino, el antiguo hueco de la puerta doble deja de existir visualmente.',
+    category: 'obra',
+    categoryLabel: 'Obra Civil e Instalaciones',
+    badge: 'Enfrascado',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
+    alt: 'Cocina antigua desmontada con termo eléctrico visible antes de su condena',
+    title: 'Desmontaje y retirada del termo',
+    caption: 'La cocina original vaciada; el termo eléctrico fue condenado y sustituido por placas solares térmicas.',
+    category: 'obra',
+    categoryLabel: 'Obra Civil e Instalaciones',
+    badge: 'Demolición',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-2.webp',
+    alt: 'Cocina original cerrada vista desde su acceso doble antes de la reforma',
+    title: 'El acceso doble original',
+    caption: 'La puerta doble de gran tamaño que separaba la cocina de la vida de la casa.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-4.webp',
+    alt: 'Interior de la cocina original con ventana y mobiliario antiguo',
+    title: 'La cocina tal como se encontraba',
+    caption: 'Cerámica, cenefa y mobiliario envejecidos: un espacio que pedía una intervención de raíz.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-3.webp',
+    alt: 'Detalle de la cocina original con encimera y módulos antiguos',
+    title: 'Mobiliario y encimera envejecidos',
+    caption: 'El conjunto original, ya fuera de servicio, fue desmontado por completo.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-1.webp',
+    alt: 'Vista interior de la cocina cerrada original desde la puerta doble',
+    title: 'Un espacio cerrado y compartimentado',
+    caption: 'La planta original impedía cualquier continuidad entre cocina, comedor y sala.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
+    alt: 'Sala y comedor originales con el acceso doble a la cocina al fondo',
+    title: 'La zona día antes de la intervención',
+    caption: 'Comedor y sala con la cocina al fondo, separada por el acceso doble que después fue condenado.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-nueva-ubicacion-comedor.webp',
+    alt: 'Comedor original que se convertiría en la nueva ubicación de la cocina',
+    title: 'La futura ubicación de la cocina',
+    caption: 'El comedor original: el espacio elegido para recibir la nueva cocina abierta.',
+    category: 'antes',
+    categoryLabel: 'Estado Previo',
+    badge: 'Antes',
+    orientation: 'portrait',
+  },
+];
+---
+
+<BaseLayout
+  title="Cocina de Lujo en Guataparo, Valencia | Caso Real Paso a Paso | RemodelaT"
+  description={project.excerpt}
+  image={project.heroImage}
+  activePage="proyectos"
+>
+  <!-- ============ HERO EDITORIAL ============ -->
+  <header class="gu-hero">
+    <img
+      src={project.heroImage}
+      alt="Cocina de lujo terminada en quinta de Guataparo, Valencia: línea de muebles bajos blancos, estantería flotante iluminada y suelo epóxico continuo"
+      class="gu-hero-img"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="gu-hero-overlay" aria-hidden="true"></div>
+    <div class="container gu-hero-content">
+      <a href="/proyectos" class="gu-back">← Volver a proyectos</a>
+      <span class="gu-eyebrow">{project.kicker}</span>
+      <h1>{project.title}</h1>
+      <p class="gu-lead">{project.excerpt}</p>
+
+      <dl class="gu-facts" aria-label="Ficha del proyecto">
+        {heroFacts.map((fact) => (
+          <div class="gu-fact">
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div class="gu-hero-actions">
+        <a href="#paso-a-paso" class="btn-premium btn-primary-premium">
+          <span class="btn-content">Ver el paso a paso</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href={whatsappHref} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
+          <span class="btn-content">Solicitar valoración</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ NAVEGACIÓN RÁPIDA STICKY ============ -->
+  <ProjectQuickNav
+    items={quickNavItems}
+    ctaHref={whatsappHref}
+    ctaLabel="Solicitar valoración"
+    summary="Reubicación integral de cocina en quinta de Guataparo, documentada fase a fase."
+  />
+
+  <!-- ============ MIGAS DE PAN ============ -->
+  <nav class="gu-breadcrumb" aria-label="Breadcrumb">
+    <div class="container gu-breadcrumb-inner">
+      <a href="/">Inicio</a>
+      <span class="gu-sep">/</span>
+      <a href="/proyectos">Proyectos</a>
+      <span class="gu-sep">/</span>
+      <span class="gu-current">Cocina de Lujo en Guataparo</span>
+    </div>
+  </nav>
+
+  <!-- ============ 01 · RESUMEN ============ -->
+  <section class="section gu-summary" id="resumen">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">En síntesis</span>
+        <h2 class="section-title">De cocina cerrada a corazón abierto de la quinta</h2>
+        <p class="section-desc">
+          Una intervención que no se limitó a cambiar acabados: la cocina cambió de habitación,
+          de concepto y de relación con el resto de la vivienda.
+        </p>
+      </div>
+
+      <div class="gu-summary-grid">
+        <article class="gu-summary-card">
+          <span class="gu-summary-index">El reto</span>
+          <h3>Mover una cocina entera sin dejar rastro de la antigua</h3>
+          <p>
+            La cocina original era un compartimento cerrado, al que se entraba por una gran puerta
+            doble. Trasladarla implicaba mucho más que montar muebles nuevos: había que condenar
+            su acceso, reinventar la electricidad y la fontanería, retirar el termo eléctrico y
+            crear un pavimento que unificara la zona día.
+          </p>
+        </article>
+        <article class="gu-summary-card">
+          <span class="gu-summary-index">La solución</span>
+          <h3>Obra civil, instalaciones nuevas y un diseño blanco continuo</h3>
+          <p>
+            Condenamos el acceso con bloque de 20 cm y acabado fino, trazamos las nuevas
+            instalaciones por paredes y suelos, sustituimos el termo por placas solares térmicas
+            y vertimos un suelo epóxico blanco sin juntas. Sobre ese lienzo, una composición
+            lineal de muebles bajos con estantería flotante iluminada y equipos Siemens.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · RESULTADO FINAL ============ -->
+  <section class="section gu-showcase" id="resultado">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Resultado final</span>
+        <h2 class="section-title">Primero, el destino; después, el camino</h2>
+        <p class="section-desc">
+          Antes de explicar cada fase, mostramos el resultado: así cada paso del proceso
+          se entiende sabiendo a dónde conducía.
+        </p>
+      </div>
+
+      <div class="gu-showcase-grid">
+        {resultadoShowcase.map((item, index) => (
+          <figure
+            class="gu-showcase-card"
+            data-lightbox-item
+            data-lightbox-group="guataparo-resultado"
+            data-src={item.src}
+            data-alt={item.alt}
+            data-title={item.title}
+            data-caption={item.caption}
+            data-badge={item.badge}
+          >
+            <div class="gu-showcase-media">
+              <img src={item.src} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              <span class="gu-media-chip" aria-hidden="true">Ampliar</span>
+            </div>
+            <figcaption>
+              <span class="gu-showcase-badge">{item.badge}</span>
+              <h3>{item.title}</h3>
+              <p>{item.caption}</p>
+              <button
+                class="expand-photo-btn"
+                type="button"
+                data-lightbox-open
+                data-group="guataparo-resultado"
+                data-src={item.src}
+              >Ver en grande</button>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · PASO A PASO (TIMELINE) ============ -->
+  <section class="section gu-timeline-section" id="paso-a-paso">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">La obra, en orden</span>
+        <h2 class="section-title">El proyecto paso a paso: seis fases, cero improvisación</h2>
+        <p class="section-desc">
+          Cada fase está numerada y documentada con sus trabajos ejecutados y su fotografía real,
+          para que el recorrido se lea tan claro como se ejecutó.
+        </p>
+      </div>
+
+      <div class="gu-timeline">
+        {phases.map((phase, index) => (
+          <article class:list={['gu-phase', index % 2 === 1 && 'gu-phase--alt']} id={`fase-${phase.number}`}>
+            <div class="gu-phase-rail" aria-hidden="true">
+              <span class="gu-phase-dot"></span>
+              <span class="gu-phase-number">{phase.number}</span>
+            </div>
+
+            <div class="gu-phase-body">
+              <span class="gu-phase-kicker">{phase.kicker}</span>
+              <h3>{phase.title}</h3>
+              <p>{phase.body}</p>
+              <ul class="gu-phase-checks">
+                {phase.checks.map((check) => (
+                  <li>{check}</li>
+                ))}
+              </ul>
+            </div>
+
+            <figure
+              class="gu-phase-media"
+              data-lightbox-item
+              data-lightbox-group="guataparo-pasos"
+              data-src={phase.image.src}
+              data-alt={phase.image.alt}
+              data-title={phase.title}
+              data-caption={phase.image.caption}
+              data-badge={phase.kicker}
+            >
+              <div class="gu-phase-media-box">
+                <img src={phase.image.src} alt={phase.image.alt} loading="lazy" decoding="async" />
+                <span class="gu-phase-media-badge">{phase.image.badge}</span>
+                <span class="gu-media-chip" aria-hidden="true">Ampliar</span>
+              </div>
+              <figcaption>{phase.image.caption}</figcaption>
+            </figure>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · ANTES / DESPUÉS ============ -->
+  <ProjectBeforeAfterSlider
+    id="comparativa"
+    eyebrow="La misma zona, otra vida"
+    title="El comedor que un día fue frontera hoy es la propia cocina"
+    text="La comparación se toma sobre la zona día de la quinta: donde antes terminaba el comedor y empezaba el pasillo hacia la cocina cerrada, hoy se lee un único espacio continuo."
+    beforeSrc="/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp"
+    beforeAlt="Zona día original de la quinta con el acceso doble a la cocina cerrada al fondo"
+    afterSrc="/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp"
+    afterAlt="La misma zona día convertida en cocina abierta con suelo epóxico blanco continuo"
+    beforeLabel="Antes"
+    afterLabel="Después"
+    beforeCaption="El comedor original, con la cocina encerrada detrás del acceso doble y un suelo cerámico que cortaba la lectura del espacio."
+    afterCaption="La misma zona, unificada: cocina abierta de línea baja, estantería iluminada y pavimento epóxico blanco continuo."
+  />
+
+  <!-- ============ 05 · ESPECIFICACIONES ============ -->
+  <section class="section gu-specs" id="especificaciones">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Detalle técnico</span>
+        <h2 class="section-title">Especificaciones de la intervención</h2>
+        <p class="section-desc">
+          Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida.
+        </p>
+      </div>
+
+      <div class="gu-highlights">
+        {highlights.map((item, index) => (
+          <article class="gu-highlight-card">
+            <span class="gu-highlight-index">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="gu-spec-table" role="table" aria-label="Ficha técnica del proyecto">
+        {specs.map((spec) => (
+          <div class="gu-spec-row" role="row">
+            <strong role="cell">{spec.label}</strong>
+            <span role="cell">{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · GALERÍA COMPLETA ============ -->
+  <ProjectPhaseGallery
+    eyebrow="Archivo fotográfico completo"
+    title={`Galería completa por fases (${gallery.length} fotos reales)`}
+    intro="Todas las imágenes del proyecto, organizadas en el mismo orden en que se ejecutó la obra: del resultado al origen, sin mezclas ni rellenos."
+    items={gallery}
+    phases={galleryPhases}
+    id="galeria"
+  />
+
+  <!-- ============ GARANTÍAS ============ -->
+  <GuaranteeMatrix compact />
+
+  <!-- ============ CTA FINAL ============ -->
+  <section class="gu-cta">
+    <div class="container gu-cta-inner">
+      <span class="tag tag-on-dark">Valoración técnica</span>
+      <h2>¿Imaginas una transformación así en tu cocina?</h2>
+      <p>
+        Reubicaciones, obra civil, instalaciones, pavimentos continuos y mobiliario de alta
+        especificación. Cuéntanos tu caso: valoramos el alcance técnico y te orientamos
+        sobre tiempos, materiales y nivel de acabado.
+      </p>
+      <a href={whatsappHref} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+        <span class="btn-content">Solicitar valoración técnica</span>
+        <span class="btn-border"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <ProjectLightbox />
+</BaseLayout>
+
+<style>
+  /* ==========================================================
+     HERO EDITORIAL
+     ========================================================== */
+  .gu-hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--ink);
+    color: var(--white);
+    overflow: hidden;
+    padding: 150px 0 90px;
+  }
+  .gu-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 62%;
+    opacity: 0.72;
+  }
+  .gu-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(20, 18, 14, 0.97) 0%, rgba(20, 18, 14, 0.55) 45%, rgba(20, 18, 14, 0.25) 75%),
+      linear-gradient(100deg, rgba(20, 18, 14, 0.85) 0%, transparent 60%);
+  }
+  .gu-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+  }
+  .gu-back {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .gu-back:hover { color: var(--gold-light); }
+  .gu-eyebrow {
+    display: block;
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .gu-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.9rem, 7vw, 6rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: var(--track-tight);
+    max-width: 14ch;
+    margin-bottom: 24px;
+  }
+  .gu-lead {
+    max-width: 780px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    line-height: 1.78;
+    margin-bottom: 38px;
+  }
+  .gu-facts {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 36px;
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    max-width: 1080px;
+  }
+  .gu-fact {
+    flex: 1 1 180px;
+    padding: 18px 24px;
+    border-right: 1px solid rgba(201, 169, 97, 0.18);
+  }
+  .gu-fact:last-child { border-right: 0; }
+  .gu-fact dt {
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .gu-fact dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .gu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .gu-hero-actions .btn-premium { min-height: 54px; }
+
+  /* ==========================================================
+     MIGAS DE PAN
+     ========================================================== */
+  .gu-breadcrumb {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 16px 0;
+  }
+  .gu-breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.84rem;
+  }
+  .gu-breadcrumb-inner a {
+    color: var(--text-muted);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .gu-breadcrumb-inner a:hover { color: var(--gold-ink); }
+  .gu-sep { color: var(--sand); margin: 0 2px; }
+  .gu-current { color: var(--text); font-weight: 600; }
+
+  /* ==========================================================
+     RESUMEN
+     ========================================================== */
+  .gu-summary { background: var(--white); scroll-margin-top: 118px; }
+  .gu-summary .section-header { max-width: 760px; }
+  .gu-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .gu-summary-card {
+    position: relative;
+    padding: 42px 38px 38px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--white), var(--bone));
+    border: 1px solid var(--sand);
+    box-shadow: var(--e-1);
+    overflow: hidden;
+  }
+  .gu-summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 38px;
+    right: 38px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.55), transparent);
+  }
+  .gu-summary-index {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .gu-summary-card h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.55rem, 2.6vw, 2rem);
+    font-weight: 500;
+    line-height: 1.14;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .gu-summary-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  /* ==========================================================
+     SHOWCASE RESULTADO
+     ========================================================== */
+  .gu-showcase {
+    background: linear-gradient(180deg, var(--bone), var(--white));
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-showcase .section-header { max-width: 760px; }
+  .gu-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .gu-showcase-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 26px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201, 169, 97, 0.16);
+    box-shadow: var(--e-2);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .gu-showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--e-3);
+    border-color: rgba(201, 169, 97, 0.4);
+  }
+  .gu-showcase-media {
+    position: relative;
+    padding: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201, 169, 97, 0.14), transparent 42%),
+      var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+  }
+  .gu-showcase-media img {
+    max-width: 100%;
+    max-height: 480px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .gu-showcase-card:hover .gu-showcase-media img { transform: scale(1.02); }
+  .gu-media-chip {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 13px;
+    border-radius: var(--r-full);
+    background: rgba(20, 18, 14, 0.82);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+  .gu-showcase-card figcaption {
+    padding: 26px 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gu-showcase-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 13px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .gu-showcase-card figcaption h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .gu-showcase-card figcaption p {
+    margin: 0 0 18px;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+  .gu-media-chip { margin-bottom: 0; }
+
+  /* ==========================================================
+     TIMELINE PASO A PASO — pieza central del nuevo diseño
+     ========================================================== */
+  .gu-timeline-section {
+    background: var(--white);
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-timeline-section .section-header { max-width: 780px; }
+  .gu-timeline {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  /* raíl vertical continuo */
+  .gu-timeline::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 47px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.45) 4%, rgba(201, 169, 97, 0.45) 96%, transparent);
+  }
+  .gu-phase {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 28px;
+    align-items: stretch;
+    padding: 34px 0;
+  }
+  .gu-phase + .gu-phase { border-top: 1px dashed rgba(201, 169, 97, 0.18); }
+  .gu-phase-rail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+  .gu-phase-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow:
+      0 0 0 5px rgba(201, 169, 97, 0.15),
+      0 0 0 1px rgba(201, 169, 97, 0.4);
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .gu-phase-number {
+    font-family: var(--font-serif);
+    font-size: 3.1rem;
+    font-weight: 500;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 169, 97, 0.75);
+  }
+  @supports not (-webkit-text-stroke: 1px black) {
+    .gu-phase-number { color: rgba(201, 169, 97, 0.55); }
+  }
+  .gu-phase-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .gu-phase-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 14px;
+    padding: 7px 14px;
+    border-radius: var(--r-full);
+    background: rgba(201, 169, 97, 0.13);
+    color: var(--gold-ink-strong);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .gu-phase-body h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .gu-phase-body > p {
+    color: var(--text-muted);
+    font-size: 0.99rem;
+    line-height: 1.78;
+    margin-bottom: 20px;
+  }
+  .gu-phase-checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .gu-phase-checks li {
+    position: relative;
+    padding-left: 30px;
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+  .gu-phase-checks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 19px;
+    height: 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(201, 169, 97, 0.16);
+    color: var(--gold-ink-strong);
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+  .gu-phase-media {
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+  }
+  .gu-phase-media-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at top, rgba(201, 169, 97, 0.13), transparent 40%),
+      var(--ink-soft);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  }
+  .gu-phase-media:hover .gu-phase-media-box {
+    transform: translateY(-4px);
+    box-shadow: var(--e-3);
+  }
+  .gu-phase-media-box img {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  }
+  .gu-phase-media-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 13px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gu-phase-media figcaption {
+    padding: 14px 6px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  /* alternancia editorial: en fases pares la imagen va a la izquierda */
+  .gu-phase--alt .gu-phase-media { order: 2; }
+  .gu-phase--alt .gu-phase-body { order: 3; }
+  .gu-phase--alt .gu-phase-rail { order: 1; }
+
+  /* ==========================================================
+     ESPECIFICACIONES
+     ========================================================== */
+  .gu-specs {
+    background: linear-gradient(180deg, var(--bone), var(--white));
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-specs .section-header { max-width: 760px; }
+  .gu-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1160px;
+    margin: 0 auto 34px;
+  }
+  .gu-highlight-card {
+    padding: 30px 24px 28px;
+    border-radius: var(--r-lg);
+    background: var(--white);
+    border: 1px solid rgba(201, 169, 97, 0.18);
+    box-shadow: var(--e-1);
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .gu-highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201, 169, 97, 0.4);
+  }
+  .gu-highlight-index {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .gu-highlight-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .gu-highlight-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+  .gu-spec-table {
+    max-width: 980px;
+    margin: 0 auto;
+    border: 1px solid var(--sand);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--e-1);
+  }
+  .gu-spec-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.62fr) 1fr;
+    border-top: 1px solid var(--sand);
+    background: var(--white);
+  }
+  .gu-spec-row:first-child { border-top: 0; }
+  .gu-spec-row:nth-child(even) { background: var(--bone); }
+  .gu-spec-row strong,
+  .gu-spec-row span { padding: 16px 22px; }
+  .gu-spec-row strong {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-right: 1px solid var(--sand);
+  }
+  .gu-spec-row span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ==========================================================
+     CTA FINAL
+     ========================================================== */
+  .gu-cta {
+    padding: 105px 24px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201, 169, 97, 0.18), transparent 46%),
+      var(--ink);
+    color: var(--white);
+    text-align: center;
+  }
+  .gu-cta-inner { max-width: 880px; margin: 0 auto; }
+  .gu-cta h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 20px;
+  }
+  .gu-cta p {
+    max-width: 720px;
+    margin: 0 auto 36px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.08rem;
+    line-height: 1.78;
+  }
+  .tag-on-dark { color: var(--gold); }
+
+  /* El componente galería por fases suele verse mejor sobre fondo claro;
+     nos aseguramos de que respire con el resto del diseño */
+  #galeria { scroll-margin-top: 118px; }
+  #comparativa { scroll-margin-top: 118px; }
+
+  /* ==========================================================
+     RESPONSIVE
+     ========================================================== */
+  @media (max-width: 1080px) {
+    .gu-phase {
+      grid-template-columns: 72px minmax(0, 1fr);
+    }
+    .gu-phase-media {
+      grid-column: 2;
+      order: 3 !important;
+    }
+    .gu-phase-body {
+      grid-column: 2;
+      order: 2 !important;
+    }
+    .gu-phase-rail {
+      grid-row: 1 / span 2;
+      order: 1 !important;
+    }
+    .gu-timeline::before { left: 35px; }
+    .gu-phase-number { font-size: 2.4rem; }
+    .gu-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 820px) {
+    .gu-hero { padding: 135px 0 70px; min-height: 0; }
+    .gu-facts { border-radius: var(--r-md); }
+    .gu-fact { flex: 1 1 46%; border-bottom: 1px solid rgba(201, 169, 97, 0.18); }
+    .gu-summary-grid { grid-template-columns: 1fr; }
+    .gu-showcase-grid { grid-template-columns: 1fr; }
+    .gu-spec-table { border-radius: var(--r-md); }
+  }
+
+  @media (max-width: 640px) {
+    .gu-hero h1 { font-size: clamp(2.35rem, 10vw, 3rem); }
+    .gu-hero-actions { flex-direction: column; align-items: stretch; }
+    .gu-hero-actions .btn-premium { width: 100%; justify-content: center; }
+    .gu-phase {
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 16px;
+      padding: 26px 0;
+    }
+    .gu-timeline::before { left: 21px; }
+    .gu-phase-dot { width: 11px; height: 11px; }
+    .gu-phase-number { font-size: 1.75rem; }
+    .gu-phase-media-box { min-height: 280px; padding: 14px; border-radius: 18px; }
+    .gu-phase-media-box img { max-height: 320px; }
+    .gu-highlights { grid-template-columns: 1fr; }
+    .gu-spec-row { grid-template-columns: 1fr; }
+    .gu-spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); padding-bottom: 12px; }
+    .gu-spec-row span { padding-top: 12px; }
+    .gu-fact { flex: 1 1 100%; border-right: 0; }
+  }
+</style>

@@ -1,0 +1,1339 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GuaranteeMatrix from '../../../components/GuaranteeMatrix.astro';
+import ProjectLightbox from '../../../components/ProjectLightbox.astro';
+import ProjectQuickNav from '../../../components/ProjectQuickNav.astro';
+import ProjectBeforeAfterSlider from '../../../components/ProjectBeforeAfterSlider.astro';
+import ProjectPhaseGallery from '../../../components/ProjectPhaseGallery.astro';
+
+const project = {
+  title: 'Luxury Kitchen in Guataparo',
+  kicker: 'Real case study · High-standard kitchens',
+  location: 'Residential quinta · Guataparo, Valencia, Carabobo',
+  excerpt:
+    'A full kitchen relocation that once lived closed and separate: we moved it into the day zone, sealed its old doorway, rebuilt electrics and plumbing, replaced the electric water heater with solar thermal panels, poured a seamless white epoxy floor and installed a linear base-cabinet composition with a backlit floating shelf and Siemens appliances.',
+  heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+};
+
+const heroFacts = [
+  { label: 'Location', value: 'Guataparo · Valencia' },
+  { label: 'Scope', value: 'Full relocation' },
+  { label: 'Floor', value: 'Seamless white epoxy' },
+  { label: 'Appliances', value: 'Siemens · 90 cm fridge' },
+  { label: 'Real photos', value: '16 images' },
+];
+
+const quickNavItems = [
+  { href: '#resumen', label: 'Overview' },
+  { href: '#resultado', label: 'Result' },
+  { href: '#paso-a-paso', label: 'Step by step' },
+  { href: '#comparativa', label: 'Before & after' },
+  { href: '#especificaciones', label: 'Specifications' },
+  { href: '#galeria', label: 'Gallery' },
+];
+
+const whatsappText =
+  'Hello, I would like a technical assessment for a kitchen similar to the Guataparo quinta project.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+
+const resultadoShowcase = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Finished linear kitchen with white base cabinets, floating shelf and Siemens refrigerator in a Guataparo quinta',
+    badge: 'Linear kitchen',
+    title: 'A single line of base cabinets, crowned by concealed light',
+    caption:
+      'Base cabinets only —no wall units— for a clean, minimalist reading, with the backlit floating shelf running the full length of the kitchen and the 90 cm Siemens refrigerator closing the composition.',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
+    alt: 'Unified day zone with seamless white epoxy floor, dining area and open kitchen in a Guataparo quinta',
+    badge: 'Unified day zone',
+    title: 'Kitchen, dining and living read as one single space',
+    caption:
+      'The jointless white epoxy floor visually ties the whole level: the once-closed kitchen becomes the open heart of the day zone, filled with natural light.',
+  },
+];
+
+const phases = [
+  {
+    number: '01',
+    kicker: 'Phase 01 · Assessment',
+    title: 'The starting point: a closed kitchen that cut the house in two',
+    body:
+      'The original kitchen was completely independent, separated from the living and dining areas, and accessed through a large double doorway. A closed compartment with aged ceramic and cabinetry that fragmented the day zone of the quinta. The decision was not to renovate it in place — but to relocate it entirely.',
+    checks: [
+      'Assessment of cabinetry, ceramic surfaces and utilities condition',
+      'Complete re-planning of the day zone layout',
+      'New location defined, integrated with living and dining areas',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
+      alt: 'Original double doorway into the closed kitchen seen from the living area, before the Guataparo remodel',
+      badge: 'Before',
+      caption:
+        'The original double doorway, seen from the living area. This opening would be sealed and the kitchen relocated.',
+    },
+  },
+  {
+    number: '02',
+    kicker: 'Phase 02 · Controlled demolition',
+    title: 'Full dismantling and removal of the electric water heater',
+    body:
+      'The kitchen was completely dismantled: cabinets, countertop and equipment. The electric water heater serving the old kitchen was also removed and decommissioned — from this intervention onward, the home’s hot water is produced by solar thermal panels, removing permanent electric consumption and gaining efficiency.',
+    checks: [
+      'Complete dismantling of cabinetry, countertop and equipment',
+      'Electric water heater removed and decommissioned',
+      'Hot water system prepared for solar thermal panels',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
+      alt: 'Old kitchen fully dismantled with the electric water heater still visible before removal',
+      badge: 'Demolition',
+      caption:
+        'The old kitchen fully emptied. The electric water heater was removed and retired in favor of the solar thermal system.',
+    },
+  },
+  {
+    number: '03',
+    kicker: 'Phase 03 · Blockwork & utilities',
+    title: 'Sealing the old doorway, wiring the new location',
+    body:
+      'The old kitchen doorway was sealed with a 20 cm blockwork wall, rendered with cement mortar and fine-finished until it vanished into the wall. New chases were then opened in walls and floors to carry electrics and plumbing to the new location, with flexible corrugated conduit protecting all the wiring.',
+    checks: [
+      '20 cm blockwork wall with fine-finish cement render',
+      'New chases in walls and floors for the new routes',
+      'Wiring protected with flexible corrugated conduit',
+      'Plumbing fully rerouted to the new location',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
+      alt: 'Blockwork wall sealing the old doorway and new electrical chases opened in the walls',
+      badge: 'Utilities',
+      caption:
+        'The original doorway already sealed with 20 cm blockwork, and the new electrical chases traced across the walls.',
+    },
+  },
+  {
+    number: '04',
+    kicker: 'Phase 04 · The floor',
+    title: 'Self-leveling, primer and a seamless white epoxy finish',
+    body:
+      'The project called for an exclusive design: a continuous floor unifying kitchen, dining and living areas. First, self-leveling compound brought the plane to a perfect level; then the bonding primer; finally, an all-white epoxy finish. The result is a jointless surface that multiplies the light and delivers a sense of perfect continuity.',
+    checks: [
+      'Plane leveled with self-leveling mortar',
+      'Bonding primer across the entire surface',
+      'White epoxy finish with total continuity, no joints',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
+      alt: 'Freshly poured self-leveling compound in the new kitchen location of the quinta',
+      badge: 'Floor',
+      caption:
+        'The freshly poured self-leveling layer: the perfectly flat base onto which primer and the final epoxy were applied.',
+    },
+  },
+  {
+    number: '05',
+    kicker: 'Phase 05 · Assembly',
+    title: 'Base cabinets only, with a floating shelf of concealed light',
+    body:
+      'With utilities and flooring complete came the assembly: a linear composition of base cabinets only —no wall units— for a clean, minimalist result, crowned by a floating shelf running the full length of the kitchen with LED strips above and below, completely invisible to the eye.',
+    checks: [
+      'Base modules installed with plumb, level and joint control',
+      'Continuous floating shelf along the entire kitchen',
+      'Integrated LED lighting, invisible from any angle',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
+      alt: 'Assembly of the linear white base-cabinet kitchen with the floating shelf in progress',
+      badge: 'Assembly',
+      caption:
+        'The linear composition taking shape: aligned base modules and the floating shelf with its integrated lighting.',
+    },
+  },
+  {
+    number: '06',
+    kicker: 'Phase 06 · Handover',
+    title: 'Commissioning: Siemens appliances and final review',
+    body:
+      'The installation was completed with a Siemens oven and dishwasher and an imported 90 cm refrigerator of the same brand. The once-closed kitchen is now an open space that reads as a single piece: continuous white floor, low furniture line, and light flowing across the entire day zone of the quinta.',
+    checks: [
+      'Siemens oven and dishwasher integrated',
+      'Imported 90 cm refrigerator incorporated into the composition',
+      'Final review of finishes, lighting and operation',
+    ],
+    image: {
+      src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+      alt: 'Finished luxury kitchen in Guataparo with base cabinets, backlit shelf and Siemens appliances',
+      badge: 'Handover',
+      caption:
+        'The finished kitchen: white linear composition, backlit shelf and integrated Siemens appliances.',
+    },
+  },
+];
+
+const highlights = [
+  {
+    title: 'Seamless white epoxy floor',
+    text: 'Self-leveling, primer and a pure-white epoxy finish: a single jointless surface uniting kitchen, dining and living areas.',
+  },
+  {
+    title: 'Floating shelf, concealed light',
+    text: 'Running the full length of the kitchen, it hides two LED strips —above and below— washing wall and countertop invisibly.',
+  },
+  {
+    title: 'Solar hot water',
+    text: 'The electric heater was retired: hot water is now produced by solar thermal panels — more efficient and sustainable.',
+  },
+  {
+    title: 'Siemens equipment',
+    text: 'Integrated oven and dishwasher plus an imported 90 cm refrigerator: German-spec appliances for intensive daily use.',
+  },
+];
+
+const specs = [
+  { label: 'Location', value: 'Residential quinta in Guataparo, Valencia, Carabobo' },
+  { label: 'Scope', value: 'Full kitchen relocation into the day zone' },
+  { label: 'Initial state', value: 'Closed independent kitchen with double doorway access' },
+  { label: 'Blockwork', value: 'Doorway sealed with 20 cm block and fine-finish render' },
+  { label: 'Electrical', value: 'New wall and floor chases, flexible corrugated conduit' },
+  { label: 'Plumbing', value: 'Fully rerouted to the new kitchen location' },
+  { label: 'Hot water', value: 'Electric heater retired; solar thermal panels' },
+  { label: 'Floor', value: 'Self-leveling + primer + continuous white epoxy' },
+  { label: 'Cabinetry', value: 'Linear base-cabinet composition, minimalist style' },
+  { label: 'Shelving', value: 'Full-length floating shelf, concealed LED above and below' },
+  { label: 'Appliances', value: 'Siemens oven and dishwasher; imported 90 cm refrigerator' },
+];
+
+const galleryPhases = [
+  {
+    id: 'resultado',
+    label: 'Final result',
+    description: 'The finished kitchen: a continuous line of base cabinets, the backlit floating shelf and the white epoxy floor uniting the day zone.',
+  },
+  {
+    id: 'montaje',
+    label: 'Assembly',
+    description: 'Base module alignment, joints and the floating shelf with its integrated lighting during the process.',
+  },
+  {
+    id: 'suelo',
+    label: 'The floor',
+    description: 'Self-leveling, primer and epoxy finish: the three layers that build the pavement’s perfect continuity.',
+  },
+  {
+    id: 'obra',
+    label: 'Blockwork & utilities',
+    description: 'Dismantling, the 20 cm blockwork seal and the new electrical and plumbing installations.',
+  },
+  {
+    id: 'antes',
+    label: 'Original state',
+    description: 'The real starting point: the closed kitchen, its double doorway and the dining area where the new space now reads.',
+  },
+];
+
+const gallery = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Finished linear white kitchen with backlit floating shelf and Siemens refrigerator in Guataparo',
+    title: 'Finished linear composition',
+    caption: 'White base cabinets, a floating shelf with concealed light and the 90 cm Siemens refrigerator closing the line.',
+    category: 'resultado',
+    categoryLabel: 'Final Result',
+    badge: 'Finished',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp',
+    alt: 'Open dining area and kitchen with seamless white epoxy floor in a Guataparo quinta',
+    title: 'The unified day zone',
+    caption: 'The continuous white epoxy connects kitchen, dining and living into a single reading filled with light.',
+    category: 'resultado',
+    categoryLabel: 'Final Result',
+    badge: 'Day zone',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-cocina-vista-sala.webp',
+    alt: 'Kitchen under assembly seen from the living area with the white epoxy floor finished',
+    title: 'Assembly seen from the living area',
+    caption: 'The new location already engaging with the rest of the level: continuous floor and low composition in progress.',
+    category: 'montaje',
+    categoryLabel: 'Assembly',
+    badge: 'Process',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lineal.webp',
+    alt: 'Detail of the linear kitchen assembly with the floating shelf being adjusted',
+    title: 'Floating shelf in adjustment',
+    caption: 'The continuous floating shelf, with LED lighting already integrated along its top and bottom edges.',
+    category: 'montaje',
+    categoryLabel: 'Assembly',
+    badge: 'Shelving',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/montaje-estante-flotante-lateral.webp',
+    alt: 'Side view of the linear kitchen under assembly with the large window behind in Guataparo',
+    title: 'The low line facing the window',
+    caption: 'No wall units: the whole composition stays below the sightline and lets the window breathe.',
+    category: 'montaje',
+    categoryLabel: 'Assembly',
+    badge: 'Process',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/suelo-autonivelante-aplicado.webp',
+    alt: 'Self-leveling compound being applied in the new kitchen location',
+    title: 'Freshly poured self-leveling',
+    caption: 'The first layer: a perfectly level plane as the base of the entire continuous pavement.',
+    category: 'suelo',
+    categoryLabel: 'The Floor',
+    badge: 'Base',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/suelo-imprimacion-blanca.webp',
+    alt: 'Floor with white primer applied before the final epoxy finish',
+    title: 'Bonding primer',
+    caption: 'The primer prepares the surface for the final pure-white epoxy finish.',
+    category: 'suelo',
+    categoryLabel: 'The Floor',
+    badge: 'Primer',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-tabique-ranuras-electricas.webp',
+    alt: '20 cm blockwork sealing the old doorway and electrical chases in the wall',
+    title: 'Sealed doorway, new chases',
+    caption: 'The original doorway sealed with 20 cm blockwork while the new chases prepare the circuits.',
+    category: 'obra',
+    categoryLabel: 'Blockwork & Utilities',
+    badge: 'Blockwork',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-acceso-condenado-fratasado.webp',
+    alt: 'Old doorway already rendered and the future kitchen location in progress',
+    title: 'The doorway vanishes into the wall',
+    caption: 'With the fine-finish render, the old double-door opening visually ceases to exist.',
+    category: 'obra',
+    categoryLabel: 'Blockwork & Utilities',
+    badge: 'Render',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/obra-desmontaje-termo-electrico.webp',
+    alt: 'Old kitchen dismantled with electric water heater visible before decommissioning',
+    title: 'Dismantling and heater removal',
+    caption: 'The original kitchen emptied; the electric heater was retired and replaced by solar thermal panels.',
+    category: 'obra',
+    categoryLabel: 'Blockwork & Utilities',
+    badge: 'Demolition',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-2.webp',
+    alt: 'Original closed kitchen seen through its double doorway before the remodel',
+    title: 'The original double doorway',
+    caption: 'The large double door that separated the kitchen from the life of the house.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-4.webp',
+    alt: 'Interior of the original kitchen with window and old cabinetry',
+    title: 'The kitchen as it was found',
+    caption: 'Aged tile, border trim and cabinetry: a space calling for a ground-up intervention.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-3.webp',
+    alt: 'Detail of the original kitchen with old countertop and modules',
+    title: 'Aged cabinetry and countertop',
+    caption: 'The original set, already out of service, was completely dismantled.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-cocina-original-1.webp',
+    alt: 'Interior view of the original closed kitchen from the double doorway',
+    title: 'A closed, compartmentalized space',
+    caption: 'The original layout prevented any continuity between kitchen, dining and living.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'portrait',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp',
+    alt: 'Original living and dining area with the double doorway to the kitchen behind',
+    title: 'The day zone before the intervention',
+    caption: 'Dining and living areas with the kitchen behind, separated by the doorway that was later sealed.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'landscape',
+  },
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/antes-nueva-ubicacion-comedor.webp',
+    alt: 'Original dining room that would become the new kitchen location',
+    title: 'The kitchen’s future location',
+    caption: 'The original dining room: the space chosen to receive the new open kitchen.',
+    category: 'antes',
+    categoryLabel: 'Original State',
+    badge: 'Before',
+    orientation: 'portrait',
+  },
+];
+---
+
+<BaseLayout
+  title="Luxury Kitchen in Guataparo, Valencia | Step-by-Step Case Study | RemodelaT"
+  description={project.excerpt}
+  image={project.heroImage}
+  activePage="projects"
+>
+  <!-- ============ EDITORIAL HERO ============ -->
+  <header class="gu-hero">
+    <img
+      src={project.heroImage}
+      alt="Finished luxury kitchen in a Guataparo quinta, Valencia: white base-cabinet line, backlit floating shelf and seamless epoxy floor"
+      class="gu-hero-img"
+      fetchpriority="high"
+      loading="eager"
+      decoding="async"
+    />
+    <div class="gu-hero-overlay" aria-hidden="true"></div>
+    <div class="container gu-hero-content">
+      <a href="/en/projects" class="gu-back">← Back to projects</a>
+      <span class="gu-eyebrow">{project.kicker}</span>
+      <h1>{project.title}</h1>
+      <p class="gu-lead">{project.excerpt}</p>
+
+      <dl class="gu-facts" aria-label="Project facts">
+        {heroFacts.map((fact) => (
+          <div class="gu-fact">
+            <dt>{fact.label}</dt>
+            <dd>{fact.value}</dd>
+          </div>
+        ))}
+      </dl>
+
+      <div class="gu-hero-actions">
+        <a href="#paso-a-paso" class="btn-premium btn-primary-premium">
+          <span class="btn-content">See the step by step</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a href={whatsappHref} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
+          <span class="btn-content">Request assessment</span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ STICKY QUICK NAVIGATION ============ -->
+  <ProjectQuickNav
+    items={quickNavItems}
+    ctaHref={whatsappHref}
+    ctaLabel="Request assessment"
+    summary="Full kitchen relocation in a Guataparo quinta, documented phase by phase."
+  />
+
+  <!-- ============ BREADCRUMB ============ -->
+  <nav class="gu-breadcrumb" aria-label="Breadcrumb">
+    <div class="container gu-breadcrumb-inner">
+      <a href="/en">Home</a>
+      <span class="gu-sep">/</span>
+      <a href="/en/projects">Projects</a>
+      <span class="gu-sep">/</span>
+      <span class="gu-current">Luxury Kitchen in Guataparo</span>
+    </div>
+  </nav>
+
+  <!-- ============ 01 · OVERVIEW ============ -->
+  <section class="section gu-summary" id="resumen">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">In a nutshell</span>
+        <h2 class="section-title">From closed compartment to the open heart of the quinta</h2>
+        <p class="section-desc">
+          This intervention went far beyond new finishes: the kitchen changed rooms,
+          changed concept, and changed its relationship with the rest of the home.
+        </p>
+      </div>
+
+      <div class="gu-summary-grid">
+        <article class="gu-summary-card">
+          <span class="gu-summary-index">The challenge</span>
+          <h3>Moving an entire kitchen without leaving a trace of the old one</h3>
+          <p>
+            The original kitchen was a closed compartment entered through a large double
+            doorway. Relocating it involved far more than fitting new cabinets: the doorway
+            had to be sealed, electrics and plumbing reinvented, the electric water heater
+            removed and a floor built to unify the entire day zone.
+          </p>
+        </article>
+        <article class="gu-summary-card">
+          <span class="gu-summary-index">The solution</span>
+          <h3>Blockwork, new utilities and a continuous white design</h3>
+          <p>
+            We sealed the doorway with 20 cm blockwork and a fine render, chased new utility
+            routes through walls and floors, replaced the water heater with solar thermal
+            panels and poured a jointless white epoxy floor. Over that canvas, a linear
+            base-cabinet composition with a backlit floating shelf and Siemens appliances.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 02 · FINAL RESULT ============ -->
+  <section class="section gu-showcase" id="resultado">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Final result</span>
+        <h2 class="section-title">First the destination — then the road</h2>
+        <p class="section-desc">
+          Before explaining each phase, we show the result: so every step of the process
+          is understood knowing where it led.
+        </p>
+      </div>
+
+      <div class="gu-showcase-grid">
+        {resultadoShowcase.map((item, index) => (
+          <figure
+            class="gu-showcase-card"
+            data-lightbox-item
+            data-lightbox-group="guataparo-resultado"
+            data-src={item.src}
+            data-alt={item.alt}
+            data-title={item.title}
+            data-caption={item.caption}
+            data-badge={item.badge}
+          >
+            <div class="gu-showcase-media">
+              <img src={item.src} alt={item.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
+              <span class="gu-media-chip" aria-hidden="true">Enlarge</span>
+            </div>
+            <figcaption>
+              <span class="gu-showcase-badge">{item.badge}</span>
+              <h3>{item.title}</h3>
+              <p>{item.caption}</p>
+              <button
+                class="expand-photo-btn"
+                type="button"
+                data-lightbox-open
+                data-group="guataparo-resultado"
+                data-src={item.src}
+              >View full size</button>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 03 · STEP BY STEP (TIMELINE) ============ -->
+  <section class="section gu-timeline-section" id="paso-a-paso">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">The build, in order</span>
+        <h2 class="section-title">The project step by step: six phases, zero improvisation</h2>
+        <p class="section-desc">
+          Every phase is numbered and documented with the works executed and its real
+          photography, so the journey reads as clearly as it was built.
+        </p>
+      </div>
+
+      <div class="gu-timeline">
+        {phases.map((phase, index) => (
+          <article class:list={['gu-phase', index % 2 === 1 && 'gu-phase--alt']} id={`fase-${phase.number}`}>
+            <div class="gu-phase-rail" aria-hidden="true">
+              <span class="gu-phase-dot"></span>
+              <span class="gu-phase-number">{phase.number}</span>
+            </div>
+
+            <div class="gu-phase-body">
+              <span class="gu-phase-kicker">{phase.kicker}</span>
+              <h3>{phase.title}</h3>
+              <p>{phase.body}</p>
+              <ul class="gu-phase-checks">
+                {phase.checks.map((check) => (
+                  <li>{check}</li>
+                ))}
+              </ul>
+            </div>
+
+            <figure
+              class="gu-phase-media"
+              data-lightbox-item
+              data-lightbox-group="guataparo-pasos"
+              data-src={phase.image.src}
+              data-alt={phase.image.alt}
+              data-title={phase.title}
+              data-caption={phase.image.caption}
+              data-badge={phase.kicker}
+            >
+              <div class="gu-phase-media-box">
+                <img src={phase.image.src} alt={phase.image.alt} loading="lazy" decoding="async" />
+                <span class="gu-phase-media-badge">{phase.image.badge}</span>
+                <span class="gu-media-chip" aria-hidden="true">Enlarge</span>
+              </div>
+              <figcaption>{phase.image.caption}</figcaption>
+            </figure>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 04 · BEFORE / AFTER ============ -->
+  <ProjectBeforeAfterSlider
+    id="comparativa"
+    eyebrow="Same zone, another life"
+    title="The dining area that once was a border is now the kitchen itself"
+    text="The comparison is taken over the quinta’s day zone: where the dining room once ended and the corridor to the closed kitchen began, a single continuous space now reads."
+    beforeSrc="/images/proyectos/cocina-lujo-guataparo/antes-acceso-doble-sala.webp"
+    beforeAlt="Original day zone of the quinta with the double doorway to the closed kitchen behind"
+    afterSrc="/images/proyectos/cocina-lujo-guataparo/resultado-final-comedor-abierto.webp"
+    afterAlt="The same day zone turned into an open kitchen with a seamless white epoxy floor"
+    beforeLabel="Before"
+    afterLabel="After"
+    beforeCaption="The original dining area, with the kitchen locked behind the double doorway and a ceramic floor cutting the reading of the space."
+    afterCaption="The same zone, unified: open low-line kitchen, backlit shelf and seamless white epoxy pavement."
+  />
+
+  <!-- ============ 05 · SPECIFICATIONS ============ -->
+  <section class="section gu-specs" id="especificaciones">
+    <div class="container">
+      <div class="section-header">
+        <span class="tag">Technical detail</span>
+        <h2 class="section-title">Intervention specifications</h2>
+        <p class="section-desc">
+          What you see —and what you don’t— in this project, documented scope by scope.
+        </p>
+      </div>
+
+      <div class="gu-highlights">
+        {highlights.map((item, index) => (
+          <article class="gu-highlight-card">
+            <span class="gu-highlight-index">{String(index + 1).padStart(2, '0')}</span>
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+
+      <div class="gu-spec-table" role="table" aria-label="Project technical sheet">
+        {specs.map((spec) => (
+          <div class="gu-spec-row" role="row">
+            <strong role="cell">{spec.label}</strong>
+            <span role="cell">{spec.value}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 06 · FULL GALLERY ============ -->
+  <ProjectPhaseGallery
+    eyebrow="Complete photographic archive"
+    title={`Full gallery by phases (${gallery.length} real photos)`}
+    intro="Every image of the project, organized in the same order the work was executed: from result to origin, with no mixing and no filler."
+    items={gallery}
+    phases={galleryPhases}
+    id="galeria"
+  />
+
+  <!-- ============ WARRANTIES ============ -->
+  <GuaranteeMatrix compact lang="en" />
+
+  <!-- ============ FINAL CTA ============ -->
+  <section class="gu-cta">
+    <div class="container gu-cta-inner">
+      <span class="tag tag-on-dark">Technical assessment</span>
+      <h2>Can you picture a transformation like this in your kitchen?</h2>
+      <p>
+        Relocations, blockwork, utilities, continuous pavements and high-spec cabinetry.
+        Tell us about your case: we assess the technical scope and guide you on timelines,
+        materials and finish level.
+      </p>
+      <a href={whatsappHref} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+        <span class="btn-content">Request a technical assessment</span>
+        <span class="btn-border"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <ProjectLightbox lang="en" />
+</BaseLayout>
+
+<style>
+  /* ==========================================================
+     EDITORIAL HERO
+     ========================================================== */
+  .gu-hero {
+    position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: flex-end;
+    background: var(--ink);
+    color: var(--white);
+    overflow: hidden;
+    padding: 150px 0 90px;
+  }
+  .gu-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 62%;
+    opacity: 0.72;
+  }
+  .gu-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(20, 18, 14, 0.97) 0%, rgba(20, 18, 14, 0.55) 45%, rgba(20, 18, 14, 0.25) 75%),
+      linear-gradient(100deg, rgba(20, 18, 14, 0.85) 0%, transparent 60%);
+  }
+  .gu-hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 1080px;
+  }
+  .gu-back {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 26px;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .gu-back:hover { color: var(--gold-light); }
+  .gu-eyebrow {
+    display: block;
+    color: var(--gold-light);
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .gu-hero h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.9rem, 7vw, 6rem);
+    font-weight: 500;
+    line-height: 0.98;
+    letter-spacing: var(--track-tight);
+    max-width: 14ch;
+    margin-bottom: 24px;
+  }
+  .gu-lead {
+    max-width: 780px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: clamp(1.02rem, 1.6vw, 1.18rem);
+    line-height: 1.78;
+    margin-bottom: 38px;
+  }
+  .gu-facts {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 36px;
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(14px);
+    max-width: 1080px;
+  }
+  .gu-fact {
+    flex: 1 1 180px;
+    padding: 18px 24px;
+    border-right: 1px solid rgba(201, 169, 97, 0.18);
+  }
+  .gu-fact:last-child { border-right: 0; }
+  .gu-fact dt {
+    color: var(--gold);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .gu-fact dd {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.4;
+  }
+  .gu-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+  .gu-hero-actions .btn-premium { min-height: 54px; }
+
+  /* ==========================================================
+     BREADCRUMB
+     ========================================================== */
+  .gu-breadcrumb {
+    background: var(--white);
+    border-bottom: 1px solid var(--sand);
+    padding: 16px 0;
+  }
+  .gu-breadcrumb-inner {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    font-size: 0.84rem;
+  }
+  .gu-breadcrumb-inner a {
+    color: var(--text-muted);
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--dur-fast) var(--ease-out);
+  }
+  .gu-breadcrumb-inner a:hover { color: var(--gold-ink); }
+  .gu-sep { color: var(--sand); margin: 0 2px; }
+  .gu-current { color: var(--text); font-weight: 600; }
+
+  /* ==========================================================
+     OVERVIEW
+     ========================================================== */
+  .gu-summary { background: var(--white); scroll-margin-top: 118px; }
+  .gu-summary .section-header { max-width: 760px; }
+  .gu-summary-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .gu-summary-card {
+    position: relative;
+    padding: 42px 38px 38px;
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--white), var(--bone));
+    border: 1px solid var(--sand);
+    box-shadow: var(--e-1);
+    overflow: hidden;
+  }
+  .gu-summary-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 38px;
+    right: 38px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(201, 169, 97, 0.55), transparent);
+  }
+  .gu-summary-index {
+    display: inline-block;
+    color: var(--gold-ink-strong);
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .gu-summary-card h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.55rem, 2.6vw, 2rem);
+    font-weight: 500;
+    line-height: 1.14;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+  .gu-summary-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  /* ==========================================================
+     RESULT SHOWCASE
+     ========================================================== */
+  .gu-showcase {
+    background: linear-gradient(180deg, var(--bone), var(--white));
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-showcase .section-header { max-width: 760px; }
+  .gu-showcase-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+    max-width: 1160px;
+    margin: 0 auto;
+  }
+  .gu-showcase-card {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    border-radius: 26px;
+    overflow: hidden;
+    background: var(--white);
+    border: 1px solid rgba(201, 169, 97, 0.16);
+    box-shadow: var(--e-2);
+    cursor: zoom-in;
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .gu-showcase-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--e-3);
+    border-color: rgba(201, 169, 97, 0.4);
+  }
+  .gu-showcase-media {
+    position: relative;
+    padding: 18px;
+    background:
+      radial-gradient(circle at top, rgba(201, 169, 97, 0.14), transparent 42%),
+      var(--ink-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+  }
+  .gu-showcase-media img {
+    max-width: 100%;
+    max-height: 480px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 20px 44px rgba(0, 0, 0, 0.32);
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .gu-showcase-card:hover .gu-showcase-media img { transform: scale(1.02); }
+  .gu-media-chip {
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 34px;
+    padding: 0 13px;
+    border-radius: var(--r-full);
+    background: rgba(20, 18, 14, 0.82);
+    border: 1px solid rgba(201, 169, 97, 0.3);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+    pointer-events: none;
+  }
+  .gu-showcase-card figcaption {
+    padding: 26px 28px 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .gu-showcase-badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 5px 13px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .gu-showcase-card figcaption h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.5rem, 2.4vw, 1.95rem);
+    font-weight: 500;
+    line-height: 1.12;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .gu-showcase-card figcaption p {
+    margin: 0 0 18px;
+    color: var(--text-muted);
+    font-size: 0.98rem;
+    line-height: 1.75;
+  }
+
+  /* ==========================================================
+     STEP-BY-STEP TIMELINE — signature piece
+     ========================================================== */
+  .gu-timeline-section {
+    background: var(--white);
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-timeline-section .section-header { max-width: 780px; }
+  .gu-timeline {
+    position: relative;
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .gu-timeline::before {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    left: 47px;
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(201, 169, 97, 0.45) 4%, rgba(201, 169, 97, 0.45) 96%, transparent);
+  }
+  .gu-phase {
+    position: relative;
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr) minmax(0, 1.05fr);
+    gap: 28px;
+    align-items: stretch;
+    padding: 34px 0;
+  }
+  .gu-phase + .gu-phase { border-top: 1px dashed rgba(201, 169, 97, 0.18); }
+  .gu-phase-rail {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 6px;
+  }
+  .gu-phase-dot {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--gold);
+    box-shadow:
+      0 0 0 5px rgba(201, 169, 97, 0.15),
+      0 0 0 1px rgba(201, 169, 97, 0.4);
+    margin-bottom: 14px;
+    flex-shrink: 0;
+  }
+  .gu-phase-number {
+    font-family: var(--font-serif);
+    font-size: 3.1rem;
+    font-weight: 500;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 1px rgba(201, 169, 97, 0.75);
+  }
+  @supports not (-webkit-text-stroke: 1px black) {
+    .gu-phase-number { color: rgba(201, 169, 97, 0.55); }
+  }
+  .gu-phase-body {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 6px 0;
+  }
+  .gu-phase-kicker {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 14px;
+    padding: 7px 14px;
+    border-radius: var(--r-full);
+    background: rgba(201, 169, 97, 0.13);
+    color: var(--gold-ink-strong);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .gu-phase-body h3 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.6rem, 2.8vw, 2.15rem);
+    font-weight: 500;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .gu-phase-body > p {
+    color: var(--text-muted);
+    font-size: 0.99rem;
+    line-height: 1.78;
+    margin-bottom: 20px;
+  }
+  .gu-phase-checks {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 10px;
+  }
+  .gu-phase-checks li {
+    position: relative;
+    padding-left: 30px;
+    color: var(--text);
+    font-size: 0.92rem;
+    line-height: 1.55;
+    font-weight: 500;
+  }
+  .gu-phase-checks li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    top: 1px;
+    width: 19px;
+    height: 19px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(201, 169, 97, 0.16);
+    color: var(--gold-ink-strong);
+    font-size: 0.68rem;
+    font-weight: 800;
+  }
+  .gu-phase-media {
+    margin: 0;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    cursor: zoom-in;
+  }
+  .gu-phase-media-box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 340px;
+    padding: 18px;
+    border-radius: 24px;
+    background:
+      radial-gradient(circle at top, rgba(201, 169, 97, 0.13), transparent 40%),
+      var(--ink-soft);
+    overflow: hidden;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out);
+  }
+  .gu-phase-media:hover .gu-phase-media-box {
+    transform: translateY(-4px);
+    box-shadow: var(--e-3);
+  }
+  .gu-phase-media-box img {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.3);
+  }
+  .gu-phase-media-badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 13px;
+    border-radius: var(--r-full);
+    background: var(--gold);
+    color: var(--ink);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gu-phase-media figcaption {
+    padding: 14px 6px 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+  .gu-phase--alt .gu-phase-media { order: 2; }
+  .gu-phase--alt .gu-phase-body { order: 3; }
+  .gu-phase--alt .gu-phase-rail { order: 1; }
+
+  /* ==========================================================
+     SPECIFICATIONS
+     ========================================================== */
+  .gu-specs {
+    background: linear-gradient(180deg, var(--bone), var(--white));
+    border-top: 1px solid var(--sand);
+    scroll-margin-top: 118px;
+  }
+  .gu-specs .section-header { max-width: 760px; }
+  .gu-highlights {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    max-width: 1160px;
+    margin: 0 auto 34px;
+  }
+  .gu-highlight-card {
+    padding: 30px 24px 28px;
+    border-radius: var(--r-lg);
+    background: var(--white);
+    border: 1px solid rgba(201, 169, 97, 0.18);
+    box-shadow: var(--e-1);
+    transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out);
+  }
+  .gu-highlight-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--e-2);
+    border-color: rgba(201, 169, 97, 0.4);
+  }
+  .gu-highlight-index {
+    display: block;
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    line-height: 1;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .gu-highlight-card h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 10px;
+  }
+  .gu-highlight-card p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.68;
+  }
+  .gu-spec-table {
+    max-width: 980px;
+    margin: 0 auto;
+    border: 1px solid var(--sand);
+    border-radius: var(--r-lg);
+    overflow: hidden;
+    box-shadow: var(--e-1);
+  }
+  .gu-spec-row {
+    display: grid;
+    grid-template-columns: minmax(200px, 0.62fr) 1fr;
+    border-top: 1px solid var(--sand);
+    background: var(--white);
+  }
+  .gu-spec-row:first-child { border-top: 0; }
+  .gu-spec-row:nth-child(even) { background: var(--bone); }
+  .gu-spec-row strong,
+  .gu-spec-row span { padding: 16px 22px; }
+  .gu-spec-row strong {
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-right: 1px solid var(--sand);
+  }
+  .gu-spec-row span {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* ==========================================================
+     FINAL CTA
+     ========================================================== */
+  .gu-cta {
+    padding: 105px 24px;
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201, 169, 97, 0.18), transparent 46%),
+      var(--ink);
+    color: var(--white);
+    text-align: center;
+  }
+  .gu-cta-inner { max-width: 880px; margin: 0 auto; }
+  .gu-cta h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.1rem, 4.6vw, 3.6rem);
+    font-weight: 500;
+    line-height: 1.08;
+    letter-spacing: var(--track-tight);
+    margin-bottom: 20px;
+  }
+  .gu-cta p {
+    max-width: 720px;
+    margin: 0 auto 36px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1.08rem;
+    line-height: 1.78;
+  }
+  .tag-on-dark { color: var(--gold); }
+
+  #galeria { scroll-margin-top: 118px; }
+  #comparativa { scroll-margin-top: 118px; }
+
+  /* ==========================================================
+     RESPONSIVE
+     ========================================================== */
+  @media (max-width: 1080px) {
+    .gu-phase {
+      grid-template-columns: 72px minmax(0, 1fr);
+    }
+    .gu-phase-media {
+      grid-column: 2;
+      order: 3 !important;
+    }
+    .gu-phase-body {
+      grid-column: 2;
+      order: 2 !important;
+    }
+    .gu-phase-rail {
+      grid-row: 1 / span 2;
+      order: 1 !important;
+    }
+    .gu-timeline::before { left: 35px; }
+    .gu-phase-number { font-size: 2.4rem; }
+    .gu-highlights { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+
+  @media (max-width: 820px) {
+    .gu-hero { padding: 135px 0 70px; min-height: 0; }
+    .gu-facts { border-radius: var(--r-md); }
+    .gu-fact { flex: 1 1 46%; border-bottom: 1px solid rgba(201, 169, 97, 0.18); }
+    .gu-summary-grid { grid-template-columns: 1fr; }
+    .gu-showcase-grid { grid-template-columns: 1fr; }
+    .gu-spec-table { border-radius: var(--r-md); }
+  }
+
+  @media (max-width: 640px) {
+    .gu-hero h1 { font-size: clamp(2.35rem, 10vw, 3rem); }
+    .gu-hero-actions { flex-direction: column; align-items: stretch; }
+    .gu-hero-actions .btn-premium { width: 100%; justify-content: center; }
+    .gu-phase {
+      grid-template-columns: 44px minmax(0, 1fr);
+      gap: 16px;
+      padding: 26px 0;
+    }
+    .gu-timeline::before { left: 21px; }
+    .gu-phase-dot { width: 11px; height: 11px; }
+    .gu-phase-number { font-size: 1.75rem; }
+    .gu-phase-media-box { min-height: 280px; padding: 14px; border-radius: 18px; }
+    .gu-phase-media-box img { max-height: 320px; }
+    .gu-highlights { grid-template-columns: 1fr; }
+    .gu-spec-row { grid-template-columns: 1fr; }
+    .gu-spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); padding-bottom: 12px; }
+    .gu-spec-row span { padding-top: 12px; }
+    .gu-fact { flex: 1 1 100%; border-right: 0; }
+  }
+</style>
