@@ -7,7 +7,6 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
 };
 
 const whatsappBudgetText = 'Hola,%20quiero%20solicitar%20una%20valoración%20técnica%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20y%20ubicación%20por%20aquí.';
-const heroImageSrcSet = '/images/hero-lcp-768.webp 768w, /images/hero-lcp-1280.webp 1280w, /images/hero-lcp-1920.webp 1920w, /images/hero-lcp.webp 2385w';
 
 const serviceImages = {
   cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800, 1600]) },
@@ -87,89 +86,88 @@ const fitItems = [
   activePage="inicio"
 >
 
-  <script is:inline>
-    window.videoStartedPlaying = function(video) {
-      if (video.dataset.started === 'true') return;
-      video.dataset.started = 'true';
-      video.style.opacity = '1';
-      var img = document.querySelector('.hero-lcp-img');
-      if (img) {
-        img.style.opacity = '0';
-        setTimeout(function() {
-          if (img.style.opacity === '0') img.style.display = 'none';
-        }, 800);
-      }
-    };
-  </script>
-
   <header class="hero">
-    <!-- IMAGEN LCP EXPLÍCITA: Forzar que PageSpeed mida esto como LCP válido -->
-    <img 
-      src="/images/hero-lcp-1280.webp"
-      srcset={heroImageSrcSet}
-      sizes="100vw"
-      alt="Interior moderno reformado con diseño de lujo" 
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      width="2385"
-      height="1600"
-      class="hero-lcp-img"
-    />
+    <!--
+      Póster del hero.
 
-    <noscript>
-      <style>
-        .hero-lcp-img { opacity: 1 !important; }
-      </style>
-    </noscript>
+      Es EXACTAMENTE el fotograma 0 del vídeo (lo genera
+      scripts/gen-hero-posters.mjs), así que cuando el vídeo arranca el relevo
+      es invisible: los píxeles que ya estaban en pantalla son los mismos que
+      pinta el primer fotograma. No hay fundido, ni salto de escena, ni parpadeo.
+
+      También es el elemento LCP de la home, por eso va con fetchpriority alto,
+      visible desde el primer pintado (nada de opacity: 0) y precargado en el
+      <head> de BaseLayout con las mismas media queries que este <picture>.
+    -->
+    <picture>
+      <source
+        media="(max-width: 1023.98px)"
+        srcset="/images/hero-poster-mobile.webp"
+        type="image/webp"
+        width="360"
+        height="640"
+      />
+      <img
+        src="/images/hero-poster-desktop.webp"
+        alt="Interior residencial remodelado con acabados de alto estándar"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        width="960"
+        height="540"
+        class="hero-poster"
+      />
+    </picture>
+
+    <!--
+      El vídeo se monta encima del póster. Sale sin src a propósito: el script
+      de abajo elige escritorio u móvil. Mientras no tiene fotogramas el
+      elemento es transparente y se ve el póster de debajo, que es la misma
+      imagen. Si el usuario no tiene JS, el vídeo se queda vacío y el póster
+      sigue siendo el fondo del hero: nunca se ve un hueco negro.
+    -->
+    <video
+      id="hero-video"
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      tabindex="-1"
+    ></video>
 
     <script is:inline>
-      (function() {
-        var isMobile = window.innerWidth < 1024;
-        var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; pointer-events: none; opacity: 0; transition: opacity 0.4s ease-in-out;';
-        
-        // Escribe el elemento video dinámicamente sin poster para evitar destellos internos
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" onplaying="videoStartedPlaying(this)" onloadeddata="videoStartedPlaying(this)" style="' + style + '"></video>');
-        
+      (function () {
         var video = document.getElementById('hero-video');
-        var img = document.querySelector('.hero-lcp-img');
-        
-        if (video) {
-          // Si ya arrancó o está cargado en caché al instante, invocarlo de inmediato
-          if (video.readyState >= 2 || video.currentTime > 0) {
-            window.videoStartedPlaying(video);
-          }
-          
-          // Si falla el autoplay (ahorro batería, etc.)
-          video.play().catch(function() {
-            if (img) {
-              img.style.display = 'block';
-              img.style.opacity = '1';
-            }
-          });
-          
-          // Respaldo por tiempo: si en 1.5s el video no ha arrancado (red muy lenta), muestra el respaldo
-          setTimeout(function() {
-            if (video.paused || video.currentTime === 0) {
-              if (img) {
-                img.style.display = 'block';
-                img.style.opacity = '1';
-              }
-            }
-          }, 1500);
-        } else {
-          if (img) {
-            img.style.display = 'block';
-            img.style.opacity = '1';
-          }
+        if (!video) return;
+
+        // Si el usuario pide menos movimiento no descargamos el vídeo siquiera:
+        // se queda el póster fijo (1,2 MB menos y la preferencia respetada).
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        var isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+
+        // Mismo póster que el <picture> de arriba: si el vídeo tardase en
+        // decodificar el primer fotograma, el elemento pinta esta imagen en vez
+        // de quedarse transparente o en negro.
+        video.poster = isMobile
+          ? '/images/hero-poster-mobile.webp'
+          : '/images/hero-poster-desktop.webp';
+        video.src = isMobile
+          ? '/videos/hero-mobile.mp4'
+          : '/videos/hero-desktop.mp4';
+
+        // Si el autoplay se bloquea (ahorro de batería, iOS en bajo consumo…)
+        // no hay que hacer nada: el vídeo se queda en su póster, que es el
+        // fotograma 0. Visualmente idéntico a lo que ya se está viendo.
+        var playing = video.play();
+        if (playing && typeof playing.catch === 'function') {
+          playing.catch(function () {});
         }
       })();
     </script>
-    
-    <noscript>
-      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2;"></video>
-    </noscript>
 
     <div class="hero-overlay"></div>
 
@@ -525,8 +523,21 @@ const fitItems = [
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: var(--white);
   }
-  .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1 !important; opacity: 0; transition: opacity 0.8s ease-in-out; }
-  .hero-video { z-index: 2 !important; }
+  /* Póster y vídeo ocupan exactamente el mismo rectángulo y usan el mismo
+     object-fit, así que el encuadre coincide píxel a píxel. El póster está
+     debajo y siempre visible: el vídeo simplemente lo tapa cuando empieza a
+     pintar fotogramas. Sin opacity animada = sin parpadeo ni doble imagen. */
+  .hero-poster,
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    /* El vídeo es 960×540 / 360×640 estirado a pantalla completa: sin esto,
+       algunos navegadores lo suavizan distinto que al WebP y se nota el cambio. */
+    object-position: center;
+  }
+  .hero-poster { z-index: 1 !important; }
+  .hero-video { z-index: 2 !important; border: 0; background: transparent; pointer-events: none; }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 3 !important;
     background: radial-gradient(circle at 50% 42%, rgba(0,0,0,.18), rgba(0,0,0,.68) 55%, rgba(0,0,0,.9) 100%);
@@ -890,8 +901,9 @@ const fitItems = [
     .about-text .section-title { font-size: 2.05rem; }
   }
   @media (prefers-reduced-motion: reduce) {
+    /* El script ni siquiera le pone src al vídeo en este caso; lo ocultamos
+       también por CSS y se queda el póster, que ya es el fotograma 0. */
     .hero-video { display: none; }
-    .hero { background: url('/images/hero-lcp-1280.webp') center/cover no-repeat; }
   }
 
   /* Estilos para mensaje de éxito (Fase 4) */
