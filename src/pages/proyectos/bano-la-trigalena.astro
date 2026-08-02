@@ -1,1714 +1,402 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
-import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
-import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
-import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
-import ProjectLightbox from '../../components/ProjectLightbox.astro';
+import ProjectCaseStudy from '../../components/ProjectCaseStudy.astro';
 
-const project = {
-  title: 'Remodelación Integral de Baño en Townhouse',
-  location: 'La Trigaleña, Valencia',
-  category: 'Baños de Alta Gama',
-  year: '2024',
-  duration: '1 semana',
-  description: 'Demolición de tabiques divisorios para ampliar el espacio, plomería multicapa PEX-Al-PEX y revestimiento en porcelanato importado rectificado gran formato 60x120 con sanitarios TEKA.',
-  heroImage: '/images/proyectos/bano-la-trigalena/bano-final-1.webp',
-  scope: [
-    'Demolición total de cerámica, sanitarios y 2 tabiques divisorios antiguos',
-    'Sustitución completa de fontanería por red multicapa PEX-Al-PEX',
-    'Instalación de porcelanato importado rectificado 60x120 efecto mármol',
-    'Pavimento en porcelanato efecto madera con tratamiento antideslizante',
-    'Montaje de inodoro TEKA modelo Manacor de alta eficiencia',
-    'Instalación de mueble blanco de 80 cm con grifería monomando TEKA',
-    'Plato de ducha sólido en polvo de mármol y grifería TEKA efecto lluvia',
-    'Mampara fija de cristal templado de seguridad e iluminación Spot Light blanca'
-  ],
-  specs: [
-    { label: 'Revestimiento Paredes', value: 'Porcelanato importado 60x120 cm (Efecto Mármol Rectificado)' },
-    { label: 'Revestimiento Suelo', value: 'Porcelanato rectificado efecto madera antideslizante' },
-    { label: 'Acabado y Juntas', value: 'Cantos rectificados a 90° con microjuntas de 1 mm' },
-    { label: 'Red de Fontanería', value: 'Tubería multicapa PEX-Al-PEX para agua fría y caliente' },
-    { label: 'Intervención Espacial', value: 'Demolición de 2 tabiques divisorios para máxima amplitud' },
-    { label: 'Inodoro Sanitario', value: 'TEKA modelo Manacor con doble descarga ecológica' },
-    { label: 'Mueble de Lavabo', value: 'Mueble suspendido blanco de 80 cm con grifería TEKA' },
-    { label: 'Plato de Ducha', value: 'Sólido en resina mineral y polvo de mármol antideslizante' },
-    { label: 'Grifería de Ducha', value: 'TEKA superficial con rociador efecto lluvia + teléfono mural' },
-    { label: 'Mampara de Baño', value: 'Hoja fija de cristal templado de seguridad + perfil aluminio' },
-    { label: 'Sistema de Iluminación', value: 'Focos empotrables tipo Spot Light de luz blanca pura' }
-  ],
-  gallery: [
-    // 1. RESULTADO FINAL
+const whatsappText =
+  'Hola, quiero una valoración técnica para un proyecto similar al baño en townhouse de La Trigaleña.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+
+const quickNavItems = [
+  { href: '#resumen', label: 'Resumen' },
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#paso-a-paso', label: 'Paso a paso' },
+  { href: '#comparativa', label: 'Antes y después' },
+  { href: '#especificaciones', label: 'Especificaciones' },
+  { href: '#galeria', label: 'Galería' },
+];
+---
+
+<ProjectCaseStudy
+  seoTitle="Remodelación Integral de Baño en Townhouse | RemodelaT"
+  seoDescription="Demolición de tabiques divisorios para ampliar el espacio, plomería multicapa PEX-Al-PEX y revestimiento en porcelanato importado rectificado gran formato 60x120 con sanitarios TEKA."
+  heroImage="/images/proyectos/bano-la-trigalena/bano-final-1.webp"
+  heroImageAlt="Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo efecto madera"
+  kicker="Caso real · Baños de alta gama · Diario de obra"
+  heroTitle="Remodelación Integral de Baño en Townhouse"
+  lead="Demolición de tabiques divisorios, fontanería multicapa PEX-Al-PEX y revestimiento en porcelanato importado rectificado de gran formato 60x120, con sanitarios y grifería de alta gama TEKA."
+  heroFacts={[
+    { label: 'Ubicación', value: 'La Trigaleña · Valencia' },
+    { label: 'Duración', value: '1 semana' },
+    { label: 'Intervención', value: 'Planta abierta integral' },
+    { label: 'Paredes', value: 'Porcelanato 60x120 mármol' },
+    { label: 'Suelo', value: 'Efecto madera antideslizante' },
+    { label: 'Equipos', value: 'Sanitarios TEKA' },
+  ]}
+  quickNavItems={quickNavItems}
+  whatsappHref={whatsappHref}
+  breadcrumbCurrent="Baño en Townhouse La Trigaleña"
+  summaryTag="En síntesis"
+  summaryTitle="De espacio fragmentado a oasis de gran formato"
+  summaryDesc="Al eliminar dos antiguos tabiques que cortaban la circulación visual y sustituir la fontanería por tecnología multicapa, el baño del townhouse recuperó toda su amplitud arquitectónica en perfecta continuidad estético-funcional."
+  summaryCards={[
+    {
+      index: 'El reto',
+      title: 'Una planta generosa que se percibía pequeña y cerrada',
+      body: 'El baño original poseía un área generosa en planta, pero dos tabiques divisorios (muretes de albañilería) fragmentaban innecesariamente la zona del lavabo, el inodoro y la ducha, acompañados de una mampara convencional que bloqueaba la profundidad visual.',
+      dropcap: true,
+    },
+    {
+      index: 'La solución',
+      title: 'Demolición estratégica, red multicapa y porcelanato rectificado',
+      body: 'Se ejecutó una demolición total hasta el soporte: fuera muretes, mobiliario, poceta y fontanería galvanizada. Sobre la nueva planta abierta se tendió una red multicapa PEX-Al-PEX y se revistió con porcelanato importado rectificado 60x120 efecto mármol con microjuntas de 1 mm.',
+    },
+  ]}
+  stats={[
+    { value: '06', label: 'Fases documentadas' },
+    { value: '12', label: 'Fotografías reales' },
+    { value: '01', label: 'Semana de ejecución' },
+    { value: '02', label: 'Tabiques eliminados' },
+    { value: '01', label: 'mm de microjuntas' },
+  ]}
+  resultadoTag="Resultado final"
+  resultadoTitle="Primero, el destino; después, el camino"
+  resultadoDesc="Antes de explicar cada fase, mostramos el resultado: un baño de planta abierta donde el gran formato 60x120 y el equipamiento TEKA trabajan en una sola lectura."
+  resultadoShowcase={[
+    {
+      src: '/images/proyectos/bano-la-trigalena/bano-final-1.webp',
+      alt: 'Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo madera',
+      badge: 'Planta abierta',
+      title: 'Amplitud sin barreras arquitectónicas',
+      caption:
+        'Al demoler los dos tabiques divisorios antiguos, la percepción espacial se duplicó. Revestimiento en porcelanato rectificado gran formato 60x120 cm efecto mármol y pavimento efecto madera antideslizante.',
+    },
+    {
+      src: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
+      alt: 'Detalle de zona de ducha con plato de polvo de mármol e inodoro TEKA modelo Manacor',
+      badge: 'Ducha y sanitarios',
+      title: 'Plato de polvo de mármol e inodoro TEKA Manacor',
+      caption:
+        'Zona de ducha equipada con plato sólido de polvo de mármol antideslizante, grifería TEKA efecto lluvia e inodoro TEKA modelo Manacor de líneas minimalistas europeas.',
+    },
+  ]}
+  quote={{
+    text: 'Donde antes había muretes, ahora hay una sola lectura: continuidad, luz y gran formato.',
+    cite: 'Diario de obra · Baño en townhouse de La Trigaleña',
+  }}
+  timelineTag="La obra, en orden"
+  timelineTitle="El proyecto paso a paso: seis fases, cero improvisación"
+  timelineDesc="Cada fase está numerada y documentada con sus trabajos ejecutados y <strong>todas</strong> sus fotografías reales, para que el recorrido se lea tan claro como se ejecutó."
+  phases={[
+    {
+      number: '01',
+      kicker: 'Fase 01 · Diagnóstico',
+      title: 'El punto de partida: dos muretes que robaban continuidad',
+      body: 'El baño original se percibía pequeño, cerrado y poco luminoso. La causa primordial era la existencia de dos pequeños tabiques divisorios que fragmentaban la estancia, acompañados de una mampara convencional que bloqueaba la profundidad visual.',
+      checks: [
+        'Diagnóstico de la planta y de los tabiques divisorios',
+        'Definición de la demolición estratégica hasta el soporte',
+        'Plan de nueva red hidráulica multicapa PEX-Al-PEX',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
+          alt: 'Estado original del baño en La Trigaleña con tabiques divisorios que reducían el espacio',
+          caption: 'Estado previo del baño residencial: los tabiques de obra fragmentaban la estancia y generaban una sensación de encierro.',
+          badge: 'Estado Original',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-antes-2.webp',
+          alt: 'Zona original de ducha y sanitarios en baño antes de la reforma integral',
+          caption: 'Vista del área de ducha original con mampara convencional y alicatado antiguo, previa a su completa demolición y sustitución hidráulica.',
+          badge: 'Estado Original',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-antes-3.webp',
+          alt: 'Perspectiva original del baño de Townhouse en La Trigaleña antes de la intervención',
+          caption: 'Perspectiva del baño anterior donde la ubicación de los muretes y la antigua fontanería requerían una intervención integral desde la estructura.',
+          badge: 'Estado Original',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '02',
+      kicker: 'Fase 02 · Instalaciones',
+      title: 'Red multicapa PEX-Al-PEX y solera regularizada',
+      body: 'Al demoler hasta el soporte de obra, se retiró por completo la red de plomería galvanizada obsoleta y se construyó un nuevo circuito hidráulico con tubería multicapa PEX-Al-PEX para agua fría y caliente: cero corrosión, estanqueidad absoluta y durabilidad estructural.',
+      checks: [
+        'Retirada total de la fontanería galvanizada existente',
+        'Nuevo circuito con tubería multicapa PEX-Al-PEX',
+        'Regularización de la solera para el nuevo pavimento',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-cambio-de-suelo.webp',
+          alt: 'Proceso de colocación de porcelanato efecto madera tras la demolición total',
+          caption: 'Fase de instalación del pavimento de porcelanato efecto madera tras regularizar la solera y tender las nuevas tuberías multicapa PEX-Al-PEX.',
+          badge: 'Proceso de Obra',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '03',
+      kicker: 'Fase 03 · Revestimiento',
+      title: 'Gran formato rectificado 60x120: microjuntas de 1 mm',
+      body: 'Las paredes se revistieron con porcelanato importado 60x120 cm efecto mármol y acabado rectificado, cortado en fábrica con diamante computarizado: cantos a 90° y juntas de dilatación casi imperceptibles para una lectura de bloque continuo de mármol arquitectónico.',
+      checks: [
+        'Colocación con doble encolado y cuñas autonivelantes',
+        'Cantos rectificados a 90° con microjuntas de 1 mm',
+        'Suelo en porcelanato efecto madera antideslizante',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando.webp',
+          alt: 'Instalación de porcelanato importado efecto mármol 60x120 con cuñas autonivelantes',
+          caption: 'Colocación de piezas de gran formato 60x120 cm con sistema de doble encolado y cuñas autonivelantes para asegurar una superficie 100% plana.',
+          badge: 'Gran Formato 60x120',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando-2.webp',
+          alt: 'Detalle apaisado del acabado rectificado en paredes de ducha del baño en La Trigaleña',
+          caption: 'Vista apaisada del proceso de instalación en la zona de ducha: el corte rectificado permite juntar las piezas con separación milimétrica para un acabado superior.',
+          badge: 'Acabado Rectificado',
+          orientation: 'landscape',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando-3.webp',
+          alt: 'Continuidad visual y microjuntas en el porcelanato 60x120 cm durante la instalación',
+          caption: 'Vista horizontal en detalle de la continuidad en la veta marmórea sin la interferencia visual de juntas anchas, propia del porcelanato rectificado.',
+          badge: 'Microjuntas 1 mm',
+          orientation: 'landscape',
+        },
+      ],
+    },
+    {
+      number: '04',
+      kicker: 'Fase 04 · Sanitarios y mobiliario',
+      title: 'Inodoro TEKA Manacor y mueble suspendido de 80 cm',
+      body: 'Se instaló el inodoro TEKA modelo Manacor, de líneas limpias y doble descarga ecológica, junto a un mueble suspendido blanco de 80 cm con lavabo integrado de porcelana y grifería monomando TEKA.',
+      checks: [
+        'Inodoro TEKA Manacor con doble descarga ecológica',
+        'Mueble suspendido blanco de 80 cm con encimera integrada',
+        'Grifería monomando TEKA instalada y probada',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-inodoro-instalado.webp',
+          alt: 'Inodoro TEKA modelo Manacor instalado sobre suelo de porcelanato efecto madera',
+          caption: 'Instalación impecable del inodoro marca TEKA modelo Manacor, cuyo perfil moderno de descarga ecológica contrasta sobre el pavimento cálido efecto madera.',
+          badge: 'TEKA Manacor',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-mueble-instalado.webp',
+          alt: 'Mueble de baño en color blanco de 80 cm con grifería monomando TEKA instalada',
+          caption: 'Mueble lavabo de 80 cm en acabado blanco pulido con encimera integrada y grifería monomando TEKA, aportando luminosidad y funcionalidad sin sobrecargar la vista.',
+          badge: 'Mueble 80 cm',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '05',
+      kicker: 'Fase 05 · Entrega',
+      title: 'Ducha, luminaria y revisión final de cada encuentro',
+      body: 'Se completó la zona de ducha con plato sólido de polvo de mármol, grifería TEKA efecto lluvia y mampara fija de cristal templado, y se instalaron los focos Spot Light de luz blanca. Revisión final de juntas, encuentros y funcionamiento.',
+      checks: [
+        'Plato de ducha en resina mineral y polvo de mármol',
+        'Mampara fija de cristal templado con perfil de aluminio',
+        'Focos Spot Light y revisión final de acabados',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-final-3.webp',
+          alt: 'Perspectiva integral del baño renovado iluminado con focos Spot Light blancos',
+          caption: 'Vista general donde resalta el veteado continuo del mármol 60x120 gracias a las microjuntas del acabado rectificado y la iluminación estratégica por focos Spot Light blancos.',
+          badge: 'Luminotecnia LED',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '06',
+      kicker: 'Fase 06 · Resultado',
+      title: 'Una planta abierta, serena y con presencia arquitectónica',
+      body: 'Con la nueva planta abierta, el porcelanato rectificado 60x120 y el equipamiento TEKA, el townhouse pasa a tener un baño más amplio, más actual y mejor resuelto en cada encuentro: la amplitud ya no se percibe, se habita.',
+      checks: [
+        'Lectura visual continua de extremo a extremo',
+        'Microjuntas y cantos rectificados en perfecto estado',
+        'Conjunto sanitario y luminotécnico en funcionamiento',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-final-1.webp',
+          alt: 'Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo madera',
+          caption: 'Al demoler los dos tabiques divisorios antiguos, la percepción espacial se duplicó. Revestimiento en porcelanato rectificado gran formato 60x120 cm efecto mármol y pavimento efecto madera antideslizante.',
+          badge: 'Amplitud 60x120',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
+          alt: 'Detalle de zona de ducha con plato de polvo de mármol e inodoro TEKA modelo Manacor',
+          caption: 'Zona de ducha equipada con plato sólido de polvo de mármol antideslizante, grifería TEKA efecto lluvia e inodoro TEKA modelo Manacor de líneas minimalistas europeas.',
+          badge: 'Sanitarios TEKA',
+          orientation: 'portrait',
+        },
+      ],
+    },
+  ]}
+  compareTag="La misma zona, otra vida"
+  compareTitle="Desliza y compruébalo con tus propios ojos"
+  compareDesc="Aquí se entiende muy bien el impacto de eliminar tabiques divisorios y construir una escena más abierta y más limpia."
+  compare={{
+    beforeSrc: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
+    beforeAlt: 'Baño original con tabiques divisorios antes de la reforma en La Trigaleña',
+    afterSrc: '/images/proyectos/bano-la-trigalena/bano-final-1.webp',
+    afterAlt: 'Baño finalizado sin tabiques divisorios con porcelanato 60x120 en La Trigaleña',
+    beforeCaption: 'Los muretes fragmentaban el baño y le quitaban continuidad visual.',
+    afterCaption: 'La nueva planta abierta hace que el espacio se sienta mucho más amplio, sereno y sofisticado.',
+  }}
+  specsTag="Detalle técnico"
+  specsTitle="Especificaciones de la intervención"
+  specsDesc="Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida."
+  highlights={[
+    {
+      icon: 'ruler',
+      title: 'Planta abierta sin muretes',
+      text: 'Demolición de los dos tabiques divisorios y de la mampara convencional: la percepción espacial del baño se duplicó de extremo a extremo.',
+    },
+    {
+      icon: 'sparkle',
+      title: 'Porcelanato rectificado 60x120',
+      text: 'Cantos cortados a 90° en fábrica y microjuntas de 1 mm: el efecto mármol se lee como un bloque continuo, higiénico y fácil de limpiar.',
+    },
+    {
+      icon: 'droplet',
+      title: 'Red multicapa PEX-Al-PEX',
+      text: 'Circuito hidráulico nuevo para agua fría y caliente: cero corrosión, conexiones prensadas estancas y durabilidad frente a expansiones térmicas.',
+    },
+    {
+      icon: 'shield',
+      title: 'Sanitarios TEKA de alta gama',
+      text: 'Inodoro Manacor de doble descarga ecológica, mueble suspendido de 80 cm con grifería monomando y plato de ducha en polvo de mármol.',
+    },
+  ]}
+  specs={[
+    { label: 'Ubicación', value: 'Townhouse en La Trigaleña, Valencia' },
+    { label: 'Duración de obra', value: '1 semana de ejecución' },
+    { label: 'Revestimiento paredes', value: 'Porcelanato importado 60x120 cm (efecto mármol rectificado)' },
+    { label: 'Revestimiento suelo', value: 'Porcelanato rectificado efecto madera antideslizante' },
+    { label: 'Acabado y juntas', value: 'Cantos rectificados a 90° con microjuntas de 1 mm' },
+    { label: 'Red de fontanería', value: 'Tubería multicapa PEX-Al-PEX para agua fría y caliente' },
+    { label: 'Intervención espacial', value: 'Demolición de 2 tabiques divisorios para máxima amplitud' },
+    { label: 'Inodoro sanitario', value: 'TEKA modelo Manacor con doble descarga ecológica' },
+    { label: 'Mueble de lavabo', value: 'Mueble suspendido blanco de 80 cm con grifería TEKA' },
+    { label: 'Plato de ducha', value: 'Sólido en resina mineral y polvo de mármol antideslizante' },
+    { label: 'Grifería de ducha', value: 'TEKA superficial con rociador efecto lluvia + teléfono mural' },
+    { label: 'Mampara de baño', value: 'Hoja fija de cristal templado de seguridad + perfil aluminio' },
+    { label: 'Sistema de iluminación', value: 'Focos empotrables tipo Spot Light de luz blanca pura' },
+  ]}
+  galleryTitle={`Galería ordenada del proyecto (12 fotos reales)`}
+  galleryIntro="Las imágenes se agrupan por bloques para que el cambio espacial, los sanitarios y el proceso de obra se entiendan con mucha más claridad."
+  gallery={[
     {
       src: '/images/proyectos/bano-la-trigalena/bano-final-1.webp',
       alt: 'Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo madera',
       title: 'Vista Principal: Amplitud Sin Tabiques Divisorios',
       caption: 'Al demoler los dos tabiques divisorios antiguos, la percepción espacial se duplicó. Revestimiento en porcelanato rectificado gran formato 60x120 cm efecto mármol y pavimento efecto madera antideslizante.',
-      category: 'final',
-      categoryLabel: 'Resultado Final',
-      badge: 'Amplitud 60x120',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Resultado Final', badge: 'Amplitud 60x120', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
       alt: 'Detalle de zona de ducha con plato de polvo de mármol e inodoro TEKA modelo Manacor',
       title: 'Ducha con Plato de Polvo de Mármol e Inodoro TEKA',
       caption: 'Zona de ducha equipada con plato sólido de polvo de mármol antideslizante, grifería TEKA efecto lluvia e inodoro TEKA modelo Manacor de líneas minimalistas europeas.',
-      category: 'final',
-      categoryLabel: 'Resultado Final',
-      badge: 'Sanitarios TEKA',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Resultado Final', badge: 'Sanitarios TEKA', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-final-3.webp',
       alt: 'Perspectiva integral del baño renovado iluminado con focos Spot Light blancos',
       title: 'Perspectiva Integral: Iluminación Spot Light Blanca',
       caption: 'Vista general donde resalta el veteado continuo del mármol 60x120 gracias a las microjuntas del acabado rectificado y la iluminación estratégica por focos Spot Light blancos.',
-      category: 'final',
-      categoryLabel: 'Resultado Final',
-      badge: 'Luminotecnia LED',
-      orientation: 'portrait'
+      category: 'final', categoryLabel: 'Resultado Final', badge: 'Luminotecnia LED', orientation: 'portrait',
     },
-    // 2. SANITARIOS TEKA Y MUEBLES
     {
       src: '/images/proyectos/bano-la-trigalena/bano-inodoro-instalado.webp',
       alt: 'Inodoro TEKA modelo Manacor instalado sobre suelo de porcelanato efecto madera',
       title: 'Inodoro TEKA Modelo Manacor de Alta Eficiencia',
       caption: 'Instalación impecable del inodoro marca TEKA modelo Manacor, cuyo perfil moderno de descarga ecológica contrasta sobre el pavimento cálido efecto madera.',
-      category: 'teka',
-      categoryLabel: 'Sanitarios TEKA',
-      badge: 'TEKA Manacor',
-      orientation: 'portrait'
+      category: 'teka', categoryLabel: 'Sanitarios TEKA', badge: 'TEKA Manacor', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-mueble-instalado.webp',
       alt: 'Mueble de baño en color blanco de 80 cm con grifería monomando TEKA instalada',
       title: 'Mueble Blanco de 80 cm con Grifería TEKA',
       caption: 'Mueble lavabo de 80 cm en acabado blanco pulido con encimera integrada y grifería monomando TEKA, aportando luminosidad y funcionalidad sin sobrecargar la vista.',
-      category: 'teka',
-      categoryLabel: 'Mobiliario TEKA',
-      badge: 'Mueble 80 cm',
-      orientation: 'portrait'
+      category: 'teka', categoryLabel: 'Mobiliario TEKA', badge: 'Mueble 80 cm', orientation: 'portrait',
     },
-    // 3. ANTES Y PROCESO DE OBRA
     {
       src: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
       alt: 'Estado original del baño en La Trigaleña con tabiques divisorios que reducían el espacio',
       title: 'Estado Original: Tabiques Divisorios y Muretes',
-      caption: 'Estado previo del baño residencial. Se aprecian los tabiques de obra que fragmentaban la estancia y generaban una sensación de encierro pese al buen tamaño del Townhouse.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Estado Original',
-      orientation: 'portrait'
+      caption: 'Estado previo del baño residencial: los tabiques de obra fragmentaban la estancia y generaban una sensación de encierro pese al buen tamaño del townhouse.',
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Estado Original', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-antes-2.webp',
       alt: 'Zona original de ducha y sanitarios en baño antes de la reforma integral',
       title: 'Estado Original: Ducha Fragmentada Previa',
       caption: 'Vista del área de ducha original con mampara convencional y alicatado antiguo, previa a su completa demolición y sustitución hidráulica.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Estado Original',
-      orientation: 'portrait'
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Estado Original', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-antes-3.webp',
       alt: 'Perspectiva original del baño de Townhouse en La Trigaleña antes de la intervención',
       title: 'Estado Original: Distribución y Plomería Antigua',
       caption: 'Perspectiva del baño anterior donde la ubicación de los muretes y la antigua fontanería requerían una intervención integral desde la estructura.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Estado Original',
-      orientation: 'portrait'
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Estado Original', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-cambio-de-suelo.webp',
       alt: 'Proceso de colocación de porcelanato efecto madera tras la demolición total',
       title: 'Proceso de Obra: Pavimento Porcelánico Madera',
       caption: 'Fase de instalación del pavimento de porcelanato efecto madera tras regularizar la solera y tender las nuevas tuberías multicapa PEX-Al-PEX.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Proceso de Obra',
-      orientation: 'portrait'
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Proceso de Obra', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando.webp',
       alt: 'Instalación de porcelanato importado efecto mármol 60x120 con cuñas autonivelantes',
       title: 'Revestimiento: Instalación de Mármol 60x120',
       caption: 'Colocación de piezas de gran formato 60x120 cm con sistema de doble encolado y cuñas autonivelantes para asegurar una superficie 100% plana.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Gran Formato 60x120',
-      orientation: 'portrait'
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Gran Formato 60x120', orientation: 'portrait',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando-2.webp',
       alt: 'Detalle apaisado del acabado rectificado en paredes de ducha del baño en La Trigaleña',
       title: 'Acabado Rectificado: Precisión de Cantos a 90°',
       caption: 'Vista apaisada del proceso de instalación en la zona de ducha: el corte rectificado permite juntar las piezas con separación milimétrica para un acabado superior.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Acabado Rectificado',
-      orientation: 'landscape'
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Acabado Rectificado', orientation: 'landscape',
     },
     {
       src: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando-3.webp',
       alt: 'Continuidad visual y microjuntas en el porcelanato 60x120 cm durante la instalación',
       title: 'Continuidad Visual y Microjuntas Milimétricas',
       caption: 'Vista horizontal en detalle de la continuidad en la veta marmórea sin la interferencia visual de juntas anchas, propia del porcelanato rectificado.',
-      category: 'proceso',
-      categoryLabel: 'Antes y Proceso',
-      badge: 'Microjuntas 1 mm',
-      orientation: 'landscape'
-    }
-  ]
-};
-
-const galleryPhases = [
-  { id: 'final', label: 'Resultado final', description: 'Las fotos finales resumen la nueva amplitud espacial y el acabado rectificado del proyecto.' },
-  { id: 'teka', label: 'Sanitarios y muebles', description: 'Aquí se concentran las piezas TEKA, el mobiliario y los detalles que elevan la calidad percibida.' },
-  { id: 'proceso', label: 'Antes y proceso', description: 'La secuencia previa permite entender la demolición, el replanteo y la instalación del nuevo sistema.' }
-];
-
-const storyMoments = [
-  {
-    tag: '01 · Antes',
-    title: 'La planta original no aprovechaba todo el potencial del baño',
-    body: 'Aunque la superficie existía, la sensación espacial era mucho peor por culpa de los tabiques divisorios y de una lectura visual fragmentada. Por eso la obra empezó liberando la planta.',
-    image: '/images/proyectos/bano-la-trigalena/bano-antes-1.webp',
-    alt: 'Baño original con tabiques divisorios antes de la reforma en La Trigaleña',
-    caption: 'Los muretes reducían continuidad, amplitud visual y confort de uso.'
-  },
-  {
-    tag: '02 · Ejecución',
-    title: 'La instalación del porcelanato y la nueva base técnica sostienen el resultado premium',
-    body: 'El cambio no depende solo del gran formato visible. También intervienen la nueva fontanería multicapa, el replanteo y la colocación con control de juntas y planeidad.',
-    image: '/images/proyectos/bano-la-trigalena/bano-porcelanato-instalando.webp',
-    alt: 'Proceso de instalación de porcelanato en baño reformado de La Trigaleña',
-    caption: 'La fase de ejecución determina que el acabado final se perciba verdaderamente limpio y elegante.'
-  },
-  {
-    tag: '03 · Resultado final',
-    title: 'El baño gana continuidad, calma visual y un nivel mucho más arquitectónico',
-    body: 'Con la nueva planta abierta, el porcelanato rectificado 60x120 y el equipamiento TEKA, el Townhouse pasa a tener un baño más amplio, más actual y mejor resuelto en cada encuentro.',
-    image: '/images/proyectos/bano-la-trigalena/bano-final-2.webp',
-    alt: 'Baño finalizado con plato de ducha en polvo de mármol y sanitarios TEKA en La Trigaleña',
-    caption: 'La nueva escena combina amplitud, materialidad y una presencia claramente superior.'
-  }
-];
-
-const heroImage = project.heroImage;
-const whatsappText = 'Hola, quiero una valoración técnica para un proyecto similar al baño en townhouse de La Trigaleña.';
----
-
-<BaseLayout 
-  title={`${project.title} | RemodelaT`} 
-  description={project.description}
-  image={heroImage}
-  activePage="proyectos"
->
-  <!-- 1. EDITORIAL LUXURY HERO -->
-  <header class="project-hero">
-    <div class="hero-backdrop" aria-hidden="true"></div>
-    <div class="container">
-      <div class="hero-content">
-        <div class="hero-kicker">
-          <span class="kicker-badge">CASO DE ESTUDIO</span>
-          <span class="kicker-line"></span>
-          <span class="kicker-sub">ARQUITECTURA INTERIOR · LA TRIGALEÑA, VALENCIA</span>
-        </div>
-
-        <h1 class="hero-title">Remodelación Integral de Baño en Townhouse</h1>
-        
-        <p class="hero-subtitle">
-          Demolición de tabiques divisorios, fontanería multicapa PEX-Al-PEX y revestimiento en porcelanato importado rectificado gran formato 60x120 con sanitarios y grifería de alta gama TEKA.
-        </p>
-
-        <!-- Quick Executive Ribbon -->
-        <div class="hero-stats-ribbon">
-          <div class="stat-item">
-            <span class="stat-label">Ubicación</span>
-            <span class="stat-value">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-              La Trigaleña, Valencia
-            </span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Intervención</span>
-            <span class="stat-value">Baño Completo (Sin Tabiques)</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Plazo de Obra</span>
-            <span class="stat-value">1 Semana</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Revestimiento</span>
-            <span class="stat-value">Porcelanato Rectificado 60x120</span>
-          </div>
-          <div class="stat-divider" aria-hidden="true"></div>
-          <div class="stat-item">
-            <span class="stat-label">Equipamiento</span>
-            <span class="stat-value">TEKA Manacor + Polvo de Mármol</span>
-          </div>
-        </div>
-        <div class="hero-actions"><a href="#galeria" class="btn-premium btn-primary-premium"><span class="btn-content">Ver galería completa</span><span class="btn-border"></span><span class="btn-arrow">→</span></a><a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a></div><p class="hero-proof">{project.gallery.length} fotos reales · comparativa directa · detalles ampliables</p>
-      </div>
-    </div>
-  </header>
-
-  <!-- BREADCRUMBS TRAS EL HERO -->
-  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb-inner">
-        <a href="/">Inicio</a>
-        <span class="separator">/</span>
-        <a href="/proyectos">Proyectos</a>
-        <span class="separator">/</span>
-        <span class="current">Baño en Townhouse La Trigaleña</span>
-      </div>
-    </div>
-  </nav>
-
-  <!-- 2. DUAL-SHOWCASE: EL TRIUNFO ESPACIAL (ZERO CROPPING) -->
-  <section class="dual-showcase-section" id="espacios">
-    <div class="container">
-      <div class="section-heading">
-        <span class="eyebrow-text">VISTA DESTACADA DEL PROYECTO</span>
-        <h2 class="editorial-title">De Espacio Fragmentado a Oasis de Gran Formato</h2>
-        <p class="editorial-subtitle">
-          Al eliminar dos antiguos tabiques que cortaban la circulación visual y sustituir la fontanería por tecnología multicapa, el baño del Townhouse recuperó toda su amplitud arquitectónica en perfecta continuidad estético-funcional.
-        </p>
-      </div>
-
-      <div class="showcase-grid">
-        <!-- Card 1: Amplitud 60x120 -->
-        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" data-alt="Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo efecto madera" data-title="Amplitud sin Barreras Arquitectónicas" data-caption="La demolición de los muretes divisorios transformó por completo la estancia y permitió un baño con mucha más continuidad visual y presencia arquitectónica." data-badge="Planta Abierta · Mármol 60x120 cm">
-          <div class="showcase-image-frame">
-            <span class="showcase-badge">Planta Abierta · Mármol 60x120 cm</span>
-            <img 
-              src="/images/proyectos/bano-la-trigalena/bano-final-1.webp" 
-              alt="Baño renovado en La Trigaleña con porcelanato rectificado 60x120 efecto mármol y suelo efecto madera" 
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <div class="showcase-content">
-            <h3 class="showcase-title">Amplitud sin Barreras Arquitectónicas</h3>
-            <p class="showcase-desc">
-              La demolición de los muretes divisorios transformó por completo la estancia. Se revistieron las paredes con porcelanato importado efecto mármol en gran formato 60x120 cm con acabado rectificado y se pavimento el suelo en madera cerámica cálida antideslizante.
-            </p>
-            <ul class="showcase-highlights">
-              <li>• Eliminación del encierro visual provocado por los tabiques antiguos</li>
-              <li>• Mueble suspendido en color blanco de 80 cm con grifería TEKA</li>
-              <li>• Tuberías de agua nuevas en red multicapa PEX-Al-PEX</li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- Card 2: Zona Ducha TEKA -->
-        <article class="showcase-card" data-lightbox-item data-lightbox-group="trigalena-showcase" data-src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" data-alt="Plato de ducha en polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA modelo Manacor" data-title="Sanitarios TEKA y Ducha Antideslizante" data-caption="La zona de ducha se equipó con plato sólido en polvo de mármol, grifería TEKA efecto lluvia e inodoro europeo TEKA Manacor para un conjunto más técnico y elegante." data-badge="Ducha Polvo Mármol · Sanitarios TEKA">
-          <div class="showcase-image-frame">
-            <span class="showcase-badge">Ducha Polvo Mármol · Sanitarios TEKA</span>
-            <img 
-              src="/images/proyectos/bano-la-trigalena/bano-final-2.webp" 
-              alt="Plato de ducha en polvo de mármol antideslizante, grifería TEKA lluvia e inodoro TEKA modelo Manacor" 
-              loading="eager"
-              decoding="async"
-            />
-          </div>
-          <div class="showcase-content">
-            <h3 class="showcase-title">Sanitarios TEKA y Ducha Antideslizante</h3>
-            <p class="showcase-desc">
-              La zona de ducha se equipó con un plato sólido fabricado en polvo de mármol de alta seguridad antideslizante, grifería TEKA superficial con cabezal efecto lluvia, inodoro europeo TEKA modelo Manacor y mampara fija en cristal templado de seguridad.
-            </p>
-            <ul class="showcase-highlights">
-              <li>• Plato de ducha mineral antideslizante de tacto cálido</li>
-              <li>• Inodoro TEKA modelo Manacor con doble descarga ecológica</li>
-              <li>• Mampara fija minimalista en aluminio y cristal templado</li>
-            </ul>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. DETAILED TECHNICAL NARRATIVE & SPECS (2-COLUMN EDITORIAL GRID) -->
-  <section class="technical-narrative-section" id="memoria">
-    <div class="container">
-      <div class="narrative-layout">
-        <!-- Main Editorial Narrative -->
-        <div class="narrative-main">
-          <span class="eyebrow-text">MEMORIA TÉCNICA DEL PROYECTO</span>
-          <h2 class="editorial-title">Ingeniería, Porcelanato Rectificado y Acabados Europeos</h2>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">01. El Diagnóstico Arquitectónico y la Demolición de Tabiques</h3>
-            <p class="chapter-text">
-              El baño original de este Townhouse en La Trigaleña (Valencia) poseía un área generosa en planta; sin embargo, se percibía pequeño, cerrado y poco luminoso. La causa primordial era la existencia de <strong>dos pequeños tabiques divisorios (muretes de albañilería)</strong> que fragmentaban innecesariamente la zona del lavabo, el inodoro y la ducha, acompañados de una mampara convencional que bloqueaba la profundidad visual.
-            </p>
-            <p class="chapter-text">
-              La intervención de <strong>RemodelaT Venezuela</strong> inició con una demolición estratégica y total de todos los acabados existentes, incluyendo la eliminación estructural de los dos tabiques divisorios, el antiguo mobiliario y la poceta original. Esta decisión liberó el campo visual de extremo a extremo y sentó las bases para un cuarto de baño moderno de concepción abierta.
-            </p>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">02. Ingeniería Hidráulica: Red Multicapa PEX-Al-PEX</h3>
-            <p class="chapter-text">
-              Al demoler hasta el soporte de obra, se retiró por completo la red de plomería galvanizada obsoleta y se construyó un nuevo circuito hidráulico utilizando tubería multicapa <strong>PEX-Al-PEX</strong> para agua fría y caliente. Esta tecnología que combina polietileno reticulado con un alma interior de aluminio garantiza:
-            </p>
-            <ul class="editorial-list">
-              <li><strong>Cero corrosión ni calcificación:</strong> Superficie interna lisa que impide incrustaciones minerales, asegurando presión y caudal constantes.</li>
-              <li><strong>Estanqueidad absoluta:</strong> Conexiones prensadas de alta seguridad que eliminan el riesgo de filtraciones en las paredes del Townhouse.</li>
-              <li><strong>Durabilidad estructural:</strong> Resistencia excepcional frente a expansiones térmicas en sistemas de agua caliente.</li>
-            </ul>
-          </div>
-
-          <!-- PEDAGOGICAL CALLOUT: PORCELANATO RECTIFICADO -->
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">03. La Superioridad del Porcelanato Rectificado 60x120 (Efecto Mármol)</h3>
-            <p class="chapter-text">
-              Para vestir las paredes del baño se eligió un <strong>porcelanato importado de gran formato 60x120 cm con efecto mármol y acabado rectificado</strong>, acompañado en el pavimento por un porcelanato rectificado con efecto madera natural.
-            </p>
-            
-            <div class="highlight-callout">
-              <span class="callout-badge">¿QUÉ ES EL ACABADO RECTIFICADO Y POR QUÉ ES MEJOR?</span>
-              <p>
-                A diferencia de la cerámica convencional cuyos bordes conservan ligeras curvaturas o biseles derivados del horneado, el <strong>porcelanato rectificado</strong> es cortado en fábrica con diamante computarizado después de cocerse, logrando cantos con un <strong>ángulo recto perfecto de 90°</strong> y dimensiones milimétricamente exactas pieza a pieza.
-              </p>
-              <ul class="callout-list">
-                <li>
-                  <strong>Microjuntas invisibles (1 mm):</strong> Permite instalar las piezas con una junta de dilatación casi imperceptible. Al no haber líneas de lechada anchas, la vista percibe un único bloque continuo de mármol arquitectónico.
-                </li>
-                <li>
-                  <strong>Amplitud y monumentalidad:</strong> El formato 60x120 cm minimiza la cantidad de cortes en pared, proyectando una sensación de altura, luz y limpieza visual que duplica el impacto estético del baño.
-                </li>
-                <li>
-                  <strong>Higiene superior y fácil limpieza:</strong> Al tener un área mínima de lechada porosa, se previene drásticamente la acumulación de humedad, restos de jabón y moho, manteniendo las juntas blancas e intactas con mínimo esfuerzo.
-                </li>
-              </ul>
-            </div>
-
-            <p class="chapter-text">
-              En el suelo, el porcelanato efecto madera rectificado equilibra la sofisticación del mármol con una nota cálida, ofreciendo además un índice de adherencia antideslizante idóneo para áreas de tránsito con pies descalzos y húmedos.
-            </p>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">04. Sanitarios y Mobiliario TEKA de Alta Gama</h3>
-            <p class="chapter-text">
-              Una vez completada la regularización de paredes con sistema de cuñas autonivelantes y el curado del revestimiento, se instaló un equipamiento sanitario europeo seleccionado por su ergonomía y calidad constructiva:
-            </p>
-            <ul class="editorial-list">
-              <li>
-                <strong>Inodoro TEKA modelo Manacor:</strong> Inodoro de líneas limpias, perfil moderno y sistema de doble descarga ecológica que combina máxima eficiencia en arrastre con un gasto controlado de agua.
-              </li>
-              <li>
-                <strong>Mueble de lavabo de 80 cm en blanco:</strong> Mueble suspendido contemporáneo en acabado blanco puro con lavabo integrado de porcelana y <strong>grifería monomando TEKA</strong>, aportando ligereza visual y capacidad de almacenaje oculto.
-              </li>
-            </ul>
-          </div>
-
-          <div class="editorial-chapter">
-            <h3 class="chapter-title">05. Plato en Polvo de Mármol, Ducha Lluvia y Luces Spot Light</h3>
-            <p class="chapter-text">
-              El espacio de ducha fue concebido como una zona de bienestar sin desniveles pronunciados. Se instaló un <strong>plato de ducha sólido elaborado en resina y polvo de mármol antideslizante</strong>, un material compacto y cálido al tacto que evita resbalones e higiénicamente superior a las cerámicas cortadas en piso de ducha.
-            </p>
-            <p class="chapter-text">
-              Se incorporó una grifería <strong>TEKA superficial</strong> equipada con cabezal superior de <strong>efecto lluvia</strong> y teléfono mural de mano, protegida por una <strong>mampara de hoja fija con perfilería de aluminio y cristal templado de seguridad</strong>. Para el cierre luminotécnico, se instalaron focos empotrables tipo <strong>Spot Light de luz blanca</strong>, posicionados para resaltar el brillo y las vetas del porcelanato marmóreo de gran formato.
-            </p>
-          </div>
-        </div>
-
-        <!-- Sticky Sidebar: Technical Specifications & Scope Checklist -->
-        <aside class="narrative-sidebar">
-          <!-- Card 1: Ficha Técnica -->
-          <div class="spec-card">
-            <div class="spec-header">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-                <polyline points="14 2 14 8 20 8"/>
-                <line x1="16" y1="13" x2="8" y2="13"/>
-                <line x1="16" y1="17" x2="8" y2="17"/>
-                <polyline points="10 9 9 9 8 9"/>
-              </svg>
-              <h3 class="spec-title">Ficha Técnica del Proyecto</h3>
-            </div>
-            <dl class="spec-list">
-              {project.specs.map(item => (
-                <div class="spec-row">
-                  <dt>{item.label}</dt>
-                  <dd>{item.value}</dd>
-                </div>
-              ))}
-            </dl>
-          </div>
-
-          <!-- Card 2: Checklist Alcance del Trabajo -->
-          <div class="spec-card">
-            <div class="spec-header">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <polyline points="9 11 12 14 22 4"/>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
-              </svg>
-              <h3 class="spec-title">Alcance Contratado</h3>
-            </div>
-            <ul class="scope-list">
-              {project.scope.map(item => (
-                <li class="scope-item">
-                  <span class="check-icon">✓</span>
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <!-- Card 3: Sello de Garantía -->
-          <div class="guarantee-card">
-            <span class="guarantee-eyebrow">ESTÁNDAR REMODELAT VENEZUELA</span>
-            <h4 class="guarantee-title">Acabados Europeos Garantizados por Contrato</h4>
-            <p class="guarantee-text">
-              Desde la precisión de las microjuntas de 1 mm hasta la plomería PEX-Al-PEX, cada partida está respaldada con garantía técnica en Valencia y Carabobo.
-            </p>
-          </div>
-        </aside>
-      </div>
-    </div>
-  </section>
-
-  <ProjectBeforeAfterSlider id="comparativa" eyebrow="Comparativa principal" title="Comparativa directa de amplitud y lectura visual" text="Aquí se entiende muy bien el impacto de eliminar tabiques divisorios y construir una escena más abierta y más limpia." beforeSrc="/images/proyectos/bano-la-trigalena/bano-antes-1.webp" beforeAlt="Baño original con tabiques divisorios antes de la reforma en La Trigaleña" afterSrc="/images/proyectos/bano-la-trigalena/bano-final-1.webp" afterAlt="Baño finalizado sin tabiques divisorios con porcelanato 60x120 en La Trigaleña" beforeLabel="Antes" afterLabel="Después" beforeCaption="Los muretes fragmentaban el baño y le quitaban continuidad visual." afterCaption="La nueva planta abierta hace que el espacio se sienta mucho más amplio, sereno y sofisticado." showLightboxButtons={false} />
-
-  <ProjectReadingGallery eyebrow="Recorrido visual" title="La intervención contada por etapas clave" intro="Este bloque resume el cambio de manera más directa: estado original, ejecución y resultado final, con apoyo fotográfico inmediato." items={storyMoments} galleryGroup="trigalena-story" />
-
-  <ProjectPhaseGallery eyebrow="Archivo fotográfico completo" title={`Galería ordenada del proyecto (${project.gallery.length} fotos reales)`} intro="Las imágenes se agrupan por bloques para que el cambio espacial, los sanitarios y el proceso de obra se entiendan con mucha más claridad." items={project.gallery} phases={galleryPhases} id="galeria" />
-
-  <GuaranteeMatrix compact />
-
-  <!-- 6. LUXURY CALL TO ACTION -->
-  <section class="project-cta-luxury">
-    <div class="cta-backdrop" aria-hidden="true"></div>
-    <div class="container">
-      <div class="cta-inner">
-        <span class="cta-kicker">¿TIENES UN TOWNHOUSE O VIVIENDA EN VALENCIA?</span>
-        <h2 class="cta-title">Porcelanato Rectificado, Diseño e Ingeniería para tu Baño</h2>
-        <p class="cta-text">
-          Diseñamos y ejecutamos reformas integrales eliminando barreras arquitectónicas, con plomería multicapa PEX-Al-PEX y acabados importados respaldados por contrato en Valencia y Caracas.
-        </p>
-        <div class="cta-actions">
-          <a href="/contacto" class="btn-premium btn-primary-premium">
-            <span class="btn-content">Solicitar Presupuesto y Visita Técnica</span>
-            <span class="btn-border"></span>
-            <span class="btn-arrow">→</span>
-          </a>
-          <a href="/servicios/remodelacion-bano" class="btn-secondary-luxury">
-            <span>Ver Servicio de Reformas de Baños</span>
-          </a>
-        </div>
-      </div>
-    </div>
-  </section>
-  <ProjectLightbox />
-</BaseLayout>
-
-<style>
-  /* ==========================================================
-     1. EDITORIAL LUXURY HERO
-     ========================================================== */
-  .project-hero {
-    position: relative;
-    padding: 185px 0 85px;
-    background: var(--ink);
-    color: var(--white);
-    overflow: hidden;
-    border-bottom: 1px solid rgba(201,169,97,0.2);
-  }
-
-  .hero-backdrop {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(circle at 80% 20%, rgba(201,169,97,0.12) 0%, transparent 55%),
-      radial-gradient(circle at 20% 80%, rgba(201,169,97,0.07) 0%, transparent 50%);
-    pointer-events: none;
-  }
-
-  .hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 1050px;
-  }
-
-  /* Breadcrumbs Tras el Hero */
-  .breadcrumb-after-hero {
-    background: var(--white);
-    border-bottom: 1px solid var(--sand);
-    padding: 18px 0;
-  }
-
-  .breadcrumb-inner {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: 0.84rem;
-    font-family: var(--font-sans);
-  }
-
-  .breadcrumb-inner a {
-    color: var(--text-muted);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    font-weight: 500;
-  }
-
-  .breadcrumb-inner a:hover {
-    color: var(--gold-ink);
-  }
-
-  .breadcrumb-inner .separator {
-    color: var(--sand);
-    font-weight: 300;
-    margin: 0 4px;
-  }
-
-  .breadcrumb-inner .current {
-    color: var(--text);
-    font-weight: 600;
-  }
-
-  .hero-kicker {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-  }
-
-  .kicker-badge {
-    padding: 5px 14px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--ink);
-    background: var(--gold);
-    border-radius: var(--r-sm);
-  }
-
-  .kicker-line {
-    width: 28px;
-    height: 1px;
-    background: rgba(201,169,97,0.5);
-  }
-
-  .kicker-sub {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    color: var(--gold-light);
-    text-transform: uppercase;
-  }
-
-  .hero-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.3rem, 5vw, 3.8rem);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.12;
-    letter-spacing: var(--track-tight);
-    margin-bottom: 20px;
-    max-width: 980px;
-  }
-
-  .hero-subtitle {
-    font-size: clamp(1.05rem, 2vw, 1.22rem);
-    line-height: 1.65;
-    color: rgba(255,255,255,0.78);
-    max-width: 860px;
-    margin-bottom: 38px;
-    font-family: var(--font-sans);
-  }
-
-  /* Executive Stats Ribbon */
-  .hero-stats-ribbon {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    padding: 22px 28px;
-    background: rgba(255,255,255,0.04);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: var(--r-md);
-    backdrop-filter: blur(8px);
-  }
-
-  .hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 22px;
-  }
-
-  .hero-actions .btn-premium {
-    min-height: 52px;
-  }
-
-  .hero-proof {
-    margin-top: 16px;
-    color: rgba(255,255,255,0.72);
-    font-size: 0.8rem;
-    font-weight: 800;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-
-  .stat-item {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-  }
-
-  .stat-label {
-    font-size: 0.72rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    color: rgba(255,255,255,0.55);
-  }
-
-  .stat-value {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white);
-  }
-
-  .stat-divider {
-    width: 1px;
-    height: 32px;
-    background: rgba(255,255,255,0.12);
-  }
-
-  @media (max-width: 768px) {
-    .hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .hero-actions .btn-premium {
-      width: 100%;
-      justify-content: center;
-    }
-    .hero-proof {
-      font-size: 0.74rem;
-      letter-spacing: 0.06em;
-    }
-  }
-
-  /* ==========================================================
-     2. DUAL-SHOWCASE: EL TRIUNFO ESPACIAL
-     ========================================================== */
-  .dual-showcase-section {
-    padding: 80px 0;
-    background: var(--bone);
-  }
-
-  .section-heading {
-    text-align: center;
-    max-width: 780px;
-    margin: 0 auto 50px;
-  }
-
-  .eyebrow-text {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--gold-ink);
-    margin-bottom: 12px;
-  }
-
-  .editorial-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 600;
-    color: var(--text);
-    line-height: 1.2;
-    margin-bottom: 16px;
-  }
-
-  .editorial-subtitle {
-    font-size: 1.05rem;
-    line-height: 1.7;
-    color: var(--text-muted);
-  }
-
-  .showcase-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 36px;
-  }
-
-  .showcase-card {
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    box-shadow: var(--e-1);
-    transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out);
-    display: flex;
-    flex-direction: column;
-  }
-
-  .showcase-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--e-2);
-  }
-
-  .showcase-image-frame {
-    position: relative;
-    background: var(--ink-soft);
-    padding: 18px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 400px;
-  }
-
-  .showcase-badge {
-    position: absolute;
-    top: 16px;
-    left: 16px;
-    z-index: 2;
-    padding: 6px 14px;
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  /* CRITICAL: NO CROPPING ON SHOWCASE IMAGES */
-  .showcase-image-frame img {
-    width: 100%;
-    height: auto;
-    max-height: 580px;
-    object-fit: contain;
-    border-radius: var(--r-sm);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
-
-  .showcase-content {
-    padding: 30px 28px;
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-  }
-
-  .showcase-title {
-    font-family: var(--font-serif);
-    font-size: 1.7rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 14px;
-  }
-
-  .showcase-desc {
-    font-size: 0.98rem;
-    line-height: 1.68;
-    color: var(--text-light);
-    margin-bottom: 20px;
-  }
-
-  .showcase-highlights {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    border-top: 1px solid var(--sand);
-    padding-top: 18px;
-  }
-
-  .showcase-highlights li {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  /* ==========================================================
-     3. TECHNICAL NARRATIVE & SIDEBAR (2-COLUMN EDITORIAL GRID)
-     ========================================================== */
-  .technical-narrative-section {
-    padding: 90px 0;
-    background: var(--white);
-    border-top: 1px solid var(--sand);
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .narrative-layout {
-    display: grid;
-    grid-template-columns: 1fr 390px;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .narrative-main {
-    min-width: 0;
-  }
-
-  .editorial-chapter {
-    margin-top: 48px;
-    padding-bottom: 38px;
-    border-bottom: 1px solid var(--sand);
-  }
-
-  .editorial-chapter:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .chapter-title {
-    font-family: var(--font-serif);
-    font-size: 1.55rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 16px;
-  }
-
-  .chapter-text {
-    font-size: 1.05rem;
-    line-height: 1.78;
-    color: var(--text-light);
-    margin-bottom: 18px;
-  }
-
-  .editorial-list {
-    margin: 20px 0 0 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .editorial-list li {
-    font-size: 1.02rem;
-    line-height: 1.7;
-    color: var(--text-light);
-  }
-
-  .editorial-list strong {
-    color: var(--text);
-  }
-
-  .highlight-callout {
-    margin: 28px 0;
-    padding: 28px 32px;
-    background: var(--bone);
-    border-left: 4px solid var(--gold);
-    border-radius: 0 var(--r-md) var(--r-md) 0;
-  }
-
-  .callout-badge {
-    display: inline-block;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold-ink);
-    margin-bottom: 10px;
-  }
-
-  .highlight-callout p {
-    font-size: 1rem;
-    line-height: 1.75;
-    color: var(--text);
-    margin: 0 0 16px;
-  }
-
-  .callout-list {
-    margin: 0 0 0 18px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .callout-list li {
-    font-size: 0.96rem;
-    line-height: 1.68;
-    color: var(--text-light);
-  }
-
-  /* Sidebar */
-  .narrative-sidebar {
-    position: sticky;
-    top: 110px;
-    display: flex;
-    flex-direction: column;
-    gap: 28px;
-  }
-
-  .spec-card,
-  .guarantee-card {
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    padding: 28px;
-  }
-
-  .spec-header {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 20px;
-    padding-bottom: 14px;
-    border-bottom: 1px solid rgba(0,0,0,0.06);
-  }
-
-  .spec-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: var(--text);
-  }
-
-  .spec-list {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .spec-row {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid rgba(0,0,0,0.05);
-  }
-
-  .spec-row:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-  }
-
-  .spec-row dt {
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    color: var(--text-muted);
-  }
-
-  .spec-row dd {
-    font-size: 0.94rem;
-    font-weight: 500;
-    color: var(--text);
-    margin: 0;
-    line-height: 1.45;
-  }
-
-  .scope-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .scope-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--text-light);
-  }
-
-  .check-icon {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 20px;
-    height: 20px;
-    flex-shrink: 0;
-    background: var(--gold);
-    color: var(--ink);
-    font-size: 0.75rem;
-    font-weight: 700;
-    border-radius: 50%;
-    margin-top: 2px;
-  }
-
-  .guarantee-card {
-    background: var(--ink);
-    color: var(--white);
-    border: 1px solid rgba(201,169,97,0.3);
-  }
-
-  .guarantee-eyebrow {
-    display: block;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    color: var(--gold);
-    margin-bottom: 8px;
-  }
-
-  .guarantee-title {
-    font-family: var(--font-serif);
-    font-size: 1.25rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 10px;
-  }
-
-  .guarantee-text {
-    font-size: 0.88rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.7);
-    margin: 0;
-  }
-
-  /* ==========================================================
-     4. COMPARATIVA VISUAL ANTES VS DESPUÉS (UNCROPPED)
-     ========================================================== */
-  .before-after-section {
-    padding: 85px 0;
-    background: var(--bone);
-  }
-
-  .comparison-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 48px;
-  }
-
-  .comparison-pair {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    background: var(--white);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    padding: 24px;
-    box-shadow: var(--e-1);
-  }
-
-  .comparison-item {
-    display: flex;
-    flex-direction: column;
-    cursor: zoom-in;
-    transition: transform 0.3s ease;
-  }
-
-  .comparison-item:hover {
-    transform: translateY(-3px);
-  }
-
-  .comparison-image-wrapper {
-    position: relative;
-    background: var(--ink-soft);
-    border-radius: var(--r-sm);
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 360px;
-    overflow: hidden;
-  }
-
-  .comparison-label {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 5px 14px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  .before-label {
-    background: #e63946;
-    color: #ffffff;
-  }
-
-  .after-label {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  /* ZERO CROPPING IN COMPARISON IMAGES */
-  .comparison-image-wrapper img {
-    width: 100%;
-    height: auto;
-    max-height: 480px;
-    object-fit: contain;
-    border-radius: 2px;
-  }
-
-  .comparison-caption {
-    margin-top: 14px;
-    font-size: 0.92rem;
-    line-height: 1.55;
-    color: var(--text-muted);
-    text-align: center;
-    padding: 0 12px;
-  }
-
-  /* ==========================================================
-     5. GALLERY WITH FILTER TABS AND ZERO-CROP LAYOUT
-     ========================================================== */
-  .gallery-section {
-    padding: 95px 0 100px;
-    background: var(--white);
-  }
-
-  .gallery-filters {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 36px;
-  }
-
-  .filter-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 22px;
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-full);
-    font-family: var(--font-sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: var(--text-light);
-    cursor: pointer;
-    transition: all 0.25s ease;
-  }
-
-  .filter-btn:hover {
-    background: var(--sand);
-    color: var(--text);
-  }
-
-  .filter-btn.active {
-    background: var(--ink);
-    color: var(--white);
-    border-color: var(--ink);
-  }
-
-  .filter-count {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2px 8px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    background: rgba(201,169,97,0.2);
-    color: var(--gold-ink);
-    border-radius: 12px;
-  }
-
-  .filter-btn.active .filter-count {
-    background: var(--gold);
-    color: var(--ink);
-  }
-
-  /* Zero-Crop Grid Cards */
-  .gallery-masonry {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    align-items: start;
-  }
-
-  .gallery-card {
-    background: var(--bone);
-    border: 1px solid var(--sand);
-    border-radius: var(--r-md);
-    overflow: hidden;
-    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out), opacity 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    cursor: zoom-in;
-  }
-
-  .gallery-card.card-landscape {
-    grid-column: span 2;
-  }
-
-  /* Cada bloque tematico arranca en una fila nueva:
-     evita que se mezclen fotos de "antes" y "despues" en la misma linea */
-  .gallery-card.group-start {
-    grid-column-start: 1;
-  }
-
-  .gallery-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--e-2);
-    border-color: rgba(201,169,97,0.4);
-  }
-
-  .gallery-card.hidden {
-    display: none !important;
-  }
-
-  .card-image-box {
-    position: relative;
-    background: var(--ink-soft);
-    padding: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 320px;
-    overflow: hidden;
-  }
-
-  .card-landscape .card-image-box {
-    min-height: 340px;
-  }
-
-  .card-badge {
-    position: absolute;
-    top: 14px;
-    left: 14px;
-    z-index: 2;
-    padding: 5px 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-    box-shadow: var(--e-1);
-  }
-
-  /* CRITICAL: NATURAL ASPECT RATIO - ZERO CROPPING */
-  .card-image-box img {
-    width: 100%;
-    height: auto;
-    max-height: 520px;
-    object-fit: contain;
-    border-radius: 2px;
-    transition: transform 0.4s var(--ease-out);
-  }
-
-  .gallery-card:hover .card-image-box img {
-    transform: scale(1.02);
-  }
-
-  .card-hover-overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(20,18,14,0.45);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-
-  .gallery-card:hover .card-hover-overlay {
-    opacity: 1;
-  }
-
-  .hover-zoom-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    background: var(--white);
-    color: var(--ink);
-    font-size: 0.88rem;
-    font-weight: 600;
-    border-radius: var(--r-full);
-    box-shadow: var(--e-2);
-    transform: translateY(8px);
-    transition: transform 0.3s ease;
-  }
-
-  .gallery-card:hover .hover-zoom-btn {
-    transform: translateY(0);
-  }
-
-  .card-caption-box {
-    padding: 22px 24px;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-category-tag {
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--gold-ink);
-    margin-bottom: 8px;
-  }
-
-  .card-title {
-    font-family: var(--font-serif);
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--text);
-    margin-bottom: 10px;
-    line-height: 1.3;
-  }
-
-  .card-desc {
-    font-size: 0.92rem;
-    line-height: 1.62;
-    color: var(--text-muted);
-  }
-
-  /* ==========================================================
-     6. LUXURY CTA SECTION
-     ========================================================== */
-  .project-cta-luxury {
-    position: relative;
-    padding: 100px 0;
-    background: var(--ink);
-    color: var(--white);
-    text-align: center;
-    overflow: hidden;
-  }
-
-  .cta-backdrop {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse at 50% 10%, rgba(201,169,97,0.15) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 90%, rgba(201,169,97,0.08) 0%, transparent 60%);
-    pointer-events: none;
-  }
-
-  .cta-inner {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 0 auto;
-  }
-
-  .cta-kicker {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-  }
-
-  .cta-title {
-    font-family: var(--font-serif);
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    font-weight: 500;
-    color: var(--white);
-    line-height: 1.15;
-    margin-bottom: 18px;
-  }
-
-  .cta-text {
-    font-size: 1.08rem;
-    line-height: 1.72;
-    color: rgba(255,255,255,0.75);
-    margin-bottom: 36px;
-  }
-
-  .cta-actions {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 18px;
-  }
-
-  .btn-secondary-luxury {
-    display: inline-flex;
-    align-items: center;
-    padding: 15px 28px;
-    font-size: 0.95rem;
-    font-weight: 600;
-    color: var(--white);
-    text-decoration: none;
-    border: 1px solid rgba(255,255,255,0.25);
-    border-radius: var(--r-full);
-    transition: all 0.25s ease;
-  }
-
-  .btn-secondary-luxury:hover {
-    background: rgba(255,255,255,0.1);
-    border-color: var(--gold);
-    color: var(--gold);
-  }
-
-  /* ==========================================================
-     7. FULL-SCREEN INTERACTIVE LIGHTBOX (ZERO CROPPING)
-     ========================================================== */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    z-index: 10000;
-    background: rgba(14,12,10,0.96);
-    backdrop-filter: blur(12px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    padding: 40px;
-  }
-
-  .lightbox.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .lightbox-content {
-    max-width: 1100px;
-    max-height: 90vh;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: scale(0.96);
-    transition: transform 0.3s var(--ease-out);
-  }
-
-  .lightbox.active .lightbox-content {
-    transform: scale(1);
-  }
-
-  .lightbox-img-wrapper {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    max-height: 72vh;
-    margin-bottom: 24px;
-  }
-
-  /* CRITICAL: LIGHTBOX IMAGE COMPLETELY UNCROPPED */
-  .lightbox-img-wrapper img {
-    max-width: 100%;
-    max-height: 72vh;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 4px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.6);
-  }
-
-  .lightbox-info {
-    text-align: center;
-    max-width: 780px;
-    color: var(--white);
-  }
-
-  .lightbox-meta {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 8px;
-  }
-
-  .lightbox-badge {
-    padding: 4px 12px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-sm);
-  }
-
-  .lightbox-counter {
-    font-size: 0.82rem;
-    color: rgba(255,255,255,0.6);
-    font-weight: 600;
-  }
-
-  .lightbox-title {
-    font-family: var(--font-serif);
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: var(--white);
-    margin-bottom: 8px;
-  }
-
-  .lightbox-caption {
-    font-size: 0.96rem;
-    line-height: 1.6;
-    color: rgba(255,255,255,0.75);
-    margin: 0;
-  }
-
-  .lightbox-close {
-    position: absolute;
-    top: 24px;
-    right: 28px;
-    width: 48px;
-    height: 48px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    font-size: 1.8rem;
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease, transform 0.2s ease;
-    z-index: 10;
-  }
-
-  .lightbox-close:hover {
-    background: rgba(255,255,255,0.2);
-    transform: scale(1.05);
-  }
-
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 52px;
-    height: 52px;
-    border: none;
-    background: rgba(255,255,255,0.08);
-    color: var(--white);
-    cursor: pointer;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: background 0.2s ease, transform 0.2s ease;
-    z-index: 10;
-  }
-
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    background: rgba(255,255,255,0.22);
-  }
-
-  .lightbox-prev { left: 28px; }
-  .lightbox-next { right: 28px; }
-
-  /* ==========================================================
-     8. RESPONSIVE BREAKPOINTS
-     ========================================================== */
-  @media (max-width: 1024px) {
-    .narrative-layout {
-      grid-template-columns: 1fr;
-      gap: 48px;
-    }
-
-    .narrative-sidebar {
-      position: static;
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
-    }
-
-    .guarantee-card {
-      grid-column: span 2;
-    }
-
-    .gallery-masonry {
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
-    }
-
-    .gallery-card.card-landscape {
-      grid-column: span 2;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .project-hero {
-      padding: 145px 0 65px;
-    }
-
-    .hero-stats-ribbon {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 20px;
-    }
-
-    .stat-divider {
-      width: 100%;
-      height: 1px;
-    }
-
-    .showcase-grid,
-    .comparison-pair {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .showcase-image-frame,
-    .comparison-image-wrapper {
-      min-height: 340px;
-    }
-
-    .narrative-sidebar {
-      grid-template-columns: 1fr;
-    }
-
-    .guarantee-card {
-      grid-column: span 1;
-    }
-
-    .gallery-masonry {
-      grid-template-columns: 1fr;
-    }
-
-    .gallery-card.card-landscape {
-      grid-column: span 1;
-    }
-
-    .lightbox {
-      padding: 20px 14px;
-    }
-
-    .lightbox-prev,
-    .lightbox-next {
-      width: 44px;
-      height: 44px;
-    }
-
-    .lightbox-prev { left: 12px; }
-    .lightbox-next { right: 12px; }
-
-    .lightbox-close {
-      top: 16px;
-      right: 16px;
-      width: 42px;
-      height: 42px;
-    }
-  }
-</style>
-
+      category: 'proceso', categoryLabel: 'Antes y Proceso', badge: 'Microjuntas 1 mm', orientation: 'landscape',
+    },
+  ]}
+  galleryPhases={[
+    { id: 'final', label: 'Resultado final', description: 'Las fotos finales resumen la nueva amplitud espacial y el acabado rectificado del proyecto.' },
+    { id: 'teka', label: 'Sanitarios y muebles', description: 'Aquí se concentran las piezas TEKA, el mobiliario y los detalles que elevan la calidad percibida.' },
+    { id: 'proceso', label: 'Antes y proceso', description: 'La secuencia previa permite entender la demolición, el replanteo y la instalación del nuevo sistema.' },
+  ]}
+  ctaTag="Valoración técnica"
+  ctaTitle="Porcelanato rectificado, diseño e ingeniería para tu baño"
+  ctaText="Diseñamos y ejecutamos reformas integrales eliminando barreras arquitectónicas, con plomería multicapa PEX-Al-PEX y acabados importados respaldados por contrato en Valencia y Caracas."
+  ctaPrimaryLabel="Solicitar valoración técnica"
+  ctaSecondaryHref="/servicios/remodelacion-bano"
+  ctaSecondaryLabel="Ver servicio de reformas de baños →"
+/>
