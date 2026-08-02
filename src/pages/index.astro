@@ -108,7 +108,7 @@ const fitItems = [
         var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
         var posterSrc = '/images/hero-lcp.webp';
         var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + 'opacity:1;"></video>');
+        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + 'opacity:1;"></video>');
       })();
     </script>
     
