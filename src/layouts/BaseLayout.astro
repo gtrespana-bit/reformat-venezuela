@@ -114,12 +114,13 @@ const navItems = isEnglish
     <div class="nav-container">
       <a href={isEnglish ? '/en' : '/'} class="logo">
         <img
-          src="/images/logo-header.webp"
+          src="/images/logo-header-280.webp"
+          srcset="/images/logo-header-180.webp 180w, /images/logo-header-280.webp 280w, /images/logo-header-560.webp 560w"
+          sizes="(max-width: 480px) 182px, (max-width: 768px) 200px, 283px"
           alt="RemodelaT Venezuela"
-          width="714"
-          height="192"
+          width="280"
+          height="75"
           loading="eager"
-          fetchpriority="high"
           decoding="async"
         />
       </a>
@@ -409,12 +410,27 @@ const navItems = isEnglish
 
     
 
-    window.addEventListener('scroll', () => {
-      const navbar = document.getElementById('navbar');
-      if (navbar) {
-        navbar.classList.toggle('scrolled', window.scrollY > 80);
-      }
-    });
+    const navbar = document.getElementById('navbar');
+    if (navbar) {
+      let isScrolled = window.scrollY > 80;
+      navbar.classList.toggle('scrolled', isScrolled);
+
+      let navTicking = false;
+      const syncNavbarState = () => {
+        const nextScrolled = window.scrollY > 80;
+        if (nextScrolled !== isScrolled) {
+          navbar.classList.toggle('scrolled', nextScrolled);
+          isScrolled = nextScrolled;
+        }
+        navTicking = false;
+      };
+
+      window.addEventListener('scroll', () => {
+        if (navTicking) return;
+        navTicking = true;
+        window.requestAnimationFrame(syncNavbarState);
+      }, { passive: true });
+    }
 
     /* Menú móvil: panel deslizante.
        Antes se abría inyectando 11 estilos inline desde JS: sin animación,

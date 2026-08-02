@@ -1,16 +1,49 @@
 <script is:inline>
-  // Diferir GA hasta después del LCP
-  window.addEventListener('load', function() {
-    setTimeout(function() {
+  (() => {
+    const trackingId = 'G-213W48VR6M';
+    let analyticsLoaded = false;
+
+    const loadAnalytics = () => {
+      if (analyticsLoaded) return;
+      analyticsLoaded = true;
+      removeListeners();
+
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-213W48VR6M', { anonymize_ip: true });
-      
-      var script = document.createElement('script');
+      window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+      window.gtag('js', new Date());
+      window.gtag('config', trackingId, {
+        anonymize_ip: true,
+        transport_type: 'beacon'
+      });
+
+      const script = document.createElement('script');
       script.async = true;
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-213W48VR6M';
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${trackingId}`;
       document.head.appendChild(script);
-    }, 2000); // Cargar 2 segundos después del load
-  });
+    };
+
+    const scheduleAnalyticsLoad = () => {
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(loadAnalytics, { timeout: 2000 });
+      } else {
+        window.setTimeout(loadAnalytics, 1500);
+      }
+    };
+
+    const interactionEvents = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+    const onFirstInteraction = () => scheduleAnalyticsLoad();
+    const removeListeners = () => {
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, onFirstInteraction);
+      });
+    };
+
+    interactionEvents.forEach((eventName) => {
+      window.addEventListener(eventName, onFirstInteraction, { once: true, passive: true });
+    });
+
+    window.addEventListener('load', () => {
+      window.setTimeout(scheduleAnalyticsLoad, 8000);
+    }, { once: true });
+  })();
 </script>

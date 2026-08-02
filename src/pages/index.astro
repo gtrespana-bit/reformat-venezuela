@@ -7,6 +7,8 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
 };
 
 const whatsappBudgetText = 'Hola,%20quiero%20solicitar%20una%20valoración%20técnica%20para%20mi%20remodelación.%20Puedo%20enviar%20fotos%20y%20ubicación%20por%20aquí.';
+const heroImageSrcSet = '/images/hero-lcp-768.webp 768w, /images/hero-lcp-1280.webp 1280w, /images/hero-lcp-1920.webp 1920w, /images/hero-lcp.webp 2385w';
+const heroPoster = '/images/hero-lcp-1280.webp';
 
 const serviceImages = {
   cocina: { src: '/images/cocina-800.webp', srcset: getSrcSet('cocina', [400, 800, 1600]) },
@@ -89,28 +91,34 @@ const fitItems = [
   <header class="hero">
     <!-- IMAGEN LCP EXPLÍCITA: Forzar que PageSpeed mida esto como LCP válido -->
     <img 
-      src="/images/hero-lcp.webp" 
+      src="/images/hero-lcp-1280.webp"
+      srcset={heroImageSrcSet}
+      sizes="100vw"
       alt="Interior moderno reformado con diseño de lujo" 
       fetchpriority="high"
       loading="eager"
       decoding="async"
-      width="2400"
+      width="2385"
       height="1600"
       class="hero-lcp-img"
     />
-    
-    <script is:inline>
-      (function() {
-        var isMobile = window.innerWidth < 1024;
-        var videoSrc = isMobile ? '/videos/hero-mobile.mp4' : '/videos/hero-desktop.mp4';
-        var posterSrc = '/images/hero-lcp.webp';
-        var style = 'position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none; opacity: 0; transition: opacity 1s ease-in-out;';
-        document.write('<video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="' + posterSrc + '" src="' + videoSrc + '" onplaying="this.style.opacity=1" style="' + style + '"></video>');
-      })();
-    </script>
+
+    <video
+      id="hero-video"
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="none"
+      aria-hidden="true"
+      tabindex="-1"
+      data-video-mobile="/videos/hero-mobile.mp4"
+      data-video-desktop="/videos/hero-desktop.mp4"
+    ></video>
     
     <noscript>
-      <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="metadata" poster="/images/hero-lcp.webp" src="/videos/hero-desktop.mp4" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;"></video>
+      <video id="hero-video" class="hero-video is-ready" autoplay muted loop playsinline preload="metadata" poster={heroPoster} src="/videos/hero-desktop.mp4"></video>
     </noscript>
 
     <div class="hero-overlay"></div>
@@ -163,7 +171,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section positioning-section">
+  <section class="section positioning-section deferred-section">
     <div class="container positioning-grid">
       <div class="positioning-copy" data-reveal>
         <span class="tag">Nuestro posicionamiento</span>
@@ -182,7 +190,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section bg-light">
+  <section class="section bg-light deferred-section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="tag">Servicios de alto estándar</span>
@@ -199,8 +207,8 @@ const fitItems = [
                 srcset={svc.image.srcset}
                 sizes="(max-width: 768px) 100vw, (max-width: 1100px) 50vw, 33vw"
                 alt={svc.title}
-                loading={index < 3 ? "eager" : "lazy"}
-                fetchpriority={index === 0 ? "high" : "auto"}
+                loading="lazy"
+                fetchpriority="low"
                 decoding="async"
                 width="800"
                 height="533"
@@ -218,7 +226,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section technical-standard-section" id="metodo-remodelat">
+  <section class="section technical-standard-section deferred-section" id="metodo-remodelat">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="tag">Método RemodelaT</span>
@@ -235,7 +243,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section deferred-section">
     <div class="container about-grid">
       <div class="about-imgs" data-reveal>
         <div class="img-box tall">
@@ -289,7 +297,7 @@ const fitItems = [
   </section>
 
 
-  <section class="section process-section">
+  <section class="section process-section deferred-section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="tag">Cómo trabajamos</span>
@@ -308,7 +316,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section bg-light fit-section">
+  <section class="section bg-light fit-section deferred-section">
     <div class="container fit-grid">
       <div data-reveal>
         <span class="tag">Para quién trabajamos</span>
@@ -323,7 +331,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section testimonials-section">
+  <section class="section testimonials-section deferred-section">
     <div class="container">
       <div class="section-header" data-reveal>
         <span class="tag">Confianza</span>
@@ -344,7 +352,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section service-areas-section">
+  <section class="section service-areas-section deferred-section">
     <div class="container areas-grid">
       <div>
         <span class="tag">Zonas de Cobertura</span>
@@ -359,7 +367,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="cta-section cta-whatsapp-section">
+  <section class="cta-section cta-whatsapp-section deferred-section">
     <div class="cta-wrapper">
       <span class="tag tag-on-dark">Valoración técnica</span>
       <h2 class="cta-title">¿Tu proyecto requiere un acabado impecable?</h2>
@@ -381,7 +389,7 @@ const fitItems = [
     </div>
   </section>
 
-  <section class="section bg-light" id="contacto-rapido">
+  <section class="section bg-light deferred-section" id="contacto-rapido">
     <div class="container contact-grid">
       <div class="contact-info">
         <h2 class="section-title">Cuéntanos tu proyecto con el nivel de detalle que merece</h2>
@@ -463,12 +471,19 @@ const fitItems = [
     position: relative; width: 100%;
     min-height: 100vh; min-height: 100svh;
     overflow: hidden;
-    background: var(--ink) url('/images/hero-lcp.webp') center/cover no-repeat;
+    background: var(--ink) url('/images/hero-lcp-1280.webp') center/cover no-repeat;
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: var(--white);
   }
   .hero-lcp-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 0; }
-  .hero-video { z-index: 1; }
+  .hero-video {
+    position: absolute; inset: 0;
+    width: 100%; height: 100%; object-fit: cover;
+    z-index: 1; pointer-events: none;
+    opacity: 0;
+    transition: opacity 900ms ease-in-out;
+  }
+  .hero-video.is-ready { opacity: 1; }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 2;
     background: radial-gradient(circle at 50% 42%, rgba(0,0,0,.18), rgba(0,0,0,.68) 55%, rgba(0,0,0,.9) 100%);
@@ -536,6 +551,12 @@ const fitItems = [
   .bg-light { background: var(--bone); }
   .container { max-width: var(--container); margin: 0 auto; padding: 0 20px; }
   .section-header { text-align: center; max-width: 700px; margin: 0 auto var(--s-5); }
+  @supports (content-visibility: auto) {
+    .deferred-section {
+      content-visibility: auto;
+      contain-intrinsic-size: 900px;
+    }
+  }
   .section-title {
     font-family: var(--font-serif);
     font-size: clamp(2rem, 5vw, 3.5rem);
@@ -827,7 +848,7 @@ const fitItems = [
   }
   @media (prefers-reduced-motion: reduce) {
     .hero-video { display: none; }
-    .hero { background: url('/images/hero-lcp.webp') center/cover no-repeat; }
+    .hero { background: url('/images/hero-lcp-1280.webp') center/cover no-repeat; }
   }
 
   /* Estilos para mensaje de éxito (Fase 4) */
@@ -876,6 +897,67 @@ const fitItems = [
 </style>
 
 <script>
+  function initHeroVideo() {
+    const video = document.getElementById('hero-video') as HTMLVideoElement | null;
+    if (!video || video.dataset.loaded === 'true') return;
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const connection = (navigator as Navigator & {
+      connection?: { saveData?: boolean; effectiveType?: string };
+    }).connection;
+
+    if (reduceMotion || connection?.saveData || connection?.effectiveType?.includes('2g')) {
+      return;
+    }
+
+    const src = window.innerWidth < 1024 ? video.dataset.videoMobile : video.dataset.videoDesktop;
+    if (!src) return;
+
+    video.dataset.loaded = 'true';
+    video.src = src;
+
+    const revealVideo = () => video.classList.add('is-ready');
+    video.addEventListener('canplay', revealVideo, { once: true });
+    video.load();
+
+    const playPromise = video.play();
+    if (playPromise && typeof playPromise.catch === 'function') {
+      playPromise.catch(() => {
+        video.classList.remove('is-ready');
+      });
+    }
+  }
+
+  function scheduleHeroVideo() {
+    const video = document.getElementById('hero-video');
+    if (!video || video.dataset.schedulerBound === 'true') return;
+    video.dataset.schedulerBound = 'true';
+
+    let started = false;
+    const interactionEvents = ['scroll', 'pointerdown', 'touchstart', 'keydown'];
+    const start = () => {
+      if (started) return;
+      started = true;
+      interactionEvents.forEach((eventName) => {
+        window.removeEventListener(eventName, start);
+      });
+
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(() => initHeroVideo(), { timeout: 1500 });
+      } else {
+        window.setTimeout(initHeroVideo, 1200);
+      }
+    };
+
+    interactionEvents.forEach((eventName) => {
+      window.addEventListener(eventName, start, { once: true, passive: true });
+    });
+
+    window.addEventListener('load', () => {
+      window.setTimeout(start, 6000);
+    }, { once: true });
+  }
+
   /* Revelado suave al hacer scroll.
      Respeta prefers-reduced-motion y degrada a contenido visible si no hay JS/IO. */
   (() => {
@@ -897,9 +979,10 @@ const fitItems = [
 
   // Envío de formulario vía AJAX (Fase 4)
   function initHomeForm() {
-    const form = document.querySelector('.contact-form') as HTMLFormElement;
-    if (!form) return;
+    const form = document.querySelector('.contact-form') as HTMLFormElement | null;
+    if (!form || form.dataset.bound === 'true') return;
 
+    form.dataset.bound = 'true';
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const button = form.querySelector('button[type="submit"]') as HTMLButtonElement;
@@ -946,6 +1029,10 @@ const fitItems = [
     });
   }
 
+  scheduleHeroVideo();
   initHomeForm();
-  document.addEventListener('astro:page-load', initHomeForm);
+  document.addEventListener('astro:page-load', () => {
+    scheduleHeroVideo();
+    initHomeForm();
+  });
 </script>
