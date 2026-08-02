@@ -21,7 +21,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     title: 'Luxury Kitchen in Guataparo',
     category: 'High-Standard Kitchen',
     location: 'Guataparo, Valencia, Carabobo',
-    duration: 'Full relocation',
+    duration: '2.5 weeks',
     heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
     excerpt: 'A complete kitchen relocation inside a luxury quinta in Guataparo: the old closed kitchen was dismantled, its double doorway sealed with 20 cm blockwork, electrics and plumbing fully rerouted, the electric water heater replaced by solar thermal panels, a seamless white epoxy floor poured across the day zone, and a linear base-cabinet composition installed with a backlit floating shelf and Siemens appliances.',
     challenge: 'The original kitchen was a closed, fully separated compartment accessed through a large double doorway. Relocating it meant much more than installing new cabinets: the old doorway had to be sealed, electrics and plumbing reinvented, the electric water heater removed and a floor built to unify the entire day zone.',
