@@ -1,570 +1,384 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
-import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
-import ProjectLightbox from '../../components/ProjectLightbox.astro';
-import ProjectReadingGallery from '../../components/ProjectReadingGallery.astro';
-import ProjectPhaseGallery from '../../components/ProjectPhaseGallery.astro';
-import ProjectBeforeAfterSlider from '../../components/ProjectBeforeAfterSlider.astro';
-
-const project = {
-  title: 'Remodelación Integral de Cocina en Quinta',
-  location: 'Caracas, Venezuela',
-  category: 'Cocinas de Alto Estándar',
-  duration: '1 semana',
-  heroImage: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
-  excerpt: 'Reforma completa de cocina en quinta de Caracas: desmontaje total, demolición de cerámica existente, actualización eléctrica con cable ignífugo, revestimiento importado rectificado, mobiliario en MDF lacado alto brillo con polímero PVC termoformado, encimera de cuarzo oscuro, inducción y electrodomésticos TEKA.'
-};
-
-const technicalHighlights = [
-  'Desmontaje completo de muebles existentes y demolición controlada del revestimiento cerámico anterior',
-  'Actualización del sistema eléctrico con cable ignífugo de alta calidad para mayor seguridad y durabilidad',
-  'Instalación de revestimiento cerámico importado, moderno y rectificado para lograr juntas más limpias y acabado superior',
-  'Muebles de cocina con frentes en MDF de 19 mm lacado alto brillo y casco en aglomerado hidrófugo de 16 mm protegido a dos caras',
-  'Frentes con foliado de polímero PVC termoformado: acabado continuo, sin juntas visibles y resistente a la humedad en cantos',
-  'Encimera de cuarzo en tono oscuro para contraste con el mobiliario blanco y adaptación para fregadero en forma de L',
-  'Instalación de placa de inducción, lavavajillas empotrado, columna para microondas, horno y microondas TEKA con garantía de hasta 10 años',
-  'Mobiliario con garantía de hasta 25 años según condiciones de fabricante y uso adecuado'
-];
-
-const specs = [
-  { label: 'Ubicación', value: 'Quinta residencial en Caracas, Venezuela' },
-  { label: 'Duración de obra', value: '1 semana de ejecución' },
-  { label: 'Alcance', value: 'Desmontaje, demolición, electricidad, revestimiento, muebles, encimera y electrodomésticos' },
-  { label: 'Sistema eléctrico', value: 'Actualización con cable ignífugo de alta calidad' },
-  { label: 'Revestimiento', value: 'Cerámica importada moderna, tipo rectificado' },
-  { label: 'Puertas y frentes', value: 'MDF de 19 mm con acabado lacado alto brillo y polímero PVC termoformado' },
-  { label: 'Casco del mueble', value: 'Aglomerado hidrófugo de 16 mm protegido a dos caras' },
-  { label: 'Trasera del mueble', value: 'Tablero de 6 mm en color blanco por ambas caras' },
-  { label: 'Encimera', value: 'Cuarzo oscuro, adaptado para fregadero en forma de L' },
-  { label: 'Electrodomésticos', value: 'Placa de inducción, lavavajillas empotrado, horno y microondas TEKA' },
-  { label: 'Garantías', value: 'Hasta 25 años en muebles y hasta 10 años en equipos TEKA según fabricante' }
-];
-
-const gallery = [
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
-    alt: 'Cocina finalizada en quinta de Caracas con muebles blancos y encimera oscura',
-    title: 'Vista Final: Alto Brillo y Cuarzo Oscuro',
-    caption: 'Vista final de la cocina: mobiliario blanco alto brillo, encimera de cuarzo oscuro y composición moderna de alto contraste.',
-    category: 'resultado',
-    categoryLabel: 'Resultado Final',
-    badge: 'Finalizado',
-    orientation: 'landscape'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp',
-    alt: 'Cocina finalizada con muebles altos y bajos lacados en blanco brillo',
-    title: 'Mobiliario Blanco Alto Brillo Instalado',
-    caption: 'Muebles terminados con frentes de MDF de 19 mm, acabado lacado alto brillo y foliado PVC termoformado.',
-    category: 'resultado',
-    categoryLabel: 'Resultado Final',
-    badge: 'Mobiliario',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp',
-    alt: 'Detalle de cocina terminada con electrodomésticos empotrados',
-    title: 'Columna TEKA y Electrodomésticos Integrados',
-    caption: 'Integración de electrodomésticos, columna para horno y microondas TEKA, y distribución funcional para uso diario.',
-    category: 'resultado',
-    categoryLabel: 'Resultado Final',
-    badge: 'TEKA',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/adaptacion-encimera-fregadero-l.webp',
-    alt: 'Adaptación de encimera de cuarzo para fregadero en forma de L',
-    title: 'Adaptación de Encimera para Fregadero en L',
-    caption: 'Adaptación técnica de encimera de cuarzo oscuro para la instalación de un fregadero en forma de L.',
-    category: 'detalles',
-    categoryLabel: 'Detalles Técnicos',
-    badge: 'Cuarzo',
-    orientation: 'landscape'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp',
-    alt: 'Últimos retoques en cocina remodelada de quinta en Caracas',
-    title: 'Últimos Retoques y Revisión de Entrega',
-    caption: 'Últimos retoques de obra, revisión de ajustes, limpieza visual y preparación para entrega.',
-    category: 'detalles',
-    categoryLabel: 'Detalles Técnicos',
-    badge: 'Entrega',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-1.webp',
-    alt: 'Proceso de montaje de muebles de cocina en quinta de Caracas',
-    title: 'Montaje Inicial de Módulos de Cocina',
-    caption: 'Montaje de estructura y módulos de cocina tras actualización de instalaciones y revestimiento.',
-    category: 'montaje',
-    categoryLabel: 'Montaje de Muebles',
-    badge: 'Proceso',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp',
-    alt: 'Instalación de módulos y frentes de cocina durante el proceso',
-    title: 'Alineación de Módulos y Frentes',
-    caption: 'Proceso de instalación de módulos, ajustes y alineación de frentes para lograr una lectura limpia.',
-    category: 'montaje',
-    categoryLabel: 'Montaje de Muebles',
-    badge: 'Proceso',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-3.webp',
-    alt: 'Montaje de muebles altos y bajos en cocina de Caracas',
-    title: 'Muebles Altos y Bajos en Instalación',
-    caption: 'Instalación de muebles altos y bajos con control de plomos, niveles y encuentros.',
-    category: 'montaje',
-    categoryLabel: 'Montaje de Muebles',
-    badge: 'Proceso',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-4.webp',
-    alt: 'Proceso final de montaje de mobiliario de cocina',
-    title: 'Ajustes Finales del Mobiliario',
-    caption: 'Ajustes finales de mobiliario antes de instalar electrodomésticos, encimera y remates.',
-    category: 'montaje',
-    categoryLabel: 'Montaje de Muebles',
-    badge: 'Proceso',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
-    alt: 'Cocina antes de la remodelación completa en quinta de Caracas',
-    title: 'Estado Inicial Antes del Desmontaje',
-    caption: 'Estado inicial antes del desmontaje completo de muebles y demolición del revestimiento cerámico existente.',
-    category: 'antes',
-    categoryLabel: 'Antes de Obra',
-    badge: 'Antes',
-    orientation: 'portrait'
-  },
-  {
-    src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-2.webp',
-    alt: 'Estado inicial de cocina antes de reforma en Caracas',
-    title: 'Cocina Original: Cerámica y Mobiliario Existente',
-    caption: 'Condición previa de la cocina: mobiliario y cerámica existentes antes de la intervención integral.',
-    category: 'antes',
-    categoryLabel: 'Antes de Obra',
-    badge: 'Antes',
-    orientation: 'portrait'
-  }
-];
-
-const featuredFinished = gallery.filter((img) => img.category === 'resultado');
-
-const storyMoments = [
-  {
-    tag: '01 · Estado previo',
-    title: 'La base técnica pedía una intervención completa, no un maquillaje visual',
-    body: 'El punto de partida era una cocina con acabados y mobiliario que ya no respondían al estándar de uso, limpieza y lectura visual que pedía la vivienda. Por eso la intervención arrancó con desmontaje total y demolición controlada.',
-    image: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
-    alt: 'Cocina original antes de la reforma completa en una quinta de Caracas',
-    caption: 'Mostramos el estado real previo para que el cambio se entienda desde la base y no solo desde la foto final.'
-  },
-  {
-    tag: '02 · Precisión en obra',
-    title: 'Revestimiento rectificado y montaje medido para que todo encaje limpio',
-    body: 'La mejora premium no depende solo del mueble: empieza en la electricidad, sigue en el replanteo y termina en la alineación visual de piezas, juntas y encuentros. Aquí es donde se construye la sensación de cocina “seria” y bien ejecutada.',
-    image: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp',
-    alt: 'Proceso de montaje y alineación de módulos de cocina durante la obra',
-    caption: 'El montaje y la alineación de los frentes determinan la limpieza visual del conjunto.'
-  },
-  {
-    tag: '03 · Entrega final',
-    title: 'El contraste entre blanco brillo y cuarzo oscuro le da una lectura mucho más arquitectónica',
-    body: 'El resultado final combina frentes blancos continuos, electrodomésticos integrados y una encimera oscura que ordena la composición. La cocina gana presencia, claridad y una percepción claramente más premium desde cualquier ángulo.',
-    image: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
-    alt: 'Cocina finalizada con muebles blancos de alto brillo y encimera de cuarzo oscuro',
-    caption: 'La composición final equilibra brillo, contraste y funcionalidad sin sobrecargar el espacio.'
-  }
-];
-
-const galleryPhases = [
-  { id: 'resultado', label: 'Resultado final', description: 'Las vistas ya terminadas muestran la composición completa, la integración de equipos y el contraste entre frentes blancos y cuarzo oscuro.' },
-  { id: 'detalles', label: 'Detalles técnicos', description: 'Aquí se aprecian los remates, la adaptación de la encimera y las decisiones que elevan el acabado.' },
-  { id: 'montaje', label: 'Montaje de muebles', description: 'Fase intermedia donde se ve la alineación de módulos, ajustes y control de encuentros.' },
-  { id: 'antes', label: 'Estado previo', description: 'Punto de partida real de la cocina antes del desmontaje y la reforma integral.' }
-];
+import ProjectCaseStudy from '../../components/ProjectCaseStudy.astro';
 
 const whatsappText = 'Hola, quiero una valoración técnica para una cocina similar a la quinta en Caracas.';
+const whatsappHref = `https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`;
+
+const quickNavItems = [
+  { href: '#resumen', label: 'Resumen' },
+  { href: '#resultado', label: 'Resultado' },
+  { href: '#paso-a-paso', label: 'Paso a paso' },
+  { href: '#comparativa', label: 'Antes y después' },
+  { href: '#especificaciones', label: 'Especificaciones' },
+  { href: '#galeria', label: 'Galería' },
+];
 ---
 
-<BaseLayout
-  title={`${project.title} en Caracas | RemodelaT`}
-  description={project.excerpt}
-  image={project.heroImage}
-  activePage="proyectos"
->
-  <header class="case-hero">
-    <img src={project.heroImage} alt={project.title} class="case-hero-img" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="case-hero-overlay"></div>
-    <div class="container case-hero-content">
-      <a href="/proyectos" class="back-link">← Volver a Proyectos</a>
-      <span class="case-eyebrow">Caso real · {project.category}</span>
-      <h1>{project.title} en Caracas</h1>
-      <p>{project.excerpt}</p>
-      <div class="case-facts" aria-label="Datos del proyecto">
-        <span><strong>Ubicación</strong>{project.location}</span>
-        <span><strong>Duración</strong>{project.duration}</span>
-        <span><strong>Alcance</strong>Reforma completa de cocina</span>
-        <span><strong>Fotos reales</strong>{gallery.length} imágenes del caso</span>
-      </div>
-      <div class="case-hero-actions">
-        <a href="#galeria" class="btn-premium btn-primary-premium">
-          <span class="btn-content">Ver galería completa</span>
-          <span class="btn-border"></span>
-          <span class="btn-arrow">→</span>
-        </a>
-        <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-outline-premium" target="_blank" rel="noopener">
-          <span class="btn-content">Solicitar valoración</span>
-          <span class="btn-arrow">→</span>
-        </a>
-      </div>
-      <p class="case-hero-proof">{gallery.length} fotos reales · recorrido por fases · ampliación detallada en cada imagen</p>
-    </div>
-  </header>
-
-  <nav class="breadcrumb-after-hero" aria-label="Breadcrumb">
-    <div class="container">
-      <div class="breadcrumb-inner">
-        <a href="/">Inicio</a>
-        <span class="separator">/</span>
-        <a href="/proyectos">Proyectos</a>
-        <span class="separator">/</span>
-        <span class="current">Cocina en Quinta Caracas</span>
-      </div>
-    </div>
-  </nav>
-
-  <section class="finished-showcase-section section" id="resultado">
-    <div class="container">
-      <div class="section-header showcase-header">
-        <span class="tag">Resultado final</span>
-        <h2 class="section-title">La cocina terminada, visible desde el inicio</h2>
-        <p class="section-desc">Antes de entrar en el detalle técnico, mostramos el resultado final: muebles blancos alto brillo, encimera de cuarzo oscuro, columna TEKA y una lectura moderna para una quinta en Caracas.</p>
-      </div>
-      <div class="finished-showcase-grid">
-        {featuredFinished.map((image, index) => (
-          <figure class:list={["finished-card", index === 0 && 'is-wide']}>
-            <img src={image.src} alt={image.alt} loading={index === 0 ? 'eager' : 'lazy'} decoding="async" />
-            <figcaption>
-              <span>{image.badge}</span>
-              <strong>{image.title}</strong>
-              <p>{image.caption}</p>
-              <button class="expand-photo-btn" type="button" data-lightbox-open data-src={image.src}>Ampliar foto</button>
-            </figcaption>
-          </figure>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="case-overview section">
-    <div class="container overview-grid">
-      <article>
-        <span class="tag">El reto</span>
-        <h2>Actualizar una cocina de quinta sin limitarse a un cambio estético</h2>
-        <p>La cocina existente requería una intervención completa: desmontaje de muebles, demolición del material cerámico anterior, actualización eléctrica, nuevo revestimiento y montaje de mobiliario moderno con mayor resistencia a humedad, golpes y uso diario.</p>
-      </article>
-      <article>
-        <span class="tag">La solución</span>
-        <h2>Una cocina blanca de alto brillo con contraste técnico en cuarzo oscuro</h2>
-        <p>Se renovó la base técnica de la cocina, se instaló cerámica importada rectificada y se montó mobiliario con frentes en MDF de 19 mm y polímero PVC termoformado. La encimera de cuarzo oscuro aporta contraste, resistencia y una lectura más elegante del conjunto.</p>
-      </article>
-    </div>
-  </section>
-
-  <ProjectBeforeAfterSlider
-    id="comparativa"
-    eyebrow="Comparativa principal"
-    title="Comparativa directa entre la cocina original y el resultado final"
-    text="La mejora no se limita al color o al mobiliario nuevo. El cambio real está en la limpieza visual, la integración técnica y la calidad percibida de toda la composición."
-    beforeSrc="/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp"
-    beforeAlt="Cocina original antes de la reforma integral en la quinta de Caracas"
-    afterSrc="/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp"
-    afterAlt="Cocina finalizada con mobiliario blanco de alto brillo y cuarzo oscuro en Caracas"
-    beforeLabel="Antes"
-    afterLabel="Después"
-    beforeCaption="Estado previo con acabados y mobiliario que ya no daban la presencia ni la funcionalidad que pedía la vivienda."
-    afterCaption="La nueva composición gana limpieza visual, mejor integración y una lectura mucho más premium."
-    showLightboxButtons={false}
-  />
-
-  <ProjectReadingGallery
-    eyebrow="Recorrido visual"
-    title="La obra explicada por fases clave"
-    intro="Este tramo combina relato e imagen para que el visitante entienda qué se transformó, cómo se ejecutó y por qué el resultado se percibe mucho más sólido y elegante."
-    items={storyMoments}
-    galleryGroup="kitchen-story"
-  />
-
-  <section class="case-technical section bg-light" id="tecnica">
-    <div class="container technical-grid">
-      <div class="technical-copy">
-        <span class="tag">Ejecución técnica</span>
-        <h2>Detalles que explican por qué esta cocina está pensada para durar</h2>
-        <p>El resultado final depende de lo visible y de lo oculto: electricidad segura, revestimiento bien instalado, muebles resistentes a humedad, cantos sellados, electrodomésticos integrados y una encimera adaptada con precisión.</p>
-      </div>
-      <div class="technical-list">
-        {technicalHighlights.map((item) => (
-          <div class="technical-item">{item}</div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="material-section section">
-    <div class="container material-grid">
-      <div>
-        <span class="tag">Mobiliario</span>
-        <h2>Polímero PVC termoformado: brillo, continuidad y resistencia</h2>
-        <p>El acabado exterior visible de los frentes es un foliado de polímero PVC termoformado. El PVC se moldea con calor directamente sobre el MDF, cubriendo frente y bordes en una sola pieza continua.</p>
-      </div>
-      <div class="benefit-card-grid">
-        <article><h3>Sin juntas visibles</h3><p>El polímero termosellado cubre frente y cantos, reduciendo puntos por donde podría penetrar humedad.</p></article>
-        <article><h3>Fácil limpieza</h3><p>Es un material impermeable, de baja absorción y muy práctico para el uso diario de cocina.</p></article>
-        <article><h3>Resistencia cotidiana</h3><p>Soporta mejor golpes y roces habituales frente a un lacado directo sobre madera.</p></article>
-      </div>
-    </div>
-  </section>
-
-  <section class="induction-section section bg-light">
-    <div class="container induction-grid">
-      <div class="induction-card">
-        <span class="tag">Equipamiento</span>
-        <h2>Placa de inducción, lavavajillas integrado y columna TEKA</h2>
-        <p>La placa de inducción mejora la eficiencia, calienta más rápido, reduce pérdidas de energía y aporta una superficie más segura y fácil de limpiar. Además, al generar calor directamente en el recipiente, permite mayor control de temperatura y una cocina más cómoda para el uso diario.</p>
-        <p>Se integró lavavajillas empotrado y una columna para horno y microondas TEKA, con garantía de hasta 10 años según fabricante.</p>
-      </div>
-      <div class="image-card">
-        <img src="/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp" alt="Columna de horno y microondas TEKA en cocina remodelada" loading="lazy" decoding="async" />
-      </div>
-    </div>
-  </section>
-
-  <section class="case-specs section" id="ficha">
-    <div class="container specs-grid">
-      <div>
-        <span class="tag">Especificaciones</span>
-        <h2>Materiales, sistemas y garantías del proyecto</h2>
-      </div>
-      <div class="spec-list">
-        {specs.map((spec) => (
-          <div class="spec-row">
-            <strong>{spec.label}</strong>
-            <span>{spec.value}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <ProjectPhaseGallery
-    eyebrow="Archivo fotográfico completo"
-    title={`Galería ordenada por fases (${gallery.length} fotos reales)`}
-    intro="La galería ya no mezcla todo en una sola rejilla: cada fase se presenta como un bloque propio para que el proyecto se lea mejor y las fotos respiren más."
-    items={gallery}
-    phases={galleryPhases}
-    id="galeria"
-  />
-
-  <GuaranteeMatrix compact />
-
-  <section class="case-cta">
-    <div class="container case-cta-inner">
-      <span class="tag tag-on-dark">Valoración técnica</span>
-      <h2>¿Quieres una cocina ejecutada con este nivel de control?</h2>
-      <p>Cuéntanos ubicación, tipo de vivienda, alcance, nivel de acabado y fecha estimada. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica.</p>
-      <a href={`https://wa.me/584227997043?text=${encodeURIComponent(whatsappText)}`} class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
-        <span class="btn-content">Solicitar valoración técnica</span>
-        <span class="btn-border"></span>
-        <span class="btn-arrow">→</span>
-      </a>
-    </div>
-  </section>
-  <ProjectLightbox />
-</BaseLayout>
-
-<style>
-  .case-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; color: var(--white); background: var(--ink); overflow: hidden; padding: 145px 0 85px; }
-  .case-hero-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .78; }
-  .case-hero-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(20,18,14,.96), rgba(20,18,14,.72) 48%, rgba(20,18,14,.26)), linear-gradient(to top, rgba(20,18,14,.95), transparent 58%); }
-  .case-hero-content { position: relative; z-index: 2; max-width: 980px; }
-  .back-link { display: inline-block; color: var(--gold); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-size: .82rem; margin-bottom: 24px; }
-  .case-eyebrow { display: inline-block; color: var(--gold-light); font-size: .78rem; text-transform: uppercase; letter-spacing: .16em; font-weight: 800; margin-bottom: 18px; }
-  .case-hero h1 { font-family: var(--font-serif); font-size: clamp(2.75rem, 6vw, 5.7rem); line-height: 1; letter-spacing: var(--track-tight); font-weight: 500; max-width: 900px; margin: 0 0 22px; }
-  .case-hero p { max-width: 800px; color: rgba(255,255,255,.84); font-size: clamp(1.06rem, 2vw, 1.25rem); line-height: 1.72; margin: 0 0 32px; }
-  .case-facts { display: flex; flex-wrap: wrap; border: 1px solid rgba(201,169,97,.28); border-radius: var(--r-lg); overflow: hidden; background: rgba(255,255,255,.06); backdrop-filter: blur(12px); max-width: 920px; }
-  .case-facts span { padding: 18px 24px; min-width: 210px; border-right: 1px solid rgba(201,169,97,.18); color: rgba(255,255,255,.9); }
-  .case-facts span:last-child { border-right: 0; }
-  .case-facts strong { display: block; color: var(--gold); font-size: .72rem; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 6px; }
-  .case-hero-actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 14px;
-    margin-top: 26px;
-  }
-  .case-hero-actions .btn-premium {
-    min-height: 54px;
-  }
-  .case-hero-proof {
-    margin-top: 16px;
-    color: rgba(255,255,255,.72);
-    font-size: .82rem;
-    letter-spacing: .08em;
-    text-transform: uppercase;
-    font-weight: 800;
-  }
-  .breadcrumb-after-hero {
-    background: var(--white);
-    border-bottom: 1px solid var(--sand);
-    padding: 18px 0;
-  }
-  .breadcrumb-inner {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-    font-size: .84rem;
-  }
-  .breadcrumb-inner a { color: var(--text-muted); text-decoration: none; font-weight: 500; }
-  .breadcrumb-inner a:hover { color: var(--gold-ink); }
-  .breadcrumb-inner .separator { color: var(--sand); margin: 0 4px; }
-  .breadcrumb-inner .current { color: var(--text); font-weight: 600; }
-
-  .finished-showcase-section { background: var(--white); padding-bottom: var(--s-5); }
-  .showcase-header { max-width: 820px; }
-  .finished-showcase-grid {
-    display: grid;
-    grid-template-columns: 1.35fr .82fr .82fr;
-    gap: 22px;
-    align-items: stretch;
-  }
-  .finished-card {
-    margin: 0;
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--r-lg);
-    background: var(--ink);
-    min-height: 520px;
-    box-shadow: var(--e-3);
-    border: 1px solid rgba(201,169,97,.22);
-  }
-  .finished-card.is-wide { min-height: 520px; }
-  .finished-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: .94;
-    transition: transform var(--dur-slow) var(--ease-out);
-  }
-  .finished-card:hover img { transform: scale(1.035); }
-  .finished-card figcaption {
-    position: absolute;
-    inset: auto 0 0;
-    padding: 28px;
-    color: var(--white);
-    background: linear-gradient(to top, rgba(20,18,14,.92), rgba(20,18,14,.56) 62%, transparent);
-  }
-  .finished-card figcaption span {
-    display: inline-block;
-    background: var(--gold);
-    color: var(--ink);
-    border-radius: var(--r-full);
-    padding: 5px 12px;
-    font-size: .72rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .1em;
-    margin-bottom: 12px;
-  }
-  .finished-card figcaption strong {
-    display: block;
-    font-family: var(--font-serif);
-    font-size: clamp(1.45rem, 2.3vw, 2rem);
-    line-height: 1.08;
-    margin-bottom: 8px;
-  }
-  .finished-card figcaption p {
-    color: rgba(255,255,255,.78);
-    line-height: 1.62;
-    font-size: .94rem;
-    margin: 0;
-  }
-
-  .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: var(--s-5); align-items: start; }
-  .overview-grid article, .induction-card { padding: 34px; border-radius: var(--r-lg); border: 1px solid var(--sand); background: var(--white); box-shadow: var(--e-1); }
-  .overview-grid h2, .technical-copy h2, .specs-grid h2, .material-grid h2, .induction-card h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 3.1rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 18px; }
-  .overview-grid p, .technical-copy p, .material-grid p, .induction-card p { color: var(--text-muted); line-height: 1.82; font-size: 1.05rem; margin-bottom: 16px; }
-
-  .technical-list { display: grid; gap: 12px; }
-  .technical-item { padding: 18px 22px 18px 52px; background: var(--white); border: 1px solid var(--sand); border-radius: var(--r-md); color: var(--text-muted); position: relative; box-shadow: var(--e-1); line-height: 1.6; }
-  .technical-item::before { content: ""; position: absolute; left: 22px; top: 25px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 6px rgba(201,169,97,.13); }
-
-  .benefit-card-grid { display: grid; gap: 18px; }
-  .benefit-card-grid article { padding: 28px; border-radius: var(--r-lg); background: linear-gradient(180deg, var(--white), var(--bone)); border: 1px solid var(--sand); box-shadow: var(--e-1); }
-  .benefit-card-grid h3 { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 10px; color: var(--ink); }
-  .benefit-card-grid p { margin: 0; }
-  .image-card { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-3); background: var(--ink); }
-  .image-card img { width: 100%; height: 520px; object-fit: cover; display: block; }
-
-  .spec-list { border: 1px solid var(--sand); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-2); }
-  .spec-row { display: grid; grid-template-columns: .62fr 1fr; border-top: 1px solid var(--sand); background: var(--white); }
-  .spec-row:first-child { border-top: 0; }
-  .spec-row strong, .spec-row span { padding: 18px 22px; }
-  .spec-row strong { color: var(--ink); font-family: var(--font-serif); font-size: 1.16rem; border-right: 1px solid var(--sand); }
-  .spec-row span { color: var(--text-muted); line-height: 1.6; }
-
-  .case-cta { padding: 105px 24px; background: radial-gradient(circle at 50% 0%, rgba(201,169,97,.18), transparent 45%), var(--ink); color: var(--white); text-align: center; }
-  .case-cta-inner { max-width: 900px; }
-  .case-cta h2 { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.8rem); line-height: 1.08; letter-spacing: var(--track-tight); font-weight: 500; margin: 0 0 22px; }
-  .case-cta p { max-width: 760px; margin: 0 auto 34px; color: rgba(255,255,255,.76); line-height: 1.75; font-size: 1.12rem; }
-  .tag-on-dark { color: var(--gold); }
-
-  .finished-card {
-    display: flex;
-    flex-direction: column;
-    background: var(--white);
-  }
-  .finished-card img {
-    height: 420px !important;
-    object-fit: contain !important;
-    background: var(--ink-soft);
-    padding: 14px;
-  }
-  .finished-card figcaption {
-    position: static !important;
-    inset: auto !important;
-    background: var(--white) !important;
-    color: var(--text) !important;
-    padding: 22px 24px 24px !important;
-  }
-  .finished-card figcaption strong { color: var(--ink); }
-  .finished-card figcaption p { color: var(--text-muted) !important; margin-bottom: 16px !important; }
-
-  @media (max-width: 950px) {
-    .overview-grid, .technical-grid, .specs-grid, .material-grid, .induction-grid { grid-template-columns: 1fr; }
-    .finished-showcase-grid { grid-template-columns: 1fr; }
-    .finished-card, .finished-card.is-wide { min-height: 480px; }
-    .image-card img { height: 520px; }
-  }
-  @media (max-width: 640px) {
-    .case-facts { display: grid; }
-    .case-facts span { border-right: 0; border-bottom: 1px solid rgba(201,169,97,.18); }
-    .case-hero-actions {
-      flex-direction: column;
-      align-items: stretch;
-    }
-    .case-hero-actions .btn-premium {
-      width: 100%;
-      justify-content: center;
-    }
-    .finished-card, .finished-card.is-wide { min-height: 420px; }
-    .spec-row { grid-template-columns: 1fr; }
-    .spec-row strong { border-right: 0; border-bottom: 1px solid var(--sand); }
-  }
-</style>
+<ProjectCaseStudy
+  seoTitle="Remodelación Integral de Cocina en Quinta en Caracas | RemodelaT"
+  seoDescription="Reforma completa de cocina en quinta de Caracas: desmontaje total, demolición de cerámica existente, actualización eléctrica con cable ignífugo, revestimiento importado rectificado, mobiliario en MDF lacado alto brillo con polímero PVC termoformado, encimera de cuarzo oscuro, inducción y electrodomésticos TEKA."
+  heroImage="/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp"
+  heroImageAlt="Cocina finalizada en quinta de Caracas con muebles blancos de alto brillo y encimera de cuarzo oscuro"
+  kicker="Caso real · Cocinas de alto estándar · Diario de obra"
+  heroTitle="Remodelación Integral de Cocina en Quinta"
+  lead="Reforma completa de cocina en quinta de Caracas: desmontaje total, demolición de cerámica existente, actualización eléctrica con cable ignífugo, revestimiento importado rectificado, mobiliario en MDF lacado alto brillo con polímero PVC termoformado, encimera de cuarzo oscuro, inducción y electrodomésticos TEKA."
+  heroFacts={[
+    { label: 'Ubicación', value: 'Quinta · Caracas' },
+    { label: 'Duración', value: '1 semana' },
+    { label: 'Intervención', value: 'Reforma integral' },
+    { label: 'Acabado', value: 'Lacado alto brillo' },
+    { label: 'Encimera', value: 'Cuarzo oscuro' },
+    { label: 'Equipos', value: 'TEKA · Inducción' },
+  ]}
+  quickNavItems={quickNavItems}
+  whatsappHref={whatsappHref}
+  breadcrumbCurrent="Cocina en Quinta Caracas"
+  summaryTag="En síntesis"
+  summaryTitle="De cocina obsoleta a composición blanca de alto brillo con contraste en cuarzo"
+  summaryDesc="Una intervención que no se limitó a un cambio estético: renovó la base técnica de la cocina para que el acabado nuevo se sostuviera sobre electricidad segura, superficies resistentes y montaje medido."
+  summaryCards={[
+    {
+      index: 'El reto',
+      title: 'Actualizar una cocina de quinta sin limitarse a un cambio estético',
+      body: 'La cocina existente requería una intervención completa: desmontaje de muebles, demolición del material cerámico anterior, actualización eléctrica, nuevo revestimiento y montaje de mobiliario moderno con mayor resistencia a humedad, golpes y uso diario.',
+      dropcap: true,
+    },
+    {
+      index: 'La solución',
+      title: 'Una cocina blanca de alto brillo con contraste técnico en cuarzo oscuro',
+      body: 'Se renovó la base técnica de la cocina, se instaló cerámica importada rectificada y se montó mobiliario con frentes en MDF de 19 mm y polímero PVC termoformado. La encimera de cuarzo oscuro aporta contraste, resistencia y una lectura más elegante del conjunto.',
+    },
+  ]}
+  stats={[
+    { value: '06', label: 'Fases documentadas' },
+    { value: '11', label: 'Fotografías reales' },
+    { value: '01', label: 'Semana de ejecución' },
+    { value: '25', label: 'Años de garantía en muebles' },
+    { value: '10', label: 'Años de garantía TEKA' },
+  ]}
+  resultadoTag="Resultado final"
+  resultadoTitle="La cocina terminada, visible desde el inicio"
+  resultadoDesc="Antes de entrar en el detalle técnico, mostramos el resultado final: muebles blancos alto brillo, encimera de cuarzo oscuro, columna TEKA y una lectura moderna para una quinta en Caracas."
+  resultadoShowcase={[
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+      alt: 'Cocina finalizada en quinta de Caracas con muebles blancos y encimera oscura',
+      badge: 'Vista final',
+      title: 'Alto brillo y cuarzo oscuro: la composición completa',
+      caption:
+        'Mobiliario blanco de alto brillo, encimera de cuarzo oscuro y electrodomésticos integrados: una lectura moderna, limpia y de alto contraste para uso diario intensivo.',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp',
+      alt: 'Cocina finalizada con muebles altos y bajos lacados en blanco brillo',
+      badge: 'Mobiliario',
+      title: 'Frentes lacados con continuidad total',
+      caption:
+        'Muebles terminados con frentes de MDF de 19 mm, acabado lacado alto brillo y foliado PVC termoformado: sin juntas visibles y resistente a la humedad en los cantos.',
+    },
+  ]}
+  quote={{
+    text: 'El contraste entre el blanco brillo y el cuarzo oscuro convierte una reforma en una composición arquitectónica.',
+    cite: 'Diario de obra · Cocina en quinta de Caracas',
+  }}
+  timelineTag="La obra, en orden"
+  timelineTitle="El proyecto paso a paso: seis fases, cero improvisación"
+  timelineDesc="Cada fase está numerada y documentada con sus trabajos ejecutados y <strong>todas</strong> sus fotografías reales, para que el recorrido se lea tan claro como se ejecutó."
+  phases={[
+    {
+      number: '01',
+      kicker: 'Fase 01 · Diagnóstico',
+      title: 'El punto de partida: una base técnica que pedía intervención completa',
+      body: 'El punto de partida era una cocina con acabados y mobiliario que ya no respondían al estándar de uso, limpieza y lectura visual que pedía la vivienda. No había maquillaje posible: había que intervenir de raíz.',
+      checks: [
+        'Inspección del estado de mobiliario, cerámica e instalaciones',
+        'Definición del alcance: desmontaje total y demolición controlada',
+        'Plan de actualización eléctrica y de nuevo revestimiento',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
+          alt: 'Cocina antes de la remodelación completa en quinta de Caracas',
+          caption: 'Estado inicial antes del desmontaje completo de muebles y demolición del revestimiento cerámico existente.',
+          badge: 'Antes',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-2.webp',
+          alt: 'Estado inicial de cocina antes de reforma en Caracas',
+          caption: 'Condición previa de la cocina: mobiliario y cerámica existentes antes de la intervención integral.',
+          badge: 'Antes',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '02',
+      kicker: 'Fase 02 · Montaje de módulos',
+      title: 'Módulos en su sitio: la composición empieza a tomar forma',
+      body: 'Con la base preparada —desmontaje total, electricidad con cable ignífugo y cerámica rectificada instalada— llegó el mobiliario. Se montaron los módulos bajos y altos con control de plomos, niveles y encuentros, y los frentes empezaron a alinearse.',
+      checks: [
+        'Montaje de estructura y módulos sobre la base preparada',
+        'Frentes de MDF de 19 mm con acabado lacado alto brillo',
+        'Casco en aglomerado hidrófugo de 16 mm protegido a dos caras',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-1.webp',
+          alt: 'Proceso de montaje de muebles de cocina en quinta de Caracas',
+          caption: 'Montaje de estructura y módulos de cocina tras la actualización de instalaciones y revestimiento.',
+          badge: 'Proceso',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp',
+          alt: 'Instalación de módulos y frentes de cocina durante el proceso',
+          caption: 'Proceso de instalación de módulos, ajustes y alineación de frentes para lograr una lectura limpia.',
+          badge: 'Proceso',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '03',
+      kicker: 'Fase 03 · Alineación y remates',
+      title: 'Plomos, niveles y encuentros: donde se construye la limpieza visual',
+      body: 'La sensación de cocina bien ejecutada se decide aquí: cada módulo alineado, cada frente en su plano y cada encuentro revisado. La instalación de muebles altos y bajos se cerró con ajustes milimétricos antes de la encimera.',
+      checks: [
+        'Instalación de muebles altos y bajos con control de plomos y niveles',
+        'Alineación de frentes para una lectura continua',
+        'Revisión de encuentros y preparación para la encimera',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-3.webp',
+          alt: 'Montaje de muebles altos y bajos en cocina de Caracas',
+          caption: 'Instalación de muebles altos y bajos con control de plomos, niveles y encuentros.',
+          badge: 'Proceso',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-4.webp',
+          alt: 'Proceso final de montaje de mobiliario de cocina',
+          caption: 'Ajustes finales de mobiliario antes de instalar electrodomésticos, encimera y remates.',
+          badge: 'Proceso',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '04',
+      kicker: 'Fase 04 · Encimera y equipos',
+      title: 'Cuarzo adaptado al fregadero en L y columna TEKA integrada',
+      body: 'Se instaló la encimera de cuarzo oscuro con adaptación técnica para el fregadero en forma de L, y se integró la columna para horno y microondas TEKA junto a la placa de inducción y el lavavajillas empotrado.',
+      checks: [
+        'Encimera de cuarzo oscuro adaptada para fregadero en L',
+        'Placa de inducción, lavavajillas empotrado y columna TEKA',
+        'Integración de equipos con garantía de hasta 10 años según fabricante',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/adaptacion-encimera-fregadero-l.webp',
+          alt: 'Adaptación de encimera de cuarzo para fregadero en forma de L',
+          caption: 'Adaptación técnica de encimera de cuarzo oscuro para la instalación de un fregadero en forma de L.',
+          badge: 'Cuarzo',
+          orientation: 'landscape',
+        },
+      ],
+    },
+    {
+      number: '05',
+      kicker: 'Fase 05 · Entrega',
+      title: 'Últimos retoques, revisión final y puesta en servicio',
+      body: 'Se revisaron ajustes, se hicieron las pruebas de funcionamiento de equipos e iluminación y se completó la limpieza visual de la obra. La cocina quedó lista para la entrega y el uso diario.',
+      checks: [
+        'Últimos retoques y revisión de ajustes',
+        'Prueba de funcionamiento de equipos e iluminación',
+        'Limpieza final y preparación de entrega',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp',
+          alt: 'Últimos retoques en cocina remodelada de quinta en Caracas',
+          caption: 'Últimos retoques de obra, revisión de ajustes, limpieza visual y preparación para entrega.',
+          badge: 'Entrega',
+          orientation: 'portrait',
+        },
+      ],
+    },
+    {
+      number: '06',
+      kicker: 'Fase 06 · Resultado',
+      title: 'La cocina entregada: blanco brillo, cuarzo oscuro y equipos integrados',
+      body: 'El resultado final combina frentes blancos continuos, electrodomésticos integrados y una encimera oscura que ordena la composición. La cocina gana presencia, claridad y una percepción claramente más premium desde cualquier ángulo.',
+      checks: [
+        'Composición completa entregada sin pendientes visibles',
+        'Contraste blanco brillo / cuarzo oscuro en equilibrio',
+        'Revisión final de integración de equipos y acabados',
+      ],
+      images: [
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp',
+          alt: 'Cocina finalizada con muebles altos y bajos lacados en blanco brillo',
+          caption: 'Muebles terminados con frentes de MDF de 19 mm, acabado lacado alto brillo y foliado PVC termoformado.',
+          badge: 'Mobiliario',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp',
+          alt: 'Detalle de cocina terminada con electrodomésticos empotrados',
+          caption: 'Integración de electrodomésticos, columna para horno y microondas TEKA, y distribución funcional para uso diario.',
+          badge: 'TEKA',
+          orientation: 'portrait',
+        },
+        {
+          src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+          alt: 'Cocina finalizada en quinta de Caracas con muebles blancos y encimera oscura',
+          caption: 'Vista final de la cocina: mobiliario blanco alto brillo, encimera de cuarzo oscuro y composición moderna de alto contraste.',
+          badge: 'Finalizado',
+          orientation: 'landscape',
+        },
+      ],
+    },
+  ]}
+  compareTag="La misma zona, otra vida"
+  compareTitle="Desliza y compruébalo con tus propios ojos"
+  compareDesc="La mejora no se limita al color o al mobiliario nuevo. El cambio real está en la limpieza visual, la integración técnica y la calidad percibida de toda la composición."
+  compare={{
+    beforeSrc: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
+    beforeAlt: 'Cocina original antes de la reforma integral en la quinta de Caracas',
+    afterSrc: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+    afterAlt: 'Cocina finalizada con mobiliario blanco de alto brillo y cuarzo oscuro en Caracas',
+    beforeCaption: 'Estado previo con acabados y mobiliario que ya no daban la presencia ni la funcionalidad que pedía la vivienda.',
+    afterCaption: 'La nueva composición gana limpieza visual, mejor integración y una lectura mucho más premium.',
+  }}
+  specsTag="Detalle técnico"
+  specsTitle="Especificaciones de la intervención"
+  specsDesc="Lo que se ve —y lo que no se ve— de esta obra, documentado partida por partida."
+  highlights={[
+    {
+      icon: 'sparkle',
+      title: 'Frentes lacados con PVC termoformado',
+      text: 'MDF de 19 mm lacado alto brillo con foliado de polímero PVC termoformado: acabado continuo, sin juntas visibles y resistente a la humedad en los cantos.',
+    },
+    {
+      icon: 'appliance',
+      title: 'Equipamiento TEKA',
+      text: 'Placa de inducción, lavavajillas empotrado, columna para horno y microondas TEKA con garantía de hasta 10 años según fabricante.',
+    },
+    {
+      icon: 'shield',
+      title: 'Garantías de 10 y 25 años',
+      text: 'Mobiliario con garantía de hasta 25 años y equipos TEKA con hasta 10 años, según condiciones de fabricante y uso adecuado.',
+    },
+    {
+      icon: 'ruler',
+      title: 'Encimera de cuarzo adaptada',
+      text: 'Cuarzo oscuro en contraste con el mobiliario blanco, con adaptación técnica de precisión para el fregadero en forma de L.',
+    },
+  ]}
+  specs={[
+    { label: 'Ubicación', value: 'Quinta residencial en Caracas, Venezuela' },
+    { label: 'Duración de obra', value: '1 semana de ejecución' },
+    { label: 'Alcance', value: 'Desmontaje, demolición, electricidad, revestimiento, muebles, encimera y electrodomésticos' },
+    { label: 'Sistema eléctrico', value: 'Actualización con cable ignífugo de alta calidad' },
+    { label: 'Revestimiento', value: 'Cerámica importada moderna, tipo rectificado' },
+    { label: 'Puertas y frentes', value: 'MDF de 19 mm con acabado lacado alto brillo y polímero PVC termoformado' },
+    { label: 'Casco del mueble', value: 'Aglomerado hidrófugo de 16 mm protegido a dos caras' },
+    { label: 'Trasera del mueble', value: 'Tablero de 6 mm en color blanco por ambas caras' },
+    { label: 'Encimera', value: 'Cuarzo oscuro, adaptado para fregadero en forma de L' },
+    { label: 'Electrodomésticos', value: 'Placa de inducción, lavavajillas empotrado, horno y microondas TEKA' },
+    { label: 'Garantías', value: 'Hasta 25 años en muebles y hasta 10 años en equipos TEKA según fabricante' },
+  ]}
+  galleryTitle={`Galería ordenada por fases (11 fotos reales)`}
+  galleryIntro="La galería ya no mezcla todo en una sola rejilla: cada fase se presenta como un bloque propio para que el proyecto se lea mejor y las fotos respiren más."
+  gallery={[
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
+      alt: 'Cocina finalizada en quinta de Caracas con muebles blancos y encimera oscura',
+      title: 'Vista Final: Alto Brillo y Cuarzo Oscuro',
+      caption: 'Vista final de la cocina: mobiliario blanco alto brillo, encimera de cuarzo oscuro y composición moderna de alto contraste.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Finalizado', orientation: 'landscape',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-1.webp',
+      alt: 'Cocina finalizada con muebles altos y bajos lacados en blanco brillo',
+      title: 'Mobiliario Blanco Alto Brillo Instalado',
+      caption: 'Muebles terminados con frentes de MDF de 19 mm, acabado lacado alto brillo y foliado PVC termoformado.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'Mobiliario', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-2.webp',
+      alt: 'Detalle de cocina terminada con electrodomésticos empotrados',
+      title: 'Columna TEKA y Electrodomésticos Integrados',
+      caption: 'Integración de electrodomésticos, columna para horno y microondas TEKA, y distribución funcional para uso diario.',
+      category: 'resultado', categoryLabel: 'Resultado Final', badge: 'TEKA', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/adaptacion-encimera-fregadero-l.webp',
+      alt: 'Adaptación de encimera de cuarzo para fregadero en forma de L',
+      title: 'Adaptación de Encimera para Fregadero en L',
+      caption: 'Adaptación técnica de encimera de cuarzo oscuro para la instalación de un fregadero en forma de L.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Cuarzo', orientation: 'landscape',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/ultimos-retoques.webp',
+      alt: 'Últimos retoques en cocina remodelada de quinta en Caracas',
+      title: 'Últimos Retoques y Revisión de Entrega',
+      caption: 'Últimos retoques de obra, revisión de ajustes, limpieza visual y preparación para entrega.',
+      category: 'detalles', categoryLabel: 'Detalles Técnicos', badge: 'Entrega', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-1.webp',
+      alt: 'Proceso de montaje de muebles de cocina en quinta de Caracas',
+      title: 'Montaje Inicial de Módulos de Cocina',
+      caption: 'Montaje de estructura y módulos de cocina tras actualización de instalaciones y revestimiento.',
+      category: 'montaje', categoryLabel: 'Montaje de Muebles', badge: 'Proceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-2.webp',
+      alt: 'Instalación de módulos y frentes de cocina durante el proceso',
+      title: 'Alineación de Módulos y Frentes',
+      caption: 'Proceso de instalación de módulos, ajustes y alineación de frentes para lograr una lectura limpia.',
+      category: 'montaje', categoryLabel: 'Montaje de Muebles', badge: 'Proceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-3.webp',
+      alt: 'Montaje de muebles altos y bajos en cocina de Caracas',
+      title: 'Muebles Altos y Bajos en Instalación',
+      caption: 'Instalación de muebles altos y bajos con control de plomos, niveles y encuentros.',
+      category: 'montaje', categoryLabel: 'Montaje de Muebles', badge: 'Proceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/proceso-montaje-muebles-4.webp',
+      alt: 'Proceso final de montaje de mobiliario de cocina',
+      title: 'Ajustes Finales del Mobiliario',
+      caption: 'Ajustes finales de mobiliario antes de instalar electrodomésticos, encimera y remates.',
+      category: 'montaje', categoryLabel: 'Montaje de Muebles', badge: 'Proceso', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-1.webp',
+      alt: 'Cocina antes de la remodelación completa en quinta de Caracas',
+      title: 'Estado Inicial Antes del Desmontaje',
+      caption: 'Estado inicial antes del desmontaje completo de muebles y demolición del revestimiento cerámico existente.',
+      category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait',
+    },
+    {
+      src: '/images/proyectos/cocina-caracas-quinta/cocina-antes-2.webp',
+      alt: 'Estado inicial de cocina antes de reforma en Caracas',
+      title: 'Cocina Original: Cerámica y Mobiliario Existente',
+      caption: 'Condición previa de la cocina: mobiliario y cerámica existentes antes de la intervención integral.',
+      category: 'antes', categoryLabel: 'Antes de Obra', badge: 'Antes', orientation: 'portrait',
+    },
+  ]}
+  galleryPhases={[
+    { id: 'resultado', label: 'Resultado final', description: 'Las vistas ya terminadas muestran la composición completa, la integración de equipos y el contraste entre frentes blancos y cuarzo oscuro.' },
+    { id: 'detalles', label: 'Detalles técnicos', description: 'Aquí se aprecian los remates, la adaptación de la encimera y las decisiones que elevan el acabado.' },
+    { id: 'montaje', label: 'Montaje de muebles', description: 'Fase intermedia donde se ve la alineación de módulos, ajustes y control de encuentros.' },
+    { id: 'antes', label: 'Estado previo', description: 'Punto de partida real de la cocina antes del desmontaje y la reforma integral.' },
+  ]}
+  ctaTag="Valoración técnica"
+  ctaTitle="¿Quieres una cocina ejecutada con este nivel de control?"
+  ctaText="Cuéntanos ubicación, tipo de vivienda, alcance, nivel de acabado y fecha estimada. Revisamos si el proyecto encaja con nuestro estándar y te orientamos con una valoración técnica."
+  ctaPrimaryLabel="Solicitar valoración técnica"
+/>
