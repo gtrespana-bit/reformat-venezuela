@@ -100,10 +100,6 @@ const stats = [
         var video = document.getElementById('hero-video');
         if (!video) return;
 
-        // Honour reduced motion: don't even download the video, keep the still
-        // poster (1.2 MB saved and the user preference respected).
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
         var isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
 
         // Same poster as the <picture> above: if decoding the first frame takes
@@ -465,11 +461,14 @@ const stats = [
     .form-row { grid-template-columns: 1fr; gap: 0; }
     .contact-form { padding: 26px 20px; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    /* The script never assigns a src in this case; hide the element too and the
-       poster (already frame 0) stays on screen. */
-    .hero-video{display:none!important;}
-  }
+  /* NOTE: the hero video is deliberately NOT hidden under prefers-reduced-motion.
+     That rule dated from when the background photo was a different scene from
+     the video. The hero is a near-static house shot, not a UI animation, and
+     "reduced motion" is switched on by default by Windows/macOS energy saver and
+     by phones in battery mode - plenty of users have it without knowing, and
+     they were left with no video at all.
+     If the footage ever gains sharp movement, pause it (video.pause()) rather
+     than hiding it: the poster is already frame 0. */
 
   /* Success Message Styles (Phase 4) */
   .form-success-message {

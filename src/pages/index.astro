@@ -143,10 +143,6 @@ const fitItems = [
         var video = document.getElementById('hero-video');
         if (!video) return;
 
-        // Si el usuario pide menos movimiento no descargamos el vídeo siquiera:
-        // se queda el póster fijo (1,2 MB menos y la preferencia respetada).
-        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-
         var isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
 
         // Mismo póster que el <picture> de arriba: si el vídeo tardase en
@@ -900,11 +896,14 @@ const fitItems = [
     }
     .about-text .section-title { font-size: 2.05rem; }
   }
-  @media (prefers-reduced-motion: reduce) {
-    /* El script ni siquiera le pone src al vídeo en este caso; lo ocultamos
-       también por CSS y se queda el póster, que ya es el fotograma 0. */
-    .hero-video { display: none; }
-  }
+  /* OJO: aquí NO se oculta el vídeo con prefers-reduced-motion.
+     Esa regla venía de cuando el fondo era una foto distinta a la del vídeo.
+     Ahora el hero es una toma fija de una casa (cámara casi inmóvil), no una
+     animación de interfaz, y además "reduced motion" lo activan de serie el
+     ahorro de energía de Windows/macOS y los móviles en modo batería: mucha
+     gente lo tiene puesto sin saberlo y se quedaba sin vídeo.
+     Si algún día el vídeo pasa a tener movimiento brusco, lo correcto es
+     pausarlo (video.pause()), no ocultarlo: el póster ya es el fotograma 0. */
 
   /* Estilos para mensaje de éxito (Fase 4) */
   .form-success-message {
