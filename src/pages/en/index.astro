@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 
+const whatsappBudgetTextEn = 'Hello,%20I%20would%20like%20to%20request%20a%20technical%20assessment%20for%20my%20remodel.%20I%20can%20send%20photos%20and%20location%20here.';
+
 const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
@@ -67,38 +69,94 @@ const fitItems = [
   <header class="hero hero-god">
     <div class="god-glow" aria-hidden="true"></div>
     <div class="god-watermark" aria-hidden="true">REMODELAT</div>
+
     <picture>
-      <source media="(max-width: 1023.98px)" srcset="/images/hero-poster-mobile.webp" type="image/webp" width="360" height="640" />
-      <img src="/images/hero-poster-desktop.webp" alt="Renovated residential interior with high-standard finishes" fetchpriority="high" loading="eager" decoding="async" width="960" height="540" class="hero-poster" />
+      <source
+        media="(max-width: 1023.98px)"
+        srcset="/images/hero-poster-mobile.webp"
+        type="image/webp"
+        width="360"
+        height="640"
+      />
+      <img
+        src="/images/hero-poster-desktop.webp"
+        alt="Renovated residential interior with high-standard finishes"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        width="960"
+        height="540"
+        class="hero-poster"
+      />
     </picture>
-    <video id="hero-video" class="hero-video" autoplay muted loop playsinline preload="auto" aria-hidden="true" tabindex="-1"></video>
-    <script is:inline>(function(){var v=document.getElementById('hero-video');if(!v)return;var m=window.matchMedia('(max-width: 1023.98px)').matches;v.poster=m?'/images/hero-poster-mobile.webp':'/images/hero-poster-desktop.webp';v.src=m?'/videos/hero-mobile.mp4':'/videos/hero-desktop.mp4';var p=v.play();if(p&&p.catch)p.catch(function(){});})();</script>
+
+    <video
+      id="hero-video"
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"
+      aria-hidden="true"
+      tabindex="-1"
+    ></video>
+
+    <script is:inline>
+      (function () {
+        var video = document.getElementById('hero-video');
+        if (!video) return;
+        var isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
+        video.poster = isMobile
+          ? '/images/hero-poster-mobile.webp'
+          : '/images/hero-poster-desktop.webp';
+        video.src = isMobile
+          ? '/videos/hero-mobile.mp4'
+          : '/videos/hero-desktop.mp4';
+        var playing = video.play();
+        if (playing && typeof playing.catch === 'function') {
+          playing.catch(function () {});
+        }
+      })();
+    </script>
+
     <div class="hero-overlay"></div>
     <div class="god-hairline" aria-hidden="true"></div>
+
     <div class="hero-content">
       <span class="god-eyebrow">High-standard residential remodeling</span>
-      <span class="hero-tag">High-standard residential remodeling</span>
       <h1 class="hero-title">
         <span class="line">Luxury remodeling</span>
         <span class="line gold">with technical precision</span>
       </h1>
       <p class="hero-sub">Kitchens, bathrooms and whole-home remodels for demanding homeowners: proper materials, supervised execution, flawless finishes and written warranties.</p>
       <div class="hero-btns">
-        <a href="/en/contact" class="btn-premium btn-primary-premium">
+        <a href={`https://wa.me/584227997043?text=${whatsappBudgetTextEn}`} target="_blank" rel="noopener" class="btn-premium btn-primary-premium">
           <span class="btn-content">Request technical assessment</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
-        <a href="/en/services" class="btn-premium btn-outline-premium">
-          <span class="btn-content">Explore services</span>
+        <a href="/en/projects" class="btn-premium btn-outline-premium">
+          <span class="btn-content">See real projects</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
       </div>
-        </div>
-    <div class="god-scroll" aria-hidden="true"><span>Explore</span><i></i></div>
+      <p class="hero-proof" aria-label="Trust signals">
+        <span>23+ years</span>
+        <i></i>
+        <span>Technical method</span>
+        <i></i>
+        <span>Written guarantee</span>
+      </p>
+    </div>
+
+    <div class="god-scroll" aria-hidden="true">
+      <span>Explore</span>
+      <i></i>
+    </div>
   </header>
 
   <section class="stats-section">
@@ -349,23 +407,16 @@ const fitItems = [
 </BaseLayout>
 
 <style>
-    .hero { position: relative;
+  /* ---------- HERO DIOS con video preservado ---------- */
+  .hero {
+    position: relative; width: 100%;
+    min-height: 100vh; min-height: 100svh;
+    overflow: hidden;
+    background: var(--ink);
+    display: flex; align-items: center; justify-content: center;
+    text-align: center; color: var(--white);
+    isolation: isolate;
   }
-  .hero.hero-god { isolation: isolate; }
-  .hero .god-glow { position: absolute; top: -22%; right: -10%; width: 72vw; height: 72vw; background: radial-gradient(circle, rgba(201,169,97,0.32) 0%, rgba(201,169,97,0.10) 36%, transparent 70%); filter: blur(88px); pointer-events: none; z-index: 2; }
-  .hero .god-watermark { position: absolute; bottom: -0.06em; left: 50%; transform: translateX(-50%); font-family: var(--font-serif); font-size: 18vw; font-weight: 700; line-height: 0.8; letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1px rgba(201,169,97,0.11); pointer-events: none; z-index: 2; white-space: nowrap; }
-  .hero .god-hairline { position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: linear-gradient(to right, transparent, rgba(201,169,97,0.28), transparent); z-index: 6; }
-  .hero .god-scroll { position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%); z-index: 6; display: flex; flex-direction: column; align-items: center; gap: 10px; color: rgba(255,255,255,0.48); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; }
-  .hero .god-scroll i { display: block; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); animation: godScrollLine 2.2s ease-in-out infinite; }
-  @keyframes godScrollLine { 0% { transform: scaleY(0); transform-origin: top; opacity: 0; } 50% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; } }
-  .god-eyebrow { display: inline-flex; align-items: center; gap: 12px; font-size: .72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800; color: var(--gold-light); margin-bottom: 18px; }
-  .god-eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: block; }
-  .hero-title { letter-spacing: -0.03em !important; line-height: 0.94 !important; }
-  .hero { width: 100%; min-height: 100vh; min-height: 100svh; overflow: hidden; background: #111; display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white); }
-  /* Poster and video occupy the exact same box with the same object-fit, so the
-     framing matches pixel for pixel. The poster sits underneath and stays
-     visible; the video simply covers it once it starts painting frames.
-     No animated opacity = no flash and no double image. */
   .hero-poster,
   .hero-video {
     position: absolute; inset: 0;
@@ -373,16 +424,71 @@ const fitItems = [
     object-fit: cover;
     object-position: center;
   }
-  .hero-poster { z-index: 1 !important; }
+  .hero-poster { z-index: 1 !important; filter: contrast(1.08) brightness(0.88) saturate(0.96); }
   .hero-video { z-index: 2 !important; border: 0; background: transparent; pointer-events: none; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.55) 50%, rgba(0,0,0,0.85)); z-index: 3 !important; }
-  .hero-content { position: relative; z-index: 4 !important; max-width: 900px; padding: 100px 20px 0; }
-  .hero-tag { display: block; font-size: 0.85rem; letter-spacing: 2.5px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
-  .hero-title { font-family: var(--font-serif); font-size: clamp(2.8rem, 7vw, 6rem); font-weight: 400; margin-bottom: 18px; line-height: 1.05; }
+  .hero .god-glow {
+    position: absolute; top: -22%; right: -10%; width: 72vw; height: 72vw;
+    background: radial-gradient(circle, rgba(201,169,97,0.32) 0%, rgba(201,169,97,0.10) 36%, transparent 70%);
+    filter: blur(88px); pointer-events: none; z-index: 2;
+  }
+  .hero .god-watermark {
+    position: absolute; bottom: -0.06em; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-serif); font-size: 18vw; font-weight: 700; line-height: 0.8;
+    letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1px rgba(201,169,97,0.11);
+    pointer-events: none; z-index: 2; white-space: nowrap;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0; z-index: 3 !important;
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.58) 52%, rgba(10,8,6,0.18) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.62) 0%, transparent 60%),
+      radial-gradient(circle at 50% 42%, rgba(0,0,0,.10), rgba(0,0,0,.55) 60%, rgba(0,0,0,.88) 100%);
+  }
+  .hero .god-hairline {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,97,0.28), transparent);
+    z-index: 6;
+  }
+  .hero-content { position: relative; z-index: 5 !important; max-width: 760px; padding: 110px 20px 0; }
+  .god-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: .72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800;
+    color: var(--gold-light); margin-bottom: 18px;
+  }
+  .god-eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: block; }
+  .hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(2.4rem, 5.4vw, 4.9rem);
+    font-weight: 400; line-height: 0.94;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
   .hero-title .line { display: block; }
   .hero-title .gold { color: var(--gold); }
-  .hero-sub { font-size: 1.15rem; color: rgba(255, 255, 255, 0.95); margin: 0 auto 28px; max-width: 600px; line-height: 1.55; }
+  .hero-sub {
+    font-size: 1.08rem; color: rgba(255,255,255,.84);
+    margin: 0 auto 32px; max-width: 560px; line-height: 1.65;
+  }
   .hero-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
+  .hero-proof {
+    display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap;
+    gap: 12px; margin: 26px auto 0;
+    color: rgba(255,255,255,.62); font-size: .78rem;
+    letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
+  }
+  .hero-proof i { display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: .85; }
+  .hero-proof span { white-space: nowrap; }
+  .god-scroll {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    z-index: 6; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.48); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .god-scroll i { display: block; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); animation: godScrollLine 2.2s ease-in-out infinite; }
+  @keyframes godScrollLine {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
   .btn-outline-premium { background: transparent; color: var(--white); border: 1px solid rgba(255,255,255,0.4); backdrop-filter: blur(5px); }
   .btn-outline-premium:hover { transform: translateY(-3px); border-color: var(--gold); color: var(--gold); }
   .btn-white-premium { background: var(--white); color: var(--bg); box-shadow: 0 4px 15px rgba(0,0,0,0.2); }
@@ -462,12 +568,12 @@ const fitItems = [
   .full-width { width: 100%; justify-content: center; }
 
   @media (max-width: 1023px) {
-    .hero-content { padding: 90px 20px 0; }
-    .hero-tag{font-size:0.75rem;letter-spacing:2px;margin-bottom:10px;}
-    .hero-title{font-size:clamp(2rem,9vw,3.2rem);margin-bottom:15px;line-height:1.08;}
-    .hero-sub{font-size:1.05rem;margin-bottom:24px;padding:0 10px;line-height:1.5;}
-    .hero-btns{flex-direction:column;align-items:center;gap:12px;width:100%;padding:0 20px;}
-    .hero-btns .btn-premium{width:100%;max-width:280px;justify-content:center;}
+    .hero-content { padding: 95px 20px 0; max-width: 680px; }
+    .hero-title { font-size: clamp(2.05rem, 8vw, 3.45rem); }
+    .hero-sub { font-size: 1.05rem; margin-bottom: 24px; padding: 0 10px; }
+    .hero-btns { flex-direction: column; align-items: center; gap: 12px; width: 100%; padding: 0 20px; }
+    .hero-btns .btn-premium { width: 100%; max-width: 280px; justify-content: center; }
+    .hero-proof { font-size: .74rem; gap: 9px; }
   }
   @media (max-width: 900px) {
     .stats-grid{grid-template-columns:repeat(2,1fr);}
