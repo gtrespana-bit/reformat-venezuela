@@ -1,859 +1,142 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GodHero from '../components/GodHero.astro';
+import GodMarquee from '../components/GodMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
 
 const services = [
-  { slug: 'remodelacion-cocina', data: { title: 'Remodelación de Cocinas', description: 'Cocinas funcionales y modernas con materiales premium y acabados impecables.' } },
-  { slug: 'remodelacion-bano', data: { title: 'Remodelación de Baños', description: 'Baños renovados con diseño premium, griferías y acabados de alta gama.' } },
-  { slug: 'remodelacion-integral', data: { title: 'Remodelación Integral', description: 'Transformación completa de apartamentos, casas y oficinas llave en mano.' } },
-  { slug: 'instalacion-pisos', data: { title: 'Instalación de Pisos', description: 'Porcelanato, cerámica, laminado y madera con instalación certificada.' } },
-  { slug: 'pintura-acabados', data: { title: 'Pintura y Acabados', description: 'Pintura profesional interior y exterior, microcemento y texturas.' } },
-  { slug: 'fontaneria-plomeria', data: { title: 'Fontanería y Plomería', description: 'Instalaciones, fugas, tuberías y mantenimiento preventivo certificado.' } },
-  { slug: 'instalacion-electrica', data: { title: 'Instalación Eléctrica', description: 'Instalaciones seguras, cableado, tableros y certificación eléctrica.' } },
-  { slug: 'revestimientos-pared', data: { title: 'Revestimientos de Pared', description: 'Piedra natural, madera, porcelanato y paneles decorativos WPC.' } },
-  { slug: 'piscinas-mantenimiento', data: { title: 'Piscinas y Mantenimiento', description: 'Construcción, remodelación y mantenimiento de piscinas residenciales.' } },
+  { slug: 'remodelacion-cocina', data: { title: 'Cocinas', description: 'Cocinas premium con alto estándar.' } },
+  { slug: 'remodelacion-bano', data: { title: 'Baños', description: 'Baños tipo spa con impermeabilización.' } },
+  { slug: 'remodelacion-integral', data: { title: 'Integral', description: 'Transformación completa llave en mano.' } },
+  { slug: 'instalacion-pisos', data: { title: 'Pisos', description: 'Porcelanato y madera certificada.' } },
 ];
-
 
 const cityData = {
   name: "San Diego",
   state: "Carabobo",
   title: "Remodelaciones en San Diego | Expertos en Carabobo 2026",
-  description: "Especialistas en remodelación de apartamentos, casas y oficinas en San Diego, La Esmeralda, El Morro y todo el municipio San Diego de Carabobo. Presupuestos sin compromiso.",
-  h1: "Remodelaciones en San Diego - Estado Carabobo",
+  description: "Especialistas en remodelación en San Diego, La Esmeralda, El Morro y todo el municipio San Diego de Carabobo.",
   heroImage: "/images/cocina-isla-central.webp",
   introImage: "/images/cocina-terminada-final.webp",
-  zones: [
-    "La Esmeralda (Campo Solo, La Esmeralda Norte)",
-    "El Morro (Urb. El Morro, La Cumaca)",
-    "Valle de Oro (El Remanso, La Floresta)",
-    "Los Jarales (El Carmen, San Diego Centro)",
-    "La Lagunita (El Trébol, Las Mercedes)",
-    "Yuma, El Socorro, La Coromoto"
-  ],
-  prices: {
-    "Remodelación de Cocina": "Desde $2,200",
-    "Remodelación de Baño": "Desde $1,500",
-    "Pisos y Revestimientos": "Desde $30/m²",
-    "Pintura Profesional": "Desde $7/m²",
-    "Remodelación Integral": "Desde $12,000",
-    "Diseño de Interiores": "Valoración técnica"
-  },
+  zones: ["La Esmeralda", "El Morro", "Valle de Oro", "Los Jarales", "Yuma", "La Cumaca"],
   testimonials: [
-    {
-      name: "María Alejandra Rojas",
-      location: "La Esmeralda, San Diego",
-      text: "Remodelaron toda mi casa en La Esmeralda. El acabado es impecable y el equipo muy profesional. Superaron mis expectativas.",
-      rating: 5
-    },
-    {
-      name: "José Gregorio Herrera",
-      location: "El Morro, San Diego",
-      text: "Excelente trabajo en la cocina de mi apartamento en El Morro. Cumplieron con el cronograma y el presupuesto acordado.",
-      rating: 5
-    },
-    {
-      name: "Carolina Medina",
-      location: "Valle de Oro, San Diego",
-      text: "Renovaron el baño y los pisos de mi casa en Valle de Oro. Muy atentos a cada detalle. Totalmente recomendados.",
-      rating: 5
-    }
+    { name: "María Alejandra Rojas", location: "La Esmeralda, San Diego", text: "Remodelaron toda mi casa en La Esmeralda. Acabado impecable.", rating: 5 },
+    { name: "José Gregorio Herrera", location: "El Morro, San Diego", text: "Excelente trabajo en la cocina de mi apartamento en El Morro.", rating: 5 },
+    { name: "Carolina Medina", location: "Valle de Oro, San Diego", text: "Renovaron el baño y los pisos de mi casa en Valle de Oro.", rating: 5 }
   ]
 };
 
 const faqItems = [
-  {
-    question: `¿Cuánto tiempo tarda una remodelación en San Diego?`,
-    answer: `Depende del tipo de proyecto. Una cocina o baño toma entre 2-4 semanas. Una remodelación integral de apartamento puede tomar 6-12 semanas. Siempre entregamos cronograma detallado.`
-  },
-  {
-    question: `¿Trabajan con permisos de condominios en San Diego?`,
-    answer: `Sí, gestionamos todos los permisos requeridos por tu condominio. Conocemos las normativas de las principales urbanizaciones de San Diego: La Esmeralda, El Morro, Valle de Oro, Los Jarales y más.`
-  },
-  {
-    question: `¿Qué formas de pago aceptan en Venezuela?`,
-    answer: `Aceptamos pagos en efectivo (USD), transferencia bancaria en bolívares al cambio BCV, Zelle, PayPal y Pago Móvil. Ofrecemos facilidades de pago según el proyecto.`
-  },
-  {
-    question: `¿Dan garantía por el trabajo realizado?`,
-    answer: `Sí, todos nuestros trabajos cuentan con garantía por escrito. La cobertura depende de la partida: acabados, instalaciones, impermeabilización y materiales de fabricante se documentan en el contrato.`
-  },
-  {
-    question: `¿Cómo funciona la valoración técnica?`,
-    answer: `Primero revisamos ubicación, alcance y nivel de acabado. Si el proyecto encaja con nuestro estándar, coordinamos una visita técnica y preparamos un presupuesto detallado por partidas.`
-  }
+  { question: `¿Tiempo en San Diego?`, answer: `Cocina/baño 2-4 semanas, integral 6-12 semanas con cronograma detallado.` },
+  { question: `¿Permisos condominios?`, answer: `Sí, gestionamos permisos en La Esmeralda, El Morro, Valle de Oro, Los Jarales.` },
+  { question: `¿Garantía?`, answer: `Garantía escrita por partidas documentada en contrato.` },
+  { question: `¿Pagos?`, answer: `USD efectivo, BCV, Zelle, PayPal, Pago Móvil.` },
+  { question: `¿Valoración técnica?`, answer: `Revisamos ubicación, alcance y acabado; si encaja, visita técnica y presupuesto por partidas.` }
 ];
 ---
 
 <BaseLayout title={cityData.title} description={cityData.description}>
+  <GodHero
+    eyebrow="Carabobo · Municipio San Diego"
+    title="Remodelaciones en"
+    titleGold="San Diego"
+    lead="Transformamos casas y apartamentos con diseño de autor y ejecución impecable en La Esmeralda, El Morro y todo el municipio."
+    image={cityData.heroImage}
+    imageAlt="Remodelaciones en San Diego, Carabobo"
+    badges={["Respuesta rápida", "Gestión condominio", "Garantía escrita"]}
+    watermark="SAN DIEGO"
+  />
+  <GodMarquee />
+  <Breadcrumb items={[ { name: 'Inicio', url: '/' }, { name: 'San Diego', url: '/san-diego' } ]} />
 
-  
-
-  <!-- ═══════════════ HERO ═══════════════ -->
-  <section class="hero">
-    <img class="hero-bg" src={cityData.heroImage} alt="Remodelaciones y reformas de casas y apartamentos en San Diego, Carabobo | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Carabobo · +23 años de experiencia</span>
-      <h1>Remodelaciones en <em>San Diego</em></h1>
-      <p class="hero-sub">Transformamos apartamentos, casas y oficinas con diseño de autor, materiales premium y ejecución impecable en todo el municipio San Diego.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-gold">Solicitar valoración técnica</a>
-        <a href="https://wa.me/584227997043" class="btn btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>+200</strong><span>Proyectos entregados</span></div>
-        <div class="stat"><strong>15+</strong><span>Años de experiencia</span></div>
-        <div class="stat"><strong>5.0</strong><span>Calificación clientes</span></div>
-      </div>
-    </div>
-  </section>
-
-  <Breadcrumb items={[
-    { name: 'Inicio', url: '/' },
-    { name: 'San Diego', url: '/san-diego' }
-  ]} />
-
-<!-- ═══════════════ INTRO ═══════════════ -->
-  <section class="section intro">
+  <section class="section" data-reveal>
     <div class="container intro-grid">
-      <div class="intro-media">
-        <img src={cityData.introImage} alt={`Proyecto de remodelación en ${cityData.name}`} loading="lazy" />
-        <div class="intro-accent"></div>
-      </div>
+      <div class="intro-media"><img src={cityData.introImage} alt="Proyecto en San Diego" loading="lazy" /></div>
       <div class="intro-body">
-        <span class="section-tag">Por qué RemodelaT</span>
-        <h2>Expertos en remodelaciones<br/>en San Diego, Carabobo</h2>
-        <p>En RemodelaT Venezuela transformamos tu apartamento, casa u oficina en San Diego con la más alta calidad y profesionalismo.</p>
-        <p>Con más de 23 años de experiencia en <strong>Carabobo</strong>, conocemos las particularidades de las urbanizaciones de San Diego, las normativas de condominios y los mejores materiales para el clima de la región.</p>
+        <span class="eyebrow-god on-light">Municipio con mayor crecimiento</span>
+        <h2>Expertos en San Diego,<br/>Carabobo</h2>
+        <p>Conocemos La Esmeralda, El Morro, Valle de Oro y Los Jarales. Casas nuevas, ampliaciones y reformas integrales.</p>
         <ul class="intro-checks">
-          <li>Equipo propio certificado, sin subcontratas</li>
-          <li>Presupuesto cerrado y cronograma garantizado</li>
-          <li>Gestión de permisos de condominio</li>
-          <li>Garantía por escrito en todos los trabajos</li>
+          <li>Equipo propio sin subcontratas</li>
+          <li>Presupuesto cerrado por partidas</li>
+          <li>Gestión de permisos en San Diego</li>
+          <li>Garantía documentada</li>
         </ul>
-        <a href="#contacto" class="btn btn-dark">Conocer más sobre nosotros</a>
+        <a href="#contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar valoración</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ SERVICES ═══════════════ -->
+  <div class="premium-divider"><i></i></div>
+
   <section class="section section-alt">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Servicios</span>
-        <h2>Soluciones integrales de remodelación</h2>
-        <p>Desde una renovación puntual hasta un proyecto llave en mano, cubrimos cada etapa con estándares premium.</p>
-        <a href="/servicios" class="btn btn-dark" style="margin-top: 28px;">Ver todos los servicios</a>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Cobertura</span>
+        <h2>Todo el municipio San Diego</h2>
       </div>
-      <div class="services-grid">
-        {services.slice(0, 6).map((service) => (
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
-            </div>
-            <h3>{service.data.title}</h3>
-            <p>{service.data.description}</p>
-            <a href={`/servicios/${service.slug}`} class="card-link">
-              Ver detalles
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
-          </article>
+      <div class="zones-grid-god">
+        {cityData.zones.map(z => (
+          <div class="zone-item-god"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg><span>{z}</span></div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ ZONES ═══════════════ -->
+  <GuaranteeMatrix compact title="Garantía por partidas en San Diego" />
+
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Cobertura</span>
-        <h2>Atendemos todo el municipio San Diego</h2>
-        <p>Nuestro equipo se desplaza a las principales urbanizaciones y zonas de San Diego, Carabobo.</p>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Testimonios</span>
+        <h2>San Diego</h2>
       </div>
-      <div class="zones-grid">
-        {cityData.zones.map((zone: string) => (
-          <div class="zone-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-            <span>{zone}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  
-  <!-- ═══════════════ PROCESO ═══════════════ -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Cómo trabajamos</span>
-        <h2>Nuestro proceso de remodelación en San Diego</h2>
-        <p>San Diego es uno de los municipios con mayor crecimiento residencial de Carabobo. Adaptamos nuestro proceso a casas nuevas, remodelaciones parciales y ampliaciones en sus urbanizaciones.</p>
-      </div>
-      <div class="zones-grid">
-        <div class="zone-item"><strong>1. Valoración técnica inicial</strong><span>Evaluamos el espacio, tomamos medidas y escuchamos tu visión sin compromiso.</span></div>
-        <div class="zone-item"><strong>2. Presupuesto cerrado</strong><span>Recibes un presupuesto detallado en USD con materiales, mano de obra y cronograma.</span></div>
-        <div class="zone-item"><strong>3. Diseño y planificación</strong><span>Definimos materiales, acabados y fechas. Coordinamos permisos si aplica.</span></div>
-        <div class="zone-item"><strong>4. Ejecución supervisada</strong><span>Nuestro equipo propio ejecuta la obra con supervisión diaria y reportes de avance.</span></div>
-        <div class="zone-item"><strong>5. Entrega y garantía</strong><span>Entregamos limpio y funcionando, con garantía por escrito en todos los trabajos.</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ POR QUE ELEGIRNOS ═══════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Por qué RemodelaT</span>
-        <h2>Por qué elegirnos en San Diego, Carabobo</h2>
-        <p>Somos la empresa de remodelaciones de referencia en San Diego. Nuestros proyectos en La Esmeralda, El Morro y Los Jarales hablan por sí solos.</p>
-      </div>
-      <div class="intro-grid">
-        <div class="intro-body">
-          <ul class="intro-checks">
-          <li>Especialistas en remodelaciones de casas y apartamentos en San Diego</li>
-          <li>Conocimiento de las normativas municipales de construcción del municipio San Diego</li>
-          <li>Tiempos de respuesta rápidos por cercanía con nuestra sede en Carabobo</li>
-          <li>Acabados premium adaptados al clima y estilo de vida de la zona</li>
-          <li>Presupuesto transparente y cronograma garantizado por escrito</li>
-          </ul>
-          <a href="#contacto" class="btn btn-dark">Solicitar presupuesto en San Diego</a>
-        </div>
-        <div class="intro-body">
-          <p>Atendemos La Esmeralda, El Morro, Los Jarales, Valle de Oro, La Cumaca y Yuma, con desplazamiento incluido y sin costos ocultos. Cada proyecto en San Diego se ejecuta con estándares europeos adaptados a la realidad constructiva de Carabobo.</p>
-          <p>Nuestro compromiso es simple: <strong>presupuesto cerrado, cronograma garantizado y acabados impecables</strong>. Así hemos construido nuestra reputación en San Diego y toda la región central de Venezuela.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ PRICING ═══════════════ -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header section-header-light">
-        <span class="section-tag">Inversión</span>
-        <h2>Precios transparentes, sin sorpresas</h2>
-        <p>Cada proyecto es único. Estos son nuestros puntos de partida; el presupuesto final se define tras una valoración técnica inicial.</p>
-      </div>
-      <div class="pricing-grid">
-        {Object.entries(cityData.prices).map(([service, price]) => (
-          <div class="price-card">
-            <span class="price-label">{service}</span>
-            <span class="price-value">{price}</span>
-          </div>
-        ))}
-      </div>
-      <p class="pricing-note">* Precios referenciales en USD. No incluyen materiales salvo indicación contraria.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Testimonios</span>
-        <h2>Lo que dicen nuestros clientes</h2>
-      </div>
-      <div class="testimonials-grid">
-        {cityData.testimonials.map((t: any) => (
-          <figure class="testimonial-card">
-            <div class="stars" aria-label={`${t.rating} de 5 estrellas`}>
-              {Array.from({ length: t.rating }).map(() => (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              ))}
-            </div>
-            <blockquote>"{t.text}"</blockquote>
-            <figcaption>
-              <strong>{t.name}</strong>
-              <span>{t.location}</span>
-            </figcaption>
+      <div class="testimonials-grid-god">
+        {cityData.testimonials.map(t => (
+          <figure class="testimonial-card-god" data-reveal>
+            <div class="stars-god">★★★★★</div>
+            <blockquote>“{t.text}”</blockquote>
+            <figcaption><strong>{t.name}</strong><span>{t.location}</span></figcaption>
           </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ FAQ ═══════════════ -->
   <section class="section section-alt">
     <div class="container container-narrow">
-      <div class="section-header">
-        <span class="section-tag">FAQ</span>
-        <h2>Preguntas frecuentes</h2>
-      </div>
       <FAQ items={faqItems} />
     </div>
   </section>
 
-  <!-- ═══════════════ CTA ═══════════════ -->
-  <section class="cta" id="contacto">
-    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt="Cocina moderna terminada lista para entrega en San Diego | RemodelaT" loading="lazy" decoding="async" />
-    <div class="cta-overlay"></div>
-    <div class="cta-content">
-      <span class="section-tag section-tag-light">Da el primer paso</span>
-      <h2>¿Listo para transformar tu espacio en San Diego?</h2>
-      <p>Agenda una valoración técnica inicial. Evaluamos tu proyecto, te asesoramos en materiales y te entregamos un presupuesto detallado sin compromiso.</p>
-      <div class="cta-actions">
-        <a href="https://wa.me/584227997043?text=Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación%20en%20San%20Diego" class="btn btn-gold" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp directo
-        </a>
-        <a href="/contacto" class="btn btn-outline-light">Formulario de contacto</a>
-      </div>
+  <section class="god-cta" id="contacto">
+    <div class="cta-wrapper">
+      <span class="eyebrow-god">San Diego · Carabobo</span>
+      <h2 class="cta-title">¿Listo para remodelar en San Diego?</h2>
+      <p class="cta-text">Valoración técnica, presupuesto por partidas y garantía escrita.</p>
+      <a href="https://wa.me/584227997043?text=Hola,%20quiero%20presupuesto%20en%20San%20Diego" class="btn-premium btn-primary-premium" target="_blank"><span class="btn-content">WhatsApp San Diego</span><span class="btn-arrow">→</span></a>
     </div>
   </section>
-
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `RemodelaT Venezuela - ${cityData.name}`,
-    "description": cityData.description,
-    "areaServed": {
-      "@type": "City",
-      "name": cityData.name
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": cityData.name,
-      "addressRegion": cityData.state,
-      "addressCountry": "VE"
-    },
-    "priceRange": "$$",
-    "openingHours": "Mo-Fr 08:00-17:00"
-  })} />
 </BaseLayout>
 
 <style>
-  /* ── Tokens ── */
-  /* Alias locales -> tokens globales.
-     Antes este bloque definía su propio sistema (navy #1a2332 azulado y un
-     --ink #2d2d2d que pisaba el negro cálido global). Ahora solo traduce. */
-  .hero, .section, .cta {
-    --navy: var(--ink);
-    --navy-soft: var(--ink-soft);
-    --muted: var(--text-muted);
-    --surface: var(--white);
-    --surface-alt: var(--bone);
-    --border: var(--sand);
-    --radius: var(--r-md);
-    --shadow-sm: var(--e-1);
-    --shadow-md: var(--e-2);
-    --shadow-lg: var(--e-3);
-    --transition: var(--dur-base) var(--ease-out);
-  }
-
-  /* ── Layout helpers ── */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
-  }
-  .container-narrow { max-width: 800px; }
-  .section { padding: clamp(72px, 10vw, 120px) 0; }
-  .section-alt { background: var(--surface-alt); }
-  .section-dark {
-    background: var(--navy);
-    color: #fff;
-  }
-
-  /* ── Section headers ── */
-  .section-header {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto clamp(40px, 6vw, 72px);
-  }
-  .section-header h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.9rem, 4vw, 2.8rem);
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.2;
-    margin: 12px 0 16px;
-  }
-  .section-header p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-  .section-header-light h2 { color: #fff; }
-  .section-header-light p { color: rgba(255,255,255,.65); }
-
-  .section-tag {
-    display: inline-block;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--gold-ink); /* texto sobre fondo claro: 4.9:1 */
-  }
-  .section-tag-light { color: var(--gold-light); }
-
-  /* ── Buttons ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 32px;
-    border-radius: var(--r-full);
-    font-size: .95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  .btn-gold {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-  }
-  .btn-gold:hover {
-    background: transparent;
-    color: var(--gold);
-    transform: translateY(-2px);
-  }
-  .btn-dark {
-    background: var(--navy);
-    color: #fff;
-    border-color: var(--navy);
-  }
-  .btn-dark:hover {
-    background: transparent;
-    color: var(--navy);
-    transform: translateY(-2px);
-  }
-  .btn-outline {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255,255,255,.5);
-  }
-  .btn-outline:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,.1);
-    transform: translateY(-2px);
-  }
-  .btn-outline-light {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255,255,255,.45);
-  }
-  .btn-outline-light:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,.12);
-    transform: translateY(-2px);
-  }
-
-  /* ══════════ HERO ══════════ */
-  .hero {
-    position: relative;
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    position: absolute; inset: 0; transform: scale(1.05);
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      175deg,
-      rgba(15,20,30,.82) 0%,
-      rgba(15,20,30,.6) 50%,
-      rgba(15,20,30,.85) 100%
-    );
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 780px;
-    padding: 120px 24px 80px;
-  }
-  .hero-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    border: 1px solid rgba(201,169,97,.5);
-    border-radius: var(--r-full);
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 28px;
-    backdrop-filter: blur(4px);
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.6rem, 7vw, 4.5rem);
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold-light);
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255,255,255,.75);
-    line-height: 1.7;
-    max-width: 560px;
-    margin: 0 auto 36px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: clamp(32px, 6vw, 64px);
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,.12);
-  }
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  .stat strong {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-  .stat span {
-    font-size: .8rem;
-    color: rgba(255,255,255,.55);
-    letter-spacing: .04em;
-  }
-
-  /* ══════════ INTRO ══════════ */
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 6vw, 80px);
-    align-items: center;
-  }
-  .intro-media {
-    position: relative;
-  }
-  .intro-media img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    display: block;
-  }
-  .intro-accent {
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    width: 120px;
-    height: 120px;
-    border: 3px solid var(--gold);
-    border-radius: var(--radius);
-    opacity: .35;
-    z-index: -1;
-  }
-  .intro-body h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.2;
-    margin: 12px 0 20px;
-  }
-  .intro-body p {
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 16px;
-    font-size: 1.02rem;
-  }
-  .intro-body strong { color: var(--ink); }
-  .intro-checks {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0 32px;
-    display: grid;
-    gap: 12px;
-  }
-  .intro-checks li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: .95rem;
-    color: var(--ink);
-    line-height: 1.5;
-  }
-  .intro-checks li::before {
-    content: '✓';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(201,169,97,.15);
-    color: var(--gold);
-    font-size: .7rem;
-    font-weight: 700;
-    margin-top: 1px;
-  }
-
-  /* ══════════ SERVICES ══════════ */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px 30px;
-    transition: var(--transition);
-  }
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-    border-color: rgba(201,169,97,.4);
-  }
-  .service-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: var(--r-md);
-    background: rgba(201,169,97,.1);
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
-  .service-card h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .service-card p {
-    color: var(--muted);
-    font-size: .92rem;
-    line-height: 1.7;
-    margin-bottom: 18px;
-  }
-  .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: .85rem;
-    font-weight: 600;
-    color: var(--gold-ink);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-  .card-link:hover { gap: 10px; color: var(--navy); }
-
-  /* ══════════ ZONES ══════════ */
-  .zones-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .zone-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    transition: var(--transition);
-  }
-  .zone-item:hover {
-    border-color: var(--gold);
-    box-shadow: var(--shadow-sm);
-  }
-  .zone-item svg {
-    flex-shrink: 0;
-    color: var(--gold);
-  }
-  .zone-item span {
-    font-size: .92rem;
-    color: var(--ink);
-    line-height: 1.4;
-  }
-
-  /* ══════════ PRICING ══════════ */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .price-card {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: var(--radius);
-    padding: 32px 28px;
-    text-align: center;
-    transition: var(--transition);
-  }
-  .price-card:hover {
-    background: rgba(255,255,255,.1);
-    border-color: rgba(201,169,97,.4);
-    transform: translateY(-4px);
-  }
-  .price-label {
-    display: block;
-    font-size: .85rem;
-    color: rgba(255,255,255,.6);
-    margin-bottom: 10px;
-    letter-spacing: .02em;
-  }
-  .price-value {
-    display: block;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-  .pricing-note {
-    text-align: center;
-    margin-top: 32px;
-    font-size: .85rem;
-    color: rgba(255,255,255,.7);
-    background: transparent;
-    border: none;
-    border-left: none;
-    padding: 0;
-  }
-
-  /* ══════════ TESTIMONIALS ══════════ */
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .testimonial-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px 30px;
-    margin: 0;
-    transition: var(--transition);
-  }
-  .testimonial-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
-  }
-  .stars {
-    display: flex;
-    gap: 3px;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .testimonial-card blockquote {
-    font-size: .95rem;
-    color: var(--ink);
-    line-height: 1.75;
-    font-style: italic;
-    margin: 0 0 22px;
-  }
-  .testimonial-card figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .testimonial-card figcaption strong {
-    font-size: .92rem;
-    color: var(--navy);
-  }
-  .testimonial-card figcaption span {
-    font-size: .8rem;
-    color: var(--muted);
-  }
-
-  /* ══════════ CTA ══════════ */
-  .cta {
-    position: relative;
-    padding: clamp(80px, 12vw, 140px) 24px;
-    text-align: center;
-    overflow: hidden;
-  }
-  .cta-bg {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    position: absolute; inset: 0;
-  }
-  .cta-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      170deg,
-      rgba(15,20,30,.9) 0%,
-      rgba(15,20,30,.8) 100%
-    );
-  }
-  .cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .cta-content h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.2;
-    margin: 14px 0 18px;
-  }
-  .cta-content > p {
-    color: rgba(255,255,255,.7);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-  .cta-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* ══════════ RESPONSIVE ══════════ */
-  @media (max-width: 992px) {
-    .services-grid,
-    .testimonials-grid,
-    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-    .zones-grid { grid-template-columns: repeat(2, 1fr); }
-    .intro-grid { grid-template-columns: 1fr; gap: 48px; }
-    .intro-accent { display: none; }
-  }
-
-  @media (max-width: 640px) {
-    .services-grid,
-    .testimonials-grid,
-    .pricing-grid,
-    .zones-grid { grid-template-columns: 1fr; }
-    .hero { min-height: 100svh; }
-    .hero-content { padding: 100px 20px 60px; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .hero-actions { flex-direction: column; align-items: center; }
-    .btn { width: 100%; justify-content: center; max-width: 320px; }
-    .cta-actions { flex-direction: column; align-items: center; }
-  }
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}.section{padding:clamp(72px,10vw,112px) 0}.section-alt{background:var(--bone)}.section-header{text-align:center;max-width:680px;margin:0 auto clamp(36px,6vw,64px)}.section-header h2{font-family:var(--font-serif);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500;letter-spacing:-.02em;color:var(--ink);line-height:1.12;margin:12px 0 14px}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,84px);align-items:center}.intro-media img{width:100%;border-radius:var(--r-md);box-shadow:var(--e-3);border:var(--hairline)}.intro-body h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.6rem);line-height:1.12;letter-spacing:-.02em;margin:12px 0 18px;color:var(--ink)}.intro-body p{color:var(--text-muted);line-height:1.78;margin-bottom:14px}.intro-checks{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:10px}.intro-checks li{position:relative;padding-left:28px;font-size:.95rem;color:var(--ink)}.intro-checks li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--gold-ink);box-shadow:0 0 0 5px rgba(201,169,97,.12)}
+  .zones-grid-god{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.zone-item-god{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--white);border:var(--hairline-ink);border-radius:var(--r-md)}.zone-item-god svg{color:var(--gold-ink)}
+  .testimonials-grid-god{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.testimonial-card-god{background:var(--white);border:var(--hairline-ink);border-radius:var(--r-md);padding:32px 26px;box-shadow:var(--e-1);margin:0}.stars-god{color:var(--gold-ink);letter-spacing:3px;margin-bottom:14px}.testimonial-card-god blockquote{font-style:italic;color:var(--ink);line-height:1.7;margin:0 0 18px;font-size:.98rem}.testimonial-card-god figcaption strong{display:block;font-size:.92rem}.testimonial-card-god figcaption span{font-size:.82rem;color:var(--text-muted)}
+  @media(max-width:1024px){.zones-grid-god,.testimonials-grid-god{grid-template-columns:repeat(2,1fr)}.intro-grid{grid-template-columns:1fr}}
+  @media(max-width:640px){.zones-grid-god,.testimonials-grid-god{grid-template-columns:1fr}}
 </style>
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-revealed')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; entry.target.classList.add('is-revealed','god-reveal'); io.unobserve(entry.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    targets.forEach(el => { el.classList.add('god-reveal'); io.observe(el); });
+  })();
+</script>

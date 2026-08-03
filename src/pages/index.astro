@@ -86,19 +86,10 @@ const fitItems = [
   activePage="inicio"
 >
 
-  <header class="hero">
-    <!--
-      Póster del hero.
+  <header class="hero hero-god">
+    <div class="god-glow" aria-hidden="true"></div>
+    <div class="god-watermark" aria-hidden="true">REMODELAT</div>
 
-      Es EXACTAMENTE el fotograma 0 del vídeo (lo genera
-      scripts/gen-hero-posters.mjs), así que cuando el vídeo arranca el relevo
-      es invisible: los píxeles que ya estaban en pantalla son los mismos que
-      pinta el primer fotograma. No hay fundido, ni salto de escena, ni parpadeo.
-
-      También es el elemento LCP de la home, por eso va con fetchpriority alto,
-      visible desde el primer pintado (nada de opacity: 0) y precargado en el
-      <head> de BaseLayout con las mismas media queries que este <picture>.
-    -->
     <picture>
       <source
         media="(max-width: 1023.98px)"
@@ -119,13 +110,6 @@ const fitItems = [
       />
     </picture>
 
-    <!--
-      El vídeo se monta encima del póster. Sale sin src a propósito: el script
-      de abajo elige escritorio u móvil. Mientras no tiene fotogramas el
-      elemento es transparente y se ve el póster de debajo, que es la misma
-      imagen. Si el usuario no tiene JS, el vídeo se queda vacío y el póster
-      sigue siendo el fondo del hero: nunca se ve un hueco negro.
-    -->
     <video
       id="hero-video"
       class="hero-video"
@@ -142,22 +126,13 @@ const fitItems = [
       (function () {
         var video = document.getElementById('hero-video');
         if (!video) return;
-
         var isMobile = window.matchMedia('(max-width: 1023.98px)').matches;
-
-        // Mismo póster que el <picture> de arriba: si el vídeo tardase en
-        // decodificar el primer fotograma, el elemento pinta esta imagen en vez
-        // de quedarse transparente o en negro.
         video.poster = isMobile
           ? '/images/hero-poster-mobile.webp'
           : '/images/hero-poster-desktop.webp';
         video.src = isMobile
           ? '/videos/hero-mobile.mp4'
           : '/videos/hero-desktop.mp4';
-
-        // Si el autoplay se bloquea (ahorro de batería, iOS en bajo consumo…)
-        // no hay que hacer nada: el vídeo se queda en su póster, que es el
-        // fotograma 0. Visualmente idéntico a lo que ya se está viendo.
         var playing = video.play();
         if (playing && typeof playing.catch === 'function') {
           playing.catch(function () {});
@@ -166,9 +141,10 @@ const fitItems = [
     </script>
 
     <div class="hero-overlay"></div>
+    <div class="god-hairline" aria-hidden="true"></div>
 
     <div class="hero-content">
-      <span class="hero-tag">Remodelaciones residenciales de alto estándar</span>
+      <span class="god-eyebrow">Remodelaciones residenciales de alto estándar</span>
       <h1 class="hero-title">
         <span class="line">Remodelaciones de lujo</span>
         <span class="line gold">con precisión técnica</span>
@@ -195,6 +171,11 @@ const fitItems = [
         <i></i>
         <span>Garantía por escrito</span>
       </p>
+    </div>
+
+    <div class="god-scroll" aria-hidden="true">
+      <span>Explorar</span>
+      <i></i>
     </div>
   </header>
 
@@ -510,7 +491,7 @@ const fitItems = [
      peleándose entre sí. Ahora un solo bloque, cero !important.
      ============================================================ */
 
-  /* ---------- HERO ---------- */
+  /* ---------- HERO DIOS con video preservado ---------- */
   .hero {
     position: relative; width: 100%;
     min-height: 100vh; min-height: 100svh;
@@ -518,53 +499,80 @@ const fitItems = [
     background: var(--ink);
     display: flex; align-items: center; justify-content: center;
     text-align: center; color: var(--white);
+    isolation: isolate;
   }
-  /* Póster y vídeo ocupan exactamente el mismo rectángulo y usan el mismo
-     object-fit, así que el encuadre coincide píxel a píxel. El póster está
-     debajo y siempre visible: el vídeo simplemente lo tapa cuando empieza a
-     pintar fotogramas. Sin opacity animada = sin parpadeo ni doble imagen. */
   .hero-poster,
   .hero-video {
     position: absolute; inset: 0;
     width: 100%; height: 100%;
     object-fit: cover;
-    /* El vídeo es 960×540 / 360×640 estirado a pantalla completa: sin esto,
-       algunos navegadores lo suavizan distinto que al WebP y se nota el cambio. */
     object-position: center;
   }
-  .hero-poster { z-index: 1 !important; }
+  .hero-poster { z-index: 1 !important; filter: contrast(1.08) brightness(0.88) saturate(0.96); }
   .hero-video { z-index: 2 !important; border: 0; background: transparent; pointer-events: none; }
+  .hero .god-glow {
+    position: absolute; top: -22%; right: -10%; width: 72vw; height: 72vw;
+    background: radial-gradient(circle, rgba(201,169,97,0.32) 0%, rgba(201,169,97,0.10) 36%, transparent 70%);
+    filter: blur(88px); pointer-events: none; z-index: 2;
+  }
+  .hero .god-watermark {
+    position: absolute; bottom: -0.06em; left: 50%; transform: translateX(-50%);
+    font-family: var(--font-serif); font-size: 18vw; font-weight: 700; line-height: 0.8;
+    letter-spacing: -0.05em; color: transparent; -webkit-text-stroke: 1px rgba(201,169,97,0.11);
+    pointer-events: none; z-index: 2; white-space: nowrap;
+  }
   .hero-overlay {
     position: absolute; inset: 0; z-index: 3 !important;
-    background: radial-gradient(circle at 50% 42%, rgba(0,0,0,.18), rgba(0,0,0,.68) 55%, rgba(0,0,0,.9) 100%);
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.58) 52%, rgba(10,8,6,0.18) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.62) 0%, transparent 60%),
+      radial-gradient(circle at 50% 42%, rgba(0,0,0,.10), rgba(0,0,0,.55) 60%, rgba(0,0,0,.88) 100%);
   }
-  .hero-content { position: relative; z-index: 4 !important; max-width: 760px; padding: 110px 20px 0; }
-  .hero-tag {
-    display: block; font-size: .74rem; letter-spacing: 2.2px; text-transform: uppercase;
-    color: rgba(232,213,168,.95); margin-bottom: 14px;
+  .hero .god-hairline {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 1px;
+    background: linear-gradient(to right, transparent, rgba(201,169,97,0.28), transparent);
+    z-index: 6;
   }
+  .hero-content { position: relative; z-index: 5 !important; max-width: 760px; padding: 110px 20px 0; }
+  .god-eyebrow {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-size: .72rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 800;
+    color: var(--gold-light); margin-bottom: 18px;
+  }
+  .god-eyebrow::before { content: ""; width: 26px; height: 1px; background: var(--gold); display: block; }
   .hero-title {
     font-family: var(--font-serif);
-    font-size: clamp(2.35rem, 5.25vw, 4.75rem);
-    font-weight: 400; line-height: 1.04;
-    letter-spacing: var(--track-tight);
-    margin-bottom: 18px;
+    font-size: clamp(2.4rem, 5.4vw, 4.9rem);
+    font-weight: 400; line-height: 0.94;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
   }
   .hero-title .line { display: block; }
   .hero-title .gold { color: var(--gold); }
   .hero-sub {
-    font-size: 1.06rem; color: rgba(255,255,255,.86);
-    margin: 0 auto 30px; max-width: 540px; line-height: 1.6;
+    font-size: 1.08rem; color: rgba(255,255,255,.84);
+    margin: 0 auto 32px; max-width: 560px; line-height: 1.65;
   }
   .hero-btns { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; }
   .hero-proof {
     display: inline-flex; align-items: center; justify-content: center; flex-wrap: wrap;
-    gap: 12px; margin: 24px auto 0;
-    color: rgba(255,255,255,.72); font-size: .82rem;
-    letter-spacing: .05em; text-transform: uppercase;
+    gap: 12px; margin: 26px auto 0;
+    color: rgba(255,255,255,.62); font-size: .78rem;
+    letter-spacing: .12em; text-transform: uppercase; font-weight: 600;
   }
   .hero-proof i { display: block; width: 4px; height: 4px; border-radius: 50%; background: var(--gold); opacity: .85; }
   .hero-proof span { white-space: nowrap; }
+  .god-scroll {
+    position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
+    z-index: 6; display: flex; flex-direction: column; align-items: center; gap: 10px;
+    color: rgba(255,255,255,0.48); font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase;
+  }
+  .god-scroll i { display: block; width: 1px; height: 36px; background: linear-gradient(to bottom, var(--gold), transparent); animation: godScrollLine 2.2s ease-in-out infinite; }
+  @keyframes godScrollLine {
+    0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+    50% { transform: scaleY(1); opacity: 1; }
+    100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  }
 
   /* ---------- PANEL DE CONFIANZA ---------- */
   .premium-proof-section {
@@ -716,13 +724,14 @@ const fitItems = [
     border: 1px solid rgba(201,169,97,.42);
     border-radius: var(--r-lg); z-index: -1;
   }
-  .img-box { border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--e-3); background: var(--ink); }
+  .img-box { border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-3); background: var(--ink); border: var(--hairline); }
   .img-box.tall { width: 78%; height: 500px; }
   .img-box.small {
     position: absolute; right: 0; bottom: 38px;
     width: 45%; height: 235px;
-    border: 10px solid var(--white);
+    border: 1px solid rgba(201,169,97,0.32);
     box-shadow: var(--e-3);
+    background: var(--white);
   }
   .img-box img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .about-text { max-width: 580px; }

@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://remodelat.net',
-  viewTransitions: false,
+  viewTransitions: true,
   build: {
     inlineStylesheets: 'always',
   },

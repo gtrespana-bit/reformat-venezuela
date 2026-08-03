@@ -1,0 +1,107 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string; // puede incluir <span class="gold"> con HTML? usaremos title + goldTitle separados
+  titleGold?: string;
+  titleLines?: string[]; // si quieres lineas separadas, primera normal, segunda gold
+  lead?: string;
+  image: string;
+  imageAlt?: string;
+  badges?: string[];
+  backLink?: { href: string; label: string };
+  watermark?: string;
+  showScroll?: boolean;
+  showHairline?: boolean;
+  minHeight?: string; // e.g. 92vh
+  eyebrowLine?: boolean;
+  fetchPriority?: "high" | "low" | "auto";
+}
+
+const {
+  eyebrow,
+  title,
+  titleGold,
+  titleLines,
+  lead,
+  image,
+  imageAlt = "",
+  badges = [],
+  backLink,
+  watermark = "REMODELAT",
+  showScroll = true,
+  showHairline = true,
+  minHeight = "92vh",
+  eyebrowLine = true,
+  fetchPriority = "high",
+} = Astro.props;
+
+const hasTitleLines = titleLines && titleLines.length > 0;
+---
+
+<header class="god-hero" style={`--god-hero-min:${minHeight}`}>
+  <div class="god-glow" aria-hidden="true"></div>
+  <img
+    class="god-hero-img"
+    src={image}
+    alt={imageAlt}
+    fetchpriority={fetchPriority}
+    loading={fetchPriority === "high" ? "eager" : "lazy"}
+    decoding="async"
+  />
+  <div class="god-hero-overlay"></div>
+
+  {watermark && <div class="god-watermark" aria-hidden="true">{watermark}</div>}
+
+  <div class="god-hero-inner">
+    {backLink && (
+      <a href={backLink.href} class="god-back">
+        <span aria-hidden="true">←</span> {backLink.label}
+      </a>
+    )}
+
+    {eyebrow && (
+      <span class={eyebrowLine ? "god-eyebrow" : "god-eyebrow no-line"} style={!eyebrowLine ? "padding-left:0" : ""}>
+        {eyebrow}
+      </span>
+    )}
+
+    <h1 class="god-title">
+      {hasTitleLines ? (
+        titleLines!.map((line, idx) => (
+          <span class={idx === 1 || (titleGold && line === titleGold) ? "line gold" : "line"}>{line}</span>
+        ))
+      ) : titleGold ? (
+        <>
+          <span class="line">{title}</span>
+          <span class="line gold">{titleGold}</span>
+        </>
+      ) : (
+        <span class="line">{title}</span>
+      )}
+    </h1>
+
+    {lead && <p class="god-lead">{lead}</p>}
+
+    {badges.length > 0 && (
+      <div class="god-badges" aria-label="Aspectos clave">
+        {badges.map((b) => <span>{b}</span>)}
+      </div>
+    )}
+
+    <slot />
+  </div>
+
+  {showHairline && <div class="god-hairline" aria-hidden="true"></div>}
+
+  {showScroll && (
+    <div class="god-scroll" aria-hidden="true">
+      <span>Explorar</span>
+      <i></i>
+    </div>
+  )}
+</header>
+
+<style>
+  /* Los estilos principales ya están en global.css, aquí solo overrides mínimos si hacen falta */
+  .no-line::before { display: none !important; }
+</style>

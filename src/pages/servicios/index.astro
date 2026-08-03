@@ -1,12 +1,9 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GodHero from '../../components/GodHero.astro';
+import GodMarquee from '../../components/GodMarquee.astro';
 
 const services = [
-  /* Orden intencionado: primero las especialidades concretas (cocina, baño,
-     pisos, instalaciones...) y al final los tres servicios genéricos de
-     "Remodelación de Viviendas / Apartamentos / Casas", que se solapan entre
-     sí y con la Remodelación Integral. Si añades un servicio nuevo, déjalo
-     por encima de esos tres. */
   { slug: "remodelacion-integral", title: "Remodelación Integral de Alto Estándar", desc: "Transformación completa de viviendas con planificación, instalaciones, acabados y coordinación técnica.", image: "/images/integrales-800.webp", srcset: "/images/integrales-400.webp 400w, /images/integrales-800.webp 800w", features: ["Proyecto completo", "Supervisión continua", "Garantía por escrito"] },
   { slug: "remodelacion-cocina", title: "Cocinas de Diseño", desc: "Cocinas a medida con mobiliario, encimeras, iluminación técnica y materiales de alta durabilidad.", image: "/images/cocina-800.webp", srcset: "/images/cocina-400.webp 400w, /images/cocina-800.webp 800w", features: ["Diseño personalizado", "Herrajes y encimeras", "Acabados de precisión"] },
   { slug: "remodelacion-bano", title: "Baños Tipo Spa", desc: "Baños con impermeabilización documentada, pendientes correctas, grifería premium y remates limpios.", image: "/images/bano-800.webp", srcset: "/images/bano-400.webp 400w, /images/bano-800.webp 800w", features: ["Impermeabilización", "Prueba de estanqueidad", "Diseño spa"] },
@@ -24,38 +21,30 @@ const services = [
 ---
 
 <BaseLayout title="Servicios de Remodelación de Lujo en Venezuela | RemodelaT" description="Servicios de remodelación residencial de alto estándar: reformas integrales, cocinas, baños, pisos y revestimientos con método técnico, materiales adecuados y garantía por escrito." activePage="servicios">
-  <header class="page-hero">
-    <!-- LCP IMAGE: Local, discoverable immediately from HTML -->
-    <img
-      src="/images/integrales-800.webp"
-      srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
-      sizes="100vw"
-      alt="Interior moderno después de reforma integral"
-      fetchpriority="high"
-      loading="eager"
-      decoding="async"
-      width="800"
-      height="533"
-      class="hero-lcp-img"
-    />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Servicios de alto estándar</span>
-      <h1 class="page-title">Remodelaciones <span class="gold">para propietarios exigentes</span></h1>
-      <p class="page-subtitle">Más de 23 años ejecutando cocinas, baños y reformas integrales con precisión técnica, materiales adecuados y acabados de lujo.</p>
-    </div>
-  </header>
 
-  <section class="services-page">
+  <GodHero
+    eyebrow="Servicios de alto estándar"
+    title="Remodelaciones"
+    titleGold="para propietarios exigentes"
+    lead="Más de 23 años ejecutando cocinas, baños y reformas integrales con precisión técnica, materiales adecuados y acabados de lujo."
+    image="/images/integrales-800.webp"
+    imageAlt="Interior moderno después de reforma integral"
+    badges={["Método técnico", "Materiales especificados", "Garantía por escrito"]}
+    watermark="SERVICIOS"
+  />
+
+  <GodMarquee />
+
+  <section class="services-page god-services">
     <div class="container">
-      <div class="section-header">
-        <span class="tag">Especialidades RemodelaT</span>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Especialidades RemodelaT</span>
         <h2 class="section-title">Controlamos todas las partidas necesarias para una remodelación impecable</h2>
         <p class="section-desc">No somos una empresa para “hacer de todo” de cualquier forma. Coordinamos las especialidades técnicas que requiere una vivienda de alto valor: diseño, instalaciones, acabados, pisos, revestimientos y entrega con garantía.</p>
       </div>
       <div class="services-vertical-grid">
-        {services.map((svc, index) => (
-          <a href={`/servicios/${svc.slug}`} class="service-vertical-card">
+        {services.map((svc) => (
+          <a href={`/servicios/${svc.slug}`} class="service-vertical-card" data-reveal>
             <div class="card-img-wrap">
               <img 
                 src={svc.image} 
@@ -68,7 +57,7 @@ const services = [
                 height="533"
               />
               <div class="card-overlay"></div>
-              <span class="card-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+              <span class="home-service-kicker">Alto estándar</span>
             </div>
             <div class="card-body">
               <h3>{svc.title}</h3>
@@ -82,53 +71,53 @@ const services = [
     </div>
   </section>
 
-  <section class="cta-section">
+  <div class="premium-divider"><i></i></div>
+
+  <section class="god-cta">
     <div class="cta-wrapper">
+      <span class="eyebrow-god">Valoración técnica</span>
       <h2 class="cta-title">¿Tu vivienda necesita una remodelación bien ejecutada?</h2>
       <p class="cta-text">Solicita una valoración técnica. Revisamos alcance, ubicación, nivel de acabado y condiciones reales antes de preparar una propuesta detallada.</p>
       <a href="/contacto" class="btn-premium btn-primary-premium">
-        <span class="btn-content">Solicitar valoración técnica</span><span class="btn-border"></span><span class="btn-shine"></span><span class="btn-arrow">→</span>
+        <span class="btn-content">Solicitar valoración técnica</span><span class="btn-border"></span><span class="btn-arrow">→</span>
       </a>
     </div>
   </section>
 </BaseLayout>
 
 <style>
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.7)); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 800px; }
-  .hero-tag { display: block; color: var(--gold); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 15px; font-weight: 600; }
-  .page-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 4.5rem); font-weight: 400; margin-bottom: 20px; }
-  .page-subtitle { font-size: 1.2rem; color: rgba(255,255,255,0.9); }
-
-  .services-page { padding: 100px 0; background: var(--gray); }
-  .services-vertical-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; }
-  .service-vertical-card { background: var(--white); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-1); transition: 0.4s; text-decoration: none; color: inherit; display: flex; flex-direction: column; }
-  .service-vertical-card:hover { transform: translateY(-8px); box-shadow: 0 15px 40px rgba(0,0,0,0.12); }
-  .card-img-wrap { position: relative; height: 280px; overflow: hidden; }
-  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: 0.6s; }
-  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.08); }
-  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 50%); }
-  .card-icon { position: absolute; bottom: 15px; right: 15px; width: 45px; height: 45px; background: var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; color: var(--bg); transition: 0.4s; }
-  .service-vertical-card:hover .card-icon { transform: scale(1.08); }
-  .card-body { padding: 30px 25px; flex: 1; display: flex; flex-direction: column; }
-  .card-body h3 { font-family: var(--font-serif); font-size: 1.5rem; margin-bottom: 12px; font-weight: 500; }
-  .card-body p { color: var(--gray-text); font-size: 0.95rem; line-height: 1.7; margin-bottom: 20px; font-weight: 400; }
+  .god-services { padding: 96px 0; background: var(--bone); }
+  .services-vertical-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+  .service-vertical-card { background: var(--white); border-radius: var(--r-md); overflow: hidden; box-shadow: var(--e-1); border: var(--hairline); transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); text-decoration: none; color: inherit; display: flex; flex-direction: column; }
+  .service-vertical-card:hover { transform: translateY(-8px); box-shadow: var(--e-3); border-color: rgba(201,169,97,.42); }
+  .card-img-wrap { position: relative; height: 260px; overflow: hidden; background: var(--ink); }
+  .card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-god) var(--ease-god); }
+  .service-vertical-card:hover .card-img-wrap img { transform: scale(1.06); }
+  .card-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%); }
+  .home-service-kicker { position: absolute; left: 18px; bottom: 16px; z-index: 2; background: rgba(201,169,97,.94); color: var(--ink); border-radius: var(--r-full); padding: 6px 12px; font-size: .71rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; }
+  .card-body { padding: 28px 24px; flex: 1; display: flex; flex-direction: column; }
+  .card-body h3 { font-family: var(--font-serif); font-size: 1.45rem; margin-bottom: 10px; font-weight: 600; letter-spacing: -0.01em; }
+  .card-body p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.65; margin-bottom: 18px; }
   .card-features { list-style: none; padding: 0; margin: 0 0 20px 0; }
-  .card-features li { color: var(--gray-text); font-size: 0.9rem; padding: 6px 0; padding-left: 20px; position: relative; }
-  .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
-  .card-link { color: #8B6914; font-weight: 600; font-size: 0.85rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
-  .arrow { transition: transform 0.3s; }
+  .card-features li { color: var(--text-muted); font-size: 0.88rem; padding: 5px 0 5px 20px; position: relative; }
+  .card-features li::before { content: "✓"; position: absolute; left: 0; color: var(--gold-ink); font-weight: 700; }
+  .card-link { color: var(--gold-ink); font-weight: 700; font-size: 0.84rem; display: inline-flex; align-items: center; gap: 8px; margin-top: auto; }
   .service-vertical-card:hover .card-link { gap: 14px; }
-  .service-vertical-card:hover .card-link .arrow { transform: translateX(5px); }
+  .card-link .arrow { transition: transform var(--dur-base) var(--ease-out); }
+  .service-vertical-card:hover .arrow { transform: translateX(5px); }
 
-  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
-  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
-  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
-  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
-
-  @media (max-width: 768px) {
-    .services-vertical-grid { grid-template-columns: 1fr; }
-    .cta-section { padding: 90px 20px; }
-  }
+  @media (max-width: 1100px) { .services-vertical-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 700px) { .services-vertical-grid { grid-template-columns: 1fr; } .card-img-wrap { height: 240px; } }
 </style>
+
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-revealed')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; entry.target.classList.add('is-revealed','god-reveal'); io.unobserve(entry.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    targets.forEach(el => { el.classList.add('god-reveal'); io.observe(el); });
+  })();
+</script>

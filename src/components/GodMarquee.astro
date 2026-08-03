@@ -1,0 +1,19 @@
+---
+interface Props {
+  items?: string[];
+}
+const defaultZones = [
+  "Altamira", "Las Mercedes", "La Lagunita", "Guataparo", "Los Naranjos",
+  "El Hatillo", "La Castellana", "Prados del Este", "Chacao", "El Viñedo",
+  "Prebo", "El Parral", "Alto Hatillo", "Manongo", "Country Club"
+];
+const { items = defaultZones } = Astro.props;
+const doubled = [...items, ...items];
+---
+<div class="god-marquee" aria-hidden="true">
+  <div class="god-marquee-track">
+    {doubled.map((z) => (
+      <span class="god-marquee-item">{z} <i></i></span>
+    ))}
+  </div>
+</div>
