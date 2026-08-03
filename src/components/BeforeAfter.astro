@@ -1,243 +1,311 @@
 ---
+import { getBeforeAfterPair } from '../data/zone-before-after';
+
 interface Props {
-  service?: 'cocina' | 'bano' | 'integral';
+  zone: string;
+  service: 'cocina' | 'bano' | 'integral';
 }
 
-const { service = 'integral' } = Astro.props;
+const { zone, service } = Astro.props;
+const pair = getBeforeAfterPair(zone, service);
+const isEnglish = Astro.url.pathname.startsWith('/en');
 
-// Intentar usar fotos correspondientes si existen, si no usar el pool general
-const beforeImage = service === 'cocina' 
-  ? '/images/cocina-proceso-demolicion.webp' 
-  : service === 'bano' 
-  ? '/images/bano-revestimiento-paredes.webp' 
-  : '/images/integrales-antes.webp';
+const serviceLabel = isEnglish
+  ? service === 'cocina' ? 'kitchen remodeling' : service === 'bano' ? 'bathroom remodeling' : 'whole-home remodeling'
+  : service === 'cocina' ? 'remodelación de cocina' : service === 'bano' ? 'remodelación de baño' : 'reforma integral';
 
-const afterImage = service === 'cocina' 
-  ? '/images/cocina-terminada-final.webp' 
-  : service === 'bano' 
-  ? '/images/bano-terminado-final.webp' 
-  : '/images/integrales-despues.webp';
+const beforeLabel = pair && (pair.beforeLabel?.[isEnglish ? 'en' : 'es'] ?? (isEnglish ? 'Before' : 'Antes'));
+const afterLabel = pair && (pair.afterLabel?.[isEnglish ? 'en' : 'es'] ?? (isEnglish ? 'After' : 'Después'));
+const scopeLabel = pair && (
+  pair.scope === 'same-zone'
+    ? isEnglish ? 'Same zone' : 'Misma zona'
+    : isEnglish ? 'Same room' : 'Misma estancia'
+);
 
-const labelBefore = service === 'cocina' ? 'Cocina Vieja' : service === 'bano' ? 'Baño Antiguo' : 'Antes de la Reforma';
-const labelAfter = service === 'cocina' ? 'Cocina Moderna' : service === 'bano' ? 'Baño Spa' : 'Proyecto Terminado';
+const title = pair && (isEnglish
+  ? `Real comparison: ${serviceLabel} · ${pair.location.en}`
+  : `Antes y después real: ${serviceLabel} · ${pair.location.es}`);
+const subtitle = pair && (isEnglish
+  ? `${pair.project.en}. The images come from a documented project and are shown side by side so the space and the scope of the change remain clear.`
+  : `${pair.project.es}. Las imágenes proceden de un proyecto documentado y se muestran juntas para que se entienda el espacio y el alcance real del cambio.`);
 ---
 
-<div class="before-after-card">
-  <h3 class="ba-card-title">Garantía de Transformación: Antes y Después</h3>
-  <p class="ba-card-subtitle">Desliza para ver el cambio real y la calidad del acabado que logramos en cada obra.</p>
-  
-  <div class="ba-container" data-ba-container>
-    <div class="ba-image-wrapper">
-      <img src={beforeImage} alt={`${labelBefore} - Estado previo`} class="ba-image before-img" loading="lazy" />
-      <span class="ba-badge before-badge">{labelBefore}</span>
-      
-      <div class="ba-after-clip" data-after-clip>
-        <img src={afterImage} alt={`${labelAfter} - Resultado final`} class="ba-image after-img" loading="lazy" />
-        <span class="ba-badge after-badge">{labelAfter}</span>
+{pair && (
+  <section class="before-after-card" aria-labelledby={`ba-title-${zone}-${service}`}>
+    <div class="ba-heading">
+      <div>
+        <span class="ba-eyebrow">{isEnglish ? 'Real project evidence' : 'Evidencia de un proyecto real'}</span>
+        <h2 id={`ba-title-${zone}-${service}`}>{title}</h2>
+        <p>{subtitle}</p>
       </div>
-      
-      <div class="ba-handle" data-ba-handle>
-        <div class="ba-handle-line"></div>
-        <div class="ba-handle-button">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="8 5 1 12 8 19"/>
-            <polyline points="16 5 23 12 16 19"/>
-          </svg>
-        </div>
-        <div class="ba-handle-line"></div>
-      </div>
-      
-      <input 
-        type="range" 
-        min="0" 
-        max="100" 
-        value="50" 
-        class="ba-slider" 
-        data-ba-slider 
-        aria-label="Deslizador interactivo de antes y después" 
-      />
+      <span class="ba-project-location">{pair.location[isEnglish ? 'en' : 'es']}</span>
     </div>
-  </div>
-</div>
+
+    <div class="ba-stage">
+      <figure class="ba-panel">
+        <div class:list={['ba-media', `ba-media-${pair.orientation}`]}>
+          <img
+            src={pair.beforeSrc}
+            alt={pair.beforeAlt[isEnglish ? 'en' : 'es']}
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="ba-badge ba-badge-before">{beforeLabel}</span>
+        </div>
+        <figcaption>
+          <strong>{beforeLabel}</strong>
+          <p>{pair.beforeCaption[isEnglish ? 'en' : 'es']}</p>
+        </figcaption>
+      </figure>
+
+      <div class="ba-connector" aria-hidden="true">
+        <span class="ba-connector-line"></span>
+        <span class="ba-connector-label">{scopeLabel}</span>
+        <span class="ba-connector-arrow">→</span>
+        <span class="ba-connector-line"></span>
+      </div>
+
+      <figure class="ba-panel">
+        <div class:list={['ba-media', `ba-media-${pair.orientation}`]}>
+          <img
+            src={pair.afterSrc}
+            alt={pair.afterAlt[isEnglish ? 'en' : 'es']}
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="ba-badge ba-badge-after">{afterLabel}</span>
+        </div>
+        <figcaption>
+          <strong>{afterLabel}</strong>
+          <p>{pair.afterCaption[isEnglish ? 'en' : 'es']}</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="ba-comparison-note">
+      <strong>{isEnglish ? 'How to read this comparison' : 'Cómo leer esta comparación'}</strong>
+      {pair.comparison[isEnglish ? 'en' : 'es']}
+    </p>
+  </section>
+)}
 
 <style>
   .before-after-card {
-    background: var(--white);
-    padding: 30px;
-    border-radius: var(--r-md);
-    box-shadow: var(--e-1);
+    margin: 4rem 0;
+    padding: clamp(22px, 4vw, 38px);
     border: 1px solid var(--sand);
-    margin: 3.5rem 0;
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--white), var(--bone));
+    box-shadow: var(--e-2);
   }
-  
-  .ba-card-title {
-    font-family: var(--font-serif);
-    font-size: 1.8rem;
-    color: var(--text);
-    margin-bottom: 0.5rem;
-    font-weight: 500;
+
+  .ba-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 26px;
+    margin-bottom: 28px;
   }
-  
-  .ba-card-subtitle {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
-  
-  .ba-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 10;
-    overflow: hidden;
-    border-radius: var(--r-md);
-    user-select: none;
-    -webkit-user-select: none;
-  }
-  
-  .ba-image-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
-  
-  .ba-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    pointer-events: none;
-  }
-  
-  .ba-after-clip {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    clip-path: inset(0 0 0 50%);
-  }
-  
-  .ba-badge {
-    position: absolute;
-    bottom: 20px;
-    background: rgba(20, 18, 14, 0.85);
-    color: var(--white);
-    padding: 6px 14px;
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 1px;
+  .ba-heading > div { max-width: 760px; }
+  .ba-eyebrow {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .14em;
     text-transform: uppercase;
-    border-radius: var(--r-sm);
-    z-index: 4;
-    backdrop-filter: blur(4px);
-    pointer-events: none;
   }
-  
-  .before-badge {
-    left: 20px;
-    border-left: 3px solid #ff4d4d;
+  .ba-heading h2 {
+    margin: 0 0 10px;
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3.4vw, 2.55rem);
+    font-weight: 500;
+    line-height: 1.1;
   }
-  
-  .after-badge {
-    right: 20px;
-    border-right: 3px solid var(--gold);
+  .ba-heading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: .98rem;
+    line-height: 1.7;
   }
-  
-  .ba-handle {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    width: 0;
+  .ba-project-location {
+    flex-shrink: 0;
+    padding: 8px 13px;
+    border: 1px solid rgba(201,169,97,.35);
+    border-radius: var(--r-full);
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1.3;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .ba-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+  .ba-panel {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 5;
-    pointer-events: none;
-    transform: translateX(-50%);
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(201,169,97,.18);
+    border-radius: var(--r-md);
+    background: var(--white);
+    box-shadow: var(--e-1);
   }
-  
-  .ba-handle-line {
-    flex-grow: 1;
-    width: 2px;
-    background: var(--gold);
-    box-shadow: 0 0 8px rgba(20, 18, 14, 0.4);
-  }
-  
-  .ba-handle-button {
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    background: var(--ink);
-    border: 2px solid var(--gold);
-    color: var(--gold);
+  .ba-media {
+    position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    margin: 10px 0;
+    padding: 16px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.13), transparent 42%),
+      var(--ink-soft);
   }
-  
-  .ba-slider {
-    position: absolute;
-    inset: 0;
+  .ba-media-tall { height: 600px; }
+  .ba-media-portrait { height: 520px; }
+  .ba-media-landscape { height: 430px; }
+  .ba-media img {
+    display: block;
     width: 100%;
     height: 100%;
-    opacity: 0;
-    cursor: col-resize;
-    z-index: 10;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 16px 32px rgba(0,0,0,.28);
   }
-  
+  .ba-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: var(--r-full);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .ba-badge-before {
+    color: var(--white);
+    background: rgba(20,18,14,.86);
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  .ba-badge-after {
+    color: var(--ink);
+    background: var(--gold);
+  }
+  .ba-panel figcaption {
+    flex: 1;
+    padding: 18px 20px 20px;
+  }
+  .ba-panel figcaption strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+  .ba-panel figcaption p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: .9rem;
+    line-height: 1.65;
+  }
+
+  .ba-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-width: 110px;
+  }
+  .ba-connector-line {
+    width: 1px;
+    height: 66px;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,97,.58), transparent);
+  }
+  .ba-connector-label {
+    padding: 7px 10px;
+    border: 1px solid rgba(201,169,97,.25);
+    border-radius: var(--r-full);
+    color: var(--gold-ink-strong);
+    background: var(--white);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ba-connector-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--gold);
+    background: var(--ink);
+    box-shadow: 0 10px 24px rgba(20,18,14,.2);
+    font-size: 1.25rem;
+  }
+  .ba-comparison-note {
+    margin: 22px auto 0;
+    max-width: 900px;
+    padding: 14px 17px;
+    border-left: 3px solid var(--gold);
+    color: var(--text-muted);
+    background: rgba(201,169,97,.08);
+    font-size: .86rem;
+    line-height: 1.65;
+  }
+  .ba-comparison-note strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--gold-ink-strong);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .ba-stage { grid-template-columns: 1fr; gap: 16px; }
+    .ba-connector {
+      flex-direction: row;
+      min-width: 0;
+      min-height: 52px;
+    }
+    .ba-connector-line {
+      width: 100%;
+      max-width: 110px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.58), transparent);
+    }
+    .ba-connector-arrow { transform: rotate(90deg); }
+    .ba-media-tall { height: 560px; }
+  }
   @media (max-width: 600px) {
-    .before-after-card {
-      padding: 15px;
-    }
-    .ba-badge {
-      bottom: 10px;
-      padding: 4px 8px;
-      font-size: 0.7rem;
-    }
-    .before-badge { left: 10px; }
-    .after-badge { right: 10px; }
-    .ba-handle-button {
-      width: 36px;
-      height: 36px;
-    }
+    .before-after-card { margin: 3rem 0; padding: 18px; }
+    .ba-heading { display: block; }
+    .ba-project-location { display: inline-flex; margin-top: 15px; }
+    .ba-media-tall { height: 520px; }
+    .ba-media-portrait { height: 440px; }
+    .ba-media-landscape { height: 300px; }
+    .ba-panel figcaption { padding: 16px; }
   }
 </style>
-
-<script>
-  function initBeforeAfter() {
-    document.querySelectorAll('[data-ba-container]').forEach((container) => {
-      const slider = container.querySelector('[data-ba-slider]') as HTMLInputElement;
-      const clip = container.querySelector('[data-after-clip]') as HTMLElement;
-      const handle = container.querySelector('[data-ba-handle]') as HTMLElement;
-      
-      if (!slider || !clip || !handle) return;
-      
-      const updateValue = (value: string) => {
-        clip.style.clipPath = `inset(0 0 0 ${value}%)`;
-        handle.style.left = `${value}%`;
-      };
-      
-      slider.addEventListener('input', (e) => {
-        const value = (e.target as HTMLInputElement).value;
-        updateValue(value);
-      });
-      
-      // Asegurar que el cambio inicial se vea reflejado
-      updateValue(slider.value);
-    });
-  }
-
-  // Inicializar en carga inicial
-  initBeforeAfter();
-  // Compatible con transiciones de página
-  document.addEventListener('astro:page-load', initBeforeAfter);
-</script>

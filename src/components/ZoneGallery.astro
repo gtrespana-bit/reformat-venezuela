@@ -17,21 +17,36 @@ const formatZone = (str: string) => {
 };
 
 const zoneNameFormatted = formatZone(zone);
-const serviceLabel = service === 'cocina' ? 'Cocina' : service === 'bano' ? 'Baño' : 'Reforma Integral';
+const isEnglish = Astro.url.pathname.startsWith('/en');
+const serviceLabel = isEnglish
+  ? service === 'cocina' ? 'Kitchen Remodeling' : service === 'bano' ? 'Bathroom Remodeling' : 'Full Home Remodeling'
+  : service === 'cocina' ? 'Cocina' : service === 'bano' ? 'Baño' : 'Reforma Integral';
 
-// Selección determinista de 3 imágenes
+// Selección determinista de 3 imágenes de referencia, no de un único caso real.
 const images = getImagesForZone(zone, service);
+const galleryTitle = isEnglish
+  ? `Design references for ${serviceLabel} in ${zoneNameFormatted}`
+  : `Referencias visuales de ${serviceLabel} en ${zoneNameFormatted}`;
+const gallerySubtitle = isEnglish
+  ? 'A selection of layouts, materials and finishes to guide your project. The final proposal is defined after the technical visit and review of the actual space.'
+  : 'Selección visual de distribuciones, materiales y acabados para orientar tu proyecto. La propuesta final se define tras la visita técnica y el análisis del espacio real.';
 
-const altTexts = [
-  `Proyecto premium de remodelación de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted} - Vista principal`,
-  `Detalle de acabados y diseño de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted}`,
-  `Resultado final de obra de ${serviceLabel.toLowerCase()} residencial en ${zoneNameFormatted}`
-];
+const altTexts = isEnglish
+  ? [
+      `Design reference for ${serviceLabel.toLowerCase()} in ${zoneNameFormatted} - Main view`,
+      `Materials and finish reference for ${serviceLabel.toLowerCase()} in ${zoneNameFormatted}`,
+      `Final-look design reference for residential ${serviceLabel.toLowerCase()} in ${zoneNameFormatted}`
+    ]
+  : [
+      `Referencia visual de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted} - Vista principal`,
+      `Referencia de materiales y acabados de ${serviceLabel.toLowerCase()} en ${zoneNameFormatted}`,
+      `Referencia visual del resultado de ${serviceLabel.toLowerCase()} residencial en ${zoneNameFormatted}`
+    ];
 ---
 
 <div class="zone-gallery-wrapper">
-  <h3 class="gallery-title">Galería de Proyectos en {zoneNameFormatted}</h3>
-  <p class="gallery-subtitle">Muestra real de materiales, acabados y ejecución de obras en la zona.</p>
+  <h3 class="gallery-title">{galleryTitle}</h3>
+  <p class="gallery-subtitle">{gallerySubtitle}</p>
   
   <div class="zone-gallery-grid">
     <div class="gallery-item large">

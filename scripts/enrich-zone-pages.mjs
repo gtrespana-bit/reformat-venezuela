@@ -44,6 +44,21 @@ function enrichFile(filePath, isEn = false) {
   ];
   
   let modified = false;
+
+  // Eliminar cualquier comparativa antigua antes de volver a normalizarla.
+  // Así también se corrigen páginas generadas con la versión anterior, que no
+  // pasaba la zona y podía terminar usando imágenes genéricas.
+  const legacyBeforeAfterImport = /^[ \t]*import BeforeAfter from ['"][^'\"]*BeforeAfter\.astro['"];[ \t]*\r?\n/gm;
+  const legacyBeforeAfterTag = /\n[ \t]*<BeforeAfter(?:\s+zone="[^"]+")?\s+service="(?:cocina|bano|integral)"\s*\/\>[ \t]*\n/g;
+  if (!content.includes(`<BeforeAfter zone="${zone}" service="${service}" />`)) {
+    const cleanedContent = content
+      .replace(legacyBeforeAfterImport, '')
+      .replace(legacyBeforeAfterTag, '\n');
+    if (cleanedContent !== content) {
+      content = cleanedContent;
+      modified = true;
+    }
+  }
   
   // Buscar sección de frontmatter (--- ... ---)
   const frontmatterRegex = /^---([\s\S]*?)---/;
@@ -116,16 +131,18 @@ function enrichFile(filePath, isEn = false) {
     }
   }
   
-  // 5. Insertar BeforeAfter antes de "Cómo trabajamos" / "How we work"
+  // 5. Insertar la comparativa solo con una zona explícita.
+  // El componente consulta un catálogo de pares reales por ciudad/servicio y
+  // devuelve vacío si todavía no existe un caso documentado que encaje.
   if (!content.includes('<BeforeAfter')) {
     const targetHeader = isEn ? '<h2>How we work' : '<h2>Cómo trabajamos';
     if (content.includes(targetHeader)) {
-      const beforeAfterTag = `\n      <BeforeAfter service="${service}" />\n\n      `;
+      const beforeAfterTag = `\n      <BeforeAfter zone="${zone}" service="${service}" />\n\n`;
       content = content.replace(targetHeader, beforeAfterTag + targetHeader);
       modified = true;
     }
   }
-  
+
   if (modified) {
     fs.writeFileSync(filePath, content, 'utf8');
     return true;
