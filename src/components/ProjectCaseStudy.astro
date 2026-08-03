@@ -92,6 +92,7 @@ interface Props {
   quickNavItems: QuickNavItem[];
   whatsappHref: string;
   ctaLabel?: string;
+  quickNavMenuLabel?: string;
   breadcrumbCurrent: string;
   summaryTag: string;
   summaryTitle: string;
@@ -148,6 +149,7 @@ const {
   quickNavItems,
   whatsappHref,
   ctaLabel = 'Solicitar valoración',
+  quickNavMenuLabel,
   breadcrumbCurrent,
   summaryTag,
   summaryTitle,
@@ -255,6 +257,7 @@ const icons: Record<string, string> = {
     items={quickNavItems}
     ctaHref={whatsappHref}
     ctaLabel={ctaLabel}
+    menuLabel={quickNavMenuLabel}
   />
 
   <!-- ============ MIGAS DE PAN ============ -->
