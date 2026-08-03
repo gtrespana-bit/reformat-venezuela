@@ -16,11 +16,20 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 const { Content } = await render(post);
+
+// El <title> se acota a ~50 caracteres para dejar margen al sufijo
+// " | RemodelaT" (11) y no superar los 60-62 que muestra el SERP.
+const shortTitle = post.data.title.length > 49
+  ? post.data.title.slice(0, post.data.title.lastIndexOf(' ', 49)) + '…'
+  : post.data.title;
+const shortExcerpt = post.data.excerpt.length > 158
+  ? post.data.excerpt.slice(0, post.data.excerpt.lastIndexOf(' ', 158)) + '…'
+  : post.data.excerpt;
 ---
 
 <BaseLayout 
-  title={`${post.data.title} | RemodelaT`} 
-  description={post.data.excerpt} 
+  title={`${shortTitle} | RemodelaT`} 
+  description={shortExcerpt} 
   image={post.data.image}
   activePage="blog"
   articleType="article"

@@ -1,6 +1,6 @@
 ---
 title: "Porcelain Tile vs Ceramic Tile: Which to Choose for Your Remodel in Venezuela 2026"
-excerpt: "Complete guide to choosing between porcelain and ceramic tile for your remodel. We compare prices, durability, recommended uses and brands available in Caracas and Valencia."
+excerpt: "Complete guide to choosing between porcelain and ceramic tile for your remodel. We compare prices, durability, recommended uses and brands available in…"
 date: 2026-06-06
 category: "Materials"
 image: "/images/revestimientos-800.webp"

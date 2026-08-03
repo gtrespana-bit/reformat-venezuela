@@ -1,6 +1,6 @@
 ---
 title: "Remodelación Integral: Qué Incluye y Cuánto Cuesta en Venezuela 2026"
-excerpt: "Guía definitiva de remodelación integral en Venezuela: qué trabajos incluye, precios reales por m², tiempos, y cómo planificar una remodelación completa sin sorpresas."
+excerpt: "Guía definitiva de remodelación integral en Venezuela: qué trabajos incluye, precios reales por m², tiempos, y cómo planificar una remodelación completa sin…"
 date: 2026-07-27
 category: "Presupuestos"
 image: "/images/integrales-proyecto-completo.webp"

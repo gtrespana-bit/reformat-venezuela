@@ -23,7 +23,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     location: 'Guataparo, Valencia, Carabobo',
     duration: '2.5 weeks',
     heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-    excerpt: 'A complete kitchen relocation inside a luxury quinta in Guataparo: the old closed kitchen was dismantled, its double doorway sealed with 20 cm blockwork, electrics and plumbing fully rerouted, the electric water heater replaced by solar thermal panels, a seamless white epoxy floor poured across the day zone, and a linear base-cabinet composition installed with a backlit floating shelf and Siemens appliances.',
+    excerpt: 'Full kitchen relocation in a Guataparo quinta: old kitchen dismantled, utilities rerouted, epoxy floor, linear base-cabinet with backlit shelf and Siemens appliances.',
     challenge: 'The original kitchen was a closed, fully separated compartment accessed through a large double doorway. Relocating it meant much more than installing new cabinets: the old doorway had to be sealed, electrics and plumbing reinvented, the electric water heater removed and a floor built to unify the entire day zone.',
     solution: 'We sealed the doorway with 20 cm blockwork and a fine cement render, chased new wall and floor channels for utilities protected by flexible corrugated conduit, replaced the water heater with solar thermal panels and poured a seamless white epoxy floor. Over that canvas we mounted a linear base-cabinet kitchen with a backlit floating shelf and Siemens appliances, including an imported 90 cm refrigerator.',
     technicalHighlights: [
@@ -66,7 +66,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     location: 'Caracas, Venezuela',
     duration: '1 week',
     heroImage: '/images/proyectos/cocina-caracas-quinta/cocina-finalizada-3.webp',
-    excerpt: 'A complete kitchen remodel in a Caracas quinta: full dismantling, ceramic demolition, electrical upgrade with fire-retardant cable, imported rectified wall tile, high-gloss MDF cabinetry with thermoformed PVC polymer, dark quartz countertop, induction cooktop and TEKA appliances.',
+    excerpt: 'Kitchen remodel in a Caracas quinta: dismantling, fire-retardant electrics, rectified tile, high-gloss MDF, dark quartz, induction and TEKA appliances.',
     challenge: 'The existing kitchen required a complete technical and aesthetic update: old cabinetry, outdated ceramic surfaces, electrical upgrades and a new furniture system capable of resisting humidity, daily impact and intensive use.',
     solution: 'We dismantled the previous kitchen, demolished the existing ceramic material, upgraded the electrical system with high-quality fire-retardant cable, installed imported rectified ceramic tile and mounted a high-gloss white kitchen with thermoformed PVC polymer fronts and a dark quartz countertop for contrast.',
     technicalHighlights: [
@@ -111,7 +111,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     location: 'Las Mercedes, Caracas',
     duration: '2 weeks',
     heroImage: '/images/proyectos/bano-las-mercedes-pequeno/bano-finalizado-mueble-poceta.webp',
-    excerpt: 'Complete remodel of a small secondary bathroom in a Las Mercedes apartment: removal of a poorly positioned partition, new brick wall, relocated plumbing, imported 30x90 rectified porcelain, ROCA marble-powder shower tray, oak-look floor tile, LED anti-fog mirror and tempered glass screen.',
+    excerpt: 'Small bathroom remodel in Las Mercedes: partition removed, relocated plumbing, 30x90 porcelain, ROCA shower tray, LED mirror and tempered glass screen.',
     challenge: 'The bathroom was very small and the original partition was poorly positioned, further limiting usable space and access. The project required a layout correction before the finish work could make sense.',
     solution: 'We demolished the existing partition, rebuilt it in brick with a moisture-area cement render, repositioned the door, renewed all plumbing and installed imported rectified porcelain, a ROCA shower tray, oak-tone vanity, LED anti-fog mirror, tempered-glass screen and ROCA rain shower column.',
     technicalHighlights: [
@@ -156,7 +156,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     location: 'Caracas, Venezuela',
     duration: '3 weeks',
     heroImage: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp',
-    excerpt: 'A full master bathroom remodel with PEX-Al-PEX multilayer plumbing and the architectural conversion of a built-in closet into an accessible powder room with a floating sliding door.',
+    excerpt: 'Master bathroom remodel with PEX-Al-PEX plumbing and conversion of a built-in closet into an accessible powder room with a floating sliding door.',
     challenge: 'The property needed more than a cosmetic update: old finishes, outdated plumbing and the need to create a compact accessible bathroom for an elderly family member without compromising the bedroom layout.',
     solution: 'We demolished the original finishes, replaced the plumbing network with multilayer PEX-Al-PEX, routed new drains and water points, built a moisture-resistant drywall enclosure and installed Spanish 60x60 porcelain with a warm wood-effect anti-slip floor.',
     technicalHighlights: [

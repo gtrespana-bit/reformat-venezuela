@@ -1,6 +1,6 @@
 ---
 title: "Cómo Detectar una Fuga de Agua en Paredes y Techos: Guía Paso a Paso"
-excerpt: "Aprende a localizar el origen de una fuga de agua oculta en paredes, techos y pisos antes de que cause daños mayores. Métodos prácticos y cuándo llamar a un profesional."
+excerpt: "Aprende a localizar el origen de una fuga de agua oculta en paredes, techos y pisos antes de que cause daños mayores. Métodos prácticos y cuándo llamar a un…"
 date: 2026-07-24
 category: "Guías"
 image: "/images/fontaneria.webp"

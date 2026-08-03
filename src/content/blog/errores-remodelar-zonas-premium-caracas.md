@@ -1,6 +1,6 @@
 ---
 title: "7 Errores al Remodelar en Zonas Premium de Caracas (y Cómo Evitarlos)"
-excerpt: "Remodelar en La Lagunita, Altamira, Country Club o Campo Alegre tiene reglas que no aplican al resto de Caracas. Estos son los errores que cuestan miles de dólares."
+excerpt: "Remodelar en La Lagunita, Altamira, Country Club o Campo Alegre tiene reglas que no aplican al resto de Caracas. Estos son los errores que cuestan miles de…"
 date: 2026-07-27
 category: "Guías"
 image: "/images/arquitectura-600.webp"

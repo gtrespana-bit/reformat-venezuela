@@ -1,6 +1,6 @@
 ---
 title: "How Much Does an Electrical Installation Cost in Venezuela 2026: Real Prices"
-excerpt: "Real and detailed prices for residential electrical installations in Caracas, Valencia and San Diego. How much it costs to rewire, replace the panel and add light points in 2026."
+excerpt: "Real and detailed prices for residential electrical installations in Caracas, Valencia and San Diego. How much it costs to rewire, replace the panel and add…"
 date: 2026-07-27
 category: "Budgets"
 image: "/images/electricidad-800.webp"

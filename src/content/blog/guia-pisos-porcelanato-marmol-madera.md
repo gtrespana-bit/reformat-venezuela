@@ -1,6 +1,6 @@
 ---
 title: "Guía de Pisos 2026: Porcelanato, Mármol y Madera en Venezuela"
-excerpt: "Comparativa completa de pisos para tu hogar en Venezuela: precios, durabilidad, mantenimiento y cuál elegir según cada espacio. Datos reales del mercado venezolano."
+excerpt: "Comparativa completa de pisos para tu hogar en Venezuela: precios, durabilidad, mantenimiento y cuál elegir según cada espacio. Datos reales del mercado…"
 date: 2026-07-27
 category: "Materiales"
 image: "/images/suelo-porcelanato-800.webp"

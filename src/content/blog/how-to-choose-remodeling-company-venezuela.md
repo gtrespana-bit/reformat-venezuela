@@ -1,6 +1,6 @@
 ---
 title: "How to Choose a Remodeling Company in Venezuela: 9 Key Criteria"
-excerpt: "Practical guide to choosing a serious remodeling company in Caracas, Valencia, and Carabobo. What to ask, what to avoid, and how to compare quotes without falling into traps."
+excerpt: "Practical guide to choosing a serious remodeling company in Caracas, Valencia, and Carabobo. What to ask, what to avoid, and how to compare quotes without…"
 date: 2026-07-20
 category: "Tips"
 image: "/images/integrales-equipo-trabajando.webp"

@@ -1,6 +1,6 @@
 ---
 title: "Cuánto Cuesta una Instalación Eléctrica en Venezuela 2026: Precios Reales"
-excerpt: "Precios reales y desglosados de instalaciones eléctricas residenciales en Caracas, Valencia y San Diego. Cuánto cuesta cambiar el cableado, el tablero y los puntos de luz en 2026."
+excerpt: "Precios reales y desglosados de instalaciones eléctricas residenciales en Caracas, Valencia y San Diego. Cuánto cuesta cambiar el cableado, el tablero y los…"
 date: 2026-07-27
 category: "Presupuestos"
 image: "/images/electricidad-800.webp"

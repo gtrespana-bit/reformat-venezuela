@@ -1,6 +1,6 @@
 ---
 title: "Before and After: Real Kitchen Remodel Case in Venezuela"
-excerpt: "Step-by-step walkthrough of a real kitchen renovation: from the old space to the final result. Process, decisions, timelines, and lessons from a project in Venezuela."
+excerpt: "Step-by-step walkthrough of a real kitchen renovation: from the old space to the final result. Process, decisions, timelines, and lessons from a project in…"
 date: 2026-07-17
 category: "Projects"
 image: "/images/cocina-800.webp"

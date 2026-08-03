@@ -1,6 +1,6 @@
 ---
 title: "Microcement vs Paint: Which Finish to Choose for Your Walls in 2026"
-excerpt: "Complete comparison between microcement and paint for walls in Venezuela. Prices, durability, maintenance, ideal uses and real recommendations for Caracas and Carabobo."
+excerpt: "Complete comparison between microcement and paint for walls in Venezuela. Prices, durability, maintenance, ideal uses and real recommendations for Caracas…"
 date: 2026-07-26
 category: "Materials"
 image: "/images/pintura-microcemento-bano.webp"

@@ -1,6 +1,6 @@
 ---
 title: "Remodelación de Apartamentos en Caracas: Guía Completa 2026"
-excerpt: "Todo lo que necesitas saber para remodelar tu apartamento en Caracas: permisos, costos reales, tiempos, y cómo evitar los errores más comunes en edificios residenciales."
+excerpt: "Todo lo que necesitas saber para remodelar tu apartamento en Caracas: permisos, costos reales, tiempos, y cómo evitar los errores más comunes en edificios…"
 date: 2026-07-27
 category: "Guías"
 image: "/images/arquitectura-600.webp"

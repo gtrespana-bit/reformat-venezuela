@@ -18,9 +18,9 @@ const serviceImages = {
 };
 
 const services = [
-  { title: "Designer kitchening", desc: "Custom kitchens with technical lighting, durable hardware and finishes installed with precision.", image: serviceImages.cocina, link: "/en/services/kitchens" },
-  { title: "Spa-style bathroom", desc: "Spa-style bathrooms with documented waterproofing, correct slopes and premium fixtures.", image: serviceImages.bano, link: "/en/services/bathrooms" },
-  { title: "Whole-home remodelinging", desc: "Complete home transformations with planning, utility coordination and finish control.", image: serviceImages.integrales, link: "/en/services/whole-home" },
+  { title: "Designer Kitchens", desc: "Custom cabinetry, high-resistance surfaces, technical lighting and durable hardware installed with precision.", image: serviceImages.cocina, link: "/en/services/kitchens" },
+  { title: "Spa-Style Bathrooms", desc: "Bathrooms with documented waterproofing, correct slopes, premium fixtures and precise tile work.", image: serviceImages.bano, link: "/en/services/bathrooms" },
+  { title: "Whole-Home Remodels", desc: "Complete home transformations with planning, trade coordination and controlled finishes.", image: serviceImages.integrales, link: "/en/services/whole-home" },
   { title: "Electrical Services", desc: "Electrical panels, wiring, protections and LED lighting integrated into remodels.", image: serviceImages.electricidad, link: "/en/services/electrical" },
   { title: "Plumbing Services", desc: "Pipe renewal, water points, drains, testing and quality fixtures.", image: serviceImages.fontaneria, link: "/en/services/plumbing" },
   { title: "Painting & Finishes", desc: "Surface preparation, microcement, paint systems and clean final finishes.", image: serviceImages.pintura, link: "/en/services/painting" },
@@ -35,11 +35,32 @@ const stats = [
   { number: "100%", label: "Quality Commitment" },
   { number: "Fast", label: "Professional Execution" }
 ];
+
+const processSteps = [
+  { step: "01", title: "Technical diagnosis", desc: "We measure, review existing installations, substrates, humidity, slopes and real conditions before promising a solution." },
+  { step: "02", title: "Specification", desc: "We define materials compatible with each use: adhesives, waterproofing, fixtures, lighting, hardware and finishes." },
+  { step: "03", title: "Itemized budget", desc: "You receive a clear proposal with scope, quality levels, timings, exclusions and written warranty conditions." },
+  { step: "04", title: "Supervised execution", desc: "We control the site, suppliers, technical tests and finishes to avoid improvisation in critical phases." },
+  { step: "05", title: "Verified handover", desc: "Joint review, finish checklist, final cleaning, photographic documentation and applicable warranty." }
+];
+
+const testimonials = [
+  { text: "What we valued most was that they explained why each material had to be used in a specific area. It wasn't just about looking good; it was about being properly done.", name: "Homeowner", location: "San Diego, Carabobo" },
+  { text: "The bathroom is flawless, but the difference was in the process: documented waterproofing, testing before closing walls and a check on every detail.", name: "Residential client", location: "Valencia, Carabobo" },
+  { text: "We wanted a remodel without improvisation. We got a schedule, itemized budget and constant follow-up throughout the work.", name: "Apartment owner", location: "Caracas" }
+];
+
+const fitItems = [
+  "You want a lasting remodel, not just a project that looks good on delivery day.",
+  "You value correct materials, technical supervision, cleanliness, order and communication.",
+  "You prefer to invest once in a well-executed result rather than correcting rework later.",
+  "You are looking for high-standard finishes for a high-value house, apartment, quinta or townhouse."
+];
 ---
 
 <BaseLayout
   title="Luxury Remodeling in Venezuela | RemodelaT"
-  description="High-standard residential remodeling in Venezuela. Kitchens, bathrooms and whole-home remodels with technical method, proper materials, flawless finishes and written warranties."
+  description="High-standard residential remodeling in Venezuela. Kitchens, bathrooms and whole-home remodels with technical method, proper materials, flawless finishes…"
   activePage="home"
 >
 
@@ -212,6 +233,59 @@ const stats = [
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section process-section deferred-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="tag">A method designed to avoid improvisation</span>
+        <h2 class="section-title">A process designed to avoid improvisation</h2>
+        <p class="section-desc">Demanding clients do not only buy finishes: they buy peace of mind. That is why each phase has diagnosis, specification, supervised execution and documented review.</p>
+      </div>
+      <div class="process-grid">
+        {processSteps.map((s, i) => (
+          <article class="process-step" data-reveal data-reveal-delay={String((i % 5) + 1)}>
+            <span class="step-num">{s.step}</span>
+            <h3>{s.title}</h3>
+            <p>{s.desc}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-light fit-section deferred-section">
+    <div class="container fit-grid">
+      <div data-reveal>
+        <span class="tag">Who we work with</span>
+        <h2 class="section-title">For homeowners who value precision, warranty and durability</h2>
+        <p class="section-desc">We are not the option to get any job done. We are the option for those who prefer a serious process, correct materials and finishes at the level of their home.</p>
+      </div>
+      <ul class="check-list" data-reveal>
+        {fitItems.map((item) => <li>{item}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section testimonials-section deferred-section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="tag">Client feedback</span>
+        <h2 class="section-title">What demanding homeowners value most</h2>
+        <p class="section-desc">The peace of mind of knowing what is being done, why it is done that way and how the final result is guaranteed.</p>
+      </div>
+      <div class="testimonials-grid">
+        {testimonials.map((t, i) => (
+          <blockquote class="testimonial" data-reveal data-reveal-delay={String((i % 3) + 1)}>
+            <p>"{t.text}"</p>
+            <footer>
+              <strong>{t.name}</strong>
+              <span>{t.location}</span>
+            </footer>
+          </blockquote>
+        ))}
       </div>
     </div>
   </section>

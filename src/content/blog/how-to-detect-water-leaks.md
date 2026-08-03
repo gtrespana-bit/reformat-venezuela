@@ -1,6 +1,6 @@
 ---
 title: "How to Detect a Water Leak in Walls and Ceilings: Step-by-Step Guide"
-excerpt: "Learn how to locate the source of a hidden water leak in walls, ceilings, and floors before it causes major damage. Practical methods and when to call a professional."
+excerpt: "Learn how to locate the source of a hidden water leak in walls, ceilings, and floors before it causes major damage. Practical methods and when to call a…"
 date: 2026-07-24
 category: "Guides"
 image: "/images/fontaneria-800.webp"
