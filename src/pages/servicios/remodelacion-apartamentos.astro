@@ -12,7 +12,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   activePage="servicios"
 >
 
-<header class="article-hero">
+<header class="god-hero">
   <img class="hero-bg" src="/images/cocina-terminada-final.webp" alt="Remodelación de apartamentos en Caracas y Valencia | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
   <div class="hero-overlay"></div>
   <div class="hero-content">
@@ -139,29 +139,305 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 </BaseLayout>
 
 <style>
-  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: var(--r-full); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; }
-  .article-title .line { display: block; }
-  .article-title .gold { color: var(--gold); }
-  .article-excerpt { font-size: 1.2rem; color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto; line-height: 1.6; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; text-decoration: none; }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; font-size: 1.15rem; line-height: 1.8; color: var(--text); }
-  .article-body h2 { font-size: 2.3rem; margin: 3rem 0 1.2rem; font-family: var(--font-serif); }
-  .article-body h3 { font-size: 1.5rem; margin: 2rem 0 0.8rem; }
-  .article-body p { margin-bottom: 1.3rem; }
-  .article-body a { color: var(--gold-ink-strong); text-decoration: none; border-bottom: 1px solid rgba(138,109,31,.45); }
-  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
-  .article-body li { margin-bottom: 0.6rem; }
-  .article-body table { width: 100%; border-collapse: collapse; margin: 2rem 0; }
-  .article-body th { background: var(--bg); color: var(--white); padding: 12px 16px; text-align: left; }
-  .article-body td { padding: 12px 16px; border-bottom: 1px solid #e5e0d5; }
-  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 90px 24px; }
-  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-  .cta-title { font-family: var(--font-serif); font-size: clamp(2.2rem, 5vw, 3.2rem); font-weight: 400; margin-bottom: 20px; }
-  .cta-text { color: rgba(255,255,255,0.85); max-width: 700px; margin: 0 auto 35px; }
+
+  :root {
+    --gold-dim: rgba(201,169,97,0.18);
+    --gold-mid: rgba(201,169,97,0.55);
+    --ink-deep: #0f0d0a;
+  }
+
+  /* ============ HERO CINEMATOGRÁFICO DE NIVEL DIOS ============ */
+  .god-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--ink-deep);
+    padding: 160px 24px 120px;
+  }
+  .god-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .god-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    filter: contrast(1.15) brightness(0.85);
+    z-index: 1;
+  }
+  .god-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.25) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.7) 0%, transparent 60%);
+    z-index: 3;
+  }
+  .god-hero-inner {
+    position: relative;
+    z-index: 4;
+    max-width: 1080px;
+    width: 100%;
+  }
+  .god-back {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .god-back:hover { opacity: 0.7; }
+  .god-eyebrow {
+    display: block;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .god-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 8vw, 7.5rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: var(--track-tight);
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-title .line { display: block; }
+  .god-title .gold { color: var(--gold); }
+  .god-lead {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: rgba(255,255,255,0.82);
+    max-width: 600px;
+    line-height: 1.55;
+    margin-bottom: 40px;
+  }
+  .god-badges {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .god-badges span {
+    padding: 9px 20px;
+    border: 1px solid rgba(201,169,97,0.35);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  /* ============ MANIFIESTO ============ */
+  .god-manifesto {
+    background: var(--ink);
+    padding: 160px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-manifesto-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .god-manifesto h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-manifesto p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 680px;
+  }
+
+  /* ============ EDITORIAL PREMIUM ============ */
+  .god-editorial {
+    background: var(--bone);
+    padding: 120px 24px;
+  }
+  .god-editorial-body {
+    max-width: 840px;
+    margin: 0 auto;
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .god-editorial-body h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-top: 80px;
+    margin-bottom: 22px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-editorial-body h3 {
+    font-size: 1.35rem;
+    color: var(--ink-soft);
+    margin-top: 48px;
+    margin-bottom: 14px;
+  }
+  .god-editorial-body p {
+    margin-bottom: 24px;
+  }
+  .god-figure {
+    margin: 60px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .god-figure img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
+  .god-figure figcaption {
+    padding: 20px 26px;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    font-style: italic;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .god-checks {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 32px;
+  }
+  .god-checks li {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,169,97,0.12);
+    margin-bottom: 16px;
+  }
+  .god-checks li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: var(--gold-ink-strong);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* ============ ESPECIFICACIONES ============ */
+  .god-specs {
+    background: var(--ink);
+    padding: 120px 24px;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .god-specs-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+  }
+  .god-spec dt {
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .god-spec dd {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    line-height: 1.45;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-section { padding: 100px 24px; max-width: 900px; margin: 0 auto; background: var(--bone); }
+  .faq-section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); text-align: center; margin-bottom: 50px; color: var(--text); letter-spacing: var(--track-tight); }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-question { width: 100%; background: none; border: none; padding: 22px 0; font-family: var(--font-sans); font-size: 1.05rem; font-weight: 600; color: var(--text); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s ease; }
+  .faq-question:hover { color: var(--gold-ink); }
+  .faq-question::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--gold-ink); flex-shrink: 0; transition: transform 0.3s ease; }
+  .faq-item.active .faq-question::after { content: '−'; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+  .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 22px; }
+  .faq-answer p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; }
+
+  /* ============ CTA FINAL ============ */
+  .god-cta {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,169,97,0.25), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    padding: 140px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-cta::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(90px);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .god-cta h2 {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-cta p {
+    position: relative;
+    z-index: 2;
+    max-width: 640px;
+    margin: 0 auto 36px;
+    color: rgba(255,255,255,0.75);
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .god-hero { min-height: 90vh; padding: 130px 20px 80px; }
+    .god-manifesto { padding: 100px 20px; }
+    .god-editorial { padding: 80px 20px; }
+    .god-specs { padding: 90px 20px; }
+    .god-cta { padding: 100px 20px; }
+  }
+
 </style>
