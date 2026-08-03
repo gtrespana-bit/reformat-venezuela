@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 >
 
 <header class="god-hero">
-  <img class="god-hero-img" src="/images/arquitectura-600.webp" alt="Remodelación de casas en Valencia y Caracas | RemodelaT Venezuela" fetchpriority="high" loading="eager" decoding="async" />
-  <div class="hero-overlay"></div>
+  <div class="god-glow" aria-hidden="true"></div>
+    <img class="god-hero-img" src="/images/arquitectura-600.webp" alt="Remodelación de casas en Valencia y Caracas | RemodelaT Venezuela" fetchpriority="high" loading="eager" decoding="async" />
+  <div class="god-hero-overlay"></div>
   <div class="god-hero-inner">
     <a href="/servicios" class="god-back">← Volver a Servicios</a>
     <span class="god-eyebrow">Casas · 150 a 500 m²</span>
     <h1 class="god-title"><span class="line">Remodelación de</span> <span class="line gold">Casas</span></h1>
     <p class="god-lead">Especialistas en remodelación de casas en Carabobo y Caracas. Casas familiares, casas grandes con jardín, y casas de lujo en El Trigal, La Lagunita y San Diego.</p>
   </div>
-  <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+      <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
 <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación de Casas', url: '/servicios/remodelacion-casas' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
   <div class="container">
     <div class="god-editorial-body">
@@ -105,6 +112,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </div>
 </section>
 
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Cuánto cuesta remodelar una casa de 200m² en Valencia?", answer: "Una casa de 200m² reforma integral media desde $25,000 (cocinas, 3 baños, pisos, pintura, instalaciones). Premium con acabados de lujo en El Viñedo o Prebo desde $40,000. Presupuesto cerrado por partidas en USD." },
   { question: "¿Hacen ampliación de casas en San Diego y El Trigal?", answer: "Sí. Hacemos ampliaciones horizontales (sala, cocina hacia jardín) y verticales (2do piso con estructura metálica liviana). Gestionamos ingeniería estructural y permisos municipales. Ver casas 150-400m² en Trigal, Guataparo, San Diego." },

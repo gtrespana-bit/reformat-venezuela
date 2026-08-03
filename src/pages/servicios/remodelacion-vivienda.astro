@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 >
 
 <header class="god-hero">
-  <img class="god-hero-img" src="/images/integrales-800.webp" alt="Remodelación de viviendas en Valencia y Caracas | RemodelaT Venezuela" fetchpriority="high" loading="eager" decoding="async" />
-  <div class="hero-overlay"></div>
+  <div class="god-glow" aria-hidden="true"></div>
+    <img class="god-hero-img" src="/images/integrales-800.webp" alt="Remodelación de viviendas en Valencia y Caracas | RemodelaT Venezuela" fetchpriority="high" loading="eager" decoding="async" />
+  <div class="god-hero-overlay"></div>
   <div class="god-hero-inner">
     <a href="/servicios" class="god-back">← Volver a Servicios</a>
     <span class="god-eyebrow">Viviendas · Casas · Apartamentos</span>
     <h1 class="god-title"><span class="line">Remodelación de</span> <span class="line gold">Viviendas</span></h1>
     <p class="god-lead">Expertos en remodelación de viviendas, apartamentos y casas en Venezuela. Transformamos tu vivienda con diseño funcional y acabados premium en Valencia, Caracas y Carabobo.</p>
   </div>
-  <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+      <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
 <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación de Viviendas', url: '/servicios/remodelacion-vivienda' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
   <div class="container">
     <div class="god-editorial-body">
@@ -98,6 +105,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </div>
 </section>
 
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Cuánto cuesta remodelar una vivienda en Venezuela?", answer: "Depende del tamaño: un apartamento de 80m² reforma media desde $10,000, un apartamento 120m² completo desde $16,000, y una casa 200m² desde $22,000. Siempre presupuesto cerrado por partidas en USD." },
   { question: "¿Qué diferencia hay entre remodelación de vivienda y remodelación integral?", answer: "Son sinónimos en su uso más amplio. Remodelación de vivienda puede ser parcial (solo baños, cocina) o completa. Remodelación integral implica transformación total de toda la vivienda, incluyendo instalaciones, distribución y acabados. Ver nuestro servicio de remodelación integral para proceso detallado." },

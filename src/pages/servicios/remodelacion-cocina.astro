@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   
 
 <header class="god-hero">
+    <div class="god-glow" aria-hidden="true"></div>
     <img class="god-hero-img" src="/images/cocina.webp" alt="Remodelación de cocinas modernas con acabados premium | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
+    <div class="god-hero-overlay"></div>
     <div class="god-hero-inner">
       <a href="/servicios" class="god-back">← Volver a Servicios</a>
       <span class="god-eyebrow">Cocinas de alto estándar</span>
       <h1 class="god-title"><span class="line">Remodelación de Cocinas</span> <span class="line gold">de Lujo</span></h1>
       <p class="god-lead">Diseño a medida, materiales adecuados, herrajes duraderos, iluminación técnica y acabados precisos para propietarios que no quieren improvisaciones.</p>
     </div>
-    <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+        <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
   <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación de Cocinas', url: '/servicios/remodelacion-cocina' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
     <div class="container">
       <div class="god-editorial-body">
@@ -261,6 +268,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </section>
 
   
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Cuánto tiempo toma una remodelación de cocina completa?", answer: "Una remodelación integral de cocina toma entre 4 y 8 semanas, dependiendo de la complejidad del diseño, los materiales seleccionados y si se requieren cambios en las instalaciones." },
   { question: "¿Qué incluye el presupuesto de remodelación de cocina?", answer: "Incluimos diseño 3D, demolición, instalaciones eléctricas y de fontanería, mobiliario a medida, encimeras, revestimientos y electrodomésticos empotrados. Todo detallado por partidas." },

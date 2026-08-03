@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   
 
 <header class="god-hero">
+    <div class="god-glow" aria-hidden="true"></div>
     <img class="god-hero-img" src="/images/integrales-800.webp" alt="Remodelación integral de apartamentos y casas en Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
+    <div class="god-hero-overlay"></div>
     <div class="god-hero-inner">
       <a href="/servicios" class="god-back">← Volver a Servicios</a>
       <span class="god-eyebrow">Viviendas de alto valor</span>
       <h1 class="god-title"><span class="line">Remodelación Integral</span> <span class="line gold">de Lujo</span></h1>
       <p class="god-lead">Transformación completa de casas y apartamentos con planificación técnica, coordinación de oficios, acabados de alto estándar y garantía documentada.</p>
     </div>
-    <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+        <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
   <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación Integral', url: '/servicios/remodelacion-integral' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
     <div class="container">
       <div class="god-editorial-body">
@@ -200,6 +207,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </section>
 
   
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Qué incluye una remodelación integral?", answer: "Incluye diseño del proyecto, gestión de permisos, demolición, albañilería, instalaciones (eléctrica, fontanería, climatización), acabados, carpintería y limpieza final. Todo llave en mano." },
   { question: "¿Cuánto tiempo toma una remodelación integral de vivienda?", answer: "Una remodelación integral de vivienda de 80-120 m² toma entre 3 y 5 meses. Elaboramos un cronograma detallado con hitos de seguimiento para que estés informado en todo momento." },

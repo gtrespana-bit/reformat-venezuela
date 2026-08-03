@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   
 
 <header class="god-hero">
+    <div class="god-glow" aria-hidden="true"></div>
     <img class="god-hero-img" src="/images/suelo-porcelanato.webp" alt="Instalación de pisos de porcelanato, cerámica y madera en Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
+    <div class="god-hero-overlay"></div>
     <div class="god-hero-inner">
       <a href="/servicios" class="god-back">← Volver a Servicios</a>
       <span class="god-eyebrow">Servicio Especializado</span>
       <h1 class="god-title"><span class="line">Instalación de</span> <span class="line gold">Suelos</span></h1>
       <p class="god-lead">Pavimentos que combinan resistencia, confort y diseño. Instalación técnica con garantía de nivelación y durabilidad.</p>
     </div>
-    <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+        <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
   <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Instalación de Suelos', url: '/servicios/instalacion-pisos' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
     <div class="container">
       <div class="god-editorial-body">
@@ -102,6 +109,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </section>
 
   
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Qué tipo de suelo es más duradero?", answer: "El porcelanato es el suelo más duradero: resistente a rayaduras, manchas y humedad. Le sigue el gres porcelánico técnico y los suelos vinílicos SPC de alta gama." },
   { question: "¿Puedo instalar suelo laminado sobre cerámica existente?", answer: "Sí, siempre que la superficie esté nivelada. Colocamos una base aislante sobre el suelo existente, lo que reduce costes de demolición y tiempo de obra." },

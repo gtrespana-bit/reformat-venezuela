@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 >
 
 <header class="god-hero">
-  <img class="god-hero-img" src="/images/cocina-terminada-final.webp" alt="Remodelación de apartamentos en Caracas y Valencia | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-  <div class="hero-overlay"></div>
+  <div class="god-glow" aria-hidden="true"></div>
+    <img class="god-hero-img" src="/images/cocina-terminada-final.webp" alt="Remodelación de apartamentos en Caracas y Valencia | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
+  <div class="god-hero-overlay"></div>
   <div class="god-hero-inner">
     <a href="/servicios" class="god-back">← Volver a Servicios</a>
     <span class="god-eyebrow">Apartamentos · 80 a 300 m²</span>
     <h1 class="god-title"><span class="line">Remodelación de</span> <span class="line gold">Apartamentos</span></h1>
     <p class="god-lead">Transformamos apartamentos en Caracas, Valencia y Carabobo. Desde apartamentos pequeños de 80m² hasta penthouses de 300m² en Altamira, Chacao, El Viñedo y Prebo.</p>
   </div>
-  <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+      <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
 <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación de Apartamentos', url: '/servicios/remodelacion-apartamentos' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
   <div class="container">
     <div class="god-editorial-body">
@@ -113,6 +120,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </div>
 </section>
 
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Cuánto cuesta remodelar un apartamento de 100m² en Caracas?", answer: "Un apartamento de 100m² reforma completa (cocina, 2 baños, pisos, pintura, instalaciones) parte desde $12,000 reforma media y $22,000 premium en zonas como Altamira o Las Mercedes. Presupuesto cerrado por partidas." },
   { question: "¿Pueden remodelar mi apartamento sin desalojar?", answer: "Sí podemos trabajar por fases para que permanezcas en parte del apartamento, aunque alarga plazos y genera más polvo. En reformas completas recomendamos desalojar 2-3 meses para obra más rápida y limpia." },

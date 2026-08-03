@@ -13,19 +13,20 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   
 
 <header class="god-hero">
+    <div class="god-glow" aria-hidden="true"></div>
     <img class="god-hero-img" src="/images/pintura-800.webp" alt="Pintura y acabados profesionales de interiores en Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
+    <div class="god-hero-overlay"></div>
     <div class="god-hero-inner">
       <a href="/servicios" class="god-back">← Volver a Servicios</a>
       <span class="god-eyebrow">Servicio Especializado</span>
       <h1 class="god-title"><span class="line">Pintura y</span> <span class="line gold">Acabados</span></h1>
       <p class="god-lead">Transformamos cada rincón de tu hogar con técnicas decorativas y acabados de primera calidad.</p>
     </div>
-    <div class="god-badges" aria-label="Aspectos clave">
-    <span>Servicio especializado</span>
-    <span>Diseño técnico</span>
-    <span>Integración invisible</span>
-  </div>
+        <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
+    </div>
 </header>
 
   <Breadcrumb items={[
@@ -34,6 +35,12 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Pintura y Acabados', url: '/servicios/pintura-acabados' }
 ]} />
 
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
 <section class="god-editorial">
     <div class="container">
       <div class="god-editorial-body">
@@ -310,6 +317,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </section>
 
   
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Qué tipos de pintura utilizan?", answer: "Trabajamos con pinturas de marcas premium como Valentine, Bruguer y Jotun, en acabados mate, satinado o brillo. Todas con baja emisión de COV para interiores saludables." },
   { question: "¿Cuánto tiempo toma pintar un piso completo?", answer: "Un piso de 80-100 m² toma entre 4 y 6 días laborables, incluyendo preparación de paredes (masillado y lijado), imprimación donde sea necesaria y dos manos de acabado." },
