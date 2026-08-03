@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -9,16 +11,18 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   image="/images/suelo-porcelanato.webp"
   activePage="services"
 >
-  <header class="article-hero">
-    <img class="hero-bg" src="/images/suelo-porcelanato.webp" alt="Porcelain, ceramic and hardwood flooring installation in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/en/services" class="back-link">← Back to Services</a>
-      <span class="article-category">Specialized Service</span>
-      <h1 class="article-title"><span class="line">Flooring</span> <span class="line gold">Installation</span></h1>
-      <p class="article-excerpt">Floors that combine durability, comfort, and design. Technical installation with leveling and durability guarantees.</p>
-    </div>
-  </header>
+  <GodHero
+  eyebrow="Specialized Service"
+  title="Flooring"
+  titleGold="Installation"
+  lead="Floors that combine durability, comfort, and design. Technical installation with leveling and durability guarantees."
+  image="/images/suelo-porcelanato.webp"
+  imageAlt="Porcelain, ceramic and hardwood flooring installation in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="INSTALLATION"
+/>
+
+<GodMarquee />
 
   <section class="article-section">
     <div class="container">

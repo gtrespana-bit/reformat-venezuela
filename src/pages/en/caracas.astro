@@ -1,29 +1,24 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GodHero from '../../components/GodHero.astro';
+import GodMarquee from '../../components/GodMarquee.astro';
 import FAQ from '../../components/FAQ.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
 
 <BaseLayout title="Remodeling in Caracas | Capital District Experts 2026" description="Specialists in apartment, home and office remodeling in Caracas. We work in Chacao, Baruta, El Hatillo, Sucre and the entire metropolitan area. Detailed project proposals." image="/images/cocina-isla-central.webp">
 
-  <section class="hero">
-    <img class="hero-bg" src="/images/cocina-isla-central.webp" alt="Remodeling in Caracas | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Capital District · 23+ years of experience</span>
-      <h1>Remodeling in <em>Caracas</em></h1>
-      <p class="hero-sub">We transform apartments, homes and offices with signature design, premium materials and flawless execution across the entire metropolitan area.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-gold">Request technical assessment</a>
-        <a href="https://wa.me/584227997043?text=Hello%2C%20I%20want%20a%20technical%20assessment%20for%20my%20remodeling%20in%20Caracas" class="btn btn-outline" target="_blank" rel="noopener">Message on WhatsApp</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>200+</strong><span>Projects delivered</span></div>
-        <div class="stat"><strong>15+</strong><span>Years of experience</span></div>
-        <div class="stat"><strong>5.0</strong><span>Client rating</span></div>
-      </div>
-    </div>
-  </section>
+  <GodHero
+    eyebrow="High-standard remodeling"
+    title="Luxury remodeling"
+    titleGold="with technical precision"
+    lead="Specialists in apartment, home and office remodeling in Caracas. We work in Chacao, Baruta, El Hatillo, Sucre and the entire metropolitan area. Detailed project proposals."
+    image="/images/integrales-800.webp"
+    imageAlt="Remodeling project"
+    badges={["23+ years", "Technical Method", "Written Warranty"]}
+    watermark="REMODELAT"
+  />
+  <GodMarquee />
 
   <Breadcrumb items={[
     { name: 'Home', url: '/en' },

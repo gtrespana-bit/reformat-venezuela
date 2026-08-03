@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GodHero from '../../components/GodHero.astro';
+import GodMarquee from '../../components/GodMarquee.astro';
 const getSrcSet = (baseName, widths, ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
@@ -12,23 +14,17 @@ const getSrcSet = (baseName, widths, ext = 'webp') => {
 >
 
 <!-- HERO -->
-<header class="page-hero">
-  <img
-    src="/images/integrales-800.webp"
-    srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
-    sizes="100vw"
-    alt="Whole-home renovation with European standards in Venezuela"
-    class="hero-img"
-    width="1200" height="600"
-    fetchpriority="high"
+<GodHero
+    eyebrow="High-standard remodeling"
+    title="Luxury remodeling"
+    titleGold="with technical precision"
+    lead="RemodelaT applies European experience and a technical method to high-standard residential remodeling in Venezuela: proper materials, luxury finishes and written warranties."
+    image="/images/integrales-800.webp"
+    imageAlt="Remodeling project"
+    badges={["23+ years", "Technical Method", "Written Warranty"]}
+    watermark="REMODELAT"
   />
-  <div class="hero-overlay"></div>
-    <div class="hero-content">
-    <span class="tag">About Us</span>
-    <h1 class="hero-title">European experience,<br/><span class="gold">execution without improvisation</span></h1>
-    <p class="hero-subtitle">Over 23 years applied to high-standard residential remodeling in Venezuela: technical method, proper materials, direct supervision and luxury finishes.</p>
-  </div>
-</header>
+  <GodMarquee />
 
 <!-- STORY + IMAGE -->
 <section class="story-section">

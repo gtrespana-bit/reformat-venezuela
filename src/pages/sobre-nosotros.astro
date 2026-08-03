@@ -1,5 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GodHero from '../components/GodHero.astro';
+import GodMarquee from '../components/GodMarquee.astro';
+import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
+
 const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
   return widths.map(w => `/images/${baseName}-${w}.${ext} ${w}w`).join(', ');
 };
@@ -11,252 +15,105 @@ const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
   activePage="nosotros"
 >
 
-<!-- HERO -->
-<header class="page-hero">
-  <img
-    src="/images/integrales-800.webp"
-    srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w"
-    sizes="100vw"
-    alt="Reforma integral con estándares europeos en Venezuela"
-    class="hero-img"
-    width="1200" height="600"
-    fetchpriority="high"
+<GodHero
+  eyebrow="Sobre Nosotros · Desde 2003"
+  title="Experiencia europea,"
+  titleGold="ejecución sin improvisación"
+  lead="Más de 23 años aplicados a remodelaciones residenciales de alto estándar en Venezuela: método técnico, materiales adecuados, supervisión directa y acabados de lujo."
+  image="/images/integrales-800.webp"
+  imageAlt="Reforma integral con estándares europeos"
+  badges={["23+ años", "Método técnico", "Garantía escrita"]}
+  watermark="REMODELAT"
   />
-  <div class="hero-overlay"></div>
-    <div class="hero-content">
-    <span class="tag">Sobre Nosotros</span>
-    <h1 class="hero-title">Experiencia europea,<br/><span class="gold">ejecución sin improvisación</span></h1>
-    <p class="hero-subtitle">Más de 23 años aplicados a remodelaciones residenciales de alto estándar en Venezuela: método técnico, materiales adecuados, supervisión directa y acabados de lujo.</p>
-  </div>
-</header>
 
-<!-- HISTORIA + IMAGEN -->
-<section class="story-section">
-  <div class="container">
-    <div class="story-grid">
-      <div class="story-text">
-        <span class="section-tag">Nuestra Historia</span>
-        <h2>De España a Venezuela:<br/>un estándar de trabajo claro</h2>
-        <p>RemodelaT nació en España como una empresa especializada en remodelaciones integrales de alta calidad. Durante más de dos décadas construimos una forma de trabajar basada en precisión, planificación, cumplimiento y acabados impecables.</p>
-        <p>En cualquier mercado existen distintos niveles de ejecución. Nosotros decidimos trabajar bajo un método claro: diagnóstico técnico, especificación correcta de materiales, supervisión directa, pruebas antes de cerrar y garantía documentada.</p>
-        <p>Hoy operamos en <strong>Valencia, San Diego, Carabobo y Caracas</strong>, adaptando técnicas avanzadas de construcción europea a la arquitectura local, sin sacrificar la calidad que nos define.</p>
-      </div>
-      <div class="story-image">
-        <img
-          src="/images/cocina-800.webp"
-          alt="Cocina reformada con acabados europeos en Venezuela"
-          width="600" height="450"
-          loading="lazy"
-        />
-        <div class="image-badge">
-          <span class="badge-number">23+</span>
-          <span class="badge-text">Años de<br/>Experiencia</span>
-        </div>
+<GodMarquee />
+
+<section class="story-section-god" data-reveal>
+  <div class="container story-grid-god">
+    <div class="story-text-god">
+      <span class="eyebrow-god on-light">Nuestra Historia</span>
+      <h2>De España a Venezuela:<br/>un estándar de trabajo claro</h2>
+      <p>RemodelaT nació en España como una empresa especializada en remodelaciones integrales de alta calidad. Durante más de dos décadas construimos una forma de trabajar basada en precisión, planificación, cumplimiento y acabados impecables.</p>
+      <p>En cualquier mercado existen distintos niveles de ejecución. Nosotros decidimos trabajar bajo un método claro: diagnóstico técnico, especificación correcta de materiales, supervisión directa, pruebas antes de cerrar y garantía documentada.</p>
+      <p>Hoy operamos en <strong>Valencia, San Diego, Carabobo y Caracas</strong>, adaptando técnicas avanzadas de construcción europea a la arquitectura local.</p>
+    </div>
+    <div class="story-media-god">
+      <img src="/images/cocina-800.webp" alt="Cocina reformada con acabados europeos" width="600" height="450" loading="lazy" />
+      <div class="story-badge-god">
+        <strong>23+</strong><span>Años de<br/>Experiencia</span>
       </div>
     </div>
   </div>
 </section>
 
-<!-- DIFERENCIACIÓN -->
-<section class="difference-section">
+<section class="difference-god" data-reveal>
   <div class="container">
-    <span class="section-tag light">Por Qué Elegirnos</span>
-    <h2 class="section-title">Un estándar pensado para propietarios exigentes</h2>
-    <p class="section-subtitle">No necesitamos descalificar a nadie para explicar nuestra diferencia: trabajamos con método, materiales compatibles, supervisión y garantía. Esa es la base de una remodelación que se mantiene impecable con el tiempo.</p>
-
-    <div class="difference-grid">
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-          </svg>
-        </div>
-        <h3>Materiales y soluciones especificadas</h3>
-        <p>No usamos materiales genéricos para cualquier aplicación. Cada adhesivo, impermeabilizante, tubería, protección eléctrica o sellado se elige según soporte, uso, formato y exposición.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"/>
-            <polyline points="12 6 12 12 16 14"/>
-          </svg>
-        </div>
-        <h3>Planificación y cronograma realista</h3>
-        <p>Cada proyecto tiene un alcance definido y un cronograma razonado. Preferimos planificar bien antes que prometer plazos irreales que comprometan el acabado final.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
-            <polyline points="14 2 14 8 20 8"/>
-            <line x1="16" y1="13" x2="8" y2="13"/>
-            <line x1="16" y1="17" x2="8" y2="17"/>
-          </svg>
-        </div>
-        <h3>Presupuesto por partidas</h3>
-        <p>Presupuestos detallados desde el primer día: materiales, mano de obra, alcance, exclusiones, tiempos y condiciones de garantía. Sin partidas ambiguas ni sorpresas innecesarias.</p>
-      </div>
-      <div class="diff-card">
-        <div class="diff-icon">
-          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
-        </div>
-        <h3>Acabados de lujo verificables</h3>
-        <p>Porcelanato de gran formato, grifería premium, carpintería a medida e iluminación técnica solo tienen valor si están instalados con precisión: juntas, cortes, nivelación, encuentros y remates.</p>
-      </div>
+    <div class="section-header">
+      <span class="eyebrow-god">Por Qué Elegirnos</span>
+      <h2>Un estándar pensado para propietarios exigentes</h2>
+      <p>Trabajamos con método, materiales compatibles, supervisión y garantía. Esa es la base de una remodelación que se mantiene impecable con el tiempo.</p>
+    </div>
+    <div class="diff-grid-god">
+      <div class="diff-card-god"><div class="diff-icon-god">◈</div><h3>Materiales especificados</h3><p>Cada adhesivo, impermeabilizante, tubería o sellado se elige según soporte, uso, formato y exposición.</p></div>
+      <div class="diff-card-god"><div class="diff-icon-god">◑</div><h3>Planificación realista</h3><p>Alcance definido y cronograma razonado. Planificar bien antes que prometer plazos irreales.</p></div>
+      <div class="diff-card-god"><div class="diff-icon-god">⬙</div><h3>Presupuesto por partidas</h3><p>Materiales, mano de obra, alcance, exclusiones, tiempos y garantía sin partidas ambiguas.</p></div>
+      <div class="diff-card-god"><div class="diff-icon-god">✦</div><h3>Acabados verificables</h3><p>Porcelanato XL, grifería premium y carpintería a medida solo valen si las juntas, cortes y nivelación son precisos.</p></div>
     </div>
   </div>
 </section>
 
-<!-- GALERÍA DE TRABAJOS -->
-<section class="gallery-section">
+<section class="gallery-god" data-reveal>
   <div class="container">
-    <span class="section-tag">Nuestro Trabajo</span>
-    <h2 class="section-title">Proyectos que Hablan por Nosotros</h2>
-    <p class="section-subtitle">Cada proyecto debe demostrar nuestro compromiso con la excelencia: acabados precisos, materiales adecuados y atención al detalle visible y oculto.</p>
-
-    <div class="gallery-grid">
-      <div class="gallery-item large">
-        <img
-          src="/images/cocina.webp"
-          srcset={getSrcSet('cocina', [400, 800])}
-          sizes="(max-width: 768px) 100vw, 50vw"
-          alt="Cocina reformada con acabados de lujo"
-          width="800" height="600"
-          loading="lazy"
-        />
-        <div class="gallery-caption">
-          <span>Reforma de Cocina</span>
-          <p>Diseño moderno con materiales premium</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/images/bano-terminado-final.webp"
-          alt="Baño reformado con porcelanato y grifería premium"
-          width="400" height="300"
-          loading="lazy"
-        />
-        <div class="gallery-caption">
-          <span>Baño Completo</span>
-          <p>Porcelanato XL y ducha walk-in</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/images/cocina2.webp"
-          alt="Cocina moderna con diseño europeo"
-          width="400" height="300"
-          loading="lazy"
-        />
-        <div class="gallery-caption">
-          <span>Reforma Integral</span>
-          <p>Transformación completa del espacio</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/images/revestimiento-wall-panels.webp"
-          alt="Revestimiento de paredes con wall panels"
-          width="400" height="300"
-          loading="lazy"
-        />
-        <div class="gallery-caption">
-          <span>Revestimientos</span>
-          <p>Wall panels y acabados decorativos</p>
-        </div>
-      </div>
-      <div class="gallery-item">
-        <img
-          src="/images/suelo-porcelanato.webp"
-          alt="Suelo de porcelanato de gran formato"
-          width="400" height="300"
-          loading="lazy"
-        />
-        <div class="gallery-caption">
-          <span>Suelos Premium</span>
-          <p>Porcelanato de gran formato</p>
-        </div>
-      </div>
+    <div class="section-header">
+      <span class="eyebrow-god on-light">Nuestro Trabajo</span>
+      <h2>Proyectos que hablan por nosotros</h2>
+      <p>Acabados precisos, materiales adecuados y atención al detalle visible y oculto.</p>
+    </div>
+    <div class="gallery-grid-god">
+      <div class="gallery-item-god large"><img src="/images/cocina.webp" srcset={getSrcSet('cocina', [400, 800])} sizes="50vw" alt="Cocina reformada" loading="lazy" /><div class="gallery-caption-god"><strong>Reforma de Cocina</strong><span>Diseño moderno con materiales premium</span></div></div>
+      <div class="gallery-item-god"><img src="/images/bano-terminado-final.webp" alt="Baño" loading="lazy" /><div class="gallery-caption-god"><strong>Baño Completo</strong><span>Porcelanato XL y ducha walk-in</span></div></div>
+      <div class="gallery-item-god"><img src="/images/cocina2.webp" alt="Cocina moderna" loading="lazy" /><div class="gallery-caption-god"><strong>Reforma Integral</strong><span>Transformación completa</span></div></div>
+      <div class="gallery-item-god"><img src="/images/revestimiento-wall-panels.webp" alt="Wall panels" loading="lazy" /><div class="gallery-caption-god"><strong>Revestimientos</strong><span>Wall panels decorativos</span></div></div>
+      <div class="gallery-item-god"><img src="/images/suelo-porcelanato.webp" alt="Suelo porcelanato" loading="lazy" /><div class="gallery-caption-god"><strong>Suelos Premium</strong><span>Porcelanato gran formato</span></div></div>
     </div>
   </div>
 </section>
 
-<!-- PROCESO -->
-<section class="process-section">
+<section class="process-god" data-reveal>
   <div class="container">
-    <span class="section-tag">Cómo Trabajamos</span>
-    <h2 class="section-title">Nuestro Proceso</h2>
-    <p class="section-subtitle">Metodología probada durante más de dos décadas y adaptada al mercado venezolano sin perder rigor técnico.</p>
-
-    <div class="process-steps">
-      <div class="step">
-        <span class="step-number">01</span>
-        <div class="step-content">
-          <h3>Diagnóstico técnico inicial</h3>
-          <p>Visitamos tu hogar, escuchamos tus necesidades, evaluamos el espacio, revisamos condiciones existentes y tomamos medidas.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-number">02</span>
-        <div class="step-content">
-          <h3>Diseño, especificación y presupuesto</h3>
-          <p>Elaboramos propuesta, selección de materiales, presupuesto itemizado por partidas y cronograma definido.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-number">03</span>
-        <div class="step-content">
-          <h3>Ejecución supervisada</h3>
-          <p>Equipo profesional con supervisor dedicado, control de calidad en fases críticas y comunicación del avance.</p>
-        </div>
-      </div>
-      <div class="step">
-        <span class="step-number">04</span>
-        <div class="step-content">
-          <h3>Entrega verificada y garantía</h3>
-          <p>Inspección final conjunta, checklist de remates, limpieza profesional y garantía por escrito según el tipo de partida.</p>
-        </div>
-      </div>
+    <div class="section-header">
+      <span class="eyebrow-god on-light">Cómo Trabajamos</span>
+      <h2>Nuestro Proceso</h2>
+      <p>Metodología probada durante más de dos décadas y adaptada al mercado venezolano sin perder rigor técnico.</p>
+    </div>
+    <div class="process-steps-god">
+      <div class="step-god"><span>01</span><div><h3>Diagnóstico técnico inicial</h3><p>Visitamos tu hogar, escuchamos necesidades, evaluamos espacio y condiciones existentes.</p></div></div>
+      <div class="step-god"><span>02</span><div><h3>Diseño, especificación y presupuesto</h3><p>Propuesta, selección de materiales, presupuesto por partidas y cronograma definido.</p></div></div>
+      <div class="step-god"><span>03</span><div><h3>Ejecución supervisada</h3><p>Supervisor dedicado, control de calidad en fases críticas y comunicación del avance.</p></div></div>
+      <div class="step-god"><span>04</span><div><h3>Entrega verificada y garantía</h3><p>Inspección final conjunta, checklist de remates, limpieza y garantía por escrito.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- CIFRAS -->
-<section class="stats-section">
-  <div class="container">
-    <div class="stats-grid">
-      <div class="stat-item">
-        <span class="stat-number">23+</span>
-        <span class="stat-label">Años de Experiencia</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">500+</span>
-        <span class="stat-label">Proyectos en España</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">2</span>
-        <span class="stat-label">Años en Venezuela</span>
-      </div>
-      <div class="stat-item">
-        <span class="stat-number">100%</span>
-        <span class="stat-label">Método técnico</span>
-      </div>
-    </div>
+<section class="stats-god" data-reveal>
+  <div class="container stats-grid-god">
+    <div class="stat-god"><strong>23+</strong><span>Años de Experiencia</span></div>
+    <div class="stat-god"><strong>500+</strong><span>Proyectos en España</span></div>
+    <div class="stat-god"><strong>2</strong><span>Años en Venezuela</span></div>
+    <div class="stat-god"><strong>100%</strong><span>Método técnico</span></div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section">
-  <div class="container">
-    <div class="cta-content">
-      <h2>¿Listo para una remodelación con alto estándar?</h2>
-      <p>Solicita una valoración técnica. Analizaremos tu espacio, el alcance deseado y el nivel de acabado antes de preparar una propuesta detallada.</p>
-      <div class="cta-buttons">
-        <a href="/contacto" class="btn-premium btn-primary-premium">Solicitar valoración técnica</a>
-        <a href="https://wa.me/584227997043?text=Hola%2C%20me%20interesa%20conocer%20m%C3%A1s%20sobre%20sus%20servicios%20de%20reforma" target="_blank" rel="noopener" class="btn-premium btn-outline-premium">WhatsApp Directo</a>
-      </div>
+<GuaranteeMatrix variant="light" />
+
+<section class="god-cta">
+  <div class="container cta-inner-god">
+    <span class="eyebrow-god">Siguiente paso</span>
+    <h2>¿Listo para una remodelación con alto estándar?</h2>
+    <p>Solicita una valoración técnica. Analizaremos tu espacio, el alcance deseado y el nivel de acabado antes de preparar una propuesta detallada.</p>
+    <div class="cta-actions-home">
+      <a href="/contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Solicitar valoración técnica</span><span class="btn-arrow">→</span></a>
+      <a href="https://wa.me/584227997043" target="_blank" class="btn-premium btn-outline-premium"><span class="btn-content">WhatsApp Directo</span><span class="btn-arrow">→</span></a>
     </div>
   </div>
 </section>
@@ -264,433 +121,30 @@ const getSrcSet = (baseName: string, widths: number[], ext = 'webp') => {
 </BaseLayout>
 
 <style>
-/* === HERO === */
-.page-hero {
-  position: relative;
-  min-height: 70vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  overflow: hidden;
-}
-.hero-img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 100%);
-  z-index: 1;
-}
-.hero-content {
-  position: relative;
-  z-index: 2;
-  max-width: 800px;
-  padding: 140px 24px 80px;
-}
-.tag {
-  display: inline-block;
-  font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold, #c9a961);
-  margin-bottom: 20px;
-}
-.hero-title {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  font-weight: 400;
-  line-height: 1.15;
-  color: #fff;
-  margin-bottom: 24px;
-}
-.hero-title .gold { color: var(--gold, #c9a961); }
-.hero-subtitle {
-  font-size: 1.15rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.8);
-  max-width: 650px;
-  margin: 0 auto;
-}
+  .container{max-width:1160px;margin:0 auto;padding:0 24px}.section-header{text-align:center;max-width:700px;margin:0 auto 52px}.section-header h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.6vw,2.8rem);font-weight:500;letter-spacing:-.02em;line-height:1.1;color:var(--ink);color:inherit;margin:12px 0 14px}.section-header p{color:var(--text-muted);line-height:1.7;font-size:1.05rem}
+  .story-section-god{background:var(--white);padding:clamp(80px,8vw,110px) 24px}.story-grid-god{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}.story-text-god h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.4vw,2.7rem);line-height:1.12;letter-spacing:-.02em;margin:14px 0 18px;color:var(--ink)}.story-text-god p{color:var(--text-muted);line-height:1.8;margin-bottom:14px;font-size:1.05rem}.story-media-god{position:relative;border-radius:var(--r-md);overflow:hidden;border:var(--hairline);box-shadow:var(--e-3)}.story-media-god img{width:100%;height:460px;object-fit:cover}.story-badge-god{position:absolute;bottom:18px;right:18px;background:var(--gold);color:var(--ink);padding:14px 18px;border-radius:var(--r-sm);display:flex;align-items:center;gap:10px;box-shadow:var(--e-2)}.story-badge-god strong{font-family:var(--font-serif);font-size:1.9rem;line-height:1}.story-badge-god span{font-size:.72rem;font-weight:700;text-transform:uppercase;line-height:1.2}
 
-/* === STORY SECTION === */
-.story-section {
-  background: #fff;
-  padding: 90px 24px;
-}
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-.story-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-}
-.section-tag {
-  display: inline-block;
-  font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: var(--gold, #c9a961);
-  margin-bottom: 16px;
-}
-.section-tag.light { color: var(--gold, #c9a961); }
-.story-text h2 {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(1.8rem, 3vw, 2.4rem);
-  font-weight: 400;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 24px;
-  line-height: 1.2;
-}
-.story-text p {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--text-light, #555);
-  margin-bottom: 16px;
-}
-.story-image {
-  position: relative;
-  border-radius: var(--r-md);
-  overflow: hidden;
-}
-.story-image img {
-  width: 100%;
-  height: 400px;
-  object-fit: cover;
-  border-radius: var(--r-md);
-}
-.image-badge {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  background: var(--gold, #c9a961);
-  color: #0a0a0a;
-  padding: 16px 20px;
-  border-radius: var(--r-md);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
-}
-.badge-number {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
-}
-.badge-text {
-  font-size: 0.75rem;
-  font-weight: 600;
-  line-height: 1.3;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
+  .difference-god{background:var(--ink);padding:clamp(80px,8vw,110px) 24px;border-top:var(--hairline);border-bottom:var(--hairline)}.difference-god .section-header h2{color:var(--white)}.difference-god .section-header p{color:rgba(255,255,255,.68)}.diff-grid-god{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.diff-card-god{background:rgba(255,255,255,.045);border:var(--hairline);border-radius:var(--r-md);padding:34px 28px;transition:all .32s var(--ease-out)}.diff-card-god:hover{border-color:rgba(201,169,97,.38);transform:translateY(-4px)}.diff-icon-god{color:var(--gold);font-size:1.3rem;margin-bottom:14px}.diff-card-god h3{color:var(--white);font-family:var(--font-serif);font-size:1.25rem;margin-bottom:8px}.diff-card-god p{color:rgba(255,255,255,.66);font-size:.94rem;line-height:1.65}
 
-/* === DIFFERENCE SECTION === */
-.difference-section {
-  background: var(--bg, #0a0a0a);
-  padding: 90px 24px;
-}
-.difference-section .section-title {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 400;
-  text-align: center;
-  color: #fff;
-  margin-bottom: 12px;
-}
-.difference-section .section-subtitle {
-  text-align: center;
-  font-size: 1.05rem;
-  color: rgba(255,255,255,0.7);
-  max-width: 700px;
-  margin: 0 auto 50px;
-  line-height: 1.7;
-}
-.difference-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
-}
-.diff-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: var(--r-md);
-  padding: 36px 32px;
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-.diff-card:hover {
-  border-color: var(--gold, #c9a961);
-  transform: translateY(-4px);
-}
-.diff-icon {
-  color: var(--gold, #c9a961);
-  margin-bottom: 16px;
-}
-.diff-card h3 {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 1.3rem;
-  font-weight: 500;
-  color: #fff;
-  margin-bottom: 10px;
-}
-.diff-card p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.65);
-}
+  .gallery-god{background:var(--bone);padding:clamp(80px,8vw,110px) 24px}.gallery-grid-god{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.gallery-item-god{position:relative;border-radius:var(--r-md);overflow:hidden;aspect-ratio:4/3;background:var(--ink);border:var(--hairline-ink)}.gallery-item-god.large{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}.gallery-item-god img{width:100%;height:100%;object-fit:cover;transition:transform var(--dur-god) var(--ease-god)}.gallery-item-god:hover img{transform:scale(1.06)}.gallery-caption-god{position:absolute;bottom:0;left:0;right:0;padding:24px 20px 16px;background:linear-gradient(transparent, rgba(0,0,0,.82));color:var(--white);opacity:0;transform:translateY(8px);transition:all .32s}.gallery-item-god:hover .gallery-caption-god{opacity:1;transform:none}.gallery-caption-god strong{display:block;font-family:var(--font-serif);font-size:1.05rem}.gallery-caption-god span{font-size:.82rem;color:rgba(255,255,255,.72)}
 
-/* === GALLERY SECTION === */
-.gallery-section {
-  background: #f8f7f4;
-  padding: 90px 24px;
-}
-.gallery-section .section-title {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 400;
-  text-align: center;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 12px;
-}
-.gallery-section .section-subtitle {
-  text-align: center;
-  font-size: 1.05rem;
-  color: var(--text-light, #555);
-  max-width: 600px;
-  margin: 0 auto 50px;
-  line-height: 1.7;
-}
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-}
-.gallery-item {
-  position: relative;
-  border-radius: var(--r-md);
-  overflow: hidden;
-  aspect-ratio: 4/3;
-}
-.gallery-item.large {
-  grid-column: span 2;
-  grid-row: span 2;
-  aspect-ratio: auto;
-}
-.gallery-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.5s ease;
-}
-.gallery-item:hover img {
-  transform: scale(1.05);
-}
-.gallery-caption {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.85));
-  padding: 30px 20px 16px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.gallery-item:hover .gallery-caption {
-  opacity: 1;
-}
-.gallery-caption span {
-  display: block;
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 1.1rem;
-  color: #fff;
-  margin-bottom: 4px;
-}
-.gallery-caption p {
-  font-size: 0.8rem;
-  color: rgba(255,255,255,0.7);
-  margin: 0;
-}
+  .process-god{background:var(--white);padding:clamp(80px,8vw,110px) 24px}.process-steps-god{display:flex;flex-direction:column;gap:16px;max-width:760px;margin:0 auto}.step-god{display:flex;gap:20px;background:var(--bone);border:var(--hairline-ink);border-radius:var(--r-md);padding:26px 28px;transition:border-color .3s}.step-god:hover{border-color:rgba(201,169,97,.38)}.step-god span{font-family:var(--font-serif);font-size:2rem;color:rgba(201,169,97,.62);line-height:1;min-width:52px}.step-god h3{font-size:1.05rem;font-weight:700;margin-bottom:6px;color:var(--ink)}.step-god p{font-size:.93rem;color:var(--text-muted);line-height:1.6;margin:0}
 
-/* === PROCESS SECTION === */
-.process-section {
-  background: #fff;
-  padding: 90px 24px;
-}
-.process-section .section-title {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-  font-weight: 400;
-  text-align: center;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 12px;
-}
-.process-section .section-subtitle {
-  text-align: center;
-  font-size: 1.05rem;
-  color: var(--text-light, #555);
-  max-width: 600px;
-  margin: 0 auto 50px;
-  line-height: 1.7;
-}
-.process-steps {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  max-width: 750px;
-  margin: 0 auto;
-}
-.step {
-  display: flex;
-  align-items: flex-start;
-  gap: 24px;
-  background: #f8f7f4;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: var(--r-md);
-  padding: 28px 32px;
-  transition: border-color 0.3s ease;
-}
-.step:hover {
-  border-color: var(--gold, #c9a961);
-}
-.step-number {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: 2.4rem;
-  font-weight: 400;
-  color: var(--gold, #c9a961);
-  min-width: 55px;
-  line-height: 1;
-}
-.step-content h3 {
-  font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: var(--text, #2a2a2a);
-  margin-bottom: 8px;
-}
-.step-content p {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: var(--text-light, #555);
-  margin: 0;
-}
+  .stats-god{background:var(--ink);padding:52px 24px;border-top:var(--hairline);border-bottom:var(--hairline)}.stats-grid-god{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;text-align:center}.stat-god strong{font-family:var(--font-serif);font-size:clamp(2rem,4vw,2.8rem);color:var(--gold);line-height:1;display:block;margin-bottom:6px}.stat-god span{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.6)}
 
-/* === STATS SECTION === */
-.stats-section {
-  background: var(--gold, #c9a961);
-  padding: 60px 24px;
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
-  text-align: center;
-}
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-.stat-number {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(2.2rem, 4vw, 3rem);
-  font-weight: 700;
-  color: #0a0a0a;
-  line-height: 1;
-}
-.stat-label {
-  font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  color: rgba(10,10,10,0.7);
-}
+  .cta-inner-god{max-width:720px;margin:0 auto;text-align:center}.cta-inner-god h2{font-family:var(--font-serif);font-size:clamp(2rem,4vw,3rem);color:var(--white);line-height:1.08;margin:14px 0 16px;letter-spacing:-.02em}.cta-inner-god p{color:rgba(255,255,255,.72);line-height:1.7;margin-bottom:28px}.cta-actions-home{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 
-/* === CTA SECTION === */
-.cta-section {
-  background: var(--bg, #0a0a0a);
-  padding: 100px 24px;
-  text-align: center;
-}
-.cta-content {
-  max-width: 700px;
-  margin: 0 auto;
-}
-.cta-content h2 {
-  font-family: var(--font-serif, 'Cormorant Garamond', serif);
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 400;
-  color: #fff;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-.cta-content p {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: rgba(255,255,255,0.75);
-  margin-bottom: 36px;
-}
-.cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-.btn-premium {
-  display: inline-block;
-  font-family: var(--font-sans, 'Manrope', sans-serif);
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  padding: 16px 40px;
-  border-radius: var(--r-sm);
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-.btn-primary-premium {
-  background: var(--gold, #c9a961);
-  color: #0a0a0a;
-}
-.btn-primary-premium:hover {
-  background: var(--gold-light, #e6d3a7);
-}
-.btn-outline-premium {
-  background: transparent;
-  color: #fff;
-  border: 1px solid rgba(255,255,255,0.3);
-}
-.btn-outline-premium:hover {
-  border-color: var(--gold, #c9a961);
-  color: var(--gold, #c9a961);
-}
-
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-  .page-hero { min-height: 55vh; }
-  .hero-content { padding: 120px 20px 60px; }
-  .story-grid { grid-template-columns: 1fr; gap: 40px; }
-  .story-image img { height: 300px; }
-  .difference-grid { grid-template-columns: 1fr; }
-  .gallery-grid { grid-template-columns: 1fr 1fr; }
-  .gallery-item.large { grid-column: span 2; grid-row: span 1; aspect-ratio: 16/9; }
-  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-  .step { flex-direction: column; gap: 12px; }
-  .step-number { font-size: 2rem; min-width: auto; }
-  .cta-section { padding: 80px 20px; }
-  .cta-buttons { flex-direction: column; align-items: center; }
-}
+  @media(max-width:900px){.story-grid-god,.diff-grid-god,.gallery-grid-god{grid-template-columns:1fr;gap:24px}.gallery-item-god.large{grid-column:span 1;grid-row:auto;aspect-ratio:16/9}.stats-grid-god{grid-template-columns:repeat(2,1fr)}}
 </style>
+
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-revealed')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; entry.target.classList.add('is-revealed','god-reveal'); io.unobserve(entry.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    targets.forEach(el => { el.classList.add('god-reveal'); io.observe(el); });
+  })();
+</script>

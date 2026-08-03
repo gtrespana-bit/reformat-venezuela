@@ -1,7 +1,10 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import GodHero from '../components/GodHero.astro';
+import GodMarquee from '../components/GodMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
+import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
 
 const services = [
   { slug: 'remodelacion-cocina', data: { title: 'Remodelación de Cocinas', description: 'Cocinas funcionales y modernas con materiales premium y acabados impecables.' } },
@@ -10,176 +13,113 @@ const services = [
   { slug: 'instalacion-pisos', data: { title: 'Instalación de Pisos', description: 'Porcelanato, cerámica, laminado y madera con instalación certificada.' } },
   { slug: 'pintura-acabados', data: { title: 'Pintura y Acabados', description: 'Pintura profesional interior y exterior, microcemento y texturas.' } },
   { slug: 'fontaneria-plomeria', data: { title: 'Fontanería y Plomería', description: 'Instalaciones, fugas, tuberías y mantenimiento preventivo certificado.' } },
-  { slug: 'instalacion-electrica', data: { title: 'Instalación Eléctrica', description: 'Instalaciones seguras, cableado, tableros y certificación eléctrica.' } },
-  { slug: 'revestimientos-pared', data: { title: 'Revestimientos de Pared', description: 'Piedra natural, madera, porcelanato y paneles decorativos WPC.' } },
-  { slug: 'piscinas-mantenimiento', data: { title: 'Piscinas y Mantenimiento', description: 'Construcción, remodelación y mantenimiento de piscinas residenciales.' } },
 ];
-
 
 const cityData = {
   name: "Caracas",
   state: "Distrito Capital",
   title: "Remodelaciones en Caracas | RemodelaT Venezuela",
   description: "Especialistas en remodelación de apartamentos, casas y oficinas en Caracas. Trabajamos en Chacao, Baruta, El Hatillo, Sucre y toda el área metropolitana. Presupuestos sin compromiso.",
-  h1: "Remodelaciones en Caracas - Distrito Capital",
   heroImage: "/images/cocina-isla-central.webp",
   introImage: "/images/cocina-terminada-final.webp",
-  intro: `¿Buscas expertos en **remodelaciones en Caracas**? En RemodelaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.
-
-Con más de 23 años de experiencia en el **Distrito Capital**, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.`,
   zones: [
     "Chacao (Altamira, Los Palos Grandes, Chuao)",
     "Baruta (Las Mercedes, El Cafetal, Santa Fe)",
     "El Hatillo (La Lagunita, Los Naranjos)",
-    "Sucre (Los Dos Caminos, Montalbán, La Carlota)",
-    "Libertador (Centro, San Bernardino, Los Chaguaramos)",
-    "Zonas cercanas: Guarenas, Guatire, Los Teques"
+    "Sucre (Los Dos Caminos, La Carlota)",
+    "Libertador (Centro, San Bernardino)",
+    "Guarenas, Guatire, Los Teques"
   ],
-  prices: {
-    "Remodelación de Cocina": "Desde $2,500",
-    "Remodelación de Baño": "Desde $1,800",
-    "Pisos y Revestimientos": "Desde $35/m²",
-    "Pintura Profesional": "Desde $8/m²",
-    "Remodelación Integral": "Desde $15,000",
-    "Diseño de Interiores": "Valoración técnica"
-  },
   testimonials: [
-    {
-      name: "María González",
-      location: "Chacao, Caracas",
-      text: "Remodelaron mi cocina en Altamira y quedó espectacular. El equipo fue muy profesional y cumplieron con los plazos. Totalmente recomendados.",
-      rating: 5
-    },
-    {
-      name: "Carlos Rodríguez",
-      location: "Las Mercedes, Caracas",
-      text: "Excelente trabajo en la remodelación de mi oficina en Las Mercedes. Atención al detalle impecable y precios justos.",
-      rating: 5
-    },
-    {
-      name: "Ana Martínez",
-      location: "El Hatillo, Caracas",
-      text: "Transformaron completamente mi apartamento en El Hatillo. El diseño superó mis expectativas. Muy agradecida con todo el equipo.",
-      rating: 5
-    }
+    { name: "María González", location: "Chacao, Caracas", text: "Remodelaron mi cocina en Altamira y quedó espectacular. El equipo fue muy profesional y cumplieron con los plazos.", rating: 5 },
+    { name: "Carlos Rodríguez", location: "Las Mercedes, Caracas", text: "Excelente trabajo en la remodelación de mi oficina en Las Mercedes. Atención al detalle impecable y precios justos.", rating: 5 },
+    { name: "Ana Martínez", location: "El Hatillo, Caracas", text: "Transformaron completamente mi apartamento en El Hatillo. El diseño superó mis expectativas.", rating: 5 }
   ]
 };
 
 const faqItems = [
-  {
-    question: `¿Cuánto cuesta una remodelación en Caracas?`,
-    answer: `Los precios varían según el alcance: una remodelación de cocina desde $2,500, baño desde $1,800, y remodelaciones integrales desde $15,000. Ofrecemos valoración técnica inicial sin compromiso para proyectos en toda el área metropolitana de Caracas.`
-  },
-  {
-    question: `¿Trabajan en edificios con normativas de condominio?`,
-    answer: `Sí, tenemos amplia experiencia trabajando en edificios residenciales y comerciales de Caracas. Conocemos las normativas de los principales condominios en Chacao, Baruta, El Hatillo y Sucre, y gestionamos los permisos necesarios.`
-  },
-  {
-    question: `¿Cuánto tiempo toma una remodelación en Caracas?`,
-    answer: `Depende del proyecto: una cocina toma 3-4 semanas, un baño 2-3 semanas, y una remodelación integral 2-3 meses. Siempre establecemos un cronograma claro antes de iniciar.`
-  },
-  {
-    question: `¿Ofrecen garantía en los trabajos?`,
-    answer: `Sí, todos nuestros trabajos incluyen garantía por escrito. Usamos materiales de primera calidad y mano de obra calificada para garantizar resultados duraderos.`
-  },
-  {
-    question: `¿Atienden zonas fuera de Caracas?`,
-    answer: `Sí, además del Distrito Capital atendemos Guarenas, Guatire, Los Teques y zonas cercanas. Contáctanos para verificar disponibilidad en tu zona.`
-  }
+  { question: `¿Cuánto cuesta una remodelación en Caracas?`, answer: `Los precios varían según el alcance: una remodelación de cocina desde $2,500, baño desde $1,800, y remodelaciones integrales desde $15,000. Ofrecemos valoración técnica inicial sin compromiso.` },
+  { question: `¿Trabajan en edificios con normativas de condominio?`, answer: `Sí, tenemos amplia experiencia trabajando en edificios residenciales y comerciales de Caracas. Conocemos las normativas de los principales condominios en Chacao, Baruta, El Hatillo y Sucre.` },
+  { question: `¿Cuánto tiempo toma una remodelación en Caracas?`, answer: `Depende del proyecto: una cocina toma 3-4 semanas, un baño 2-3 semanas, y una remodelación integral 2-3 meses. Siempre establecemos un cronograma claro.` },
+  { question: `¿Ofrecen garantía en los trabajos?`, answer: `Sí, todos nuestros trabajos incluyen garantía por escrito por partidas: impermeabilización, instalaciones, pisos y acabados. Se documenta en contrato.` },
+  { question: `¿Atienden zonas fuera de Caracas?`, answer: `Sí, además del Distrito Capital atendemos Guarenas, Guatire, Los Teques y zonas cercanas. Contáctanos para verificar disponibilidad.` }
 ];
 ---
 
 <BaseLayout title={cityData.title} description={cityData.description}>
 
-  
+  <GodHero
+    eyebrow="Distrito Capital · 23+ años"
+    title="Remodelaciones en"
+    titleGold="Caracas"
+    lead="Transformamos apartamentos, casas y oficinas con diseño de autor, materiales premium y ejecución impecable en toda el área metropolitana."
+    image={cityData.heroImage}
+    imageAlt="Remodelaciones y reformas de apartamentos y casas en Caracas"
+    badges={["Equipo propio", "Presupuesto por partidas", "Garantía escrita"]}
+    watermark="CARACAS"
+  />
 
-  <!-- ═══════════════ HERO ═══════════════ -->
-  <section class="hero">
-    <img class="hero-bg" src={cityData.heroImage} alt="Remodelaciones y reformas de apartamentos y casas en Caracas | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-badge">Distrito Capital · +23 años de experiencia</span>
-      <h1>Remodelaciones en <em>Caracas</em></h1>
-      <p class="hero-sub">Transformamos apartamentos, casas y oficinas con diseño de autor, materiales premium y ejecución impecable en toda el área metropolitana.</p>
-      <div class="hero-actions">
-        <a href="#contacto" class="btn btn-gold">Solicitar valoración técnica</a>
-        <a href="https://wa.me/584227997043" class="btn btn-outline" target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      </div>
-      <div class="hero-stats">
-        <div class="stat"><strong>+200</strong><span>Proyectos entregados</span></div>
-        <div class="stat"><strong>15+</strong><span>Años de experiencia</span></div>
-        <div class="stat"><strong>5.0</strong><span>Calificación clientes</span></div>
-      </div>
-    </div>
-  </section>
+  <GodMarquee />
 
-  <Breadcrumb items={[
-    { name: 'Inicio', url: '/' },
-    { name: 'Caracas', url: '/caracas' }
-  ]} />
+  <Breadcrumb items={[ { name: 'Inicio', url: '/' }, { name: 'Caracas', url: '/caracas' } ]} />
 
-<!-- ═══════════════ INTRO ═══════════════ -->
-  <section class="section intro">
+  <section class="section intro-god" data-reveal>
     <div class="container intro-grid">
       <div class="intro-media">
         <img src={cityData.introImage} alt={`Proyecto de remodelación en ${cityData.name}`} loading="lazy" />
-        <div class="intro-accent"></div>
       </div>
       <div class="intro-body">
-        <span class="section-tag">Por qué RemodelaT</span>
+        <span class="eyebrow-god on-light">Por qué RemodelaT</span>
         <h2>Expertos en remodelaciones<br/>en el Distrito Capital</h2>
-        <p>En RemodelaT Venezuela transformamos tu apartamento, casa u oficina en la capital con la más alta calidad y profesionalismo.</p>
-        <p>Con más de 23 años de experiencia en el <strong>Distrito Capital</strong>, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.</p>
+        <p>Con más de 23 años de experiencia, conocemos las particularidades de los edificios caraqueños, las normativas de condominios y los mejores materiales para el clima de la ciudad.</p>
+        <p>Transformamos tu apartamento, casa u oficina con método técnico, materiales adecuados y acabados de lujo.</p>
         <ul class="intro-checks">
           <li>Equipo propio certificado, sin subcontratas</li>
           <li>Presupuesto cerrado y cronograma garantizado</li>
           <li>Gestión de permisos de condominio</li>
           <li>Garantía por escrito en todos los trabajos</li>
         </ul>
-        <a href="#contacto" class="btn btn-dark">Conocer más sobre nosotros</a>
+        <a href="#contacto" class="btn-premium btn-primary-premium"><span class="btn-content">Conocer más sobre nosotros</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ SERVICES ═══════════════ -->
+  <div class="premium-divider"><i></i></div>
+
   <section class="section section-alt">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Servicios</span>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Servicios</span>
         <h2>Soluciones integrales de remodelación</h2>
         <p>Desde una renovación puntual hasta un proyecto llave en mano, cubrimos cada etapa con estándares premium.</p>
-        <a href="/servicios" class="btn btn-dark" style="margin-top: 28px;">Ver todos los servicios</a>
       </div>
-      <div class="services-grid">
+      <div class="services-grid-god">
         {services.slice(0, 6).map((service) => (
-          <article class="service-card">
-            <div class="service-icon">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          <article class="service-card-god" data-reveal>
+            <div class="service-icon-god">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
             </div>
             <h3>{service.data.title}</h3>
             <p>{service.data.description}</p>
-            <a href={`/servicios/${service.slug}`} class="card-link">
-              Ver detalles
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+            <a href={`/servicios/${service.slug}`} class="card-link-god">Ver detalles <span>→</span></a>
           </article>
         ))}
       </div>
+      <div class="cta-center" data-reveal><a href="/servicios" class="btn-premium btn-primary-premium"><span class="btn-content">Ver todos los servicios</span><span class="btn-arrow">→</span></a></div>
     </div>
   </section>
 
-  <!-- ═══════════════ ZONES ═══════════════ -->
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Cobertura</span>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Cobertura</span>
         <h2>Atendemos toda el área metropolitana</h2>
         <p>Nuestro equipo se desplaza a los principales municipios y urbanizaciones de Caracas.</p>
       </div>
-      <div class="zones-grid">
-        {cityData.zones.map((zone: string) => (
-          <div class="zone-item">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+      <div class="zones-grid-god">
+        {cityData.zones.map((zone) => (
+          <div class="zone-item-god">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <span>{zone}</span>
           </div>
         ))}
@@ -187,676 +127,133 @@ const faqItems = [
     </div>
   </section>
 
-  
-  <!-- ═══════════════ PROCESO ═══════════════ -->
   <section class="section section-alt">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Cómo trabajamos</span>
-        <h2>Nuestro proceso de remodelación en Caracas</h2>
-        <p>Trabajar en Caracas exige conocer sus edificios, normativas de condominio y logística urbana. Nuestro proceso está diseñado para minimizar molestias y cumplir plazos en la capital.</p>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Cómo trabajamos</span>
+        <h2>Método para edificios caraqueños</h2>
+        <p>Trabajar en Caracas exige conocer sus edificios, normativas de condominio y logística urbana.</p>
       </div>
-      <div class="zones-grid">
-        <div class="zone-item"><strong>1. Valoración técnica inicial</strong><span>Evaluamos el espacio, tomamos medidas y escuchamos tu visión sin compromiso.</span></div>
-        <div class="zone-item"><strong>2. Presupuesto cerrado</strong><span>Recibes un presupuesto detallado en USD con materiales, mano de obra y cronograma.</span></div>
-        <div class="zone-item"><strong>3. Diseño y planificación</strong><span>Definimos materiales, acabados y fechas. Coordinamos permisos si aplica.</span></div>
-        <div class="zone-item"><strong>4. Ejecución supervisada</strong><span>Nuestro equipo propio ejecuta la obra con supervisión diaria y reportes de avance.</span></div>
-        <div class="zone-item"><strong>5. Entrega y garantía</strong><span>Entregamos limpio y funcionando, con garantía por escrito en todos los trabajos.</span></div>
+      <div class="process-grid-god">
+        <div class="process-item-god"><strong>01</strong><h4>Valoración técnica</h4><p>Evaluamos el espacio, tomamos medidas y escuchamos tu visión.</p></div>
+        <div class="process-item-god"><strong>02</strong><h4>Presupuesto por partidas</h4><p>Recibes detalle en USD con materiales, mano de obra y cronograma.</p></div>
+        <div class="process-item-god"><strong>03</strong><h4>Diseño y permisos</h4><p>Definimos materiales y gestionamos condominio.</p></div>
+        <div class="process-item-god"><strong>04</strong><h4>Ejecución supervisada</h4><p>Equipo propio con supervisión diaria y reportes.</p></div>
+        <div class="process-item-god"><strong>05</strong><h4>Entrega y garantía</h4><p>Limpio, funcionando, con garantía escrita por partidas.</p></div>
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ POR QUE ELEGIRNOS ═══════════════ -->
+  <GuaranteeMatrix compact eyebrow="Garantía documentada" title="Garantía por partidas, no promesas genéricas" />
+
   <section class="section">
     <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Por qué RemodelaT</span>
-        <h2>Por qué elegirnos en Caracas, Distrito Capital</h2>
-        <p>Más de 23 años remodelando apartamentos, casas y oficinas en la capital nos convierten en la opción de confianza para proyectos residenciales y comerciales en el Distrito Capital.</p>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">Testimonios</span>
+        <h2>Lo que dicen nuestros clientes en Caracas</h2>
       </div>
-      <div class="intro-grid">
-        <div class="intro-body">
-          <ul class="intro-checks">
-          <li>Gestión de permisos de condominio y juntas directivas en edificios de Chacao, Baruta y El Hatillo</li>
-          <li>Coordinación de horarios de carga y descarga con administraciones de edificios</li>
-          <li>Equipo propio que se desplaza a toda el área metropolitana sin recargos ocultos</li>
-          <li>Conocimiento de las normativas de remodelación en municipios como Baruta y Chacao</li>
-          <li>Presupuesto cerrado en USD con cronograma garantizado por escrito</li>
-          </ul>
-          <a href="#contacto" class="btn btn-dark">Solicitar presupuesto en Caracas</a>
-        </div>
-        <div class="intro-body">
-          <p>Atendemos Chacao, Baruta, El Hatillo, Sucre y Libertador, con desplazamiento incluido y sin costos ocultos. Cada proyecto en Caracas se ejecuta con estándares europeos adaptados a la realidad constructiva de Distrito Capital.</p>
-          <p>Nuestro compromiso es simple: <strong>presupuesto cerrado, cronograma garantizado y acabados impecables</strong>. Así hemos construido nuestra reputación en Caracas y toda la región central de Venezuela.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════ PRICING ═══════════════ -->
-  <section class="section section-dark">
-    <div class="container">
-      <div class="section-header section-header-light">
-        <span class="section-tag">Inversión</span>
-        <h2>Precios transparentes, sin sorpresas</h2>
-        <p>Cada proyecto es único. Estos son nuestros puntos de partida; el presupuesto final se define tras una valoración técnica inicial.</p>
-      </div>
-      <div class="pricing-grid">
-        {Object.entries(cityData.prices).map(([service, price]) => (
-          <div class="price-card">
-            <span class="price-label">{service}</span>
-            <span class="price-value">{price}</span>
-          </div>
-        ))}
-      </div>
-      <p class="pricing-note">* Precios referenciales en USD. No incluyen materiales salvo indicación contraria.</p>
-    </div>
-  </section>
-
-  <!-- ═══════════════ TESTIMONIALS ═══════════════ -->
-  <section class="section">
-    <div class="container">
-      <div class="section-header">
-        <span class="section-tag">Testimonios</span>
-        <h2>Lo que dicen nuestros clientes</h2>
-      </div>
-      <div class="testimonials-grid">
-        {cityData.testimonials.map((t: any) => (
-          <figure class="testimonial-card">
-            <div class="stars" aria-label={`${t.rating} de 5 estrellas`}>
-              {Array.from({ length: t.rating }).map(() => (
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              ))}
-            </div>
-            <blockquote>"{t.text}"</blockquote>
-            <figcaption>
-              <strong>{t.name}</strong>
-              <span>{t.location}</span>
-            </figcaption>
+      <div class="testimonials-grid-god">
+        {cityData.testimonials.map((t) => (
+          <figure class="testimonial-card-god" data-reveal>
+            <div class="stars-god">{"★★★★★"}</div>
+            <blockquote>“{t.text}”</blockquote>
+            <figcaption><strong>{t.name}</strong><span>{t.location}</span></figcaption>
           </figure>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ═══════════════ FAQ ═══════════════ -->
   <section class="section section-alt">
     <div class="container container-narrow">
-      <div class="section-header">
-        <span class="section-tag">FAQ</span>
-        <h2>Preguntas frecuentes</h2>
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">FAQ</span>
+        <h2>Preguntas frecuentes en Caracas</h2>
       </div>
       <FAQ items={faqItems} />
     </div>
   </section>
 
-  <!-- ═══════════════ CTA ═══════════════ -->
-  <section class="cta" id="contacto">
-    <img class="cta-bg" src="/images/cocina-terminada-final.webp" alt="Cocina moderna terminada lista para entrega en Caracas | RemodelaT" loading="lazy" decoding="async" />
-    <div class="cta-overlay"></div>
-    <div class="cta-content">
-      <span class="section-tag section-tag-light">Da el primer paso</span>
-      <h2>¿Listo para transformar tu espacio en Caracas?</h2>
-      <p>Agenda una valoración técnica inicial. Evaluamos tu proyecto, te asesoramos en materiales y te entregamos un presupuesto detallado sin compromiso.</p>
-      <div class="cta-actions">
-        <a href="https://wa.me/584227997043?text=Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación%20en%20Caracas" class="btn btn-gold" target="_blank" rel="noopener">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-          WhatsApp directo
+  <section class="god-cta" id="contacto">
+    <div class="cta-wrapper">
+      <span class="eyebrow-god">Da el primer paso</span>
+      <h2 class="cta-title">¿Listo para transformar tu espacio en Caracas?</h2>
+      <p class="cta-text">Agenda una valoración técnica inicial. Evaluamos tu proyecto y te entregamos un presupuesto detallado sin compromiso.</p>
+      <div class="cta-actions-home">
+        <a href="https://wa.me/584227997043?text=Hola,%20quiero%20un%20presupuesto%20para%20mi%20remodelación%20en%20Caracas" class="btn-premium btn-primary-premium" target="_blank" rel="noopener">
+          <span class="btn-content">WhatsApp directo</span><span class="btn-arrow">→</span>
         </a>
-        <a href="/contacto" class="btn btn-outline-light">Formulario de contacto</a>
+        <a href="/contacto" class="btn-premium btn-outline-premium"><span class="btn-content">Formulario de contacto</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
   </section>
 
-  <!-- LocalBusiness Schema -->
-  <script type="application/ld+json" set:html={JSON.stringify({
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": `RemodelaT Venezuela - ${cityData.name}`,
-    "description": cityData.description,
-    "areaServed": {
-      "@type": "City",
-      "name": cityData.name
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": cityData.name,
-      "addressRegion": cityData.state,
-      "addressCountry": "VE"
-    },
-    "priceRange": "$$",
-    "openingHours": "Mo-Fr 08:00-17:00"
-  })} />
 </BaseLayout>
 
 <style>
-  /* ── Tokens ── */
-  /* Alias locales -> tokens globales.
-     Antes este bloque definía su propio sistema (navy #1a2332 azulado y un
-     --ink #2d2d2d que pisaba el negro cálido global). Ahora solo traduce. */
-  .hero, .section, .cta {
-    --navy: var(--ink);
-    --navy-soft: var(--ink-soft);
-    --muted: var(--text-muted);
-    --surface: var(--white);
-    --surface-alt: var(--bone);
-    --border: var(--sand);
-    --radius: var(--r-md);
-    --shadow-sm: var(--e-1);
-    --shadow-md: var(--e-2);
-    --shadow-lg: var(--e-3);
-    --transition: var(--dur-base) var(--ease-out);
-  }
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+  .container-narrow { max-width: 860px; margin: 0 auto; padding: 0 24px; }
+  .section { padding: clamp(72px, 10vw, 112px) 0; }
+  .section-alt { background: var(--bone); }
+  .section-header { text-align: center; max-width: 680px; margin: 0 auto clamp(36px, 6vw, 64px); }
+  .section-header h2 { font-family: var(--font-serif); font-size: clamp(1.9rem, 4vw, 2.7rem); font-weight: 500; letter-spacing: -0.02em; color: var(--ink); line-height: 1.12; margin: 12px 0 14px; }
+  .section-header p { color: var(--text-muted); font-size: 1.05rem; line-height: 1.7; }
 
-  /* ── Layout helpers ── */
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 clamp(20px, 4vw, 48px);
-  }
-  .container-narrow { max-width: 800px; }
-  .section { padding: clamp(72px, 10vw, 120px) 0; }
-  .section-alt { background: var(--surface-alt); }
-  .section-dark {
-    background: var(--navy);
-    color: #fff;
-  }
+  .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 84px); align-items: center; }
+  .intro-media img { width: 100%; border-radius: var(--r-md); box-shadow: var(--e-3); border: var(--hairline); }
+  .intro-body h2 { font-family: var(--font-serif); font-size: clamp(1.9rem, 3.5vw, 2.6rem); line-height: 1.12; letter-spacing: -0.02em; margin: 12px 0 18px; color: var(--ink); }
+  .intro-body p { color: var(--text-muted); line-height: 1.78; margin-bottom: 14px; }
+  .intro-checks { list-style: none; padding: 0; margin: 22px 0 28px; display: grid; gap: 10px; }
+  .intro-checks li { position: relative; padding-left: 28px; font-size: 0.95rem; color: var(--ink); line-height: 1.5; }
+  .intro-checks li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 8px; border-radius: 50%; background: var(--gold-ink); box-shadow: 0 0 0 5px rgba(201,169,97,0.12); }
 
-  /* ── Section headers ── */
-  .section-header {
-    text-align: center;
-    max-width: 640px;
-    margin: 0 auto clamp(40px, 6vw, 72px);
-  }
-  .section-header h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.9rem, 4vw, 2.8rem);
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.2;
-    margin: 12px 0 16px;
-  }
-  .section-header p {
-    color: var(--muted);
-    font-size: 1.05rem;
-    line-height: 1.7;
-  }
-  .section-header-light h2 { color: #fff; }
-  .section-header-light p { color: rgba(255,255,255,.65); }
+  .services-grid-god { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .service-card-god { background: var(--white); border: var(--hairline); border-radius: var(--r-md); padding: 32px 28px; transition: transform var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-base) var(--ease-out); }
+  .service-card-god:hover { transform: translateY(-6px); box-shadow: var(--e-3); border-color: rgba(201,169,97,0.38); }
+  .service-icon-god { width: 48px; height: 48px; border-radius: var(--r-sm); background: var(--gold-soft); color: var(--gold-ink); display: flex; align-items: center; justify-content: center; margin-bottom: 18px; }
+  .service-card-god h3 { font-family: var(--font-serif); font-size: 1.28rem; font-weight: 600; margin-bottom: 8px; color: var(--ink); }
+  .service-card-god p { color: var(--text-muted); font-size: 0.93rem; line-height: 1.66; margin-bottom: 16px; }
+  .card-link-god { color: var(--gold-ink); font-weight: 700; font-size: 0.84rem; display: inline-flex; gap: 8px; transition: gap 0.25s; }
+  .service-card-god:hover .card-link-god { gap: 12px; }
 
-  .section-tag {
-    display: inline-block;
-    font-size: .72rem;
-    font-weight: 700;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    color: var(--gold-ink); /* texto sobre fondo claro: 4.9:1 */
-  }
-  .section-tag-light { color: var(--gold-light); }
+  .zones-grid-god { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .zone-item-god { display: flex; align-items: center; gap: 12px; padding: 16px 18px; background: var(--white); border: var(--hairline-ink); border-radius: var(--r-md); transition: all 0.28s var(--ease-out); font-size: 0.92rem; }
+  .zone-item-god:hover { border-color: rgba(201,169,97,0.38); transform: translateY(-2px); box-shadow: var(--e-1); }
+  .zone-item-god svg { color: var(--gold-ink); flex-shrink: 0; }
 
-  /* ── Buttons ── */
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 15px 32px;
-    border-radius: var(--r-full);
-    font-size: .95rem;
-    font-weight: 600;
-    text-decoration: none;
-    transition: var(--transition);
-    cursor: pointer;
-    border: 2px solid transparent;
-  }
-  .btn-gold {
-    background: var(--gold);
-    color: var(--navy);
-    border-color: var(--gold);
-  }
-  .btn-gold:hover {
-    background: transparent;
-    color: var(--gold);
-    transform: translateY(-2px);
-  }
-  .btn-dark {
-    background: var(--navy);
-    color: #fff;
-    border-color: var(--navy);
-  }
-  .btn-dark:hover {
-    background: transparent;
-    color: var(--navy);
-    transform: translateY(-2px);
-  }
-  .btn-outline {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255,255,255,.5);
-  }
-  .btn-outline:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,.1);
-    transform: translateY(-2px);
-  }
-  .btn-outline-light {
-    background: transparent;
-    color: #fff;
-    border-color: rgba(255,255,255,.45);
-  }
-  .btn-outline-light:hover {
-    border-color: #fff;
-    background: rgba(255,255,255,.12);
-    transform: translateY(-2px);
-  }
+  .process-grid-god { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; }
+  .process-item-god { background: var(--white); border: var(--hairline-ink); border-radius: var(--r-md); padding: 24px 20px; }
+  .process-item-god strong { font-family: var(--font-serif); font-size: 1.8rem; color: rgba(201,169,97,0.55); line-height: 1; display: block; margin-bottom: 12px; }
+  .process-item-god h4 { font-family: var(--font-serif); font-size: 1.1rem; margin-bottom: 8px; color: var(--ink); }
+  .process-item-god p { font-size: 0.88rem; color: var(--text-muted); line-height: 1.6; }
 
-  /* ══════════ HERO ══════════ */
-  .hero {
-    position: relative;
-    min-height: 92vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-  }
-  .hero-bg {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    position: absolute; inset: 0; transform: scale(1.05);
-  }
-  .hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      175deg,
-      rgba(15,20,30,.82) 0%,
-      rgba(15,20,30,.6) 50%,
-      rgba(15,20,30,.85) 100%
-    );
-  }
-  .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 780px;
-    padding: 120px 24px 80px;
-  }
-  .hero-badge {
-    display: inline-block;
-    padding: 8px 20px;
-    border: 1px solid rgba(201,169,97,.5);
-    border-radius: var(--r-full);
-    font-size: .75rem;
-    font-weight: 600;
-    letter-spacing: .12em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 28px;
-    backdrop-filter: blur(4px);
-  }
-  .hero h1 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2.6rem, 7vw, 4.5rem);
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.1;
-    margin-bottom: 20px;
-  }
-  .hero h1 em {
-    font-style: normal;
-    color: var(--gold-light);
-  }
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: rgba(255,255,255,.75);
-    line-height: 1.7;
-    max-width: 560px;
-    margin: 0 auto 36px;
-  }
-  .hero-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 56px;
-  }
-  .hero-stats {
-    display: flex;
-    justify-content: center;
-    gap: clamp(32px, 6vw, 64px);
-    padding-top: 40px;
-    border-top: 1px solid rgba(255,255,255,.12);
-  }
-  .stat {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 4px;
-  }
-  .stat strong {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-  .stat span {
-    font-size: .8rem;
-    color: rgba(255,255,255,.55);
-    letter-spacing: .04em;
-  }
+  .testimonials-grid-god { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .testimonial-card-god { background: var(--white); border: var(--hairline-ink); border-radius: var(--r-md); padding: 32px 26px; box-shadow: var(--e-1); margin: 0; }
+  .stars-god { color: var(--gold-ink); letter-spacing: 3px; font-size: 0.95rem; margin-bottom: 14px; }
+  .testimonial-card-god blockquote { font-style: italic; color: var(--ink); line-height: 1.7; margin: 0 0 18px; font-size: 0.98rem; }
+  .testimonial-card-god figcaption strong { display: block; font-size: 0.92rem; color: var(--ink); }
+  .testimonial-card-god figcaption span { font-size: 0.82rem; color: var(--text-muted); }
 
-  /* ══════════ INTRO ══════════ */
-  .intro-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(40px, 6vw, 80px);
-    align-items: center;
-  }
-  .intro-media {
-    position: relative;
-  }
-  .intro-media img {
-    width: 100%;
-    height: auto;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-lg);
-    display: block;
-  }
-  .intro-accent {
-    position: absolute;
-    top: -16px;
-    left: -16px;
-    width: 120px;
-    height: 120px;
-    border: 3px solid var(--gold);
-    border-radius: var(--radius);
-    opacity: .35;
-    z-index: -1;
-  }
-  .intro-body h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 600;
-    color: var(--navy);
-    line-height: 1.2;
-    margin: 12px 0 20px;
-  }
-  .intro-body p {
-    color: var(--muted);
-    line-height: 1.8;
-    margin-bottom: 16px;
-    font-size: 1.02rem;
-  }
-  .intro-body strong { color: var(--ink); }
-  .intro-checks {
-    list-style: none;
-    padding: 0;
-    margin: 24px 0 32px;
-    display: grid;
-    gap: 12px;
-  }
-  .intro-checks li {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
-    font-size: .95rem;
-    color: var(--ink);
-    line-height: 1.5;
-  }
-  .intro-checks li::before {
-    content: '✓';
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    width: 22px;
-    height: 22px;
-    border-radius: 50%;
-    background: rgba(201,169,97,.15);
-    color: var(--gold);
-    font-size: .7rem;
-    font-weight: 700;
-    margin-top: 1px;
-  }
+  .cta-center { text-align: center; margin-top: 36px; }
+  .cta-actions-home { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-top: 28px; }
 
-  /* ══════════ SERVICES ══════════ */
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
+  @media (max-width: 1024px) {
+    .services-grid-god, .zones-grid-god, .process-grid-god, .testimonials-grid-god { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid { grid-template-columns: 1fr; gap: 40px; }
   }
-  .service-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px 30px;
-    transition: var(--transition);
-  }
-  .service-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
-    border-color: rgba(201,169,97,.4);
-  }
-  .service-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: var(--r-md);
-    background: rgba(201,169,97,.1);
-    color: var(--gold);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 22px;
-  }
-  .service-card h3 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.35rem;
-    font-weight: 600;
-    color: var(--navy);
-    margin-bottom: 10px;
-  }
-  .service-card p {
-    color: var(--muted);
-    font-size: .92rem;
-    line-height: 1.7;
-    margin-bottom: 18px;
-  }
-  .card-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: .85rem;
-    font-weight: 600;
-    color: var(--gold-ink);
-    text-decoration: none;
-    transition: var(--transition);
-  }
-  .card-link:hover { gap: 10px; color: var(--navy); }
-
-  /* ══════════ ZONES ══════════ */
-  .zones-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
-  .zone-item {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    padding: 20px 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--r-md);
-    transition: var(--transition);
-  }
-  .zone-item:hover {
-    border-color: var(--gold);
-    box-shadow: var(--shadow-sm);
-  }
-  .zone-item svg {
-    flex-shrink: 0;
-    color: var(--gold);
-  }
-  .zone-item span {
-    font-size: .92rem;
-    color: var(--ink);
-    line-height: 1.4;
-  }
-
-  /* ══════════ PRICING ══════════ */
-  .pricing-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-  }
-  .price-card {
-    background: rgba(255,255,255,.06);
-    border: 1px solid rgba(255,255,255,.1);
-    border-radius: var(--radius);
-    padding: 32px 28px;
-    text-align: center;
-    transition: var(--transition);
-  }
-  .price-card:hover {
-    background: rgba(255,255,255,.1);
-    border-color: rgba(201,169,97,.4);
-    transform: translateY(-4px);
-  }
-  .price-label {
-    display: block;
-    font-size: .85rem;
-    color: rgba(255,255,255,.6);
-    margin-bottom: 10px;
-    letter-spacing: .02em;
-  }
-  .price-value {
-    display: block;
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    color: var(--gold-light);
-  }
-  .pricing-note {
-    text-align: center;
-    margin-top: 32px;
-    font-size: .85rem;
-    color: rgba(255,255,255,.7);
-    background: transparent;
-    border: none;
-    border-left: none;
-    padding: 0;
-  }
-
-  /* ══════════ TESTIMONIALS ══════════ */
-  .testimonials-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-  .testimonial-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 36px 30px;
-    margin: 0;
-    transition: var(--transition);
-  }
-  .testimonial-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
-  }
-  .stars {
-    display: flex;
-    gap: 3px;
-    color: var(--gold);
-    margin-bottom: 18px;
-  }
-  .testimonial-card blockquote {
-    font-size: .95rem;
-    color: var(--ink);
-    line-height: 1.75;
-    font-style: italic;
-    margin: 0 0 22px;
-  }
-  .testimonial-card figcaption {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .testimonial-card figcaption strong {
-    font-size: .92rem;
-    color: var(--navy);
-  }
-  .testimonial-card figcaption span {
-    font-size: .8rem;
-    color: var(--muted);
-  }
-
-  /* ══════════ CTA ══════════ */
-  .cta {
-    position: relative;
-    padding: clamp(80px, 12vw, 140px) 24px;
-    text-align: center;
-    overflow: hidden;
-  }
-  .cta-bg {
-    width: 100%; height: 100%; object-fit: cover; object-position: center;
-    position: absolute; inset: 0;
-  }
-  .cta-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-      170deg,
-      rgba(15,20,30,.9) 0%,
-      rgba(15,20,30,.8) 100%
-    );
-  }
-  .cta-content {
-    position: relative;
-    z-index: 2;
-    max-width: 680px;
-    margin: 0 auto;
-  }
-  .cta-content h2 {
-    font-family: 'Cormorant Garamond', Georgia, serif;
-    font-size: clamp(2rem, 4.5vw, 3rem);
-    font-weight: 600;
-    color: #fff;
-    line-height: 1.2;
-    margin: 14px 0 18px;
-  }
-  .cta-content > p {
-    color: rgba(255,255,255,.7);
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 36px;
-  }
-  .cta-actions {
-    display: flex;
-    gap: 16px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  /* ══════════ RESPONSIVE ══════════ */
-  @media (max-width: 992px) {
-    .services-grid,
-    .testimonials-grid,
-    .pricing-grid { grid-template-columns: repeat(2, 1fr); }
-    .zones-grid { grid-template-columns: repeat(2, 1fr); }
-    .intro-grid { grid-template-columns: 1fr; gap: 48px; }
-    .intro-accent { display: none; }
-  }
-
   @media (max-width: 640px) {
-    .services-grid,
-    .testimonials-grid,
-    .pricing-grid,
-    .zones-grid { grid-template-columns: 1fr; }
-    .hero { min-height: 100svh; }
-    .hero-content { padding: 100px 20px 60px; }
-    .hero-stats { flex-direction: column; gap: 20px; }
-    .hero-actions { flex-direction: column; align-items: center; }
-    .btn { width: 100%; justify-content: center; max-width: 320px; }
-    .cta-actions { flex-direction: column; align-items: center; }
+    .services-grid-god, .zones-grid-god, .process-grid-god, .testimonials-grid-god { grid-template-columns: 1fr; }
   }
 </style>
+
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-revealed')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; entry.target.classList.add('is-revealed','god-reveal'); io.unobserve(entry.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    targets.forEach(el => { el.classList.add('god-reveal'); io.observe(el); });
+  })();
+</script>

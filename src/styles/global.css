@@ -73,6 +73,17 @@
   --dur-slow: 560ms;
 
   --container: 1200px;
+
+  /* --- NIVEL DIOS: hairlines y elevación premium --- */
+  --hairline: 1px solid rgba(201,169,97,0.22);
+  --hairline-strong: 1px solid rgba(201,169,97,0.38);
+  --hairline-ink: 1px solid rgba(20,18,14,0.08);
+  --ink-lift: #1e1b16;
+  --gold-soft: rgba(201,169,97,0.12);
+  --gold-glow: 0 0 80px rgba(201,169,97,0.18);
+  --ease-god: cubic-bezier(.16,1,.3,1);
+  --dur-god: 700ms;
+  --r-god: 16px; /* radio intermedio premium */
 }
 
 /* === RESET === */
@@ -707,3 +718,520 @@ button, a { touch-action: manipulation; }
   }
   [data-reveal] { opacity: 1; transform: none; }
 }
+
+/* ===========================================================
+   NIVEL DIOS — SISTEMA VISUAL UNIFICADO 2026
+   =========================================================== */
+
+/* --- Grano sutil papel lujo --- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* --- Barra progreso scroll oro --- */
+.god-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform-origin: left;
+  transform: scaleX(0);
+  z-index: 10000;
+  transition: transform 0.1s linear;
+}
+
+/* --- Eyebrow único con línea --- */
+.eyebrow-god {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 22px;
+  line-height: 1;
+}
+.eyebrow-god::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+  opacity: 0.9;
+}
+.eyebrow-god.on-light { color: var(--gold-ink); }
+.eyebrow-god.on-light::before { background: var(--gold-ink); }
+.eyebrow-god.on-dark-light { color: var(--gold-light); }
+
+/* Alias retrocompat: .tag legacy hereda eyebrow god en claro */
+.tag { composes: eyebrow-god; }
+
+/* --- Premium divider con dot --- */
+.premium-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin: var(--s-5) auto;
+  max-width: 1200px;
+  padding: 0 20px;
+}
+.premium-divider::before,
+.premium-divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,169,97,0.28), transparent);
+  max-width: 200px;
+}
+.premium-divider i {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 0 6px rgba(201,169,97,0.12);
+}
+
+/* --- God Hero Sistema Único --- */
+:root {
+  --god-hero-min: 92vh;
+}
+.god-hero {
+  position: relative;
+  min-height: var(--god-hero-min);
+  min-height: 92svh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--ink);
+  padding: 160px 24px 110px;
+  isolation: isolate;
+}
+.god-glow {
+  position: absolute;
+  top: -22%;
+  right: -10%;
+  width: 72vw;
+  height: 72vw;
+  background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, rgba(201,169,97,0.12) 35%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 2;
+}
+.god-hero-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.36;
+  filter: contrast(1.12) brightness(0.88) saturate(0.95);
+  z-index: 1;
+}
+.god-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(10,8,6,0.97) 0%, rgba(10,8,6,0.52) 48%, rgba(10,8,6,0.18) 100%),
+    linear-gradient(100deg, rgba(10,8,6,0.72) 0%, transparent 62%);
+  z-index: 3;
+}
+.god-hero-inner {
+  position: relative;
+  z-index: 4;
+  max-width: 980px;
+  width: 100%;
+}
+.god-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+  text-decoration: none;
+  transition: opacity 0.25s var(--ease-out), transform 0.25s var(--ease-out);
+}
+.god-back:hover { opacity: 0.7; transform: translateX(-3px); }
+.god-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gold-light);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.god-eyebrow::before {
+  content: "";
+  width: 26px;
+  height: 1px;
+  background: var(--gold);
+}
+.god-title {
+  font-family: var(--font-serif);
+  font-size: clamp(3rem, 7vw, 6.4rem);
+  font-weight: 500;
+  line-height: 0.92;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 22px;
+}
+.god-title .line { display: block; }
+.god-title .gold { color: var(--gold); }
+.god-lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(255,255,255,0.82);
+  max-width: 640px;
+  line-height: 1.6;
+  margin-bottom: 36px;
+  font-weight: 400;
+}
+.god-badges {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.god-badges span {
+  padding: 8px 16px;
+  border: var(--hairline);
+  border-radius: var(--r-full);
+  color: rgba(255,255,255,0.85);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(8px);
+}
+.god-watermark {
+  position: absolute;
+  bottom: -0.05em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 18vw;
+  font-weight: 600;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,169,97,0.14);
+  pointer-events: none;
+  z-index: 2;
+  white-space: nowrap;
+  user-select: none;
+}
+.god-hairline {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,169,97,0.28), transparent);
+  z-index: 5;
+}
+.god-scroll {
+  position: absolute;
+  bottom: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 6;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+.god-scroll i {
+  display: block;
+  width: 1px;
+  height: 36px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: godScrollLine 2.2s ease-in-out infinite;
+}
+@keyframes godScrollLine {
+  0% { transform: scaleY(0); transform-origin: top; opacity: 0; }
+  50% { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+}
+
+/* Manifesto y Editorial nivel Dios */
+.god-manifesto {
+  background: var(--ink);
+  padding: clamp(90px, 10vw, 160px) 24px;
+  position: relative;
+  overflow: hidden;
+  border-top: var(--hairline);
+  border-bottom: var(--hairline);
+}
+.god-manifesto::before {
+  content: "";
+  position: absolute;
+  top: -30%;
+  left: 20%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(201,169,97,0.08), transparent 60%);
+  pointer-events: none;
+}
+.god-manifesto-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+.god-manifesto h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 24px;
+  font-weight: 500;
+}
+.god-manifesto p {
+  font-size: 1.08rem;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.72);
+  max-width: 860px;
+}
+
+.god-editorial {
+  background: var(--bone);
+  padding: clamp(80px, 8vw, 120px) 24px;
+}
+.god-editorial .container { max-width: 1160px; }
+.god-editorial-body {
+  max-width: 820px;
+  margin: 0 auto;
+  font-size: 1.13rem;
+  line-height: 1.85;
+  color: var(--text);
+}
+.god-editorial-body h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.8vw, 2.8rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-top: 72px;
+  margin-bottom: 20px;
+}
+.god-editorial-body h3 {
+  font-family: var(--font-serif);
+  font-size: 1.32rem;
+  color: var(--ink-soft);
+  margin-top: 42px;
+  margin-bottom: 12px;
+}
+.god-editorial-body img {
+  width: 100%;
+  border-radius: var(--r-md);
+  margin: 36px 0;
+  box-shadow: var(--e-2);
+}
+
+/* Especificaciones Dios */
+.god-specs {
+  background: var(--ink);
+  padding: clamp(80px, 8vw, 110px) 24px;
+  border-top: var(--hairline);
+  border-bottom: var(--hairline);
+}
+.god-specs-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 28px;
+}
+.god-spec dt {
+  color: var(--gold);
+  font-size: 0.70rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.god-spec dd {
+  color: rgba(255,255,255,0.86);
+  font-size: 1.02rem;
+  font-family: var(--font-serif);
+  line-height: 1.45;
+}
+
+/* CTA Dios */
+.god-cta {
+  background:
+    radial-gradient(circle at 50% 0%, rgba(201,169,97,0.22), transparent 58%),
+    linear-gradient(180deg, var(--ink) 0%, #0f0d0a 100%);
+  padding: clamp(90px, 10vw, 140px) 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border-top: var(--hairline);
+}
+.god-cta::before {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 50%;
+  width: 80%;
+  height: 60%;
+  background: radial-gradient(circle, rgba(201,169,97,0.28) 0%, transparent 70%);
+  filter: blur(90px);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 1;
+}
+.god-cta .cta-wrapper { position: relative; z-index: 2; }
+.god-cta .cta-title { letter-spacing: -0.02em; }
+
+/* Marquee zonas premium */
+.god-marquee {
+  background: var(--ink);
+  border-top: var(--hairline);
+  border-bottom: var(--hairline);
+  padding: 18px 0;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+.god-marquee-track {
+  display: inline-flex;
+  animation: marquee 45s linear infinite;
+}
+.god-marquee-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-right: 36px;
+}
+.god-marquee-item i {
+  width: 4px;
+  height: 4px;
+  background: var(--gold);
+  border-radius: 50%;
+  opacity: 0.7;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* WhatsApp premium unificado color #0E8039 */
+.whatsapp-float {
+  background: var(--ink) !important;
+  border: 1px solid rgba(201,169,97,0.32) !important;
+  box-shadow: var(--e-3) !important;
+  width: 56px !important;
+  height: 56px !important;
+}
+.whatsapp-float svg { width: 26px; height: 26px; }
+.whatsapp-float:hover {
+  transform: scale(1.06) !important;
+  border-color: var(--gold) !important;
+  box-shadow: var(--e-gold) !important;
+}
+
+/* Mobile CTA Bar premium - gold primary instead green */
+.mobile-cta-bar {
+  background: rgba(20,18,14,0.98) !important;
+  border-top: var(--hairline) !important;
+  backdrop-filter: blur(18px) !important;
+}
+.mobile-cta-call {
+  background: transparent !important;
+  color: var(--gold) !important;
+  border: 1px solid var(--gold) !important;
+}
+.mobile-cta-wa {
+  background: var(--gold) !important;
+  color: var(--ink) !important;
+}
+.mobile-cta-wa:active { background: var(--gold-light) !important; }
+
+/* Nav glass Dios */
+.nav {
+  backdrop-filter: blur(18px) saturate(1.15);
+  border-bottom: var(--hairline);
+}
+.nav.scrolled, .nav-solid {
+  background: rgba(20,18,14,0.94) !important;
+  backdrop-filter: blur(18px) saturate(1.2) !important;
+  border-bottom: var(--hairline) !important;
+}
+.nav-links a { font-size: 0.82rem !important; letter-spacing: 0.12em !important; }
+.nav-links a.active::after { height: 1px !important; }
+
+/* Footer Dios wordmark */
+.footer { position: relative; overflow: hidden; }
+.footer::before {
+  content: "REMODELAT";
+  position: absolute;
+  bottom: -0.12em;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-serif);
+  font-size: 18vw;
+  font-weight: 700;
+  line-height: 0.8;
+  letter-spacing: -0.05em;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(201,169,97,0.10);
+  pointer-events: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+.footer .container { position: relative; z-index: 1; }
+.footer-heading { letter-spacing: 0.12em !important; }
+.footer-bottom { border-top: var(--hairline) !important; }
+
+/* Unificación botones - eliminar pill */
+.btn, .btn-primary, .btn-gold, .btn-secondary, .btn-dark, .btn-outline, .btn-outline-light, .btn-whatsapp {
+  border-radius: var(--r-sm) !important;
+  letter-spacing: 0.1em !important;
+  font-weight: 600 !important;
+  text-transform: uppercase !important;
+}
+/* Para compat: .btn ahora usa premium */
+.btn { padding: 16px 32px; }
+.btn-whatsapp { background: #0E8039 !important; border-color: #0E8039 !important; }
+
+/* Reveal clip-path Dios upgrade - mantiene translateY pero más teatral */
+[data-reveal].god-reveal {
+  clip-path: inset(0 0 100% 0);
+  transform: translateY(20px);
+  opacity: 0;
+}
+[data-reveal].god-reveal.is-revealed {
+  clip-path: inset(0 0 0% 0);
+  transform: none;
+  opacity: 1;
+  transition: clip-path var(--dur-god) var(--ease-god), transform var(--dur-god) var(--ease-god), opacity var(--dur-god) var(--ease-god);
+}
+
