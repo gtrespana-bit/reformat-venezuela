@@ -1,6 +1,6 @@
 ---
 title: "Precio de Pintura por m² en Venezuela 2026: Guía Completa"
-excerpt: "Cuánto cuesta pintar por metro cuadrado en Caracas, Valencia y San Diego. Precios reales de pintura interior y exterior, con y sin materiales, según tipo de acabado."
+excerpt: "Cuánto cuesta pintar por metro cuadrado en Caracas, Valencia y San Diego. Precios reales de pintura interior y exterior, con y sin materiales, según tipo de…"
 date: 2026-07-23
 category: "Presupuestos"
 image: "/images/pintura-800.webp"

@@ -1,6 +1,6 @@
 ---
 title: "Cuánto Cuesta un Fontanero en Caracas y Valencia 2026: Precios Reales"
-excerpt: "Precios reales de trabajos de fontanería y plomería en Caracas, Valencia y San Diego. Cuánto cuesta reparar fugas, cambiar tuberías e instalar sanitarios en 2026."
+excerpt: "Precios reales de trabajos de fontanería y plomería en Caracas, Valencia y San Diego. Cuánto cuesta reparar fugas, cambiar tuberías e instalar sanitarios en…"
 date: 2026-07-25
 category: "Presupuestos"
 image: "/images/fontaneria-800.webp"

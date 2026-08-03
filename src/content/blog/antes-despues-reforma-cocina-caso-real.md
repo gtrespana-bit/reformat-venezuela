@@ -1,6 +1,6 @@
 ---
 title: "Antes y Después: Reforma de Cocina Caso Real en Venezuela"
-excerpt: "Recorrido paso a paso por una reforma de cocina real: del espacio antiguo al resultado final. Proceso, decisiones, plazos y lecciones de un proyecto en Venezuela."
+excerpt: "Recorrido paso a paso por una reforma de cocina real: del espacio antiguo al resultado final. Proceso, decisiones, plazos y lecciones de un proyecto en…"
 date: 2026-07-17
 category: "Proyectos"
 image: "/images/cocina-800.webp"

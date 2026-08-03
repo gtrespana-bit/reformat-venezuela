@@ -1,6 +1,6 @@
 ---
 title: "Porcelanato Vs Cerámica: Cuál Elegir Para Tu Reforma En Venezuela 2026"
-excerpt: "Guía completa para elegir entre porcelanato y cerámica en tu reforma. Comparamos precios, durabilidad, usos recomendados y marcas disponibles en Caracas y Valencia."
+excerpt: "Guía completa para elegir entre porcelanato y cerámica en tu reforma. Comparamos precios, durabilidad, usos recomendados y marcas disponibles en Caracas y…"
 date: 2026-06-06
 category: "Materiales"
 image: "/images/revestimientos-800.webp"

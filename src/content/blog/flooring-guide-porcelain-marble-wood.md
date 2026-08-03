@@ -1,6 +1,6 @@
 ---
 title: "Flooring Guide 2026: Porcelain, Marble, and Wood in Venezuela"
-excerpt: "Complete comparison of flooring options for your home in Venezuela: prices, durability, maintenance, and which to choose for each space. Real data from the Venezuelan market."
+excerpt: "Complete comparison of flooring options for your home in Venezuela: prices, durability, maintenance, and which to choose for each space. Real data from the…"
 date: 2026-07-27
 category: "Materials"
 image: "/images/suelo-porcelanato-800.webp"

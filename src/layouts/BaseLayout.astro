@@ -2,6 +2,14 @@
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
+import { getAlternatePath, routeMap as routeMapData, untranslatedEsPaths, untranslatedEnPaths } from '../data/routeMap';
+
+// Serializados para inyectar en <script type="application/json"> al final del body.
+// El JS del cliente los lee directamente (sin window.__ROUTEMAP__ ni is:inline),
+// evitando cualquier race condition entre scripts.
+const routeMapJson = JSON.stringify(routeMapData);
+const untranslatedEsPathsJson = JSON.stringify([...untranslatedEsPaths]);
+const untranslatedEnPathsJson = JSON.stringify([...untranslatedEnPaths]);
 
 interface Props {
   title: string;
@@ -41,6 +49,17 @@ const lightHeaderRoutes = ['/privacidad', '/terminos', '/en/privacy', '/en/terms
 const normalizedPath = currentPath.replace(/\/$/, '') || '/';
 const needsSolidNav = lightHeaderRoutes.includes(normalizedPath);
 const isHomePage = normalizedPath === '/' || normalizedPath === '/en';
+
+// Calcular en SERVIDOR la ruta alterna para el botón de idioma. Así el
+// switcher funciona incluso sin JS (enlace real <a href>), no depende de
+// race conditions en cliente y no necesita setear window.__ROUTEMAP__.
+// Si la ruta actual NO tiene traducción (p.ej. domótica solo en ES), el
+// botón vuelve al inicio en el otro idioma para no producir 404.
+const serverAltPath = getAlternatePath(normalizedPath, isEnglish);
+const withTrailingSlash = (p: string) => (p.endsWith('/') ? p : p + '/');
+const serverAltHref = serverAltPath == null
+  ? (isEnglish ? '/' : '/en/')
+  : withTrailingSlash(serverAltPath);
 
 const whatsappText = isEnglish
   ? 'Hello,%20I%20would%20like%20a%20technical%20assessment%20for%20my%20remodeling%20project'
@@ -161,14 +180,15 @@ const navItems = isEnglish
         ))}
       </ul>
 
-      <button
-        type="button"
+      <a
+        href={serverAltHref}
         class="lang-switch-visible"
         data-current-lang={lang}
         aria-label={isEnglish ? 'Cambiar a español' : 'Switch to English'}
+        hreflang={isEnglish ? 'es' : 'en'}
       >
         {isEnglish ? 'ES' : 'EN'}
-      </button>
+      </a>
 
       <button id="menu-btn" class="menu-btn" aria-label={menuLabel} aria-expanded="false" aria-controls="primary-nav">
         <svg class="icon-open" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
@@ -190,7 +210,7 @@ const navItems = isEnglish
 <slot />
 </main>
 
-  <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" class="whatsapp-float" aria-label={isEnglish ? 'Contact via WhatsApp' : 'Contactar por WhatsApp'}>
+  <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" rel="noopener" class="whatsapp-float" aria-label={isEnglish ? 'Contact via WhatsApp' : 'Contactar por WhatsApp'}>
     <svg viewBox="0 0 24 24" fill="white" width="28" height="28"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
   </a>
 
@@ -290,147 +310,58 @@ const navItems = isEnglish
     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
     <span>{isEnglish ? 'Call' : 'Llamar'}</span>
   </a>
-  <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" class="mobile-cta-btn mobile-cta-wa" aria-label={isEnglish ? 'WhatsApp' : 'WhatsApp'}>
+  <a href={`https://wa.me/584227997043?text=${whatsappText}`} target="_blank" rel="noopener" class="mobile-cta-btn mobile-cta-wa" aria-label={isEnglish ? 'WhatsApp' : 'WhatsApp'}>
     <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
     <span>WhatsApp</span>
   </a>
 </div>
-
+  <!-- Fuente única de verdad (JSON) para el switcher JS defensivo.
+       El botón YA tiene el href correcto renderizado desde el servidor
+       (ver serverAltHref arriba), así que funciona incluso con JS deshabilitado. -->
+  <script id="__routemap__" type="application/json" set:html={routeMapJson}></script>
+  <script id="__untranslated_es__" type="application/json" set:html={untranslatedEsPathsJson}></script>
+  <script id="__untranslated_en__" type="application/json" set:html={untranslatedEnPathsJson}></script>
   <script>
-    const routeMap = {
-      '/': '/en',
-      '/en': '/',
-      '/servicios': '/en/services',
-      '/en/services': '/servicios',
-      '/metodo-remodelat': '/en/our-method',
-      '/en/our-method': '/metodo-remodelat',
-      '/servicios/remodelacion-cocina': '/en/services/kitchens',
-      '/en/services/kitchens': '/servicios/remodelacion-cocina',
-      '/servicios/remodelacion-bano': '/en/services/bathrooms',
-      '/en/services/bathrooms': '/servicios/remodelacion-bano',
-      '/servicios/remodelacion-integral': '/en/services/whole-home',
-      '/en/services/whole-home': '/servicios/remodelacion-integral',
-      '/servicios/remodelacion-vivienda': '/en/services/home-remodeling',
-      '/en/services/home-remodeling': '/servicios/remodelacion-vivienda',
-      '/servicios/remodelacion-apartamentos': '/en/services/apartment-remodeling',
-      '/en/services/apartment-remodeling': '/servicios/remodelacion-apartamentos',
-      '/servicios/remodelacion-casas': '/en/services/house-remodeling',
-      '/en/services/house-remodeling': '/servicios/remodelacion-casas',
-      '/servicios/instalacion-electrica': '/en/services/electrical',
-      '/en/services/electrical': '/servicios/instalacion-electrica',
-      '/servicios/fontaneria-plomeria': '/en/services/plumbing',
-      '/en/services/plumbing': '/servicios/fontaneria-plomeria',
-      '/servicios/pintura-acabados': '/en/services/painting',
-      '/en/services/painting': '/servicios/pintura-acabados',
-      '/servicios/revestimientos-pared': '/en/services/wall-coverings',
-      '/en/services/wall-coverings': '/servicios/revestimientos-pared',
-      '/servicios/instalacion-pisos': '/en/services/flooring',
-      '/en/services/flooring': '/servicios/instalacion-pisos',
-      '/servicios/piscinas-mantenimiento': '/en/services/pools',
-      '/en/services/pools': '/servicios/piscinas-mantenimiento',
-      '/sobre-nosotros': '/en/about-us',
-      '/en/about-us': '/sobre-nosotros',
-      '/proyectos': '/en/projects',
-      '/en/projects': '/proyectos',
-      '/proyectos/cocina-caracas-quinta': '/en/projects/kitchen-remodel-caracas-quinta',
-      '/en/projects/kitchen-remodel-caracas-quinta': '/proyectos/cocina-caracas-quinta',
-      '/proyectos/bano-las-mercedes-pequeno': '/en/projects/small-bathroom-remodel-las-mercedes',
-      '/en/projects/small-bathroom-remodel-las-mercedes': '/proyectos/bano-las-mercedes-pequeno',
-      '/proyectos/bano-caracas': '/en/projects/bathroom-remodel-caracas',
-      '/en/projects/bathroom-remodel-caracas': '/proyectos/bano-caracas',
-      '/proyectos/bano-la-trigalena': '/en/projects/bathroom-remodel-la-trigalena',
-      '/en/projects/bathroom-remodel-la-trigalena': '/proyectos/bano-la-trigalena',
-      '/proyectos/bano-san-diego': '/en/projects/bathroom-remodel-san-diego',
-      '/en/projects/bathroom-remodel-san-diego': '/proyectos/bano-san-diego',
-      '/proyectos/banos-quinta-la-lagunita': '/en/projects/luxury-bathrooms-quinta-guataparo',
-      '/en/projects/luxury-bathrooms-quinta-guataparo': '/proyectos/banos-quinta-la-lagunita',
-      '/proyectos/cocina-lujo-guataparo': '/en/projects/luxury-kitchen-guataparo',
-      '/en/projects/luxury-kitchen-guataparo': '/proyectos/cocina-lujo-guataparo',
-      '/caracas': '/en/caracas',
-      '/en/caracas': '/caracas',
-      '/valencia': '/en/valencia',
-      '/en/valencia': '/valencia',
-      '/san-diego': '/en/san-diego',
-      '/en/san-diego': '/san-diego',
-      '/la-guaira': '/en/la-guaira',
-      '/en/la-guaira': '/la-guaira',
-      '/contacto': '/en/contact',
-      '/en/contact': '/contacto',
-      '/blog': '/en/blog',
-      '/en/blog': '/blog',
-      '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
-      '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
-      '/blog/presupuesto-reforma-errores': '/en/blog/budget-remodel-mistakes-avoid',
-      '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodels-caracas-carabobo-2026',
-      '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
-      '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
-      '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
-      '/en/blog/budget-remodel-mistakes-avoid': '/blog/presupuesto-reforma-errores',
-      '/en/blog/bathroom-remodels-caracas-carabobo-2026': '/blog/reformas-banos-carabobo',
-      '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
-      '/blog/antes-despues-reforma-cocina-caso-real': '/en/blog/kitchen-remodel-before-after-case-study',
-      '/en/blog/kitchen-remodel-before-after-case-study': '/blog/antes-despues-reforma-cocina-caso-real',
-      '/blog/como-elegir-empresa-reformas-venezuela': '/en/blog/how-to-choose-remodeling-company-venezuela',
-      '/en/blog/how-to-choose-remodeling-company-venezuela': '/blog/como-elegir-empresa-reformas-venezuela',
-      '/blog/cuanto-cuesta-remodelar-bano-caracas': '/en/blog/bathroom-remodel-cost-caracas',
-      '/en/blog/bathroom-remodel-cost-caracas': '/blog/cuanto-cuesta-remodelar-bano-caracas',
-      '/blog/cuanto-tarda-reforma-integral-plazos': '/en/blog/how-long-full-remodel-takes',
-      '/en/blog/how-long-full-remodel-takes': '/blog/cuanto-tarda-reforma-integral-plazos',
-      '/blog/errores-remodelar-zonas-premium-caracas': '/en/blog/remodeling-mistakes-premium-areas-caracas',
-      '/en/blog/remodeling-mistakes-premium-areas-caracas': '/blog/errores-remodelar-zonas-premium-caracas',
-      '/blog/fontaneria-plomeria-precios-caracas': '/en/blog/plumbing-prices-caracas',
-      '/en/blog/plumbing-prices-caracas': '/blog/fontaneria-plomeria-precios-caracas',
-      '/blog/fugas-agua-tuberias-como-detectar': '/en/blog/how-to-detect-water-leaks',
-      '/en/blog/how-to-detect-water-leaks': '/blog/fugas-agua-tuberias-como-detectar',
-      '/blog/guia-pisos-porcelanato-marmol-madera': '/en/blog/flooring-guide-porcelain-marble-wood',
-      '/en/blog/flooring-guide-porcelain-marble-wood': '/blog/guia-pisos-porcelanato-marmol-madera',
-      '/blog/instalacion-electrica-precios-venezuela': '/en/blog/electrical-installation-prices-venezuela',
-      '/en/blog/electrical-installation-prices-venezuela': '/blog/instalacion-electrica-precios-venezuela',
-      '/blog/mantenimiento-piscinas-venezuela': '/en/blog/pool-maintenance-venezuela',
-      '/en/blog/pool-maintenance-venezuela': '/blog/mantenimiento-piscinas-venezuela',
-      '/blog/microcemento-vs-pintura-acabados': '/en/blog/microcement-vs-paint-finishes',
-      '/en/blog/microcement-vs-paint-finishes': '/blog/microcemento-vs-pintura-acabados',
-      '/blog/permisos-reforma-apartamento-condominio': '/en/blog/remodel-permits-apartment-condominium',
-      '/en/blog/remodel-permits-apartment-condominium': '/blog/permisos-reforma-apartamento-condominio',
-      '/blog/pintura-interior-precios-m2-venezuela': '/en/blog/interior-painting-prices-m2-venezuela',
-      '/en/blog/interior-painting-prices-m2-venezuela': '/blog/pintura-interior-precios-m2-venezuela',
-      '/blog/remodelacion-apartamentos-caracas': '/en/blog/apartment-remodeling-caracas',
-      '/en/blog/apartment-remodeling-caracas': '/blog/remodelacion-apartamentos-caracas',
-      '/blog/remodelacion-integral-que-incluye': '/en/blog/full-home-remodel-what-it-includes',
-      '/en/blog/full-home-remodel-what-it-includes': '/blog/remodelacion-integral-que-incluye',
-      '/blog/revestimiento-piedra-madera-pared-precios': '/en/blog/stone-wood-wall-cladding-prices',
-      '/en/blog/stone-wood-wall-cladding-prices': '/blog/revestimiento-piedra-madera-pared-precios',
-      '/blog/senales-reinstalacion-electrica-casa': '/en/blog/signs-electrical-rewiring-needed',
-      '/en/blog/signs-electrical-rewiring-needed': '/blog/senales-reinstalacion-electrica-casa',
-      '/privacidad': '/en/privacy',
-      '/en/privacy': '/privacidad',
-      '/terminos': '/en/terms',
-      '/en/terms': '/terminos'
-    };
-
+    // Sin window.__ROUTEMAP__ ni script is:inline previo: leemos el JSON
+    // directamente desde el DOM. Los scripts al final del <body> se ejecutan
+    // con el DOM ya parseado, así que getElementById siempre funciona. Esto
+    // elimina la race condition que provocaba que el switcher redirigiese a
+    // rutas incorrectas (/en/servicios en vez de /en/services).
     const langSwitchBtn = document.querySelector('.lang-switch-visible');
+
+    function readJSON(id) {
+      const el = document.getElementById(id);
+      if (!el) return null;
+      try { return JSON.parse(el.textContent || 'null'); } catch { return null; }
+    }
+    function withSlash(p) { return p.endsWith('/') ? p : p + '/'; }
+    function computeAltHref(pathname) {
+      const map = readJSON('__routemap__') || {};
+      const untrEs = new Set(readJSON('__untranslated_es__') || []);
+      const untrEn = new Set(readJSON('__untranslated_en__') || []);
+      const clean = pathname.replace(/\/$/, '') || '/';
+      if (map[clean]) return withSlash(map[clean]);
+      const isEn = clean.startsWith('/en');
+      if (isEn && untrEn.has(clean)) return '/';
+      if (!isEn && untrEs.has(clean)) return '/en/';
+      // Rutas de zona (remodelacion-<servicio>-<zona>) usan el mismo slug
+      if (isEn) return withSlash(clean.replace(/^\/en/, '') || '/');
+      if (clean === '/') return '/en/';
+      return withSlash('/en' + clean);
+    }
+
     if (langSwitchBtn) {
+      const freshHref = computeAltHref(window.location.pathname);
+      if (freshHref !== langSwitchBtn.getAttribute('href')) {
+        langSwitchBtn.setAttribute('href', freshHref);
+      }
       langSwitchBtn.addEventListener('click', () => {
-        const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-        const newPath = routeMap[currentPath];
-        
-        if (newPath) {
-          const newLang = currentPath.startsWith('/en') ? 'es' : 'en';
-          localStorage.setItem('remodelat-lang', newLang);
-          window.location.href = newPath;
-        } else {
-          if (currentPath.startsWith('/en')) {
-            localStorage.setItem('remodelat-lang', 'es');
-            window.location.href = currentPath.replace(/^\/en/, '') || '/';
-          } else {
-            localStorage.setItem('remodelat-lang', 'en');
-            window.location.href = '/en' + currentPath;
-          }
-        }
+        const target = langSwitchBtn.getAttribute('href') || '/';
+        const newLang = target.startsWith('/en') ? 'en' : 'es';
+        try { localStorage.setItem('remodelat-lang', newLang); } catch { /* storage deshabilitado */ }
       });
     }
 
-    
 
     const navbar = document.getElementById('navbar');
     if (navbar) {

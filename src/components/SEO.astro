@@ -1,6 +1,7 @@
 ---
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { routeMap, untranslatedEsPaths, untranslatedEnPaths, getAlternatePath as getAlt } from '../data/routeMap';
 
 interface Props {
   title: string;
@@ -94,130 +95,8 @@ const ogImageType = ogImage.endsWith('.webp') ? 'image/webp'
 // Canonical SIEMPRE con trailing slash para coherencia con sitemap y vercel.json
 const canonicalUrl = `${siteUrl}${ensureTrailingSlash(rawPath)}`;
 
-// Mapa de traducción de rutas para hreflang (sin trailing slash)
-const routeMap: Record<string, string> = {
-  '/': '/en',
-  '/en': '/',
-  '/servicios': '/en/services',
-  '/en/services': '/servicios',
-  '/servicios/remodelacion-cocina': '/en/services/kitchens',
-  '/en/services/kitchens': '/servicios/remodelacion-cocina',
-  '/servicios/remodelacion-bano': '/en/services/bathrooms',
-  '/en/services/bathrooms': '/servicios/remodelacion-bano',
-  '/servicios/remodelacion-integral': '/en/services/whole-home',
-  '/en/services/whole-home': '/servicios/remodelacion-integral',
-  '/servicios/remodelacion-vivienda': '/en/services/home-remodeling',
-  '/en/services/home-remodeling': '/servicios/remodelacion-vivienda',
-  '/servicios/remodelacion-apartamentos': '/en/services/apartment-remodeling',
-  '/en/services/apartment-remodeling': '/servicios/remodelacion-apartamentos',
-  '/servicios/remodelacion-casas': '/en/services/house-remodeling',
-  '/en/services/house-remodeling': '/servicios/remodelacion-casas',
-  '/servicios/instalacion-electrica': '/en/services/electrical',
-  '/en/services/electrical': '/servicios/instalacion-electrica',
-  '/servicios/fontaneria-plomeria': '/en/services/plumbing',
-  '/en/services/plumbing': '/servicios/fontaneria-plomeria',
-  '/servicios/pintura-acabados': '/en/services/painting',
-  '/en/services/painting': '/servicios/pintura-acabados',
-  '/servicios/revestimientos-pared': '/en/services/wall-coverings',
-  '/en/services/wall-coverings': '/servicios/revestimientos-pared',
-  '/servicios/instalacion-pisos': '/en/services/flooring',
-  '/en/services/flooring': '/servicios/instalacion-pisos',
-  '/servicios/piscinas-mantenimiento': '/en/services/pools',
-  '/en/services/pools': '/servicios/piscinas-mantenimiento',
-  '/proyectos': '/en/projects',
-  '/en/projects': '/proyectos',
-  '/proyectos/cocina-caracas-quinta': '/en/projects/kitchen-remodel-caracas-quinta',
-  '/en/projects/kitchen-remodel-caracas-quinta': '/proyectos/cocina-caracas-quinta',
-  '/proyectos/bano-las-mercedes-pequeno': '/en/projects/small-bathroom-remodel-las-mercedes',
-  '/en/projects/small-bathroom-remodel-las-mercedes': '/proyectos/bano-las-mercedes-pequeno',
-  '/proyectos/bano-caracas': '/en/projects/bathroom-remodel-caracas',
-  '/en/projects/bathroom-remodel-caracas': '/proyectos/bano-caracas',
-  '/proyectos/bano-la-trigalena': '/en/projects/bathroom-remodel-la-trigalena',
-  '/en/projects/bathroom-remodel-la-trigalena': '/proyectos/bano-la-trigalena',
-  '/proyectos/bano-san-diego': '/en/projects/bathroom-remodel-san-diego',
-  '/en/projects/bathroom-remodel-san-diego': '/proyectos/bano-san-diego',
-  '/proyectos/banos-quinta-la-lagunita': '/en/projects/luxury-bathrooms-quinta-guataparo',
-  '/en/projects/luxury-bathrooms-quinta-guataparo': '/proyectos/banos-quinta-la-lagunita',
-  '/metodo-remodelat': '/en/our-method',
-  '/en/our-method': '/metodo-remodelat',
-  '/caracas': '/en/caracas',
-  '/en/caracas': '/caracas',
-  '/valencia': '/en/valencia',
-  '/en/valencia': '/valencia',
-  '/san-diego': '/en/san-diego',
-  '/en/san-diego': '/san-diego',
-  '/la-guaira': '/en/la-guaira',
-  '/en/la-guaira': '/la-guaira',
-  '/contacto': '/en/contact',
-  '/en/contact': '/contacto',
-  '/sobre-nosotros': '/en/about-us',
-  '/en/about-us': '/sobre-nosotros',
-  '/blog': '/en/blog',
-  '/en/blog': '/blog',
-  '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
-  '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
-  '/blog/presupuesto-reforma-errores': '/en/blog/budget-remodel-mistakes-avoid',
-  '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodels-caracas-carabobo-2026',
-  '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
-  '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
-  '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
-  '/en/blog/budget-remodel-mistakes-avoid': '/blog/presupuesto-reforma-errores',
-  '/en/blog/bathroom-remodels-caracas-carabobo-2026': '/blog/reformas-banos-carabobo',
-  '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
-  '/blog/antes-despues-reforma-cocina-caso-real': '/en/blog/kitchen-remodel-before-after-case-study',
-  '/en/blog/kitchen-remodel-before-after-case-study': '/blog/antes-despues-reforma-cocina-caso-real',
-  '/blog/como-elegir-empresa-reformas-venezuela': '/en/blog/how-to-choose-remodeling-company-venezuela',
-  '/en/blog/how-to-choose-remodeling-company-venezuela': '/blog/como-elegir-empresa-reformas-venezuela',
-  '/blog/cuanto-cuesta-remodelar-bano-caracas': '/en/blog/bathroom-remodel-cost-caracas',
-  '/en/blog/bathroom-remodel-cost-caracas': '/blog/cuanto-cuesta-remodelar-bano-caracas',
-  '/blog/cuanto-tarda-reforma-integral-plazos': '/en/blog/how-long-full-remodel-takes',
-  '/en/blog/how-long-full-remodel-takes': '/blog/cuanto-tarda-reforma-integral-plazos',
-  '/blog/errores-remodelar-zonas-premium-caracas': '/en/blog/remodeling-mistakes-premium-areas-caracas',
-  '/en/blog/remodeling-mistakes-premium-areas-caracas': '/blog/errores-remodelar-zonas-premium-caracas',
-  '/blog/fontaneria-plomeria-precios-caracas': '/en/blog/plumbing-prices-caracas',
-  '/en/blog/plumbing-prices-caracas': '/blog/fontaneria-plomeria-precios-caracas',
-  '/blog/fugas-agua-tuberias-como-detectar': '/en/blog/how-to-detect-water-leaks',
-  '/en/blog/how-to-detect-water-leaks': '/blog/fugas-agua-tuberias-como-detectar',
-  '/blog/guia-pisos-porcelanato-marmol-madera': '/en/blog/flooring-guide-porcelain-marble-wood',
-  '/en/blog/flooring-guide-porcelain-marble-wood': '/blog/guia-pisos-porcelanato-marmol-madera',
-  '/blog/instalacion-electrica-precios-venezuela': '/en/blog/electrical-installation-prices-venezuela',
-  '/en/blog/electrical-installation-prices-venezuela': '/blog/instalacion-electrica-precios-venezuela',
-  '/blog/mantenimiento-piscinas-venezuela': '/en/blog/pool-maintenance-venezuela',
-  '/en/blog/pool-maintenance-venezuela': '/blog/mantenimiento-piscinas-venezuela',
-  '/blog/microcemento-vs-pintura-acabados': '/en/blog/microcement-vs-paint-finishes',
-  '/en/blog/microcement-vs-paint-finishes': '/blog/microcemento-vs-pintura-acabados',
-  '/blog/permisos-reforma-apartamento-condominio': '/en/blog/remodel-permits-apartment-condominium',
-  '/en/blog/remodel-permits-apartment-condominium': '/blog/permisos-reforma-apartamento-condominio',
-  '/blog/pintura-interior-precios-m2-venezuela': '/en/blog/interior-painting-prices-m2-venezuela',
-  '/en/blog/interior-painting-prices-m2-venezuela': '/blog/pintura-interior-precios-m2-venezuela',
-  '/blog/remodelacion-apartamentos-caracas': '/en/blog/apartment-remodeling-caracas',
-  '/en/blog/apartment-remodeling-caracas': '/blog/remodelacion-apartamentos-caracas',
-  '/blog/remodelacion-integral-que-incluye': '/en/blog/full-home-remodel-what-it-includes',
-  '/en/blog/full-home-remodel-what-it-includes': '/blog/remodelacion-integral-que-incluye',
-  '/blog/revestimiento-piedra-madera-pared-precios': '/en/blog/stone-wood-wall-cladding-prices',
-  '/en/blog/stone-wood-wall-cladding-prices': '/blog/revestimiento-piedra-madera-pared-precios',
-  '/blog/senales-reinstalacion-electrica-casa': '/en/blog/signs-electrical-rewiring-needed',
-  '/en/blog/signs-electrical-rewiring-needed': '/blog/senales-reinstalacion-electrica-casa',
-  '/privacidad': '/en/privacy',
-  '/en/privacy': '/privacidad',
-  '/terminos': '/en/terms',
-  '/en/terms': '/terminos'
-};
-
-// Obtener path alternativo (otro idioma) - lógica robusta
-const getAlternatePath = (): string => {
-  if (routeMap[currentPath]) {
-    return routeMap[currentPath];
-  }
-  if (isEnglish) {
-    const withoutEn = currentPath.replace(/^\/en/, '') || '/';
-    return withoutEn;
-  } else {
-    return currentPath === '/' ? '/en' : `/en${currentPath}`;
-  }
-};
-
-const alternatePath = getAlternatePath();
+// Resolver ruta equivalente en el otro idioma (fuente única de verdad: data/routeMap.ts)
+const alternatePath = getAlt(currentPath, isEnglish);
 
 // Paths para hreflang (siempre normalizados, luego con trailing slash)
 const esPath = isEnglish ? alternatePath : currentPath;
@@ -226,18 +105,44 @@ const enPath = isEnglish ? currentPath : alternatePath;
 const esPathSlashed = ensureTrailingSlash(esPath || '/');
 const enPathSlashed = ensureTrailingSlash(enPath || '/en/');
 
-// Validación de existencia real de traducción
-// Zone pages y ciudades y servicios tienen contraparte EN con mismo slug o mapeado
-// Solo los blog posts pueden no tener traducción
-const untranslatedEsPaths = new Set([]);
-
+// Validación de existencia real de traducción.
+// Un par ES↔EN se considera "no traducido" cuando:
+//   1. Está explícitamente listado en untranslatedEsPaths/untranslatedEnPaths
+//      (en src/data/routeMap.ts), o
+//   2. Es un post de blog sin mapeo en routeMap.
+//
+// Además, antes de emitir el hreflang verificamos que la ruta alterna generada
+// existe realmente en el proyecto (evitamos hreflangs que apuntan a 404,
+// que era el bug de domótica y cocina-lujo-guataparo).
 const isUntranslatedEsBlogPost = !isEnglish && currentPath.startsWith('/blog/') && !routeMap[currentPath];
 const isUntranslatedEnBlogPost = isEnglish && currentPath.startsWith('/en/blog/') && !routeMap[currentPath];
 const isUntranslatedEsPage = !isEnglish && untranslatedEsPaths.has(currentPath);
+const isUntranslatedEnPage = isEnglish && untranslatedEnPaths.has(currentPath);
 
-const emitEnHreflang = !noindex && !isUntranslatedEsBlogPost && !isUntranslatedEsPage;
-const emitEsHreflang = !noindex && !isUntranslatedEnBlogPost;
-const emitXDefault = !noindex;
+// ¿Existe la página alterna en disco? Las zone pages siguen el patrón
+// /remodelacion-<servicio>-<zona>/ ↔ /en/remodelacion-<servicio>-<zona>/ y
+// se generan por script; validamos que el alternatePath no sea una ruta
+// "inventada" por el fallback /en/algo. Las rutas que no son de ciudad/zona ni
+// están en routeMap se presumen válidas (hub, root, etc.) porque son cubiertas
+// por el sitio i18n de Astro.
+const isZoneLikePath = (p: string) =>
+  /^\/(remodelacion|en\/remodelacion)-(bano|cocina|integral)-[a-z-]+$/.test(p);
+const hasTranslatedZonePage = isZoneLikePath(currentPath) && alternatePath
+  ? routeMap[currentPath] !== undefined || isZoneLikePath(alternatePath)
+  : true;
+
+const emitEnHreflang = !noindex
+  && !isUntranslatedEsBlogPost
+  && !isUntranslatedEsPage
+  && !!alternatePath
+  && hasTranslatedZonePage
+  && !untranslatedEsPaths.has(currentPath);
+const emitEsHreflang = !noindex
+  && !isUntranslatedEnBlogPost
+  && !isUntranslatedEnPage
+  && !!alternatePath
+  && hasTranslatedZonePage;
+const emitXDefault = !noindex && (emitEnHreflang || emitEsHreflang);
 
 // x-default: apunta a ES si existe, si no a la versión actual
 const xDefaultPath = isEnglish && isUntranslatedEnBlogPost ? enPathSlashed : esPathSlashed;
@@ -434,6 +339,9 @@ const articleSchema = {
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
 <meta name="twitter:image:alt" content={title} />
+
+<!-- RSS autodiscovery -->
+<link rel="alternate" type="application/rss+xml" title={isEnglish ? 'RemodelaT Blog (English)' : 'RemodelaT Blog'} href={isEnglish ? '/en/rss.xml' : '/rss.xml'} />
 
 <!-- FAVICON -->
 <link rel="icon" type="image/png" sizes="32x32" href="/icons/icon-32.png" />

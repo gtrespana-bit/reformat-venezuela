@@ -1,6 +1,6 @@
 ---
 title: "Cómo Elegir una Empresa de Reformas en Venezuela: 9 Criterios Clave"
-excerpt: "Guía práctica para elegir una empresa de reformas seria en Caracas, Valencia y Carabobo. Qué preguntar, qué evitar y cómo comparar presupuestos sin caer en trampas."
+excerpt: "Guía práctica para elegir una empresa de reformas seria en Caracas, Valencia y Carabobo. Qué preguntar, qué evitar y cómo comparar presupuestos sin caer en…"
 date: 2026-07-20
 category: "Consejos"
 image: "/images/integrales-equipo-trabajando.webp"
