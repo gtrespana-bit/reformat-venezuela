@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GodHero from '../../components/GodHero.astro';
+import GodMarquee from '../../components/GodMarquee.astro';
 import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
 ---
 
@@ -8,15 +10,17 @@ import GuaranteeMatrix from '../../components/GuaranteeMatrix.astro';
   description="Request a technical assessment for high-standard residential remodeling in Valencia, San Diego, Carabobo and Caracas. Proper materials, flawless finishes and written warranties."
   activePage="contact"
 >
-  <header class="page-hero">
-    <img class="hero-bg" src="/images/integrales-800.webp" alt="High-end residential remodeling project in Venezuela" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">Technical assessment</span>
-      <h1 class="page-title">Tell us about your <span class="gold">project</span></h1>
-      <p class="page-subtitle">We review scope, location, property type and finish level before proposing a serious remodeling solution.</p>
-    </div>
-  </header>
+  <GodHero
+    eyebrow="High-standard remodeling"
+    title="Luxury remodeling"
+    titleGold="with technical precision"
+    lead="Request a technical assessment for high-standard residential remodeling in Valencia, San Diego, Carabobo and Caracas. Proper materials, flawless finishes and written warranties."
+    image="/images/integrales-800.webp"
+    imageAlt="Remodeling project"
+    badges={["23+ years", "Technical Method", "Written Warranty"]}
+    watermark="REMODELAT"
+  />
+  <GodMarquee />
 
   <section class="contact-prelude"><div class="container prelude-grid"><article><span>01</span><h2>Technical filter</h2><p>We review location, scope, property type and finish level before moving forward.</p></article><article><span>02</span><h2>Organized assessment</h2><p>We ask for useful information to prepare a serious proposal, not an improvised number.</p></article><article><span>03</span><h2>Documented warranty</h2><p>When the project moves forward, each scope is backed by clear warranty conditions.</p></article></div></section>
 

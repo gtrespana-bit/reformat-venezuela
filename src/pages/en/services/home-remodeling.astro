@@ -1,10 +1,23 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import GuaranteeMatrix from '../../../components/GuaranteeMatrix.astro';
 ---
 
 <BaseLayout title="Home Remodeling in Venezuela | RemodelaT" description="High-standard home remodeling for houses, apartments and townhouses in Valencia, San Diego, Carabobo and Caracas. Technical assessment, proper materials and written warranties." activePage="services">
-  <header class="article-hero"><img class="hero-bg" src="/images/integrales-proyecto-completo.webp" alt="High-standard home remodeling in Venezuela" fetchpriority="high" loading="eager" decoding="async" /><div class="hero-overlay"></div><div class="hero-content"><a href="/en/services" class="back-link">← Back to Services</a><span class="article-category">High-standard homes</span><h1 class="article-title"><span class="line">Home Remodeling</span> <span class="line gold">in Venezuela</span></h1><p class="article-excerpt">Houses, apartments, quintas and townhouses remodeled with technical planning, proper materials, supervised execution and documented warranties.</p></div></header>
+  <GodHero
+  eyebrow="High-standard homes"
+  title="Home Remodeling"
+  titleGold="in Venezuela"
+  lead="Houses, apartments, quintas and townhouses remodeled with technical planning, proper materials, supervised execution and documented warranties."
+  image="/images/integrales-proyecto-completo.webp"
+  imageAlt="High-standard home remodeling in Venezuela"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="IN VENEZUELA"
+/>
+
+<GodMarquee />
   <section class="article-section"><div class="container"><div class="article-body">
     <p>Home remodeling can be partial or complete, but the standard should always be the same: clear scope, compatible materials, controlled utilities, clean finishes and a handover that explains what is covered.</p>
     <h2>What home remodeling includes</h2>

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import GodHero from '../../components/GodHero.astro';
+import GodMarquee from '../../components/GodMarquee.astro';
 
 const services = [
   /* Deliberate order, mirrors /servicios: specific trades first, then the
@@ -22,20 +24,22 @@ const services = [
 ---
 
 <BaseLayout title="Luxury Remodeling Services in Venezuela | RemodelaT" description="High-standard residential remodeling services: whole-home remodeling, designer kitchens, spa-style bathrooms, flooring and wall coverings with technical method and written warranties." activePage="services">
-  <header class="page-hero">
-    <img src="/images/integrales-800.webp" srcset="/images/integrales-400.webp 400w, /images/integrales-800.webp 800w" sizes="100vw" alt="High-standard whole-home remodeling after completion" fetchpriority="high" loading="eager" decoding="async" width="800" height="533" class="hero-lcp-img" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <span class="hero-tag">High-standard services</span>
-      <h1 class="page-title">Remodeling <span class="gold">for demanding homeowners</span></h1>
-      <p class="page-subtitle">Over 23 years executing kitchens, bathrooms and whole-home remodels with technical precision, proper materials and luxury finishes.</p>
-    </div>
-  </header>
+  <GodHero
+    eyebrow="High-standard services"
+    title="Remodeling"
+    titleGold="for demanding homeowners"
+    lead="Over 23 years executing kitchens, bathrooms and whole-home remodels with technical precision, proper materials and luxury finishes."
+    image="/images/integrales-800.webp"
+    imageAlt="High-standard whole-home remodeling"
+    badges={["Technical Method", "Specified Materials", "Written Warranty"]}
+    watermark="SERVICES"
+  />
+  <GodMarquee />
 
   <section class="services-page">
     <div class="container">
       <div class="section-header">
-        <span class="tag">RemodelaT specialties</span>
+        <span class="eyebrow-god on-light">RemodelaT specialties</span>
         <h2 class="section-title">We control every trade required for a flawless remodel</h2>
         <p class="section-desc">We are not a company that “does everything” without method. We coordinate the technical specialties a high-value home requires: design, utilities, finishes, flooring, coverings and documented handover.</p>
       </div>
@@ -50,7 +54,8 @@ const services = [
     </div>
   </section>
 
-  <section class="cta-section"><div class="cta-wrapper"><h2 class="cta-title">Does your home need a properly executed remodel?</h2><p class="cta-text">Request a technical assessment. We review scope, location, finish level and site conditions before preparing a detailed proposal.</p><a href="/en/contact" class="btn-premium btn-primary-premium"><span class="btn-content">Request technical assessment</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
+  <div class="premium-divider"><i></i></div>
+  <section class="god-cta"><div class="cta-wrapper"><h2 class="cta-title">Does your home need a properly executed remodel?</h2><p class="cta-text">Request a technical assessment. We review scope, location, finish level and site conditions before preparing a detailed proposal.</p><a href="/en/contact" class="btn-premium btn-primary-premium"><span class="btn-content">Request technical assessment</span><span class="btn-border"></span><span class="btn-arrow">→</span></a></div></section>
 </BaseLayout>
 
 <style>

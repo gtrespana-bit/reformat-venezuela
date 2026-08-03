@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -9,16 +11,18 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   image="/images/cocina.webp"
   activePage="services"
 >
-  <header class="article-hero">
-    <img class="hero-bg" src="/images/cocina.webp" alt="Modern kitchen remodeling with premium finishes in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/en/services" class="back-link">← Back to Services</a>
-      <span class="article-category">High-standard kitchens</span>
-      <h1 class="article-title"><span class="line">Luxury Kitchen</span> <span class="line gold">Remodeling</span></h1>
-      <p class="article-excerpt">Custom layout, proper materials, durable hardware, technical lighting and precise finishes for homeowners who do not want improvisation.</p>
-    </div>
-  </header>
+  <GodHero
+  eyebrow="High-standard kitchens"
+  title="Luxury Kitchen"
+  titleGold="Remodeling"
+  lead="Custom layout, proper materials, durable hardware, technical lighting and precise finishes for homeowners who do not want improvisation."
+  image="/images/cocina.webp"
+  imageAlt="Modern kitchen remodeling with premium finishes in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="REMODELING"
+/>
+
+<GodMarquee />
 
   <section class="article-section">
     <div class="container">

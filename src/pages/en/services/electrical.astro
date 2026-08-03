@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -9,16 +11,18 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   image="/images/electricidad.webp"
   activePage="services"
 >
-  <header class="article-hero">
-    <img class="hero-bg" src="/images/electricidad.webp" alt="Certified residential electrical installation services in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/en/services" class="back-link">← Back to Services</a>
-      <span class="article-category">Specialized Service</span>
-      <h1 class="article-title"><span class="line">Electrical</span> <span class="line gold">Services</span></h1>
-      <p class="article-excerpt">Safe, efficient, and certified installations for your peace of mind and comfort.</p>
-    </div>
-  </header>
+  <GodHero
+  eyebrow="Specialized Service"
+  title="Electrical"
+  titleGold="Services"
+  lead="Safe, efficient, and certified installations for your peace of mind and comfort."
+  image="/images/electricidad.webp"
+  imageAlt="Certified residential electrical installation services in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="SERVICES"
+/>
+
+<GodMarquee />
 
   <section class="article-section">
     <div class="container">

@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -9,16 +11,18 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   image="/images/revestimientos.webp"
   activePage="services"
 >
-  <header class="article-hero">
-    <img class="hero-bg" src="/images/revestimientos.webp" alt="Decorative wall coverings and large-format porcelain in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/en/services" class="back-link">← Back to Services</a>
-      <span class="article-category">Specialized Service</span>
-      <h1 class="article-title"><span class="line">Wall</span> <span class="line gold">Coverings</span></h1>
-      <p class="article-excerpt">We transform plain surfaces into style statements with durable materials and flawless installation techniques.</p>
-    </div>
-  </header>
+  <GodHero
+  eyebrow="Specialized Service"
+  title="Wall"
+  titleGold="Coverings"
+  lead="We transform plain surfaces into style statements with durable materials and flawless installation techniques."
+  image="/images/revestimientos.webp"
+  imageAlt="Decorative wall coverings and large-format porcelain in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="COVERINGS"
+/>
+
+<GodMarquee />
 
   <section class="article-section">
     <div class="container">

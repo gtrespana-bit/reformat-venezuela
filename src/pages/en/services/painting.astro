@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -11,16 +13,18 @@ image="/images/pintura-800.webp"
 activePage="services"
 >
 
-<header class="article-hero">
-<img class="hero-bg" src="/images/pintura-800.webp" alt="Professional interior and exterior painting services in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<a href="/en/services" class="back-link">← Back to Services</a>
-<span class="article-category">Specialized Service</span>
-<h1 class="article-title"><span class="line">Painting &</span> <span class="line gold">Finishes</span></h1>
-<p class="article-excerpt">The right finish doesn't just look good — it protects your walls, lasts for years, and makes every room feel intentional.</p>
-</div>
-</header>
+<GodHero
+  eyebrow="Specialized Service"
+  title="Painting &"
+  titleGold="Finishes"
+  lead="The right finish doesn't just look good — it protects your walls, lasts for years, and makes every room feel intentional."
+  image="/images/pintura-800.webp"
+  imageAlt="Professional interior and exterior painting services in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="FINISHES"
+/>
+
+<GodMarquee />
 
 <section class="article-section">
 <div class="container">

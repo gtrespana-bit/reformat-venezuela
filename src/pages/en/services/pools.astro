@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -9,16 +11,18 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   image="/images/piscinas.webp"
   activePage="services"
 >
-  <header class="article-hero">
-    <img class="hero-bg" src="/images/piscinas.webp" alt="Swimming pool construction and maintenance in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/en/services" class="back-link">← Back to Services</a>
-      <span class="article-category">Outdoor Living</span>
-      <h1 class="article-title"><span class="line">Swimming</span> <span class="line gold">Pools</span></h1>
-      <p class="article-excerpt">Custom pool construction, renovation, and maintenance for Venezuelan properties.</p>
-    </div>
-  </header>
+  <GodHero
+  eyebrow="Outdoor Living"
+  title="Swimming"
+  titleGold="Pools"
+  lead="Custom pool construction, renovation, and maintenance for Venezuelan properties."
+  image="/images/piscinas.webp"
+  imageAlt="Swimming pool construction and maintenance in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="POOLS"
+/>
+
+<GodMarquee />
 
   <section class="article-section">
     <div class="container">

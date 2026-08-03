@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import GodHero from '../../../components/GodHero.astro';
+import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
 ---
@@ -10,16 +12,18 @@ description="Expert plumbing installations, repairs, and upgrades. Leak detectio
 image="/images/fontaneria.webp"
 activePage="services"
 >
-<header class="article-hero">
-<img class="hero-bg" src="/images/fontaneria.webp" alt="Professional plumbing services and installations in Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-<div class="hero-overlay"></div>
-<div class="hero-content">
-<a href="/en/services" class="back-link">← Back to Services</a>
-<span class="article-category">Essential Service</span>
-<h1 class="article-title"><span class="line">Plumbing</span> <span class="line gold">Services</span></h1>
-<p class="article-excerpt">From pinhole leaks to full re-pipes, we fix it right the first time — so you don't have to call us back.</p>
-</div>
-</header>
+<GodHero
+  eyebrow="Essential Service"
+  title="Plumbing"
+  titleGold="Services"
+  lead="From pinhole leaks to full re-pipes, we fix it right the first time — so you don't have to call us back."
+  image="/images/fontaneria.webp"
+  imageAlt="Professional plumbing services and installations in Venezuela | RemodelaT"
+  badges={["High Standard", "Technical Method", "Written Warranty"]}
+  watermark="SERVICES"
+/>
+
+<GodMarquee />
 
 <section class="article-section">
 <div class="container">
