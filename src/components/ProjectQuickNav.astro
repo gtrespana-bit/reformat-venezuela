@@ -8,14 +8,42 @@ interface Props {
   items: Item[];
   ctaHref?: string;
   ctaLabel?: string;
+  menuLabel?: string;
+  ariaLabel?: string;
 }
 
-const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
+const {
+  items,
+  ctaHref = '',
+  ctaLabel = '',
+  menuLabel = 'Secciones del caso',
+  ariaLabel = 'Navegación rápida del caso de estudio',
+} = Astro.props;
 ---
 
-<nav class="project-quicknav" aria-label="Navegación rápida del caso de estudio">
+<nav class="project-quicknav" aria-label={ariaLabel}>
   <div class="project-quicknav-pill">
-    <div class="project-quicknav-links" data-qn-scroller>
+    <!-- Móvil: un único botón que despliega las secciones en vertical.
+         Nada de carruseles laterales ni chips apretados. -->
+    <button
+      type="button"
+      class="project-quicknav-toggle"
+      aria-expanded="false"
+      aria-controls="qn-sections-panel"
+    >
+      <svg class="project-quicknav-toggle-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <line x1="4" y1="7" x2="20" y2="7"></line>
+        <line x1="4" y1="12" x2="20" y2="12"></line>
+        <line x1="4" y1="17" x2="14" y2="17"></line>
+      </svg>
+      <span class="project-quicknav-toggle-label">{menuLabel}</span>
+      <svg class="project-quicknav-toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+
+    <!-- Escritorio: píldora con las secciones a la vista + CTA -->
+    <div class="project-quicknav-links">
       {items.map((item) => (
         <a href={item.href} class="project-quicknav-link">{item.label}</a>
       ))}
@@ -31,6 +59,17 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
       </a>
     )}
   </div>
+
+  <!-- Panel móvil: las secciones en lista vertical, numeradas -->
+  <div class="project-quicknav-panel" id="qn-sections-panel" role="region" aria-label={menuLabel}>
+    {items.map((item, index) => (
+      <a href={item.href} class="project-quicknav-panel-link">
+        <span class="project-quicknav-panel-num" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+        <span class="project-quicknav-panel-label">{item.label}</span>
+        <span class="project-quicknav-panel-arrow" aria-hidden="true">→</span>
+      </a>
+    ))}
+  </div>
 </nav>
 
 <script>
@@ -38,8 +77,9 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
     const nav = document.querySelector('.project-quicknav');
     if (!nav) return;
 
-    const scroller = nav.querySelector('[data-qn-scroller]');
-    const links = Array.from(nav.querySelectorAll('.project-quicknav-link'));
+    const toggle = nav.querySelector('.project-quicknav-toggle');
+    const panel = nav.querySelector('.project-quicknav-panel');
+    const links = Array.from(nav.querySelectorAll('.project-quicknav-link, .project-quicknav-panel-link'));
 
     /* ---------- Objetivos de anclaje (secciones de la página) ---------- */
     const targets = links
@@ -70,6 +110,43 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
       lastY = y;
     };
 
+    /* ---------- Panel móvil: abrir / cerrar ---------- */
+    const setPanel = (open) => {
+      nav.classList.toggle('is-open', open);
+      if (toggle) toggle.setAttribute('aria-expanded', String(open));
+    };
+    const closePanel = () => setPanel(false);
+
+    if (toggle && panel) {
+      toggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        setPanel(!nav.classList.contains('is-open'));
+      });
+
+      // Se cierra al elegir una sección
+      panel.querySelectorAll('a').forEach((a) => {
+        a.addEventListener('click', () => closePanel());
+      });
+
+      // Se cierra al tocar fuera de la barra
+      document.addEventListener('click', (e) => {
+        if (nav.classList.contains('is-open') && !nav.contains(e.target)) closePanel();
+      });
+
+      // Se cierra con Escape
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && nav.classList.contains('is-open')) {
+          closePanel();
+          toggle.focus();
+        }
+      });
+
+      // Se cierra si el usuario hace scroll
+      window.addEventListener('scroll', () => {
+        if (nav.classList.contains('is-open')) closePanel();
+      }, { passive: true });
+    }
+
     /* ---------- Offset de anclaje: las secciones no quedan tapadas
        por la barra fija del encabezado + la barra sticky ---------- */
     const computeOffset = () => {
@@ -96,31 +173,6 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
       links.forEach((l) => l.classList.toggle('is-active', l === current));
     };
 
-    /* ---------- Fundidos laterales: avisan de que se puede deslizar ---------- */
-    const updateFades = () => {
-      if (!scroller) return;
-      const max = scroller.scrollWidth - scroller.clientWidth;
-      const cs = getComputedStyle(scroller);
-      const size = parseFloat(cs.getPropertyValue('--qn-fade-size')) || 16;
-      scroller.style.setProperty('--qn-fade-l', scroller.scrollLeft > 2 ? size + 'px' : '0px');
-      scroller.style.setProperty('--qn-fade-r', scroller.scrollLeft < max - 2 ? size + 'px' : '0px');
-    };
-
-    /* ---------- Clic: marca la sección y centra el chip ---------- */
-    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    links.forEach((link) => {
-      link.addEventListener('click', () => {
-        links.forEach((l) => l.classList.toggle('is-active', l === link));
-        if (scroller) {
-          link.scrollIntoView({
-            behavior: prefersReduced ? 'auto' : 'smooth',
-            block: 'nearest',
-            inline: 'center',
-          });
-        }
-      });
-    });
-
     /* ---------- Disparadores (throttle por requestAnimationFrame) ---------- */
     let rafId = 0;
     const schedule = (fn) => {
@@ -128,7 +180,7 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
       rafId = requestAnimationFrame(() => { rafId = 0; fn(); });
     };
 
-    const refresh = () => schedule(() => { onScroll(); updateSpy(); updateFades(); });
+    const refresh = () => schedule(() => { onScroll(); updateSpy(); });
     const refreshLayout = () => { refresh(); applyAnchorOffset(); };
 
     window.addEventListener('scroll', refresh, { passive: true });
@@ -159,6 +211,7 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
     pointer-events: none;
   }
   .project-quicknav-pill {
+    position: relative;
     pointer-events: auto;
     width: fit-content;
     max-width: 100%;
@@ -174,35 +227,65 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
     border: 1px solid rgba(201, 169, 97, 0.3);
     box-shadow: 0 12px 32px rgba(20, 18, 14, 0.14);
   }
+
+  /* Botón de menú: solo visible en móvil */
+  .project-quicknav-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    min-height: 44px;
+    padding: 6px 16px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(201, 169, 97, 0.4);
+    background: var(--white);
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
+  }
+  .project-quicknav-toggle:hover,
+  .project-quicknav-toggle:focus-visible {
+    border-color: rgba(201, 169, 97, 0.7);
+    color: var(--gold-ink-strong);
+  }
+  .project-quicknav-toggle[aria-expanded="true"] {
+    background: rgba(201, 169, 97, 0.14);
+    border-color: rgba(201, 169, 97, 0.7);
+    color: var(--gold-ink-strong);
+  }
+  .project-quicknav-toggle-icon {
+    width: 17px;
+    height: 17px;
+    flex-shrink: 0;
+  }
+  .project-quicknav-toggle-chevron {
+    width: 15px;
+    height: 15px;
+    flex-shrink: 0;
+    margin-left: auto;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+  .project-quicknav-toggle[aria-expanded="true"] .project-quicknav-toggle-chevron {
+    transform: rotate(180deg);
+  }
+
+  /* Panel móvil con las secciones en vertical */
+  .project-quicknav-panel {
+    display: none;
+  }
+
   .project-quicknav-links {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
     gap: 3px;
-    min-width: 0;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-    /* Fundido lateral dinámico (el JS ajusta --qn-fade-l / --qn-fade-r).
-       Sin overflow (escritorio) las variables valen 0px y no se ve nada. */
-    --qn-fade-size: 16px;
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent var(--qn-fade-l, 0px),
-      #000 var(--qn-fade-l, 0px),
-      #000 calc(100% - var(--qn-fade-r, 0px)),
-      transparent calc(100% - var(--qn-fade-r, 0px))
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent var(--qn-fade-l, 0px),
-      #000 var(--qn-fade-l, 0px),
-      #000 calc(100% - var(--qn-fade-r, 0px)),
-      transparent calc(100% - var(--qn-fade-r, 0px))
-    );
   }
-  .project-quicknav-links::-webkit-scrollbar { display: none; }
 
   .project-quicknav-link,
   .project-quicknav-cta {
@@ -266,43 +349,98 @@ const { items, ctaHref = '', ctaLabel = '' } = Astro.props;
     line-height: 1;
   }
 
-  /* ---------- Móvil: tarjeta de dos filas ----------
-     Fila 1: secciones en carrusel horizontal (nunca se corta un texto a medias).
-     Fila 2: CTA a ancho completo (el texto siempre cabe). */
+  /* ---------- Móvil ----------
+     La píldora se reduce a UN solo botón: «Secciones del caso», que
+     despliega la lista completa en vertical. Sin carrusel lateral,
+     sin chips apretados y sin CTA duplicado (el WhatsApp ya vive en la
+     barra inferior fija del móvil). */
   @media (max-width: 768px) {
     .project-quicknav { top: 86px; padding: 0 8px 8px; }
     .project-quicknav-pill {
       width: 100%;
-      flex-wrap: wrap;
-      gap: 6px;
-      padding: 8px;
+      padding: 6px;
       border-radius: var(--r-lg);
     }
-    .project-quicknav-links {
-      flex: 1 1 100%;
-      gap: 6px;
-      padding: 1px;
-      --qn-fade-size: 22px;
+    .project-quicknav-links,
+    .project-quicknav-cta { display: none; }
+    .project-quicknav-toggle { display: flex; }
+
+    .project-quicknav-panel {
+      display: block;
+      position: absolute;
+      top: calc(100% + 8px);
+      left: 0;
+      right: 0;
+      z-index: 5;
+      pointer-events: auto;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      visibility: hidden;
+      background: rgba(250, 248, 244, 0.98);
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      border: 1px solid rgba(201, 169, 97, 0.32);
+      border-radius: var(--r-lg);
+      box-shadow: 0 24px 60px rgba(20, 18, 14, 0.22);
+      transition: max-height 0.32s var(--ease-out), opacity 0.22s var(--ease-out), visibility 0.22s;
     }
-    .project-quicknav-link {
-      min-height: 36px;
-      padding: 5px 13px;
-      font-size: 0.68rem;
+    .project-quicknav.is-open .project-quicknav-panel {
+      max-height: 400px;
+      opacity: 1;
+      visibility: visible;
     }
-    .project-quicknav-cta {
-      flex: 1 1 100%;
-      width: 100%;
-      min-height: 44px;
-      margin-left: 0;
-      padding: 6px 16px;
-      font-size: 0.7rem;
-      gap: 9px;
+
+    .project-quicknav-panel-link {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 13px 16px;
+      color: var(--text);
+      transition: background var(--dur-fast) var(--ease-out), color var(--dur-fast) var(--ease-out);
     }
-    .project-quicknav-wa { display: inline-flex; width: 18px; height: 18px; }
-    .project-quicknav-arrow { font-size: 1rem; }
+    .project-quicknav-panel-link + .project-quicknav-panel-link {
+      border-top: 1px solid rgba(201, 169, 97, 0.14);
+    }
+    .project-quicknav-panel-link:hover,
+    .project-quicknav-panel-link.is-active {
+      background: rgba(201, 169, 97, 0.1);
+      color: var(--gold-ink-strong);
+    }
+    .project-quicknav-panel-num {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 30px;
+      height: 30px;
+      border-radius: var(--r-full);
+      background: rgba(201, 169, 97, 0.18);
+      border: 1px solid rgba(201, 169, 97, 0.38);
+      color: var(--gold-ink-strong);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+    }
+    .project-quicknav-panel-label {
+      flex: 1;
+      font-size: 0.84rem;
+      font-weight: 700;
+    }
+    .project-quicknav-panel-arrow {
+      color: var(--gold-ink);
+      font-size: 1rem;
+      transition: transform var(--dur-fast) var(--ease-out);
+    }
+    .project-quicknav-panel-link:hover .project-quicknav-panel-arrow,
+    .project-quicknav-panel-link.is-active .project-quicknav-panel-arrow {
+      transform: translateX(3px);
+    }
   }
 
   @media (prefers-reduced-motion: reduce) {
     .project-quicknav { transition: none; }
+    .project-quicknav-toggle-chevron { transition: none; }
+    .project-quicknav-panel { transition: none; }
   }
 </style>
