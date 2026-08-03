@@ -15,22 +15,16 @@ const schema = {
   "serviceType": serviceType,
   "name": name,
   "description": description,
+  // Referencia la entidad principal declarada en la home. Evita crear negocios
+  // locales contradictorios (antes ServiceSchema situaba al proveedor en Valencia).
   "provider": {
-    "@type": "LocalBusiness",
-    "name": "RemodelaT Venezuela",
-    "url": "https://remodelat.net",
-    "telephone": "+584227997043",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Valencia",
-      "addressRegion": "Carabobo",
-      "addressCountry": "VE"
-    },
-    "areaServed": areaServed.map(city => ({
-      "@type": "City",
-      "name": city
-    }))
+    "@id": "https://remodelat.net/#organization"
   },
+  "areaServed": areaServed.map(city => ({
+    "@type": "City",
+    "name": city
+  })),
+  "url": `https://remodelat.net${Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`}`,
   ...(image && { "image": `https://remodelat.net${image}` })
 };
 ---
