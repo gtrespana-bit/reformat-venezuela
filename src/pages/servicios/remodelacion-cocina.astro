@@ -12,16 +12,26 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 >
   
 
-<header class="article-hero">
-    <img class="hero-bg" src="/images/cocina.webp" alt="Remodelación de cocinas modernas con acabados premium | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/servicios" class="back-link">← Volver a Servicios</a>
-      <span class="article-category">Cocinas de alto estándar</span>
-      <h1 class="article-title"><span class="line">Remodelación de Cocinas</span> <span class="line gold">de Lujo</span></h1>
-      <p class="article-excerpt">Diseño a medida, materiales adecuados, herrajes duraderos, iluminación técnica y acabados precisos para propietarios que no quieren improvisaciones.</p>
+<header class="god-hero">
+  <div class="god-glow" aria-hidden="true"></div>
+  <img class="god-hero-img" src="/images/cocina.webp" alt="Remodelación de cocinas modernas con acabados premium | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
+  <div class="god-hero-overlay"></div>
+
+  <div class="god-hero-inner">
+    <a href="/servicios" class="god-back">← Volver a Servicios</a>
+    <span class="god-eyebrow">Servicio de Alto Estándar</span>
+    <h1 class="god-title">
+      <span class="line">Remodelación</span>
+      <span class="line gold">de Cocinas</span>
+    </h1>
+    <p class="god-lead">Diseño a medida, materiales adecuados, herrajes duraderos, iluminación técnica y acabados precisos.</p>
+    <div class="god-badges" aria-label="Aspectos clave">
+      <span>Servicio especializado</span>
+      <span>Diseño técnico</span>
+      <span>Integración invisible</span>
     </div>
-  </header>
+  </div>
+</header>
 
   <Breadcrumb items={[
   { name: 'Inicio', url: '/' },
@@ -29,9 +39,15 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Remodelación de Cocinas', url: '/servicios/remodelacion-cocina' }
 ]} />
 
-<section class="article-section">
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La excelencia está en los detalles invisibles</h2>
+    <p>Este servicio no es un catálogo de opciones, es una arquitectura técnica diseñada para durar. Cada decisión se toma con el objetivo de que el resultado se sienta natural, elegante y sin esfuerzo.</p>
+  </div>
+</section>
+<section class="god-editorial">
     <div class="container">
-      <div class="article-body">
+      <div class="god-editorial-body">
         <p>La cocina es mucho más que un lugar para preparar alimentos. Es el corazón del hogar, donde la familia se reúne cada mañana, donde se comparten conversaciones mientras se cocina, donde los niños hacen sus tareas mientras preparas la cena. Una cocina bien diseñada no solo mejora la funcionalidad de tu hogar, sino que transforma tu calidad de vida diaria.</p>
 
         <p>En RemodelaT Venezuela llevamos más de 23 años diseñando y construyendo cocinas en Valencia, San Diego, Caracas y La Guaira. Cada proyecto es único porque cada familia tiene necesidades diferentes. No vendemos cocinas prefabricadas ni soluciones genéricas: especificamos materiales, herrajes, encimeras, iluminación y acabados según el uso real de la vivienda.</p>
@@ -256,13 +272,30 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   </section>
 
   
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Servicio</dt>
+      <dd>Especializado y certificado</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Diseño</dt>
+      <dd>Técnico e invisible</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Estética y funcional</dd>
+    </div>
+  </div>
+</section>
+<h2 class="faq-section-title">Preguntas Frecuentes</h2>
 <FAQ items={[
   { question: "¿Cuánto tiempo toma una remodelación de cocina completa?", answer: "Una remodelación integral de cocina toma entre 4 y 8 semanas, dependiendo de la complejidad del diseño, los materiales seleccionados y si se requieren cambios en las instalaciones." },
   { question: "¿Qué incluye el presupuesto de remodelación de cocina?", answer: "Incluimos diseño 3D, demolición, instalaciones eléctricas y de fontanería, mobiliario a medida, encimeras, revestimientos y electrodomésticos empotrados. Todo detallado por partidas." },
   { question: "¿Ofrecen garantía en los trabajos de cocina?", answer: "Sí, todos nuestros trabajos cuentan con garantía de 2 años en mano de obra y la garantía del fabricante en materiales, encimeras y electrodomésticos." },
   { question: "¿Puedo elegir los materiales y acabados?", answer: "Por supuesto. Trabajamos con marcas premium y te asesoramos en la selección de materiales, colores y acabados que mejor se adapten a tu estilo y presupuesto." },
 ]} />
-<section class="cta-section">
+<section class="god-cta">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Buscas una cocina con acabado impecable?</h2>
       <p class="cta-text">Solicita una valoración técnica y recibe una propuesta detallada según el nivel de acabado que deseas.</p>
@@ -315,58 +348,308 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   />
 </BaseLayout>
 
-
-
-
-
-
-
-
 <style>
-  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
-  .hero-bg { width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0; z-index: 1; }
-  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.4) 60%, rgba(0,0,0,0.2) 100%); z-index: 2; }
-  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
-  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: var(--r-full); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
-  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; }
-  .article-title .line { display: block; }
-  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 400; }
-  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
-  .back-link:hover { color: var(--gold-light); }
-  .article-section { padding: 80px 0; background: var(--white); }
-  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); }
-  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; }
-  .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; }
-  .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
-  .article-body blockquote { margin: 2.5rem 0; padding: 1.5rem 2rem; background: var(--gray); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; font-style: italic; color: var(--text-light); font-weight: 400; }
-  .article-body a { color: var(--gold-ink-strong); text-decoration: none; border-bottom: 1px solid rgba(138,109,31,.45); }
-  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
-  .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
-  .article-body img { 
-    border-radius: var(--r-md); 
-    margin: 2.5rem 0; 
-    box-shadow: var(--e-2); 
-    width: 100%; 
-    height: auto;
+
+  :root {
+    --gold-dim: rgba(201,169,97,0.18);
+    --gold-mid: rgba(201,169,97,0.55);
+    --ink-deep: #0f0d0a;
+  }
+
+  /* ============ HERO CINEMATOGRÁFICO DE NIVEL DIOS ============ */
+  .god-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--ink-deep);
+    padding: 160px 24px 120px;
+  }
+  .god-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .god-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    filter: contrast(1.15) brightness(0.85);
+    z-index: 1;
+  }
+  .god-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.25) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.7) 0%, transparent 60%);
+    z-index: 3;
+  }
+  .god-hero-inner {
+    position: relative;
+    z-index: 4;
+    max-width: 980px;
+    width: 100%;
+  }
+  .god-back {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .god-back:hover { opacity: 0.7; }
+  .god-eyebrow {
+    display: block;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .god-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 8vw, 7.5rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: var(--track-tight);
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-title .line { display: block; }
+  .god-title .gold { color: var(--gold); }
+  .god-lead {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: rgba(255,255,255,0.82);
+    max-width: 600px;
+    line-height: 1.55;
+    margin-bottom: 40px;
+  }
+  .god-badges {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .god-badges span {
+    padding: 9px 20px;
+    border: 1px solid rgba(201,169,97,0.35);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  /* ============ MANIFIESTO ============ */
+  .god-manifesto {
+    background: var(--ink);
+    padding: 160px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-manifesto-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .god-manifesto h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-manifesto p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 900px;
+  }
+
+  /* ============ EDITORIAL PREMIUM ============ */
+  .god-editorial {
+    background: var(--bone);
+    padding: 120px 24px;
+  }
+  .god-editorial-body {
+    font-family: var(--font-sans);
+    max-width: 1160px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .god-editorial-body h2 {
+    font-family: var(--font-serif);
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-top: 80px;
+    margin-bottom: 22px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-editorial-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--ink-soft);
+    margin-top: 48px;
+    margin-bottom: 14px;
+  }
+  .god-editorial-body p {
+    margin-bottom: 24px;
+  }
+  .god-figure {
+    margin: 60px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .god-figure img {
+    width: 100%;
+    display: block;
     aspect-ratio: 3/2;
     object-fit: cover;
   }
-  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold-ink); margin-top: 8px; }
-  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
-  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
-  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
-  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
-  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
-  @media (max-width: 768px) {
-    .article-hero { min-height: 70vh; padding-top: 120px; padding-bottom: 60px; }
-    .article-title { font-size: clamp(2rem, 8vw, 3.5rem); }
-    .article-excerpt { font-size: 1.15rem; }
-    .article-body { font-size: 1.15rem; }
-    .article-body h2 { font-size: 2rem; }
-    .article-body h3 { font-size: 1.5rem; }
-    .article-body img { margin: 1.5rem 0; }
-    .cta-section { padding: 90px 20px; }
-    .cta-title { font-size: 2.2rem; }
-    .cta-text { font-size: 1.15rem; }
+  .god-figure figcaption {
+    padding: 20px 26px;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    font-style: italic;
+    border-top: 1px solid rgba(201,169,97,0.2);
   }
+  .god-checks {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 32px;
+  }
+  .god-checks li {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,169,97,0.12);
+    margin-bottom: 16px;
+  }
+  .god-checks li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: var(--gold-ink-strong);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* ============ ESPECIFICACIONES ============ */
+  .god-specs {
+    background: var(--ink);
+    padding: 120px 24px;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .god-specs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+  }
+  .god-spec dt {
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .god-spec dd {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    line-height: 1.45;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; background: var(--bone); }
+  .faq-section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); text-align: center; margin-bottom: 50px; color: var(--text); letter-spacing: var(--track-tight); }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-question { width: 100%; background: none; border: none; padding: 22px 0; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; color: var(--text); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s ease; }
+  .faq-question:hover { color: var(--gold-ink); }
+  .faq-question::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--gold-ink); flex-shrink: 0; transition: transform 0.3s ease; }
+  .faq-item.active .faq-question::after { content: '−'; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+  .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 22px; }
+  .faq-answer p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; }
+
+  /* ============ CTA FINAL ============ */
+  .god-cta {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,169,97,0.25), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    padding: 140px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-cta::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(90px);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .god-cta h2 {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-cta p {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto 36px;
+    color: rgba(255,255,255,0.75);
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .god-hero { min-height: 90vh; padding: 130px 20px 80px; }
+    .god-manifesto { padding: 100px 20px; }
+    .god-editorial { padding: 80px 20px; }
+    .god-specs { padding: 90px 20px; }
+    .god-cta { padding: 100px 20px; }
+  }
+
 </style>

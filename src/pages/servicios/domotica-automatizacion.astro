@@ -1,0 +1,509 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<BaseLayout
+  title="Domótica y Automatización — RemodelaT | Diseño Técnico de Alto Nivel"
+  description="Arquitectura inteligente invisible: iluminación por capas, control climático zonal, seguridad integrada y protocolos abiertos. Diseño técnico que se siente como magia."
+  image="/images/electricidad.webp"
+  activePage="servicios"
+>
+
+<header class="god-hero">
+  <div class="god-glow" aria-hidden="true"></div>
+  <img class="god-hero-img" src="/images/electricidad.webp" alt="Vivienda inteligente con iluminación ambiental dorada y control técnico invisible" fetchpriority="high" loading="eager" decoding="async" />
+  <div class="god-hero-overlay"></div>
+
+  <div class="god-hero-inner">
+    <a href="/servicios" class="god-back">← Volver a Servicios</a>
+    <span class="god-eyebrow">Servicio de Alto Estándar</span>
+    <h1 class="god-title">
+      <span class="line" data-anim="line">Domótica</span>
+      <span class="line gold" data-anim="line">y Automatización</span>
+    </h1>
+    <p class="god-lead">La casa que piensa antes de que lo pidas. Diseño técnico que se siente como magia.</p>
+    <div class="god-badges" aria-label="Aspectos clave">
+      <span>Sin cables visibles</span>
+      <span>Control total</span>
+      <span>Integración invisible</span>
+    </div>
+  </div>
+</header>
+
+<Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Domótica y Automatización', url: '/servicios/domotica-automatizacion' }
+]} />
+
+<section class="god-manifesto" aria-label="Manifiesto del servicio">
+  <div class="god-manifesto-inner">
+    <h2>La inteligencia debe ser invisible</h2>
+    <p>Una vivienda inteligente no es un catálogo de gadgets. Es una arquitectura invisible que coordina iluminación, climatización, seguridad y energía como una sola pieza. Diseñamos sistemas que responden antes de que lo pidas, sin interferir con el espacio ni con la estética.</p>
+  </div>
+</section>
+
+<section class="god-editorial" aria-label="Contenido técnico">
+  <div class="god-editorial-body">
+    <h2>Control Integral del Espacio</h2>
+    <p>La domótica comienza definiendo qué debe hacer la casa, no qué equipos instalar. Diseñamos escenas y automatismos basados en hábitos reales: llegada, descanso, trabajo, noche o ausencia. Cada capa de luz —ambiental, de tarea, decorativa y acento— responde a un propósito concreto.</p>
+
+    <h3>Iluminación Inteligente por Capas</h3>
+    <p>Perfiles LED ocultos en falsos techos, tiras de luz en estanterías flotantes, downlights regulables por zonas y focos direccionales que resaltan elementos arquitectónicos. Todo controlado por escenas preprogramadas, sensores de presencia y ajuste automático según la luz natural.</p>
+
+    <h3>Climatización Zonal</h3>
+    <p>Termostatos inteligentes que aprenden rutinas y permiten control remoto por habitación. Integración con cortinas y persianas motorizadas para optimizar el consumo energético sin intervención manual.</p>
+
+    <h3>Seguridad y Accesos</h3>
+    <p>Cerraduras inteligentes, cámaras integradas en el diseño, sensores de movimiento con zonas independientes y alarmas conectadas al sistema central. Todo sin cables visibles ni elementos que rompan la estética.</p>
+
+    <h2>Problemas Frecuentes de los Sistemas Tradicionales</h2>
+    <p>Después de más de dos décadas ejecutando reformas integrales en Valencia, Caracas, La Guaira y San Diego, estos son los problemas más frecuentes que encontramos cuando los sistemas de control se añaden como accesorio y no como arquitectura:</p>
+
+    <ul class="god-checks">
+      <li><strong>Interruptores dispersos sin coherencia:</strong> Cada habitación opera de forma independiente sin escenas coordinadas. <strong>Solución:</strong> Programación de escenas globales con un solo toque.</li>
+      <li><strong>Cableado visible en reformas posteriores:</strong> Instalaciones añadidas con canaletas expuestas que rompen el diseño. <strong>Solución:</strong> Red estructurada oculta desde la fase de obra civil.</li>
+      <li><strong>Sin respaldo ante cortes de red:</strong> Sistemas que dependen exclusivamente de internet y dejan la casa sin control. <strong>Solución:</strong> Actuadores locales con control manual independiente.</li>
+      <li><strong>Climatización sin zonas:</strong> Un solo termostato para toda la vivienda genera desperdicio energético. <strong>Solución:</strong> Control zonal con sensores por habitación.</li>
+      <li><strong>Falta de integración estética:</strong> Mecanismos de plástico que contrastan con acabados premium. <strong>Solución:</strong> Mecanismos de diseño integrado en líneas limpias.</li>
+    </ul>
+
+    <figure class="god-figure">
+      <img src="/images/electricidad-domotica.webp" alt="Sistema domótico integrado con control de escenas desde interfaz elegante" loading="lazy" decoding="async" />
+      <figcaption>Control centralizado de escenas desde interfaz de diseño. La tecnología no se ve, se siente.</figcaption>
+    </figure>
+
+    <h2>Arquitectura Técnica Invisible</h2>
+    <p>Cada sistema que implementamos se diseña como parte integral de la obra civil, no como accesorio posterior. Cableado estructurado en tubos corrugados, cuadros eléctricos ampliados con protecciones dedicadas, protocolos abiertos compatibles con asistentes de voz y respaldo manual para cada punto crítico.</p>
+
+    <h3>Componentes del Sistema Inteligente</h3>
+    <p><strong>Controladores centrales:</strong> Módulos que coordinan escenas, reciben señales de sensores y envían órdenes a actuadores. Diseñados para operar con o sin conexión a internet.</p>
+    <p><strong>Actuadores locales:</strong> Dispositivos que reciben la señal del controlador y ejecutan la acción: encender una luz, abrir una persiana, ajustar la temperatura o activar una alarma.</p>
+    <p><strong>Sensores:</strong> Detectan movimiento, temperatura, luminosidad, apertura de puertas o ventanas. Proporcionan la información necesaria para que el sistema reaccione automáticamente.</p>
+    <p><strong>Interfaces de usuario:</strong> Paneles táctiles integrados en paredes, aplicaciones móviles con diseño limpio y comandos de voz a través de asistentes compatibles.</p>
+
+    <ul class="god-checks">
+      <li><strong>Red estructurada:</strong> Cat6A o fibra óptica como columna vertebral de datos.</li>
+      <li><strong>Cuadro ampliado:</strong> Espacio reservado, circuitos dedicados y diferenciales independientes.</li>
+      <li><strong>Protocolos abiertos:</strong> KNX, Zigbee, Z-Wave y sistemas híbridos según proyecto.</li>
+      <li><strong>Control distribuido:</strong> Actuadores locales con respaldo manual sin red.</li>
+      <li><strong>Integración estética:</strong> Mecanismos de líneas limpias, pantallas enrasadas y módulos ocultos.</li>
+    </ul>
+
+    <h2>Tipos de Vivienda y Nivel de Automatización</h2>
+    <p>Cada proyecto requiere un nivel de integración distinto según la tipología, el uso y la estética deseada.</p>
+
+    <h3>Apartamentos en Zonas Premium</h3>
+    <p>En edificios con restricciones de obra, diseñamos sistemas inalámbricos con mínima intervención. Integración de iluminación por zonas, control de climatización por habitación y acceso inteligente sin alterar áreas comunes ni afectar a vecinos.</p>
+
+    <h3>Casas y Townhouses Familiares</h3>
+    <p>Proyectos que combinan áreas sociales, dormitorios y exteriores. Control de iluminación por capas, climatización zonal, seguridad con cámaras integradas y acceso inteligente para residentes y visitantes.</p>
+
+    <h3>Quintas y Residencias de Alto Valor</h3>
+    <p>Propiedades que exigen coordinación entre múltiples áreas: cocina, comedor, salón, dormitorios, piscina, jardín y garaje. Sistemas híbridos con red estructurada, protocolos abiertos y control centralizado con respaldo distribuido en cada zona.</p>
+
+    <h2>Escenas de Vida Real</h2>
+    <p>Las escenas son el lenguaje de la domótica. Definimos combinaciones preprogramadas que ajustan iluminación, temperatura, persianas y seguridad según la actividad.</p>
+
+    <h3>Escena "Llegada"</h3>
+    <p>Al abrir la puerta principal, se enciende la iluminación ambiental de la zona día, se ajusta la temperatura a 23°C, se abren las persianas del salón y se desactiva la alarma interior. Todo sin tocar un interruptor.</p>
+
+    <h3>Escena "Noche"</h3>
+    <p>Todas las luces se reducen al 20%, se cierran las persianas, se activa el modo descanso del aire acondicionado y se encienden luces de paso suaves en pasillos para moverse sin deslumbrar.</p>
+
+    <h3>Escena "Ausencia"</h3>
+    <p>Se apagan todos los sistemas no esenciales, se activa la alarma perimetral, se encienden luces aleatorias como simulación de ocupación y se envía notificación al usuario ante cualquier evento inesperado.</p>
+
+    <h3>Escena "Cine"</h3>
+    <p>Las luces del salón se atenúan, se cierra la cortina, se activa el modo envolvente del sistema de sonido integrado y se ajusta la iluminación decorativa para resaltar el ambiente sin interferir con la pantalla.</p>
+
+    <h2>Proceso Sin Interrupciones</h2>
+    <h3>Fase 1: Diagnóstico y Diseño de Escenas</h3>
+    <p>Evaluamos hábitos, espacios y necesidades futuras. Definimos automatismos, puntos de control y especificaciones técnicas con un esquema unifilar documentado.</p>
+
+    <h3>Fase 2: Infraestructura y Cableado</h3>
+    <p>Instalación de red estructurada, canalizaciones ocultas, cajas de registro accesibles y cuadro eléctrico preparado para expansión futura. Todo coordinado con la obra civil.</p>
+
+    <h3>Fase 3: Configuración y Entrega</h3>
+    <p>Integración de equipos, calibración de sensores, programación de escenas y capacitación del usuario. Entrega con manual técnico, esquema de red y garantía de 2 años.</p>
+
+    <h2>Garantía Técnica y Certificaciones</h2>
+    <p>Todas nuestras instalaciones incluyen:</p>
+    <ul class="god-checks">
+      <li><strong>Certificado de red estructurada:</strong> Documento que acredita la topología y calidad del cableado.</li>
+      <li><strong>Esquema unifilar del cuadro ampliado:</strong> Plano detallado con cada circuito y protección identificada.</li>
+      <li><strong>Manual de escenas:</strong> Guía completa con descripción de cada automatismo y cómo modificarlo.</li>
+      <li><strong>Garantía de 2 años:</strong> Sobre instalación completa, equipos y materiales.</li>
+      <li><strong>Capacitación incluida:</strong> Sesión práctica con el usuario para dominar el sistema.</li>
+    </ul>
+
+    <h2>¿Por Qué Elegir RemodelaT Venezuela?</h2>
+    <ul class="god-checks">
+      <li><strong>23+ años de experiencia</strong> en instalaciones eléctricas y sistemas inteligentes residenciales.</li>
+      <li><strong>Diseño técnico como arquitectura:</strong> No añadimos gadgets, construimos sistemas.</li>
+      <li><strong>Materiales certificados:</strong> Trabajamos con Schneider, Legrand, ABB, Simon y fabricantes de protocolos abiertos.</li>
+      <li><strong>Presupuesto cerrado:</strong> Sin sorpresas ni costos ocultos. Todo documentado desde el inicio.</li>
+      <li><strong>Garantía por escrito:</strong> En cada trabajo, con respaldo técnico real.</li>
+      <li><strong>Conocimiento local:</strong> Entendemos las particularidades de Valencia, Caracas, La Guaira y San Diego.</li>
+    </ul>
+
+    <h2>Ciudades y Zonas Atendidas</h2>
+    <p>Ejecutamos proyectos de domótica y automatización en Valencia, San Diego, Caracas, La Guaira, Maracay y zonas aledañas del estado Carabobo. Cada proyecto se adapta a la normativa local y a las condiciones reales de la propiedad.</p>
+
+    <h2>Tu Próximo Paso</h2>
+    <p>Si estás planificando una reforma integral, modernizando una vivienda existente o construyendo desde cero, la domótica debe diseñarse desde el primer plano. Durante la visita técnica evaluamos el alcance, definimos las escenas según tus hábitos y preparamos una propuesta con esquema técnico, presupuesto detallado y plazos reales.</p>
+    <p>Si decides avanzar, recibirás diseño completo, presupuesto cerrado y garantía por escrito. Si no, al menos tendrás un diagnóstico profesional de tu vivienda.</p>
+    <p><strong>¿Listo para una casa que responda antes de que lo pidas?</strong> <a href="/contacto">Solicita tu valoración técnica hoy.</a></p>
+  </div>
+</section>
+
+<section class="god-specs" aria-label="Especificaciones técnicas">
+  <div class="god-specs-inner">
+    <div class="god-spec">
+      <dt>Red</dt>
+      <dd>Cat6A / Fibra óptica con topología en estrella</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Protocolos</dt>
+      <dd>KNX · Zigbee · Z-Wave · Híbridos</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Control</dt>
+      <dd>Distribuido con respaldo manual por zona</dd>
+    </div>
+    <div class="god-spec">
+      <dt>Integración</dt>
+      <dd>Asistentes de voz · App · Paneles táctiles</dd>
+    </div>
+  </div>
+</section>
+
+<FAQ items={[
+  { question: "¿Puedo automatizar una vivienda terminada?", answer: "Sí. Diseñamos soluciones inalámbricas con mínima intervención, aunque la integración óptima se logra durante la reforma integral." },
+  { question: "¿Funciona sin internet?", answer: "Sí. Cada sistema incluye respaldo local y control manual independiente, para que la vivienda nunca dependa exclusivamente de la red." },
+  { question: "¿Es compatible con asistentes de voz?", answer: "Implementamos protocolos compatibles con Alexa, Google Home y Apple HomeKit según requisitos de seguridad y preferencias del cliente." },
+  { question: "¿Aumenta el consumo eléctrico?", answer: "Un sistema bien diseñado reduce el consumo mediante automatización inteligente. El consumo propio de los controladores es mínimo." },
+]} />
+
+<section class="god-cta" aria-label="Llamada a la acción final">
+  <h2>Haz que tu vivienda responda antes de que lo pidas</h2>
+  <p>Solicita una valoración técnica y recibe una propuesta de arquitectura inteligente diseñada para tu espacio, tu estética y tu forma de vivir.</p>
+  <a href="/contacto" class="btn-premium btn-primary-premium">
+    <span class="btn-content">Solicitar valoración técnica</span>
+    <span class="btn-border"></span>
+    <span class="btn-arrow">→</span>
+  </a>
+</section>
+
+<ServiceSchema
+  name="Domótica y Automatización"
+  description="Sistemas inteligentes de iluminación, climatización, seguridad y control para viviendas premium en Venezuela. Diseño técnico invisible."
+  serviceType="SmartHomeInstallation"
+/>
+</BaseLayout>
+
+<style>
+  :root {
+    --gold-dim: rgba(201,169,97,0.18);
+    --gold-mid: rgba(201,169,97,0.55);
+    --ink-deep: #0f0d0a;
+  }
+
+  /* ============ HERO CINEMATOGRÁFICO DE NIVEL DIOS ============ */
+  .god-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    background: var(--ink-deep);
+    padding: 160px 24px 120px;
+  }
+  .god-glow {
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 70vw;
+    height: 70vw;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .god-hero-img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.35;
+    filter: contrast(1.15) brightness(0.85);
+    z-index: 1;
+  }
+  .god-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to top, rgba(10,8,6,0.96) 0%, rgba(10,8,6,0.45) 45%, rgba(10,8,6,0.25) 100%),
+      linear-gradient(100deg, rgba(10,8,6,0.7) 0%, transparent 60%);
+    z-index: 3;
+  }
+  .god-hero-inner {
+    position: relative;
+    z-index: 4;
+    max-width: 980px;
+    width: 100%;
+  }
+  .god-back {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    text-decoration: none;
+    transition: opacity 0.3s;
+  }
+  .god-back:hover { opacity: 0.7; }
+  .god-eyebrow {
+    display: block;
+    color: var(--gold-light);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .god-title {
+    font-family: var(--font-serif);
+    font-size: clamp(3.2rem, 8vw, 7.5rem);
+    font-weight: 500;
+    line-height: 0.92;
+    letter-spacing: var(--track-tight);
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-title .line { display: block; }
+  .god-title .gold { color: var(--gold); }
+  .god-lead {
+    font-size: clamp(1.1rem, 1.8vw, 1.35rem);
+    color: rgba(255,255,255,0.82);
+    max-width: 600px;
+    line-height: 1.55;
+    margin-bottom: 40px;
+  }
+  .god-badges {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .god-badges span {
+    padding: 9px 20px;
+    border: 1px solid rgba(201,169,97,0.35);
+    border-radius: 999px;
+    color: rgba(255,255,255,0.9);
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+  }
+
+  /* ============ MANIFIESTO ============ */
+  .god-manifesto {
+    background: var(--ink);
+    padding: 160px 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-manifesto-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+  }
+  .god-manifesto h2 {
+    font-family: var(--font-serif);
+    font-size: clamp(2.6rem, 5vw, 4rem);
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 28px;
+  }
+  .god-manifesto p {
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: rgba(255,255,255,0.72);
+    max-width: 900px;
+  }
+
+  /* ============ EDITORIAL PREMIUM ============ */
+  .god-editorial {
+    background: var(--bone);
+    padding: 120px 24px;
+  }
+  .god-editorial-body {
+    font-family: var(--font-sans);
+    max-width: 1160px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.85;
+    color: var(--text);
+  }
+  .god-editorial-body h2 {
+    font-family: var(--font-serif);
+    font-family: var(--font-serif);
+    font-size: clamp(2rem, 3.8vw, 2.8rem);
+    line-height: 1.1;
+    color: var(--ink);
+    margin-top: 80px;
+    margin-bottom: 22px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-editorial-body h3 {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    color: var(--ink-soft);
+    margin-top: 48px;
+    margin-bottom: 14px;
+  }
+  .god-editorial-body p {
+    margin-bottom: 24px;
+  }
+  .god-figure {
+    margin: 60px 0;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.12);
+    position: relative;
+  }
+  .god-figure img {
+    width: 100%;
+    display: block;
+    aspect-ratio: 3/2;
+    object-fit: cover;
+  }
+  .god-figure figcaption {
+    padding: 20px 26px;
+    background: linear-gradient(180deg, var(--ink) 0%, var(--ink-soft) 100%);
+    color: rgba(255,255,255,0.75);
+    font-size: 0.95rem;
+    font-style: italic;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .god-checks {
+    list-style: none;
+    padding: 0;
+    margin: 28px 0 32px;
+  }
+  .god-checks li {
+    position: relative;
+    padding-left: 32px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(201,169,97,0.12);
+    margin-bottom: 16px;
+  }
+  .god-checks li::before {
+    content: '◈';
+    position: absolute;
+    left: 0;
+    top: -2px;
+    color: var(--gold-ink-strong);
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+
+  /* ============ ESPECIFICACIONES ============ */
+  .god-specs {
+    background: var(--ink);
+    padding: 120px 24px;
+    border-top: 1px solid rgba(201,169,97,0.2);
+  }
+  .god-specs-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 30px;
+  }
+  .god-spec dt {
+    color: var(--gold);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    font-weight: 800;
+    margin-bottom: 8px;
+  }
+  .god-spec dd {
+    color: rgba(255,255,255,0.85);
+    font-size: 1.05rem;
+    font-family: var(--font-serif);
+    line-height: 1.45;
+  }
+
+  /* ============ FAQ ============ */
+  .faq-section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; background: var(--bone); }
+  .faq-section-title { font-family: var(--font-serif); font-size: clamp(1.8rem, 3.5vw, 2.6rem); text-align: center; margin-bottom: 50px; color: var(--text); letter-spacing: var(--track-tight); }
+  .faq-item { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-question { width: 100%; background: none; border: none; padding: 22px 0; font-family: var(--font-serif); font-size: 1.05rem; font-weight: 600; color: var(--text); text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; transition: color 0.3s ease; }
+  .faq-question:hover { color: var(--gold-ink); }
+  .faq-question::after { content: '+'; font-size: 1.4rem; font-weight: 300; color: var(--gold-ink); flex-shrink: 0; transition: transform 0.3s ease; }
+  .faq-item.active .faq-question::after { content: '−'; }
+  .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.3s ease; }
+  .faq-item.active .faq-answer { max-height: 300px; padding-bottom: 22px; }
+  .faq-answer p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.75; }
+
+  /* ============ CTA FINAL ============ */
+  .god-cta {
+    background:
+      radial-gradient(circle at 50% 0%, rgba(201,169,97,0.25), transparent 60%),
+      linear-gradient(180deg, var(--ink) 0%, var(--ink-deep) 100%);
+    padding: 140px 24px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .god-cta::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    left: 50%;
+    width: 80%;
+    height: 60%;
+    background: radial-gradient(circle, rgba(201,169,97,0.35) 0%, transparent 70%);
+    filter: blur(90px);
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .god-cta h2 {
+    position: relative;
+    z-index: 2;
+    font-family: var(--font-serif);
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--white);
+    margin-bottom: 20px;
+    letter-spacing: var(--track-tight);
+  }
+  .god-cta p {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto 36px;
+    color: rgba(255,255,255,0.75);
+    font-size: 1.1rem;
+    line-height: 1.75;
+  }
+
+  /* ============ RESPONSIVE ============ */
+  @media (max-width: 768px) {
+    .god-hero { min-height: 90vh; padding: 130px 20px 80px; }
+    .god-manifesto { padding: 100px 20px; }
+    .god-editorial { padding: 80px 20px; }
+    .god-specs { padding: 90px 20px; }
+    .god-cta { padding: 100px 20px; }
+  }
+</style>
