@@ -1,0 +1,157 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import FAQ from '../../components/FAQ.astro';
+import ServiceSchema from '../../components/ServiceSchema.astro';
+import Breadcrumb from '../../components/Breadcrumb.astro';
+---
+<BaseLayout
+  title="Domótica y Automatización en Venezuela | RemodelaT"
+  description="Sistemas de automatización inteligente para viviendas premium: iluminación, climatización, seguridad, control por voz y gestión energética. Diseño y ejecución con método técnico."
+  image="/images/electricidad.webp"
+  activePage="servicios"
+>
+
+<header class="article-hero">
+    <img class="hero-bg" src="/images/electricidad.webp" alt="Instalación domótica e inteligente para hogar de lujo en Venezuela" fetchpriority="high" loading="eager" decoding="async" />
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="/servicios" class="back-link">← Volver a Servicios</a>
+      <span class="article-category">Servicio Especializado</span>
+      <h1 class="article-title"><span class="line">Domótica</span> <span class="line gold">y Automatización</span></h1>
+      <p class="article-excerpt">Viviendas que responden antes de que lo pidas. Diseño técnico, integración limpia y control real.</p>
+    </div>
+  </header>
+
+  <Breadcrumb items={[
+  { name: 'Inicio', url: '/' },
+  { name: 'Servicios', url: '/servicios' },
+  { name: 'Domótica y Automatización', url: '/servicios/domotica-automatizacion' }
+]} />
+
+<section class="article-section">
+    <div class="container">
+      <div class="article-body">
+        <p>Una vivienda inteligente no es solo un conjunto de interruptores conectados al móvil. Es una arquitectura invisible que coordina iluminación, climatización, seguridad y energía sin interferir con el diseño del espacio. En RemodelaT Venezuela diseñamos sistemas domóticos como parte integral de la reforma, no como un accesorio posterior.</p>
+
+        <p>Integramos equipos y redes en la fase de obra civil: cableado estructurado, cuadros con protección diferencial, puntos de conexión estratégica y control centralizado o distribuido según cada proyecto. El resultado es una casa que funciona como una sola pieza.</p>
+
+        <img src="/images/electricidad-domotica.webp" alt="Sistema domótico con control inteligente desde aplicación móvil" loading="lazy" decoding="async" width="1200" height="800" />
+
+        <h2>Control Integral del Espacio</h2>
+
+        <p>La domótica empieza por definir qué quieres que tu vivienda haga, no qué equipos instalar. Diseñamos escenas y automatismos según los hábitos reales de cada familia: llegada, descanso, trabajo, noche o ausencia.</p>
+
+        <h3>Iluminación Inteligente</h3>
+        <p>Capas de luz —ambiental, tarea, decorativa y acento— controladas por zonas, horarios y presencia. Dimmers, escenas preprogramadas y sensores que ajustan la intensidad automáticamente según la luz natural.</p>
+
+        <h3>Climatización por Zonas</h3>
+        <p>Termostatos inteligentes que aprenden rutinas y permiten control remoto por habitación. Integración con cortinas y persianas motorizadas para optimizar el consumo energético.</p>
+
+        <h3>Seguridad y Accesos</h3>
+        <p>Cerraduras inteligentes, cámaras integradas, sensores de movimiento, alarmas por zonas y control de accesos mediante códigos, aplicaciones o reconocimiento biométrico.</p>
+
+        <h2>Arquitectura Técnica de la Domótica</h2>
+
+        <p>Cada sistema domótico que instalamos parte de un diseño técnico documentado: esquema de red, topología de comunicación, protecciones eléctricas dedicadas y protocolo de respaldo ante fallas.</p>
+
+        <ul>
+          <li><strong>Red estructurada:</strong> Cableado Cat6A o fibra óptica como columna vertebral para datos estables y alta velocidad.</li>
+          <li><strong>Cuadro eléctrico ampliado:</strong> Espacio reservado, circuitos dedicados para controladores, protecciones tipo A y diferenciales independientes.</li>
+          <li><strong>Protocolos abiertos:</strong> KNX, Zigbee, Z-Wave o sistemas híbridos según escalabilidad y preferencias del cliente.</li>
+          <li><strong>Control distribuido:</strong> Actuadores locales con respaldo manual, para que la casa siga funcionando sin red.</li>
+        </ul>
+
+        <h2>Integración Estética</h2>
+
+        <p>La tecnología no debe verse. Utilizamos mecanismos de líneas limpias, pantallas empotradas con marcos enrasados y módulos ocultos en cuadros y falsos techos. Cada detalle se coordina con el diseño interior de la reforma.</p>
+
+        <img src="/images/electricidad-iluminacion-led.webp" alt="Iluminación inteligente con perfiles LED integrados en diseño interior" loading="lazy" decoding="async" width="1200" height="800" />
+
+        <h2>Proceso de Implementación</h2>
+
+        <h3>Fase 1: Diagnóstico y Diseño de Escenas</h3>
+        <p>Evaluamos hábitos, espacios y necesidades futuras. Definimos escenas, automatismos y puntos de control. Elaboramos esquema técnico con especificaciones de materiales.</p>
+
+        <h3>Fase 2: Infraestructura y Cableado</h3>
+        <p>Instalación de red estructurada, canalizaciones, cajas de registro y cuadro eléctrico ampliado. Todo coordinado con la obra civil para evitar interferencias.</p>
+
+        <h3>Fase 3: Configuración y Programación</h3>
+        <p>Integración de equipos, configuración de escenas, calibración de sensores y pruebas de respaldo. Entrega con documentación técnica completa y capacitación al usuario.</p>
+
+        <h2>Garantía Técnica</h2>
+
+        <p>Todas las instalaciones incluyen certificado de red estructurada, esquema unifilar del cuadro ampliado, manual de escenas y garantía de 2 años sobre la instalación completa. Trabajamos con equipos de fabricantes certificados y protocolos compatibles con asistentes de voz.</p>
+
+        <h2>Tu Próximo Paso</h2>
+        <p>Si estás planificando una reforma integral o modernizando una vivienda existente, la domótica debe diseñarse desde el inicio, no añadirse al final. <a href="/contacto">Solicita una valoración técnica</a> y revisamos juntos el alcance, el diseño de escenas y la arquitectura técnica de tu proyecto.</p>
+      </div>
+    </div>
+  </section>
+
+<FAQ items={[
+  { question: "¿Puedo automatizar una vivienda ya construida?", answer: "Sí. Aunque la integración es más limpia durante una reforma integral, diseñamos soluciones inalámbricas y con mínima intervención en viviendas terminadas." },
+  { question: "¿Qué sistemas son compatibles con asistentes de voz?", answer: "Implementamos protocolos compatibles con Alexa, Google Home y Apple HomeKit según preferencia y requisitos de seguridad del proyecto." },
+  { question: "¿La casa funciona si se corta el internet?", answer: "Sí. Diseñamos sistemas con respaldo local y control manual en cada punto, para que ninguna función esencial dependa de la red." },
+  { question: "¿Cuánto aumenta el consumo eléctrico?", answer: "Un sistema bien diseñado reduce el consumo mediante automatización de climatización e iluminación. El incremento del consumo propio de los controladores es mínimo." },
+]} />
+
+<section class="cta-section">
+    <div class="cta-wrapper">
+      <h2 class="cta-title">¿Tu hogar merece funcionar como uno solo?</h2>
+      <p class="cta-text">Solicita una valoración técnica. Revisamos alcance, integración estética y nivel de automatización según tu vivienda.</p>
+      <a href="/contacto" class="btn-premium btn-primary-premium">
+        <span class="btn-content">Solicitar valoración técnica</span>
+        <span class="btn-border"></span>
+        <span class="btn-shine"></span>
+        <span class="btn-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+<ServiceSchema
+  name="Domótica y Automatización"
+  description="Sistemas inteligentes de iluminación, climatización, seguridad y control para viviendas premium en Venezuela."
+  serviceType="SmartHomeInstallation"
+/>
+</BaseLayout>
+
+<style>
+  .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
+  .hero-bg { width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0; z-index: 1; }
+  .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.45) 60%, rgba(0,0,0,0.25) 100%); z-index: 2; }
+  .hero-content { position: relative; z-index: 3; max-width: 900px; padding: 0 20px; }
+  .article-category { display: inline-block; background: rgba(201,169,97,0.2); border: 1px solid var(--gold); color: var(--gold); padding: 8px 20px; border-radius: var(--r-full); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px; backdrop-filter: blur(10px); }
+  .article-title { font-family: var(--font-serif); font-size: clamp(2.5rem, 6vw, 5rem); font-weight: 400; margin-bottom: 20px; line-height: 1.1; letter-spacing: var(--track-tight); }
+  .article-title .line { display: block; }
+  .article-excerpt { font-size: 1.3rem; color: rgba(255,255,255,0.9); max-width: 700px; margin: 0 auto; line-height: 1.6; font-weight: 400; }
+  .back-link { display: inline-block; color: var(--gold); font-size: 0.9rem; margin-bottom: 20px; transition: 0.3s; text-decoration: none; }
+  .back-link:hover { color: var(--gold-light); }
+  .article-section { padding: 80px 0; background: var(--white); }
+  .article-body { max-width: 800px; margin: 0 auto; font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.8; color: var(--text); }
+  .article-body h2 { font-size: 2.5rem; margin: 3rem 0 1.5rem; color: var(--text); line-height: 1.2; font-weight: 500; letter-spacing: var(--track-tight); }
+  .article-body h3 { font-size: 1.8rem; margin: 2.5rem 0 1rem; color: var(--text); font-weight: 500; letter-spacing: var(--track-tight); }
+  .article-body p { margin-bottom: 1.5rem; font-weight: 400; }
+  .article-body img { border-radius: var(--r-md); margin: 2.5rem 0; box-shadow: var(--e-2); width: 100%; height: auto; aspect-ratio: 3/2; object-fit: cover; }
+  .article-body a { color: var(--gold-ink-strong); text-decoration: none; border-bottom: 1px solid rgba(138,109,31,.45); transition: border-color var(--dur-fast) var(--ease-out); }
+  .article-body a:hover { border-bottom-color: var(--gold-ink-strong); }
+  .article-body ul, .article-body ol { margin: 1.5rem 0 1.5rem 2rem; }
+  .article-body li { margin-bottom: 0.75rem; font-weight: 400; }
+  .article-body > p:first-of-type::first-letter { font-family: var(--font-serif); font-size: 4.5rem; font-weight: 600; float: left; line-height: 0.75; margin-right: 0.15em; color: var(--gold-ink); margin-top: 8px; }
+  .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
+  .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+  .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; letter-spacing: var(--track-tight); }
+  .cta-text { color: rgba(255,255,255,0.85); max-width: 800px; margin: 0 auto 45px; font-size: 1.25rem; line-height: 1.7; font-weight: 400; text-align: center; width: 100%; }
+  .cta-section .btn-premium { padding: 20px 55px; font-size: 0.9rem; }
+  @media (max-width: 768px) {
+    .article-hero { min-height: 70vh; padding-top: 120px; padding-bottom: 60px; }
+    .article-title { font-size: clamp(2rem, 8vw, 3.5rem); }
+    .article-excerpt { font-size: 1.15rem; }
+    .article-body { font-size: 1.15rem; }
+    .article-body h2 { font-size: 2rem; }
+    .article-body h3 { font-size: 1.5rem; }
+    .article-body img { margin: 1.5rem 0; }
+    .cta-section { padding: 90px 20px; }
+    .cta-title { font-size: 2.2rem; }
+    .cta-text { font-size: 1.15rem; }
+  }
+</style>
