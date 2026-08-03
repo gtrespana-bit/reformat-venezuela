@@ -39,10 +39,26 @@ function enrichFile(filePath, isEn = false) {
   const importRelPath = isEn ? '../../components/' : '../components/';
   const importsToAdd = [
     `import ZoneGallery from '${importRelPath}ZoneGallery.astro';`,
+    `import BeforeAfter from '${importRelPath}BeforeAfter.astro';`,
     `import ZoneAside from '${importRelPath}ZoneAside.astro';`
   ];
   
   let modified = false;
+
+  // Eliminar cualquier comparativa antigua antes de volver a normalizarla.
+  // Así también se corrigen páginas generadas con la versión anterior, que no
+  // pasaba la zona y podía terminar usando imágenes genéricas.
+  const legacyBeforeAfterImport = /^[ \t]*import BeforeAfter from ['"][^'\"]*BeforeAfter\.astro['"];[ \t]*\r?\n/gm;
+  const legacyBeforeAfterTag = /\n[ \t]*<BeforeAfter(?:\s+zone="[^"]+")?\s+service="(?:cocina|bano|integral)"\s*\/\>[ \t]*\n/g;
+  if (!content.includes(`<BeforeAfter zone="${zone}" service="${service}" />`)) {
+    const cleanedContent = content
+      .replace(legacyBeforeAfterImport, '')
+      .replace(legacyBeforeAfterTag, '\n');
+    if (cleanedContent !== content) {
+      content = cleanedContent;
+      modified = true;
+    }
+  }
   
   // Buscar sección de frontmatter (--- ... ---)
   const frontmatterRegex = /^---([\s\S]*?)---/;
@@ -115,19 +131,16 @@ function enrichFile(filePath, isEn = false) {
     }
   }
   
-  // 5. No insertar comparativas genéricas en páginas locales.
-  // Solo mostramos un antes/después cuando existe un par documentado de la
-  // misma estancia (las páginas de proyectos lo gestionan por separado).
-  // Este cleanup elimina el bloque antiguo si el script se ejecuta sobre una
-  // copia generada antes de esta decisión.
-  const beforeAfterImport = /^[ \t]*import BeforeAfter from ['"][^'\"]*BeforeAfter\.astro['"];[ \t]*\r?\n/gm;
-  const beforeAfterTag = /\n[ \t]*<BeforeAfter service="(?:cocina|bano|integral)" \/>[ \t]*\n/g;
-  const withoutBeforeAfter = content
-    .replace(beforeAfterImport, '')
-    .replace(beforeAfterTag, '\n');
-  if (withoutBeforeAfter !== content) {
-    content = withoutBeforeAfter;
-    modified = true;
+  // 5. Insertar la comparativa solo con una zona explícita.
+  // El componente consulta un catálogo de pares reales por ciudad/servicio y
+  // devuelve vacío si todavía no existe un caso documentado que encaje.
+  if (!content.includes('<BeforeAfter')) {
+    const targetHeader = isEn ? '<h2>How we work' : '<h2>Cómo trabajamos';
+    if (content.includes(targetHeader)) {
+      const beforeAfterTag = `\n      <BeforeAfter zone="${zone}" service="${service}" />\n\n`;
+      content = content.replace(targetHeader, beforeAfterTag + targetHeader);
+      modified = true;
+    }
   }
 
   if (modified) {

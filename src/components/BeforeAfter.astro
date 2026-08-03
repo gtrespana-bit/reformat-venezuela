@@ -1,0 +1,311 @@
+---
+import { getBeforeAfterPair } from '../data/zone-before-after';
+
+interface Props {
+  zone: string;
+  service: 'cocina' | 'bano' | 'integral';
+}
+
+const { zone, service } = Astro.props;
+const pair = getBeforeAfterPair(zone, service);
+const isEnglish = Astro.url.pathname.startsWith('/en');
+
+const serviceLabel = isEnglish
+  ? service === 'cocina' ? 'kitchen remodeling' : service === 'bano' ? 'bathroom remodeling' : 'whole-home remodeling'
+  : service === 'cocina' ? 'remodelación de cocina' : service === 'bano' ? 'remodelación de baño' : 'reforma integral';
+
+const beforeLabel = pair && (pair.beforeLabel?.[isEnglish ? 'en' : 'es'] ?? (isEnglish ? 'Before' : 'Antes'));
+const afterLabel = pair && (pair.afterLabel?.[isEnglish ? 'en' : 'es'] ?? (isEnglish ? 'After' : 'Después'));
+const scopeLabel = pair && (
+  pair.scope === 'same-zone'
+    ? isEnglish ? 'Same zone' : 'Misma zona'
+    : isEnglish ? 'Same room' : 'Misma estancia'
+);
+
+const title = pair && (isEnglish
+  ? `Real comparison: ${serviceLabel} · ${pair.location.en}`
+  : `Antes y después real: ${serviceLabel} · ${pair.location.es}`);
+const subtitle = pair && (isEnglish
+  ? `${pair.project.en}. The images come from a documented project and are shown side by side so the space and the scope of the change remain clear.`
+  : `${pair.project.es}. Las imágenes proceden de un proyecto documentado y se muestran juntas para que se entienda el espacio y el alcance real del cambio.`);
+---
+
+{pair && (
+  <section class="before-after-card" aria-labelledby={`ba-title-${zone}-${service}`}>
+    <div class="ba-heading">
+      <div>
+        <span class="ba-eyebrow">{isEnglish ? 'Real project evidence' : 'Evidencia de un proyecto real'}</span>
+        <h2 id={`ba-title-${zone}-${service}`}>{title}</h2>
+        <p>{subtitle}</p>
+      </div>
+      <span class="ba-project-location">{pair.location[isEnglish ? 'en' : 'es']}</span>
+    </div>
+
+    <div class="ba-stage">
+      <figure class="ba-panel">
+        <div class:list={['ba-media', `ba-media-${pair.orientation}`]}>
+          <img
+            src={pair.beforeSrc}
+            alt={pair.beforeAlt[isEnglish ? 'en' : 'es']}
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="ba-badge ba-badge-before">{beforeLabel}</span>
+        </div>
+        <figcaption>
+          <strong>{beforeLabel}</strong>
+          <p>{pair.beforeCaption[isEnglish ? 'en' : 'es']}</p>
+        </figcaption>
+      </figure>
+
+      <div class="ba-connector" aria-hidden="true">
+        <span class="ba-connector-line"></span>
+        <span class="ba-connector-label">{scopeLabel}</span>
+        <span class="ba-connector-arrow">→</span>
+        <span class="ba-connector-line"></span>
+      </div>
+
+      <figure class="ba-panel">
+        <div class:list={['ba-media', `ba-media-${pair.orientation}`]}>
+          <img
+            src={pair.afterSrc}
+            alt={pair.afterAlt[isEnglish ? 'en' : 'es']}
+            loading="lazy"
+            decoding="async"
+          />
+          <span class="ba-badge ba-badge-after">{afterLabel}</span>
+        </div>
+        <figcaption>
+          <strong>{afterLabel}</strong>
+          <p>{pair.afterCaption[isEnglish ? 'en' : 'es']}</p>
+        </figcaption>
+      </figure>
+    </div>
+
+    <p class="ba-comparison-note">
+      <strong>{isEnglish ? 'How to read this comparison' : 'Cómo leer esta comparación'}</strong>
+      {pair.comparison[isEnglish ? 'en' : 'es']}
+    </p>
+  </section>
+)}
+
+<style>
+  .before-after-card {
+    margin: 4rem 0;
+    padding: clamp(22px, 4vw, 38px);
+    border: 1px solid var(--sand);
+    border-radius: var(--r-lg);
+    background: linear-gradient(180deg, var(--white), var(--bone));
+    box-shadow: var(--e-2);
+  }
+
+  .ba-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 26px;
+    margin-bottom: 28px;
+  }
+  .ba-heading > div { max-width: 760px; }
+  .ba-eyebrow {
+    display: inline-flex;
+    margin-bottom: 10px;
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+  .ba-heading h2 {
+    margin: 0 0 10px;
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: clamp(1.75rem, 3.4vw, 2.55rem);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .ba-heading p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: .98rem;
+    line-height: 1.7;
+  }
+  .ba-project-location {
+    flex-shrink: 0;
+    padding: 8px 13px;
+    border: 1px solid rgba(201,169,97,.35);
+    border-radius: var(--r-full);
+    color: var(--gold-ink-strong);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .08em;
+    line-height: 1.3;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  .ba-stage {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 18px;
+    align-items: stretch;
+  }
+  .ba-panel {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    margin: 0;
+    overflow: hidden;
+    border: 1px solid rgba(201,169,97,.18);
+    border-radius: var(--r-md);
+    background: var(--white);
+    box-shadow: var(--e-1);
+  }
+  .ba-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top, rgba(201,169,97,.13), transparent 42%),
+      var(--ink-soft);
+  }
+  .ba-media-tall { height: 600px; }
+  .ba-media-portrait { height: 520px; }
+  .ba-media-landscape { height: 430px; }
+  .ba-media img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 5px;
+    box-shadow: 0 16px 32px rgba(0,0,0,.28);
+  }
+  .ba-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    display: inline-flex;
+    align-items: center;
+    min-height: 32px;
+    padding: 0 12px;
+    border-radius: var(--r-full);
+    font-size: .72rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+  .ba-badge-before {
+    color: var(--white);
+    background: rgba(20,18,14,.86);
+    border: 1px solid rgba(255,255,255,.15);
+  }
+  .ba-badge-after {
+    color: var(--ink);
+    background: var(--gold);
+  }
+  .ba-panel figcaption {
+    flex: 1;
+    padding: 18px 20px 20px;
+  }
+  .ba-panel figcaption strong {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--ink);
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-weight: 600;
+  }
+  .ba-panel figcaption p {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: .9rem;
+    line-height: 1.65;
+  }
+
+  .ba-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 11px;
+    min-width: 110px;
+  }
+  .ba-connector-line {
+    width: 1px;
+    height: 66px;
+    background: linear-gradient(to bottom, transparent, rgba(201,169,97,.58), transparent);
+  }
+  .ba-connector-label {
+    padding: 7px 10px;
+    border: 1px solid rgba(201,169,97,.25);
+    border-radius: var(--r-full);
+    color: var(--gold-ink-strong);
+    background: var(--white);
+    font-size: .65rem;
+    font-weight: 800;
+    letter-spacing: .1em;
+    text-align: center;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .ba-connector-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    color: var(--gold);
+    background: var(--ink);
+    box-shadow: 0 10px 24px rgba(20,18,14,.2);
+    font-size: 1.25rem;
+  }
+  .ba-comparison-note {
+    margin: 22px auto 0;
+    max-width: 900px;
+    padding: 14px 17px;
+    border-left: 3px solid var(--gold);
+    color: var(--text-muted);
+    background: rgba(201,169,97,.08);
+    font-size: .86rem;
+    line-height: 1.65;
+  }
+  .ba-comparison-note strong {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--gold-ink-strong);
+    font-size: .7rem;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  @media (max-width: 900px) {
+    .ba-stage { grid-template-columns: 1fr; gap: 16px; }
+    .ba-connector {
+      flex-direction: row;
+      min-width: 0;
+      min-height: 52px;
+    }
+    .ba-connector-line {
+      width: 100%;
+      max-width: 110px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(201,169,97,.58), transparent);
+    }
+    .ba-connector-arrow { transform: rotate(90deg); }
+    .ba-media-tall { height: 560px; }
+  }
+  @media (max-width: 600px) {
+    .before-after-card { margin: 3rem 0; padding: 18px; }
+    .ba-heading { display: block; }
+    .ba-project-location { display: inline-flex; margin-top: 15px; }
+    .ba-media-tall { height: 520px; }
+    .ba-media-portrait { height: 440px; }
+    .ba-media-landscape { height: 300px; }
+    .ba-panel figcaption { padding: 16px; }
+  }
+</style>
