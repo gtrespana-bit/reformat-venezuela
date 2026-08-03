@@ -13,13 +13,13 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   
 
 <header class="god-hero">
-    <img class="hero-bg" src="/images/fontaneria.webp" alt="Servicios de fontanería y plomería profesional en Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
+    <img class="god-hero-img" src="/images/fontaneria.webp" alt="Servicios de fontanería y plomería profesional en Venezuela | RemodelaT" fetchpriority="high" loading="eager" decoding="async" />
     <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <a href="/servicios" class="back-link">← Volver a Servicios</a>
-      <span class="article-category">Servicio Especializado</span>
-      <h1 class="article-title"><span class="line">Fontanería y</span> <span class="line gold">Plomería</span></h1>
-      <p class="article-excerpt">Instalaciones, reparaciones y mantenimiento con máxima seguridad y eficiencia.</p>
+    <div class="god-hero-inner">
+      <a href="/servicios" class="god-back">← Volver a Servicios</a>
+      <span class="god-eyebrow">Servicio Especializado</span>
+      <h1 class="god-title"><span class="line">Fontanería y</span> <span class="line gold">Plomería</span></h1>
+      <p class="god-lead">Instalaciones, reparaciones y mantenimiento con máxima seguridad y eficiencia.</p>
     </div>
   </header>
   <Breadcrumb items={[
@@ -28,9 +28,9 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { name: 'Fontanería y Plomería', url: '/servicios/fontaneria-plomeria' }
 ]} />
 
-<section class="article-section">
+<section class="god-editorial">
     <div class="container">
-      <div class="article-body">
+      <div class="god-editorial-body">
         <p>La fontanería es un sistema crítico. Una fuga pequeña puede convertirse en un problema estructural costoso. En RemodelaT Venezuela ofrecemos soluciones integrales con materiales de primera y garantía de trabajo.</p>
         <img src="/images/fontaneria.webp" alt="Fontanería profesional" loading="eager" fetchpriority="high" decoding="async" />
         <h2>Detección y Reparación de Fugas</h2>
@@ -66,7 +66,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { question: "¿Ofrecen servicio de urgencias?", answer: "Sí, atendemos urgencias de fontanería como roturas de tuberías, atascos graves y fugas de agua. Contáctanos por WhatsApp para respuesta rápida." },
   { question: "¿Cuánto cuesta desatascar una tubería?", answer: "El coste depende de la gravedad y ubicación del atasco. Realizamos inspección con cámara primero para diagnosticar antes de presupuestar, sin sorpresas." },
 ]} />
-<section class="cta-section">
+<section class="god-cta">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Listo Para Tu Instalación de Fontanería?</h2>
       <p class="cta-text">Solicita una valoración técnica y recibe una propuesta detallada según el alcance y nivel de acabado.</p>
