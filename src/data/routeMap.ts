@@ -103,17 +103,22 @@ for (const [es, en] of pairs) {
 
 /**
  * Dada una ruta (sin trailing slash), devuelve su equivalente en el otro
- * idioma, o null si no existe y no hay correspondencia por defecto.
+ * idioma, o null si no existe traducción (en ese caso el llamante decide
+ * el destino, p.ej. volver al home del otro idioma).
+ *
+ * IMPORTANTE: devuelve siempre rutas SIN trailing slash inicial duplicado
+ * (nunca devuelve "//") Y respeta los conjuntos `untranslatedEsPaths` /
+ * `untranslatedEnPaths` devolviendo null para rutas marcadas como no traducidas.
  */
 export function getAlternatePath(currentPath: string, isEnglish: boolean): string | null {
   // Ruta con traducción explícita
   if (routeMap[currentPath]) return routeMap[currentPath];
 
-  // Si es una página de ciudad/servicio-zona (e.g. /remodelacion-bano-altamira
-  // o /en/remodelacion-bano-altamira), la contraparte es /en/... o la raíz ES.
-  // Las páginas de servicio-zona se generan con el mismo slug en ambos idiomas
-  // (generadas por scripts/generate-en-zone-pages.mjs) y la estructura EN es
-  // `/en/remodelacion-<servicio>-<zona>/`.
+  // Páginas no traducidas: sin correspondencia.
+  if (!isEnglish && untranslatedEsPaths.has(currentPath)) return null;
+  if (isEnglish && untranslatedEnPaths.has(currentPath)) return null;
+
+  // Páginas de zona (remodelacion-<servicio>-<zona>): mismo slug en ambos idiomas
   const zonePageRe = /^\/remodelacion-(bano|cocina|integral)-[a-z-]+$/;
   const enZonePageRe = /^\/en\/remodelacion-(bano|cocina|integral)-[a-z-]+$/;
 
@@ -122,16 +127,14 @@ export function getAlternatePath(currentPath: string, isEnglish: boolean): strin
     return currentPath.replace(/^\/en/, '') || '/';
   }
   if (!isEnglish && zonePageRe.test(currentPath)) {
-    // /remodelacion-bano-altamira -> /en/remodelacion-bano-altamira
-    // Solo si esa página existe en EN.
     return `/en${currentPath}`;
   }
 
-  // Fallback genérico para /algo -> /en/algo (solo para rutas que SÍ tienen
-  // contraparte por convención). Si la página está marcada como no traducida,
-  // SEO.astro no emitirá el hreflang.
+  // Fallback genérico
   if (isEnglish) {
-    return currentPath.replace(/^\/en/, '') || '/';
+    const stripped = currentPath.replace(/^\/en/, '');
+    return stripped === '' ? '/' : stripped;
   }
-  return currentPath === '/' ? '/en' : `/en${currentPath}`;
+  if (currentPath === '/') return '/en';
+  return `/en${currentPath}`;
 }
