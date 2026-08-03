@@ -1,23 +1,23 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { esBlogSlugs } from '../data/blog-slugs';
+import { enBlogSlugs } from '../../data/blog-slugs';
 
 export async function GET(context: any) {
   const posts = await getCollection('blog');
-  const spanishPosts = posts
-    .filter((post) => esBlogSlugs.includes(post.id))
+  const englishPosts = posts
+    .filter((post) => enBlogSlugs.includes(post.id))
     .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
   return rss({
     title: 'RemodelaT Venezuela | Blog',
-    description: 'Consejos, tendencias y guías prácticas para tu proyecto de reforma en Venezuela.',
+    description: 'Practical guides, trends and advice for your remodeling project in Venezuela.',
     site: context.site ?? 'https://remodelat.net',
-    customData: `<language>es-VE</language>`,
-    items: spanishPosts.map((post) => ({
+    customData: `<language>en-US</language>`,
+    items: englishPosts.map((post) => ({
       title: post.data.title,
       description: post.data.excerpt,
       pubDate: post.data.date,
-      link: `/blog/${post.id}/`,
+      link: `/en/blog/${post.id}/`,
       category: post.data.category,
     })),
   });

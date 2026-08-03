@@ -2,6 +2,10 @@
 import '../styles/global.css';
 import Analytics from '../components/Analytics.astro';
 import SEO from '../components/SEO.astro';
+import { routeMap as routeMapData, untranslatedEsPaths, untranslatedEnPaths } from '../data/routeMap';
+const routeMapJson = JSON.stringify(routeMapData);
+const untranslatedEsPathsJson = JSON.stringify([...untranslatedEsPaths]);
+const untranslatedEnPathsJson = JSON.stringify([...untranslatedEnPaths]);
 
 interface Props {
   title: string;
@@ -296,137 +300,41 @@ const navItems = isEnglish
   </a>
 </div>
 
+  <!-- Fuente única de verdad para el switcher de idioma en cliente: src/data/routeMap.ts -->
+  <script id="__routemap__" type="application/json" set:html={routeMapJson}></script>
+  <script id="__untranslated_es__" type="application/json" set:html={untranslatedEsPathsJson}></script>
+  <script id="__untranslated_en__" type="application/json" set:html={untranslatedEnPathsJson}></script>
+  <script is:inline>
+    window.__ROUTEMAP__ = JSON.parse(document.getElementById('__routemap__').textContent);
+    window.__UNTRANSLATED_ES__ = JSON.parse(document.getElementById('__untranslated_es__').textContent);
+    window.__UNTRANSLATED_EN__ = JSON.parse(document.getElementById('__untranslated_en__').textContent);
+  </script>
   <script>
-    const routeMap = {
-      '/': '/en',
-      '/en': '/',
-      '/servicios': '/en/services',
-      '/en/services': '/servicios',
-      '/metodo-remodelat': '/en/our-method',
-      '/en/our-method': '/metodo-remodelat',
-      '/servicios/remodelacion-cocina': '/en/services/kitchens',
-      '/en/services/kitchens': '/servicios/remodelacion-cocina',
-      '/servicios/remodelacion-bano': '/en/services/bathrooms',
-      '/en/services/bathrooms': '/servicios/remodelacion-bano',
-      '/servicios/remodelacion-integral': '/en/services/whole-home',
-      '/en/services/whole-home': '/servicios/remodelacion-integral',
-      '/servicios/remodelacion-vivienda': '/en/services/home-remodeling',
-      '/en/services/home-remodeling': '/servicios/remodelacion-vivienda',
-      '/servicios/remodelacion-apartamentos': '/en/services/apartment-remodeling',
-      '/en/services/apartment-remodeling': '/servicios/remodelacion-apartamentos',
-      '/servicios/remodelacion-casas': '/en/services/house-remodeling',
-      '/en/services/house-remodeling': '/servicios/remodelacion-casas',
-      '/servicios/instalacion-electrica': '/en/services/electrical',
-      '/en/services/electrical': '/servicios/instalacion-electrica',
-      '/servicios/fontaneria-plomeria': '/en/services/plumbing',
-      '/en/services/plumbing': '/servicios/fontaneria-plomeria',
-      '/servicios/pintura-acabados': '/en/services/painting',
-      '/en/services/painting': '/servicios/pintura-acabados',
-      '/servicios/revestimientos-pared': '/en/services/wall-coverings',
-      '/en/services/wall-coverings': '/servicios/revestimientos-pared',
-      '/servicios/instalacion-pisos': '/en/services/flooring',
-      '/en/services/flooring': '/servicios/instalacion-pisos',
-      '/servicios/piscinas-mantenimiento': '/en/services/pools',
-      '/en/services/pools': '/servicios/piscinas-mantenimiento',
-      '/sobre-nosotros': '/en/about-us',
-      '/en/about-us': '/sobre-nosotros',
-      '/proyectos': '/en/projects',
-      '/en/projects': '/proyectos',
-      '/proyectos/cocina-caracas-quinta': '/en/projects/kitchen-remodel-caracas-quinta',
-      '/en/projects/kitchen-remodel-caracas-quinta': '/proyectos/cocina-caracas-quinta',
-      '/proyectos/bano-las-mercedes-pequeno': '/en/projects/small-bathroom-remodel-las-mercedes',
-      '/en/projects/small-bathroom-remodel-las-mercedes': '/proyectos/bano-las-mercedes-pequeno',
-      '/proyectos/bano-caracas': '/en/projects/bathroom-remodel-caracas',
-      '/en/projects/bathroom-remodel-caracas': '/proyectos/bano-caracas',
-      '/proyectos/bano-la-trigalena': '/en/projects/bathroom-remodel-la-trigalena',
-      '/en/projects/bathroom-remodel-la-trigalena': '/proyectos/bano-la-trigalena',
-      '/proyectos/bano-san-diego': '/en/projects/bathroom-remodel-san-diego',
-      '/en/projects/bathroom-remodel-san-diego': '/proyectos/bano-san-diego',
-      '/proyectos/banos-quinta-la-lagunita': '/en/projects/luxury-bathrooms-quinta-guataparo',
-      '/en/projects/luxury-bathrooms-quinta-guataparo': '/proyectos/banos-quinta-la-lagunita',
-      '/proyectos/cocina-lujo-guataparo': '/en/projects/luxury-kitchen-guataparo',
-      '/en/projects/luxury-kitchen-guataparo': '/proyectos/cocina-lujo-guataparo',
-      '/caracas': '/en/caracas',
-      '/en/caracas': '/caracas',
-      '/valencia': '/en/valencia',
-      '/en/valencia': '/valencia',
-      '/san-diego': '/en/san-diego',
-      '/en/san-diego': '/san-diego',
-      '/la-guaira': '/en/la-guaira',
-      '/en/la-guaira': '/la-guaira',
-      '/contacto': '/en/contact',
-      '/en/contact': '/contacto',
-      '/blog': '/en/blog',
-      '/en/blog': '/blog',
-      '/blog/cuanto-cuesta-reforma-cocina-valencia': '/en/blog/kitchen-remodel-cost-caracas-valencia-2026',
-      '/blog/porcelanato-vs-ceramica': '/en/blog/porcelain-tile-vs-ceramic-tile-guide',
-      '/blog/presupuesto-reforma-errores': '/en/blog/budget-remodel-mistakes-avoid',
-      '/blog/reformas-banos-carabobo': '/en/blog/bathroom-remodels-caracas-carabobo-2026',
-      '/blog/tendencias-cocinas-2025': '/en/blog/kitchen-design-trends-2026',
-      '/en/blog/kitchen-remodel-cost-caracas-valencia-2026': '/blog/cuanto-cuesta-reforma-cocina-valencia',
-      '/en/blog/porcelain-tile-vs-ceramic-tile-guide': '/blog/porcelanato-vs-ceramica',
-      '/en/blog/budget-remodel-mistakes-avoid': '/blog/presupuesto-reforma-errores',
-      '/en/blog/bathroom-remodels-caracas-carabobo-2026': '/blog/reformas-banos-carabobo',
-      '/en/blog/kitchen-design-trends-2026': '/blog/tendencias-cocinas-2025',
-      '/blog/antes-despues-reforma-cocina-caso-real': '/en/blog/kitchen-remodel-before-after-case-study',
-      '/en/blog/kitchen-remodel-before-after-case-study': '/blog/antes-despues-reforma-cocina-caso-real',
-      '/blog/como-elegir-empresa-reformas-venezuela': '/en/blog/how-to-choose-remodeling-company-venezuela',
-      '/en/blog/how-to-choose-remodeling-company-venezuela': '/blog/como-elegir-empresa-reformas-venezuela',
-      '/blog/cuanto-cuesta-remodelar-bano-caracas': '/en/blog/bathroom-remodel-cost-caracas',
-      '/en/blog/bathroom-remodel-cost-caracas': '/blog/cuanto-cuesta-remodelar-bano-caracas',
-      '/blog/cuanto-tarda-reforma-integral-plazos': '/en/blog/how-long-full-remodel-takes',
-      '/en/blog/how-long-full-remodel-takes': '/blog/cuanto-tarda-reforma-integral-plazos',
-      '/blog/errores-remodelar-zonas-premium-caracas': '/en/blog/remodeling-mistakes-premium-areas-caracas',
-      '/en/blog/remodeling-mistakes-premium-areas-caracas': '/blog/errores-remodelar-zonas-premium-caracas',
-      '/blog/fontaneria-plomeria-precios-caracas': '/en/blog/plumbing-prices-caracas',
-      '/en/blog/plumbing-prices-caracas': '/blog/fontaneria-plomeria-precios-caracas',
-      '/blog/fugas-agua-tuberias-como-detectar': '/en/blog/how-to-detect-water-leaks',
-      '/en/blog/how-to-detect-water-leaks': '/blog/fugas-agua-tuberias-como-detectar',
-      '/blog/guia-pisos-porcelanato-marmol-madera': '/en/blog/flooring-guide-porcelain-marble-wood',
-      '/en/blog/flooring-guide-porcelain-marble-wood': '/blog/guia-pisos-porcelanato-marmol-madera',
-      '/blog/instalacion-electrica-precios-venezuela': '/en/blog/electrical-installation-prices-venezuela',
-      '/en/blog/electrical-installation-prices-venezuela': '/blog/instalacion-electrica-precios-venezuela',
-      '/blog/mantenimiento-piscinas-venezuela': '/en/blog/pool-maintenance-venezuela',
-      '/en/blog/pool-maintenance-venezuela': '/blog/mantenimiento-piscinas-venezuela',
-      '/blog/microcemento-vs-pintura-acabados': '/en/blog/microcement-vs-paint-finishes',
-      '/en/blog/microcement-vs-paint-finishes': '/blog/microcemento-vs-pintura-acabados',
-      '/blog/permisos-reforma-apartamento-condominio': '/en/blog/remodel-permits-apartment-condominium',
-      '/en/blog/remodel-permits-apartment-condominium': '/blog/permisos-reforma-apartamento-condominio',
-      '/blog/pintura-interior-precios-m2-venezuela': '/en/blog/interior-painting-prices-m2-venezuela',
-      '/en/blog/interior-painting-prices-m2-venezuela': '/blog/pintura-interior-precios-m2-venezuela',
-      '/blog/remodelacion-apartamentos-caracas': '/en/blog/apartment-remodeling-caracas',
-      '/en/blog/apartment-remodeling-caracas': '/blog/remodelacion-apartamentos-caracas',
-      '/blog/remodelacion-integral-que-incluye': '/en/blog/full-home-remodel-what-it-includes',
-      '/en/blog/full-home-remodel-what-it-includes': '/blog/remodelacion-integral-que-incluye',
-      '/blog/revestimiento-piedra-madera-pared-precios': '/en/blog/stone-wood-wall-cladding-prices',
-      '/en/blog/stone-wood-wall-cladding-prices': '/blog/revestimiento-piedra-madera-pared-precios',
-      '/blog/senales-reinstalacion-electrica-casa': '/en/blog/signs-electrical-rewiring-needed',
-      '/en/blog/signs-electrical-rewiring-needed': '/blog/senales-reinstalacion-electrica-casa',
-      '/privacidad': '/en/privacy',
-      '/en/privacy': '/privacidad',
-      '/terminos': '/en/terms',
-      '/en/terms': '/terminos'
-    };
+    // El routeMap se inyecta desde Astro en window.__ROUTEMAP para que el
+    // switcher de idioma y el resto del JS de cliente estén siempre en sincronía
+    // con src/data/routeMap.ts (fuente única de verdad).
+    const routeMap = window.__ROUTEMAP || {};
+    const untranslatedEs = new Set(window.__UNTRANSLATED_ES__ || []);
+    const untranslatedEn = new Set(window.__UNTRANSLATED_EN__ || []);
+
+    function getClientAltPath(path) {
+      if (routeMap[path]) return routeMap[path];
+      if (path.startsWith('/en')) return path.replace(/^\/en/, '') || '/';
+      if (path === '/') return '/en';
+      if (untranslatedEs.has(path)) return null;
+      return '/en' + path;
+    }
+
 
     const langSwitchBtn = document.querySelector('.lang-switch-visible');
     if (langSwitchBtn) {
       langSwitchBtn.addEventListener('click', () => {
         const currentPath = window.location.pathname.replace(/\/$/, '') || '/';
-        const newPath = routeMap[currentPath];
-        
-        if (newPath) {
-          const newLang = currentPath.startsWith('/en') ? 'es' : 'en';
-          localStorage.setItem('remodelat-lang', newLang);
-          window.location.href = newPath;
-        } else {
-          if (currentPath.startsWith('/en')) {
-            localStorage.setItem('remodelat-lang', 'es');
-            window.location.href = currentPath.replace(/^\/en/, '') || '/';
-          } else {
-            localStorage.setItem('remodelat-lang', 'en');
-            window.location.href = '/en' + currentPath;
-          }
-        }
+        const newPath = getClientAltPath(currentPath);
+        if (!newPath) return; // ruta no traducida: no cambiar de idioma
+        const newLang = currentPath.startsWith('/en') ? 'es' : 'en';
+        localStorage.setItem('remodelat-lang', newLang);
+        window.location.href = newPath;
       });
     }
 
