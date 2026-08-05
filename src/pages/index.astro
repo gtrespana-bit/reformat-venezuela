@@ -78,6 +78,37 @@ const fitItems = [
   "Prefieres invertir una vez en un resultado bien ejecutado antes que corregir retrabajos.",
   "Buscas acabados de alto estándar en una casa, apartamento, quinta o townhouse de valor."
 ];
+
+/** Obras reales documentadas — fotos propias, no stock ni IA */
+const realWorks = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Cocina finalizada en Guataparo por RemodelaT — foto real de obra entregada',
+    title: 'Cocina Finalizada',
+    location: 'Guataparo, Valencia',
+    tag: 'Cocina de lujo',
+    href: '/proyectos/cocina-lujo-guataparo',
+    wide: true,
+  },
+  {
+    src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp',
+    alt: 'Baño zona 1 completado en quinta Guataparo — remodelación real RemodelaT',
+    title: 'Baño Zona 1 Completado',
+    location: 'Quinta Guataparo',
+    tag: 'Baño de alta gama',
+    href: '/proyectos/banos-quinta-la-lagunita',
+    wide: false,
+  },
+  {
+    src: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp',
+    alt: 'Baño 1 finalizado en Caracas con espejo LED y ducha — obra real RemodelaT',
+    title: 'Baño 1 Finalizado',
+    location: 'Caracas',
+    tag: 'Baño principal',
+    href: '/proyectos/bano-caracas',
+    wide: false,
+  },
+];
 ---
 
 <BaseLayout 
@@ -192,6 +223,74 @@ const fitItems = [
       <div class="proof-item">
         <strong>Garantía</strong>
         <span>Entrega documentada</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Obras reales: fotos propias documentadas (no stock / no IA) -->
+  <section class="section real-works-section deferred-section" aria-labelledby="obras-reales-title">
+    <div class="container">
+      <div class="section-header real-works-header" data-reveal>
+        <span class="tag">Portafolio documentado</span>
+        <h2 id="obras-reales-title" class="section-title">Fotos reales de remodelaciones hechas por nosotros</h2>
+        <p class="section-desc">
+          Cada imagen corresponde a una obra entregada por RemodelaT en Caracas y Valencia.
+          <strong>No usamos fotos de stock ni imágenes generadas por inteligencia artificial.</strong>
+        </p>
+        <ul class="real-works-badges" aria-label="Garantía de autenticidad fotográfica">
+          <li>Obra real</li>
+          <li>Sin stock</li>
+          <li>Sin IA</li>
+          <li>Documentada al entregar</li>
+        </ul>
+      </div>
+
+      <div class="real-works-grid">
+        {realWorks.map((work, index) => (
+          <a
+            href={work.href}
+            class={`real-work-card${work.wide ? ' is-wide' : ''}`}
+            data-reveal
+            data-reveal-delay={String((index % 3) + 1)}
+          >
+            <div class="real-work-media">
+              <img
+                src={work.src}
+                alt={work.alt}
+                loading={index === 0 ? 'eager' : 'lazy'}
+                decoding="async"
+                width={work.wide ? 1200 : 800}
+                height={work.wide ? 800 : 1000}
+              />
+              <span class="real-work-stamp" aria-hidden="true">Obra real</span>
+            </div>
+            <div class="real-work-meta">
+              <span class="real-work-tag">{work.tag}</span>
+              <h3>{work.title}</h3>
+              <p>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                  <circle cx="12" cy="10" r="3"/>
+                </svg>
+                {work.location}
+              </p>
+              <span class="card-link">Ver caso de estudio <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="real-works-footnote" data-reveal>
+        <p>
+          Las fotografías de esta web son del archivo de obra de RemodelaT.
+          Retratan el estado real al momento de la entrega — con la luz, los acabados y el contexto de cada vivienda.
+        </p>
+        <a href="/proyectos" class="btn-premium btn-outline-premium">
+          <span class="btn-content">Ver todos los proyectos reales</span>
+          <span class="btn-border"></span>
+          <span class="btn-shine"></span>
+          <span class="btn-arrow">→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -677,6 +776,113 @@ const fitItems = [
   .home-service-card:hover .card-link .arrow { transform: translateX(5px); }
 
 
+
+  /* ---------- OBRAS REALES (fotos propias) ---------- */
+  .real-works-section {
+    background:
+      radial-gradient(ellipse 70% 40% at 80% 0%, rgba(201,169,97,0.10), transparent 60%),
+      var(--ink);
+    color: var(--white);
+  }
+  .real-works-section .section-title { color: var(--white); }
+  .real-works-section .section-desc { color: rgba(255,255,255,0.78); max-width: 720px; margin-left: auto; margin-right: auto; }
+  .real-works-section .section-desc strong { color: var(--gold-light, #E8D5A3); font-weight: 700; }
+  .real-works-section .tag { color: var(--gold); }
+  .real-works-header { margin-bottom: 42px; }
+  .real-works-badges {
+    list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin: 22px 0 0; padding: 0;
+  }
+  .real-works-badges li {
+    padding: 8px 14px; border-radius: var(--r-full);
+    border: 1px solid rgba(201,169,97,0.45);
+    background: rgba(201,169,97,0.12);
+    color: var(--gold-light, #E8D5A3);
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .real-works-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 36px;
+  }
+  .real-work-card {
+    display: flex; flex-direction: column;
+    border-radius: var(--r-lg); overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,169,97,0.28);
+    text-decoration: none; color: inherit;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    transition: transform var(--dur-base) var(--ease-out),
+                border-color var(--dur-base) var(--ease-out),
+                box-shadow var(--dur-base) var(--ease-out);
+  }
+  .real-work-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,169,97,0.6);
+    box-shadow: 0 26px 50px rgba(0,0,0,0.4);
+  }
+  .real-work-card.is-wide { grid-row: span 1; }
+  .real-work-media {
+    position: relative; aspect-ratio: 4 / 3;
+    overflow: hidden; background: #1a1712;
+  }
+  .real-work-card.is-wide .real-work-media { aspect-ratio: 16 / 11; }
+  .real-work-media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform var(--dur-slow) var(--ease-out);
+  }
+  .real-work-card:hover .real-work-media img { transform: scale(1.05); }
+  .real-work-stamp {
+    position: absolute; top: 14px; left: 14px; z-index: 2;
+    padding: 7px 12px; border-radius: 6px;
+    background: var(--gold); color: var(--ink);
+    font-size: 0.72rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  }
+  .real-work-meta { padding: 22px 22px 26px; }
+  .real-work-tag {
+    display: inline-block; margin-bottom: 8px;
+    color: var(--gold); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .real-work-meta h3 {
+    font-family: var(--font-serif); font-size: 1.45rem;
+    color: var(--white); margin: 0 0 8px; font-weight: 600;
+  }
+  .real-work-meta p {
+    display: flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,0.62); font-size: 0.9rem; margin: 0 0 16px;
+  }
+  .real-work-meta .card-link { color: var(--gold); }
+  .real-works-footnote {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; padding: 28px 30px;
+    border-radius: var(--r-md);
+    border: 1px solid rgba(201,169,97,0.25);
+    background: rgba(255,255,255,0.03);
+  }
+  .real-works-footnote p {
+    flex: 1 1 320px; margin: 0; max-width: 640px;
+    color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 0.98rem;
+  }
+  .real-works-section .btn-outline-premium {
+    border-color: rgba(201,169,97,0.55); color: var(--gold);
+  }
+  .real-works-section .btn-outline-premium:hover {
+    border-color: var(--gold); color: var(--ink); background: var(--gold);
+  }
+  @media (max-width: 960px) {
+    .real-works-grid { grid-template-columns: 1fr 1fr; }
+    .real-work-card.is-wide { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .real-works-grid { grid-template-columns: 1fr; }
+    .real-works-footnote { padding: 22px 18px; text-align: center; justify-content: center; }
+    .real-works-badges { gap: 8px; }
+  }
 
   /* ---------- POSICIONAMIENTO Y ESTÁNDAR TÉCNICO ---------- */
   .positioning-section { background: var(--white); }

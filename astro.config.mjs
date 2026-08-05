@@ -5,6 +5,15 @@ export default defineConfig({
   site: 'https://remodelat.net',
   trailingSlash: 'always',
   viewTransitions: true,
+  server: {
+    host: true,
+    allowedHosts: true,
+  },
+  vite: {
+    server: {
+      allowedHosts: true,
+    },
+  },
   build: {
     inlineStylesheets: 'always',
   },

@@ -56,6 +56,37 @@ const fitItems = [
   "You prefer to invest once in a well-executed result rather than correcting rework later.",
   "You are looking for high-standard finishes for a high-value house, apartment, quinta or townhouse."
 ];
+
+/** Documented real works — own photos, no stock / no AI */
+const realWorks = [
+  {
+    src: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
+    alt: 'Finished kitchen in Guataparo by RemodelaT — real delivered project photo',
+    title: 'Finished Kitchen',
+    location: 'Guataparo, Valencia',
+    tag: 'Luxury kitchen',
+    href: '/en/projects/luxury-kitchen-guataparo',
+    wide: true,
+  },
+  {
+    src: '/images/proyectos/banos-quinta-la-lagunita/bano-zona-1-completado.webp',
+    alt: 'Bathroom zone 1 completed at Guataparo estate — real RemodelaT remodel',
+    title: 'Bathroom Zone 1 Completed',
+    location: 'Guataparo Estate',
+    tag: 'High-end bathroom',
+    href: '/en/projects/luxury-bathrooms-quinta-guataparo',
+    wide: false,
+  },
+  {
+    src: '/images/proyectos/bano-caracas/bano-principal-finalizado-1.webp',
+    alt: 'Bathroom 1 finished in Caracas with LED mirror and shower — real RemodelaT work',
+    title: 'Bathroom 1 Finished',
+    location: 'Caracas',
+    tag: 'Primary bathroom',
+    href: '/en/projects/bathroom-remodel-caracas',
+    wide: false,
+  },
+];
 ---
 
 <BaseLayout
@@ -109,6 +140,54 @@ const fitItems = [
           <div class="stat-label">{s.label}</div>
         </div>
       ))}
+    </div>
+  </section>
+
+  <section class="section real-works-section deferred-section" aria-labelledby="real-works-title">
+    <div class="container">
+      <div class="section-header real-works-header">
+        <span class="tag">Documented portfolio</span>
+        <h2 id="real-works-title" class="section-title">Real photos of remodels we completed</h2>
+        <p class="section-desc">
+          Every image is from a project delivered by RemodelaT in Caracas and Valencia.
+          <strong>We do not use stock photos or AI-generated images.</strong>
+        </p>
+        <ul class="real-works-badges" aria-label="Photo authenticity">
+          <li>Real work</li>
+          <li>No stock</li>
+          <li>No AI</li>
+          <li>Shot at handover</li>
+        </ul>
+      </div>
+
+      <div class="real-works-grid">
+        {realWorks.map((work) => (
+          <a href={work.href} class={`real-work-card${work.wide ? ' is-wide' : ''}`}>
+            <div class="real-work-media">
+              <img src={work.src} alt={work.alt} loading="lazy" decoding="async" width={work.wide ? 1200 : 800} height={work.wide ? 800 : 1000} />
+              <span class="real-work-stamp" aria-hidden="true">Real work</span>
+            </div>
+            <div class="real-work-meta">
+              <span class="real-work-tag">{work.tag}</span>
+              <h3>{work.title}</h3>
+              <p>{work.location}</p>
+              <span class="card-link">View case study <span class="arrow">→</span></span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <div class="real-works-footnote">
+        <p>
+          Photos on this site come from RemodelaT’s project archive. They show the real finish,
+          lighting and context of each home at delivery — not catalogue imagery.
+        </p>
+        <a href="/en/projects" class="btn-premium btn-outline-premium">
+          <span class="btn-content">See all real projects</span>
+          <span class="btn-border"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -410,6 +489,104 @@ const fitItems = [
   .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px; text-align: center; }
   .stat-num { font-family: var(--font-serif); font-size: 3.5rem; color: var(--gold); line-height: 1; margin-bottom: 10px; font-weight: 400; }
   .stat-label { font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+
+  .real-works-section {
+    background:
+      radial-gradient(ellipse 70% 40% at 80% 0%, rgba(201,169,97,0.10), transparent 60%),
+      var(--bg, #0a0806);
+    color: var(--white);
+  }
+  .real-works-section .section-title { color: var(--white); }
+  .real-works-section .section-desc { color: rgba(255,255,255,0.78); max-width: 720px; margin-left: auto; margin-right: auto; }
+  .real-works-section .section-desc strong { color: #E8D5A3; font-weight: 700; }
+  .real-works-section .tag { color: var(--gold); }
+  .real-works-header { margin-bottom: 42px; }
+  .real-works-badges {
+    list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin: 22px 0 0; padding: 0;
+  }
+  .real-works-badges li {
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid rgba(201,169,97,0.45);
+    background: rgba(201,169,97,0.12);
+    color: #E8D5A3;
+    font-size: 0.78rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .real-works-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 22px;
+    margin-bottom: 36px;
+  }
+  .real-work-card {
+    display: flex; flex-direction: column;
+    border-radius: 16px; overflow: hidden;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,169,97,0.28);
+    text-decoration: none; color: inherit;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.28);
+    transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  }
+  .real-work-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,169,97,0.6);
+    box-shadow: 0 26px 50px rgba(0,0,0,0.4);
+  }
+  .real-work-media {
+    position: relative; aspect-ratio: 4 / 3;
+    overflow: hidden; background: #1a1712;
+  }
+  .real-work-card.is-wide .real-work-media { aspect-ratio: 16 / 11; }
+  .real-work-media img {
+    width: 100%; height: 100%; object-fit: cover; display: block;
+    transition: transform 0.6s ease;
+  }
+  .real-work-card:hover .real-work-media img { transform: scale(1.05); }
+  .real-work-stamp {
+    position: absolute; top: 14px; left: 14px; z-index: 2;
+    padding: 7px 12px; border-radius: 6px;
+    background: var(--gold); color: #0a0806;
+    font-size: 0.72rem; font-weight: 800;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.35);
+  }
+  .real-work-meta { padding: 22px 22px 26px; }
+  .real-work-tag {
+    display: inline-block; margin-bottom: 8px;
+    color: var(--gold); font-size: 0.72rem; font-weight: 700;
+    letter-spacing: 0.12em; text-transform: uppercase;
+  }
+  .real-work-meta h3 {
+    font-family: var(--font-serif); font-size: 1.45rem;
+    color: var(--white); margin: 0 0 8px; font-weight: 600;
+  }
+  .real-work-meta p {
+    color: rgba(255,255,255,0.62); font-size: 0.9rem; margin: 0 0 16px;
+  }
+  .real-work-meta .card-link { color: var(--gold); }
+  .real-works-footnote {
+    display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;
+    gap: 22px; padding: 28px 30px;
+    border-radius: 14px;
+    border: 1px solid rgba(201,169,97,0.25);
+    background: rgba(255,255,255,0.03);
+  }
+  .real-works-footnote p {
+    flex: 1 1 320px; margin: 0; max-width: 640px;
+    color: rgba(255,255,255,0.72); line-height: 1.7; font-size: 0.98rem;
+  }
+  .real-works-section .btn-outline-premium {
+    border-color: rgba(201,169,97,0.55); color: var(--gold);
+  }
+  @media (max-width: 960px) {
+    .real-works-grid { grid-template-columns: 1fr 1fr; }
+    .real-work-card.is-wide { grid-column: 1 / -1; }
+  }
+  @media (max-width: 640px) {
+    .real-works-grid { grid-template-columns: 1fr; }
+    .real-works-footnote { padding: 22px 18px; text-align: center; justify-content: center; }
+  }
 
   .services-slider-wrapper { position: relative; display: flex; align-items: center; gap: 20px; }
   .services-slider { display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; scrollbar-width: none; -ms-overflow-style: none; padding: 20px 10px; flex: 1; }

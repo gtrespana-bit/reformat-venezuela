@@ -100,7 +100,13 @@ const projects = [
       <div class="premium-header" data-reveal>
         <span class="eyebrow-god on-light">Galería editorial</span>
         <h2>Documentamos cada obra con la precisión que después exigimos al acabado</h2>
-        <p>Cocinas, baños y reformas integrales fotografiadas tras la entrega. Sin renders, sin stock: obra real supervisada.</p>
+        <p>Cocinas, baños y reformas integrales fotografiadas tras la entrega. <strong>Sin renders, sin stock, sin inteligencia artificial:</strong> solo obra real supervisada por RemodelaT.</p>
+        <ul class="auth-badges" aria-label="Autenticidad de las fotografías">
+          <li>Obra real</li>
+          <li>Sin stock</li>
+          <li>Sin IA</li>
+          <li>Archivo de obra propio</li>
+        </ul>
       </div>
 
       <div class="projects-list">
@@ -174,6 +180,19 @@ const projects = [
   .premium-header { max-width: 720px; margin: 0 auto 64px; text-align: center; }
   .premium-header h2 { font-family: var(--font-serif); font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; letter-spacing: -0.02em; margin: 14px 0 16px; color: var(--ink); font-weight: 500; }
   .premium-header p { color: var(--text-muted); line-height: 1.7; font-size: 1.05rem; }
+  .premium-header p strong { color: var(--gold-ink, #8B6914); }
+  .auth-badges {
+    list-style: none; display: flex; flex-wrap: wrap; justify-content: center;
+    gap: 10px; margin: 22px 0 0; padding: 0;
+  }
+  .auth-badges li {
+    padding: 7px 14px; border-radius: 999px;
+    border: 1px solid rgba(201,169,97,0.4);
+    background: rgba(201,169,97,0.10);
+    color: var(--gold-ink, #8B6914);
+    font-size: 0.76rem; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
   .projects-list { display: flex; flex-direction: column; gap: 36px; }
 
   .project-card {
@@ -186,6 +205,14 @@ const projects = [
   .project-card-image { position: relative; border-radius: var(--r-sm); overflow: hidden; aspect-ratio: 4 / 3; background: var(--ink); display: flex; align-items: center; justify-content: center; }
   .project-card-image img { width: 100%; height: 100%; object-fit: cover; transition: transform var(--dur-god) var(--ease-god); }
   .project-card:hover .project-card-image img { transform: scale(1.05); }
+  .project-card-image::after {
+    content: "OBRA REAL";
+    position: absolute; top: 14px; right: 14px; z-index: 2;
+    padding: 6px 10px; border-radius: 6px;
+    background: rgba(201,169,97,0.95); color: var(--ink);
+    font-size: 0.68rem; font-weight: 800; letter-spacing: 0.1em;
+    box-shadow: var(--e-1);
+  }
   .project-card-badge { position: absolute; top: 14px; left: 14px; z-index: 2; padding: 6px 12px; font-size: 0.70rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink); background: rgba(201,169,97,0.94); border-radius: var(--r-full); box-shadow: var(--e-1); backdrop-filter: blur(6px); }
 
   .project-card-content { display: flex; flex-direction: column; justify-content: center; }
