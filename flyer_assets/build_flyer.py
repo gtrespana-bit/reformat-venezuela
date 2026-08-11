@@ -223,13 +223,13 @@ info_h = 302
 bx_w = CW - 430
 dr.rounded_rectangle([M, y, M + bx_w, y + info_h], radius=28, fill=CARD, outline=(70, 66, 56), width=3)
 ty = y + 28
-dr.text((M + 38, ty), "HORARIO Y MODALIDAD", font=SANS_B(29), fill=GOLD)
+dr.text((M + 38, ty), "ZONA, HORARIO Y MODALIDAD", font=SANS_B(29), fill=GOLD)
 ty += 29 + 16
 info = [
+    ("Zona de trabajo: San Diego, Carabobo.", True),
     ("Lunes a Viernes · Jornada de 8 horas.", True),
     ("Horario generalmente corrido: 8:00 am – 5:00 pm o 9:00 am – 5:00 pm.", False),
     ("Algunos trabajos exigen descanso al mediodía de 1 a 2 horas, según el sitio de obra.", False),
-    ("Contratación como extra, por temporadas.", False),
 ]
 for txt, strong in info:
     ff = SANS_SB(27) if strong else fh_b
