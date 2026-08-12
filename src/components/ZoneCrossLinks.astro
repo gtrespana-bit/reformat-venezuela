@@ -1,4 +1,6 @@
 ---
+import { metroGroups, zoneNames } from '../data/zone-slugs';
+
 interface Props {
   zone: string;      // slug: 'valencia-centro'
   service: string;   // 'bano' | 'cocina' | 'integral'
@@ -7,49 +9,6 @@ interface Props {
 
 const { zone, service, lang = 'es' } = Astro.props;
 const en = lang === 'en';
-
-const zoneNames: Record<string, string> = {
-  'altamira': 'Altamira',
-  'alto-hatillo': 'Alto Hatillo',
-  'campo-alegre': 'Campo Alegre',
-  'chacao': 'Chacao',
-  'country-club': 'Country Club',
-  'el-hatillo': 'El Hatillo',
-  'el-parral': 'El Parral',
-  'el-penon': 'El Peñón',
-  'el-trigal': 'El Trigal',
-  'el-vinedo': 'El Viñedo',
-  'guacara': 'Guacara',
-  'guataparo': 'Guataparo',
-  'la-castellana': 'La Castellana',
-  'la-lagunita': 'La Lagunita',
-  'las-mercedes': 'Las Mercedes',
-  'la-trigalena': 'La Trigaleña',
-  'los-guayos': 'Los Guayos',
-  'los-naranjos': 'Los Naranjos',
-  'manongo': 'Manongo',
-  'naguanagua': 'Naguanagua',
-  'prados-del-este': 'Prados del Este',
-  'prebo': 'Prebo',
-  'puerto-cabello': 'Puerto Cabello',
-  'san-diego': 'San Diego',
-  'tocuyito': 'Tocuyito',
-  'valencia-centro': 'Valencia Centro',
-  'valles-de-camoruco': 'Valles de Camoruco',
-};
-
-const metroGroups: Record<string, string[]> = {
-  caracas: [
-    'chacao', 'altamira', 'campo-alegre', 'country-club', 'las-mercedes',
-    'el-hatillo', 'alto-hatillo', 'la-lagunita', 'los-naranjos',
-    'prados-del-este', 'la-castellana', 'el-penon',
-  ],
-  carabobo: [
-    'el-trigal', 'la-trigalena', 'el-vinedo', 'guataparo', 'prebo',
-    'valencia-centro', 'naguanagua', 'manongo', 'san-diego', 'los-guayos',
-    'guacara', 'tocuyito', 'puerto-cabello', 'valles-de-camoruco', 'el-parral',
-  ],
-};
 
 const serviceNames: Record<string, string> = {
   bano: en ? 'Bathroom Remodeling' : 'Remodelación de Baños',
@@ -64,7 +23,10 @@ const blogByService: Record<string, { name: string; url: string }> = {
 };
 
 const group = Object.values(metroGroups).find((g) => g.includes(zone)) || [];
-const neighbors = group.filter((z) => z !== zone).slice(0, 4);
+// Enlazar TODAS las zonas del grupo metropolitano (antes solo las 4 primeras,
+// lo que dejaba al resto del grafo interno con muy pocos inlinks y hacía que
+// Google las mantuviera "Descubiertas: actualmente sin indexar").
+const neighbors = group.filter((z) => z !== zone);
 const otherServices = Object.keys(serviceNames).filter((s) => s !== service);
 const zoneName = zoneNames[zone] || zone;
 const blog = blogByService[service];
@@ -76,7 +38,7 @@ const prefix = en ? '/en' : '';
     <div class="zc-grid">
       <div class="zc-col">
         <h3>{en ? 'We also work in nearby areas' : 'También trabajamos en zonas cercanas'}</h3>
-        <ul>
+        <ul class="zc-neighbors">
           {neighbors.map((z) => (
             <li><a href={`${prefix}/remodelacion-${service}-${z}/`}>{serviceNames[service]} {en ? 'in' : 'en'} {zoneNames[z] || z}</a></li>
           ))}
@@ -115,7 +77,8 @@ const prefix = en ? '/en' : '';
     margin-bottom: 18px; color: var(--text);
   }
   .zc-col ul { list-style: none; padding: 0; margin: 0; }
-  .zc-col li { margin-bottom: 11px; }
+  .zc-neighbors { columns: 2; column-gap: 24px; }
+  .zc-col li { margin-bottom: 11px; break-inside: avoid; }
   .zc-col a {
     color: var(--gold-ink-strong); text-decoration: none; font-size: 0.98rem;
     border-bottom: 1px solid transparent; transition: 0.3s;

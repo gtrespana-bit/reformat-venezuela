@@ -1,0 +1,118 @@
+---
+// ZoneHubLinks.astro — Bloque hub → spoke de enlaces internos hacia las
+// páginas de zona (/remodelacion-<servicio>-<zona>/).
+//
+// Dos modos:
+//   <ZoneHubLinks service="bano" />            → un chip por zona (1 servicio)
+//   <ZoneHubLinks zones={caracasZones} />      → 3 chips por zona (todos los servicios)
+//
+// Propósito SEO: dar a las páginas de zona una ruta de descubrimiento fuerte
+// desde páginas con más autoridad (servicios y hubs de ciudad), en lugar de
+// depender solo del sitemap y de enlaces entre hermanas. Google prioriza el
+// rastreo de URLs con buenos inlinks; este bloque equilibra el grafo interno.
+import { allZones, zoneNames } from '../data/zone-slugs';
+
+interface Props {
+  service?: 'bano' | 'cocina' | 'integral';
+  zones?: string[];
+  lang?: 'es' | 'en';
+  title?: string;
+  intro?: string;
+}
+
+const { service, zones, lang = 'es', title, intro } = Astro.props;
+const en = lang === 'en';
+const zoneList = zones && zones.length ? zones : allZones;
+const services: Array<'bano' | 'cocina' | 'integral'> = service ? [service] : ['bano', 'cocina', 'integral'];
+const prefix = en ? '/en' : '';
+
+const serviceLabel: Record<'bano' | 'cocina' | 'integral', string> = {
+  bano: en ? 'Bathrooms' : 'Baños',
+  cocina: en ? 'Kitchens' : 'Cocinas',
+  integral: en ? 'Full remodel' : 'Integral',
+};
+
+const sectionTitle = title || (service
+  ? (en
+      ? `${serviceLabel[service]} remodeling in your area`
+      : `Remodelación de ${serviceLabel[service].toLowerCase()} en tu zona`)
+  : (en ? 'Remodeling in your area' : 'Remodelaciones en tu zona'));
+
+const sectionIntro = intro || (service
+  ? (en
+      ? `We remodel ${serviceLabel[service].toLowerCase()} in these areas. Request a technical assessment for your project.`
+      : `Remodelamos ${serviceLabel[service].toLowerCase()} en estas zonas. Solicita la valoración técnica de tu proyecto.`)
+  : (en
+      ? 'Select your area to see services, local references and applicable prices.'
+      : 'Elige tu zona para ver servicios, referencias locales y precios aplicables.'));
+---
+
+<section class="zone-hub">
+  <div class="zone-hub-inner">
+    <h2 class="zone-hub-title">{sectionTitle}</h2>
+    <p class="zone-hub-intro">{sectionIntro}</p>
+    <div class="zone-hub-grid">
+      {service ? (
+        zoneList.map((z) => (
+          <a class="zone-chip" href={`${prefix}/remodelacion-${service}-${z}/`}>{zoneNames[z] || z}</a>
+        ))
+      ) : (
+        zoneList.map((z) => (
+          <div class="zone-chip-group">
+            <span class="zone-chip-name">{zoneNames[z] || z}</span>
+            <span class="zone-chip-links">
+              {services.map((s) => (
+                <a class="zone-chip zone-chip-mini" href={`${prefix}/remodelacion-${s}-${z}/`}>{serviceLabel[s]}</a>
+              ))}
+            </span>
+          </div>
+        ))
+      )}
+    </div>
+  </div>
+</section>
+
+<style>
+  .zone-hub { padding: clamp(56px, 7vw, 84px) 24px; background: var(--bone, #faf7f1); }
+  .zone-hub-inner { max-width: var(--container, 1200px); margin: 0 auto; }
+  .zone-hub-title {
+    font-family: var(--font-serif, Georgia, serif);
+    font-size: clamp(1.7rem, 3vw, 2.3rem);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--ink, #14120e);
+    margin: 0 0 10px;
+  }
+  .zone-hub-intro { color: var(--text-muted, #6b675c); max-width: 680px; margin: 0 0 26px; line-height: 1.65; font-size: 1.02rem; }
+  .zone-hub-grid { display: flex; flex-wrap: wrap; gap: 10px; }
+  .zone-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    border: 1px solid rgba(201, 169, 97, 0.55);
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink, #14120e);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+  .zone-chip:hover { background: var(--gold, #c9a961); border-color: var(--gold, #c9a961); color: #14120e; }
+  .zone-chip-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid rgba(201, 169, 97, 0.35);
+    border-radius: 999px;
+    padding: 5px 6px 5px 16px;
+  }
+  .zone-chip-name { font-weight: 600; font-size: 0.9rem; color: var(--ink, #14120e); white-space: nowrap; }
+  .zone-chip-links { display: inline-flex; gap: 6px; flex-wrap: wrap; }
+  .zone-chip-mini { padding: 6px 12px; font-size: 0.8rem; }
+  @media (max-width: 640px) {
+    .zone-chip-group { flex-wrap: wrap; border-radius: 14px; padding: 10px; }
+    .zone-chip-name { width: 100%; }
+  }
+</style>

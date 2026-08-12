@@ -5,6 +5,8 @@ import GodMarquee from '../components/GodMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
+import ZoneHubLinks from '../components/ZoneHubLinks.astro';
+import { caracasZones } from '../data/zone-slugs';
 
 const services = [
   { slug: 'remodelacion-cocina', data: { title: 'Remodelación de Cocinas', description: 'Cocinas funcionales y modernas con materiales premium y acabados impecables.' } },
@@ -143,6 +145,8 @@ const faqItems = [
       </div>
     </div>
   </section>
+
+  <ZoneHubLinks zones={caracasZones} />
 
   <GuaranteeMatrix compact eyebrow="Garantía documentada" title="Garantía por partidas, no promesas genéricas" />
 

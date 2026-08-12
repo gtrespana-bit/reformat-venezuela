@@ -1,10 +1,10 @@
-# Guía: resolver "Página con redirección" en Search Console y mantener la indexación sana
+# Guía: resolver "Página con redirección" y "Descubierta: sin indexar" en Search Console
 
 **Sitio:** remodelat.net · **Fecha:** 12 de agosto de 2026
 
 ---
 
-## 1. Qué significa el informe de Google
+## 1. Qué significa cada informe de Google
 
 Google Search Console muestra **"Página con redirección"** cuando una URL que él
 ya conocía devuelve un redirect (301/308) en lugar de la página. Las 34 URLs del
@@ -19,6 +19,20 @@ informe son de 3 tipos:
 **Ninguna de estas URLs debe indexarse.** El objetivo es que Google deje de
 considerarlas "esperadas" y confirme que las URLs finales (con `/`) son las
 canónicas.
+
+### "Descubierta: actualmente sin indexar" (24 URLs)
+
+Es un estado **distinto y menos grave**: Google ya conoce la URL (la vio en el
+sitemap y en enlaces), pero aún **no la ha rastreado**. Es muy común en sitios
+nuevos con muchas URLs: Google raciona su presupuesto de rastreo y prioriza las
+páginas con más señal interna. Las 24 URLs del informe son casi todas páginas
+de zona (`remodelacion-<servicio>-<zona>`), detectadas por primera vez el
+5/8/2026 — hace una semana.
+
+El detonante era arquitectónico y ya está corregido (sección 2.1): las zonas de
+Carabobo recibían solo 3 enlaces internos, porque el bloque "zonas cercanas"
+solo enlazaba las 4 primeras zonas de cada grupo y ni las páginas de servicio
+ni los hubs de ciudad enlazaban a las páginas de zona.
 
 ---
 
@@ -38,6 +52,35 @@ canónicas.
 - **Eliminado el redirect redundante** `/proyectos` → `/proyectos/` (Vercel ya
   lo hacía con `trailingSlash: true`).
 
+### 2.1 Reequilibrio del grafo de enlaces internos (para "Descubierta: sin indexar")
+
+Antes de esta revisión, las páginas de zona tenían un enlazado interno muy
+desigual:
+
+- `ZoneCrossLinks` solo enlazaba las **4 primeras zonas** de cada grupo
+  metropolitano → las zonas de Carabobo a partir del 5º puesto recibían solo
+  **3 enlaces internos** (2 hermanas + contraparte EN).
+- Las **páginas de servicio** (`/servicios/remodelacion-bano/`, cocina,
+  integral y sus versiones EN) **no enlazaban a ninguna página de zona**.
+- Los **hubs de ciudad** (`/caracas`, `/valencia`, `/san-diego`) solo
+  enlazaban 7 zonas desde el footer global, las mismas en todo el sitio.
+
+Cambios aplicados:
+
+1. **`ZoneCrossLinks`** ahora enlaza **todas** las zonas del grupo metropolitano
+   (lista a 2 columnas).
+2. **Nuevo componente `ZoneHubLinks`** (chips enlazables) insertado en:
+   - Páginas de servicio ES y EN de baños, cocinas e integrales (27 chips).
+   - Hubs de ciudad `/caracas`, `/valencia`, `/san-diego` y sus versiones EN
+     (3 chips por zona: baños, cocinas, integral).
+3. **`src/data/zone-slugs.ts`**: fuente única de zonas/nombres/grupos, usada
+   por ambos componentes.
+
+Resultado medido en el HTML compilado: las 24 URLs del informe "Descubierta"
+pasaron de **3 a 16–20 páginas que las enlazan**, incluyendo páginas de mayor
+autoridad (servicios y ciudades). Eso es la señal interna que Google necesita
+para programar su rastreo.
+
 ### Nuevas protecciones añadidas en esta revisión
 
 1. **`scripts/check-seo.mjs`** (se ejecuta en cada build y rompe el despliegue
@@ -55,10 +98,24 @@ canónicas.
 
 ### 3.1 Validar la corrección
 
+**Para "Página con redirección" (34 URLs):**
+
 1. Entra en **Search Console → Páginas → "Página con redirección"**.
 2. Pulsa **"¿Has terminado de corregir?" / "Validar corrección"**.
 3. Google volverá a rastrear las URLs afectadas durante ~2 semanas. Las URLs
    cuyos enlaces/sitemap ya no las referencian irán desapareciendo del informe.
+
+**Para "Descubierta: actualmente sin indexar" (24 URLs):**
+
+1. Entra en **Páginas → "Descubierta: actualmente sin indexar"** y pulsa
+   **"Validar corrección"** tras desplegar el reequilibrio de enlaces internos.
+2. No hace falta pedir indexación una a una: con 16–20 enlaces internos desde
+   páginas de servicio y ciudad, Google las priorizará por sí solo. Si quieres
+   acelerar, inspecciona y solicita indexación de las 5 que más te importen
+   comercialmente (p. ej. `/remodelacion-bano-altamira/`,
+   `/remodelacion-cocina-las-mercedes/`, `/remodelacion-integral-naguanagua/`).
+3. Espera 2–4 semanas y revisa la pestaña de nuevo: lo normal es que el grupo
+   baje semana a semana.
 
 ### 3.2 Inspeccionar y confirmar el estado real
 
@@ -104,6 +161,10 @@ clave (no pidas cientos a la vez):
 - **Semana 1–2**: tras "Validar corrección", Google recorre de nuevo las URLs.
 - **Semanas 2–6**: las variantes sin slash y las URLs de la migración van
   saliendo del informe; las URLs finales aparecen como *indexadas*.
+- **"Descubierta: sin indexar"**: con el grafo interno reequilibrado, la
+  mayoría debería rastrearse en 2–4 semanas. Un sitio nuevo con 270+ URLs
+  puede tardar 1–3 meses en indexar la cola larga (zonas menos demandadas).
+  Eso es normal y no es un fallo del sitio.
 - Las variantes `http://` y `www.` pueden seguir apareciendo (siempre
   redirigen); es normal y no afecta al posicionamiento.
 

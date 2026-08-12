@@ -5,6 +5,8 @@ import GodMarquee from '../components/GodMarquee.astro';
 import FAQ from '../components/FAQ.astro';
 import Breadcrumb from '../components/Breadcrumb.astro';
 import GuaranteeMatrix from '../components/GuaranteeMatrix.astro';
+import ZoneHubLinks from '../components/ZoneHubLinks.astro';
+import { caraboboZones } from '../data/zone-slugs';
 
 const services = [
   { slug: 'remodelacion-cocina', data: { title: 'Cocinas', description: 'Cocinas premium con alto estándar.' } },
@@ -110,6 +112,8 @@ const faqItems = [
       <FAQ items={faqItems} />
     </div>
   </section>
+
+  <ZoneHubLinks zones={caraboboZones} />
 
   <section class="god-cta" id="contacto">
     <div class="cta-wrapper">
