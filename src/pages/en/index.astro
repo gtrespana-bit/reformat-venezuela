@@ -59,8 +59,8 @@ const fitItems = [
 ---
 
 <BaseLayout
-  title="Luxury Remodeling in Venezuela | RemodelaT"
-  description="High-standard residential remodeling in Venezuela. Kitchens, bathrooms and whole-home remodels with technical method, proper materials, flawless finishes…"
+  title="Remodeling in San Diego and Valencia | RemodelaT"
+  description="High-standard residential remodeling in San Diego, Valencia and Carabobo. Kitchens, bathrooms and whole-home projects. Selected work in Caracas."
   activePage="home"
 >
 
@@ -76,13 +76,13 @@ const fitItems = [
     <div class="hero-overlay"></div>
     <div class="god-hairline" aria-hidden="true"></div>
     <div class="hero-content">
-      <span class="god-eyebrow">High-standard residential remodeling</span>
+      <span class="god-eyebrow">Based in San Diego · Valencia and Carabobo</span>
       <span class="hero-tag">High-standard residential remodeling</span>
       <h1 class="hero-title">
         <span class="line">Luxury remodeling</span>
         <span class="line gold">with technical precision</span>
       </h1>
-      <p class="hero-sub">Kitchens, bathrooms and whole-home remodels for demanding homeowners: proper materials, supervised execution, flawless finishes and written warranties.</p>
+      <p class="hero-sub">Kitchens, bathrooms and whole-home remodels from San Diego and Valencia: proper materials, supervised execution, flawless finishes and written warranties.</p>
       <div class="hero-btns">
         <a href="/en/contact" class="btn-premium btn-primary-premium">
           <span class="btn-content">Request technical assessment</span>
@@ -290,6 +290,27 @@ const fitItems = [
     </div>
   </section>
 
+  <section class="section service-areas-section deferred-section">
+    <div class="container areas-grid">
+      <div>
+        <span class="tag">Main service area</span>
+        <h2 class="section-title">Based in San Diego, Valencia and Carabobo</h2>
+        <p class="section-desc">Large projects — whole-home remodels, quintas and houses — are executed in San Diego, Valencia, Naguanagua, Guacara and nearby communities. In Caracas we take selected projects.</p>
+      </div>
+      <div class="area-chips" data-reveal>
+        <a href="/en/san-diego/">San Diego</a>
+        <a href="/en/valencia/">Valencia</a>
+        <a href="/en/remodelacion-integral-naguanagua/">Naguanagua</a>
+        <a href="/en/remodelacion-integral-guacara/">Guacara</a>
+        <a href="/en/remodelacion-integral-el-vinedo/">El Viñedo</a>
+        <a href="/en/remodelacion-integral-guataparo/">Guataparo</a>
+        <a href="/en/remodelacion-integral-manongo/">Manongo</a>
+        <a href="/en/remodelacion-integral-el-trigal/">El Trigal</a>
+        <a href="/en/caracas/">Caracas</a>
+      </div>
+    </div>
+  </section>
+
   <section class="cta-section">
     <div class="cta-wrapper">
       <h2 class="cta-title">Does your project require a flawless finish?</h2>
@@ -307,10 +328,10 @@ const fitItems = [
     <div class="container contact-grid">
       <div class="contact-info">
         <h2 class="section-title">Let's Talk About Your Project</h2>
-        <p>We are here to listen, advise, and build alongside you. We serve the entire Caracas metropolitan area and key zones across Carabobo.</p>
+        <p>We are here to listen, advise, and build alongside you. Our main base is San Diego, Valencia and nearby Carabobo areas. We also take selected projects in Caracas.</p>
         <div class="info-item">
           <h4>Location</h4>
-          <p>Valencia, San Diego, Carabobo and Caracas</p>
+          <p>San Diego, Valencia and Carabobo. Also selected projects in Caracas.</p>
         </div>
         <div class="info-item">
           <h4>Phone</h4>
@@ -445,6 +466,19 @@ const fitItems = [
   .check-list li { margin-bottom: 15px; padding-left: 25px; position: relative; color: var(--gray-text); line-height: 1.6; font-weight: 400; }
   .check-list li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
 
+  .service-areas-section { background: var(--white); }
+  .areas-grid { display: grid; grid-template-columns: .95fr 1.25fr; gap: var(--s-5, 48px); align-items: center; }
+  .area-chips { display: flex; flex-wrap: wrap; gap: 12px; }
+  .area-chips a {
+    display: inline-flex; align-items: center;
+    padding: 11px 16px; border-radius: var(--r-full, 999px);
+    border: 1px solid rgba(201,169,97,.3);
+    background: var(--bone, #faf7f1); color: var(--gold-ink-strong, #8b6914);
+    text-decoration: none; font-weight: 700; font-size: .88rem;
+    transition: background .3s ease, color .3s ease, transform .3s ease;
+  }
+  .area-chips a:hover { background: var(--gold); color: var(--ink, #14120e); transform: translateY(-2px); }
+
   .cta-section { background: var(--bg); color: var(--white); text-align: center; padding: 110px 24px; width: 100%; }
   .cta-wrapper { max-width: 950px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
   .cta-title { font-family: var(--font-serif); font-size: clamp(2.4rem, 5vw, 3.6rem); font-weight: 400; margin-bottom: 24px; line-height: 1.15; color: var(--white); text-align: center; width: 100%; }
@@ -472,7 +506,7 @@ const fitItems = [
   @media (max-width: 900px) {
     .stats-grid{grid-template-columns:repeat(2,1fr);}
     .service-card-slider { flex: 0 0 calc(50% - 15px); min-width: 250px; }
-    .method-strip-grid,.about-grid,.contact-grid{grid-template-columns:1fr;}
+    .method-strip-grid,.about-grid,.contact-grid,.areas-grid{grid-template-columns:1fr;}
   }
   @media (max-width: 600px) {
     .service-card-slider { flex: 0 0 100%; min-width: min(280px, 100%); }

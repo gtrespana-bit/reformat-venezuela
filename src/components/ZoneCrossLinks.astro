@@ -1,5 +1,5 @@
 ---
-import { metroGroups, zoneNames } from '../data/zone-slugs';
+import { metroGroups, sortZonesByPriority, zoneNames } from '../data/zone-slugs';
 
 interface Props {
   zone: string;      // slug: 'valencia-centro'
@@ -23,10 +23,9 @@ const blogByService: Record<string, { name: string; url: string }> = {
 };
 
 const group = Object.values(metroGroups).find((g) => g.includes(zone)) || [];
-// Enlazar TODAS las zonas del grupo metropolitano (antes solo las 4 primeras,
-// lo que dejaba al resto del grafo interno con muy pocos inlinks y hacía que
-// Google las mantuviera "Descubiertas: actualmente sin indexar").
-const neighbors = group.filter((z) => z !== zone);
+// Enlazar TODAS las zonas del grupo metropolitano, con el núcleo de Carabobo
+// (San Diego, Valencia, Naguanagua, Guacara) primero para concentrar autoridad.
+const neighbors = sortZonesByPriority(group.filter((z) => z !== zone));
 const otherServices = Object.keys(serviceNames).filter((s) => s !== service);
 const zoneName = zoneNames[zone] || zone;
 const blog = blogByService[service];

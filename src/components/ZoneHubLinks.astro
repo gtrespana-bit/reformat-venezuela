@@ -6,11 +6,10 @@
 //   <ZoneHubLinks service="bano" />            → un chip por zona (1 servicio)
 //   <ZoneHubLinks zones={caracasZones} />      → 3 chips por zona (todos los servicios)
 //
-// Propósito SEO: dar a las páginas de zona una ruta de descubrimiento fuerte
-// desde páginas con más autoridad (servicios y hubs de ciudad), en lugar de
-// depender solo del sitemap y de enlaces entre hermanas. Google prioriza el
-// rastreo de URLs con buenos inlinks; este bloque equilibra el grafo interno.
-import { allZones, zoneNames } from '../data/zone-slugs';
+// Cuando no se pasa `zones`, se agrupa por metro: Carabobo (zona principal)
+// primero y Caracas (proyectos puntuales) después. Eso concentra autoridad
+// y crawl budget en San Diego / Valencia / Naguanagua / Guacara.
+import { allZones, caraboboZones, caracasZones, zoneNames } from '../data/zone-slugs';
 
 interface Props {
   service?: 'bano' | 'cocina' | 'integral';
@@ -22,7 +21,9 @@ interface Props {
 
 const { service, zones, lang = 'es', title, intro } = Astro.props;
 const en = lang === 'en';
-const zoneList = zones && zones.length ? zones : allZones;
+const customList = zones && zones.length ? zones : null;
+const zoneList = customList || allZones;
+const groupByMetro = !customList;
 const services: Array<'bano' | 'cocina' | 'integral'> = service ? [service] : ['bano', 'cocina', 'integral'];
 const prefix = en ? '/en' : '';
 
@@ -40,35 +41,59 @@ const sectionTitle = title || (service
 
 const sectionIntro = intro || (service
   ? (en
-      ? `We remodel ${serviceLabel[service].toLowerCase()} in these areas. Request a technical assessment for your project.`
-      : `Remodelamos ${serviceLabel[service].toLowerCase()} en estas zonas. Solicita la valoración técnica de tu proyecto.`)
+      ? `Our main base is San Diego, Valencia and nearby Carabobo areas. We also take selected projects in Caracas.`
+      : `Nuestra base de trabajo es San Diego, Valencia y zonas cercanas de Carabobo. En Caracas atendemos proyectos puntuales.`)
   : (en
-      ? 'Select your area to see services, local references and applicable prices.'
+      ? 'Choose your area to see services, local references and applicable prices.'
       : 'Elige tu zona para ver servicios, referencias locales y precios aplicables.'));
+
+const groups = groupByMetro
+  ? [
+      {
+        key: 'carabobo',
+        heading: en ? 'Main area: San Diego, Valencia and Carabobo' : 'Zona principal: San Diego, Valencia y Carabobo',
+        list: caraboboZones,
+      },
+      {
+        key: 'caracas',
+        heading: en ? 'Also in Caracas (selected projects)' : 'También en Caracas (proyectos puntuales)',
+        list: caracasZones,
+      },
+    ]
+  : [{ key: 'custom', heading: '', list: zoneList }];
+
+function chipHref(z: string, s: 'bano' | 'cocina' | 'integral') {
+  return `${prefix}/remodelacion-${s}-${z}/`;
+}
 ---
 
 <section class="zone-hub">
   <div class="zone-hub-inner">
     <h2 class="zone-hub-title">{sectionTitle}</h2>
     <p class="zone-hub-intro">{sectionIntro}</p>
-    <div class="zone-hub-grid">
-      {service ? (
-        zoneList.map((z) => (
-          <a class="zone-chip" href={`${prefix}/remodelacion-${service}-${z}/`}>{zoneNames[z] || z}</a>
-        ))
-      ) : (
-        zoneList.map((z) => (
-          <div class="zone-chip-group">
-            <span class="zone-chip-name">{zoneNames[z] || z}</span>
-            <span class="zone-chip-links">
-              {services.map((s) => (
-                <a class="zone-chip zone-chip-mini" href={`${prefix}/remodelacion-${s}-${z}/`}>{serviceLabel[s]}</a>
-              ))}
-            </span>
-          </div>
-        ))
-      )}
-    </div>
+    {groups.map((g) => (
+      <div class={`zone-hub-block zone-hub-${g.key}`}>
+        {g.heading && <h3 class="zone-hub-sub">{g.heading}</h3>}
+        <div class="zone-hub-grid">
+          {service ? (
+            g.list.map((z) => (
+              <a class="zone-chip" href={chipHref(z, service)}>{zoneNames[z] || z}</a>
+            ))
+          ) : (
+            g.list.map((z) => (
+              <div class="zone-chip-group">
+                <span class="zone-chip-name">{zoneNames[z] || z}</span>
+                <span class="zone-chip-links">
+                  {services.map((s) => (
+                    <a class="zone-chip zone-chip-mini" href={chipHref(z, s)}>{serviceLabel[s]}</a>
+                  ))}
+                </span>
+              </div>
+            ))
+          )}
+        </div>
+      </div>
+    ))}
   </div>
 </section>
 
@@ -83,7 +108,18 @@ const sectionIntro = intro || (service
     color: var(--ink, #14120e);
     margin: 0 0 10px;
   }
-  .zone-hub-intro { color: var(--text-muted, #6b675c); max-width: 680px; margin: 0 0 26px; line-height: 1.65; font-size: 1.02rem; }
+  .zone-hub-intro { color: var(--text-muted, #6b675c); max-width: 720px; margin: 0 0 26px; line-height: 1.65; font-size: 1.02rem; }
+  .zone-hub-block { margin-top: 8px; }
+  .zone-hub-block + .zone-hub-block { margin-top: 28px; padding-top: 22px; border-top: 1px solid rgba(201, 169, 97, 0.22); }
+  .zone-hub-sub {
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-ink, #8b6914);
+    margin: 0 0 14px;
+  }
+  .zone-hub-caracas .zone-chip { opacity: 0.92; }
   .zone-hub-grid { display: flex; flex-wrap: wrap; gap: 10px; }
   .zone-chip {
     display: inline-flex;

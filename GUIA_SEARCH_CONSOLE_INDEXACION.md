@@ -81,6 +81,20 @@ pasaron de **3 a 16–20 páginas que las enlazan**, incluyendo páginas de mayo
 autoridad (servicios y ciudades). Eso es la señal interna que Google necesita
 para programar su rastreo.
 
+### 2.2 Prioridad comercial: Carabobo primero, Caracas puntual
+
+La zona principal de trabajo (obras grandes) es **San Diego, Valencia,
+Naguanagua, Guacara** y el resto de Carabobo. Caracas se mantiene, pero como
+cobertura puntual. El sitio ahora lo refleja en:
+
+- Footer global, home ES/EN, contacto y Nosotros.
+- Chips de servicio agrupados: bloque "Zona principal: Carabobo" y, debajo,
+  "También en Caracas (proyectos puntuales)".
+- Sitemap: `/san-diego/` y `/valencia/` en 0.95; zonas núcleo de Carabobo en
+  0.8; hub Caracas en 0.55; landings de Caracas en 0.4.
+- IndexNow: notifica primero San Diego, Valencia y las integrales de
+  Naguanagua / Guacara.
+
 ### Nuevas protecciones añadidas en esta revisión
 
 1. **`scripts/check-seo.mjs`** (se ejecuta en cada build y rompe el despliegue
@@ -131,16 +145,17 @@ Esto confirma que los redirects son permanentes (301/308) y apuntan bien.
 ### 3.3 Solicitar indexación de las URLs finales (solo las 8 prioritarias)
 
 Pide indexación de las versiones **con slash** de las páginas de negocio
-clave (no pidas cientos a la vez):
+clave (no pidas cientos a la vez). Prioridad = zona principal de trabajo
+(San Diego / Valencia / Carabobo):
 
 1. `https://remodelat.net/`
-2. `https://remodelat.net/servicios/remodelacion-integral/`
-3. `https://remodelat.net/servicios/remodelacion-cocina/`
-4. `https://remodelat.net/servicios/remodelacion-bano/`
-5. `https://remodelat.net/servicios/instalacion-electrica/`
-6. `https://remodelat.net/caracas/`
-7. `https://remodelat.net/san-diego/`
-8. `https://remodelat.net/proyectos/`
+2. `https://remodelat.net/san-diego/`
+3. `https://remodelat.net/valencia/`
+4. `https://remodelat.net/servicios/remodelacion-integral/`
+5. `https://remodelat.net/servicios/remodelacion-cocina/`
+6. `https://remodelat.net/servicios/remodelacion-bano/`
+7. `https://remodelat.net/remodelacion-integral-naguanagua/`
+8. `https://remodelat.net/remodelacion-integral-guacara/`
 
 ### 3.4 Reenviar el sitemap
 
