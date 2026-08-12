@@ -16,6 +16,9 @@ interface Props {
 
 const { slug, lang = 'es' } = Astro.props;
 const city = lang === 'en' ? cityHubsEn[slug] : cityHubsEs[slug];
+if (!city) {
+  throw new Error(`CityHub: no hay copy para slug="${slug}" lang="${lang}"`);
+}
 const en = lang === 'en';
 const path = en ? `/en/${slug}/` : `/${slug}/`;
 const home = en ? '/en/' : '/';
