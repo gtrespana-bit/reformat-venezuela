@@ -3,9 +3,9 @@ interface Props {
   items?: string[];
 }
 const defaultZones = [
-  "San Diego", "Valencia", "Guacara", "Altamira", "Naguanagua",
-  "Las Mercedes", "Guataparo", "El Viñedo", "La Lagunita", "Prebo",
-  "El Parral", "Mañongo", "Los Naranjos", "San Joaquín", "Chacao"
+  "San Diego", "Valencia", "Naguanagua", "Guacara", "El Viñedo",
+  "Guataparo", "Manongo", "El Trigal", "Prebo", "El Parral",
+  "Los Guayos", "Puerto Cabello", "Caracas", "Altamira", "Chacao"
 ];
 const { items = defaultZones } = Astro.props;
 const doubled = [...items, ...items];

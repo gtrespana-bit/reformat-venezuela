@@ -23,8 +23,8 @@ export const BRAND = {
   phoneIntl: '+58 422 799 7043',
   email: 'contacto@remodelat.net',
 
-  areas: 'Valencia, San Diego, Carabobo y Caracas',
-  areasEn: 'Valencia, San Diego, Carabobo and Caracas',
+  areas: 'San Diego, Valencia y Carabobo. También proyectos puntuales en Caracas',
+  areasEn: 'San Diego, Valencia and Carabobo. Also selected projects in Caracas',
 } as const;
 
 /** Enlace de WhatsApp con mensaje pre-escrito ya codificado. */

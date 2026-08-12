@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import FAQ from '../../components/FAQ.astro';
 import ServiceSchema from '../../components/ServiceSchema.astro';
+import ZoneHubLinks from '../../components/ZoneHubLinks.astro';
 import Breadcrumb from '../../components/Breadcrumb.astro';
 ---
 <BaseLayout
@@ -50,7 +51,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
       <div class="god-editorial-body">
         <p>La cocina es mucho más que un lugar para preparar alimentos. Es el corazón del hogar, donde la familia se reúne cada mañana, donde se comparten conversaciones mientras se cocina, donde los niños hacen sus tareas mientras preparas la cena. Una cocina bien diseñada no solo mejora la funcionalidad de tu hogar, sino que transforma tu calidad de vida diaria.</p>
 
-        <p>En RemodelaT Venezuela llevamos más de 23 años diseñando y construyendo cocinas en Valencia, San Diego, Caracas y La Guaira. Cada proyecto es único porque cada familia tiene necesidades diferentes. No vendemos cocinas prefabricadas ni soluciones genéricas: especificamos materiales, herrajes, encimeras, iluminación y acabados según el uso real de la vivienda.</p>
+        <p>En RemodelaT Venezuela llevamos más de 23 años diseñando y construyendo cocinas. Nuestra zona principal de trabajo es San Diego, Valencia, Naguanagua y Guacara. En Caracas atendemos proyectos puntuales. Cada proyecto es único porque cada familia tiene necesidades diferentes. No vendemos cocinas prefabricadas ni soluciones genéricas: especificamos materiales, herrajes, encimeras, iluminación y acabados según el uso real de la vivienda.</p>
 
         <img src="/images/cocina-terminada-final.webp" alt="Cocina moderna completamente terminada por RemodelaT Venezuela con acabados premium" loading="eager" fetchpriority="high" decoding="async" width="1200" height="800" />
 
@@ -238,7 +239,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
         <h2>¿Por Qué Elegir RemodelaT Venezuela?</h2>
 
         <ul>
-          <li><strong>23+ años de experiencia</strong> remodelando cocinas en Valencia, San Diego, Caracas y La Guaira</li>
+          <li><strong>23+ años de experiencia</strong> remodelando cocinas en San Diego, Valencia y Carabobo</li>
           <li>Presencia en Venezuela desde hace casi 2 años, adaptando técnicas europeas al mercado local</li>
           <li><strong>Diseño personalizado:</strong> No vendemos cocinas prefabricadas, creamos espacios únicos</li>
           <li>Materiales de calidad: Trabajamos con marcas reconocidas y probadas</li>
@@ -295,6 +296,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   { question: "¿Ofrecen garantía en los trabajos de cocina?", answer: "Sí, todos nuestros trabajos cuentan con garantía de 2 años en mano de obra y la garantía del fabricante en materiales, encimeras y electrodomésticos." },
   { question: "¿Puedo elegir los materiales y acabados?", answer: "Por supuesto. Trabajamos con marcas premium y te asesoramos en la selección de materiales, colores y acabados que mejor se adapten a tu estilo y presupuesto." },
 ]} />
+<ZoneHubLinks service="cocina" />
 <section class="god-cta">
     <div class="cta-wrapper">
       <h2 class="cta-title">¿Buscas una cocina con acabado impecable?</h2>
@@ -323,19 +325,23 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
   "areaServed": [
     {
       "@type": "City",
-      "name": "Valencia"
-    },
-    {
-      "@type": "City",
       "name": "San Diego"
     },
     {
       "@type": "City",
-      "name": "Caracas"
+      "name": "Valencia"
     },
     {
       "@type": "City",
-      "name": "La Guaira"
+      "name": "Naguanagua"
+    },
+    {
+      "@type": "City",
+      "name": "Guacara"
+    },
+    {
+      "@type": "City",
+      "name": "Caracas"
     }
   ]
 }
@@ -343,7 +349,7 @@ import Breadcrumb from '../../components/Breadcrumb.astro';
 
   <ServiceSchema
     name="Remodelación de Cocinas"
-    description="Diseno y construccion de cocinas premium en Valencia, San Diego, Caracas y La Guaira"
+    description="Diseno y construccion de cocinas premium en San Diego, Valencia, Naguanagua y Guacara"
     serviceType="Kitchen Remodeling"
   />
 </BaseLayout>

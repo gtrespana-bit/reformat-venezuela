@@ -13,7 +13,6 @@
     { "source": "/servicios/pintura/", "destination": "/servicios/pintura-acabados/", "permanent": true },
     { "source": "/servicios/pintura", "destination": "/servicios/pintura-acabados/", "permanent": true },
     { "source": "/cgi-sys/suspendedpage.cgi", "destination": "/", "permanent": true },
-    { "source": "/proyectos", "destination": "/proyectos/", "permanent": true },
     { "source": "/metodo-reformat/", "destination": "/metodo-remodelat/", "permanent": true },
     { "source": "/metodo-reformat", "destination": "/metodo-remodelat/", "permanent": true }
   ],

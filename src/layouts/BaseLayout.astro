@@ -74,8 +74,8 @@ const footerRights = isEnglish
   ? 'All rights reserved.'
   : 'Todos los derechos reservados.';
 const footerLocations = isEnglish
-  ? 'Valencia, San Diego, Carabobo and Caracas.'
-  : 'Valencia, San Diego, Carabobo y Caracas.';
+  ? 'San Diego, Valencia and Carabobo. Also selected projects in Caracas.'
+  : 'San Diego, Valencia y Carabobo. También proyectos puntuales en Caracas.';
 
 const navItems = isEnglish
   ? [
@@ -251,17 +251,17 @@ const navItems = isEnglish
           <h3 class="footer-heading">{isEnglish ? 'Service Areas' : 'Zonas de Servicio'}</h3>
           <ul class="footer-links footer-links-2col">
             {[
-              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas' : '/caracas' },
-              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia' : '/valencia' },
               { es: 'San Diego', en: 'San Diego', href: isEnglish ? '/en/san-diego' : '/san-diego' },
-              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira' : '/la-guaira' },
-              { es: 'Chacao', en: 'Chacao', href: isEnglish ? '/en/remodelacion-integral-chacao' : '/remodelacion-integral-chacao' },
-              { es: 'Las Mercedes', en: 'Las Mercedes', href: isEnglish ? '/en/remodelacion-integral-las-mercedes' : '/remodelacion-integral-las-mercedes' },
-              { es: 'El Hatillo', en: 'El Hatillo', href: isEnglish ? '/en/remodelacion-integral-el-hatillo' : '/remodelacion-integral-el-hatillo' },
-              { es: 'La Lagunita', en: 'La Lagunita', href: isEnglish ? '/en/remodelacion-integral-la-lagunita' : '/remodelacion-integral-la-lagunita' },
-              { es: 'Altamira', en: 'Altamira', href: isEnglish ? '/en/remodelacion-integral-altamira' : '/remodelacion-integral-altamira' },
+              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia' : '/valencia' },
+              { es: 'Naguanagua', en: 'Naguanagua', href: isEnglish ? '/en/remodelacion-integral-naguanagua' : '/remodelacion-integral-naguanagua' },
+              { es: 'Guacara', en: 'Guacara', href: isEnglish ? '/en/remodelacion-integral-guacara' : '/remodelacion-integral-guacara' },
               { es: 'El Viñedo', en: 'El Viñedo', href: isEnglish ? '/en/remodelacion-integral-el-vinedo' : '/remodelacion-integral-el-vinedo' },
               { es: 'Guataparo', en: 'Guataparo', href: isEnglish ? '/en/remodelacion-integral-guataparo' : '/remodelacion-integral-guataparo' },
+              { es: 'Manongo', en: 'Manongo', href: isEnglish ? '/en/remodelacion-integral-manongo' : '/remodelacion-integral-manongo' },
+              { es: 'El Trigal', en: 'El Trigal', href: isEnglish ? '/en/remodelacion-integral-el-trigal' : '/remodelacion-integral-el-trigal' },
+              { es: 'Prebo', en: 'Prebo', href: isEnglish ? '/en/remodelacion-integral-prebo' : '/remodelacion-integral-prebo' },
+              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas' : '/caracas' },
+              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira' : '/la-guaira' },
             ].map((l) => (
               <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
             ))}

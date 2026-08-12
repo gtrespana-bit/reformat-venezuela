@@ -54,8 +54,18 @@ const testimonials = [
 ];
 
 const serviceAreas = [
-  "Valencia", "San Diego", "Naguanagua", "Guacara", "Los Guayos", "Caracas",
-  "Chacao", "Baruta", "El Hatillo", "La Guaira", "Puerto Cabello", "Tocuyito"
+  { name: 'San Diego', href: '/san-diego/' },
+  { name: 'Valencia', href: '/valencia/' },
+  { name: 'Naguanagua', href: '/remodelacion-integral-naguanagua/' },
+  { name: 'Guacara', href: '/remodelacion-integral-guacara/' },
+  { name: 'El Viñedo', href: '/remodelacion-integral-el-vinedo/' },
+  { name: 'Guataparo', href: '/remodelacion-integral-guataparo/' },
+  { name: 'Manongo', href: '/remodelacion-integral-manongo/' },
+  { name: 'El Trigal', href: '/remodelacion-integral-el-trigal/' },
+  { name: 'Prebo', href: '/remodelacion-integral-prebo/' },
+  { name: 'El Parral', href: '/remodelacion-integral-el-parral/' },
+  { name: 'Los Guayos', href: '/remodelacion-integral-los-guayos/' },
+  { name: 'Caracas', href: '/caracas/' },
 ];
 
 const qualityPillars = [
@@ -81,8 +91,8 @@ const fitItems = [
 ---
 
 <BaseLayout 
-  title="Remodelaciones de Lujo en Venezuela | RemodelaT" 
-  description="Remodelaciones residenciales de alto estándar en Venezuela. Cocinas, baños y reformas integrales con método técnico, materiales adecuados, acabados…" 
+  title="Remodelaciones en San Diego y Valencia | RemodelaT" 
+  description="Remodelaciones residenciales de alto estándar en San Diego, Valencia y Carabobo. Cocinas, baños e integrales. También obras puntuales en Caracas." 
   activePage="inicio"
 >
 
@@ -380,13 +390,13 @@ const fitItems = [
   <section class="section service-areas-section deferred-section">
     <div class="container areas-grid">
       <div>
-        <span class="tag">Zonas de Cobertura</span>
-        <h2 class="section-title">Remodelamos viviendas de alto valor en Carabobo, Caracas y La Guaira</h2>
-        <p class="section-desc">Atendemos casas, apartamentos, quintas y townhouses en zonas residenciales exigentes. Si tu zona no aparece, revisamos disponibilidad y alcance del proyecto.</p>
+        <span class="tag">Zona principal de trabajo</span>
+        <h2 class="section-title">Base en San Diego, Valencia y el resto de Carabobo</h2>
+        <p class="section-desc">Las obras grandes —integrales, quintas y casas— las ejecutamos en San Diego, Valencia, Naguanagua, Guacara y urbanizaciones cercanas. En Caracas atendemos proyectos puntuales.</p>
       </div>
       <div class="area-chips" data-reveal>
         {serviceAreas.map((area) => (
-          <a href={area === 'Caracas' ? '/caracas' : area === 'Valencia' ? '/valencia' : area === 'San Diego' ? '/san-diego' : area === 'La Guaira' ? '/la-guaira' : '/contacto'}>{area}</a>
+          <a href={area.href}>{area.name}</a>
         ))}
       </div>
     </div>
@@ -421,7 +431,7 @@ const fitItems = [
         <p>Mientras más información tengamos, mejor podremos orientar tu remodelación: zona, tipo de vivienda, alcance, nivel de acabado y fecha estimada de inicio.</p>
         <div class="info-item">
           <h3>Ubicación</h3>
-          <p>Valencia, San Diego, Carabobo y Caracas</p>
+          <p>San Diego, Valencia y Carabobo. También proyectos puntuales en Caracas.</p>
         </div>
         <div class="info-item">
           <h3>Teléfono</h3>

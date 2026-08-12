@@ -4,10 +4,11 @@ import GodHero from '../../../components/GodHero.astro';
 import GodMarquee from '../../../components/GodMarquee.astro';
 import FAQ from '../../../components/FAQ.astro';
 import ServiceSchema from '../../../components/ServiceSchema.astro';
+import ZoneHubLinks from '../../../components/ZoneHubLinks.astro';
 ---
 <BaseLayout
   title="Luxury Kitchen Remodeling in Venezuela | RemodelaT"
-  description="Luxury kitchen remodeling in Venezuela: custom design, durable hardware, resistant countertops, technical lighting, supervised execution and written warranties."
+  description="Luxury kitchen remodeling in Venezuela: custom design, durable hardware, resistant countertops, technical lighting and warranties."
   image="/images/cocina.webp"
   activePage="services"
 >
@@ -304,6 +305,8 @@ import ServiceSchema from '../../../components/ServiceSchema.astro';
   { question: "Do you offer warranties on kitchen work?", answer: "Yes, all our work comes with a 2-year labor warranty plus manufacturer warranties on materials, countertops, and appliances." },
   { question: "Can I choose the materials and finishes?", answer: "Absolutely. We work with premium brands and guide you through selecting materials, colors, and finishes that match your style and budget." }
 ]} />
+
+<ZoneHubLinks service="cocina" lang="en" />
 
 <style>
   .article-hero { position: relative; min-height: 80vh; display: flex; align-items: flex-end; justify-content: center; text-align: center; color: var(--white); overflow: hidden; padding-top: 140px; padding-bottom: 80px; }
