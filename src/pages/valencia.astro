@@ -60,7 +60,7 @@ const faqItems = [
     watermark="VALENCIA"
   />
   <GodMarquee />
-  <Breadcrumb items={[ { name: 'Inicio', url: '/' }, { name: 'Valencia', url: '/valencia' } ]} />
+  <Breadcrumb items={[ { name: 'Inicio', url: '/' }, { name: 'Valencia', url: '/valencia/' } ]} />
 
   <section class="section" data-reveal>
     <div class="container intro-grid">
@@ -94,7 +94,7 @@ const faqItems = [
           <article class="service-card-god" data-reveal>
             <div class="service-icon-god"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
             <h3>{s.data.title}</h3><p>{s.data.description}</p>
-            <a href={`/servicios/${s.slug}`} class="card-link-god">Ver detalles <span>→</span></a>
+            <a href={`/servicios/${s.slug}/`} class="card-link-god">Ver detalles <span>→</span></a>
           </article>
         ))}
       </div>
@@ -155,7 +155,7 @@ const faqItems = [
       <p class="cta-text">Valoración técnica en 48h, presupuesto por partidas y garantía escrita.</p>
       <div class="cta-actions-home">
         <a rel="noopener" href="https://wa.me/584227997043?text=Hola,%20quiero%20presupuesto%20en%20Valencia" class="btn-premium btn-primary-premium" target="_blank"><span class="btn-content">WhatsApp directo</span><span class="btn-arrow">→</span></a>
-        <a href="/contacto" class="btn-premium btn-outline-premium"><span class="btn-content">Formulario</span><span class="btn-arrow">→</span></a>
+        <a href="/contacto/" class="btn-premium btn-outline-premium"><span class="btn-content">Formulario</span><span class="btn-arrow">→</span></a>
       </div>
     </div>
   </section>

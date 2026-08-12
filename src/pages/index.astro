@@ -56,12 +56,16 @@ const testimonials = [
 const serviceAreas = [
   { name: 'San Diego', href: '/san-diego/' },
   { name: 'Valencia', href: '/valencia/' },
-  { name: 'Naguanagua', href: '/remodelacion-integral-naguanagua/' },
-  { name: 'Guacara', href: '/remodelacion-integral-guacara/' },
+  { name: 'Naguanagua', href: '/naguanagua/' },
+  { name: 'Guacara', href: '/guacara/' },
+  { name: 'El Trigal', href: '/el-trigal/' },
+  { name: 'Guataparo', href: '/guataparo/' },
+  { name: 'La Viña', href: '/la-vina/' },
+  { name: 'El Bosque', href: '/el-bosque/' },
+  { name: 'La Esmeralda', href: '/la-esmeralda/' },
+  { name: 'El Morro', href: '/remodelacion-integral-el-morro/' },
   { name: 'El Viñedo', href: '/remodelacion-integral-el-vinedo/' },
-  { name: 'Guataparo', href: '/remodelacion-integral-guataparo/' },
   { name: 'Manongo', href: '/remodelacion-integral-manongo/' },
-  { name: 'El Trigal', href: '/remodelacion-integral-el-trigal/' },
   { name: 'Prebo', href: '/remodelacion-integral-prebo/' },
   { name: 'El Parral', href: '/remodelacion-integral-el-parral/' },
   { name: 'Los Guayos', href: '/remodelacion-integral-los-guayos/' },
@@ -156,10 +160,10 @@ const fitItems = [
     <div class="hero-content">
       <span class="god-eyebrow">Remodelaciones residenciales de alto estándar</span>
       <h1 class="hero-title">
-        <span class="line">Remodelaciones de lujo</span>
-        <span class="line gold">con precisión técnica</span>
+        <span class="line">Remodelaciones en San Diego</span>
+        <span class="line gold">y Valencia, Carabobo</span>
       </h1>
-      <p class="hero-sub">Cocinas, baños y reformas integrales para propietarios exigentes: materiales adecuados, supervisión de obra, acabados impecables y garantía por escrito.</p>
+      <p class="hero-sub">Cocinas, baños e integrales en San Diego, Valencia, Naguanagua, Guacara, El Trigal y Guataparo. Materiales especificados, supervisión de obra y garantía por escrito.</p>
       <div class="hero-btns">
         <a href={`https://wa.me/584227997043?text=${whatsappBudgetText}`} target="_blank" rel="noopener" class="btn-premium btn-primary-premium">
           <span class="btn-content">Solicitar valoración técnica</span>
@@ -167,7 +171,7 @@ const fitItems = [
           <span class="btn-shine"></span>
           <span class="btn-arrow">→</span>
         </a>
-        <a href="/proyectos" class="btn-premium btn-outline-premium">
+        <a href="/proyectos/" class="btn-premium btn-outline-premium">
           <span class="btn-content">Ver proyectos reales</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
@@ -321,7 +325,7 @@ const fitItems = [
             <span>{badge}</span>
           ))}
         </div>
-        <a href="/metodo-remodelat" class="btn-premium btn-primary-premium">
+        <a href="/metodo-remodelat/" class="btn-premium btn-primary-premium">
           <span class="btn-content">Conocer nuestro estándar</span>
           <span class="btn-border"></span>
           <span class="btn-shine"></span>
@@ -391,8 +395,8 @@ const fitItems = [
     <div class="container areas-grid">
       <div>
         <span class="tag">Zona principal de trabajo</span>
-        <h2 class="section-title">Base en San Diego, Valencia y el resto de Carabobo</h2>
-        <p class="section-desc">Las obras grandes —integrales, quintas y casas— las ejecutamos en San Diego, Valencia, Naguanagua, Guacara y urbanizaciones cercanas. En Caracas atendemos proyectos puntuales.</p>
+        <h2 class="section-title">Base en San Diego, Valencia, Naguanagua y Guacara</h2>
+        <p class="section-desc">Las obras grandes —integrales, quintas y casas— las ejecutamos en San Diego, Valencia, Naguanagua, Guacara, El Trigal, Guataparo y urbanizaciones cercanas. En Caracas atendemos proyectos puntuales.</p>
       </div>
       <div class="area-chips" data-reveal>
         {serviceAreas.map((area) => (
@@ -1044,3 +1048,4 @@ const fitItems = [
   initHomeForm();
   document.addEventListener('astro:page-load', initHomeForm);
 </script>
+script>

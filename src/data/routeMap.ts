@@ -57,6 +57,13 @@ const pairs: Array<[string, string]> = [
   ['/caracas', '/en/caracas'],
   ['/valencia', '/en/valencia'],
   ['/san-diego', '/en/san-diego'],
+  ['/naguanagua', '/en/naguanagua'],
+  ['/guacara', '/en/guacara'],
+  ['/el-trigal', '/en/el-trigal'],
+  ['/guataparo', '/en/guataparo'],
+  ['/la-vina', '/en/la-vina'],
+  ['/el-bosque', '/en/el-bosque'],
+  ['/la-esmeralda', '/en/la-esmeralda'],
   ['/la-guaira', '/en/la-guaira'],
 
   // --- proyectos (slugs distintos) ---

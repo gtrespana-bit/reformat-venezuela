@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GodHero from './GodHero.astro';
+import GodMarquee from './GodMarquee.astro';
+import FAQ from './FAQ.astro';
+import Breadcrumb from './Breadcrumb.astro';
+import GuaranteeMatrix from './GuaranteeMatrix.astro';
+import ZoneHubLinks from './ZoneHubLinks.astro';
+import { caraboboZones } from '../data/zone-slugs';
+import { cityHubsEs, cityHubsEn } from '../data/city-hubs';
+
+interface Props {
+  slug: 'naguanagua' | 'guacara' | 'el-trigal' | 'guataparo' | 'la-vina' | 'el-bosque' | 'la-esmeralda';
+  lang?: 'es' | 'en';
+}
+
+const { slug, lang = 'es' } = Astro.props;
+const city = lang === 'en' ? cityHubsEn[slug] : cityHubsEs[slug];
+if (!city) {
+  throw new Error(`CityHub: no hay copy para slug="${slug}" lang="${lang}"`);
+}
+const en = lang === 'en';
+const path = en ? `/en/${slug}/` : `/${slug}/`;
+const home = en ? '/en/' : '/';
+---
+
+<BaseLayout title={city.title} description={city.description} image={city.heroImage}>
+  <GodHero
+    eyebrow={city.eyebrow}
+    title={en ? 'Remodeling in' : 'Remodelaciones en'}
+    titleGold={city.name}
+    lead={city.lead}
+    image={city.heroImage}
+    imageAlt={`${en ? 'Remodeling in' : 'Remodelaciones en'} ${city.name}, Carabobo`}
+    badges={en ? ['Primary zone', 'Written warranty', 'In-house crew'] : ['Zona primaria', 'Garantía escrita', 'Equipo propio']}
+    watermark={city.watermark}
+  />
+  <GodMarquee />
+  <Breadcrumb items={[
+    { name: en ? 'Home' : 'Inicio', url: home },
+    { name: city.name, url: path },
+  ]} />
+
+  <section class="section" data-reveal>
+    <div class="container intro-grid">
+      <div class="intro-media">
+        <img src={city.introImage} alt={`${en ? 'Project in' : 'Proyecto en'} ${city.name}`} width="800" height="600" loading="lazy" decoding="async" />
+      </div>
+      <div class="intro-body">
+        <span class="eyebrow-god on-light">{en ? 'Primary Carabobo zone' : 'Zona primaria Carabobo'}</span>
+        <h2>{city.introTitle}</h2>
+        <p>{city.intro}</p>
+        <ul class="intro-checks">
+          <li>{en ? 'In-house crew, no subcontractors' : 'Equipo propio, sin subcontratas'}</li>
+          <li>{en ? 'Itemized closed budget' : 'Presupuesto cerrado por partidas'}</li>
+          <li>{en ? 'Condo permit coordination' : 'Gestión de permisos de condominio'}</li>
+          <li>{en ? 'Written, documented warranty' : 'Garantía escrita y documentada'}</li>
+        </ul>
+        <a href="#contacto" class="btn-premium btn-primary-premium"><span class="btn-content">{en ? 'Request assessment' : 'Solicitar valoración'}</span><span class="btn-arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">{en ? 'Coverage' : 'Cobertura'}</span>
+        <h2>{en ? `Neighborhoods in ${city.name}` : `Urbanizaciones en ${city.name}`}</h2>
+      </div>
+      <div class="zones-grid-god">
+        {city.zones.map((z) => (
+          <div class="zone-item-god">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <span>{z}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <GuaranteeMatrix compact lang={lang} title={en ? `Warranty in ${city.name}` : `Garantía por partidas en ${city.name}`} />
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header" data-reveal>
+        <span class="eyebrow-god on-light">{en ? 'Testimonials' : 'Testimonios'}</span>
+        <h2>{city.name}</h2>
+      </div>
+      <div class="testimonials-grid-god">
+        {city.testimonials.map((t) => (
+          <figure class="testimonial-card-god" data-reveal>
+            <div class="stars-god">★★★★★</div>
+            <blockquote>“{t.text}”</blockquote>
+            <figcaption><strong>{t.name}</strong><span>{t.location}</span></figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container container-narrow">
+      <FAQ items={city.faqs} />
+    </div>
+  </section>
+
+  <ZoneHubLinks zones={caraboboZones} lang={lang} />
+
+  <section class="god-cta" id="contacto">
+    <div class="cta-wrapper">
+      <span class="eyebrow-god">{city.eyebrow}</span>
+      <h2 class="cta-title">{en ? `Ready to remodel in ${city.name}?` : `¿Listo para remodelar en ${city.name}?`}</h2>
+      <p class="cta-text">{en ? 'Technical assessment, itemized quote and written warranty.' : 'Valoración técnica, presupuesto por partidas y garantía escrita.'}</p>
+      <a rel="noopener" href={`https://wa.me/584227997043?text=${city.waText}`} class="btn-premium btn-primary-premium" target="_blank"><span class="btn-content">WhatsApp {city.name}</span><span class="btn-arrow">→</span></a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}.container-narrow{max-width:860px;margin:0 auto;padding:0 24px}.section{padding:clamp(72px,10vw,112px) 0}.section-alt{background:var(--bone)}.section-header{text-align:center;max-width:680px;margin:0 auto clamp(36px,6vw,64px)}.section-header h2{font-family:var(--font-serif);font-size:clamp(1.9rem,4vw,2.7rem);font-weight:500;letter-spacing:-.02em;color:var(--ink);line-height:1.12;margin:12px 0 14px}
+  .intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,6vw,84px);align-items:center}.intro-media img{width:100%;height:auto;border-radius:var(--r-md);box-shadow:var(--e-3);border:var(--hairline)}.intro-body h2{font-family:var(--font-serif);font-size:clamp(1.9rem,3.5vw,2.6rem);line-height:1.12;letter-spacing:-.02em;margin:12px 0 18px;color:var(--ink)}.intro-body p{color:var(--text-muted);line-height:1.78;margin-bottom:14px}.intro-checks{list-style:none;padding:0;margin:22px 0 28px;display:grid;gap:10px}.intro-checks li{position:relative;padding-left:28px;font-size:.95rem;color:var(--ink)}.intro-checks li::before{content:"";position:absolute;left:0;top:.6em;width:8px;height:8px;border-radius:50%;background:var(--gold-ink);box-shadow:0 0 0 5px rgba(201,169,97,.12)}
+  .zones-grid-god{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.zone-item-god{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--white);border:var(--hairline-ink);border-radius:var(--r-md)}.zone-item-god svg{color:var(--gold-ink)}
+  .testimonials-grid-god{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}.testimonial-card-god{background:var(--white);border:var(--hairline-ink);border-radius:var(--r-md);padding:32px 26px;box-shadow:var(--e-1);margin:0}.stars-god{color:var(--gold-ink);letter-spacing:3px;margin-bottom:14px}.testimonial-card-god blockquote{font-style:italic;color:var(--ink);line-height:1.7;margin:0 0 18px;font-size:.98rem}.testimonial-card-god figcaption strong{display:block;font-size:.92rem}.testimonial-card-god figcaption span{font-size:.82rem;color:var(--text-muted)}
+  @media(max-width:1024px){.zones-grid-god,.testimonials-grid-god{grid-template-columns:repeat(2,1fr)}.intro-grid{grid-template-columns:1fr}}
+  @media(max-width:640px){.zones-grid-god,.testimonials-grid-god{grid-template-columns:1fr}}
+</style>
+<script>
+  (() => {
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const targets = document.querySelectorAll('[data-reveal]');
+    if (reduce || !('IntersectionObserver' in window)) { targets.forEach(el => el.classList.add('is-revealed')); return; }
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (!entry.isIntersecting) return; entry.target.classList.add('is-revealed','god-reveal'); io.unobserve(entry.target); });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.12 });
+    targets.forEach(el => { el.classList.add('god-reveal'); io.observe(el); });
+  })();
+</script>

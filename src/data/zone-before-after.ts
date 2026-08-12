@@ -251,12 +251,16 @@ const CARACAS_ZONES = new Set([
 ]);
 
 const VALENCIA_ZONES = new Set([
+  'el-bosque',
+  'el-morro',
   'el-parral',
   'el-trigal',
   'el-vinedo',
   'guacara',
   'guataparo',
+  'la-esmeralda',
   'la-trigalena',
+  'la-vina',
   'los-guayos',
   'manongo',
   'naguanagua',
@@ -264,6 +268,7 @@ const VALENCIA_ZONES = new Set([
   'tocuyito',
   'valencia-centro',
   'valles-de-camoruco',
+  'valle-de-oro',
 ]);
 
 /**

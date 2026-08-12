@@ -23,12 +23,16 @@ export const zoneNames: Record<string, string> = {
   'chacao': 'Chacao',
   'country-club': 'Country Club',
   'el-hatillo': 'El Hatillo',
+  'el-bosque': 'El Bosque',
+  'el-morro': 'El Morro',
   'el-parral': 'El Parral',
   'el-penon': 'El Peñón',
   'el-trigal': 'El Trigal',
   'el-vinedo': 'El Viñedo',
   'guacara': 'Guacara',
   'guataparo': 'Guataparo',
+  'la-esmeralda': 'La Esmeralda',
+  'la-vina': 'La Viña',
   'la-castellana': 'La Castellana',
   'la-lagunita': 'La Lagunita',
   'las-mercedes': 'Las Mercedes',
@@ -44,6 +48,7 @@ export const zoneNames: Record<string, string> = {
   'tocuyito': 'Tocuyito',
   'valencia-centro': 'Valencia Centro',
   'valles-de-camoruco': 'Valles de Camoruco',
+  'valle-de-oro': 'Valle de Oro',
 };
 
 /** Zonas del área metropolitana de Caracas (cobertura puntual). */
@@ -60,15 +65,19 @@ export const caracasZones: string[] = [
  */
 export const caraboboZones: string[] = [
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-vinedo', 'guataparo', 'manongo', 'el-trigal',
-  'la-trigalena', 'prebo', 'el-parral', 'valles-de-camoruco',
+  'el-trigal', 'guataparo', 'la-vina', 'el-bosque',
+  'la-esmeralda', 'el-morro', 'valle-de-oro',
+  'el-vinedo', 'manongo', 'la-trigalena', 'prebo',
+  'el-parral', 'valles-de-camoruco',
   'los-guayos', 'tocuyito', 'puerto-cabello',
 ];
 
-/** Núcleo comercial: obras grandes y mayor exposición SEO. */
+/** Núcleo comercial: poder adquisitivo medio-alto y obras grandes. */
 export const primaryCaraboboZones: string[] = [
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-vinedo', 'guataparo', 'manongo',
+  'el-trigal', 'guataparo', 'la-vina', 'el-bosque',
+  'la-esmeralda', 'el-morro', 'el-vinedo', 'manongo',
+  'la-trigalena', 'prebo',
 ];
 
 /** Carabobo primero: el grafo interno y los chips de servicio heredan este orden. */
