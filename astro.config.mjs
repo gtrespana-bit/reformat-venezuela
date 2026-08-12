@@ -3,12 +3,14 @@ import sitemap from '@astrojs/sitemap';
 
 const PRIMARY_CARABOBO = new Set([
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-trigal', 'guataparo', 'el-vinedo', 'manongo',
+  'el-trigal', 'guataparo', 'la-vina', 'el-bosque',
+  'la-esmeralda', 'el-morro', 'el-vinedo', 'manongo',
+  'la-trigalena', 'prebo',
 ]);
 const CARABOBO = new Set([
   ...PRIMARY_CARABOBO,
-  'el-trigal', 'la-trigalena', 'prebo', 'el-parral',
-  'valles-de-camoruco', 'los-guayos', 'tocuyito', 'puerto-cabello',
+  'valle-de-oro', 'el-parral', 'valles-de-camoruco',
+  'los-guayos', 'tocuyito', 'puerto-cabello',
 ]);
 
 function sitemapPriority(url) {
@@ -18,9 +20,11 @@ function sitemapPriority(url) {
     path === '/san-diego/' || path === '/valencia/' ||
     path === '/naguanagua/' || path === '/guacara/' ||
     path === '/el-trigal/' || path === '/guataparo/' ||
+    path === '/la-vina/' || path === '/el-bosque/' || path === '/la-esmeralda/' ||
     path === '/en/san-diego/' || path === '/en/valencia/' ||
     path === '/en/naguanagua/' || path === '/en/guacara/' ||
-    path === '/en/el-trigal/' || path === '/en/guataparo/'
+    path === '/en/el-trigal/' || path === '/en/guataparo/' ||
+    path === '/en/la-vina/' || path === '/en/el-bosque/' || path === '/en/la-esmeralda/'
   ) return 0.95;
   if (path.startsWith('/servicios/') || path.startsWith('/en/services/')) return 0.85;
   if (path === '/proyectos/' || path === '/en/projects/') return 0.8;

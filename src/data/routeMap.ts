@@ -61,6 +61,9 @@ const pairs: Array<[string, string]> = [
   ['/guacara', '/en/guacara'],
   ['/el-trigal', '/en/el-trigal'],
   ['/guataparo', '/en/guataparo'],
+  ['/la-vina', '/en/la-vina'],
+  ['/el-bosque', '/en/el-bosque'],
+  ['/la-esmeralda', '/en/la-esmeralda'],
   ['/la-guaira', '/en/la-guaira'],
 
   // --- proyectos (slugs distintos) ---
