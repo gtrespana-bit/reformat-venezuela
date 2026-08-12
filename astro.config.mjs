@@ -19,6 +19,9 @@ export default defineConfig({
       },
       changefreq: 'weekly',
       priority: 0.7,
+      // lastmod = fecha del build: señala a los buscadores que el sitemap
+      // se regenera con contenido actualizado en cada despliegue.
+      lastmod: new Date(),
     }),
   ],
   i18n: {

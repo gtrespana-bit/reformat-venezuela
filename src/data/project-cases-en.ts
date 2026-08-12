@@ -23,7 +23,7 @@ export const projectCasesEn: Record<string, ProjectCaseEn> = {
     location: 'Guataparo, Valencia, Carabobo',
     duration: '2.5 weeks',
     heroImage: '/images/proyectos/cocina-lujo-guataparo/resultado-final-cocina-lineal.webp',
-    excerpt: 'Full kitchen relocation in a Guataparo quinta: old kitchen dismantled, utilities rerouted, epoxy floor, linear base-cabinet with backlit shelf and Siemens appliances.',
+    excerpt: 'Full kitchen relocation in a Guataparo quinta: utilities rerouted, epoxy floor, linear base-cabinet with backlit shelf and Siemens appliances.',
     challenge: 'The original kitchen was a closed, fully separated compartment accessed through a large double doorway. Relocating it meant much more than installing new cabinets: the old doorway had to be sealed, electrics and plumbing reinvented, the electric water heater removed and a floor built to unify the entire day zone.',
     solution: 'We sealed the doorway with 20 cm blockwork and a fine cement render, chased new wall and floor channels for utilities protected by flexible corrugated conduit, replaced the water heater with solar thermal panels and poured a seamless white epoxy floor. Over that canvas we mounted a linear base-cabinet kitchen with a backlit floating shelf and Siemens appliances, including an imported 90 cm refrigerator.',
     technicalHighlights: [

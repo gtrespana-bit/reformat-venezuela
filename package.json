@@ -6,10 +6,12 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "node scripts/check-images.mjs && node scripts/shorten-meta.mjs && astro build && node scripts/fix-trailing-slashes.mjs && node scripts/inject-image-dimensions.mjs && node scripts/check-mobile-pwa.mjs",
+    "build": "node scripts/check-images.mjs && node scripts/shorten-meta.mjs && astro build && node scripts/fix-trailing-slashes.mjs && node scripts/check-seo.mjs && node scripts/inject-image-dimensions.mjs && node scripts/check-mobile-pwa.mjs && node scripts/indexnow.mjs",
     "shorten:meta": "node scripts/shorten-meta.mjs",
     "check:images": "node scripts/check-images.mjs",
+    "check:seo": "node scripts/check-seo.mjs",
     "check:mobile-pwa": "node scripts/check-mobile-pwa.mjs",
+    "indexnow": "node scripts/indexnow.mjs",
     "preview": "astro preview",
     "astro": "astro"
   },
