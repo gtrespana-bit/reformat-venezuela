@@ -60,7 +60,7 @@ export const caracasZones: string[] = [
  */
 export const caraboboZones: string[] = [
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-vinedo', 'guataparo', 'manongo', 'el-trigal',
+  'el-trigal', 'guataparo', 'el-vinedo', 'manongo',
   'la-trigalena', 'prebo', 'el-parral', 'valles-de-camoruco',
   'los-guayos', 'tocuyito', 'puerto-cabello',
 ];
@@ -68,7 +68,7 @@ export const caraboboZones: string[] = [
 /** Núcleo comercial: obras grandes y mayor exposición SEO. */
 export const primaryCaraboboZones: string[] = [
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-vinedo', 'guataparo', 'manongo',
+  'el-trigal', 'guataparo', 'el-vinedo', 'manongo',
 ];
 
 /** Carabobo primero: el grafo interno y los chips de servicio heredan este orden. */

@@ -79,22 +79,22 @@ const footerLocations = isEnglish
 
 const navItems = isEnglish
   ? [
-      { label: 'Home', href: '/en', key: 'home' },
-      { label: 'Services', href: '/en/services', key: 'services' },
-      { label: 'Method', href: '/en/our-method', key: 'metodo' },
-      { label: 'Projects', href: '/en/projects', key: 'projects' },
-      { label: 'About Us', href: '/en/about-us', key: 'nosotros' },
-      { label: 'Blog', href: '/en/blog', key: 'blog' },
-      { label: 'Contact', href: '/en/contact', key: 'contact', premium: true }
+      { label: 'Home', href: '/en/', key: 'home' },
+      { label: 'Services', href: '/en/services/', key: 'services' },
+      { label: 'Method', href: '/en/our-method/', key: 'metodo' },
+      { label: 'Projects', href: '/en/projects/', key: 'projects' },
+      { label: 'About Us', href: '/en/about-us/', key: 'nosotros' },
+      { label: 'Blog', href: '/en/blog/', key: 'blog' },
+      { label: 'Contact', href: '/en/contact/', key: 'contact', premium: true }
     ]
   : [
       { label: 'Inicio', href: '/', key: 'inicio' },
-      { label: 'Servicios', href: '/servicios', key: 'servicios' },
-      { label: 'Método', href: '/metodo-remodelat', key: 'metodo' },
-      { label: 'Proyectos', href: '/proyectos', key: 'proyectos' },
-      { label: 'Nosotros', href: '/sobre-nosotros', key: 'nosotros' },
-      { label: 'Blog', href: '/blog', key: 'blog' },
-      { label: 'Contacto', href: '/contacto', key: 'contacto', premium: true }
+      { label: 'Servicios', href: '/servicios/', key: 'servicios' },
+      { label: 'Método', href: '/metodo-remodelat/', key: 'metodo' },
+      { label: 'Proyectos', href: '/proyectos/', key: 'proyectos' },
+      { label: 'Nosotros', href: '/sobre-nosotros/', key: 'nosotros' },
+      { label: 'Blog', href: '/blog/', key: 'blog' },
+      { label: 'Contacto', href: '/contacto/', key: 'contacto', premium: true }
     ];
 ---
 
@@ -151,7 +151,7 @@ const navItems = isEnglish
 
   <nav id="navbar" class={`nav${needsSolidNav ? ' nav-solid' : ''}`} role="navigation" aria-label={isEnglish ? 'Main navigation' : 'Menú principal'}>
     <div class="nav-container">
-      <a href={isEnglish ? '/en' : '/'} class="logo">
+      <a href={isEnglish ? '/en/' : '/'} class="logo">
         <img
           src="/images/logo-header-280.webp"
           srcset="/images/logo-header-180.webp 180w, /images/logo-header-280.webp 280w, /images/logo-header-560.webp 560w"
@@ -235,12 +235,12 @@ const navItems = isEnglish
           <h3 class="footer-heading">{isEnglish ? 'Services' : 'Servicios'}</h3>
           <ul class="footer-links">
             {[
-              { es: 'Remodelación de Cocinas', en: 'Kitchen Remodeling', href: isEnglish ? '/en/services/kitchens' : '/servicios/remodelacion-cocina' },
-              { es: 'Remodelación de Baños', en: 'Bathroom Remodeling', href: isEnglish ? '/en/services/bathrooms' : '/servicios/remodelacion-bano' },
-              { es: 'Remodelación Integral', en: 'Full Home Remodeling', href: isEnglish ? '/en/services/whole-home' : '/servicios/remodelacion-integral' },
-              { es: 'Instalación de Pisos', en: 'Flooring Installation', href: isEnglish ? '/en/services/flooring' : '/servicios/instalacion-pisos' },
-              { es: 'Fontanería / Plomería', en: 'Plumbing', href: isEnglish ? '/en/services/plumbing' : '/servicios/fontaneria-plomeria' },
-              { es: 'Piscinas', en: 'Pools', href: isEnglish ? '/en/services/pools' : '/servicios/piscinas-mantenimiento' },
+              { es: 'Remodelación de Cocinas', en: 'Kitchen Remodeling', href: isEnglish ? '/en/services/kitchens/' : '/servicios/remodelacion-cocina/' },
+              { es: 'Remodelación de Baños', en: 'Bathroom Remodeling', href: isEnglish ? '/en/services/bathrooms/' : '/servicios/remodelacion-bano/' },
+              { es: 'Remodelación Integral', en: 'Full Home Remodeling', href: isEnglish ? '/en/services/whole-home/' : '/servicios/remodelacion-integral/' },
+              { es: 'Instalación de Pisos', en: 'Flooring Installation', href: isEnglish ? '/en/services/flooring/' : '/servicios/instalacion-pisos/' },
+              { es: 'Fontanería / Plomería', en: 'Plumbing', href: isEnglish ? '/en/services/plumbing/' : '/servicios/fontaneria-plomeria/' },
+              { es: 'Piscinas', en: 'Pools', href: isEnglish ? '/en/services/pools/' : '/servicios/piscinas-mantenimiento/' },
             ].map((l) => (
               <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
             ))}
@@ -251,17 +251,17 @@ const navItems = isEnglish
           <h3 class="footer-heading">{isEnglish ? 'Service Areas' : 'Zonas de Servicio'}</h3>
           <ul class="footer-links footer-links-2col">
             {[
-              { es: 'San Diego', en: 'San Diego', href: isEnglish ? '/en/san-diego' : '/san-diego' },
-              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia' : '/valencia' },
-              { es: 'Naguanagua', en: 'Naguanagua', href: isEnglish ? '/en/remodelacion-integral-naguanagua' : '/remodelacion-integral-naguanagua' },
-              { es: 'Guacara', en: 'Guacara', href: isEnglish ? '/en/remodelacion-integral-guacara' : '/remodelacion-integral-guacara' },
-              { es: 'El Viñedo', en: 'El Viñedo', href: isEnglish ? '/en/remodelacion-integral-el-vinedo' : '/remodelacion-integral-el-vinedo' },
-              { es: 'Guataparo', en: 'Guataparo', href: isEnglish ? '/en/remodelacion-integral-guataparo' : '/remodelacion-integral-guataparo' },
-              { es: 'Manongo', en: 'Manongo', href: isEnglish ? '/en/remodelacion-integral-manongo' : '/remodelacion-integral-manongo' },
-              { es: 'El Trigal', en: 'El Trigal', href: isEnglish ? '/en/remodelacion-integral-el-trigal' : '/remodelacion-integral-el-trigal' },
-              { es: 'Prebo', en: 'Prebo', href: isEnglish ? '/en/remodelacion-integral-prebo' : '/remodelacion-integral-prebo' },
-              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas' : '/caracas' },
-              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira' : '/la-guaira' },
+              { es: 'San Diego', en: 'San Diego', href: isEnglish ? '/en/san-diego/' : '/san-diego/' },
+              { es: 'Valencia', en: 'Valencia', href: isEnglish ? '/en/valencia/' : '/valencia/' },
+              { es: 'Naguanagua', en: 'Naguanagua', href: isEnglish ? '/en/naguanagua/' : '/naguanagua/' },
+              { es: 'Guacara', en: 'Guacara', href: isEnglish ? '/en/guacara/' : '/guacara/' },
+              { es: 'El Trigal', en: 'El Trigal', href: isEnglish ? '/en/el-trigal/' : '/el-trigal/' },
+              { es: 'Guataparo', en: 'Guataparo', href: isEnglish ? '/en/guataparo/' : '/guataparo/' },
+              { es: 'El Viñedo', en: 'El Viñedo', href: isEnglish ? '/en/remodelacion-integral-el-vinedo/' : '/remodelacion-integral-el-vinedo/' },
+              { es: 'Manongo', en: 'Manongo', href: isEnglish ? '/en/remodelacion-integral-manongo/' : '/remodelacion-integral-manongo/' },
+              { es: 'Prebo', en: 'Prebo', href: isEnglish ? '/en/remodelacion-integral-prebo/' : '/remodelacion-integral-prebo/' },
+              { es: 'Caracas', en: 'Caracas', href: isEnglish ? '/en/caracas/' : '/caracas/' },
+              { es: 'La Guaira', en: 'La Guaira', href: isEnglish ? '/en/la-guaira/' : '/la-guaira/' },
             ].map((l) => (
               <li><a href={l.href}>{isEnglish ? l.en : l.es}</a></li>
             ))}
@@ -298,8 +298,8 @@ const navItems = isEnglish
       <div class="footer-bottom">
         <p>&copy; {new Date().getFullYear()} RemodelaT Venezuela. {footerRights} | {footerLocations}</p>
         <ul class="footer-legal">
-          <li><a href={isEnglish ? '/en/privacy' : '/privacidad'}>{isEnglish ? 'Privacy Policy' : 'Política de Privacidad'}</a></li>
-          <li><a href={isEnglish ? '/en/terms' : '/terminos'}>{isEnglish ? 'Terms of Use' : 'Términos de Uso'}</a></li>
+          <li><a href={isEnglish ? '/en/privacy/' : '/privacidad/'}>{isEnglish ? 'Privacy Policy' : 'Política de Privacidad'}</a></li>
+          <li><a href={isEnglish ? '/en/terms/' : '/terminos/'}>{isEnglish ? 'Terms of Use' : 'Términos de Uso'}</a></li>
         </ul>
       </div>
     </div>

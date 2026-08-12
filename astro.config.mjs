@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 
 const PRIMARY_CARABOBO = new Set([
   'san-diego', 'valencia-centro', 'naguanagua', 'guacara',
-  'el-vinedo', 'guataparo', 'manongo',
+  'el-trigal', 'guataparo', 'el-vinedo', 'manongo',
 ]);
 const CARABOBO = new Set([
   ...PRIMARY_CARABOBO,
@@ -16,7 +16,11 @@ function sitemapPriority(url) {
   if (path === '/' || path === '/en/') return 1.0;
   if (
     path === '/san-diego/' || path === '/valencia/' ||
-    path === '/en/san-diego/' || path === '/en/valencia/'
+    path === '/naguanagua/' || path === '/guacara/' ||
+    path === '/el-trigal/' || path === '/guataparo/' ||
+    path === '/en/san-diego/' || path === '/en/valencia/' ||
+    path === '/en/naguanagua/' || path === '/en/guacara/' ||
+    path === '/en/el-trigal/' || path === '/en/guataparo/'
   ) return 0.95;
   if (path.startsWith('/servicios/') || path.startsWith('/en/services/')) return 0.85;
   if (path === '/proyectos/' || path === '/en/projects/') return 0.8;
