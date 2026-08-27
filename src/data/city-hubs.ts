@@ -40,6 +40,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿Trabajan en El Trigal y La Trigaleña?', answer: 'Sí. El Trigal y La Trigaleña son zona primaria: mismas cuadrillas, mismos plazos y misma garantía que en San Diego o Valencia.' },
       { question: '¿Cuánto tarda una obra en Naguanagua?', answer: 'Cocina o baño 2-4 semanas. Integral 6-12 semanas, con cronograma por partidas.' },
       { question: '¿Gestionan permisos de condominio?', answer: 'Sí. Coordinamos horarios de carga, fachada y juntas de condominio en las urbanizaciones del municipio.' },
+      { question: '¿Hacen remodelación cerca de mí en Naguanagua?', answer: 'Sí. Atendemos Naguanagua y sus urbanizaciones —El Trigal, La Trigaleña, Vistahermosa, Tarapío, Mañongo (límite) y Centro de Naguanagua— para baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En Naguanagua remodelan la casa completa o solo baños?', answer: 'La vivienda completa: cambio de pisos y revestimientos, cocinas a medida, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales llave en mano. Un solo equipo propio y presupuesto por partidas.' },
     ],
   },
   guacara: {
@@ -65,6 +67,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿Van a Guacara desde San Diego?', answer: 'Sí. Guacara es zona primaria: desplazamiento incluido, sin recargos ocultos.' },
       { question: '¿Hacen integrales de quinta?', answer: 'Sí. Coordinamos oficios, instalaciones y acabados en viviendas unifamiliares de alto valor.' },
       { question: '¿Formas de pago?', answer: 'USD efectivo, BCV, Zelle, PayPal y Pago Móvil. Condiciones por escrito en el presupuesto.' },
+      { question: '¿Hacen remodelación cerca de mí en Guacara?', answer: 'Sí. Cubrimos Guacara Centro, Ciudad Alianza, Yagua (límite), urbanizaciones del este, viviendas unifamiliares y quintas, en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En Guacara hacen integrales o solo baños?', answer: 'Integrales y obra completa: pisos y revestimientos, cocinas, instalaciones eléctricas, fontanería y plomería, pintura y acabados. Todo con un solo equipo y presupuesto por partidas.' },
     ],
   },
   'el-trigal': {
@@ -90,6 +94,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿El Trigal es zona de cobertura principal?', answer: 'Sí. Está en el núcleo comercial junto a San Diego, Valencia, Naguanagua, Guacara y Guataparo.' },
       { question: '¿También atienden La Trigaleña?', answer: 'Sí. Misma cuadrilla y mismo método. Hay página de proyecto de baño en La Trigaleña.' },
       { question: '¿Tiempos típicos?', answer: 'Baño 2-4 semanas. Cocina 3-5. Integral según metraje, con cronograma cerrado.' },
+      { question: '¿Hacen remodelación cerca de mí en El Trigal?', answer: 'Sí. Atendemos El Trigal, La Trigaleña, Vistahermosa (cercano), Naguanagua, Tarapío y Mañongo en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En El Trigal remodelan toda la vivienda o solo baños?', answer: 'Toda la vivienda: cambio de pisos y revestimientos, cocinas a medida, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales llave en mano, con un solo equipo propio.' },
     ],
   },
   guataparo: {
@@ -115,6 +121,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿Hacen cocinas de lujo en Guataparo?', answer: 'Sí. Hay caso publicado de cocina de lujo en Guataparo: mobiliario a medida, superficies y herrajes de alta resistencia.' },
       { question: '¿Atienden quintas completas?', answer: 'Sí. Coordinamos oficios, piscinas/exteriores cuando aplica, y acabados de alto valor.' },
       { question: '¿Hay visita técnica?', answer: 'Sí. Valoramos alcance, metraje y nivel de acabado. Si encaja con el estándar, presupuesto por partidas.' },
+      { question: '¿Hacen remodelación cerca de mí en Guataparo?', answer: 'Sí. Cubrimos Guataparo Country, Laguna de Guataparo, quintas residenciales, El Viñedo (cercano), Prebo (cercano) y Valencia, en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En Guataparo hacen solo baños o la casa completa?', answer: 'La casa completa: pisos y revestimientos, cocinas de lujo, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales de quinta, con un solo equipo y presupuesto por partidas.' },
     ],
   },
   'la-vina': {
@@ -140,6 +148,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿Hay mucha obra de remodelación en La Viña?', answer: 'Sí. Es de las urbanizaciones con más quintas anunciadas a remodelar en Valencia. Casas sólidas con instalaciones vencidas: el perfil de una integral de alto estándar.' },
       { question: '¿Trabajan casonas grandes?', answer: 'Sí. Coordinamos oficios, jardín o anexos y acabados en viviendas de 400–900 m².' },
       { question: '¿Respetan la normativa de la urbanización?', answer: 'Sí. Fachadas, cerramientos y horarios se coordinan con la asociación.' },
+      { question: '¿Hacen remodelación cerca de mí en La Viña?', answer: 'Sí. Atendemos La Viña, calles cerradas, quintas con jardín, El Bosque (cercano), Camoruco y Centro Valencia en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En La Viña remodelan quintas completas o solo baños?', answer: 'Quintas completas: cambio de pisos y revestimientos, cocinas a medida, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales llave en mano. Un solo equipo propio y presupuesto por partidas.' },
     ],
   },
   'el-bosque': {
@@ -165,6 +175,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿El Bosque es zona primaria?', answer: 'Sí. Poder adquisitivo alto y tipología de casas y apartoquintas alineada con remodelación de lujo.' },
       { question: '¿Hacen obra en calle privada?', answer: 'Sí. Coordinamos horarios, escombros y acceso con la administración.' },
       { question: '¿También La Viña?', answer: 'Sí. Están a minutos. Hay landing propia de La Viña.' },
+      { question: '¿Hacen remodelación cerca de mí en El Bosque?', answer: 'Sí. Cubrimos El Bosque, calles privadas, Paseo Cuatricentenario, La Viña (cercano), Guataparo (cercano) y Valencia en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En El Bosque hacen toda la vivienda o solo baños?', answer: 'Toda la vivienda: pisos y revestimientos, cocinas, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales. Un solo equipo propio y presupuesto por partidas.' },
     ],
   },
   'la-esmeralda': {
@@ -190,6 +202,8 @@ export const cityHubsEs: Record<string, CityHubCopy> = {
       { question: '¿Cubren Lomas de La Esmeralda?', answer: 'Sí. Lomas y Altos de La Esmeralda son la misma zona operativa.' },
       { question: '¿Permisos de condominio?', answer: 'Sí. Conocemos las juntas de La Esmeralda, El Morro y Valle de Oro.' },
       { question: '¿Es distinta la página de San Diego?', answer: 'San Diego es el hub del municipio. Esta landing es específica de La Esmeralda para quien busca por urbanización.' },
+      { question: '¿Hacen remodelación cerca de mí en La Esmeralda?', answer: 'Sí. Atendemos La Esmeralda, Lomas de La Esmeralda, Altos de La Esmeralda, El Morro, Valle de Oro y San Diego en baños, cocinas, pisos, electricidad y plomería.' },
+      { question: '¿En La Esmeralda remodelan la casa completa o solo baños?', answer: 'La casa completa: cambio de pisos y revestimientos, cocinas a medida, instalaciones eléctricas, fontanería y plomería, pintura y acabados, e integrales llave en mano, con un solo equipo.' },
     ],
   },
 };
@@ -218,6 +232,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Do you work in El Trigal and La Trigaleña?', answer: 'Yes. Both are primary zones with the same crews and warranty as San Diego or Valencia.' },
       { question: 'How long does a job take?', answer: 'Kitchen or bath 2–4 weeks. Whole-home 6–12 weeks with a written schedule.' },
       { question: 'Do you handle condo permits?', answer: 'Yes. We coordinate loading hours, façade rules and condo boards.' },
+      { question: 'Do you remodel near me in Naguanagua?', answer: 'Yes. We cover Naguanagua and its areas—El Trigal, La Trigaleña, Vistahermosa, Tarapío, Mañongo (edge) and Naguanagua center—for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In Naguanagua do you remodel whole homes or just bathrooms?', answer: 'Whole homes: floor and wall changes, custom kitchens, electrical, plumbing, painting and finishes, and turnkey whole-home remodels—one in-house crew and an itemized quote.' },
     ],
   },
   guacara: {
@@ -243,6 +259,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Do you travel to Guacara from San Diego?', answer: 'Yes. Guacara is primary coverage—no hidden travel fees.' },
       { question: 'Do you remodel estates?', answer: 'Yes. We coordinate trades, systems and finishes on high-value homes.' },
       { question: 'Payment methods?', answer: 'USD cash, BCV, Zelle, PayPal and Pago Móvil. Terms in writing.' },
+      { question: 'Do you remodel near me in Guacara?', answer: 'Yes. We cover Guacara Centro, Ciudad Alianza, Yagua (edge), eastern developments, houses and estates for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In Guacara do you do whole-home or just bathrooms?', answer: 'Whole-home and estates: floors, kitchens, electrical, plumbing, painting and finishes—all with one crew and an itemized budget.' },
     ],
   },
   'el-trigal': {
@@ -268,6 +286,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Is El Trigal a primary area?', answer: 'Yes—alongside San Diego, Valencia, Naguanagua, Guacara and Guataparo.' },
       { question: 'Do you also serve La Trigaleña?', answer: 'Yes. Same crew and method. We published a bathroom case there.' },
       { question: 'Typical timelines?', answer: 'Bath 2–4 weeks. Kitchen 3–5. Whole-home by area, with a closed schedule.' },
+      { question: 'Do you remodel near me in El Trigal?', answer: 'Yes. We serve El Trigal, La Trigaleña, Vistahermosa, Naguanagua, Tarapío and Mañongo for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In El Trigal do you remodel entire homes or only bathrooms?', answer: 'Entire homes: floor and wall changes, custom kitchens, electrical, plumbing, painting and finishes, and turnkey remodels—one in-house crew.' },
     ],
   },
   guataparo: {
@@ -293,6 +313,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Do you build luxury kitchens in Guataparo?', answer: 'Yes. We published a luxury kitchen case: custom cabinetry and high-spec hardware.' },
       { question: 'Whole estates?', answer: 'Yes. Trades, exteriors/pools when needed, and high-value finishes.' },
       { question: 'Technical visit?', answer: 'Yes. We review scope and finish level, then issue an itemized quote if it fits our standard.' },
+      { question: 'Do you remodel near me in Guataparo?', answer: 'Yes. We cover Guataparo Country, Guataparo lagoon, residential estates, El Viñedo, Prebo and Valencia for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In Guataparo do you do only bathrooms or the whole estate?', answer: 'The whole estate: floors, luxury kitchens, electrical, plumbing, painting and finishes, and turnkey remodels—one crew and an itemized quote.' },
     ],
   },
   'la-vina': {
@@ -318,6 +340,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Is there a lot of remodel work in La Viña?', answer: 'Yes. It is one of the neighborhoods with the most estates listed “to remodel” in Valencia.' },
       { question: 'Large houses?', answer: 'Yes. We coordinate trades, gardens or annexes and finishes on 400–900 m² homes.' },
       { question: 'Neighborhood rules?', answer: 'Yes. Façades, enclosures and hours are coordinated with the association.' },
+      { question: 'Do you remodel near me in La Viña?', answer: 'Yes. We cover La Viña, gated streets, garden estates, El Bosque, Camoruco and Valencia center for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In La Viña do you remodel whole estates or only bathrooms?', answer: 'Whole estates: floor and wall changes, custom kitchens, electrical, plumbing, painting and finishes, and turnkey remodels—one in-house crew.' },
     ],
   },
   'el-bosque': {
@@ -343,6 +367,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Is El Bosque a primary zone?', answer: 'Yes. High purchasing power and house typologies that fit luxury remodeling.' },
       { question: 'Private streets?', answer: 'Yes. We coordinate hours, debris and access with management.' },
       { question: 'La Viña too?', answer: 'Yes. Minutes away. Dedicated La Viña landing.' },
+      { question: 'Do you remodel near me in El Bosque?', answer: 'Yes. We cover El Bosque, private streets, Paseo Cuatricentenario, La Viña, Guataparo and Valencia for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In El Bosque do you remodel entire homes or just bathrooms?', answer: 'Entire homes: floors, kitchens, electrical, plumbing, painting and finishes, and turnkey remodels—one in-house crew and an itemized quote.' },
     ],
   },
   'la-esmeralda': {
@@ -368,6 +394,8 @@ export const cityHubsEn: Record<string, CityHubCopy> = {
       { question: 'Lomas de La Esmeralda?', answer: 'Yes. Lomas and Altos are the same operating area.' },
       { question: 'Condo permits?', answer: 'Yes. We know boards in La Esmeralda, El Morro and Valle de Oro.' },
       { question: 'Different from the San Diego page?', answer: 'San Diego is the municipal hub. This landing is for searches by urbanization.' },
+      { question: 'Do you remodel near me in La Esmeralda?', answer: 'Yes. We cover La Esmeralda, Lomas de La Esmeralda, Altos de La Esmeralda, El Morro, Valle de Oro and San Diego for bathrooms, kitchens, floors, electrical and plumbing.' },
+      { question: 'In La Esmeralda do you remodel whole homes or only bathrooms?', answer: 'Whole homes: floor and wall changes, custom kitchens, electrical, plumbing, painting and finishes, and turnkey remodels—one in-house crew.' },
     ],
   },
 };

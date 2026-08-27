@@ -1,4 +1,33 @@
+# RemodelaT: todos los bots (incluidos los de IA) pueden rastrear y citar.
+# Resumen para motores generativos (ChatGPT, Claude, Perplexity, Google AI):
+# https://remodelat.net/llms.txt
 User-agent: *
 Disallow:
 
+# Permitir explícitamente a los rastreadores de respuestas generativas.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Cohere-AI
+Allow: /
+
 Sitemap: https://remodelat.net/sitemap-index.xml
+
