@@ -241,7 +241,14 @@ const localBusinessSchema = {
     "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
     "opens": "08:00",
     "closes": "18:00"
-  }
+  },
+  // Misma identidad en la web y en perfiles oficiales controlados por la empresa.
+  // Los motores de IA y el Knowledge Graph cruzan estas URLs para confirmar la entidad.
+  // Añadir aquí la URL estable del Perfil de Google Business y de Instagram cuando se confirmen.
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61592513974053",
+    "https://share.google/fSsRbK81YRkcTDvB0" // Perfil de Google Business (GBP) verificado
+  ]
 };
 
 const breadcrumbSchema = {
